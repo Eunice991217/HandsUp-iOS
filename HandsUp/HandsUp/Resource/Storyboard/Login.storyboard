@@ -289,6 +289,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gq-UB-7zW">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
+                                        <color key="tintColor" name="HandsUpGrey"/>
                                         <color key="textColor" name="HandsUpGrey"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -335,6 +336,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vn9-Rq-bNS">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
+                                        <color key="tintColor" name="HandsUpGrey"/>
                                         <color key="textColor" name="HandsUpGrey"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
