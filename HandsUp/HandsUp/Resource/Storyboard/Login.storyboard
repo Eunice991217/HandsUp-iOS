@@ -600,7 +600,6 @@
         <!--Navigation Controller-->
         <scene sceneID="bbw-h2-9Sb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5g-Nx-O1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qdh-ox-a5M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="JZv-Ta-Y7a"/>
@@ -613,6 +612,7 @@
                         <segue destination="Iml-KB-Rqu" kind="relationship" relationship="rootViewController" id="HtM-Td-KaG"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5g-Nx-O1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="954.96183206106866" y="-21.126760563380284"/>
         </scene>
