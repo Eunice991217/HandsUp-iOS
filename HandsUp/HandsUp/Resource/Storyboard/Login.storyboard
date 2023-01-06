@@ -478,6 +478,7 @@
                         <outlet property="IDTextField_Login" destination="4gq-UB-7zW" id="rPB-z8-9pM"/>
                         <outlet property="PWTextField_Login" destination="Vn9-Rq-bNS" id="cac-m3-Zpv"/>
                         <outlet property="emailBox_Login" destination="OBD-pB-vHM" id="I3b-Ek-SQN"/>
+                        <outlet property="loginButton_Login" destination="eY0-34-qte" id="w3T-WY-hiJ"/>
                         <outlet property="loginErrorMark_Login" destination="hf8-Ss-RBl" id="qTp-OO-H6D"/>
                     </connections>
                 </viewController>
