@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login First View View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="Login_FirstView" id="Y6W-OH-hqX" customClass="Login_FirstView_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy1-1l-5zC">
+                                <rect key="frame" x="136" y="782" width="121" height="28"/>
+                                <color key="tintColor" name="HandsUpDarkGrey"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="이메일로 로그인하기">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-ExtraBold"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample1" translatesAutoresizingMaskIntoConstraints="NO" id="d3L-Zz-0MY">
+                                <rect key="frame" x="136.66666666666666" y="169" width="119.99999999999997" height="158"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="pGS-wz-sn1" userLabel="width = 120"/>
+                                    <constraint firstAttribute="height" constant="158" id="ze3-oz-Ula" userLabel="height = 158"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample2" translatesAutoresizingMaskIntoConstraints="NO" id="TOA-ME-HkN">
+                                <rect key="frame" x="41.666666666666657" y="213" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="mKv-j0-PeC"/>
+                                    <constraint firstAttribute="width" constant="70" id="vqS-oI-K2n"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample3" translatesAutoresizingMaskIntoConstraints="NO" id="jGc-9M-Bsu">
+                                <rect key="frame" x="281.66666666666669" y="213" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="EMy-Hw-0iB"/>
+                                    <constraint firstAttribute="width" constant="70" id="jtI-hp-67C"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aye-nj-Xap" userLabel="KakaoButton" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="380" width="361" height="52"/>
+                                <color key="backgroundColor" name="HandsUpYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="J6N-sa-ums"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-Vg-Wkk" userLabel="KakaoContent">
+                                <rect key="frame" x="125" y="380" width="143" height="52"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakaoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YyW-Md-Lix">
+                                        <rect key="frame" x="0.0" y="16" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Aqy-WM-bma"/>
+                                            <constraint firstAttribute="width" constant="20" id="sjc-Ze-Q2o"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카카오톡으로 시작" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YP-dF-IaR">
+                                        <rect key="frame" x="28" y="16" width="115" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpMainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7YP-dF-IaR" firstAttribute="leading" secondItem="YyW-Md-Lix" secondAttribute="trailing" constant="8" id="4y7-Zv-k1Y"/>
+                                    <constraint firstItem="YyW-Md-Lix" firstAttribute="leading" secondItem="Hmm-Vg-Wkk" secondAttribute="leading" id="AqR-ph-UMM"/>
+                                    <constraint firstItem="7YP-dF-IaR" firstAttribute="top" secondItem="Hmm-Vg-Wkk" secondAttribute="top" constant="16" id="MeZ-HE-lJr"/>
+                                    <constraint firstItem="YyW-Md-Lix" firstAttribute="top" secondItem="Hmm-Vg-Wkk" secondAttribute="top" constant="16" id="Wxg-mY-r7w"/>
+                                    <constraint firstAttribute="trailing" secondItem="7YP-dF-IaR" secondAttribute="trailing" id="kmZ-fu-Chn"/>
+                                    <constraint firstAttribute="bottom" secondItem="7YP-dF-IaR" secondAttribute="bottom" constant="16" id="vJf-7w-Q67"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EU5-jb-lZ3" userLabel="AppleButton" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="464" width="361" height="54"/>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Tir-Np-cFn"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaV-Vr-wQa" userLabel="AppleContent">
+                                <rect key="frame" x="137.66666666666666" y="480" width="117.66666666666666" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple로 등록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4L-a8-ndd">
+                                        <rect key="frame" x="30.000000000000007" y="1.3333333333333144" width="87.666666666666686" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpMainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gfE-Na-SEy">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="5za-qa-4cK"/>
+                                            <constraint firstAttribute="width" constant="22" id="KXJ-zf-T40"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="A4L-a8-ndd" firstAttribute="leading" secondItem="gfE-Na-SEy" secondAttribute="trailing" constant="8" id="5k9-Z3-PGo"/>
+                                    <constraint firstItem="gfE-Na-SEy" firstAttribute="top" secondItem="HaV-Vr-wQa" secondAttribute="top" id="9x2-gd-2su"/>
+                                    <constraint firstAttribute="trailing" secondItem="A4L-a8-ndd" secondAttribute="trailing" id="NWo-Zf-dEK"/>
+                                    <constraint firstItem="A4L-a8-ndd" firstAttribute="centerY" secondItem="HaV-Vr-wQa" secondAttribute="centerY" id="Wyv-Wm-MgH"/>
+                                    <constraint firstAttribute="bottom" secondItem="gfE-Na-SEy" secondAttribute="bottom" id="XPY-43-O1R"/>
+                                    <constraint firstItem="gfE-Na-SEy" firstAttribute="leading" secondItem="HaV-Vr-wQa" secondAttribute="leading" id="exW-aV-6q8"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-fS-sLB" userLabel="GoogleButton" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="550" width="361" height="52"/>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="S5o-Pw-cBo"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z76-kp-bRi" userLabel="GoogleContent">
+                                <rect key="frame" x="133.66666666666666" y="566" width="125.66666666666666" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google로 시작" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dta-gz-JOk">
+                                        <rect key="frame" x="28.000000000000007" y="0.33333333333337123" width="97.666666666666686" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpMainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="726-h5-GJ7">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="23P-Vu-BRX"/>
+                                            <constraint firstAttribute="width" constant="20" id="vNq-7c-fnU"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="726-h5-GJ7" firstAttribute="top" secondItem="Z76-kp-bRi" secondAttribute="top" id="J8y-eF-G32"/>
+                                    <constraint firstItem="726-h5-GJ7" firstAttribute="leading" secondItem="Z76-kp-bRi" secondAttribute="leading" id="fY6-OC-PhH"/>
+                                    <constraint firstItem="dta-gz-JOk" firstAttribute="centerY" secondItem="Z76-kp-bRi" secondAttribute="centerY" id="gm3-dC-93v"/>
+                                    <constraint firstAttribute="trailing" secondItem="dta-gz-JOk" secondAttribute="trailing" id="jd5-dS-pJa"/>
+                                    <constraint firstItem="dta-gz-JOk" firstAttribute="leading" secondItem="726-h5-GJ7" secondAttribute="trailing" constant="8" id="vHd-na-uky"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="HandsUpBackground"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="EU5-jb-lZ3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="0Br-qr-K63"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EU5-jb-lZ3" secondAttribute="trailing" constant="16" id="1jV-nq-0Qw"/>
+                            <constraint firstItem="oy1-1l-5zC" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="45d-vE-ws0"/>
+                            <constraint firstItem="Hmm-Vg-Wkk" firstAttribute="top" secondItem="Aye-nj-Xap" secondAttribute="top" id="8GT-MX-nxG"/>
+                            <constraint firstItem="jGc-9M-Bsu" firstAttribute="leading" secondItem="d3L-Zz-0MY" secondAttribute="trailing" constant="25" id="8uL-gx-Asm"/>
+                            <constraint firstItem="EU5-jb-lZ3" firstAttribute="bottom" secondItem="HaV-Vr-wQa" secondAttribute="bottom" constant="16" id="9AS-xK-BEy"/>
+                            <constraint firstItem="Z76-kp-bRi" firstAttribute="centerX" secondItem="gfr-fS-sLB" secondAttribute="centerX" id="BJf-Io-3xO"/>
+                            <constraint firstItem="Aye-nj-Xap" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="CTC-if-kQg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gfr-fS-sLB" secondAttribute="trailing" constant="16" id="F6L-1D-bz7"/>
+                            <constraint firstItem="HaV-Vr-wQa" firstAttribute="centerX" secondItem="EU5-jb-lZ3" secondAttribute="centerX" id="Fm7-f5-Myh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Aye-nj-Xap" secondAttribute="trailing" constant="16" id="GYV-cD-lps"/>
+                            <constraint firstItem="Aye-nj-Xap" firstAttribute="bottom" secondItem="Hmm-Vg-Wkk" secondAttribute="bottom" id="HWj-5Q-Kew"/>
+                            <constraint firstItem="jGc-9M-Bsu" firstAttribute="centerY" secondItem="d3L-Zz-0MY" secondAttribute="centerY" id="HfD-uf-7Lt"/>
+                            <constraint firstItem="d3L-Zz-0MY" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="110" id="Hoa-kR-5qy"/>
+                            <constraint firstItem="gfr-fS-sLB" firstAttribute="bottom" secondItem="Z76-kp-bRi" secondAttribute="bottom" constant="16" id="NlO-ey-Zia"/>
+                            <constraint firstItem="gfr-fS-sLB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="491" id="OSh-ud-ya1"/>
+                            <constraint firstItem="EU5-jb-lZ3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="405" id="Ye2-bP-YhC"/>
+                            <constraint firstItem="gfr-fS-sLB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="b9a-2D-bDF"/>
+                            <constraint firstItem="d3L-Zz-0MY" firstAttribute="leading" secondItem="TOA-ME-HkN" secondAttribute="trailing" constant="25" id="bOB-NP-m88"/>
+                            <constraint firstItem="HaV-Vr-wQa" firstAttribute="top" secondItem="EU5-jb-lZ3" secondAttribute="top" constant="16" id="bR2-0U-c0D"/>
+                            <constraint firstItem="d3L-Zz-0MY" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="dnI-Ad-iaT"/>
+                            <constraint firstItem="Z76-kp-bRi" firstAttribute="top" secondItem="gfr-fS-sLB" secondAttribute="top" constant="16" id="eet-GV-aoe"/>
+                            <constraint firstItem="Aye-nj-Xap" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="321" id="hFu-ol-fi6"/>
+                            <constraint firstItem="Hmm-Vg-Wkk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hYO-S8-n52"/>
+                            <constraint firstItem="TOA-ME-HkN" firstAttribute="centerY" secondItem="d3L-Zz-0MY" secondAttribute="centerY" id="su5-dq-Ptx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oy1-1l-5zC" secondAttribute="bottom" constant="8" id="wPP-cB-nun"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="appleLogo" width="44" height="44"/>
+        <image name="characterExample1" width="407" height="512"/>
+        <image name="characterExample2" width="405" height="406"/>
+        <image name="characterExample3" width="405" height="405"/>
+        <image name="googleLogo" width="21" height="20"/>
+        <image name="kakaoLogo" width="40" height="40"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpBackground">
+            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpDarkGrey">
+            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpMainText">
+            <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpRealWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpYellow">
+            <color red="1" green="0.83137254901960789" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
