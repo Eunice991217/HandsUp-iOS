@@ -248,44 +248,44 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="Iml-KB-Rqu" kind="show" identifier="showLoginEmail" id="02q-d1-eZ5"/>
+                        <segue destination="qdh-ox-a5M" kind="show" identifier="showLoginEmail" id="02q-d1-eZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="48" y="-21"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Email Login-->
         <scene sceneID="isT-Io-PUj">
             <objects>
-                <viewController storyboardIdentifier="Login" id="Iml-KB-Rqu" customClass="Login_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Email Login" id="Iml-KB-Rqu" customClass="Login_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vua-jw-OgW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample1" translatesAutoresizingMaskIntoConstraints="NO" id="xts-oC-u8T">
-                                <rect key="frame" x="136.66666666666666" y="159" width="119.99999999999997" height="158"/>
+                                <rect key="frame" x="136.66666666666666" y="156" width="119.99999999999997" height="158"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="VrM-ef-BMW"/>
                                     <constraint firstAttribute="height" constant="158" id="o3z-1m-yCr"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample2" translatesAutoresizingMaskIntoConstraints="NO" id="uRQ-JD-N3k">
-                                <rect key="frame" x="41.666666666666657" y="203" width="70" height="70"/>
+                                <rect key="frame" x="41.666666666666657" y="200" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Eih-e5-06C"/>
                                     <constraint firstAttribute="width" constant="70" id="fGS-01-vic"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample3" translatesAutoresizingMaskIntoConstraints="NO" id="l3R-KY-tBu">
-                                <rect key="frame" x="281.66666666666669" y="203" width="70" height="70"/>
+                                <rect key="frame" x="281.66666666666669" y="200" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="FIb-L7-Acd"/>
                                     <constraint firstAttribute="height" constant="70" id="vGY-We-Z6c"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-pB-vHM" userLabel="EmailBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="386" width="361" height="51"/>
+                                <rect key="frame" x="16" y="383" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gq-UB-7zW">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
@@ -331,7 +331,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0o-KA-3x3" userLabel="PWBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="453" width="361" height="51"/>
+                                <rect key="frame" x="16" y="450" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vn9-Rq-bNS">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
@@ -402,7 +402,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-92-zM7">
-                                <rect key="frame" x="68.666666666666671" y="535" width="80.000000000000014" height="28"/>
+                                <rect key="frame" x="68.666666666666671" y="532" width="80.000000000000014" height="28"/>
                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="아이디 찾기">
@@ -410,7 +410,7 @@
                                 </buttonConfiguration>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kel-5e-47l" userLabel="Line">
-                                <rect key="frame" x="148.66666666666666" y="542.66666666666663" width="1" height="13"/>
+                                <rect key="frame" x="148.66666666666666" y="539.66666666666663" width="1" height="13"/>
                                 <color key="backgroundColor" name="HandsUpDarkGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="CgU-LY-EVo"/>
@@ -418,7 +418,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp3-rK-wNV">
-                                <rect key="frame" x="149.66666666666666" y="535" width="94" height="28"/>
+                                <rect key="frame" x="149.66666666666666" y="532" width="94" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="AWv-pr-A0d"/>
                                 </constraints>
@@ -427,9 +427,12 @@
                                 <buttonConfiguration key="configuration" style="plain" title="비밀번호 찾기">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="findPWButton_Login:" destination="Iml-KB-Rqu" eventType="touchUpInside" id="F5S-lH-Uki"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mQ-Mb-WVJ" userLabel="Line">
-                                <rect key="frame" x="243.66666666666666" y="542.66666666666663" width="1" height="13"/>
+                                <rect key="frame" x="243.66666666666666" y="539.66666666666663" width="1" height="13"/>
                                 <color key="backgroundColor" name="HandsUpDarkGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="QAo-pm-igz"/>
@@ -437,7 +440,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ba-e0-h7E">
-                                <rect key="frame" x="244.66666666666663" y="535" width="66" height="28"/>
+                                <rect key="frame" x="244.66666666666663" y="532" width="66" height="28"/>
                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원가입">
@@ -476,7 +479,7 @@
                             <constraint firstItem="YCK-92-zM7" firstAttribute="centerY" secondItem="Xp3-rK-wNV" secondAttribute="centerY" id="ynJ-If-aVH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="buR-hF-Hee"/>
+                    <navigationItem key="navigationItem" title=" " id="buR-hF-Hee"/>
                     <connections>
                         <outlet property="IDTextField_Login" destination="4gq-UB-7zW" id="rPB-z8-9pM"/>
                         <outlet property="PWTextField_Login" destination="Vn9-Rq-bNS" id="cac-m3-Zpv"/>
@@ -487,9 +490,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPR-SA-362" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1881.679389312977" y="-21.126760563380284"/>
+        </scene>
+        <!--비밀번호 찾기-->
+        <scene sceneID="4hC-4n-iHQ">
+            <objects>
+                <viewController storyboardIdentifier="FindPW" title="비밀번호 찾기" id="JOP-SQ-KEP" customClass="FindPW_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUm-JP-gd4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xua-YT-ynD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SIe-1f-8AD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2849.6183206106871" y="-21.126760563380284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bbw-h2-9Sb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5g-Nx-O1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qdh-ox-a5M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JZv-Ta-Y7a"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vg-se-frr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Iml-KB-Rqu" kind="relationship" relationship="rootViewController" id="HtM-Td-KaG"/>
+                    </connections>
+                </navigationController>
+            </objects>
             <point key="canvasLocation" x="954.96183206106866" y="-21.126760563380284"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="HandsUpMainText"/>
     <resources>
         <image name="appleLogo" width="44" height="44"/>
         <image name="characterExample1" width="407" height="512"/>

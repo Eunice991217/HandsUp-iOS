@@ -17,6 +17,11 @@ class Login_ViewController: UIViewController {
         }
     }
     
+    @IBAction func findPWButton_Login(_ sender: Any) {
+        let findPWVC_Login = self.storyboard?.instantiateViewController(withIdentifier: "FindPW")
+        self.navigationController?.pushViewController(findPWVC_Login!, animated: true)
+    }
+    
     @objc func isIDPWInput(_sender: Any?){
         if(IDTextField_Login.text != "" && PWTextField_Login.text != ""){
             loginButton_Login.backgroundColor = UIColor(named: "HandsUpOrange")
@@ -45,5 +50,6 @@ class Login_ViewController: UIViewController {
         loginErrorMark_Login.alpha = 0
         self.IDTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
         self.PWTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: <#T##String#>, size: 18)
     }
 }
