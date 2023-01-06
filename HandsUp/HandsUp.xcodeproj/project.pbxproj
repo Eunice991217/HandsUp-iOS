@@ -43,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				8B2109152966DFF20042D14A /* HandsUp */,
-				8B2109242966DFF30042D14A /* Info.plist */,
 				8B2109142966DFF20042D14A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,8 +58,9 @@
 		8B2109152966DFF20042D14A /* HandsUp */ = {
 			isa = PBXGroup;
 			children = (
-				8B6DB32629682211007D6D25 /* Resource */,
 				8B6DB3272968223B007D6D25 /* Sources */,
+				8B6DB32629682211007D6D25 /* Resource */,
+				8B2109242966DFF30042D14A /* Info.plist */,
 			);
 			path = HandsUp;
 			sourceTree = "<group>";
