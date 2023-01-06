@@ -348,6 +348,9 @@
                                         <color key="tintColor" name="HandsUpDarkGrey"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
+                                        <connections>
+                                            <action selector="setPWSecureTextEntry_Login:" destination="Iml-KB-Rqu" eventType="touchUpInside" id="Nhb-Uo-UEC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
@@ -471,6 +474,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="buR-hF-Hee"/>
+                    <connections>
+                        <outlet property="IDTextField_Login" destination="4gq-UB-7zW" id="rPB-z8-9pM"/>
+                        <outlet property="PWTextField_Login" destination="Vn9-Rq-bNS" id="cac-m3-Zpv"/>
+                        <outlet property="emailBox_Login" destination="OBD-pB-vHM" id="I3b-Ek-SQN"/>
+                        <outlet property="loginErrorMark_Login" destination="hf8-Ss-RBl" id="qTp-OO-H6D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPR-SA-362" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
