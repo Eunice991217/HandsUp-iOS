@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,10 +14,33 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBY-5y-1RP">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="typoLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="zoN-jn-UQE">
+                                        <rect key="frame" x="100" y="324" width="193" height="204"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="HandsUpOrange"/>
+                                <constraints>
+                                    <constraint firstItem="zoN-jn-UQE" firstAttribute="centerX" secondItem="kBY-5y-1RP" secondAttribute="centerX" id="9Cl-bt-P2W"/>
+                                    <constraint firstAttribute="trailing" secondItem="zoN-jn-UQE" secondAttribute="trailing" constant="100" id="Tme-Ub-DW7"/>
+                                    <constraint firstItem="zoN-jn-UQE" firstAttribute="centerY" secondItem="kBY-5y-1RP" secondAttribute="centerY" id="a0f-SE-Ov4"/>
+                                    <constraint firstItem="zoN-jn-UQE" firstAttribute="leading" secondItem="kBY-5y-1RP" secondAttribute="leading" constant="100" id="tb3-GM-K86"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kBY-5y-1RP" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="4Lb-bY-efQ"/>
+                            <constraint firstItem="kBY-5y-1RP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B2X-VZ-VVt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kBY-5y-1RP" secondAttribute="trailing" id="sU5-GW-xlR"/>
+                            <constraint firstAttribute="bottom" secondItem="kBY-5y-1RP" secondAttribute="bottom" id="sv1-7b-aTB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +48,13 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="typoLogoWhite" width="644" height="204"/>
+        <namedColor name="HandsUpOrange">
+            <color red="0.95686274509803926" green="0.48627450980392156" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
