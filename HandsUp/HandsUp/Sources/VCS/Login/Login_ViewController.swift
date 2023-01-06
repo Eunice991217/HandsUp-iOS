@@ -6,6 +6,7 @@ class Login_ViewController: UIViewController {
     @IBOutlet weak var emailBox_Login: RoundedShadow_UIButton!
     @IBOutlet weak var loginErrorMark_Login: UIImageView!
     @IBOutlet weak var loginButton_Login: RoundedShadow_UIButton!
+    var isLoginEnable: Bool = false
     
     @IBAction func setPWSecureTextEntry_Login(_ sender: Any) {
         if(PWTextField_Login.isSecureTextEntry){
@@ -19,8 +20,17 @@ class Login_ViewController: UIViewController {
     @objc func isIDPWInput(_sender: Any?){
         if(IDTextField_Login.text != "" && PWTextField_Login.text != ""){
             loginButton_Login.backgroundColor = UIColor(named: "HandsUpOrange")
+            self.isLoginEnable = true
+            
         }else{
             loginButton_Login.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+            self.isLoginEnable = false
+        }
+    }
+    
+    @IBAction func login_Login(_ sender: Any) {
+        if(self.isLoginEnable){
+            //이메일 로그인 실행
         }
     }
     

@@ -397,6 +397,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login_Login:" destination="Iml-KB-Rqu" eventType="touchUpInside" id="jvA-AT-aMV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-92-zM7">
                                 <rect key="frame" x="68.666666666666671" y="535" width="80.000000000000014" height="28"/>
