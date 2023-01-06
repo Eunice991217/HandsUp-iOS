@@ -14,6 +14,11 @@
 		8B2109202966DFF30042D14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091F2966DFF30042D14A /* Assets.xcassets */; };
 		8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2109212966DFF30042D14A /* LaunchScreen.storyboard */; };
 		8B21092C2966E1430042D14A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B21092B2966E1430042D14A /* Alamofire */; };
+		8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */; };
+		8B4BF0D72968DAD200B00890 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */; };
+		8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CE2968DAD200B00890 /* Roboto-Medium.ttf */; };
+		8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */; };
+		8B4BF0E02968DAD200B00890 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		8B21091F2966DFF30042D14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B2109222966DFF30042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B2109242966DFF30042D14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		8B4BF0CE2968DAD200B00890 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +75,24 @@
 			path = HandsUp;
 			sourceTree = "<group>";
 		};
+		8B4BF0C82968DA6000B00890 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */,
+				8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */,
+				8B4BF0CE2968DAD200B00890 /* Roboto-Medium.ttf */,
+				8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */,
+				8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8B6DB32629682211007D6D25 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				8B2109182966DFF20042D14A /* SceneDelegate.swift */,
 				8B2109162966DFF20042D14A /* AppDelegate.swift */,
+				8B4BF0C82968DA6000B00890 /* Fonts */,
 				8B6DB32929682586007D6D25 /* Storyboard */,
 				8B21091F2966DFF30042D14A /* Assets.xcassets */,
 			);
@@ -167,7 +190,12 @@
 			files = (
 				8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */,
 				8B2109202966DFF30042D14A /* Assets.xcassets in Resources */,
+				8B4BF0E02968DAD200B00890 /* Roboto-Bold.ttf in Resources */,
+				8B4BF0D72968DAD200B00890 /* Roboto-Thin.ttf in Resources */,
+				8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */,
+				8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */,
 				8B21091E2966DFF20042D14A /* Main.storyboard in Resources */,
+				8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
