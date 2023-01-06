@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -247,13 +247,14 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oy1-1l-5zC" secondAttribute="bottom" constant="8" id="wPP-cB-nun"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="s3Q-9R-56v"/>
                     <connections>
                         <segue destination="qdh-ox-a5M" kind="show" identifier="showLoginEmail" id="02q-d1-eZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-21"/>
+            <point key="canvasLocation" x="973.28244274809151" y="-21.126760563380284"/>
         </scene>
         <!--Email Login-->
         <scene sceneID="isT-Io-PUj">
@@ -490,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPR-SA-362" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881.679389312977" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="2808.3969465648852" y="-21.126760563380284"/>
         </scene>
         <!--비밀번호 찾기-->
         <scene sceneID="4hC-4n-iHQ">
@@ -499,13 +500,101 @@
                     <view key="view" contentMode="scaleToFill" id="hUm-JP-gd4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKy-a5-d5d" userLabel="PWBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="111" width="361" height="51"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lco-Fu-yqk">
+                                        <rect key="frame" x="16" y="0.0" width="329" height="51"/>
+                                        <color key="textColor" name="HandsUpGrey"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="172-rW-WAP"/>
+                                    <constraint firstAttribute="bottom" secondItem="lco-Fu-yqk" secondAttribute="bottom" id="LLn-Y4-RPl"/>
+                                    <constraint firstItem="lco-Fu-yqk" firstAttribute="top" secondItem="AKy-a5-d5d" secondAttribute="top" id="LPT-7z-dr1"/>
+                                    <constraint firstItem="lco-Fu-yqk" firstAttribute="leading" secondItem="AKy-a5-d5d" secondAttribute="leading" constant="16" id="R5N-uY-nhj"/>
+                                    <constraint firstAttribute="trailing" secondItem="lco-Fu-yqk" secondAttribute="trailing" constant="16" id="qZV-F8-hgu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5O-82-ltE" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="186" width="361" height="51"/>
+                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="NiE-2F-xll"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그인">
+                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login_Login:" destination="Iml-KB-Rqu" eventType="touchUpInside" id="m8O-ym-uWv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입된 아이디가 있을경우, 입력하신 이메일로 아이디를 안내해 드립니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reY-54-Hc9">
+                                <rect key="frame" x="25" y="253.00000000000003" width="343" height="14.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디의 경우 각 학교홈피의 개인 이메일과 동일하니 학교홈피를 통해 확인바랍니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V31-ek-NQS">
+                                <rect key="frame" x="25" y="283.33333333333331" width="343" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xua-YT-ynD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="HandsUpBackground"/>
+                        <constraints>
+                            <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="AKy-a5-d5d" secondAttribute="trailing" constant="16" id="Awm-g3-Yvj"/>
+                            <constraint firstItem="reY-54-Hc9" firstAttribute="top" secondItem="O5O-82-ltE" secondAttribute="bottom" constant="16" id="OiA-OO-Lid"/>
+                            <constraint firstItem="O5O-82-ltE" firstAttribute="top" secondItem="AKy-a5-d5d" secondAttribute="bottom" constant="24" id="Uad-Zr-KDw"/>
+                            <constraint firstItem="V31-ek-NQS" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="25" id="WxU-qC-mgI"/>
+                            <constraint firstItem="V31-ek-NQS" firstAttribute="top" secondItem="reY-54-Hc9" secondAttribute="bottom" constant="16" id="XKq-Hx-M2o"/>
+                            <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="reY-54-Hc9" secondAttribute="trailing" constant="25" id="XvZ-MO-Sm1"/>
+                            <constraint firstItem="AKy-a5-d5d" firstAttribute="top" secondItem="xua-YT-ynD" secondAttribute="top" constant="52" id="dA1-oS-k2N"/>
+                            <constraint firstItem="reY-54-Hc9" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="25" id="iR3-YV-3s9"/>
+                            <constraint firstItem="AKy-a5-d5d" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="16" id="jAw-G5-0Mj"/>
+                            <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="V31-ek-NQS" secondAttribute="trailing" constant="25" id="oYU-RH-nih"/>
+                            <constraint firstItem="O5O-82-ltE" firstAttribute="leading" secondItem="hUm-JP-gd4" secondAttribute="leading" constant="16" id="qnO-QU-p6r"/>
+                            <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="O5O-82-ltE" secondAttribute="trailing" constant="16" id="wwJ-nz-C4g"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="PWTextField_FindPW" destination="lco-Fu-yqk" id="bdi-bh-iBX"/>
+                        <outlet property="findPWButton_FindPW" destination="O5O-82-ltE" id="BYJ-4S-zJP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIe-1f-8AD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849.6183206106871" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="3776.3358778625952" y="-21.126760563380284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bbw-h2-9Sb">
@@ -524,7 +613,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="954.96183206106866" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="1881.679389312977" y="-21.126760563380284"/>
         </scene>
     </scenes>
     <color key="tintColor" name="HandsUpMainText"/>
