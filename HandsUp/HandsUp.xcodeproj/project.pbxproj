@@ -72,7 +72,6 @@
 				8B2109162966DFF20042D14A /* AppDelegate.swift */,
 				8B6DB32929682586007D6D25 /* Storyboard */,
 				8B21091F2966DFF30042D14A /* Assets.xcassets */,
-				8B6DB32829682577007D6D25 /* APIServices */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -81,19 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				8B6DB32A296825B2007D6D25 /* VCS */,
-				8B6DB32B296825C8007D6D25 /* Classes */,
-				8B6DB32C296825D0007D6D25 /* Cells */,
-				8B6DB32D296825D5007D6D25 /* Designs */,
-				8B6DB32E296825DD007D6D25 /* Models */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		8B6DB32829682577007D6D25 /* APIServices */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APIServices;
 			sourceTree = "<group>";
 		};
 		8B6DB32929682586007D6D25 /* Storyboard */ = {
@@ -111,34 +99,6 @@
 				8B21091A2966DFF20042D14A /* ViewController.swift */,
 			);
 			path = VCS;
-			sourceTree = "<group>";
-		};
-		8B6DB32B296825C8007D6D25 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		8B6DB32C296825D0007D6D25 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		8B6DB32D296825D5007D6D25 /* Designs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Designs;
-			sourceTree = "<group>";
-		};
-		8B6DB32E296825DD007D6D25 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
