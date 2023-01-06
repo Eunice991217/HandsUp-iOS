@@ -5,17 +5,25 @@ class Login_ViewController: UIViewController {
     @IBOutlet weak var PWTextField_Login: UITextField!
     @IBOutlet weak var emailBox_Login: RoundedShadow_UIButton!
     @IBOutlet weak var loginErrorMark_Login: UIImageView!
+    @IBOutlet weak var showPWButton_Login: UIButton!
     @IBOutlet weak var loginButton_Login: RoundedShadow_UIButton!
     var isLoginEnable_Login: Bool = false
     var isLoginError_Login: Bool = false
     
     @IBAction func setPWSecureTextEntry_Login(_ sender: Any) {
-        if(PWTextField_Login.isSecureTextEntry){
-            PWTextField_Login.isSecureTextEntry = false
-        }
-        else{
-            PWTextField_Login.isSecureTextEntry = true
-        }
+        PWTextField_Login.isSecureTextEntry.toggle()
+    }
+    
+    func disableShowPwButton(){
+        showPWButton_Login.isEnabled = false
+        showPWButton_Login.alpha = 0
+        PWTextField_Login.textContentType = .password
+    }
+    
+    func enableShowPwButton(){
+        showPWButton_Login.isEnabled = true
+        showPWButton_Login.alpha = 1
+
     }
     
     @IBAction func findPWButton_Login(_ sender: Any) {
@@ -35,6 +43,14 @@ class Login_ViewController: UIViewController {
         }else{
             loginButton_Login.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
             self.isLoginEnable_Login = false
+        }
+    }
+    
+    @objc func isPWInput(_sender: Any?){
+        if(PWTextField_Login.text == ""){
+            disableShowPwButton()
+        }else{
+            enableShowPwButton()
         }
     }
     
@@ -65,10 +81,14 @@ class Login_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        disableShowPwButton()
+        IDTextField_Login.keyboardType = .emailAddress
+        PWTextField_Login.keyboardType = .asciiCapable
         loginErrorMark_Login.alpha = 0
         emailBox_Login.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor
         self.IDTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
         self.PWTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
+        self.PWTextField_Login.addTarget(self, action: #selector(self.isPWInput(_sender:)), for: .editingChanged)
         //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: <#T##String#>, size: 18)
     }
 }
