@@ -16,6 +16,7 @@ class Login_ViewController: UIViewController {
     }
     
     func loginErrorAlert_Login(){
+        loginErrorMark_Login.alpha = 1
         emailBox_Login.layer.borderWidth = 1
         emailBox_Login.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor
     }
@@ -23,6 +24,5 @@ class Login_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginErrorMark_Login.alpha = 0
-        
     }
 }
