@@ -89,6 +89,5 @@ class Login_ViewController: UIViewController {
         self.IDTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
         self.PWTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
         self.PWTextField_Login.addTarget(self, action: #selector(self.isPWInput(_sender:)), for: .editingChanged)
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: <#T##String#>, size: 18)
     }
 }

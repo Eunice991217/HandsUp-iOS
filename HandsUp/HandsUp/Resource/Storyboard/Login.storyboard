@@ -20,7 +20,7 @@
         <!--First View View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="FirstView" id="Y6W-OH-hqX" customClass="FirstView_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstView" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="FirstView_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,6 +71,9 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginKakaoButton_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fth-35-EIK"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-Vg-Wkk" userLabel="KakaoContent">
                                 <rect key="frame" x="125" y="380" width="143" height="52"/>
@@ -124,6 +127,9 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginAppleButton_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Yl-pA-MZC"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaV-Vr-wQa" userLabel="AppleContent">
                                 <rect key="frame" x="138.33333333333334" y="480" width="116.66666666666666" height="22"/>
@@ -177,6 +183,9 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginGoogleButton_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="reX-TJ-vF1"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z76-kp-bRi" userLabel="GoogleContent">
                                 <rect key="frame" x="134.33333333333334" y="566" width="124.66666666666666" height="20"/>
@@ -269,7 +278,7 @@
         <!--Email Login-->
         <scene sceneID="isT-Io-PUj">
             <objects>
-                <viewController storyboardIdentifier="Login" title="Email Login" id="Iml-KB-Rqu" customClass="Login_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Email Login" modalPresentationStyle="fullScreen" id="Iml-KB-Rqu" customClass="Login_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vua-jw-OgW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -611,11 +620,11 @@
         <!--Navigation Controller-->
         <scene sceneID="bbw-h2-9Sb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qdh-ox-a5M" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="qdh-ox-a5M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="JZv-Ta-Y7a"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vg-se-frr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
