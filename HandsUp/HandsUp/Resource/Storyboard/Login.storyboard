@@ -8,6 +8,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--First View View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -76,7 +84,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카카오톡으로 시작" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YP-dF-IaR">
                                         <rect key="frame" x="28" y="16" width="115" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="HandsUpMainText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -118,11 +126,11 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaV-Vr-wQa" userLabel="AppleContent">
-                                <rect key="frame" x="137.66666666666666" y="480" width="117.66666666666666" height="22"/>
+                                <rect key="frame" x="138.33333333333334" y="480" width="116.66666666666666" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple로 등록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4L-a8-ndd">
-                                        <rect key="frame" x="30.000000000000007" y="1.3333333333333144" width="87.666666666666686" height="19.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="30.000000000000007" y="1.6666666666666856" width="86.666666666666686" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="HandsUpMainText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -171,11 +179,11 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z76-kp-bRi" userLabel="GoogleContent">
-                                <rect key="frame" x="133.66666666666666" y="566" width="125.66666666666666" height="20"/>
+                                <rect key="frame" x="134.33333333333334" y="566" width="124.66666666666666" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google로 시작" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dta-gz-JOk">
-                                        <rect key="frame" x="28.000000000000007" y="0.33333333333337123" width="97.666666666666686" height="19.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="28.000000000000007" y="0.66666666666662877" width="96.666666666666686" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="HandsUpMainText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -200,20 +208,21 @@
                                 <rect key="frame" x="136" y="782" width="121" height="28"/>
                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="이메일로 로그인하기">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-ExtraBold"/>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <buttonConfiguration key="configuration" style="plain" title="이메일로 로그인하기">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginEmailButton_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5PG-hl-A1m"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBE-Lt-8xb" userLabel="Line">
+                                <rect key="frame" x="147" y="803" width="99" height="1"/>
+                                <color key="backgroundColor" name="HandsUpDarkGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="7m6-PH-LzB"/>
+                                    <constraint firstAttribute="width" constant="99" id="aSy-dK-K6x"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
@@ -222,6 +231,7 @@
                             <constraint firstItem="EU5-jb-lZ3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="0Br-qr-K63"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EU5-jb-lZ3" secondAttribute="trailing" constant="16" id="1jV-nq-0Qw"/>
                             <constraint firstItem="oy1-1l-5zC" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="45d-vE-ws0"/>
+                            <constraint firstItem="rBE-Lt-8xb" firstAttribute="top" secondItem="oy1-1l-5zC" secondAttribute="centerY" constant="7" id="6Ua-yh-pBv"/>
                             <constraint firstItem="Hmm-Vg-Wkk" firstAttribute="top" secondItem="Aye-nj-Xap" secondAttribute="top" id="8GT-MX-nxG"/>
                             <constraint firstItem="jGc-9M-Bsu" firstAttribute="leading" secondItem="d3L-Zz-0MY" secondAttribute="trailing" constant="25" id="8uL-gx-Asm"/>
                             <constraint firstItem="EU5-jb-lZ3" firstAttribute="bottom" secondItem="HaV-Vr-wQa" secondAttribute="bottom" constant="16" id="9AS-xK-BEy"/>
@@ -243,6 +253,7 @@
                             <constraint firstItem="Z76-kp-bRi" firstAttribute="top" secondItem="gfr-fS-sLB" secondAttribute="top" constant="16" id="eet-GV-aoe"/>
                             <constraint firstItem="Aye-nj-Xap" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="321" id="hFu-ol-fi6"/>
                             <constraint firstItem="Hmm-Vg-Wkk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hYO-S8-n52"/>
+                            <constraint firstItem="rBE-Lt-8xb" firstAttribute="centerX" secondItem="oy1-1l-5zC" secondAttribute="centerX" id="krg-w7-2Ft"/>
                             <constraint firstItem="TOA-ME-HkN" firstAttribute="centerY" secondItem="d3L-Zz-0MY" secondAttribute="centerY" id="su5-dq-Ptx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oy1-1l-5zC" secondAttribute="bottom" constant="8" id="wPP-cB-nun"/>
                         </constraints>
@@ -253,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-21"/>
+            <point key="canvasLocation" x="46.564885496183201" y="-21.126760563380284"/>
         </scene>
         <!--Email Login-->
         <scene sceneID="isT-Io-PUj">
@@ -291,7 +302,7 @@
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
                                         <color key="tintColor" name="HandsUpGrey"/>
                                         <color key="textColor" name="HandsUpGrey"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hf8-Ss-RBl">
@@ -338,7 +349,7 @@
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
                                         <color key="tintColor" name="HandsUpGrey"/>
                                         <color key="textColor" name="HandsUpGrey"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQm-HR-237">
@@ -392,7 +403,7 @@
                                 <color key="tintColor" name="HandsUpRealWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그인">
-                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -404,11 +415,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-92-zM7">
-                                <rect key="frame" x="68.666666666666671" y="469" width="80.000000000000014" height="28"/>
+                                <rect key="frame" x="69.666666666666671" y="469" width="79.000000000000014" height="28"/>
                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="아이디 찾기">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 </buttonConfiguration>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kel-5e-47l" userLabel="Line">
@@ -427,7 +438,7 @@
                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="비밀번호 찾기">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="findPWButton_Login:" destination="Iml-KB-Rqu" eventType="touchUpInside" id="F5S-lH-Uki"/>
@@ -446,7 +457,7 @@
                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원가입">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -508,7 +519,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lco-Fu-yqk">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
                                         <color key="textColor" name="HandsUpGrey"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -547,7 +558,7 @@
                                 <color key="tintColor" name="HandsUpRealWhite"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그인">
-                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -560,13 +571,13 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입된 아이디가 있을경우, 입력하신 이메일로 아이디를 안내해 드립니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reY-54-Hc9">
                                 <rect key="frame" x="25" y="253.00000000000003" width="343" height="14.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디의 경우 각 학교홈피의 개인 이메일과 동일하니 학교홈피를 통해 확인바랍니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V31-ek-NQS">
-                                <rect key="frame" x="25" y="283.33333333333331" width="343" height="28.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="25" y="283.33333333333331" width="343" height="28.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
