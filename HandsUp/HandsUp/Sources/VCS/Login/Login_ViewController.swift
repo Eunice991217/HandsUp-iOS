@@ -7,6 +7,8 @@ class Login_ViewController: UIViewController {
     @IBOutlet weak var loginErrorMark_Login: UIImageView!
     @IBOutlet weak var showPWButton_Login: UIButton!
     @IBOutlet weak var loginButton_Login: RoundedShadow_UIButton!
+    @IBOutlet weak var characterImgGroupTopConstraint_Login: NSLayoutConstraint!
+    @IBOutlet weak var IDTextFieldTopConstraint_Login: NSLayoutConstraint!
     var isLoginEnable_Login: Bool = false
     var isLoginError_Login: Bool = false
     
@@ -23,8 +25,25 @@ class Login_ViewController: UIViewController {
     func enableShowPwButton(){
         showPWButton_Login.isEnabled = true
         showPWButton_Login.alpha = 1
-
+        
     }
+    
+    @objc func keyboardAppear_Login(_ sender : Any){
+        characterImgGroupTopConstraint_Login.constant = 76
+        IDTextFieldTopConstraint_Login.constant=48
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardDisappear_Login(_ sender : Any){
+        characterImgGroupTopConstraint_Login.constant = 100
+        IDTextFieldTopConstraint_Login.constant = 69;
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     
     @IBAction func findPWButton_Login(_ sender: Any) {
         let findPWVC_Login = self.storyboard?.instantiateViewController(withIdentifier: "FindPW")
@@ -79,6 +98,17 @@ class Login_ViewController: UIViewController {
         IDTextField_Login.textColor = UIColor(named: "HandsUpGrey")
     }
     
+    func detectingInput_Login(){
+        self.IDTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
+        self.PWTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
+        self.PWTextField_Login.addTarget(self, action: #selector(self.isPWInput(_sender:)), for: .editingChanged)
+    }
+    
+    func detectingKeboard_Login(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear_Login(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear_Login(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         disableShowPwButton()
@@ -86,8 +116,7 @@ class Login_ViewController: UIViewController {
         PWTextField_Login.keyboardType = .asciiCapable
         loginErrorMark_Login.alpha = 0
         emailBox_Login.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor
-        self.IDTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
-        self.PWTextField_Login.addTarget(self, action: #selector(self.isIDPWInput(_sender:)), for: .editingChanged)
-        self.PWTextField_Login.addTarget(self, action: #selector(self.isPWInput(_sender:)), for: .editingChanged)
+        detectingInput_Login()
+        detectingKeboard_Login()
     }
 }

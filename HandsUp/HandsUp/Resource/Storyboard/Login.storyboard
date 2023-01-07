@@ -26,28 +26,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample1" translatesAutoresizingMaskIntoConstraints="NO" id="d3L-Zz-0MY">
-                                <rect key="frame" x="136.66666666666666" y="169" width="119.99999999999997" height="158"/>
+                                <rect key="frame" x="136.66666666666666" y="110" width="119.99999999999997" height="158"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="pGS-wz-sn1" userLabel="width = 120"/>
                                     <constraint firstAttribute="height" constant="158" id="ze3-oz-Ula" userLabel="height = 158"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample2" translatesAutoresizingMaskIntoConstraints="NO" id="TOA-ME-HkN">
-                                <rect key="frame" x="41.666666666666657" y="213" width="70" height="70"/>
+                                <rect key="frame" x="41.666666666666657" y="154" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="mKv-j0-PeC"/>
                                     <constraint firstAttribute="width" constant="70" id="vqS-oI-K2n"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample3" translatesAutoresizingMaskIntoConstraints="NO" id="jGc-9M-Bsu">
-                                <rect key="frame" x="281.66666666666669" y="213" width="70" height="70"/>
+                                <rect key="frame" x="281.66666666666669" y="154" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="EMy-Hw-0iB"/>
                                     <constraint firstAttribute="width" constant="70" id="jtI-hp-67C"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aye-nj-Xap" userLabel="KakaoButton" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="380" width="361" height="52"/>
+                                <rect key="frame" x="16" y="321" width="361" height="52"/>
                                 <color key="backgroundColor" name="HandsUpYellow"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="J6N-sa-ums"/>
@@ -76,7 +76,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-Vg-Wkk" userLabel="KakaoContent">
-                                <rect key="frame" x="125" y="380" width="143" height="52"/>
+                                <rect key="frame" x="125" y="321" width="143" height="52"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakaoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YyW-Md-Lix">
                                         <rect key="frame" x="0.0" y="16" width="20" height="20"/>
@@ -103,7 +103,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EU5-jb-lZ3" userLabel="AppleButton" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="464" width="361" height="54"/>
+                                <rect key="frame" x="16" y="405" width="361" height="54"/>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Tir-Np-cFn"/>
@@ -132,7 +132,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaV-Vr-wQa" userLabel="AppleContent">
-                                <rect key="frame" x="138.33333333333334" y="480" width="116.66666666666666" height="22"/>
+                                <rect key="frame" x="138.33333333333334" y="421" width="116.66666666666666" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple로 등록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4L-a8-ndd">
                                         <rect key="frame" x="30.000000000000007" y="1.6666666666666856" width="86.666666666666686" height="19"/>
@@ -159,7 +159,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-fS-sLB" userLabel="GoogleButton" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="550" width="361" height="52"/>
+                                <rect key="frame" x="16" y="491" width="361" height="52"/>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="S5o-Pw-cBo"/>
@@ -188,10 +188,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z76-kp-bRi" userLabel="GoogleContent">
-                                <rect key="frame" x="134.33333333333334" y="566" width="124.66666666666666" height="20"/>
+                                <rect key="frame" x="134.33333333333334" y="507" width="124.66666666666666" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google로 시작" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dta-gz-JOk">
-                                        <rect key="frame" x="28.000000000000007" y="0.66666666666662877" width="96.666666666666686" height="19"/>
+                                        <rect key="frame" x="28.000000000000007" y="0.66666666666668561" width="96.666666666666686" height="19"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="HandsUpMainText"/>
                                         <nil key="highlightedColor"/>
@@ -251,20 +251,20 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Aye-nj-Xap" secondAttribute="trailing" constant="16" id="GYV-cD-lps"/>
                             <constraint firstItem="Aye-nj-Xap" firstAttribute="bottom" secondItem="Hmm-Vg-Wkk" secondAttribute="bottom" id="HWj-5Q-Kew"/>
                             <constraint firstItem="jGc-9M-Bsu" firstAttribute="centerY" secondItem="d3L-Zz-0MY" secondAttribute="centerY" id="HfD-uf-7Lt"/>
-                            <constraint firstItem="d3L-Zz-0MY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="169" id="Hoa-kR-5qy"/>
+                            <constraint firstItem="d3L-Zz-0MY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="110" id="Hoa-kR-5qy"/>
                             <constraint firstItem="gfr-fS-sLB" firstAttribute="bottom" secondItem="Z76-kp-bRi" secondAttribute="bottom" constant="16" id="NlO-ey-Zia"/>
-                            <constraint firstItem="gfr-fS-sLB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="491" id="OSh-ud-ya1"/>
-                            <constraint firstItem="EU5-jb-lZ3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="405" id="Ye2-bP-YhC"/>
                             <constraint firstItem="gfr-fS-sLB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="b9a-2D-bDF"/>
                             <constraint firstItem="d3L-Zz-0MY" firstAttribute="leading" secondItem="TOA-ME-HkN" secondAttribute="trailing" constant="25" id="bOB-NP-m88"/>
                             <constraint firstItem="HaV-Vr-wQa" firstAttribute="top" secondItem="EU5-jb-lZ3" secondAttribute="top" constant="16" id="bR2-0U-c0D"/>
                             <constraint firstItem="d3L-Zz-0MY" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="dnI-Ad-iaT"/>
                             <constraint firstItem="Z76-kp-bRi" firstAttribute="top" secondItem="gfr-fS-sLB" secondAttribute="top" constant="16" id="eet-GV-aoe"/>
-                            <constraint firstItem="Aye-nj-Xap" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="321" id="hFu-ol-fi6"/>
                             <constraint firstItem="Hmm-Vg-Wkk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hYO-S8-n52"/>
+                            <constraint firstItem="gfr-fS-sLB" firstAttribute="top" secondItem="EU5-jb-lZ3" secondAttribute="bottom" constant="32" id="jmr-AK-gdf"/>
                             <constraint firstItem="rBE-Lt-8xb" firstAttribute="centerX" secondItem="oy1-1l-5zC" secondAttribute="centerX" id="krg-w7-2Ft"/>
                             <constraint firstItem="TOA-ME-HkN" firstAttribute="centerY" secondItem="d3L-Zz-0MY" secondAttribute="centerY" id="su5-dq-Ptx"/>
+                            <constraint firstItem="Aye-nj-Xap" firstAttribute="top" secondItem="d3L-Zz-0MY" secondAttribute="bottom" constant="53" id="vaC-z2-oRD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oy1-1l-5zC" secondAttribute="bottom" constant="8" id="wPP-cB-nun"/>
+                            <constraint firstItem="EU5-jb-lZ3" firstAttribute="top" secondItem="Aye-nj-Xap" secondAttribute="bottom" constant="32" id="wd5-m5-gr9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -502,8 +502,10 @@
                     </view>
                     <navigationItem key="navigationItem" title=" " id="buR-hF-Hee"/>
                     <connections>
+                        <outlet property="IDTextFieldTopConstraint_Login" destination="Arl-Pl-KD4" id="gco-rC-wgw"/>
                         <outlet property="IDTextField_Login" destination="4gq-UB-7zW" id="rPB-z8-9pM"/>
                         <outlet property="PWTextField_Login" destination="Vn9-Rq-bNS" id="cac-m3-Zpv"/>
+                        <outlet property="characterImgGroupTopConstraint_Login" destination="Glr-vB-Oiu" id="HJs-nn-pBe"/>
                         <outlet property="emailBox_Login" destination="OBD-pB-vHM" id="I3b-Ek-SQN"/>
                         <outlet property="loginButton_Login" destination="eY0-34-qte" id="w3T-WY-hiJ"/>
                         <outlet property="loginErrorMark_Login" destination="hf8-Ss-RBl" id="qTp-OO-H6D"/>
