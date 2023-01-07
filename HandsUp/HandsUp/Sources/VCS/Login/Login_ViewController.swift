@@ -9,9 +9,15 @@ class Login_ViewController: UIViewController {
     @IBOutlet weak var loginButton_Login: RoundedShadow_UIButton!
     @IBOutlet weak var characterImgGroupTopConstraint_Login: NSLayoutConstraint!
     @IBOutlet weak var IDTextFieldTopConstraint_Login: NSLayoutConstraint!
+    @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     var isLoginEnable_Login: Bool = false
     var isLoginError_Login: Bool = false
     
+    @IBAction func downSwipeGesture(_ sender: Any) {
+        if(swipeGesture.direction == .down){
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     @IBAction func setPWSecureTextEntry_Login(_ sender: Any) {
         PWTextField_Login.isSecureTextEntry.toggle()
     }
@@ -116,6 +122,7 @@ class Login_ViewController: UIViewController {
         PWTextField_Login.keyboardType = .asciiCapable
         loginErrorMark_Login.alpha = 0
         emailBox_Login.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor
+        swipeGesture.direction = .down
         detectingInput_Login()
         detectingKeboard_Login()
     }
