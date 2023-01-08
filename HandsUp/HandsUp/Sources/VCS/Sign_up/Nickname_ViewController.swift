@@ -14,6 +14,9 @@ class Nickname_ViewController: UIViewController {
     @IBOutlet weak var pageControlView_Nickname: RoundedShadow_UIView!
     @IBOutlet weak var titleLable_Nickname: UILabel!
     @IBOutlet weak var subTitleLabe_Nickname: UILabel!
+    @IBOutlet weak var nicknameTextField_Nickname: UITextField!
+    @IBOutlet weak var nextButton_Nickname: RoundedShadow_UIButton!
+    var nextButtonEnable_Nickname : Bool = false
     
     func titleInit_Nickname(){
         titleLable_Nickname.text = "닉네임을\n만들어보세요"
@@ -28,8 +31,29 @@ class Nickname_ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTap_Nickname(_ sender: Any) {
-        let profileVC_Nickname = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
-        self.navigationController?.pushViewController(profileVC_Nickname!, animated: true)
+        if(nextButtonEnable_Nickname){
+            let profileVC_Nickname = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
+            self.navigationController?.pushViewController(profileVC_Nickname!, animated: true)
+        }
+    }
+    
+    @objc func isNicknameInput_Nickname(_sender: Any){
+        let nicknameLengh_Nickname = nicknameTextField_Nickname.text!.count
+        if(2 <= nicknameLengh_Nickname && nicknameLengh_Nickname <= 5 ){
+            if(!nextButtonEnable_Nickname){
+                nextButtonEnable_Nickname = true
+                nextButton_Nickname.backgroundColor = UIColor(named: "HandsUpOrange")
+            }
+        }else{
+            if(nextButtonEnable_Nickname){
+                nextButtonEnable_Nickname = false
+                nextButton_Nickname.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+            }
+        }
+    }
+    
+    func detectingInput_SocialLogin(){
+        nicknameTextField_Nickname.addTarget(self, action: #selector(isNicknameInput_Nickname(_sender: )), for: .editingChanged)
     }
     
     override func viewDidLoad() {
@@ -37,6 +61,7 @@ class Nickname_ViewController: UIViewController {
 
         titleInit_Nickname()
         pageBarInit_Nickname()
+        detectingInput_SocialLogin()
         self.hideKeyboard()
     }
     

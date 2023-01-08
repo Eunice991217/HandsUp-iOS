@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -625,7 +628,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrP-VU-go9" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="317.66666666666669" width="361" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEc-cJ-kJ5">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEc-cJ-kJ5">
                                         <rect key="frame" x="16" y="0.0" width="305" height="50"/>
                                         <color key="tintColor" name="HandsUpDarkGrey"/>
                                         <color key="textColor" name="HandsUpDarkGrey"/>
@@ -797,20 +800,70 @@
                                     <action selector="nextButtonTap_Nickname:" destination="Gd4-yC-81k" eventType="touchUpInside" id="mz1-Ti-4eh"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6T-gu-044" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="220.66666666666666" width="361" height="49.999999999999972"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfi-wr-WXm">
+                                        <rect key="frame" x="16" y="0.0" width="329" height="50"/>
+                                        <color key="tintColor" name="HandsUpDarkGrey"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" name="HandsUpGrey"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mfi-wr-WXm" firstAttribute="top" secondItem="R6T-gu-044" secondAttribute="top" id="YXI-Yz-lwj"/>
+                                    <constraint firstAttribute="trailing" secondItem="mfi-wr-WXm" secondAttribute="trailing" constant="16" id="hML-yo-KXA"/>
+                                    <constraint firstItem="mfi-wr-WXm" firstAttribute="leading" secondItem="R6T-gu-044" secondAttribute="leading" constant="16" id="iQc-3d-dWh"/>
+                                    <constraint firstAttribute="bottom" secondItem="mfi-wr-WXm" secondAttribute="bottom" id="s8m-kV-W0f"/>
+                                    <constraint firstAttribute="height" constant="50" id="vVv-9p-7Vm"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2글자 이상 5글자 이하로 생성 가능해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaD-aL-DO9">
+                                <rect key="frame" x="23" y="290.66666666666669" width="188" height="15"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XCl-4g-7GO"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
+                            <constraint firstItem="R6T-gu-044" firstAttribute="top" secondItem="0jA-Ih-vuy" secondAttribute="bottom" constant="50" id="34X-YB-8JK"/>
+                            <constraint firstItem="XCl-4g-7GO" firstAttribute="trailing" secondItem="R6T-gu-044" secondAttribute="trailing" constant="16" id="3Vk-kl-nlK"/>
                             <constraint firstItem="0jA-Ih-vuy" firstAttribute="top" secondItem="8Ti-i1-yo2" secondAttribute="bottom" constant="20" id="7Ek-pg-Y7n"/>
+                            <constraint firstItem="BaD-aL-DO9" firstAttribute="top" secondItem="R6T-gu-044" secondAttribute="bottom" constant="20" id="8fO-eV-qK1"/>
                             <constraint firstItem="QaT-Jr-xIl" firstAttribute="leading" secondItem="71A-hH-v50" secondAttribute="leading" constant="18" id="HAO-Ap-kt5"/>
                             <constraint firstItem="8Ti-i1-yo2" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="MHy-oC-tsE"/>
                             <constraint firstItem="79K-o3-ld2" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="16" id="RTC-t7-OaC"/>
                             <constraint firstItem="XCl-4g-7GO" firstAttribute="bottom" secondItem="79K-o3-ld2" secondAttribute="bottom" constant="16" id="SW7-ke-Rrg"/>
+                            <constraint firstItem="BaD-aL-DO9" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="23" id="UvR-bs-HQf"/>
                             <constraint firstAttribute="trailing" secondItem="71A-hH-v50" secondAttribute="trailing" constant="18" id="VlA-Xq-Haw"/>
                             <constraint firstItem="8Ti-i1-yo2" firstAttribute="top" secondItem="71A-hH-v50" secondAttribute="bottom" constant="16" id="geD-ba-Tel"/>
                             <constraint firstItem="XCl-4g-7GO" firstAttribute="trailing" secondItem="79K-o3-ld2" secondAttribute="trailing" constant="16" id="gzC-Tc-plD"/>
                             <constraint firstItem="71A-hH-v50" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="mmC-QI-j5Q"/>
                             <constraint firstItem="0jA-Ih-vuy" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="pKy-ku-XYf"/>
+                            <constraint firstItem="R6T-gu-044" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="16" id="rtp-IW-PLw"/>
                             <constraint firstItem="QaT-Jr-xIl" firstAttribute="top" secondItem="XCl-4g-7GO" secondAttribute="top" constant="10" id="v7t-th-Z4t"/>
                             <constraint firstItem="71A-hH-v50" firstAttribute="top" secondItem="XCl-4g-7GO" secondAttribute="top" constant="10" id="ylK-KW-moT"/>
                         </constraints>
@@ -818,6 +871,8 @@
                     <connections>
                         <outlet property="curPageBarWidth_Nickname" destination="5Pi-tw-fQS" id="nZe-lu-RXG"/>
                         <outlet property="curPageBarX_Nickname" destination="HAO-Ap-kt5" id="gnf-vV-gVe"/>
+                        <outlet property="nextButton_Nickname" destination="79K-o3-ld2" id="GFX-HA-tha"/>
+                        <outlet property="nicknameTextField_Nickname" destination="mfi-wr-WXm" id="AtL-4r-RNd"/>
                         <outlet property="pageControlView_Nickname" destination="71A-hH-v50" id="p53-4s-wzi"/>
                         <outlet property="subTitleLabe_Nickname" destination="0jA-Ih-vuy" id="04Q-t8-IpF"/>
                         <outlet property="titleLable_Nickname" destination="8Ti-i1-yo2" id="P0k-0V-GDd"/>
