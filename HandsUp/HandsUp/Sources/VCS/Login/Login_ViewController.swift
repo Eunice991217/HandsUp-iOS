@@ -50,6 +50,11 @@ class Login_ViewController: UIViewController {
         }
     }
     
+    @IBAction func sign_upButton_Login(_ sender: Any){
+        let Sign_upSB_Login = UIStoryboard(name: "Sign_up", bundle: nil)
+        let sign_upButton_Login = Sign_upSB_Login.instantiateViewController(withIdentifier: "Sign_up1")
+        self.navigationController?.pushViewController(sign_upButton_Login, animated: true)
+    }
     
     @IBAction func findPWButton_Login(_ sender: Any) {
         let findPWVC_Login = self.storyboard?.instantiateViewController(withIdentifier: "FindPW")

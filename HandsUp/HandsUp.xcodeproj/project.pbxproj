@@ -20,11 +20,14 @@
 		8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CE2968DAD200B00890 /* Roboto-Medium.ttf */; };
 		8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */; };
 		8B4BF0E02968DAD200B00890 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */; };
+		8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */; };
 		8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */; };
 		8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064B2968861400F89636 /* Login_ViewController.swift */; };
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
 		8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1EB5E296866D000820C07 /* Login.storyboard */; };
 		8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */; };
+		8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */; };
+		8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,11 +45,14 @@
 		8B4BF0CE2968DAD200B00890 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up2_ViewController.swift; sourceTree = "<group>"; };
 		8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIButton.swift; sourceTree = "<group>"; };
 		8BA6064B2968861400F89636 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
 		8BB1EB5E296866D000820C07 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView_ViewController.swift; sourceTree = "<group>"; };
+		8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign_up.storyboard; sourceTree = "<group>"; };
+		8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up1_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				8B21091C2966DFF20042D14A /* Main.storyboard */,
 				8B2109212966DFF30042D14A /* LaunchScreen.storyboard */,
 				8BB1EB5E296866D000820C07 /* Login.storyboard */,
+				8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 			children = (
 				8B21091A2966DFF20042D14A /* ViewController.swift */,
 				8BA6064D2968864900F89636 /* Login */,
+				8BD2AF98296A5E1F007FD6BD /* Sign_up */,
 			);
 			path = VCS;
 			sourceTree = "<group>";
@@ -156,6 +164,15 @@
 				8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */,
 			);
 			path = Designs;
+			sourceTree = "<group>";
+		};
+		8BD2AF98296A5E1F007FD6BD /* Sign_up */ = {
+			isa = PBXGroup;
+			children = (
+				8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */,
+				8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */,
+			);
+			path = Sign_up;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */,
 				8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */,
 				8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */,
 				8B2109202966DFF30042D14A /* Assets.xcassets in Resources */,
@@ -246,8 +264,10 @@
 				8B21091B2966DFF20042D14A /* ViewController.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,
+				8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */,
 				8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
+				8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
