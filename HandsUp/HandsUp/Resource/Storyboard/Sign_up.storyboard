@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -366,15 +367,48 @@
                                     <action selector="nextButtonTap_Sign_up2:" destination="U9I-Mb-lZN" eventType="touchUpInside" id="DsN-xU-dYP"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTB-T0-sOj" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="257.66666666666669" width="361" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2YC-um-6gc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-pW-Y7f">
+                                <rect key="frame" x="16" y="175" width="361" height="216"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AC3-Qb-EKU"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
                             <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="dpv-f8-nhi" secondAttribute="trailing" constant="18" id="3Fa-5h-kJK"/>
                             <constraint firstItem="56P-iu-67U" firstAttribute="leading" secondItem="dpv-f8-nhi" secondAttribute="leading" constant="18" id="Bgs-Lf-Q99"/>
+                            <constraint firstItem="CTB-T0-sOj" firstAttribute="top" secondItem="P3H-xz-FxF" secondAttribute="top" constant="106" id="DZQ-WB-Txx"/>
+                            <constraint firstItem="c1v-pW-Y7f" firstAttribute="centerY" secondItem="CTB-T0-sOj" secondAttribute="centerY" id="Ojs-J7-L5j"/>
+                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="c1v-pW-Y7f" secondAttribute="trailing" constant="16" id="WUt-Qp-ZHg"/>
                             <constraint firstItem="dpv-f8-nhi" firstAttribute="leading" secondItem="bTB-IL-caL" secondAttribute="leading" constant="18" id="WmX-CO-Use"/>
                             <constraint firstItem="ph0-lX-685" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="Ysl-QA-nrF"/>
                             <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="ph0-lX-685" secondAttribute="trailing" constant="16" id="e4t-eB-b9G"/>
+                            <constraint firstItem="CTB-T0-sOj" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="gmT-FI-7pN"/>
+                            <constraint firstItem="c1v-pW-Y7f" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="hbe-6x-cOx"/>
+                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="CTB-T0-sOj" secondAttribute="trailing" constant="16" id="icK-1m-GRz"/>
                             <constraint firstItem="P3H-xz-FxF" firstAttribute="leading" secondItem="bTB-IL-caL" secondAttribute="leading" constant="18" id="lKs-yR-z5q"/>
                             <constraint firstItem="dpv-f8-nhi" firstAttribute="top" secondItem="AC3-Qb-EKU" secondAttribute="top" constant="10" id="mzq-aQ-j4s"/>
                             <constraint firstItem="YFz-GT-4rT" firstAttribute="top" secondItem="dpv-f8-nhi" secondAttribute="bottom" constant="16" id="rPR-Go-v4I"/>
@@ -388,6 +422,7 @@
                         <outlet property="curPageBarWidth_Sign_up2" destination="NAc-dZ-FtX" id="km9-de-gUL"/>
                         <outlet property="curPageBarX_Sign_up2" destination="Bgs-Lf-Q99" id="Kmj-HY-g0G"/>
                         <outlet property="pageControlView_Sign_up2" destination="dpv-f8-nhi" id="09w-xV-slA"/>
+                        <outlet property="schoolPickerView_Sign_up2" destination="c1v-pW-Y7f" id="ghC-Hi-Bpk"/>
                         <outlet property="titleLable_Sign_up2" destination="YFz-GT-4rT" id="4UE-9Y-IHG"/>
                     </connections>
                 </viewController>
@@ -1026,5 +1061,8 @@
         <namedColor name="HandsUpWhiteGrey">
             <color red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
