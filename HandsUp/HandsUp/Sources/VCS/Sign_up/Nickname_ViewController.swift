@@ -37,6 +37,7 @@ class Nickname_ViewController: UIViewController {
 
         titleInit_Nickname()
         pageBarInit_Nickname()
+        self.hideKeyboard()
     }
     
 }

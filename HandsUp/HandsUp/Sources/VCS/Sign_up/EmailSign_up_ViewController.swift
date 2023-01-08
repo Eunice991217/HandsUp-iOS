@@ -36,6 +36,7 @@ class EmailSign_up_ViewController: UIViewController {
 
         titleInit_EmailSign_up()
         pageBarInit_EmailSign_up()
+        self.hideKeyboard()
     }
     
     

@@ -25,6 +25,7 @@
 		8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */; };
 		8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */; };
 		8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */; };
+		8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */; };
 		8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */; };
 		8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064B2968861400F89636 /* Login_ViewController.swift */; };
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
@@ -54,6 +55,7 @@
 		8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickname_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_ViewController.swift; sourceTree = "<group>"; };
+		8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisappear_UIViewController.swift; sourceTree = "<group>"; };
 		8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIButton.swift; sourceTree = "<group>"; };
 		8BA6064B2968861400F89636 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */,
 				8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */,
+				8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,
+				8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */,
 				8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */,
 				8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */,
 				8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */,

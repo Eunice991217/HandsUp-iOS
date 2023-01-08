@@ -304,7 +304,7 @@
                                     <constraint firstAttribute="height" constant="70" id="vGY-We-Z6c"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-pB-vHM" userLabel="EmailBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-pB-vHM" userLabel="EmailBox" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="327" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gq-UB-7zW">
@@ -356,7 +356,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0o-KA-3x3" userLabel="PWBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0o-KA-3x3" userLabel="PWBox" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="394" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vn9-Rq-bNS">
@@ -526,7 +526,7 @@
                         <outlet property="IDTextField_Login" destination="4gq-UB-7zW" id="rPB-z8-9pM"/>
                         <outlet property="PWTextField_Login" destination="Vn9-Rq-bNS" id="cac-m3-Zpv"/>
                         <outlet property="characterImgGroupTopConstraint_Login" destination="Glr-vB-Oiu" id="HJs-nn-pBe"/>
-                        <outlet property="emailBox_Login" destination="OBD-pB-vHM" id="I3b-Ek-SQN"/>
+                        <outlet property="emailBox_Login" destination="OBD-pB-vHM" id="YnX-8P-Nui"/>
                         <outlet property="loginButton_Login" destination="eY0-34-qte" id="w3T-WY-hiJ"/>
                         <outlet property="loginErrorMark_Login" destination="hf8-Ss-RBl" id="qTp-OO-H6D"/>
                         <outlet property="showPWButton_Login" destination="IQm-HR-237" id="BFI-D8-FPh"/>

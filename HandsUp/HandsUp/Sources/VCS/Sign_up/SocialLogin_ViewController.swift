@@ -28,6 +28,7 @@ class SocialLogin_ViewController: UIViewController {
 
         titleInit_SocialLogin()
         pageBarInit_SocialLogin()
+        self.hideKeyboard()
     }
     
 

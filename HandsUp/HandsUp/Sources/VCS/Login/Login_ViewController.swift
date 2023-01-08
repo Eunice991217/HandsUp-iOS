@@ -3,13 +3,15 @@ import UIKit
 class Login_ViewController: UIViewController {
     @IBOutlet weak var IDTextField_Login: UITextField!
     @IBOutlet weak var PWTextField_Login: UITextField!
-    @IBOutlet weak var emailBox_Login: RoundedShadow_UIButton!
+    @IBOutlet weak var emailBox_Login: RoundedShadow_UIView!
     @IBOutlet weak var loginErrorMark_Login: UIImageView!
     @IBOutlet weak var showPWButton_Login: UIButton!
-    @IBOutlet weak var loginButton_Login: RoundedShadow_UIButton!
+    @IBOutlet weak var loginButton_Login: RoundedShadow_UIView!
     @IBOutlet weak var characterImgGroupTopConstraint_Login: NSLayoutConstraint!
     @IBOutlet weak var IDTextFieldTopConstraint_Login: NSLayoutConstraint!
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
+    
+    
     var isLoginEnable_Login: Bool = false
     var isLoginError_Login: Bool = false
     
@@ -100,6 +102,8 @@ class Login_ViewController: UIViewController {
         loginErrorMark_Login.alpha = 1
         emailBox_Login.layer.borderWidth = 1
         IDTextField_Login.textColor = UIColor(named: "HandsUpRed")
+        emailBox_Login.shake()
+        
     }
     
     func disableLoginErrorAlert_Login(){
@@ -130,5 +134,6 @@ class Login_ViewController: UIViewController {
         swipeGesture.direction = .down
         detectingInput_Login()
         detectingKeboard_Login()
+        self.hideKeyboard()
     }
 }

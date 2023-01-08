@@ -22,5 +22,6 @@ class FindPW_ViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         self.emailTextField_FindPW.addTarget(self, action: #selector(self.isIDInput(_sender:)), for: .editingChanged)
         emailTextField_FindPW.keyboardType = .emailAddress
+        self.hideKeyboard()
     }
 }
