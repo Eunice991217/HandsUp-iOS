@@ -27,7 +27,7 @@ class RoundedShadow_UIView: UIView {
         }
     }
     
-    @IBInspectable var shadowColor: UIColor = UIColor.gray{
+    @IBInspectable var shadowColor: UIColor = UIColor.black{
         didSet{
             self.layer.shadowColor = shadowColor.cgColor
         }
@@ -47,7 +47,7 @@ class RoundedShadow_UIView: UIView {
     
     @IBInspectable var shadowRadius: CGFloat = 6 {
         didSet{
-            self.layer.shadowRadius = shadowRadius
+            self.layer.shadowRadius = shadowRadius / UIScreen.main.scale
         }
     }
 }
