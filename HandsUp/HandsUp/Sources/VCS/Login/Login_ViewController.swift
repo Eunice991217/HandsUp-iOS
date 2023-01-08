@@ -102,9 +102,6 @@ class Login_ViewController: UIViewController {
         loginErrorMark_Login.alpha = 1
         emailBox_Login.layer.borderWidth = 1
         IDTextField_Login.textColor = UIColor(named: "HandsUpRed")
-        UIView.animate(withDuration: 0.1) {
-            self.view.layoutIfNeeded()
-        }
         emailBox_Login.shake()
         
     }
@@ -113,7 +110,7 @@ class Login_ViewController: UIViewController {
         isLoginError_Login = false
         loginErrorMark_Login.alpha = 0
         emailBox_Login.layer.borderWidth = 0
-        IDTextField_Login.textColor = UIColor(named: "HandsUpGrey")
+        IDTextField_Login.textColor = UIColor(named: "HandsUpDarkGrey")
     }
     
     func detectingInput_Login(){
@@ -129,9 +126,8 @@ class Login_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         disableShowPwButton()
-        IDTextField_Login.keyboardType = .emailAddress
-        PWTextField_Login.keyboardType = .asciiCapable
         loginErrorMark_Login.alpha = 0
         emailBox_Login.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor
         swipeGesture.direction = .down

@@ -21,7 +21,7 @@ class Sign_up2_ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTap_Sign_up2(_ sender: Any) {
-        let emailSign_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "EmailSign_up")
+        let emailSign_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "SocialLogin")
         self.navigationController?.pushViewController(emailSign_upVC_Sign_up2!, animated: true)
     }
     func titleInit_Sign_up2(){

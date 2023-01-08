@@ -55,7 +55,6 @@ class Sign_up1_ViewController: UIViewController {
     }
     
     @IBAction func checkBox1Tap_Sign_up1(_ sender: Any){
-        print("active")
         if(checkBox_Sign_up1[0]){
             checkBox1_Sign_up1.setImage(nil, for: .normal)
             checkBox_Sign_up1[0] = false

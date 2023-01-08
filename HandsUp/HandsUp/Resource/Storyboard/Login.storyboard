@@ -308,11 +308,11 @@
                                 <rect key="frame" x="16" y="327" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gq-UB-7zW">
-                                        <rect key="frame" x="16" y="0.0" width="329" height="51"/>
+                                        <rect key="frame" x="16" y="0.0" width="305" height="51"/>
                                         <color key="tintColor" name="HandsUpGrey"/>
                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                                 <color key="value" name="HandsUpGrey"/>
@@ -332,7 +332,7 @@
                                 <constraints>
                                     <constraint firstItem="4gq-UB-7zW" firstAttribute="leading" secondItem="OBD-pB-vHM" secondAttribute="leading" constant="16" id="AdX-E5-bKy"/>
                                     <constraint firstItem="4gq-UB-7zW" firstAttribute="top" secondItem="OBD-pB-vHM" secondAttribute="top" id="R0u-be-LeT"/>
-                                    <constraint firstAttribute="trailing" secondItem="4gq-UB-7zW" secondAttribute="trailing" constant="16" id="R7S-5y-wcQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="4gq-UB-7zW" secondAttribute="trailing" constant="40" id="R7S-5y-wcQ"/>
                                     <constraint firstItem="hf8-Ss-RBl" firstAttribute="centerY" secondItem="OBD-pB-vHM" secondAttribute="centerY" id="Vz2-PN-nQL"/>
                                     <constraint firstAttribute="height" constant="51" id="Xkf-h0-lIv"/>
                                     <constraint firstAttribute="bottom" secondItem="4gq-UB-7zW" secondAttribute="bottom" id="gZZ-ux-pUk"/>
@@ -360,11 +360,11 @@
                                 <rect key="frame" x="16" y="394" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vn9-Rq-bNS">
-                                        <rect key="frame" x="16" y="0.0" width="329" height="51"/>
+                                        <rect key="frame" x="16" y="0.0" width="305" height="51"/>
                                         <color key="tintColor" name="HandsUpGrey"/>
                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                                 <color key="value" name="HandsUpGrey"/>
@@ -391,7 +391,7 @@
                                     <constraint firstAttribute="height" constant="51" id="9yX-FN-f0M"/>
                                     <constraint firstItem="IQm-HR-237" firstAttribute="centerY" secondItem="Vn9-Rq-bNS" secondAttribute="centerY" id="KKd-W2-daJ"/>
                                     <constraint firstItem="Vn9-Rq-bNS" firstAttribute="leading" secondItem="P0o-KA-3x3" secondAttribute="leading" constant="16" id="Uz0-In-h2b"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vn9-Rq-bNS" secondAttribute="trailing" constant="16" id="V0n-JH-IDI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vn9-Rq-bNS" secondAttribute="trailing" constant="40" id="V0n-JH-IDI"/>
                                     <constraint firstAttribute="trailing" secondItem="IQm-HR-237" secondAttribute="trailing" constant="16" id="baz-3H-7Tg"/>
                                     <constraint firstAttribute="bottom" secondItem="Vn9-Rq-bNS" secondAttribute="bottom" id="zhD-ct-MVx"/>
                                 </constraints>
@@ -557,7 +557,7 @@
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                                 <color key="value" name="HandsUpGrey"/>
