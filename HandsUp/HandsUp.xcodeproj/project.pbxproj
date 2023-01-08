@@ -21,6 +21,10 @@
 		8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */; };
 		8B4BF0E02968DAD200B00890 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */; };
 		8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */; };
+		8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */; };
+		8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */; };
+		8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */; };
+		8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */; };
 		8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */; };
 		8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064B2968861400F89636 /* Login_ViewController.swift */; };
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
@@ -46,6 +50,10 @@
 		8B4BF0D32968DAD200B00890 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up2_ViewController.swift; sourceTree = "<group>"; };
+		8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSign_up_ViewController.swift; sourceTree = "<group>"; };
+		8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin_ViewController.swift; sourceTree = "<group>"; };
+		8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickname_ViewController.swift; sourceTree = "<group>"; };
+		8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_ViewController.swift; sourceTree = "<group>"; };
 		8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIButton.swift; sourceTree = "<group>"; };
 		8BA6064B2968861400F89636 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
@@ -171,6 +179,10 @@
 			children = (
 				8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */,
 				8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */,
+				8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */,
+				8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */,
+				8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */,
+				8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */,
 			);
 			path = Sign_up;
 			sourceTree = "<group>";
@@ -261,14 +273,18 @@
 			files = (
 				8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */,
 				8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */,
+				8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */,
 				8B21091B2966DFF20042D14A /* ViewController.swift in Sources */,
+				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,
 				8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */,
 				8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */,
+				8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
 				8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
+				8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

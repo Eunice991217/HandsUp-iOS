@@ -12,7 +12,7 @@ class Sign_up1_ViewController: UIViewController {
     @IBOutlet weak var pageControlView_Sign_up1: RoundedShadow_UIView!
     
     func pageBarInit(){
-        let widthValue_Sign_up1 = pageControlView_Sign_up1.frame.size.width / 6 as CGFloat
+        let widthValue_Sign_up1 = pageControlView_Sign_up1.frame.size.width / 5 as CGFloat
         curPageBarX_Sign_up1.constant = 0
         curPageBarWidth_Sign_up1.constant = widthValue_Sign_up1
     }

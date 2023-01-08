@@ -73,7 +73,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGA-bd-xEY">
                                 <rect key="frame" x="17.999999999999996" y="138" width="55.666666666666657" height="37.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="HandsUpMainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원활한 서비스 이용을 위해 동의해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad7-Kb-NwN">
@@ -153,24 +153,6 @@
             </objects>
             <point key="canvasLocation" x="970.2290076335878" y="-2.1126760563380285"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="PeQ-0y-anm">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FKn-rs-iRw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z7J-QI-kzQ">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Rth-I1-w0o"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzy-nZ-e41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="43.511450381679388" y="-2.1126760563380285"/>
-        </scene>
         <!--Sign up2 View Controller-->
         <scene sceneID="AUq-Dc-MZa">
             <objects>
@@ -207,7 +189,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFz-GT-4rT">
                                 <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="HandsUpMainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 대학교학생들만 사용 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3H-xz-FxF">
@@ -218,7 +200,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph0-lX-685" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <color key="backgroundColor" name="HandsUpOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="aD8-OJ-vDb"/>
                                 </constraints>
@@ -233,7 +215,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="nextButtonTap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="W4T-lH-lV8"/>
+                                    <action selector="nextButtonTap_Sign_up2:" destination="U9I-Mb-lZN" eventType="touchUpInside" id="DsN-xU-dYP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -265,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="1943" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Email Sign up View Controller-->
         <scene sceneID="ZBK-sC-RJP">
             <objects>
-                <viewController id="6yJ-z2-Oym" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmailSign_up" id="6yJ-z2-Oym" customClass="EmailSign_up_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bs7-wn-e2y">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,12 +263,12 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUn-Ev-7vG" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="300" y="185" width="80" height="9"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUn-Ev-7vG" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="36" y="69" width="80" height="9"/>
                                 <color key="backgroundColor" name="HandsUpOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="f9x-sO-eeC"/>
@@ -294,28 +276,76 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-iv-qW8">
+                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                <color key="textColor" name="HandsUpMainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhu-Hz-NnL" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="751" width="361" height="51"/>
+                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="z30-zY-MKq"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTap_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="M6H-iF-wDp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H9-he-Gvv">
+                                <rect key="frame" x="18" y="151.66666666666666" width="28" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rxT-wN-7b0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Jhu-Hz-NnL" secondAttribute="bottom" constant="16" id="HXP-K1-CBL"/>
+                            <constraint firstItem="6H9-he-Gvv" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="18" id="IQZ-sD-oOY"/>
+                            <constraint firstItem="Jhu-Hz-NnL" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="16" id="Kpf-NK-V6r"/>
                             <constraint firstItem="rxT-wN-7b0" firstAttribute="trailing" secondItem="91f-oE-XFo" secondAttribute="trailing" constant="18" id="R6r-0c-011"/>
                             <constraint firstItem="91f-oE-XFo" firstAttribute="leading" secondItem="bs7-wn-e2y" secondAttribute="leading" constant="18" id="UC1-Z5-c6r"/>
+                            <constraint firstItem="bV9-iv-qW8" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="18" id="YSj-D1-Rxp"/>
+                            <constraint firstAttribute="trailing" secondItem="Jhu-Hz-NnL" secondAttribute="trailing" constant="16" id="dm7-dK-B0b"/>
+                            <constraint firstItem="lUn-Ev-7vG" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="j3F-oF-TIh"/>
+                            <constraint firstItem="6H9-he-Gvv" firstAttribute="top" secondItem="bV9-iv-qW8" secondAttribute="bottom" constant="20" id="paH-7q-feD"/>
+                            <constraint firstItem="bV9-iv-qW8" firstAttribute="top" secondItem="91f-oE-XFo" secondAttribute="bottom" constant="16" id="u02-eb-CL5"/>
+                            <constraint firstItem="lUn-Ev-7vG" firstAttribute="leading" secondItem="91f-oE-XFo" secondAttribute="leading" constant="18" id="vIY-4g-XZD"/>
                             <constraint firstItem="91f-oE-XFo" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="xgJ-wa-7o4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="curPageBarWidth_EmailSign_up" destination="f9x-sO-eeC" id="Gxt-sL-uma"/>
+                        <outlet property="curPageBarX_EmailSign_up" destination="vIY-4g-XZD" id="xRG-NE-1QO"/>
+                        <outlet property="pageControlView_EmailSign_up" destination="91f-oE-XFo" id="wQY-Kc-JLw"/>
+                        <outlet property="subTitleLabe_EmailSign_up" destination="6H9-he-Gvv" id="wAq-Gr-86w"/>
+                        <outlet property="titleLable_EmailSign_up" destination="bV9-iv-qW8" id="Tn0-Gh-5VY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spz-Pz-0bZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2807" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Social Login View Controller-->
         <scene sceneID="mU9-Pg-tOM">
             <objects>
-                <viewController id="hVv-om-iC8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SocialLogin" id="hVv-om-iC8" customClass="SocialLogin_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Z2-b1-ege">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,8 +362,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A0k-JR-e7S" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="313" y="194" width="80" height="9"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0k-JR-e7S" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="36" y="69" width="80" height="9"/>
                                 <color key="backgroundColor" name="HandsUpOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="84H-Wq-IgN"/>
@@ -345,24 +375,71 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daE-vg-AY3">
+                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                <color key="textColor" name="HandsUpMainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교이메일을 적어주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTm-4g-oiU">
+                                <rect key="frame" x="18" y="151.66666666666666" width="160" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD9-kH-Z62" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="751" width="361" height="51"/>
+                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="6yW-3z-lPW"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTap_SocialLogin:" destination="hVv-om-iC8" eventType="touchUpInside" id="eWx-6W-Aro"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AHr-6g-ZOW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZOh-Q8-LiP" firstAttribute="top" secondItem="AHr-6g-ZOW" secondAttribute="top" constant="10" id="8RM-8x-a7y"/>
+                            <constraint firstItem="A0k-JR-e7S" firstAttribute="leading" secondItem="ZOh-Q8-LiP" secondAttribute="leading" constant="18" id="91M-yU-2Z3"/>
+                            <constraint firstItem="AHr-6g-ZOW" firstAttribute="bottom" secondItem="mD9-kH-Z62" secondAttribute="bottom" constant="16" id="IIM-mB-aCX"/>
                             <constraint firstItem="ZOh-Q8-LiP" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="K8M-qn-EeO"/>
                             <constraint firstItem="AHr-6g-ZOW" firstAttribute="trailing" secondItem="ZOh-Q8-LiP" secondAttribute="trailing" constant="18" id="L1M-oA-lA8"/>
+                            <constraint firstItem="mD9-kH-Z62" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="NpE-YF-PoA"/>
+                            <constraint firstItem="daE-vg-AY3" firstAttribute="top" secondItem="ZOh-Q8-LiP" secondAttribute="bottom" constant="16" id="Om2-2Q-CCY"/>
+                            <constraint firstItem="A0k-JR-e7S" firstAttribute="top" secondItem="AHr-6g-ZOW" secondAttribute="top" constant="10" id="RNc-EN-TTZ"/>
+                            <constraint firstItem="hTm-4g-oiU" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="RZT-Ay-9M6"/>
+                            <constraint firstItem="daE-vg-AY3" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="cwD-nH-87b"/>
+                            <constraint firstItem="hTm-4g-oiU" firstAttribute="top" secondItem="daE-vg-AY3" secondAttribute="bottom" constant="20" id="jmW-Fl-9bs"/>
+                            <constraint firstAttribute="trailing" secondItem="mD9-kH-Z62" secondAttribute="trailing" constant="16" id="zoo-Fz-sb7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="curPageBarWidth_SocialLogin" destination="84H-Wq-IgN" id="Epz-zw-yfz"/>
+                        <outlet property="curPageBarX_SocialLogin" destination="91M-yU-2Z3" id="G7Q-Az-5fk"/>
+                        <outlet property="pageControlView_SocialLogin" destination="ZOh-Q8-LiP" id="slR-Em-OGY"/>
+                        <outlet property="titleLable_SocialLogin" destination="daE-vg-AY3" id="RJx-ng-bjS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPh-y1-9QI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3773" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Nickname View Controller-->
         <scene sceneID="LCp-wY-dCZ">
             <objects>
-                <viewController id="Gd4-yC-81k" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Nickname" id="Gd4-yC-81k" customClass="Nickname_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Y9-YB-4qX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,12 +452,12 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaT-Jr-xIl" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="29" y="194" width="80" height="9"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaT-Jr-xIl" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="36" y="69" width="80" height="9"/>
                                 <color key="backgroundColor" name="HandsUpOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="5Pi-tw-fQS"/>
@@ -388,28 +465,76 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-i1-yo2">
+                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                <color key="textColor" name="HandsUpMainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jA-Ih-vuy">
+                                <rect key="frame" x="18" y="151.66666666666666" width="28" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79K-o3-ld2" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="751" width="361" height="51"/>
+                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="BO3-qD-V3c"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTap_Nickname:" destination="Gd4-yC-81k" eventType="touchUpInside" id="mz1-Ti-4eh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XCl-4g-7GO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0jA-Ih-vuy" firstAttribute="top" secondItem="8Ti-i1-yo2" secondAttribute="bottom" constant="20" id="7Ek-pg-Y7n"/>
+                            <constraint firstItem="QaT-Jr-xIl" firstAttribute="leading" secondItem="71A-hH-v50" secondAttribute="leading" constant="18" id="HAO-Ap-kt5"/>
+                            <constraint firstItem="8Ti-i1-yo2" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="MHy-oC-tsE"/>
+                            <constraint firstItem="79K-o3-ld2" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="16" id="RTC-t7-OaC"/>
+                            <constraint firstItem="XCl-4g-7GO" firstAttribute="bottom" secondItem="79K-o3-ld2" secondAttribute="bottom" constant="16" id="SW7-ke-Rrg"/>
                             <constraint firstAttribute="trailing" secondItem="71A-hH-v50" secondAttribute="trailing" constant="18" id="VlA-Xq-Haw"/>
+                            <constraint firstItem="8Ti-i1-yo2" firstAttribute="top" secondItem="71A-hH-v50" secondAttribute="bottom" constant="16" id="geD-ba-Tel"/>
+                            <constraint firstItem="XCl-4g-7GO" firstAttribute="trailing" secondItem="79K-o3-ld2" secondAttribute="trailing" constant="16" id="gzC-Tc-plD"/>
                             <constraint firstItem="71A-hH-v50" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="mmC-QI-j5Q"/>
+                            <constraint firstItem="0jA-Ih-vuy" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="pKy-ku-XYf"/>
+                            <constraint firstItem="QaT-Jr-xIl" firstAttribute="top" secondItem="XCl-4g-7GO" secondAttribute="top" constant="10" id="v7t-th-Z4t"/>
                             <constraint firstItem="71A-hH-v50" firstAttribute="top" secondItem="XCl-4g-7GO" secondAttribute="top" constant="10" id="ylK-KW-moT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="curPageBarWidth_Nickname" destination="5Pi-tw-fQS" id="nZe-lu-RXG"/>
+                        <outlet property="curPageBarX_Nickname" destination="HAO-Ap-kt5" id="gnf-vV-gVe"/>
+                        <outlet property="pageControlView_Nickname" destination="71A-hH-v50" id="p53-4s-wzi"/>
+                        <outlet property="subTitleLabe_Nickname" destination="0jA-Ih-vuy" id="04Q-t8-IpF"/>
+                        <outlet property="titleLable_Nickname" destination="8Ti-i1-yo2" id="P0k-0V-GDd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGF-IX-woV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4668" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="aFY-FN-CaV">
             <objects>
-                <viewController id="DCc-Ea-A9V" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="DCc-Ea-A9V" customClass="Profile_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VxJ-kX-QZp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,12 +547,12 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-gZ-vnP" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="177" y="194" width="80" height="9"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-gZ-vnP" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="295" y="69" width="80" height="9"/>
                                 <color key="backgroundColor" name="HandsUpOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="1eo-WF-f06"/>
@@ -435,23 +560,88 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dub-sO-VFd" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="751" width="361" height="51"/>
+                                <color key="backgroundColor" name="HandsUpOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="VRd-wQ-5Hd"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="핸즈업 들어가기">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="joinHandsUpButtonTap_Profile:" destination="DCc-Ea-A9V" eventType="touchUpInside" id="Lqx-BZ-sgg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-bS-aXg">
+                                <rect key="frame" x="17.999999999999996" y="98" width="55.666666666666657" height="37.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                <color key="textColor" name="HandsUpMainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdI-ZW-iKE">
+                                <rect key="frame" x="18" y="155.66666666666666" width="28" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QbE-67-uNN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1xv-BJ-lOT" secondAttribute="trailing" constant="18" id="8pA-NK-Cga"/>
+                            <constraint firstItem="RtO-gZ-vnP" firstAttribute="top" secondItem="QbE-67-uNN" secondAttribute="top" constant="10" id="F6N-y9-f3l"/>
+                            <constraint firstItem="1xv-BJ-lOT" firstAttribute="trailing" secondItem="RtO-gZ-vnP" secondAttribute="trailing" id="HNW-6w-NJK"/>
                             <constraint firstItem="1xv-BJ-lOT" firstAttribute="top" secondItem="QbE-67-uNN" secondAttribute="top" constant="10" id="I0M-oV-hW2"/>
+                            <constraint firstItem="cwY-bS-aXg" firstAttribute="top" secondItem="1xv-BJ-lOT" secondAttribute="bottom" constant="20" id="NIC-sB-E9w"/>
+                            <constraint firstItem="sdI-ZW-iKE" firstAttribute="top" secondItem="cwY-bS-aXg" secondAttribute="bottom" constant="20" id="PWB-Wr-RMp"/>
+                            <constraint firstItem="QbE-67-uNN" firstAttribute="bottom" secondItem="dub-sO-VFd" secondAttribute="bottom" constant="16" id="WzZ-Oh-Gxu"/>
+                            <constraint firstItem="sdI-ZW-iKE" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="18" id="c0u-Hf-V80"/>
+                            <constraint firstAttribute="trailing" secondItem="dub-sO-VFd" secondAttribute="trailing" constant="16" id="erT-0v-cha"/>
+                            <constraint firstItem="cwY-bS-aXg" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="18" id="g1S-wC-3no"/>
+                            <constraint firstItem="dub-sO-VFd" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="16" id="jYX-dT-BRn"/>
                             <constraint firstItem="1xv-BJ-lOT" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="18" id="pQN-en-8Ax"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="curPageBarWidth_Profile" destination="1eo-WF-f06" id="UlW-Xr-5vZ"/>
+                        <outlet property="pageControlView_Profile" destination="1xv-BJ-lOT" id="Wr3-lJ-rUi"/>
+                        <outlet property="subTitleLabe_Profile" destination="sdI-ZW-iKE" id="JBs-AB-grc"/>
+                        <outlet property="titleLable_Profile" destination="cwY-bS-aXg" id="FVS-v1-4M6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ard-TI-1HA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5682" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PeQ-0y-anm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FKn-rs-iRw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z7J-QI-kzQ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Rth-I1-w0o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzy-nZ-e41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43.511450381679388" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
@@ -463,6 +653,9 @@
         </namedColor>
         <namedColor name="HandsUpLightGrey">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpMainText">
+            <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpOrange">
             <color red="0.95686274509803926" green="0.48627450980392156" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
