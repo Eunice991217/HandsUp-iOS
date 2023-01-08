@@ -112,25 +112,143 @@
                                 <color key="textColor" red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWh-jq-bvk" userLabel="CheckBoxBG_1" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="353" y="261.33333333333331" width="24" height="24"/>
+                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="kNz-be-27W"/>
+                                    <constraint firstAttribute="height" constant="24" id="yy3-A2-iaR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Ve-QRw">
+                                <rect key="frame" x="353" y="261.33333333333331" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="4SR-tv-khN"/>
+                                    <constraint firstAttribute="height" constant="24" id="s41-bG-f0b"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="OrangCheck"/>
+                                <connections>
+                                    <action selector="checkBox1Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1EX-e2-NnN"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zw5-GN-qji" userLabel="CheckBoxBG_2" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="353" y="317.33333333333331" width="24" height="24"/>
+                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Gtu-NH-kUE"/>
+                                    <constraint firstAttribute="width" constant="24" id="U7b-g8-I6F"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Pl-CPR">
+                                <rect key="frame" x="353" y="317.33333333333331" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="JFI-Zk-pF4"/>
+                                    <constraint firstAttribute="height" constant="24" id="UIB-LN-0vK"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="OrangCheck">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkBox2Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WtG-ig-Jsz"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-De-0bD" userLabel="CheckBoxBG_3" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="353" y="373.33333333333331" width="24" height="24"/>
+                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="TNa-HK-MlG"/>
+                                    <constraint firstAttribute="height" constant="24" id="c9K-wu-L4P"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-H7-ERF">
+                                <rect key="frame" x="353" y="373.33333333333331" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="8ar-yH-EcI"/>
+                                    <constraint firstAttribute="width" constant="24" id="fUl-dP-chQ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="OrangCheck"/>
+                                <connections>
+                                    <action selector="checkBox3Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BpK-2v-1kj"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRK-q9-Jhd" userLabel="CheckBoxBG_4" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="353" y="429.33333333333331" width="24" height="24"/>
+                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="3AG-BF-dP4"/>
+                                    <constraint firstAttribute="height" constant="24" id="LVj-pJ-gh2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J11-Yn-sCt">
+                                <rect key="frame" x="353" y="429.33333333333331" width="24" height="24"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.69999999999999996" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Bd0-10-ZUq"/>
+                                    <constraint firstAttribute="height" constant="24" id="ys6-Uq-yg7"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="OrangCheck"/>
+                                <connections>
+                                    <action selector="checkBox4Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qKM-xV-xLh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DXq-fx-h21" secondAttribute="bottom" constant="16" id="0qu-du-zZA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hbz-Pl-CPR" secondAttribute="trailing" constant="16" id="2fq-zz-tRv"/>
+                            <constraint firstItem="jWh-jq-bvk" firstAttribute="centerY" secondItem="IFK-d8-0Tv" secondAttribute="centerY" id="564-6s-aGU"/>
                             <constraint firstItem="epx-2b-qvG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="8YC-L2-U6H"/>
+                            <constraint firstItem="cRK-q9-Jhd" firstAttribute="centerY" secondItem="X9F-UG-7m0" secondAttribute="centerY" id="Abf-7c-hHT"/>
                             <constraint firstItem="ad7-Kb-NwN" firstAttribute="top" secondItem="qGA-bd-xEY" secondAttribute="bottom" constant="20" id="C3b-rq-rnE"/>
                             <constraint firstItem="iFO-yB-APm" firstAttribute="top" secondItem="IFK-d8-0Tv" secondAttribute="top" constant="56" id="DTF-aS-Q6l"/>
                             <constraint firstItem="qcw-gs-Ikx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="DWT-yz-9wx"/>
+                            <constraint firstItem="Le5-H7-ERF" firstAttribute="centerY" secondItem="qcw-gs-Ikx" secondAttribute="centerY" id="E8e-RI-feX"/>
                             <constraint firstItem="Lh7-3k-PzD" firstAttribute="leading" secondItem="p0C-Ku-CUW" secondAttribute="leading" constant="18" id="G7O-rp-pN7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zw5-GN-qji" secondAttribute="trailing" constant="16" id="HIs-qz-7sP"/>
+                            <constraint firstItem="fFn-De-0bD" firstAttribute="centerY" secondItem="qcw-gs-Ikx" secondAttribute="centerY" id="HWu-sk-34a"/>
+                            <constraint firstItem="hbz-Pl-CPR" firstAttribute="centerY" secondItem="iFO-yB-APm" secondAttribute="centerY" id="KTc-2G-z54"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hAJ-Ve-QRw" secondAttribute="trailing" constant="16" id="McH-of-g2w"/>
                             <constraint firstItem="IFK-d8-0Tv" firstAttribute="top" secondItem="ad7-Kb-NwN" secondAttribute="bottom" constant="49" id="NHt-Ax-AQA"/>
                             <constraint firstItem="qcw-gs-Ikx" firstAttribute="top" secondItem="iFO-yB-APm" secondAttribute="top" constant="56" id="NXq-FM-u54"/>
                             <constraint firstItem="qGA-bd-xEY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="O6O-6i-Vd8"/>
                             <constraint firstItem="IFK-d8-0Tv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="Rvv-XJ-qiK"/>
                             <constraint firstItem="iFO-yB-APm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="Se2-Lx-Ahe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fFn-De-0bD" secondAttribute="trailing" constant="16" id="TNr-eN-rdW"/>
                             <constraint firstItem="p0C-Ku-CUW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Tgn-rH-unk"/>
+                            <constraint firstItem="zw5-GN-qji" firstAttribute="centerY" secondItem="iFO-yB-APm" secondAttribute="centerY" id="WKn-i8-ECX"/>
                             <constraint firstItem="p0C-Ku-CUW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WjZ-Ga-0wb"/>
+                            <constraint firstItem="hAJ-Ve-QRw" firstAttribute="centerY" secondItem="IFK-d8-0Tv" secondAttribute="centerY" id="ane-vD-J9m"/>
                             <constraint firstItem="Lh7-3k-PzD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="dUS-CO-UMM"/>
+                            <constraint firstAttribute="trailing" secondItem="jWh-jq-bvk" secondAttribute="trailing" constant="16" id="hZR-jz-KdN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cRK-q9-Jhd" secondAttribute="trailing" constant="16" id="iTt-gS-n8v"/>
+                            <constraint firstItem="J11-Yn-sCt" firstAttribute="centerY" secondItem="X9F-UG-7m0" secondAttribute="centerY" id="nP2-H1-gXt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="p0C-Ku-CUW" secondAttribute="trailing" constant="16" id="nlS-sd-Zll"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Le5-H7-ERF" secondAttribute="trailing" constant="16" id="oz3-H8-jP9"/>
                             <constraint firstItem="X9F-UG-7m0" firstAttribute="top" secondItem="qcw-gs-Ikx" secondAttribute="top" constant="56" id="qVy-Im-GUM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DXq-fx-h21" secondAttribute="trailing" constant="16" id="qfC-Ko-ySC"/>
                             <constraint firstItem="ad7-Kb-NwN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="rOX-63-pwR"/>
@@ -138,10 +256,15 @@
                             <constraint firstItem="DXq-fx-h21" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vRb-Ca-wWK"/>
                             <constraint firstItem="epx-2b-qvG" firstAttribute="top" secondItem="X9F-UG-7m0" secondAttribute="top" constant="56" id="wGs-6U-eJI"/>
                             <constraint firstItem="qGA-bd-xEY" firstAttribute="top" secondItem="p0C-Ku-CUW" secondAttribute="bottom" constant="16" id="ygM-yx-BMU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J11-Yn-sCt" secondAttribute="trailing" constant="16" id="zJQ-FD-8lL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="raQ-eB-4DL"/>
                     <connections>
+                        <outlet property="checkBox1_Sign_up1" destination="hAJ-Ve-QRw" id="os8-ph-bQK"/>
+                        <outlet property="checkBox2_Sign_up1" destination="hbz-Pl-CPR" id="nmT-1D-WpU"/>
+                        <outlet property="checkBox3_Sign_up1" destination="Le5-H7-ERF" id="fcq-yb-5a8"/>
+                        <outlet property="checkBox4_Sign_up1" destination="J11-Yn-sCt" id="UJy-eR-6Am"/>
                         <outlet property="curPageBarWidth_Sign_up1" destination="FmW-Gg-JES" id="Cmj-JW-fNV"/>
                         <outlet property="curPageBarX_Sign_up1" destination="G7O-rp-pN7" id="zwA-Pv-Ibd"/>
                         <outlet property="nextButton_Sign_up1" destination="DXq-fx-h21" id="erd-X2-iVq"/>
@@ -645,6 +768,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="OrangCheck" width="512" height="410"/>
         <namedColor name="HandsUpBackground">
             <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
