@@ -2,12 +2,12 @@ import UIKit
 
 class FindPW_ViewController: UIViewController {
 
-    @IBOutlet weak var PWTextField_FindPW: UITextField!
+    @IBOutlet weak var emailTextField_FindPW: UITextField!
     @IBOutlet weak var findPWButton_FindPW: RoundedShadow_UIButton!
     var isFindPWEnable_FindPW: Bool  = false
     
     @objc func isIDInput(_sender: Any?){
-        if(PWTextField_FindPW.text != ""){
+        if(emailTextField_FindPW.text != ""){
             findPWButton_FindPW.backgroundColor = UIColor(named: "HandsUpOrange")
             self.isFindPWEnable_FindPW = true
             
@@ -20,6 +20,7 @@ class FindPW_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
-        self.PWTextField_FindPW.addTarget(self, action: #selector(self.isIDInput(_sender:)), for: .editingChanged)
+        self.emailTextField_FindPW.addTarget(self, action: #selector(self.isIDInput(_sender:)), for: .editingChanged)
+        emailTextField_FindPW.keyboardType = .emailAddress
     }
 }

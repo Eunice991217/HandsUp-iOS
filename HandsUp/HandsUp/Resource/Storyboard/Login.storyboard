@@ -310,9 +310,14 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gq-UB-7zW">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
                                         <color key="tintColor" name="HandsUpGrey"/>
-                                        <color key="textColor" name="HandsUpGrey"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" name="HandsUpGrey"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hf8-Ss-RBl">
                                         <rect key="frame" x="321" y="14.666666666666684" width="24" height="22.666666666666664"/>
@@ -357,9 +362,14 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vn9-Rq-bNS">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
                                         <color key="tintColor" name="HandsUpGrey"/>
-                                        <color key="textColor" name="HandsUpGrey"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" name="HandsUpGrey"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQm-HR-237">
                                         <rect key="frame" x="321" y="13.666666666666686" width="24" height="24"/>
@@ -430,6 +440,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="아이디 찾기">
                                     <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="findPWButton_Login:" destination="Iml-KB-Rqu" eventType="touchUpInside" id="Weq-Dc-qsR"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kel-5e-47l" userLabel="Line">
                                 <rect key="frame" x="148.66666666666666" y="476.66666666666669" width="1" height="13"/>
@@ -529,10 +542,10 @@
             </objects>
             <point key="canvasLocation" x="1881.679389312977" y="-21.126760563380284"/>
         </scene>
-        <!--비밀번호 찾기-->
+        <!--아이디/비밀번호 찾기-->
         <scene sceneID="4hC-4n-iHQ">
             <objects>
-                <viewController storyboardIdentifier="FindPW" title="비밀번호 찾기" id="JOP-SQ-KEP" customClass="FindPW_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FindPW" title="아이디/비밀번호 찾기" id="JOP-SQ-KEP" customClass="FindPW_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hUm-JP-gd4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -540,11 +553,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKy-a5-d5d" userLabel="PWBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="111" width="361" height="51"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lco-Fu-yqk">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="개인 학교 이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lco-Fu-yqk">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
-                                        <color key="textColor" name="HandsUpGrey"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" name="HandsUpGrey"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
@@ -581,7 +599,7 @@
                                 </constraints>
                                 <color key="tintColor" name="HandsUpRealWhite"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="로그인">
+                                <buttonConfiguration key="configuration" style="plain" title="비밀번호 찾기">
                                     <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -624,7 +642,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PWTextField_FindPW" destination="lco-Fu-yqk" id="bdi-bh-iBX"/>
+                        <outlet property="emailTextField_FindPW" destination="lco-Fu-yqk" id="WX8-Ys-sH9"/>
                         <outlet property="findPWButton_FindPW" destination="O5O-82-ltE" id="BYJ-4S-zJP"/>
                     </connections>
                 </viewController>
