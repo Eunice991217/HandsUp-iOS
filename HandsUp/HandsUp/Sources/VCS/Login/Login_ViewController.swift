@@ -102,6 +102,9 @@ class Login_ViewController: UIViewController {
         loginErrorMark_Login.alpha = 1
         emailBox_Login.layer.borderWidth = 1
         IDTextField_Login.textColor = UIColor(named: "HandsUpRed")
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+        }
         emailBox_Login.shake()
         
     }
