@@ -71,46 +71,43 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGA-bd-xEY">
-                                <rect key="frame" x="17.999999999999996" y="138" width="55.666666666666657" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="9gh-69-Hw6"/>
-                                </constraints>
+                                <rect key="frame" x="17.999999999999996" y="138" width="55.666666666666657" height="37.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원활한 서비스 이용을 위해 동의해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad7-Kb-NwN">
-                                <rect key="frame" x="17" y="248" width="251" height="19"/>
+                                <rect key="frame" x="17" y="195.66666666666666" width="251" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용약관 동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFK-d8-0Tv">
-                                <rect key="frame" x="17" y="316" width="175" height="19"/>
+                                <rect key="frame" x="17" y="263.66666666666669" width="175" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 및 이용 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFO-yB-APm">
-                                <rect key="frame" x="17" y="372" width="168" height="19"/>
+                                <rect key="frame" x="17" y="319.66666666666669" width="168" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치정보서비스 제공 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-gs-Ikx">
-                                <rect key="frame" x="17" y="428" width="198.33333333333334" height="19"/>
+                                <rect key="frame" x="17" y="375.66666666666669" width="198.33333333333334" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 제3자 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9F-UG-7m0">
-                                <rect key="frame" x="17" y="484" width="166" height="19"/>
+                                <rect key="frame" x="17" y="431.66666666666669" width="166" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epx-2b-qvG">
-                                <rect key="frame" x="17" y="540" width="132.66666666666666" height="19"/>
+                                <rect key="frame" x="17" y="487.66666666666669" width="132.66666666666666" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -190,7 +187,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -203,10 +200,42 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFz-GT-4rT">
+                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 대학교학생들만 사용 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3H-xz-FxF">
+                                <rect key="frame" x="18" y="151.66666666666666" width="219.66666666666666" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph0-lX-685" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="751" width="361" height="51"/>
+                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="aD8-OJ-vDb"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="W4T-lH-lV8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AC3-Qb-EKU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -214,10 +243,23 @@
                             <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="dpv-f8-nhi" secondAttribute="trailing" constant="18" id="3Fa-5h-kJK"/>
                             <constraint firstItem="56P-iu-67U" firstAttribute="leading" secondItem="dpv-f8-nhi" secondAttribute="leading" constant="18" id="Bgs-Lf-Q99"/>
                             <constraint firstItem="dpv-f8-nhi" firstAttribute="leading" secondItem="bTB-IL-caL" secondAttribute="leading" constant="18" id="WmX-CO-Use"/>
+                            <constraint firstItem="ph0-lX-685" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="Ysl-QA-nrF"/>
+                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="ph0-lX-685" secondAttribute="trailing" constant="16" id="e4t-eB-b9G"/>
+                            <constraint firstItem="P3H-xz-FxF" firstAttribute="leading" secondItem="bTB-IL-caL" secondAttribute="leading" constant="18" id="lKs-yR-z5q"/>
                             <constraint firstItem="dpv-f8-nhi" firstAttribute="top" secondItem="AC3-Qb-EKU" secondAttribute="top" constant="10" id="mzq-aQ-j4s"/>
+                            <constraint firstItem="YFz-GT-4rT" firstAttribute="top" secondItem="dpv-f8-nhi" secondAttribute="bottom" constant="16" id="rPR-Go-v4I"/>
+                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="bottom" secondItem="ph0-lX-685" secondAttribute="bottom" constant="16" id="tUW-Fs-5RZ"/>
+                            <constraint firstItem="P3H-xz-FxF" firstAttribute="top" secondItem="YFz-GT-4rT" secondAttribute="bottom" constant="20" id="vrU-yc-YaJ"/>
                             <constraint firstItem="56P-iu-67U" firstAttribute="top" secondItem="AC3-Qb-EKU" secondAttribute="top" constant="10" id="yPJ-FZ-d72"/>
+                            <constraint firstItem="YFz-GT-4rT" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="18" id="zzu-f2-4d6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="curPageBarWidth_Sign_up2" destination="NAc-dZ-FtX" id="km9-de-gUL"/>
+                        <outlet property="curPageBarX_Sign_up2" destination="Bgs-Lf-Q99" id="Kmj-HY-g0G"/>
+                        <outlet property="pageControlView_Sign_up2" destination="dpv-f8-nhi" id="09w-xV-slA"/>
+                        <outlet property="titleLable_Sign_up2" destination="YFz-GT-4rT" id="4UE-9Y-IHG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1h-WB-Cs8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

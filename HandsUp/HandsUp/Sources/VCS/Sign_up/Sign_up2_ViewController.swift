@@ -9,21 +9,29 @@ import UIKit
 
 class Sign_up2_ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var curPageBarX_Sign_up2: NSLayoutConstraint!
+    @IBOutlet weak var curPageBarWidth_Sign_up2: NSLayoutConstraint!
+    @IBOutlet weak var pageControlView_Sign_up2: RoundedShadow_UIView!
+    @IBOutlet weak var titleLable_Sign_up2: UILabel!
+    
+    func pageBarInit(){
+        let widthValue_Sign_up2 = pageControlView_Sign_up2.frame.size.width / 6
+        curPageBarX_Sign_up2.constant = widthValue_Sign_up2
+        curPageBarWidth_Sign_up2.constant = widthValue_Sign_up2 as CGFloat
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func titleInit(){
+     titleLable_Sign_up2.text = "다니시는 대학교\n선택해주세요"
+        self.navigationController?.navigationBar.topItem?.title = ""
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        titleInit()
+        pageBarInit()
+    }
+    
+    
+
 
 }
