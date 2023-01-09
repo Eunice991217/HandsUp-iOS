@@ -22,8 +22,9 @@ class SocialLogin_ViewController: UIViewController {
     
     @IBAction func getVerificationCodeButtonTap_SocialLogin(_ sender: Any) {
         if(emailTextField_SocialLogin.text != ""){
+            verificationCodeTextField_SocialLogin.text = ""
             //인증메일 전송
-            verificationCodeTextField_SocialLogin.isEnabled = true
+            //verificationCodeTextField_SocialLogin.isEnabled = true
         }
     }
     
@@ -47,22 +48,29 @@ class SocialLogin_ViewController: UIViewController {
     
     func correctVerificationCode_SocialLogin(){
         greenCheck_SocialLogin.alpha = 1
+        exclamationMark_SocialLogin.alpha = 0
         verificationCodeBox_SocialLogin.layer.borderWidth = 1
         verificationCodeBox_SocialLogin.layer.borderColor = UIColor(named: "HandsUpGreen")?.cgColor
+        verificationCodeTextField_SocialLogin.textColor = UIColor(named: "HandsUpDarkGrey")
         nextButtonEnable_SocialLogin()
     }
     
     func wrongVerificationCodeError_SocialLogin(){
+        greenCheck_SocialLogin.alpha = 0
         exclamationMark_SocialLogin.alpha = 1
         verificationCodeBox_SocialLogin.layer.borderWidth = 1
         verificationCodeBox_SocialLogin.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor
         verificationCodeTextField_SocialLogin.textColor = UIColor(named: "HandsUpRed")
-        verificationCodeBox_SocialLogin.shake()
+        nextButtonDisable_SocialLogin()
     }
     
     func nextButtonEnable_SocialLogin(){
         nextButton_SocialLogin.backgroundColor = UIColor(named: "HandsUpOrange")
         isVerified_SocialLogin = true
+    }
+    func nextButtonDisable_SocialLogin(){
+        nextButton_SocialLogin.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+        isVerified_SocialLogin = false
     }
     
     @objc func isEmailInput_SocialLogin(_sender: Any){
@@ -72,22 +80,27 @@ class SocialLogin_ViewController: UIViewController {
         else{
             getVerificationCodeButton_SocialLogin.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
         }
-        verificationCodeTextField_SocialLogin.isEnabled = false
+        //verificationCodeTextField_SocialLogin.isEnabled = false
     }
     
     @objc func isCorrectVerificationCode_SocialLogin(_sender: Any){
-        if(verificationCodeTextField_SocialLogin.text?.count == 8){
+        if(verificationCodeTextField_SocialLogin.text?.count != 0){
             if(verificationCodeTextField_SocialLogin.text == "12345678"){
                 correctVerificationCode_SocialLogin()
             }else{
                 wrongVerificationCodeError_SocialLogin()
             }
         }else{
-            greenCheck_SocialLogin.alpha = 0
-            exclamationMark_SocialLogin.alpha = 0
-            verificationCodeBox_SocialLogin.layer.borderWidth = 0
-            verificationCodeTextField_SocialLogin.textColor = UIColor(named: "HandsUpDarkGrey")
+            resetVerificationCodeTextField_SocialLogin()
         }
+    }
+    
+    func resetVerificationCodeTextField_SocialLogin(){
+        greenCheck_SocialLogin.alpha = 0
+        exclamationMark_SocialLogin.alpha = 0
+        verificationCodeBox_SocialLogin.layer.borderWidth = 0
+        verificationCodeTextField_SocialLogin.textColor = UIColor(named: "HandsUpDarkGrey")
+        
     }
     
     func detectingInput_SocialLogin(){

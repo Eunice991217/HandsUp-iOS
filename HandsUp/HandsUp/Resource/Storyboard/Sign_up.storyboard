@@ -463,12 +463,337 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-iv-qW8">
-                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xn0-hL-D2H">
+                                <rect key="frame" x="0.0" y="86" width="393" height="732"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-q4-U0P">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="634"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-iv-qW8">
+                                                <rect key="frame" x="17.999999999999996" y="8" width="55.666666666666657" height="37.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                                <color key="textColor" name="HandsUpMainText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H9-he-Gvv">
+                                                <rect key="frame" x="18" y="65.666666666666657" width="28" height="19"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5L-AN-bfW" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="135.66666666666666" width="245" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="개인 학교 이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwk-PT-WMW">
+                                                        <rect key="frame" x="16" y="0.0" width="213" height="50"/>
+                                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartInsertDeleteType="no" textContentType="email"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                <color key="value" name="HandsUpGrey"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="fwk-PT-WMW" firstAttribute="top" secondItem="m5L-AN-bfW" secondAttribute="top" id="4Cm-id-mlM"/>
+                                                    <constraint firstItem="fwk-PT-WMW" firstAttribute="leading" secondItem="m5L-AN-bfW" secondAttribute="leading" constant="16" id="bJE-Hw-TNa"/>
+                                                    <constraint firstAttribute="height" constant="50" id="c2K-WA-eiS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fwk-PT-WMW" secondAttribute="trailing" constant="16" id="gBn-Hq-8zB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fwk-PT-WMW" secondAttribute="bottom" id="nN0-ic-aBq"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.10000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-TQ-GVD" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="277" y="135.66666666666666" width="100" height="50"/>
+                                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="74h-oO-Mze"/>
+                                                    <constraint firstAttribute="height" constant="50" id="W3x-Ni-FQD"/>
+                                                </constraints>
+                                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="인증번호받기">
+                                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="getVerificationCodeButtonTap_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="u4A-vt-CEV"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교메일이 아이디로 사용됩니다.이메일을 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvl-RC-qLs">
+                                                <rect key="frame" x="22" y="201.66666666666669" width="264.66666666666669" height="14.333333333333343"/>
+                                                <color key="tintColor" name="HandsUpDarkGrey"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRR-8w-G9I">
+                                                <rect key="frame" x="21.999999999999993" y="236" width="87.333333333333314" height="19"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <color key="textColor" name="HandsUpMainText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3df-9X-0jW" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="267" width="361" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bni-YR-qoA">
+                                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
+                                                        <color key="tintColor" name="HandsUpDarkGrey"/>
+                                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                <color key="value" name="HandsUpGrey"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenCheck" translatesAutoresizingMaskIntoConstraints="NO" id="eFp-RX-Qsk">
+                                                        <rect key="frame" x="325" y="17" width="16" height="16"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="16" id="DTl-CS-oSd"/>
+                                                            <constraint firstAttribute="width" constant="16" id="yFF-Ud-L9E"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-PK-TCx">
+                                                        <rect key="frame" x="321" y="13.999999999999998" width="24" height="22.666666666666664"/>
+                                                        <color key="tintColor" name="HandsUpRed"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="4Gt-XE-q9q"/>
+                                                            <constraint firstAttribute="width" constant="24" id="kRI-eZ-DmM"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="eFp-RX-Qsk" secondAttribute="trailing" constant="20" id="6Y6-G8-RZ3"/>
+                                                    <constraint firstAttribute="height" constant="50" id="8RY-RL-9db"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bni-YR-qoA" secondAttribute="trailing" constant="56" id="91N-IH-9Jd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WrV-PK-TCx" secondAttribute="trailing" constant="16" id="EAq-ac-n0u"/>
+                                                    <constraint firstItem="bni-YR-qoA" firstAttribute="top" secondItem="3df-9X-0jW" secondAttribute="top" id="FoH-Ed-VGI"/>
+                                                    <constraint firstItem="WrV-PK-TCx" firstAttribute="centerY" secondItem="3df-9X-0jW" secondAttribute="centerY" id="N5D-4P-2B5"/>
+                                                    <constraint firstItem="eFp-RX-Qsk" firstAttribute="centerY" secondItem="3df-9X-0jW" secondAttribute="centerY" id="l6u-8d-m4S"/>
+                                                    <constraint firstItem="bni-YR-qoA" firstAttribute="leading" secondItem="3df-9X-0jW" secondAttribute="leading" constant="16" id="nhc-5G-ATJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bni-YR-qoA" secondAttribute="bottom" id="qXo-ee-022"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.10000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ff-bh-NK0">
+                                                <rect key="frame" x="21.999999999999996" y="337" width="55.666666666666657" height="19"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <color key="textColor" name="HandsUpMainText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-hG-WD6" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="364" width="361" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyR-BL-jf2">
+                                                        <rect key="frame" x="321" y="13" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="JIH-sc-xSK"/>
+                                                            <constraint firstAttribute="width" constant="24" id="UKQ-PW-hD8"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="HandsUpDarkGrey"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="setPWSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="0m0-AZ-pap"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Gf-Ug-JUe">
+                                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
+                                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="new-password"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                <color key="value" name="HandsUpGrey"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="2gg-oQ-ZXI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4Gf-Ug-JUe" secondAttribute="bottom" id="Bpl-bZ-fDT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IyR-BL-jf2" secondAttribute="trailing" constant="16" id="HVQ-iR-f65"/>
+                                                    <constraint firstItem="4Gf-Ug-JUe" firstAttribute="leading" secondItem="Toc-hG-WD6" secondAttribute="leading" constant="16" id="SvE-nk-kjv"/>
+                                                    <constraint firstItem="4Gf-Ug-JUe" firstAttribute="top" secondItem="Toc-hG-WD6" secondAttribute="top" id="Zr8-jq-5nJ"/>
+                                                    <constraint firstItem="IyR-BL-jf2" firstAttribute="centerY" secondItem="Toc-hG-WD6" secondAttribute="centerY" id="oSu-1v-u9a"/>
+                                                    <constraint firstItem="IyR-BL-jf2" firstAttribute="leading" secondItem="4Gf-Ug-JUe" secondAttribute="trailing" constant="16" id="vZp-3b-LUK"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.10000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWw-LP-l4i">
+                                                <rect key="frame" x="21.999999999999993" y="434" width="87.333333333333314" height="19"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <color key="textColor" name="HandsUpMainText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-Zm-2S9" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="461" width="361" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-0J-b4B">
+                                                        <rect key="frame" x="321" y="13" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="24" id="8sB-sG-F0q"/>
+                                                            <constraint firstAttribute="height" constant="24" id="z8B-Mt-RlU"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="HandsUpDarkGrey"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="setPWConfirmationSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="rrR-OB-F56"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-2p-26J">
+                                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
+                                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="new-password"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                <color key="value" name="HandsUpGrey"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="FbJ-2p-26J" firstAttribute="leading" secondItem="ZJn-Zm-2S9" secondAttribute="leading" constant="16" id="9va-l6-Zyg"/>
+                                                    <constraint firstItem="OzB-0J-b4B" firstAttribute="centerY" secondItem="ZJn-Zm-2S9" secondAttribute="centerY" id="F1b-jL-3QY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OzB-0J-b4B" secondAttribute="trailing" constant="16" id="OPK-c0-WjX"/>
+                                                    <constraint firstItem="FbJ-2p-26J" firstAttribute="top" secondItem="ZJn-Zm-2S9" secondAttribute="top" id="aXw-10-gO0"/>
+                                                    <constraint firstAttribute="height" constant="50" id="bji-jP-neZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FbJ-2p-26J" secondAttribute="bottom" id="cQE-DK-4Ba"/>
+                                                    <constraint firstItem="OzB-0J-b4B" firstAttribute="leading" secondItem="FbJ-2p-26J" secondAttribute="trailing" constant="16" id="yiX-ZC-eyQ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.10000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HandsUpBackground"/>
+                                        <constraints>
+                                            <constraint firstItem="kvl-RC-qLs" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="0xT-Hd-qPa"/>
+                                            <constraint firstItem="bV9-iv-qW8" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="18" id="18c-gA-mwo"/>
+                                            <constraint firstItem="BRR-8w-G9I" firstAttribute="top" secondItem="kvl-RC-qLs" secondAttribute="bottom" constant="20" id="1GF-uQ-aEa"/>
+                                            <constraint firstAttribute="trailing" secondItem="Toc-hG-WD6" secondAttribute="trailing" constant="16" id="47P-Oh-ae5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nw4-TQ-GVD" secondAttribute="trailing" constant="16" id="4D3-sI-ELi"/>
+                                            <constraint firstItem="Nw4-TQ-GVD" firstAttribute="leading" secondItem="m5L-AN-bfW" secondAttribute="trailing" constant="16" id="5OC-ey-nah"/>
+                                            <constraint firstItem="ZJn-Zm-2S9" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="6G9-tX-76K"/>
+                                            <constraint firstAttribute="height" priority="500" constant="600" id="84g-0d-Sb1"/>
+                                            <constraint firstItem="6H9-he-Gvv" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="18" id="8Q6-cK-Lmc"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZJn-Zm-2S9" secondAttribute="bottom" constant="123" id="EBt-d0-Tn2"/>
+                                            <constraint firstItem="m5L-AN-bfW" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="Kio-P9-7J1"/>
+                                            <constraint firstItem="bV9-iv-qW8" firstAttribute="top" secondItem="Ych-q4-U0P" secondAttribute="top" constant="8" id="Lx8-gX-26q"/>
+                                            <constraint firstItem="HWw-LP-l4i" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="OCn-b6-rgp"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZJn-Zm-2S9" secondAttribute="trailing" constant="16" id="QYD-Ac-6Eo"/>
+                                            <constraint firstItem="9Ff-bh-NK0" firstAttribute="top" secondItem="3df-9X-0jW" secondAttribute="bottom" constant="20" id="RW3-XG-Fgd"/>
+                                            <constraint firstItem="3df-9X-0jW" firstAttribute="top" secondItem="BRR-8w-G9I" secondAttribute="bottom" constant="12" id="U25-hy-nxQ"/>
+                                            <constraint firstItem="Toc-hG-WD6" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="ZuA-95-3su"/>
+                                            <constraint firstItem="HWw-LP-l4i" firstAttribute="top" secondItem="Toc-hG-WD6" secondAttribute="bottom" constant="20" id="aKt-YV-SeO"/>
+                                            <constraint firstItem="3df-9X-0jW" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="bcz-bm-3fL"/>
+                                            <constraint firstItem="kvl-RC-qLs" firstAttribute="top" secondItem="m5L-AN-bfW" secondAttribute="bottom" constant="16" id="dkw-ew-2Ve"/>
+                                            <constraint firstItem="BRR-8w-G9I" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="ffS-Ca-tSE"/>
+                                            <constraint firstItem="m5L-AN-bfW" firstAttribute="top" secondItem="6H9-he-Gvv" secondAttribute="bottom" constant="51" id="imo-sE-Z3C"/>
+                                            <constraint firstItem="6H9-he-Gvv" firstAttribute="top" secondItem="bV9-iv-qW8" secondAttribute="bottom" constant="20" id="kzg-fd-0E2"/>
+                                            <constraint firstItem="ZJn-Zm-2S9" firstAttribute="top" secondItem="HWw-LP-l4i" secondAttribute="bottom" constant="8" id="lQq-w9-htS"/>
+                                            <constraint firstItem="9Ff-bh-NK0" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="mlO-6h-4YB"/>
+                                            <constraint firstAttribute="trailing" secondItem="3df-9X-0jW" secondAttribute="trailing" constant="16" id="vD8-WK-kjA"/>
+                                            <constraint firstItem="Toc-hG-WD6" firstAttribute="top" secondItem="9Ff-bh-NK0" secondAttribute="bottom" constant="8" id="xB0-07-cZo"/>
+                                            <constraint firstItem="Nw4-TQ-GVD" firstAttribute="centerY" secondItem="m5L-AN-bfW" secondAttribute="centerY" id="zPg-0t-Ic6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="width" secondItem="U3j-h3-lV6" secondAttribute="width" id="9MH-F6-rGQ"/>
+                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="top" secondItem="ugX-aS-9T9" secondAttribute="top" id="CXn-L5-63n"/>
+                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="bottom" secondItem="ugX-aS-9T9" secondAttribute="bottom" id="UiE-bS-MmS"/>
+                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="trailing" secondItem="ugX-aS-9T9" secondAttribute="trailing" id="YJm-uI-ft3"/>
+                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="leading" secondItem="ugX-aS-9T9" secondAttribute="leading" id="s9R-7a-0aK"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ugX-aS-9T9"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="U3j-h3-lV6"/>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhu-Hz-NnL" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="751" width="361" height="51"/>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
@@ -489,41 +814,47 @@
                                     <action selector="nextButtonTap_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="M6H-iF-wDp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H9-he-Gvv">
-                                <rect key="frame" x="18" y="151.66666666666666" width="28" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rxT-wN-7b0"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
-                            <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Jhu-Hz-NnL" secondAttribute="bottom" constant="16" id="HXP-K1-CBL"/>
-                            <constraint firstItem="6H9-he-Gvv" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="18" id="IQZ-sD-oOY"/>
-                            <constraint firstItem="Jhu-Hz-NnL" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="16" id="Kpf-NK-V6r"/>
+                            <constraint firstItem="rxT-wN-7b0" firstAttribute="trailing" secondItem="Jhu-Hz-NnL" secondAttribute="trailing" constant="16" id="29S-tC-Syh"/>
+                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="top" secondItem="91f-oE-XFo" secondAttribute="bottom" constant="8" symbolic="YES" id="47C-ip-o8l"/>
+                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="trailing" secondItem="rxT-wN-7b0" secondAttribute="trailing" id="8bG-0w-IVt"/>
+                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" id="AWC-QH-Xjz"/>
                             <constraint firstItem="rxT-wN-7b0" firstAttribute="trailing" secondItem="91f-oE-XFo" secondAttribute="trailing" constant="18" id="R6r-0c-011"/>
                             <constraint firstItem="91f-oE-XFo" firstAttribute="leading" secondItem="bs7-wn-e2y" secondAttribute="leading" constant="18" id="UC1-Z5-c6r"/>
-                            <constraint firstItem="bV9-iv-qW8" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="18" id="YSj-D1-Rxp"/>
-                            <constraint firstAttribute="trailing" secondItem="Jhu-Hz-NnL" secondAttribute="trailing" constant="16" id="dm7-dK-B0b"/>
+                            <constraint firstItem="Jhu-Hz-NnL" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="16" id="e0P-9Q-hjc"/>
                             <constraint firstItem="lUn-Ev-7vG" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="j3F-oF-TIh"/>
-                            <constraint firstItem="6H9-he-Gvv" firstAttribute="top" secondItem="bV9-iv-qW8" secondAttribute="bottom" constant="20" id="paH-7q-feD"/>
-                            <constraint firstItem="bV9-iv-qW8" firstAttribute="top" secondItem="91f-oE-XFo" secondAttribute="bottom" constant="16" id="u02-eb-CL5"/>
+                            <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Jhu-Hz-NnL" secondAttribute="bottom" constant="16" id="row-eh-LZj"/>
                             <constraint firstItem="lUn-Ev-7vG" firstAttribute="leading" secondItem="91f-oE-XFo" secondAttribute="leading" constant="18" id="vIY-4g-XZD"/>
+                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="bottom" secondItem="rxT-wN-7b0" secondAttribute="bottom" priority="200" id="x6g-I0-mL5"/>
                             <constraint firstItem="91f-oE-XFo" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="xgJ-wa-7o4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="PWConfirmationBox_EmailSign_up" destination="ZJn-Zm-2S9" id="3n9-79-0NG"/>
+                        <outlet property="PWtextField_EmailSign_up" destination="4Gf-Ug-JUe" id="Q8G-6h-EFZ"/>
                         <outlet property="curPageBarWidth_EmailSign_up" destination="f9x-sO-eeC" id="Gxt-sL-uma"/>
                         <outlet property="curPageBarX_EmailSign_up" destination="vIY-4g-XZD" id="xRG-NE-1QO"/>
+                        <outlet property="emailTextField_EmailSign_up" destination="fwk-PT-WMW" id="OPh-IC-3VS"/>
+                        <outlet property="exclamationMark_EmailSign_up" destination="WrV-PK-TCx" id="yNz-Z9-e8r"/>
+                        <outlet property="getVerificationCodeButton_EmailSign_up" destination="Nw4-TQ-GVD" id="hOz-DZ-XdW"/>
+                        <outlet property="greenCheck_EmailSign_up" destination="eFp-RX-Qsk" id="flu-sG-LJi"/>
+                        <outlet property="nextButton_EmailSign_up" destination="Jhu-Hz-NnL" id="HNN-u0-Pkg"/>
                         <outlet property="pageControlView_EmailSign_up" destination="91f-oE-XFo" id="wQY-Kc-JLw"/>
+                        <outlet property="passwordConfirmationTextField_EmailSign_up" destination="FbJ-2p-26J" id="hWq-F8-pET"/>
+                        <outlet property="showPWButton_EmailSign_up" destination="IyR-BL-jf2" id="Ysc-EA-JIf"/>
+                        <outlet property="showPWConfirmationButton_EmailSign_up" destination="OzB-0J-b4B" id="vff-8v-3uD"/>
                         <outlet property="subTitleLabe_EmailSign_up" destination="6H9-he-Gvv" id="wAq-Gr-86w"/>
                         <outlet property="titleLable_EmailSign_up" destination="bV9-iv-qW8" id="Tn0-Gh-5VY"/>
+                        <outlet property="verificationCodeBox_EmailSign_up" destination="3df-9X-0jW" id="FT1-tA-OHc"/>
+                        <outlet property="verificationCodeTextField_EmailSign_up" destination="bni-YR-qoA" id="nwx-VT-fLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spz-Pz-0bZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807" y="-2"/>
+            <point key="canvasLocation" x="2806.8702290076335" y="-2.1126760563380285"/>
         </scene>
         <!--Social Login View Controller-->
         <scene sceneID="mU9-Pg-tOM">
@@ -661,10 +992,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrP-VU-go9" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="317.66666666666669" width="361" height="50"/>
+                                <rect key="frame" x="16" y="321.66666666666669" width="361" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEc-cJ-kJ5">
-                                        <rect key="frame" x="16" y="0.0" width="305" height="50"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEc-cJ-kJ5">
+                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
                                         <color key="tintColor" name="HandsUpDarkGrey"/>
                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
@@ -700,7 +1031,7 @@
                                     <constraint firstItem="8Xj-zH-Bk3" firstAttribute="centerY" secondItem="BrP-VU-go9" secondAttribute="centerY" id="Lye-lG-0I8"/>
                                     <constraint firstItem="c2P-Dg-ihV" firstAttribute="centerY" secondItem="BrP-VU-go9" secondAttribute="centerY" id="hy3-WR-pK5"/>
                                     <constraint firstAttribute="height" constant="50" id="iKT-AT-c9h"/>
-                                    <constraint firstAttribute="trailing" secondItem="GEc-cJ-kJ5" secondAttribute="trailing" constant="40" id="nqj-QS-lNE"/>
+                                    <constraint firstAttribute="trailing" secondItem="GEc-cJ-kJ5" secondAttribute="trailing" constant="56" id="nqj-QS-lNE"/>
                                     <constraint firstAttribute="trailing" secondItem="c2P-Dg-ihV" secondAttribute="trailing" constant="20" id="v1e-fg-eJa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -745,7 +1076,7 @@
                             <constraint firstItem="daE-vg-AY3" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="cwD-nH-87b"/>
                             <constraint firstItem="sgT-YQ-mY9" firstAttribute="centerY" secondItem="Vu3-Mg-uGk" secondAttribute="centerY" id="fiF-k4-yBK"/>
                             <constraint firstItem="hTm-4g-oiU" firstAttribute="top" secondItem="daE-vg-AY3" secondAttribute="bottom" constant="20" id="jmW-Fl-9bs"/>
-                            <constraint firstItem="BrP-VU-go9" firstAttribute="top" secondItem="SVM-1p-WUs" secondAttribute="bottom" constant="8" id="mob-6T-M7s"/>
+                            <constraint firstItem="BrP-VU-go9" firstAttribute="top" secondItem="SVM-1p-WUs" secondAttribute="bottom" constant="12" id="mob-6T-M7s"/>
                             <constraint firstItem="Vu3-Mg-uGk" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="oJC-R2-MQl"/>
                             <constraint firstItem="SVM-1p-WUs" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="wED-xI-ZkQ"/>
                             <constraint firstItem="SVM-1p-WUs" firstAttribute="top" secondItem="Vu3-Mg-uGk" secondAttribute="bottom" constant="20" id="ymS-1C-piS"/>
@@ -871,6 +1202,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                         <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -1034,6 +1368,7 @@
         <image name="GreenCheck" width="512" height="370"/>
         <image name="OrangeCheck" width="512" height="410"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="123"/>
+        <image name="eye" catalog="system" width="128" height="79"/>
         <namedColor name="HandsUpBackground">
             <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
