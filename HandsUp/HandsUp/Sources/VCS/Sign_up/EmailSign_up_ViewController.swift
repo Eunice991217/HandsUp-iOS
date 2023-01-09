@@ -9,6 +9,7 @@ import UIKit
 
 class EmailSign_up_ViewController: UIViewController {
     
+    @IBOutlet weak var scrollView_EmailSign_up: UIScrollView!
     @IBOutlet weak var curPageBarX_EmailSign_up: NSLayoutConstraint!
     @IBOutlet weak var curPageBarWidth_EmailSign_up: NSLayoutConstraint!
     @IBOutlet weak var pageControlView_EmailSign_up: RoundedShadow_UIView!
@@ -26,9 +27,38 @@ class EmailSign_up_ViewController: UIViewController {
     @IBOutlet weak var passwordConfirmationTextField_EmailSign_up: UITextField!
     @IBOutlet weak var showPWConfirmationButton_EmailSign_up:UIButton!
     @IBOutlet weak var nextButton_EmailSign_up: RoundedShadow_UIButton!
+    @IBOutlet weak var scrollViewBottomConstraints_EmailSign_up: NSLayoutConstraint!
     var isEmailInput_EmailSign_up:Bool = false
     var isEmailVerified_EmailSign_up:Bool = false
     var isCorrectPW_EmailSign_up:Bool = false
+    
+    @objc func keyboardAppear_EmailSign_up(_ sender: Notification){
+        guard let userInfo_EmailSign_up = sender.userInfo,
+              let keyboardFrame_EmailSign_up = userInfo_EmailSign_up[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        scrollView_EmailSign_up.contentInset.bottom = keyboardFrame_EmailSign_up.size.height
+        
+        let firstResponder_EmailSign_up = UIResponder.currentFirstResponder
+        if let currentView_EmailSign_up = firstResponder_EmailSign_up as? UITextView {
+            scrollView_EmailSign_up.scrollRectToVisible(currentView_EmailSign_up.frame, animated: true)
+        }
+        scrollViewBottomConstraints_EmailSign_up.constant = 8
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardDisappear_EmailSign_up(_ sender: Any){
+        let edgeInset_EmailSign_up = UIEdgeInsets.zero
+        scrollView_EmailSign_up.contentInset = edgeInset_EmailSign_up
+        scrollView_EmailSign_up.scrollIndicatorInsets = edgeInset_EmailSign_up
+        scrollViewBottomConstraints_EmailSign_up.constant = 75
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
     
     @objc func isEmailInput_EmailSign_up(_sender: Any){
         if(emailTextField_EmailSign_up.text != ""){
@@ -143,6 +173,11 @@ class EmailSign_up_ViewController: UIViewController {
         passwordConfirmationTextField_EmailSign_up.addTarget(self, action: #selector(isPWConfirmationInput_EmailSign_up(_sender: )), for: .editingChanged)
     }
     
+    func detectingKeboard_EmailSign_up(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear_EmailSign_up(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear_EmailSign_up(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @IBAction func getVerificationCodeButtonTap_EmailSign_up(_ sender: Any) {
         if(emailTextField_EmailSign_up.text != ""){
             isEmailVerified_EmailSign_up = false
@@ -176,8 +211,22 @@ class EmailSign_up_ViewController: UIViewController {
         pageBarInit_EmailSign_up()
         iconsInit_EmailSign_up()
         detectingInput_EmailSign_up()
+        detectingKeboard_EmailSign_up()
         self.hideKeyboard()
     }
+}
+
+extension UIResponder {
+    private static weak var _currentFirstResponder: UIResponder?
     
+    static var currentFirstResponder: UIResponder? {
+        _currentFirstResponder = nil
+        UIApplication.shared.sendAction(#selector(UIResponder.findFirstResponder(_:)), to: nil, from: nil, for: nil)
+        
+        return _currentFirstResponder
+    }
     
+    @objc func findFirstResponder(_ sender: Any) {
+        UIResponder._currentFirstResponder = self
+    }
 }

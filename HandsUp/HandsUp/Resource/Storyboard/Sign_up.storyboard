@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용약관 동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFK-d8-0Tv">
-                                <rect key="frame" x="17" y="263.66666666666669" width="175" height="19"/>
+                                <rect key="frame" x="17" y="263.66666666666669" width="174" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
@@ -107,7 +107,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 제3자 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9F-UG-7m0">
-                                <rect key="frame" x="17" y="431.66666666666669" width="166" height="19"/>
+                                <rect key="frame" x="17" y="431.66666666666669" width="165.66666666666666" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
@@ -392,7 +392,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-pW-Y7f">
-                                <rect key="frame" x="16" y="175" width="361" height="216"/>
+                                <rect key="frame" x="16" y="174.66666666666663" width="361" height="216"/>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AC3-Qb-EKU"/>
@@ -464,10 +464,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xn0-hL-D2H">
-                                <rect key="frame" x="0.0" y="86" width="393" height="732"/>
+                                <rect key="frame" x="0.0" y="86" width="393" height="657"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-q4-U0P">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="634"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="544.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-iv-qW8">
                                                 <rect key="frame" x="17.999999999999996" y="8" width="55.666666666666657" height="37.666666666666664"/>
@@ -544,20 +544,20 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교메일이 아이디로 사용됩니다.이메일을 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvl-RC-qLs">
-                                                <rect key="frame" x="22" y="201.66666666666669" width="264.66666666666669" height="14.333333333333343"/>
+                                                <rect key="frame" x="22" y="201.66666666666669" width="264.66666666666669" height="14"/>
                                                 <color key="tintColor" name="HandsUpDarkGrey"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRR-8w-G9I">
-                                                <rect key="frame" x="21.999999999999993" y="236" width="87.333333333333314" height="19"/>
+                                                <rect key="frame" x="21.999999999999993" y="235.66666666666669" width="87.333333333333314" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="HandsUpMainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3df-9X-0jW" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="267" width="361" height="50"/>
+                                                <rect key="frame" x="16" y="266.66666666666669" width="361" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bni-YR-qoA">
                                                         <rect key="frame" x="16" y="0.0" width="289" height="50"/>
@@ -621,13 +621,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ff-bh-NK0">
-                                                <rect key="frame" x="21.999999999999996" y="337" width="55.666666666666657" height="19"/>
+                                                <rect key="frame" x="21.999999999999996" y="336.66666666666669" width="55.666666666666657" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="HandsUpMainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-hG-WD6" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="364" width="361" height="50"/>
+                                                <rect key="frame" x="16" y="363.66666666666669" width="361" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyR-BL-jf2">
                                                         <rect key="frame" x="321" y="13" width="24" height="24"/>
@@ -686,13 +686,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWw-LP-l4i">
-                                                <rect key="frame" x="21.999999999999993" y="434" width="87.333333333333314" height="19"/>
+                                                <rect key="frame" x="21.999999999999993" y="433.66666666666663" width="87.333333333333314" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="HandsUpMainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-Zm-2S9" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="461" width="361" height="50"/>
+                                                <rect key="frame" x="16" y="460.66666666666663" width="361" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-0J-b4B">
                                                         <rect key="frame" x="321" y="13" width="24" height="24"/>
@@ -760,9 +760,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Nw4-TQ-GVD" secondAttribute="trailing" constant="16" id="4D3-sI-ELi"/>
                                             <constraint firstItem="Nw4-TQ-GVD" firstAttribute="leading" secondItem="m5L-AN-bfW" secondAttribute="trailing" constant="16" id="5OC-ey-nah"/>
                                             <constraint firstItem="ZJn-Zm-2S9" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="6G9-tX-76K"/>
-                                            <constraint firstAttribute="height" priority="500" constant="600" id="84g-0d-Sb1"/>
+                                            <constraint firstAttribute="height" priority="500" constant="55" id="84g-0d-Sb1"/>
                                             <constraint firstItem="6H9-he-Gvv" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="18" id="8Q6-cK-Lmc"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZJn-Zm-2S9" secondAttribute="bottom" constant="123" id="EBt-d0-Tn2"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZJn-Zm-2S9" secondAttribute="bottom" constant="34" id="EBt-d0-Tn2"/>
                                             <constraint firstItem="m5L-AN-bfW" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="Kio-P9-7J1"/>
                                             <constraint firstItem="bV9-iv-qW8" firstAttribute="top" secondItem="Ych-q4-U0P" secondAttribute="top" constant="8" id="Lx8-gX-26q"/>
                                             <constraint firstItem="HWw-LP-l4i" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="OCn-b6-rgp"/>
@@ -828,7 +828,7 @@
                             <constraint firstItem="lUn-Ev-7vG" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="j3F-oF-TIh"/>
                             <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Jhu-Hz-NnL" secondAttribute="bottom" constant="16" id="row-eh-LZj"/>
                             <constraint firstItem="lUn-Ev-7vG" firstAttribute="leading" secondItem="91f-oE-XFo" secondAttribute="leading" constant="18" id="vIY-4g-XZD"/>
-                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="bottom" secondItem="rxT-wN-7b0" secondAttribute="bottom" priority="200" id="x6g-I0-mL5"/>
+                            <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Xn0-hL-D2H" secondAttribute="bottom" priority="200" constant="75" id="x6g-I0-mL5"/>
                             <constraint firstItem="91f-oE-XFo" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="xgJ-wa-7o4"/>
                         </constraints>
                     </view>
@@ -844,6 +844,8 @@
                         <outlet property="nextButton_EmailSign_up" destination="Jhu-Hz-NnL" id="HNN-u0-Pkg"/>
                         <outlet property="pageControlView_EmailSign_up" destination="91f-oE-XFo" id="wQY-Kc-JLw"/>
                         <outlet property="passwordConfirmationTextField_EmailSign_up" destination="FbJ-2p-26J" id="hWq-F8-pET"/>
+                        <outlet property="scrollViewBottomConstraints_EmailSign_up" destination="x6g-I0-mL5" id="xDx-Co-rnR"/>
+                        <outlet property="scrollView_EmailSign_up" destination="Xn0-hL-D2H" id="DtV-e1-0Q1"/>
                         <outlet property="showPWButton_EmailSign_up" destination="IyR-BL-jf2" id="Ysc-EA-JIf"/>
                         <outlet property="showPWConfirmationButton_EmailSign_up" destination="OzB-0J-b4B" id="vff-8v-3uD"/>
                         <outlet property="subTitleLabe_EmailSign_up" destination="6H9-he-Gvv" id="wAq-Gr-86w"/>
@@ -1209,7 +1211,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2글자 이상 5글자 이하로 생성 가능해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaD-aL-DO9">
-                                <rect key="frame" x="23" y="290.66666666666669" width="188" height="15"/>
+                                <rect key="frame" x="23" y="290.66666666666669" width="187.66666666666666" height="14"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
