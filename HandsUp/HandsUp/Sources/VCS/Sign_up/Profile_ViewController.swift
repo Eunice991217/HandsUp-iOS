@@ -6,6 +6,8 @@ class Profile_ViewController: UIViewController {
     @IBOutlet weak var pageControlView_Profile: RoundedShadow_UIView!
     @IBOutlet weak var titleLable_Profile: UILabel!
     @IBOutlet weak var subTitleLabe_Profile: UILabel!
+    @IBOutlet weak var characterView_Profile: Character_UIView!
+    @IBOutlet weak var characterButton_Profile: UIButton!
     
     func titleInit_Profile(){
         titleLable_Profile.text = "자신의 프로필\n캐릭터를 만들어봐요!"
@@ -18,6 +20,10 @@ class Profile_ViewController: UIViewController {
         curPageBarWidth_Profile.constant = widthValue_Profile as CGFloat
     }
     
+    @IBAction func characterHighlightToggle_Profile(_ sender: Any) {
+        characterView_Profile.highlightToggle()
+    }
+    
     @IBAction func joinHandsUpButtonTap_Profile(_ sender: Any) {
     }
     
@@ -26,5 +32,6 @@ class Profile_ViewController: UIViewController {
 
         titleInit_Profile()
         pageBarInit_Profile()
+        characterView_Profile.setCharacter()
     }
 }

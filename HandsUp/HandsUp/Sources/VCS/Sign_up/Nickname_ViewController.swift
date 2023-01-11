@@ -16,6 +16,7 @@ class Nickname_ViewController: UIViewController {
     @IBOutlet weak var subTitleLabe_Nickname: UILabel!
     @IBOutlet weak var nicknameTextField_Nickname: UITextField!
     @IBOutlet weak var nextButton_Nickname: RoundedShadow_UIButton!
+    var sign_upData_Nickname: SignupData=SignupData()
     var nextButtonEnable_Nickname : Bool = false
     
     func titleInit_Nickname(){

@@ -28,6 +28,7 @@ class EmailSign_up_ViewController: UIViewController {
     @IBOutlet weak var showPWConfirmationButton_EmailSign_up:UIButton!
     @IBOutlet weak var nextButton_EmailSign_up: RoundedShadow_UIButton!
     @IBOutlet weak var scrollViewBottomConstraints_EmailSign_up: NSLayoutConstraint!
+    var sign_upData_EmailSign_up:SignupData = SignupData()
     var isEmailInput_EmailSign_up:Bool = false
     var isEmailVerified_EmailSign_up:Bool = false
     var isCorrectPW_EmailSign_up:Bool = false

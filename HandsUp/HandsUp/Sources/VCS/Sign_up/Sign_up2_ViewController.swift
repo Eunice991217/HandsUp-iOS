@@ -14,7 +14,7 @@ class Sign_up2_ViewController: UIViewController {
     @IBOutlet weak var pageControlView_Sign_up2: RoundedShadow_UIView!
     @IBOutlet weak var titleLable_Sign_up2: UILabel!
     @IBOutlet weak var schoolPickerView_Sign_up2: UIPickerView!
-    
+    var sign_upData_Sign_up2 : SignupData = SignupData()
     var schoolList_Sign_up2: [String] = ["서울대학교", "가천대학교", "건국대학교"]
     
     func pageBarInit_Sign_up2(){
@@ -24,11 +24,19 @@ class Sign_up2_ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTap_Sign_up2(_ sender: Any) {
-        let emailSign_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "EmailSign_up")
-        self.navigationController?.pushViewController(emailSign_upVC_Sign_up2!, animated: true)
+        if(sign_upData_Sign_up2.type == 0){
+            let emailSign_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "EmailSign_up") as! EmailSign_up_ViewController
+            emailSign_upVC_Sign_up2.sign_upData_EmailSign_up = sign_upData_Sign_up2
+            self.navigationController?.pushViewController(emailSign_upVC_Sign_up2, animated: true)
+        }else{
+            let socialLogin_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "SocialLogin") as! SocialLogin_ViewController
+            socialLogin_upVC_Sign_up2.sign_upData_SocialLogin = sign_upData_Sign_up2
+            self.navigationController?.pushViewController(socialLogin_upVC_Sign_up2, animated: true)
+        }
     }
     
     func pickerViewInit(){
+        sign_upData_Sign_up2.school = schoolList_Sign_up2[0]
         schoolPickerView_Sign_up2.delegate = self
         schoolPickerView_Sign_up2.dataSource = self
     }
@@ -77,7 +85,7 @@ extension Sign_up2_ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
         return schoolList_Sign_up2.count
     }
     
-    /*func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return schoolList_Sign_up2[row]
-    }*/
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        sign_upData_Sign_up2.school = schoolList_Sign_up2[row]
+    }
 }

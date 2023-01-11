@@ -3,8 +3,8 @@ import UIKit
 class Sign_up1_ViewController: UIViewController {
     
     @IBOutlet weak var titleLable_Sign_up1: UILabel!
-    
     @IBOutlet weak var nextButton_Sign_up1: UIButton!
+    var sign_upData_Sign_up1 : SignupData = SignupData()
     var isNextButtonActive_Sign_up1:Bool = false
     
     @IBOutlet weak var curPageBarX_Sign_up1: NSLayoutConstraint!
@@ -100,8 +100,9 @@ class Sign_up1_ViewController: UIViewController {
     
     @IBAction func nextButtonTap_Sign_up1(_ sender: Any) {
         if(isNextButtonActive_Sign_up1){
-            let sign_up2VC_Sign_up1 = self.storyboard?.instantiateViewController(withIdentifier: "Sign_up2")
-            self.navigationController?.pushViewController(sign_up2VC_Sign_up1!, animated: true)
+            let sign_up2VC_Sign_up1 = self.storyboard?.instantiateViewController(withIdentifier: "Sign_up2") as! Sign_up2_ViewController
+            sign_up2VC_Sign_up1.sign_upData_Sign_up2 = sign_upData_Sign_up1
+            self.navigationController?.pushViewController(sign_up2VC_Sign_up1, animated: true)
         }
     }
     

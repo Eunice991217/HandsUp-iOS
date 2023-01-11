@@ -13,7 +13,7 @@ class FirstView_ViewController: UIViewController {
     @IBOutlet weak var googleTitle_FV: UIButton!
     
     func buttonInit_FV(){
-      
+        
     }
     @objc func loginKakaoHighlightToggle_FV(_sender: Any){
         kakaoIcon_FV.isHighlighted.toggle()
@@ -30,22 +30,35 @@ class FirstView_ViewController: UIViewController {
         googleTitle_FV.isHighlighted.toggle()
     }
     
-    @IBAction func loginGoogleButton_FV(_ sender: Any) {
-    }
-    
-    @IBAction func loginAppleButton_FV(_ sender: Any) {
-        
-    }
     @IBAction func loginKakaoButtonTap_FV(_ sender: Any) {
-        
-        
-    }
-    @IBAction func loginKakaoButtonTouchOut_FV(_ sender: Any) {
-        
+        let sign_upData_FV = SignupData(mode: 1)
+        let Sign_upSB_FV = UIStoryboard(name: "Sign_up", bundle: nil)
+        let sign_upVC_FV = Sign_upSB_FV.instantiateViewController(withIdentifier: "Sign_up1") as! Sign_up1_ViewController
+        sign_upVC_FV.sign_upData_Sign_up1 = sign_upData_FV
+        self.navigationController?.pushViewController(sign_upVC_FV, animated: true)
     }
     
-    @IBAction func loginEmailButton_FV(_ sender: Any) {
-        self.performSegue(withIdentifier: "showLoginEmail", sender: self)
+    
+    @IBAction func loginAppleButtonTap_FV(_ sender: Any) {
+        let sign_upData_FV = SignupData(mode: 2)
+        let Sign_upSB_FV = UIStoryboard(name: "Sign_up", bundle: nil)
+        let sign_upVC_FV = Sign_upSB_FV.instantiateViewController(withIdentifier: "Sign_up1") as! Sign_up1_ViewController
+        sign_upVC_FV.sign_upData_Sign_up1 = sign_upData_FV
+        self.navigationController?.pushViewController(sign_upVC_FV, animated: true)
+    }
+    
+    @IBAction func loginGoogleButtonTap_FV(_ sender: Any) {
+        let sign_upData_FV = SignupData(mode: 3)
+        let Sign_upSB_FV = UIStoryboard(name: "Sign_up", bundle: nil)
+        let sign_upVC_FV = Sign_upSB_FV.instantiateViewController(withIdentifier: "Sign_up1") as! Sign_up1_ViewController
+        sign_upVC_FV.sign_upData_Sign_up1 = sign_upData_FV
+        self.navigationController?.pushViewController(sign_upVC_FV, animated: true)
+    }
+    
+    @IBAction func loginEmailButtonTap_FV(_ sender: Any) {
+        let LoginVC_FV = self.storyboard?.instantiateViewController(withIdentifier: "Login_Navigation")
+        LoginVC_FV?.modalPresentationStyle = .fullScreen
+        self.present(LoginVC_FV!,animated:true)
     }
     
     func buttonHighlightInit_FV(){

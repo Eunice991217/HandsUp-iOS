@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V0d-or-DlC">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -145,18 +145,6 @@
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="loginKakaoButtonTap_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ajy-jJ-t6s"/>
-                                    <action selector="loginKakaoButtonTouchOut_FV:" destination="Y6W-OH-hqX" eventType="touchUpOutside" id="mBt-a6-lof"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy1-1l-5zC">
-                                <rect key="frame" x="136" y="782" width="121" height="28"/>
-                                <color key="tintColor" name="HandsUpDarkGrey"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="이메일로 로그인하기">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="loginEmailButton_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5PG-hl-A1m"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBE-Lt-8xb" userLabel="Line">
@@ -242,6 +230,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="loginAppleButtonTap_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Eh0-4W-zjn"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uS3-YX-NMS" userLabel="GoogleContent" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="491" width="361" height="52"/>
@@ -317,6 +308,20 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="loginGoogleButtonTap_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JcM-LE-TlD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy1-1l-5zC">
+                                <rect key="frame" x="136" y="782" width="121" height="28"/>
+                                <color key="tintColor" name="HandsUpDarkGrey"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="이메일로 로그인하기">
+                                    <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginEmailButtonTap_FV:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Rd-bI-f9v"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -354,6 +359,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="oy1-1l-5zC" secondAttribute="bottom" constant="8" id="wPP-cB-nun"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2Iv-Se-RWp"/>
                     <connections>
                         <outlet property="appleIcon_FV" destination="yOw-Vr-1ih" id="3Qj-tu-3dB"/>
                         <outlet property="appleTitle_FV" destination="dTc-hP-bzU" id="dmQ-yt-bUg"/>
@@ -364,19 +370,18 @@
                         <outlet property="loginAppleButton_FV" destination="eQv-6Q-lx5" id="EQK-L2-1tg"/>
                         <outlet property="loginGoogleButton_FV" destination="6H0-aE-vj3" id="TJL-0n-fNr"/>
                         <outlet property="loginKakaoButton_FV" destination="NNS-fq-AjI" id="h1l-8K-7Oo"/>
-                        <segue destination="qdh-ox-a5M" kind="show" identifier="showLoginEmail" id="02q-d1-eZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="973.28244274809151" y="-21.126760563380284"/>
         </scene>
         <!--Email Login-->
         <scene sceneID="isT-Io-PUj">
             <objects>
                 <viewController storyboardIdentifier="Login" title="Email Login" modalPresentationStyle="fullScreen" id="Iml-KB-Rqu" customClass="Login_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vua-jw-OgW">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample1" translatesAutoresizingMaskIntoConstraints="NO" id="xts-oC-u8T">
@@ -510,7 +515,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-34-qte" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="716" width="361" height="51"/>
+                                <rect key="frame" x="16" y="751" width="361" height="51"/>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="xcQ-PA-pow"/>
@@ -636,7 +641,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1881.679389312977" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="2808.3969465648852" y="-21.126760563380284"/>
         </scene>
         <!--아이디/비밀번호 찾기-->
         <scene sceneID="4hC-4n-iHQ">
@@ -744,12 +749,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIe-1f-8AD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849.6183206106871" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="3776.3358778625952" y="-21.126760563380284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bbw-h2-9Sb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="qdh-ox-a5M" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5g-Nx-O1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="Login_Navigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="qdh-ox-a5M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="JZv-Ta-Y7a"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vg-se-frr">
@@ -761,9 +767,26 @@
                         <segue destination="Iml-KB-Rqu" kind="relationship" relationship="rootViewController" id="HtM-Td-KaG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5g-Nx-O1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954.96183206106866" y="-21.126760563380284"/>
+            <point key="canvasLocation" x="1881.679389312977" y="-21.126760563380284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="abx-3v-7Nm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V0d-or-DlC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9qP-iQ-IQf">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="eiE-my-eLv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULd-J2-lpg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-21.126760563380284"/>
         </scene>
     </scenes>
     <color key="tintColor" name="HandsUpMainText"/>

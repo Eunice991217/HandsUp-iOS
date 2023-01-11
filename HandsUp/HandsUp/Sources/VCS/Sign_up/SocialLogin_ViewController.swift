@@ -13,7 +13,8 @@ class SocialLogin_ViewController: UIViewController {
     @IBOutlet weak var verificationCodeTextField_SocialLogin: UITextField!
     @IBOutlet weak var emailTextField_SocialLogin: UITextField!
     @IBOutlet weak var nextButton_SocialLogin: RoundedShadow_UIButton!
-    var isVerified_SocialLogin:Bool = false
+    var sign_upData_SocialLogin: SignupData=SignupData()
+    var isVerified_SocialLogin: Bool = false
     
     func titleInit_SocialLogin(){
         titleLable_SocialLogin.text = "학교확인\n도와드릴게요"
