@@ -23,6 +23,7 @@
 		8B648083296E9191008D28CF /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648082296E9191008D28CF /* SignupData.swift */; };
 		8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648084296ECD5D008D28CF /* Character_UIView.swift */; };
 		8B648087296F114D008D28CF /* MultiLayerShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */; };
+		8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */; };
 		8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */; };
 		8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */; };
 		8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */; };
@@ -56,6 +57,7 @@
 		8B648082296E9191008D28CF /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
 		8B648084296ECD5D008D28CF /* Character_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character_UIView.swift; sourceTree = "<group>"; };
 		8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLayerShadow_UIButton.swift; sourceTree = "<group>"; };
+		8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEdit_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up2_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSign_up_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin_ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */,
 				8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */,
 				8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */,
+				8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */,
 			);
 			path = Sign_up;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */,
 				8B21091B2966DFF20042D14A /* ViewController.swift in Sources */,
 				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
+				8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */,
 				8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,

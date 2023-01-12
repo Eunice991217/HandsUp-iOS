@@ -105,6 +105,15 @@ class Character_UIView: UIView {
     }
     
     func setCharacter(){
+        eyesButton = UIButton()
+        eyebrowButton = UIButton()
+        noseButton = UIButton()
+        mouthButton = UIButton()
+        glassesButton = UIButton()
+        headButton = UIButton()
+        bgButton = UIButton()
+        
+        
         let viewWidth = self.frame.width
         let viewHeight = self.frame.height
         let length = viewWidth < viewHeight ? viewWidth : viewHeight
