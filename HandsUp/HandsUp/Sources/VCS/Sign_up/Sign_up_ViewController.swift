@@ -8,28 +8,52 @@
 import UIKit
 
 class Sign_up_ViewController: UIViewController {
-    
+    //Page
     @IBOutlet weak var BackButton_Sign_up: UIButton!
     @IBOutlet weak var pageControllBar_Sign_up: RoundedShadow_UIView!
     @IBOutlet weak var curBarWidth_Sign_up: NSLayoutConstraint!
-    @IBOutlet weak var title_Sign_up: UILabel!
-    @IBOutlet weak var subTitle_Sign_up: UILabel!
-    
     @IBOutlet weak var nextButton_Sign_up: RoundedShadow_UIButton!
+    @IBOutlet weak var page1_Sign_up: UIView!
+    @IBOutlet weak var page2Width_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page2Leading_Sign_up: NSLayoutConstraint!
+    //Page1
+    @IBOutlet weak var titlePG1_Sign_up: UILabel!
+    @IBOutlet weak var subTitlePG1_Sign_up: UILabel!
+    @IBOutlet weak var checkBoxButton1_Sign_up: RoundedShadow_UIButton!
+    @IBOutlet weak var checkBoxButton2_Sign_up: RoundedShadow_UIButton!
+    @IBOutlet weak var checkBoxButton3_Sign_up: RoundedShadow_UIButton!
+    @IBOutlet weak var checkBoxButton4_Sign_up: RoundedShadow_UIButton!
+    var agreement_Sign_up =  [Bool](repeating: false, count: 4)
+    
+    //Page2
+    @IBOutlet weak var titlePG2_Sign_up: UILabel!
+    @IBOutlet weak var subTitlePG2_Sign_up: UILabel!
+    @IBOutlet weak var schoolPickerView_Sign_up: UIPickerView!
+    var schoolList_Sign_up: [String] = ["서울대학교", "가천대학교", "건국대학교"]
+    //
     var sign_upData_Sign_up : SignupData = SignupData()
     let titleArray_Sign_up: [String] = ["대학생 여러분 \n환영합니다:)", "다니시는 대학교\n선택해주세요", "학교확인\n도와드릴게요", "닉네임을\n만들어보세요", "자신의 프로필\n캐릭터를 만들어봐요!"]
-    var subTitleArray_Sign_up: [String] = ["원활한 서비스 이용을 위해 동의해주세요", "다니시는 대학교\n선택해주세요", "", "닉네임은 7일후 변경가능하니 신중히\n선택해주세요:)", "캐릭터 클릭해 만들고\n자신만의 개성을 뽐내봐요!"]
+    var subTitleArray_Sign_up: [String] = ["원활한 서비스 이용을 위해 동의해주세요", "해당 대학교학생들만 사용가능해요", "", "닉네임은 7일후 변경가능하니 신중히\n선택해주세요:)", "캐릭터 클릭해 만들고\n자신만의 개성을 뽐내봐요!"]
     var curPageCGFloat_Sign_up: CGFloat = 1
     var curPageInt_Sign_up: Int = 1
+    var isNextButtonActive_Sign_up: Bool = false
+    var pageWidth_Sign_up: CGFloat = 1
     
+    
+    //Page func
     func pageUpdate_Sign_up(){
         if(curPageInt_Sign_up < 5){
             curBarWidth_Sign_up.constant = pageControllBar_Sign_up.frame.width * curPageCGFloat_Sign_up / 5
         }else{
             curBarWidth_Sign_up.constant = pageControllBar_Sign_up.frame.width
         }
-        //title_Sign_up.text = titleArray_Sign_up[curPageInt_Sign_up - 1]
-        //subTitle_Sign_up.text = subTitleArray_Sign_up[curPageInt_Sign_up - 1]
+        if(curPageInt_Sign_up == 1){
+            page2Leading_Sign_up.constant = pageWidth_Sign_up
+        }
+        if(curPageInt_Sign_up == 2){
+            page2Leading_Sign_up.constant = 0
+        }
+        
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
@@ -37,6 +61,29 @@ class Sign_up_ViewController: UIViewController {
     
     func pageInit_Sign_up(){
         curBarWidth_Sign_up.constant = pageControllBar_Sign_up.frame.width * curPageCGFloat_Sign_up / 5
+        titlePG1_Sign_up.text = titleArray_Sign_up[0]
+        subTitlePG1_Sign_up.text = subTitleArray_Sign_up[0]
+        titlePG2_Sign_up.text = titleArray_Sign_up[1]
+        subTitlePG2_Sign_up.text = subTitleArray_Sign_up[1]
+
+        
+            
+        
+        pageWidth_Sign_up = page1_Sign_up.frame.width
+        page2Width_Sign_up.constant = pageWidth_Sign_up
+        page2Leading_Sign_up.constant = pageWidth_Sign_up
+        
+        page1Init_Sign_up()
+        page2Init_Sign_up()
+    }
+    
+    func changeNextButtonState_Sign_up(){
+        if(isNextButtonActive_Sign_up){
+            nextButton_Sign_up.backgroundColor = UIColor(named: "HandsUpOrange")
+        }
+        else{
+            nextButton_Sign_up.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+        }
     }
     
     func contentUpdate_Sign_up(){
@@ -44,10 +91,12 @@ class Sign_up_ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTap_Sign_up(_ sender: Any){
-        if(curPageInt_Sign_up < 5){
-            curPageInt_Sign_up += 1
-            curPageCGFloat_Sign_up += 1
-            pageUpdate_Sign_up()
+        if(isNextButtonActive_Sign_up){
+            if(curPageInt_Sign_up < 5){
+                curPageInt_Sign_up += 1
+                curPageCGFloat_Sign_up += 1
+                pageUpdate_Sign_up()
+            }
         }
     }
     
@@ -67,6 +116,114 @@ class Sign_up_ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.hideKeyboard()
         pageInit_Sign_up()
+    }
+    
+    //Page 1
+    func page1Init_Sign_up(){
+            checkBoxButton1_Sign_up.setImage(nil, for: .normal)
+            checkBoxButton2_Sign_up.setImage(nil, for: .normal)
+            checkBoxButton3_Sign_up.setImage(nil, for: .normal)
+            checkBoxButton4_Sign_up.setImage(nil, for: .normal)
+    }
+    
+    func checkAgreement_Sign_up()->Bool{
+        for check_Sign_up in agreement_Sign_up{
+            if(!check_Sign_up){
+                sign_upData_Sign_up.policyAgreement = false
+                return false
+            }
+        }
+        sign_upData_Sign_up.policyAgreement = true
+        return true
+    }
+    
+    @IBAction func checkBox1Tap_Sign_up1(_ sender: Any){
+        if(agreement_Sign_up[0]){
+            checkBoxButton1_Sign_up.setImage(nil, for: .normal)
+            agreement_Sign_up[0] = false
+        }else{
+            checkBoxButton1_Sign_up.setImage(UIImage(named: "OrangeCheck"), for: .normal)
+            agreement_Sign_up[0] = true
+        }
+        isNextButtonActive_Sign_up = checkAgreement_Sign_up()
+        changeNextButtonState_Sign_up()
+    }
+    
+    @IBAction func checkBox2Tap_Sign_up1(_ sender: Any){
+        if(agreement_Sign_up[1]){
+            checkBoxButton2_Sign_up.setImage(nil, for: .normal)
+            agreement_Sign_up[1] = false
+        }else{
+            checkBoxButton2_Sign_up.setImage(UIImage(named: "OrangeCheck"), for: .normal)
+            agreement_Sign_up[1] = true
+        }
+        isNextButtonActive_Sign_up = checkAgreement_Sign_up()
+        changeNextButtonState_Sign_up()
+    }
+    
+    @IBAction func checkBox3Tap_Sign_up1(_ sender: Any){
+        if(agreement_Sign_up[2]){
+            checkBoxButton3_Sign_up.setImage(nil, for: .normal)
+            agreement_Sign_up[2] = false
+        }else{
+            checkBoxButton3_Sign_up.setImage(UIImage(named: "OrangeCheck"), for: .normal)
+            agreement_Sign_up[2] = true
+        }
+        isNextButtonActive_Sign_up = checkAgreement_Sign_up()
+        changeNextButtonState_Sign_up()
+    }
+    
+    @IBAction func checkBox4Tap_Sign_up1(_ sender: Any){
+        if(agreement_Sign_up[3]){
+            checkBoxButton4_Sign_up.setImage(nil, for: .normal)
+            agreement_Sign_up[3] = false
+        }else{
+            checkBoxButton4_Sign_up.setImage(UIImage(named: "OrangeCheck"), for: .normal)
+            agreement_Sign_up[3] = true
+        }
+        isNextButtonActive_Sign_up = checkAgreement_Sign_up()
+        changeNextButtonState_Sign_up()
+    }
+    
+    
+    //Page 2
+    func page2Init_Sign_up(){
+        sign_upData_Sign_up.school = schoolList_Sign_up[0]
+        schoolPickerView_Sign_up.delegate = self
+        schoolPickerView_Sign_up.dataSource = self
+    }
+    
+    override func viewWillLayoutSubviews() {
+        schoolPickerView_Sign_up.subviews[1].backgroundColor = .clear
+    }
+}
+
+extension Sign_up_ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let selectView_Sign_up = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 52))
+        let schoolLabel_Sign_up = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 52))
+        schoolLabel_Sign_up.text = schoolList_Sign_up[row]
+        schoolLabel_Sign_up.textAlignment = .center
+        schoolLabel_Sign_up.font = UIFont(name: "Roboto-Bold", size: 16)
+        schoolLabel_Sign_up.textColor = UIColor(named: "HandUpMainText")
         
+        selectView_Sign_up.addSubview(schoolLabel_Sign_up)
+        return selectView_Sign_up
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return schoolList_Sign_up.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        sign_upData_Sign_up.school = schoolList_Sign_up[row]
     }
 }

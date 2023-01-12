@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f2n-tQ-3wu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8oQ-p1-jeL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -89,40 +89,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용약관 동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFK-d8-0Tv">
-                                <rect key="frame" x="17" y="263.66666666666669" width="174" height="19"/>
+                                <rect key="frame" x="17" y="263.66666666666669" width="320" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 및 이용 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFO-yB-APm">
-                                <rect key="frame" x="17" y="319.66666666666669" width="168" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치정보서비스 제공 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-gs-Ikx">
-                                <rect key="frame" x="17" y="375.66666666666669" width="198.66666666666666" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 제3자 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9F-UG-7m0">
-                                <rect key="frame" x="17" y="431.66666666666669" width="165.66666666666666" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epx-2b-qvG">
-                                <rect key="frame" x="17" y="487.66666666666669" width="132.66666666666666" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWh-jq-bvk" userLabel="CheckBoxBG_1" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="353" y="261.33333333333331" width="24" height="24"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Ve-QRw" userLabel="Check Box1 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="4SR-tv-khN"/>
+                                            <constraint firstAttribute="height" constant="24" id="s41-bG-f0b"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" image="OrangeCheck"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkBox1Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1EX-e2-NnN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" name="HandsUpSnowWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hAJ-Ve-QRw" secondAttribute="trailing" id="1sz-KH-6FF"/>
+                                    <constraint firstItem="hAJ-Ve-QRw" firstAttribute="top" secondItem="jWh-jq-bvk" secondAttribute="top" id="9vl-Ie-c6h"/>
+                                    <constraint firstAttribute="bottom" secondItem="hAJ-Ve-QRw" secondAttribute="bottom" id="Cp5-WV-Ov6"/>
                                     <constraint firstAttribute="width" constant="24" id="kNz-be-27W"/>
+                                    <constraint firstItem="hAJ-Ve-QRw" firstAttribute="leading" secondItem="jWh-jq-bvk" secondAttribute="leading" id="ljm-Qb-SAt"/>
                                     <constraint firstAttribute="height" constant="24" id="yy3-A2-iaR"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -131,29 +130,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Ve-QRw" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="261.33333333333331" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="4SR-tv-khN"/>
-                                    <constraint firstAttribute="height" constant="24" id="s41-bG-f0b"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="OrangeCheck"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="checkBox1Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1EX-e2-NnN"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 및 이용 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFO-yB-APm">
+                                <rect key="frame" x="17" y="319.66666666666669" width="320" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zw5-GN-qji" userLabel="CheckBoxBG_2" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="353" y="317.33333333333331" width="24" height="24"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Pl-CPR" userLabel="Check Box2 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="JFI-Zk-pF4"/>
+                                            <constraint firstAttribute="height" constant="24" id="UIB-LN-0vK"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" image="OrangeCheck">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkBox2Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WtG-ig-Jsz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" name="HandsUpSnowWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Gtu-NH-kUE"/>
                                     <constraint firstAttribute="width" constant="24" id="U7b-g8-I6F"/>
+                                    <constraint firstAttribute="bottom" secondItem="hbz-Pl-CPR" secondAttribute="bottom" id="aVI-aG-Vuo"/>
+                                    <constraint firstItem="hbz-Pl-CPR" firstAttribute="leading" secondItem="zw5-GN-qji" secondAttribute="leading" id="gpR-Ak-lwX"/>
+                                    <constraint firstAttribute="trailing" secondItem="hbz-Pl-CPR" secondAttribute="trailing" id="i1P-00-heo"/>
+                                    <constraint firstItem="hbz-Pl-CPR" firstAttribute="top" secondItem="zw5-GN-qji" secondAttribute="top" id="zje-ho-X5n"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -161,30 +174,39 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Pl-CPR" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="317.33333333333331" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="JFI-Zk-pF4"/>
-                                    <constraint firstAttribute="height" constant="24" id="UIB-LN-0vK"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="OrangeCheck">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="checkBox2Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WtG-ig-Jsz"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치정보서비스 제공 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-gs-Ikx">
+                                <rect key="frame" x="17" y="375.66666666666669" width="320" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-De-0bD" userLabel="CheckBoxBG_3" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="353" y="373.33333333333331" width="24" height="24"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-H7-ERF" userLabel="Check Box3 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="8ar-yH-EcI"/>
+                                            <constraint firstAttribute="width" constant="24" id="fUl-dP-chQ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" image="OrangeCheck"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkBox3Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BpK-2v-1kj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" name="HandsUpSnowWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Le5-H7-ERF" firstAttribute="leading" secondItem="fFn-De-0bD" secondAttribute="leading" id="OV2-IO-nsO"/>
                                     <constraint firstAttribute="width" constant="24" id="TNa-HK-MlG"/>
+                                    <constraint firstItem="Le5-H7-ERF" firstAttribute="top" secondItem="fFn-De-0bD" secondAttribute="top" id="aAu-Jt-p7m"/>
+                                    <constraint firstAttribute="bottom" secondItem="Le5-H7-ERF" secondAttribute="bottom" id="bBv-3b-mxv"/>
                                     <constraint firstAttribute="height" constant="24" id="c9K-wu-L4P"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -193,29 +215,42 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-H7-ERF" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="373.33333333333331" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="8ar-yH-EcI"/>
-                                    <constraint firstAttribute="width" constant="24" id="fUl-dP-chQ"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="OrangeCheck"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="checkBox3Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BpK-2v-1kj"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 제3자 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9F-UG-7m0">
+                                <rect key="frame" x="17" y="431.66666666666669" width="320" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRK-q9-Jhd" userLabel="CheckBoxBG_4" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="353" y="429.33333333333331" width="24" height="24"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J11-Yn-sCt" userLabel="Check Box4 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.69999999999999996" height="1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="Bd0-10-ZUq"/>
+                                            <constraint firstAttribute="height" constant="24" id="ys6-Uq-yg7"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" image="OrangeCheck"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkBox4Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qKM-xV-xLh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" name="HandsUpSnowWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="3AG-BF-dP4"/>
+                                    <constraint firstItem="J11-Yn-sCt" firstAttribute="leading" secondItem="cRK-q9-Jhd" secondAttribute="leading" id="B2h-bu-vi3"/>
+                                    <constraint firstAttribute="trailing" secondItem="J11-Yn-sCt" secondAttribute="trailing" id="I4J-BX-5Eg"/>
                                     <constraint firstAttribute="height" constant="24" id="LVj-pJ-gh2"/>
+                                    <constraint firstAttribute="bottom" secondItem="J11-Yn-sCt" secondAttribute="bottom" id="N0P-WY-Q9t"/>
+                                    <constraint firstItem="J11-Yn-sCt" firstAttribute="top" secondItem="cRK-q9-Jhd" secondAttribute="top" id="QaE-d4-ODf"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -223,42 +258,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J11-Yn-sCt" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="429.33333333333331" width="24" height="24"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.69999999999999996" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="Bd0-10-ZUq"/>
-                                    <constraint firstAttribute="height" constant="24" id="ys6-Uq-yg7"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="OrangeCheck"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="checkBox4Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qKM-xV-xLh"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epx-2b-qvG">
+                                <rect key="frame" x="17" y="487.66666666666669" width="132.66666666666666" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DXq-fx-h21" secondAttribute="bottom" constant="16" id="0qu-du-zZA"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hbz-Pl-CPR" secondAttribute="trailing" constant="16" id="2fq-zz-tRv"/>
                             <constraint firstItem="jWh-jq-bvk" firstAttribute="centerY" secondItem="IFK-d8-0Tv" secondAttribute="centerY" id="564-6s-aGU"/>
                             <constraint firstItem="epx-2b-qvG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="8YC-L2-U6H"/>
                             <constraint firstItem="cRK-q9-Jhd" firstAttribute="centerY" secondItem="X9F-UG-7m0" secondAttribute="centerY" id="Abf-7c-hHT"/>
                             <constraint firstItem="ad7-Kb-NwN" firstAttribute="top" secondItem="qGA-bd-xEY" secondAttribute="bottom" constant="20" id="C3b-rq-rnE"/>
                             <constraint firstItem="iFO-yB-APm" firstAttribute="top" secondItem="IFK-d8-0Tv" secondAttribute="top" constant="56" id="DTF-aS-Q6l"/>
                             <constraint firstItem="qcw-gs-Ikx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="DWT-yz-9wx"/>
-                            <constraint firstItem="Le5-H7-ERF" firstAttribute="centerY" secondItem="qcw-gs-Ikx" secondAttribute="centerY" id="E8e-RI-feX"/>
                             <constraint firstItem="Lh7-3k-PzD" firstAttribute="leading" secondItem="p0C-Ku-CUW" secondAttribute="leading" constant="18" id="G7O-rp-pN7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zw5-GN-qji" secondAttribute="trailing" constant="16" id="HIs-qz-7sP"/>
                             <constraint firstItem="fFn-De-0bD" firstAttribute="centerY" secondItem="qcw-gs-Ikx" secondAttribute="centerY" id="HWu-sk-34a"/>
-                            <constraint firstItem="hbz-Pl-CPR" firstAttribute="centerY" secondItem="iFO-yB-APm" secondAttribute="centerY" id="KTc-2G-z54"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hAJ-Ve-QRw" secondAttribute="trailing" constant="16" id="McH-of-g2w"/>
                             <constraint firstItem="IFK-d8-0Tv" firstAttribute="top" secondItem="ad7-Kb-NwN" secondAttribute="bottom" constant="49" id="NHt-Ax-AQA"/>
                             <constraint firstItem="qcw-gs-Ikx" firstAttribute="top" secondItem="iFO-yB-APm" secondAttribute="top" constant="56" id="NXq-FM-u54"/>
                             <constraint firstItem="qGA-bd-xEY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="O6O-6i-Vd8"/>
@@ -266,23 +285,23 @@
                             <constraint firstItem="iFO-yB-APm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="Se2-Lx-Ahe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fFn-De-0bD" secondAttribute="trailing" constant="16" id="TNr-eN-rdW"/>
                             <constraint firstItem="p0C-Ku-CUW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Tgn-rH-unk"/>
+                            <constraint firstItem="jWh-jq-bvk" firstAttribute="leading" secondItem="IFK-d8-0Tv" secondAttribute="trailing" constant="16" id="UPh-Ub-Qkm"/>
+                            <constraint firstItem="zw5-GN-qji" firstAttribute="leading" secondItem="iFO-yB-APm" secondAttribute="trailing" constant="16" id="VfK-gi-nOm"/>
                             <constraint firstItem="zw5-GN-qji" firstAttribute="centerY" secondItem="iFO-yB-APm" secondAttribute="centerY" id="WKn-i8-ECX"/>
                             <constraint firstItem="p0C-Ku-CUW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WjZ-Ga-0wb"/>
-                            <constraint firstItem="hAJ-Ve-QRw" firstAttribute="centerY" secondItem="IFK-d8-0Tv" secondAttribute="centerY" id="ane-vD-J9m"/>
                             <constraint firstItem="Lh7-3k-PzD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="dUS-CO-UMM"/>
+                            <constraint firstItem="cRK-q9-Jhd" firstAttribute="leading" secondItem="X9F-UG-7m0" secondAttribute="trailing" constant="16" id="glW-id-J0P"/>
                             <constraint firstAttribute="trailing" secondItem="jWh-jq-bvk" secondAttribute="trailing" constant="16" id="hZR-jz-KdN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cRK-q9-Jhd" secondAttribute="trailing" constant="16" id="iTt-gS-n8v"/>
-                            <constraint firstItem="J11-Yn-sCt" firstAttribute="centerY" secondItem="X9F-UG-7m0" secondAttribute="centerY" id="nP2-H1-gXt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="p0C-Ku-CUW" secondAttribute="trailing" constant="16" id="nlS-sd-Zll"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Le5-H7-ERF" secondAttribute="trailing" constant="16" id="oz3-H8-jP9"/>
                             <constraint firstItem="X9F-UG-7m0" firstAttribute="top" secondItem="qcw-gs-Ikx" secondAttribute="top" constant="56" id="qVy-Im-GUM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DXq-fx-h21" secondAttribute="trailing" constant="16" id="qfC-Ko-ySC"/>
                             <constraint firstItem="ad7-Kb-NwN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="rOX-63-pwR"/>
+                            <constraint firstItem="fFn-De-0bD" firstAttribute="leading" secondItem="qcw-gs-Ikx" secondAttribute="trailing" constant="16" id="t5p-q1-QoI"/>
                             <constraint firstItem="X9F-UG-7m0" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="17" id="uKW-KT-D74"/>
                             <constraint firstItem="DXq-fx-h21" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vRb-Ca-wWK"/>
                             <constraint firstItem="epx-2b-qvG" firstAttribute="top" secondItem="X9F-UG-7m0" secondAttribute="top" constant="56" id="wGs-6U-eJI"/>
                             <constraint firstItem="qGA-bd-xEY" firstAttribute="top" secondItem="p0C-Ku-CUW" secondAttribute="bottom" constant="16" id="ygM-yx-BMU"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J11-Yn-sCt" secondAttribute="trailing" constant="16" id="zJQ-FD-8lL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="raQ-eB-4DL"/>
@@ -383,19 +402,283 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3Z-K3-Z48">
-                                        <rect key="frame" x="18" y="57.666666666666657" width="28" height="19"/>
+                                        <rect key="frame" x="18" y="73.666666666666657" width="28" height="19"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용약관 동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j48-TD-bVX">
+                                        <rect key="frame" x="17" y="141.66666666666669" width="320" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="2OI-HB-D3C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HW-Dr-1dE" userLabel="CheckBoxBG_1" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="353" y="139.33333333333331" width="24" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-9Z-5uv" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="YZD-qt-X91"/>
+                                                    <constraint firstAttribute="height" constant="24" id="cSY-Yz-dqL"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                <state key="normal" image="OrangeCheck"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="checkBox1Tap_Sign_up1:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="ZOb-lu-24U"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="RZw-kj-mm2"/>
+                                            <constraint firstAttribute="bottom" secondItem="OHF-9Z-5uv" secondAttribute="bottom" id="S41-bp-YRX"/>
+                                            <constraint firstItem="OHF-9Z-5uv" firstAttribute="leading" secondItem="7HW-Dr-1dE" secondAttribute="leading" id="ixx-6d-RUW"/>
+                                            <constraint firstAttribute="height" constant="24" id="nal-5N-Tjo"/>
+                                            <constraint firstItem="OHF-9Z-5uv" firstAttribute="top" secondItem="7HW-Dr-1dE" secondAttribute="top" id="rId-qL-pkF"/>
+                                            <constraint firstAttribute="trailing" secondItem="OHF-9Z-5uv" secondAttribute="trailing" id="u9v-Mq-xFF"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 및 이용 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VC5-QM-Ch5">
+                                        <rect key="frame" x="17" y="197.66666666666669" width="320" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="RsB-Ih-Fty"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPA-KC-E6u" userLabel="CheckBoxBG_2" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="353" y="195.33333333333331" width="24" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1m-5P-p4r" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="7tz-BP-Ujl"/>
+                                                    <constraint firstAttribute="width" constant="24" id="kXs-7Y-fCG"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                <state key="normal" image="OrangeCheck"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="checkBox2Tap_Sign_up1:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="qcU-dZ-iXK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="a1m-5P-p4r" secondAttribute="trailing" id="7ji-Nz-GRs"/>
+                                            <constraint firstAttribute="width" constant="24" id="NnY-5i-RbB"/>
+                                            <constraint firstAttribute="height" constant="24" id="PwB-9j-Cms"/>
+                                            <constraint firstAttribute="bottom" secondItem="a1m-5P-p4r" secondAttribute="bottom" id="Qko-4d-Zqs"/>
+                                            <constraint firstItem="a1m-5P-p4r" firstAttribute="top" secondItem="lPA-KC-E6u" secondAttribute="top" id="Tqp-8C-Axk"/>
+                                            <constraint firstItem="a1m-5P-p4r" firstAttribute="leading" secondItem="lPA-KC-E6u" secondAttribute="leading" id="f8S-KE-mMw"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치정보서비스 제공 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kle-6s-uJu">
+                                        <rect key="frame" x="17" y="253.66666666666669" width="320" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="fh5-Ou-CcY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v30-B2-m0t" userLabel="CheckBoxBG_3" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="353" y="251.33333333333331" width="24" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amy-yR-ggz" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="aUr-22-uMR"/>
+                                                    <constraint firstAttribute="width" constant="24" id="v3f-zm-Rhi"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                <state key="normal" image="OrangeCheck"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="checkBox3Tap_Sign_up1:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="8IV-EY-E2c"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="amy-yR-ggz" secondAttribute="bottom" id="0GL-Px-Odq"/>
+                                            <constraint firstAttribute="width" constant="24" id="3JN-fI-vDD"/>
+                                            <constraint firstItem="amy-yR-ggz" firstAttribute="leading" secondItem="v30-B2-m0t" secondAttribute="leading" id="6aX-IU-J75"/>
+                                            <constraint firstAttribute="height" constant="24" id="AEw-jL-0DN"/>
+                                            <constraint firstItem="amy-yR-ggz" firstAttribute="top" secondItem="v30-B2-m0t" secondAttribute="top" id="o9D-pN-IVR"/>
+                                            <constraint firstAttribute="trailing" secondItem="amy-yR-ggz" secondAttribute="trailing" id="xjq-q3-Mzr"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 제3자 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yad-1M-Iie">
+                                        <rect key="frame" x="17" y="309.66666666666669" width="320" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="HQI-JZ-VFn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgk-sf-knp" userLabel="CheckBoxBG_4" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="353" y="307.33333333333331" width="24" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-q5-zcT" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="fmP-28-KSg"/>
+                                                    <constraint firstAttribute="height" constant="24" id="hpb-Hz-L8c"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                <state key="normal" image="OrangeCheck"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="checkBox4Tap_Sign_up1:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="ilp-0E-tcz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="HandsUpSnowWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="kyb-q5-zcT" secondAttribute="bottom" id="1Ks-pf-ckH"/>
+                                            <constraint firstAttribute="trailing" secondItem="kyb-q5-zcT" secondAttribute="trailing" id="39Z-aX-37M"/>
+                                            <constraint firstAttribute="height" constant="24" id="RJe-HM-KS3"/>
+                                            <constraint firstItem="kyb-q5-zcT" firstAttribute="leading" secondItem="Hgk-sf-knp" secondAttribute="leading" id="Weo-ne-5d9"/>
+                                            <constraint firstItem="kyb-q5-zcT" firstAttribute="top" secondItem="Hgk-sf-knp" secondAttribute="top" id="XUL-ZH-6vN"/>
+                                            <constraint firstAttribute="width" constant="24" id="k2K-Y8-UuK"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGk-y9-9Aa">
+                                        <rect key="frame" x="17" y="365.66666666666669" width="132.66666666666666" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="HandsUpBackground"/>
                                 <constraints>
+                                    <constraint firstItem="Hgk-sf-knp" firstAttribute="centerY" secondItem="Yad-1M-Iie" secondAttribute="centerY" id="0FB-FR-UMJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="v30-B2-m0t" secondAttribute="trailing" constant="16" id="3TT-Yb-YXW"/>
+                                    <constraint firstItem="kle-6s-uJu" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="BLF-Ph-KjJ"/>
+                                    <constraint firstItem="kle-6s-uJu" firstAttribute="top" secondItem="VC5-QM-Ch5" secondAttribute="bottom" constant="37" id="D9g-if-tPj"/>
                                     <constraint firstItem="E3Z-K3-Z48" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="18" id="DGg-2A-4iN"/>
-                                    <constraint firstItem="E3Z-K3-Z48" firstAttribute="top" secondItem="VwP-Py-qfr" secondAttribute="bottom" constant="4.0000000000000036" id="FU8-Sw-P2h"/>
-                                    <constraint firstAttribute="width" constant="393" id="LDo-rf-ePO"/>
+                                    <constraint firstItem="E3Z-K3-Z48" firstAttribute="top" secondItem="VwP-Py-qfr" secondAttribute="bottom" constant="20" id="FU8-Sw-P2h"/>
+                                    <constraint firstItem="lPA-KC-E6u" firstAttribute="leading" secondItem="VC5-QM-Ch5" secondAttribute="trailing" constant="16" id="LYH-js-BRn"/>
+                                    <constraint firstItem="v30-B2-m0t" firstAttribute="centerY" secondItem="kle-6s-uJu" secondAttribute="centerY" id="M31-lI-Spa"/>
+                                    <constraint firstItem="VC5-QM-Ch5" firstAttribute="top" secondItem="j48-TD-bVX" secondAttribute="bottom" constant="37" id="RDv-jK-JmX"/>
+                                    <constraint firstItem="XGk-y9-9Aa" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="VVF-Sy-XO3"/>
+                                    <constraint firstItem="7HW-Dr-1dE" firstAttribute="leading" secondItem="j48-TD-bVX" secondAttribute="trailing" constant="16" id="XDj-ZG-qub"/>
+                                    <constraint firstItem="j48-TD-bVX" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="ZVG-FQ-ibc"/>
                                     <constraint firstItem="VwP-Py-qfr" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="18" id="aR8-RB-YDy"/>
+                                    <constraint firstAttribute="trailing" secondItem="7HW-Dr-1dE" secondAttribute="trailing" constant="16" id="apx-xW-kW8"/>
+                                    <constraint firstItem="Hgk-sf-knp" firstAttribute="leading" secondItem="Yad-1M-Iie" secondAttribute="trailing" constant="16" id="b2T-gg-VVz"/>
+                                    <constraint firstItem="j48-TD-bVX" firstAttribute="top" secondItem="E3Z-K3-Z48" secondAttribute="bottom" constant="49" id="b2q-Ww-Fkp"/>
+                                    <constraint firstItem="VC5-QM-Ch5" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="cqW-iL-dVF"/>
                                     <constraint firstItem="VwP-Py-qfr" firstAttribute="top" secondItem="cI6-Mx-N0V" secondAttribute="top" constant="16" id="fOo-oo-DGl"/>
+                                    <constraint firstItem="lPA-KC-E6u" firstAttribute="centerY" secondItem="VC5-QM-Ch5" secondAttribute="centerY" id="lxQ-DU-Af1"/>
+                                    <constraint firstItem="XGk-y9-9Aa" firstAttribute="top" secondItem="Yad-1M-Iie" secondAttribute="bottom" constant="37" id="olc-Af-hVB"/>
+                                    <constraint firstItem="Yad-1M-Iie" firstAttribute="top" secondItem="kle-6s-uJu" secondAttribute="bottom" constant="37" id="q1d-UK-v1G"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hgk-sf-knp" secondAttribute="trailing" constant="16" id="r50-vs-zva"/>
+                                    <constraint firstAttribute="trailing" secondItem="lPA-KC-E6u" secondAttribute="trailing" constant="16" id="uLX-8t-fRk"/>
+                                    <constraint firstItem="7HW-Dr-1dE" firstAttribute="centerY" secondItem="j48-TD-bVX" secondAttribute="centerY" id="vHF-e9-0gU"/>
+                                    <constraint firstItem="Yad-1M-Iie" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="vLr-Np-m4F"/>
+                                    <constraint firstItem="v30-B2-m0t" firstAttribute="leading" secondItem="kle-6s-uJu" secondAttribute="trailing" constant="16" id="zTJ-j4-aR5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFd-ps-zlS" userLabel="SecondPage">
+                                <rect key="frame" x="0.0" y="126" width="393" height="625"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zY-uK-4GT">
+                                        <rect key="frame" x="17.999999999999996" y="15.999999999999996" width="55.666666666666657" height="37.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
+                                        <color key="textColor" name="HandsUpMainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37W-dr-6Yk">
+                                        <rect key="frame" x="18" y="73.666666666666657" width="28" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-8z-oYx" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="179.66666666666669" width="361" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="6de-2S-0UI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.10000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue4-cu-T5Y">
+                                        <rect key="frame" x="36.666666666666657" y="96.666666666666657" width="320" height="215.99999999999997"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" name="HandsUpBackground"/>
+                                <constraints>
+                                    <constraint firstItem="7zY-uK-4GT" firstAttribute="top" secondItem="vFd-ps-zlS" secondAttribute="top" constant="16" id="3Kr-YQ-ZNi"/>
+                                    <constraint firstAttribute="trailing" secondItem="MIn-8z-oYx" secondAttribute="trailing" constant="16" id="DiF-Q5-jkE"/>
+                                    <constraint firstItem="MIn-8z-oYx" firstAttribute="leading" secondItem="vFd-ps-zlS" secondAttribute="leading" constant="16" id="Gfv-vJ-veA"/>
+                                    <constraint firstItem="ue4-cu-T5Y" firstAttribute="centerY" secondItem="MIn-8z-oYx" secondAttribute="centerY" id="RMT-Gc-I9l"/>
+                                    <constraint firstItem="MIn-8z-oYx" firstAttribute="top" secondItem="37W-dr-6Yk" secondAttribute="bottom" constant="87" id="atQ-zo-oJa"/>
+                                    <constraint firstItem="ue4-cu-T5Y" firstAttribute="centerX" secondItem="vFd-ps-zlS" secondAttribute="centerX" id="b7F-Dv-6WY"/>
+                                    <constraint firstItem="37W-dr-6Yk" firstAttribute="leading" secondItem="vFd-ps-zlS" secondAttribute="leading" constant="18" id="h7Q-e1-b2j"/>
+                                    <constraint firstItem="7zY-uK-4GT" firstAttribute="leading" secondItem="vFd-ps-zlS" secondAttribute="leading" constant="18" id="mFT-ae-PTo"/>
+                                    <constraint firstAttribute="width" constant="393" id="n8h-7d-wum"/>
+                                    <constraint firstItem="37W-dr-6Yk" firstAttribute="top" secondItem="7zY-uK-4GT" secondAttribute="bottom" constant="20" id="wU1-N8-SN3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -404,6 +687,7 @@
                         <constraints>
                             <constraint firstItem="cI6-Mx-N0V" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="9yZ-OV-pgJ"/>
                             <constraint firstItem="cI6-Mx-N0V" firstAttribute="top" secondItem="gEO-VW-DWC" secondAttribute="bottom" id="AW4-4g-Bqf"/>
+                            <constraint firstItem="vFd-ps-zlS" firstAttribute="top" secondItem="gEO-VW-DWC" secondAttribute="bottom" id="Kju-wq-ANj"/>
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="6Lh-ff-FVa" secondAttribute="trailing" constant="16" id="OBo-W1-ghw"/>
                             <constraint firstItem="gEO-VW-DWC" firstAttribute="leading" secondItem="3do-9e-DMN" secondAttribute="leading" constant="16" id="Pop-JG-ujH"/>
                             <constraint firstItem="6Lh-ff-FVa" firstAttribute="leading" secondItem="3do-9e-DMN" secondAttribute="leading" constant="16" id="S6a-fF-DsA"/>
@@ -411,17 +695,30 @@
                             <constraint firstItem="prg-rP-BGt" firstAttribute="top" secondItem="RST-Yy-uWN" secondAttribute="top" id="XR4-YB-EY9"/>
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="gEO-VW-DWC" secondAttribute="trailing" constant="16" id="cFo-Jt-3Iv"/>
                             <constraint firstItem="gEO-VW-DWC" firstAttribute="top" secondItem="prg-rP-BGt" secondAttribute="bottom" constant="10" id="m4E-Xu-gcC"/>
+                            <constraint firstItem="vFd-ps-zlS" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="mOn-RD-MS5"/>
+                            <constraint firstItem="6Lh-ff-FVa" firstAttribute="top" secondItem="vFd-ps-zlS" secondAttribute="bottom" id="t86-Uf-rj6"/>
+                            <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="cI6-Mx-N0V" secondAttribute="trailing" id="tEB-qa-aej"/>
                             <constraint firstItem="6Lh-ff-FVa" firstAttribute="top" secondItem="cI6-Mx-N0V" secondAttribute="bottom" id="vIY-fW-w8b"/>
                             <constraint firstItem="prg-rP-BGt" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="8" id="w11-mW-AEB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="BackButton_Sign_up" destination="prg-rP-BGt" id="MRK-ab-7VZ"/>
+                        <outlet property="checkBoxButton1_Sign_up" destination="OHF-9Z-5uv" id="XoF-O3-8eE"/>
+                        <outlet property="checkBoxButton2_Sign_up" destination="a1m-5P-p4r" id="h7U-a8-tkg"/>
+                        <outlet property="checkBoxButton3_Sign_up" destination="amy-yR-ggz" id="ui7-EH-WBZ"/>
+                        <outlet property="checkBoxButton4_Sign_up" destination="kyb-q5-zcT" id="IbQ-Ex-WJS"/>
                         <outlet property="curBarWidth_Sign_up" destination="Vxm-J1-qfp" id="k72-0R-gnY"/>
                         <outlet property="nextButton_Sign_up" destination="6Lh-ff-FVa" id="5Dh-AS-wGe"/>
+                        <outlet property="page1_Sign_up" destination="cI6-Mx-N0V" id="59p-va-ojT"/>
+                        <outlet property="page2Leading_Sign_up" destination="mOn-RD-MS5" id="Mc3-Ns-5Ec"/>
+                        <outlet property="page2Width_Sign_up" destination="n8h-7d-wum" id="MQt-NN-eSM"/>
                         <outlet property="pageControllBar_Sign_up" destination="gEO-VW-DWC" id="RIL-TX-uPu"/>
-                        <outlet property="subTitle_Sign_up" destination="E3Z-K3-Z48" id="3iZ-wW-2SQ"/>
-                        <outlet property="title_Sign_up" destination="VwP-Py-qfr" id="3Ei-ZP-NLr"/>
+                        <outlet property="schoolPickerView_Sign_up" destination="ue4-cu-T5Y" id="bdG-Nw-h5e"/>
+                        <outlet property="subTitlePG1_Sign_up" destination="E3Z-K3-Z48" id="QqX-rK-x7C"/>
+                        <outlet property="subTitlePG2_Sign_up" destination="37W-dr-6Yk" id="Ghu-9y-V4w"/>
+                        <outlet property="titlePG1_Sign_up" destination="VwP-Py-qfr" id="TSc-Rm-OeO"/>
+                        <outlet property="titlePG2_Sign_up" destination="7zY-uK-4GT" id="iqK-LE-4G8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBD-UO-I3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2095,7 +2392,6 @@
         <!--Navigation Controller-->
         <scene sceneID="PeQ-0y-anm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzy-nZ-e41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Sign_upNC" automaticallyAdjustsScrollViewInsets="NO" id="FKn-rs-iRw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z7J-QI-kzQ">
@@ -2107,6 +2403,7 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Rth-I1-w0o"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzy-nZ-e41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="43.511450381679388" y="-2.1126760563380285"/>
         </scene>
