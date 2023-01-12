@@ -16,8 +16,13 @@ class Profile_ViewController: UIViewController {
     }
     
     func pageBarInit_Profile(){
-        let widthValue_Profile = pageControlView_Profile.frame.size.width / 5
+        let widthValue_Profile = pageControlView_Profile.frame.size.width
         curPageBarWidth_Profile.constant = widthValue_Profile as CGFloat
+    }
+    @IBAction func characterButtonTap_Profile(_ sender: Any) {
+        let LoginVC_FV = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit")
+        LoginVC_FV?.modalPresentationStyle = .fullScreen
+        self.present(LoginVC_FV!,animated:true)
     }
     
     @IBAction func characterHighlightToggle_Profile(_ sender: Any) {

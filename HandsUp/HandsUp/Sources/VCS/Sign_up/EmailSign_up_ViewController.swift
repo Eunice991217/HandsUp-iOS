@@ -153,8 +153,8 @@ class EmailSign_up_ViewController: UIViewController {
     }
     
     func pageBarInit_EmailSign_up(){
-        let widthValue_EmailSign_up = pageControlView_EmailSign_up.frame.size.width / 5
-        curPageBarX_EmailSign_up.constant = widthValue_EmailSign_up * 2
+        let widthValue_EmailSign_up = pageControlView_EmailSign_up.frame.size.width * 3 / 5
+        curPageBarX_EmailSign_up.constant = 0
         curPageBarWidth_EmailSign_up.constant = widthValue_EmailSign_up as CGFloat
     }
     
@@ -200,8 +200,7 @@ class EmailSign_up_ViewController: UIViewController {
     @IBAction func nextButtonTap_EmailSign_up(_ sender: Any) {
         if(nextButton_EmailSign_up.backgroundColor == UIColor(named: "HandsUpOrange")){
             let nicknameVC_EmailSign_up = self.storyboard?.instantiateViewController(withIdentifier: "Nickname")
-            self.navigationController?.pushViewController(nicknameVC_EmailSign_up!, animated: true)
-            verificationCodeTextField_EmailSign_up.addTarget(self, action: #selector(isCorrectVerificationCode_EmailSign_up(_sender: )), for: .editingChanged)
+            self.navigationController?.pushViewController(nicknameVC_EmailSign_up!, animated: false)
         }
     }
     

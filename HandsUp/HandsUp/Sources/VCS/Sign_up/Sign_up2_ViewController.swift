@@ -18,8 +18,8 @@ class Sign_up2_ViewController: UIViewController {
     var schoolList_Sign_up2: [String] = ["서울대학교", "가천대학교", "건국대학교"]
     
     func pageBarInit_Sign_up2(){
-        let widthValue_Sign_up2 = pageControlView_Sign_up2.frame.size.width / 5
-        curPageBarX_Sign_up2.constant = widthValue_Sign_up2
+        let widthValue_Sign_up2 = pageControlView_Sign_up2.frame.size.width * 2 / 5
+        curPageBarX_Sign_up2.constant = 0
         curPageBarWidth_Sign_up2.constant = widthValue_Sign_up2 as CGFloat
     }
     
@@ -27,11 +27,11 @@ class Sign_up2_ViewController: UIViewController {
         if(sign_upData_Sign_up2.type == 0){
             let emailSign_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "EmailSign_up") as! EmailSign_up_ViewController
             emailSign_upVC_Sign_up2.sign_upData_EmailSign_up = sign_upData_Sign_up2
-            self.navigationController?.pushViewController(emailSign_upVC_Sign_up2, animated: true)
+            self.navigationController?.pushViewController(emailSign_upVC_Sign_up2, animated: false)
         }else{
             let socialLogin_upVC_Sign_up2 = self.storyboard?.instantiateViewController(withIdentifier: "SocialLogin") as! SocialLogin_ViewController
             socialLogin_upVC_Sign_up2.sign_upData_SocialLogin = sign_upData_Sign_up2
-            self.navigationController?.pushViewController(socialLogin_upVC_Sign_up2, animated: true)
+            self.navigationController?.pushViewController(socialLogin_upVC_Sign_up2, animated: false)
         }
     }
     
@@ -56,7 +56,7 @@ class Sign_up2_ViewController: UIViewController {
         titleInit_Sign_up2()
         pageBarInit_Sign_up2()
         pickerViewInit()
-        
+
     }
 }
 

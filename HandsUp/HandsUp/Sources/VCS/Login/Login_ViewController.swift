@@ -55,8 +55,8 @@ class Login_ViewController: UIViewController {
     @IBAction func sign_upButton_Login(_ sender: Any){
         let sign_upData_Login = SignupData()
         let Sign_upSB_Login = UIStoryboard(name: "Sign_up", bundle: nil)
-        let sign_upVC_Login = Sign_upSB_Login.instantiateViewController(withIdentifier: "Sign_up1") as! Sign_up1_ViewController
-        sign_upVC_Login.sign_upData_Sign_up1 = sign_upData_Login
+        let sign_upVC_Login = Sign_upSB_Login.instantiateViewController(withIdentifier: "Sign_up") as! Sign_up_ViewController
+        sign_upVC_Login.sign_upData_Sign_up = sign_upData_Login
         self.navigationController?.pushViewController(sign_upVC_Login, animated: true)
     }
     

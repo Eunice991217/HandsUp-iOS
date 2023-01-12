@@ -26,15 +26,15 @@ class Nickname_ViewController: UIViewController {
     }
     
     func pageBarInit_Nickname(){
-        let widthValue_Nickname = pageControlView_Nickname.frame.size.width / 5
-        curPageBarX_Nickname.constant = widthValue_Nickname * 3
+        let widthValue_Nickname = pageControlView_Nickname.frame.size.width * 4 / 5
+        curPageBarX_Nickname.constant = 0
         curPageBarWidth_Nickname.constant = widthValue_Nickname as CGFloat
     }
     
     @IBAction func nextButtonTap_Nickname(_ sender: Any) {
         if(nextButtonEnable_Nickname){
             let profileVC_Nickname = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
-            self.navigationController?.pushViewController(profileVC_Nickname!, animated: true)
+            self.navigationController?.pushViewController(profileVC_Nickname!, animated: false)
         }
     }
     
@@ -44,9 +44,9 @@ class Nickname_ViewController: UIViewController {
             if(!nextButtonEnable_Nickname){
                 nextButtonEnable_Nickname = true
                 nextButton_Nickname.backgroundColor = UIColor(named: "HandsUpOrange")
-            }
-        }else{
-            if(nextButtonEnable_Nickname){
+            }        }else{
+
+                if(nextButtonEnable_Nickname){
                 nextButtonEnable_Nickname = false
                 nextButton_Nickname.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
             }

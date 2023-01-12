@@ -24,6 +24,8 @@
 		8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648084296ECD5D008D28CF /* Character_UIView.swift */; };
 		8B648087296F114D008D28CF /* MultiLayerShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */; };
 		8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */; };
+		8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */; };
+		8B6A60B3296FECB400E55A5D /* Sign_upContent_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A60B2296FECB400E55A5D /* Sign_upContent_UIView.swift */; };
 		8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */; };
 		8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */; };
 		8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */; };
@@ -58,6 +60,8 @@
 		8B648084296ECD5D008D28CF /* Character_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character_UIView.swift; sourceTree = "<group>"; };
 		8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLayerShadow_UIButton.swift; sourceTree = "<group>"; };
 		8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEdit_ViewController.swift; sourceTree = "<group>"; };
+		8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up_ViewController.swift; sourceTree = "<group>"; };
+		8B6A60B2296FECB400E55A5D /* Sign_upContent_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_upContent_UIView.swift; sourceTree = "<group>"; };
 		8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up2_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSign_up_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin_ViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */,
 				8B648084296ECD5D008D28CF /* Character_UIView.swift */,
 				8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */,
+				8B6A60B2296FECB400E55A5D /* Sign_upContent_UIView.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */,
 				8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */,
 				8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */,
+				8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */,
 			);
 			path = Sign_up;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			files = (
 				8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */,
 				8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */,
+				8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */,
 				8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */,
 				8B21091B2966DFF20042D14A /* ViewController.swift in Sources */,
 				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
@@ -311,6 +318,7 @@
 				8B648083296E9191008D28CF /* SignupData.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
 				8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */,
+				8B6A60B3296FECB400E55A5D /* Sign_upContent_UIView.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 				8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */,
 			);
@@ -459,6 +467,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FQ4G9SX78Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -471,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HandsUp.HandsUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -486,6 +495,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FQ4G9SX78Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,7 +508,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HandsUp.HandsUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

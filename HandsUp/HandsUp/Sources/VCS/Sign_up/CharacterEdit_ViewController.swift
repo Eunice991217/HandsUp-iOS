@@ -9,6 +9,15 @@ class CharacterEdit_ViewController: UIViewController {
         characterView.setCharacter()
     }
     
+    @IBAction func orange(_ sender: Any) {
+        characterView.bgType = 0
+        reload()
+    }
+    
+    @IBAction func blue(_ sender: Any) {
+        characterView.bgType = 1
+        reload()
+    }
     @IBAction func curly(_ sender: Any) {
         characterView.headType = 0
         reload()

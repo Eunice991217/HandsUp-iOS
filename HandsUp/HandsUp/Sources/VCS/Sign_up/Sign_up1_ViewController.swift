@@ -15,7 +15,7 @@ class Sign_up1_ViewController: UIViewController {
     @IBOutlet weak var checkBox3_Sign_up1: UIButton!
     @IBOutlet weak var checkBox4_Sign_up1: UIButton!
     var checkBox_Sign_up1 =  [Bool](repeating: false, count: 4)
-    
+    var page:CGFloat = 1
     func pageBarInit_Sign_up1(){
         let widthValue_Sign_up1 = pageControlView_Sign_up1.frame.size.width / 5 as CGFloat
         curPageBarX_Sign_up1.constant = 0
@@ -102,7 +102,7 @@ class Sign_up1_ViewController: UIViewController {
         if(isNextButtonActive_Sign_up1){
             let sign_up2VC_Sign_up1 = self.storyboard?.instantiateViewController(withIdentifier: "Sign_up2") as! Sign_up2_ViewController
             sign_up2VC_Sign_up1.sign_upData_Sign_up2 = sign_upData_Sign_up1
-            self.navigationController?.pushViewController(sign_up2VC_Sign_up1, animated: true)
+            self.navigationController?.pushViewController(sign_up2VC_Sign_up1, animated: false)
         }
     }
     
