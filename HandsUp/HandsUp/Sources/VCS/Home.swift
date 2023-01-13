@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Home: UIViewController {
     
     @IBOutlet weak var HomeTabView: UIView!
     @IBOutlet weak var HomeRestartBtn: UIView!
