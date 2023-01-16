@@ -687,7 +687,7 @@
                                         <rect key="frame" x="0.0" y="8" width="393" height="609"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1U-5d-SAE">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="544.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="575.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uZ-G9-OwT">
                                                         <rect key="frame" x="17.999999999999996" y="8" width="55.666666666666657" height="37.666666666666664"/>
@@ -908,13 +908,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yw-oq-CGW">
-                                                        <rect key="frame" x="22.000000000000007" y="433.66666666666663" width="87.666666666666686" height="19"/>
+                                                        <rect key="frame" x="22.000000000000007" y="464.66666666666663" width="87.666666666666686" height="19"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                         <color key="textColor" name="HandsUpMainText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nde-cn-uPv" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="460.66666666666663" width="361" height="50"/>
+                                                        <rect key="frame" x="16" y="491.66666666666663" width="361" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEz-yd-WgN">
                                                                 <rect key="frame" x="321" y="13" width="24" height="24"/>
@@ -974,6 +974,12 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 최소8자리 이상으로 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F0-mn-eCt">
+                                                        <rect key="frame" x="22" y="429.66666666666663" width="206" height="15"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="HandsUpBackground"/>
                                                 <constraints>
@@ -995,6 +1001,7 @@
                                                     <constraint firstItem="mvK-op-6YV" firstAttribute="leading" secondItem="s1U-5d-SAE" secondAttribute="leading" constant="22" id="Hmf-Hz-VLu"/>
                                                     <constraint firstAttribute="height" priority="500" constant="400" id="MjV-vk-v6C"/>
                                                     <constraint firstItem="Nde-cn-uPv" firstAttribute="leading" secondItem="s1U-5d-SAE" secondAttribute="leading" constant="16" id="NsH-cI-zj9"/>
+                                                    <constraint firstItem="0F0-mn-eCt" firstAttribute="leading" secondItem="s1U-5d-SAE" secondAttribute="leading" constant="22" id="PnJ-W4-79h"/>
                                                     <constraint firstItem="w2n-9n-2rG" firstAttribute="top" secondItem="EUB-CY-dMZ" secondAttribute="bottom" constant="51" id="Sdg-2Q-VfR"/>
                                                     <constraint firstItem="4uZ-G9-OwT" firstAttribute="top" secondItem="s1U-5d-SAE" secondAttribute="top" constant="8" id="Ujk-1O-Uz5"/>
                                                     <constraint firstItem="QD9-oE-ILz" firstAttribute="leading" secondItem="s1U-5d-SAE" secondAttribute="leading" constant="22" id="Wkq-Z8-Isn"/>
@@ -1002,8 +1009,9 @@
                                                     <constraint firstItem="w2n-9n-2rG" firstAttribute="leading" secondItem="s1U-5d-SAE" secondAttribute="leading" constant="16" id="YA4-tK-oxd"/>
                                                     <constraint firstItem="HAs-ly-vCf" firstAttribute="leading" secondItem="s1U-5d-SAE" secondAttribute="leading" constant="16" id="ZC8-cB-XHb"/>
                                                     <constraint firstItem="EUB-CY-dMZ" firstAttribute="top" secondItem="4uZ-G9-OwT" secondAttribute="bottom" constant="20" id="dhN-WO-M03"/>
-                                                    <constraint firstItem="9Yw-oq-CGW" firstAttribute="top" secondItem="HAs-ly-vCf" secondAttribute="bottom" constant="20" id="gMp-md-jf4"/>
+                                                    <constraint firstItem="9Yw-oq-CGW" firstAttribute="top" secondItem="0F0-mn-eCt" secondAttribute="bottom" constant="20" id="gMp-md-jf4"/>
                                                     <constraint firstItem="Nde-cn-uPv" firstAttribute="top" secondItem="9Yw-oq-CGW" secondAttribute="bottom" constant="8" id="gXI-Jb-Amh"/>
+                                                    <constraint firstItem="0F0-mn-eCt" firstAttribute="top" secondItem="HAs-ly-vCf" secondAttribute="bottom" constant="16" id="qkd-d3-Rv8"/>
                                                     <constraint firstAttribute="trailing" secondItem="HAs-ly-vCf" secondAttribute="trailing" constant="16" id="ukh-mJ-QZL"/>
                                                 </constraints>
                                             </view>
@@ -2314,13 +2322,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-i1-yo2">
-                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
+                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
                                 <color key="textColor" name="HandsUpMainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jA-Ih-vuy">
-                                <rect key="frame" x="18" y="151.66666666666666" width="28" height="19"/>
+                                <rect key="frame" x="18" y="151.33333333333334" width="28" height="18.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
@@ -2346,7 +2354,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6T-gu-044" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="220.66666666666666" width="361" height="49.999999999999972"/>
+                                <rect key="frame" x="16" y="220" width="361" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfi-wr-WXm">
                                         <rect key="frame" x="16" y="0.0" width="329" height="50"/>
@@ -2388,7 +2396,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2글자 이상 5글자 이하로 생성 가능해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaD-aL-DO9">
-                                <rect key="frame" x="23" y="290.66666666666669" width="187.66666666666666" height="14"/>
+                                <rect key="frame" x="23" y="290" width="189" height="14"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>

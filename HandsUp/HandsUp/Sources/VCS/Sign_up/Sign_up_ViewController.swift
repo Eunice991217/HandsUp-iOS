@@ -367,10 +367,12 @@ class Sign_up_ViewController: UIViewController {
         
         if(regexPW_Sign_up){
             if(passwordConfirmationTextField_Sign_up.text == PWtextField_Sign_up.text && PWtextField_Sign_up.text != ""){
+                sign_upData_Sign_up.PW = PWtextField_Sign_up.text!
                 isCorrectPW_Sign_up = true
             }
         }
         else{
+            sign_upData_Sign_up.PW = ""
             isCorrectPW_Sign_up = false
         }
         
