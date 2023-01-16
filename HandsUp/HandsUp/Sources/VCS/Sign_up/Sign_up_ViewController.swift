@@ -16,6 +16,13 @@ class Sign_up_ViewController: UIViewController {
     @IBOutlet weak var page1_Sign_up: UIView!
     @IBOutlet weak var page2Width_Sign_up: NSLayoutConstraint!
     @IBOutlet weak var page2Leading_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page3Width_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page3Leading_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page4Width_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page4Leading_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page5Width_Sign_up: NSLayoutConstraint!
+    @IBOutlet weak var page5Leading_Sign_up: NSLayoutConstraint!
+    
     //Page1
     @IBOutlet weak var titlePG1_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG1_Sign_up: UILabel!
@@ -30,10 +37,36 @@ class Sign_up_ViewController: UIViewController {
     @IBOutlet weak var subTitlePG2_Sign_up: UILabel!
     @IBOutlet weak var schoolPickerView_Sign_up: UIPickerView!
     var schoolList_Sign_up: [String] = ["서울대학교", "가천대학교", "건국대학교"]
-    //
+    //Page3
+    @IBOutlet weak var titlePG3_Sign_up: UILabel!
+    @IBOutlet weak var subTitlePG3_Sign_up: UILabel!
+    @IBOutlet weak var scrollView_Sign_up: UIScrollView!
+    @IBOutlet weak var emailTextField_Sign_up: UITextField!
+    @IBOutlet weak var getVerificationCodeButton_Sign_up: RoundedShadow_UIButton!
+    @IBOutlet weak var verificationCodeBox_Sign_up: RoundedShadow_UIView!
+    @IBOutlet weak var verificationCodeTextField_Sign_up: UITextField!
+    @IBOutlet weak var greenCheck_Sign_up: UIImageView!
+    @IBOutlet weak var exclamationMark_Sign_up: UIImageView!
+    @IBOutlet weak var PWtextField_Sign_up: UITextField!
+    @IBOutlet weak var showPWButton_Sign_up:UIButton!
+    @IBOutlet weak var passwordConfirmationTextField_Sign_up: UITextField!
+    @IBOutlet weak var showPWConfirmationButton_Sign_up:UIButton!
+    var isVerified_Sign_up: Bool = false
+    
+    //Page4
+    @IBOutlet weak var titlePG4_Sign_up: UILabel!
+    @IBOutlet weak var subTitlePG4_Sign_up: UILabel!
+    @IBOutlet weak var nicknameTextField_Sign_up: UITextField!
+    
+    //Page5
+    @IBOutlet weak var titlePG5_Sign_up: UILabel!
+    @IBOutlet weak var subTitlePG5_Sign_up: UILabel!
+    @IBOutlet weak var character_Sign_up: Character_UIView!
+    @IBOutlet weak var characterButton_Sign_up: UIButton!
+    
     var sign_upData_Sign_up : SignupData = SignupData()
     let titleArray_Sign_up: [String] = ["대학생 여러분 \n환영합니다:)", "다니시는 대학교\n선택해주세요", "학교확인\n도와드릴게요", "닉네임을\n만들어보세요", "자신의 프로필\n캐릭터를 만들어봐요!"]
-    var subTitleArray_Sign_up: [String] = ["원활한 서비스 이용을 위해 동의해주세요", "해당 대학교학생들만 사용가능해요", "", "닉네임은 7일후 변경가능하니 신중히\n선택해주세요:)", "캐릭터 클릭해 만들고\n자신만의 개성을 뽐내봐요!"]
+    var subTitleArray_Sign_up: [String] = ["원활한 서비스 이용을 위해 동의해주세요", "해당 대학교학생들만 사용가능해요", "학교이메일을 적고 비밀번호를\n만들어주세요.", "닉네임은 7일후 변경가능하니 신중히\n선택해주세요:)", "캐릭터 클릭해 만들고\n자신만의 개성을 뽐내봐요!"]
     var curPageCGFloat_Sign_up: CGFloat = 1
     var curPageInt_Sign_up: Int = 1
     var isNextButtonActive_Sign_up: Bool = false
@@ -47,16 +80,44 @@ class Sign_up_ViewController: UIViewController {
         }else{
             curBarWidth_Sign_up.constant = pageControllBar_Sign_up.frame.width
         }
-        if(curPageInt_Sign_up == 1){
+        switch curPageInt_Sign_up{
+        case 1:
             page2Leading_Sign_up.constant = pageWidth_Sign_up
-        }
-        if(curPageInt_Sign_up == 2){
+            isNextButtonActive_Sign_up = sign_upData_Sign_up.policyAgreement
+        case 2:
+            page3Leading_Sign_up.constant = pageWidth_Sign_up
             page2Leading_Sign_up.constant = 0
+            isNextButtonActive_Sign_up = true
+        case 3:
+            page4Leading_Sign_up.constant = pageWidth_Sign_up
+            page3Leading_Sign_up.constant = 0
+            isNextButtonActive_Sign_up = isVerified_Sign_up
+            addKeyboardObserver_Sign_up()
+        case 4:
+            page5Leading_Sign_up.constant = pageWidth_Sign_up
+            page4Leading_Sign_up.constant = 0
+            isNextButtonActive_Sign_up = nicknameValidation_Sign_up(text: sign_upData_Sign_up.nickname)
+            removeKeyboardObserver_Sign_up()
+        case 5:
+            page5Leading_Sign_up.constant = 0
+            isNextButtonActive_Sign_up = true
+        default:
+            print("error")
         }
         
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func titleUpdate_Sign_up(){
+        if(curPageInt_Sign_up == 5){
+            nextButton_Sign_up.setTitle("핸즈업 들어가기", for: .normal)
+        }
+        else{
+            nextButton_Sign_up.setTitle("다음", for: .normal)
+        }
+        nextButton_Sign_up.setTitleColor(UIColor(named: "HandsUpRealWhite"), for: .normal)
     }
     
     func pageInit_Sign_up(){
@@ -65,16 +126,29 @@ class Sign_up_ViewController: UIViewController {
         subTitlePG1_Sign_up.text = subTitleArray_Sign_up[0]
         titlePG2_Sign_up.text = titleArray_Sign_up[1]
         subTitlePG2_Sign_up.text = subTitleArray_Sign_up[1]
-
+        titlePG3_Sign_up.text = titleArray_Sign_up[2]
+        subTitlePG3_Sign_up.text = subTitleArray_Sign_up[2]
+        titlePG4_Sign_up.text = titleArray_Sign_up[3]
+        subTitlePG4_Sign_up.text = subTitleArray_Sign_up[3]
+        titlePG5_Sign_up.text = titleArray_Sign_up[4]
+        subTitlePG5_Sign_up.text = subTitleArray_Sign_up[4]
         
-            
-        
-        pageWidth_Sign_up = page1_Sign_up.frame.width
+        pageWidth_Sign_up = UIScreen.main.bounds.size.width
         page2Width_Sign_up.constant = pageWidth_Sign_up
         page2Leading_Sign_up.constant = pageWidth_Sign_up
+        page3Width_Sign_up.constant = pageWidth_Sign_up
+        page3Leading_Sign_up.constant = pageWidth_Sign_up
+        page4Width_Sign_up.constant = pageWidth_Sign_up
+        page4Leading_Sign_up.constant = pageWidth_Sign_up
+        page5Width_Sign_up.constant = pageWidth_Sign_up
+        page5Leading_Sign_up.constant = pageWidth_Sign_up
         
+        print(pageWidth_Sign_up)
         page1Init_Sign_up()
         page2Init_Sign_up()
+        page3Init_Sign_up()
+        page4Init_Sign_up()
+        page5Init_Sign_up()
     }
     
     func changeNextButtonState_Sign_up(){
@@ -86,16 +160,18 @@ class Sign_up_ViewController: UIViewController {
         }
     }
     
-    func contentUpdate_Sign_up(){
-        
-    }
-    
     @IBAction func nextButtonTap_Sign_up(_ sender: Any){
         if(isNextButtonActive_Sign_up){
+            if(curPageInt_Sign_up == 4){
+                sign_upData_Sign_up.nickname = nicknameTextField_Sign_up.text!
+            }
+            
             if(curPageInt_Sign_up < 5){
                 curPageInt_Sign_up += 1
                 curPageCGFloat_Sign_up += 1
                 pageUpdate_Sign_up()
+                changeNextButtonState_Sign_up()
+                titleUpdate_Sign_up()
             }
         }
     }
@@ -105,6 +181,8 @@ class Sign_up_ViewController: UIViewController {
             curPageInt_Sign_up -= 1
             curPageCGFloat_Sign_up -= 1
             pageUpdate_Sign_up()
+            changeNextButtonState_Sign_up()
+            titleUpdate_Sign_up()
         }
         else{
             self.navigationController?.popViewController(animated: true)
@@ -120,10 +198,10 @@ class Sign_up_ViewController: UIViewController {
     
     //Page 1
     func page1Init_Sign_up(){
-            checkBoxButton1_Sign_up.setImage(nil, for: .normal)
-            checkBoxButton2_Sign_up.setImage(nil, for: .normal)
-            checkBoxButton3_Sign_up.setImage(nil, for: .normal)
-            checkBoxButton4_Sign_up.setImage(nil, for: .normal)
+        checkBoxButton1_Sign_up.setImage(nil, for: .normal)
+        checkBoxButton2_Sign_up.setImage(nil, for: .normal)
+        checkBoxButton3_Sign_up.setImage(nil, for: .normal)
+        checkBoxButton4_Sign_up.setImage(nil, for: .normal)
     }
     
     func checkAgreement_Sign_up()->Bool{
@@ -137,7 +215,7 @@ class Sign_up_ViewController: UIViewController {
         return true
     }
     
-    @IBAction func checkBox1Tap_Sign_up1(_ sender: Any){
+    @IBAction func checkBox1Tap_Sign_up(_ sender: Any){
         if(agreement_Sign_up[0]){
             checkBoxButton1_Sign_up.setImage(nil, for: .normal)
             agreement_Sign_up[0] = false
@@ -149,7 +227,7 @@ class Sign_up_ViewController: UIViewController {
         changeNextButtonState_Sign_up()
     }
     
-    @IBAction func checkBox2Tap_Sign_up1(_ sender: Any){
+    @IBAction func checkBox2Tap_Sign_up(_ sender: Any){
         if(agreement_Sign_up[1]){
             checkBoxButton2_Sign_up.setImage(nil, for: .normal)
             agreement_Sign_up[1] = false
@@ -161,7 +239,7 @@ class Sign_up_ViewController: UIViewController {
         changeNextButtonState_Sign_up()
     }
     
-    @IBAction func checkBox3Tap_Sign_up1(_ sender: Any){
+    @IBAction func checkBox3Tap_Sign_up(_ sender: Any){
         if(agreement_Sign_up[2]){
             checkBoxButton3_Sign_up.setImage(nil, for: .normal)
             agreement_Sign_up[2] = false
@@ -173,7 +251,7 @@ class Sign_up_ViewController: UIViewController {
         changeNextButtonState_Sign_up()
     }
     
-    @IBAction func checkBox4Tap_Sign_up1(_ sender: Any){
+    @IBAction func checkBox4Tap_Sign_up(_ sender: Any){
         if(agreement_Sign_up[3]){
             checkBoxButton4_Sign_up.setImage(nil, for: .normal)
             agreement_Sign_up[3] = false
@@ -196,6 +274,101 @@ class Sign_up_ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         schoolPickerView_Sign_up.subviews[1].backgroundColor = .clear
     }
+    
+    //Page 3
+    func page3Init_Sign_up(){
+        greenCheck_Sign_up.alpha = 0
+        exclamationMark_Sign_up.alpha = 0
+        showPWButton_Sign_up.alpha = 0
+        showPWConfirmationButton_Sign_up.alpha = 0
+    }
+    
+    func addKeyboardObserver_Sign_up(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear_Sign_up(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear_Sign_up(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func removeKeyboardObserver_Sign_up(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardAppear_Sign_up(_ sender: Notification){
+        guard let userInfo_Sign_up = sender.userInfo,
+              let keyboardFrame_Sign_up = userInfo_Sign_up[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        scrollView_Sign_up.contentInset.bottom = keyboardFrame_Sign_up.size.height       
+        let firstResponder_Sign_up = UIResponder.currentFirstResponder
+        if let currentView_Sign_up = firstResponder_Sign_up as? UITextView {
+            scrollView_Sign_up.scrollRectToVisible(currentView_Sign_up.frame, animated: true)
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardDisappear_Sign_up(_ sender: Any){
+        let edgeInset_Sign_up = UIEdgeInsets.zero
+        scrollView_Sign_up.contentInset = edgeInset_Sign_up
+        scrollView_Sign_up.scrollIndicatorInsets = edgeInset_Sign_up
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    //Page 4
+    func page4Init_Sign_up(){
+        nicknameTextField_Sign_up.addTarget(self, action: #selector(nicknameInput_Sign_up(_sender: )), for: .editingChanged)
+    }
+    
+    func nicknameValidation_Sign_up(text: String) -> Bool{
+        let nickNameArray_Sign_up = Array(text)
+        if(nickNameArray_Sign_up.count < 2 || 5 < nickNameArray_Sign_up.count){
+            return false
+        }
+        let pattern_Sign_up = "^[가-힣]$"
+        if let regex_Sign_up = try? NSRegularExpression(pattern: pattern_Sign_up, options: .caseInsensitive) {
+                var index_Sign_up = 0
+                while index_Sign_up < nickNameArray_Sign_up.count {
+                    let results_Sign_up = regex_Sign_up.matches(in: String(nickNameArray_Sign_up[index_Sign_up]), options: [], range: NSRange(location: 0, length: 1))
+                    if results_Sign_up.count == 0 {
+                        return false
+                    } else {
+                        index_Sign_up += 1
+                    }
+                }
+            }
+        return true
+    }
+    
+    @objc func nicknameInput_Sign_up(_sender: Any){
+        let nickname_Sign_up:String = nicknameTextField_Sign_up.text ?? ""
+        if(nicknameValidation_Sign_up(text: nickname_Sign_up)){
+            isNextButtonActive_Sign_up = true
+        }else{
+            isNextButtonActive_Sign_up = false
+        }
+        changeNextButtonState_Sign_up()
+    }
+    
+    //Page 5
+    func page5Init_Sign_up(){
+        character_Sign_up.setAll(componentArray: sign_upData_Sign_up.characterComponent)
+        character_Sign_up.setCharacter()
+    }
+    
+    @IBAction func characterHighlight_Sign_up(_ sender: Any){
+        character_Sign_up.highlightToggle()
+    }
+    
+    @IBAction func characterChange_Sign_up(_ sender: Any){
+        let characterEditVC_Sign_up = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit")
+        characterEditVC_Sign_up?.modalPresentationStyle = .fullScreen
+        self.present(characterEditVC_Sign_up!,animated:true)
+    }
+    
 }
 
 extension Sign_up_ViewController: UIPickerViewDataSource, UIPickerViewDelegate{

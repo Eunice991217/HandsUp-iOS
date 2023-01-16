@@ -14,6 +14,7 @@ class SignupData{
     var email : String
     var PW : String
     var nickname : String
+    var characterComponent : [Int]
     
     init(){
         policyAgreement = false
@@ -22,6 +23,7 @@ class SignupData{
         email = ""
         PW = ""
         nickname = ""
+        characterComponent = [0,0,0,0,0,0,0]
     }
     
     init(mode : Int){
@@ -31,5 +33,6 @@ class SignupData{
         email = ""
         PW = ""
         nickname = ""
+        characterComponent = [0,0,0,0,0,0,0]
     }
 }

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B082A4C2972DBDF0063E6E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B082A4B2972DBDF0063E6E4 /* Main.storyboard */; };
 		8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109162966DFF20042D14A /* AppDelegate.swift */; };
 		8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109182966DFF20042D14A /* SceneDelegate.swift */; };
-		8B21091B2966DFF20042D14A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21091A2966DFF20042D14A /* ViewController.swift */; };
-		8B21091E2966DFF20042D14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091C2966DFF20042D14A /* Main.storyboard */; };
 		8B2109202966DFF30042D14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091F2966DFF30042D14A /* Assets.xcassets */; };
 		8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2109212966DFF30042D14A /* LaunchScreen.storyboard */; };
 		8B21092C2966E1430042D14A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B21092B2966E1430042D14A /* Alamofire */; };
+		8B4589742970B0FE0044227F /* FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4589732970B0FE0044227F /* FirstResponder.swift */; };
 		8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4BF0C62968C11F00B00890 /* FindPW_ViewController.swift */; };
 		8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */; };
 		8B4BF0D72968DAD200B00890 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */; };
@@ -22,10 +22,8 @@
 		8B4BF0E02968DAD200B00890 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */; };
 		8B648083296E9191008D28CF /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648082296E9191008D28CF /* SignupData.swift */; };
 		8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648084296ECD5D008D28CF /* Character_UIView.swift */; };
-		8B648087296F114D008D28CF /* MultiLayerShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */; };
 		8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */; };
 		8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */; };
-		8B6A60B3296FECB400E55A5D /* Sign_upContent_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A60B2296FECB400E55A5D /* Sign_upContent_UIView.swift */; };
 		8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */; };
 		8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */; };
 		8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */; };
@@ -37,20 +35,19 @@
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
 		8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1EB5E296866D000820C07 /* Login.storyboard */; };
 		8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */; };
-		8BCEFF97297075030022953C /* PW_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEFF96297075030022953C /* PW_UIView.swift */; };
 		8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */; };
 		8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B082A4B2972DBDF0063E6E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B2109132966DFF20042D14A /* HandsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2109162966DFF20042D14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B2109182966DFF20042D14A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8B21091A2966DFF20042D14A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8B21091D2966DFF20042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B21091F2966DFF30042D14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B2109222966DFF30042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B2109242966DFF30042D14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B4589732970B0FE0044227F /* FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponder.swift; sourceTree = "<group>"; };
 		8B4BF0C62968C11F00B00890 /* FindPW_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPW_ViewController.swift; sourceTree = "<group>"; };
 		8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -59,10 +56,8 @@
 		8B4BF0D42968DAD200B00890 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		8B648082296E9191008D28CF /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
 		8B648084296ECD5D008D28CF /* Character_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character_UIView.swift; sourceTree = "<group>"; };
-		8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLayerShadow_UIButton.swift; sourceTree = "<group>"; };
 		8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEdit_ViewController.swift; sourceTree = "<group>"; };
 		8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up_ViewController.swift; sourceTree = "<group>"; };
-		8B6A60B2296FECB400E55A5D /* Sign_upContent_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_upContent_UIView.swift; sourceTree = "<group>"; };
 		8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up2_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSign_up_ViewController.swift; sourceTree = "<group>"; };
 		8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin_ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +69,6 @@
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
 		8BB1EB5E296866D000820C07 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView_ViewController.swift; sourceTree = "<group>"; };
-		8BCEFF96297075030022953C /* PW_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PW_UIView.swift; sourceTree = "<group>"; };
 		8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign_up.storyboard; sourceTree = "<group>"; };
 		8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up1_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				8B648082296E9191008D28CF /* SignupData.swift */,
-				8BCEFF96297075030022953C /* PW_UIView.swift */,
+				8B4589732970B0FE0044227F /* FirstResponder.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -163,10 +157,10 @@
 		8B6DB32929682586007D6D25 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				8B21091C2966DFF20042D14A /* Main.storyboard */,
 				8B2109212966DFF30042D14A /* LaunchScreen.storyboard */,
 				8BB1EB5E296866D000820C07 /* Login.storyboard */,
 				8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */,
+				8B082A4B2972DBDF0063E6E4 /* Main.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -174,7 +168,6 @@
 		8B6DB32A296825B2007D6D25 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
-				8B21091A2966DFF20042D14A /* ViewController.swift */,
 				8BA6064D2968864900F89636 /* Login */,
 				8BD2AF98296A5E1F007FD6BD /* Sign_up */,
 			);
@@ -198,8 +191,6 @@
 				8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */,
 				8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */,
 				8B648084296ECD5D008D28CF /* Character_UIView.swift */,
-				8B648086296F114D008D28CF /* MultiLayerShadow_UIButton.swift */,
-				8B6A60B2296FECB400E55A5D /* Sign_upContent_UIView.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -284,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */,
+				8B082A4C2972DBDF0063E6E4 /* Main.storyboard in Resources */,
 				8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */,
 				8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */,
 				8B2109202966DFF30042D14A /* Assets.xcassets in Resources */,
@@ -291,7 +283,6 @@
 				8B4BF0D72968DAD200B00890 /* Roboto-Thin.ttf in Resources */,
 				8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */,
 				8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */,
-				8B21091E2966DFF20042D14A /* Main.storyboard in Resources */,
 				8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,9 +297,7 @@
 				8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */,
 				8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */,
 				8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */,
-				8BCEFF97297075030022953C /* PW_UIView.swift in Sources */,
 				8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */,
-				8B21091B2966DFF20042D14A /* ViewController.swift in Sources */,
 				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
 				8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */,
 				8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */,
@@ -318,11 +307,10 @@
 				8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */,
 				8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */,
 				8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */,
-				8B648087296F114D008D28CF /* MultiLayerShadow_UIButton.swift in Sources */,
 				8B648083296E9191008D28CF /* SignupData.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
 				8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */,
-				8B6A60B3296FECB400E55A5D /* Sign_upContent_UIView.swift in Sources */,
+				8B4589742970B0FE0044227F /* FirstResponder.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 				8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */,
 			);
@@ -331,14 +319,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8B21091C2966DFF20042D14A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8B21091D2966DFF20042D14A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8B2109212966DFF30042D14A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

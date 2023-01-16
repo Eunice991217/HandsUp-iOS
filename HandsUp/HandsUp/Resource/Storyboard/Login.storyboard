@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -652,7 +655,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKy-a5-d5d" userLabel="PWBox" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="111" width="361" height="51"/>
+                                <rect key="frame" x="16" y="160" width="361" height="51"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="개인 학교 이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lco-Fu-yqk">
                                         <rect key="frame" x="16" y="0.0" width="329" height="51"/>
@@ -693,7 +696,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5O-82-ltE" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="186" width="361" height="51"/>
+                                <rect key="frame" x="16" y="235" width="361" height="51"/>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="NiE-2F-xll"/>
@@ -713,15 +716,33 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입된 아이디가 있을경우, 입력하신 이메일로 아이디를 안내해 드립니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reY-54-Hc9">
-                                <rect key="frame" x="25" y="253.00000000000003" width="343" height="14.333333333333343"/>
+                                <rect key="frame" x="25" y="302" width="343" height="14.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디의 경우 각 학교홈피의 개인 이메일과 동일하니 학교홈피를 통해 확인바랍니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V31-ek-NQS">
-                                <rect key="frame" x="25" y="283.33333333333331" width="343" height="28.333333333333314"/>
+                                <rect key="frame" x="25" y="332.33333333333331" width="343" height="28.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-CZ-2HT" userLabel="Back">
+                                <rect key="frame" x="8" y="59" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="JWI-S4-oJa"/>
+                                    <constraint firstAttribute="height" constant="48" id="RCT-2V-yXZ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="BackArrow"/>
+                                <connections>
+                                    <action selector="backButtonTap_FindPW:" destination="JOP-SQ-KEP" eventType="touchUpInside" id="tYQ-Mw-tVv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디/비밀번호 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-nH-VEM">
+                                <rect key="frame" x="112.33333333333333" y="71.333333333333329" width="168.33333333333337" height="23.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -729,16 +750,20 @@
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
                             <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="AKy-a5-d5d" secondAttribute="trailing" constant="16" id="Awm-g3-Yvj"/>
+                            <constraint firstItem="i9N-CZ-2HT" firstAttribute="top" secondItem="xua-YT-ynD" secondAttribute="top" id="MDi-EA-uPc"/>
                             <constraint firstItem="reY-54-Hc9" firstAttribute="top" secondItem="O5O-82-ltE" secondAttribute="bottom" constant="16" id="OiA-OO-Lid"/>
                             <constraint firstItem="O5O-82-ltE" firstAttribute="top" secondItem="AKy-a5-d5d" secondAttribute="bottom" constant="24" id="Uad-Zr-KDw"/>
                             <constraint firstItem="V31-ek-NQS" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="25" id="WxU-qC-mgI"/>
                             <constraint firstItem="V31-ek-NQS" firstAttribute="top" secondItem="reY-54-Hc9" secondAttribute="bottom" constant="16" id="XKq-Hx-M2o"/>
                             <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="reY-54-Hc9" secondAttribute="trailing" constant="25" id="XvZ-MO-Sm1"/>
-                            <constraint firstItem="AKy-a5-d5d" firstAttribute="top" secondItem="xua-YT-ynD" secondAttribute="top" constant="52" id="dA1-oS-k2N"/>
+                            <constraint firstItem="dhI-nH-VEM" firstAttribute="centerY" secondItem="i9N-CZ-2HT" secondAttribute="centerY" id="Y7S-kf-PUj"/>
+                            <constraint firstItem="AKy-a5-d5d" firstAttribute="top" secondItem="i9N-CZ-2HT" secondAttribute="bottom" constant="53" id="dA1-oS-k2N"/>
+                            <constraint firstItem="i9N-CZ-2HT" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="8" id="ec1-nl-pnf"/>
                             <constraint firstItem="reY-54-Hc9" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="25" id="iR3-YV-3s9"/>
                             <constraint firstItem="AKy-a5-d5d" firstAttribute="leading" secondItem="xua-YT-ynD" secondAttribute="leading" constant="16" id="jAw-G5-0Mj"/>
                             <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="V31-ek-NQS" secondAttribute="trailing" constant="25" id="oYU-RH-nih"/>
                             <constraint firstItem="O5O-82-ltE" firstAttribute="leading" secondItem="hUm-JP-gd4" secondAttribute="leading" constant="16" id="qnO-QU-p6r"/>
+                            <constraint firstItem="dhI-nH-VEM" firstAttribute="centerX" secondItem="xua-YT-ynD" secondAttribute="centerX" id="vdZ-3G-mKM"/>
                             <constraint firstItem="xua-YT-ynD" firstAttribute="trailing" secondItem="O5O-82-ltE" secondAttribute="trailing" constant="16" id="wwJ-nz-C4g"/>
                         </constraints>
                     </view>
@@ -791,6 +816,7 @@
     </scenes>
     <color key="tintColor" name="HandsUpMainText"/>
     <resources>
+        <image name="BackArrow" width="512" height="512"/>
         <image name="appleLogo" width="44" height="44"/>
         <image name="characterExample1" width="407" height="512"/>
         <image name="characterExample2" width="405" height="406"/>

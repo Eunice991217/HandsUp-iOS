@@ -44,7 +44,7 @@ class RoundedShadow_UIButton: UIButton {
         }
     }
     
-    @IBInspectable var shadowRadius: CGFloat = 6 {
+    @IBInspectable var shadowRadius: CGFloat = 24 {
         didSet{
             self.layer.shadowRadius = shadowRadius / UIScreen.main.scale
         }
