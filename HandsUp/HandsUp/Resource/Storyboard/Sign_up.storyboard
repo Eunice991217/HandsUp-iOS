@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ovc-KX-eDF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8oQ-p1-jeL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -859,6 +859,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="PWVisibility"/>
                                                                 <connections>
+                                                                    <action selector="setPWSecureTextEntry_EmailSign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="7fx-7E-X3C"/>
                                                                     <action selector="setPWSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="k2N-de-zeR"/>
                                                                 </connections>
                                                             </button>
@@ -925,6 +926,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="PWVisibility"/>
                                                                 <connections>
+                                                                    <action selector="setPWConfirmationSecureTextEntry_EmailSign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="6R7-h0-IAY"/>
                                                                     <action selector="setPWConfirmationSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="r1N-9Y-FGG"/>
                                                                 </connections>
                                                             </button>

@@ -22,18 +22,19 @@ class Login_ViewController: UIViewController {
     }
     @IBAction func setPWSecureTextEntry_Login(_ sender: Any) {
         PWTextField_Login.isSecureTextEntry.toggle()
+        if(PWTextField_Login.isSecureTextEntry){
+            showPWButton_Login.setImage(UIImage(named:"PWVisibility"), for: .normal)
+        }else{
+            showPWButton_Login.setImage(UIImage(named:"PWVisibility_off"), for: .normal)
+        }
     }
     
     func disableShowPwButton(){
-        showPWButton_Login.isEnabled = false
         showPWButton_Login.alpha = 0
-        PWTextField_Login.textContentType = .password
     }
     
     func enableShowPwButton(){
-        showPWButton_Login.isEnabled = true
         showPWButton_Login.alpha = 1
-        
     }
     
     @objc func keyboardAppear_Login(_ sender : Any){

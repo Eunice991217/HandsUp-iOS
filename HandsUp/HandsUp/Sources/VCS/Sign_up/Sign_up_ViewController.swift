@@ -51,7 +51,8 @@ class Sign_up_ViewController: UIViewController {
     @IBOutlet weak var showPWButton_Sign_up:UIButton!
     @IBOutlet weak var passwordConfirmationTextField_Sign_up: UITextField!
     @IBOutlet weak var showPWConfirmationButton_Sign_up:UIButton!
-    var isVerified_Sign_up: Bool = false
+    var isVerified_Sign_up: Bool = true
+    var isCorrectPW_Sign_up: Bool = false
     
     //Page4
     @IBOutlet weak var titlePG4_Sign_up: UILabel!
@@ -91,7 +92,7 @@ class Sign_up_ViewController: UIViewController {
         case 3:
             page4Leading_Sign_up.constant = pageWidth_Sign_up
             page3Leading_Sign_up.constant = 0
-            isNextButtonActive_Sign_up = isVerified_Sign_up
+            isNextButtonActive_Sign_up = (isVerified_Sign_up && isCorrectPW_Sign_up)
             addKeyboardObserver_Sign_up()
         case 4:
             page5Leading_Sign_up.constant = pageWidth_Sign_up
@@ -276,11 +277,37 @@ class Sign_up_ViewController: UIViewController {
     }
     
     //Page 3
+    @IBAction func setPWSecureTextEntry_EmailSign_up(_ sender: Any) {
+        PWtextField_Sign_up.isSecureTextEntry.toggle()
+        if(PWtextField_Sign_up.isSecureTextEntry){
+            showPWButton_Sign_up.setImage(UIImage(named:"PWVisibility"), for: .normal)
+        }else{
+            showPWButton_Sign_up.setImage(UIImage(named:"PWVisibility_off"), for: .normal)
+        }
+    }
+    
+    @IBAction func setPWConfirmationSecureTextEntry_EmailSign_up(_ sender: Any) {
+        passwordConfirmationTextField_Sign_up.isSecureTextEntry.toggle()
+        if(passwordConfirmationTextField_Sign_up.isSecureTextEntry){
+            showPWConfirmationButton_Sign_up.setImage(UIImage(named:"PWVisibility"), for: .normal)
+        }else{
+            showPWConfirmationButton_Sign_up.setImage(UIImage(named:"PWVisibility_off"), for: .normal)
+        }
+    }
+    
     func page3Init_Sign_up(){
+        //emailTextField_Sign_up.addTarget(self, action: #selector(isEmailInput_Sign_up(_sender: )), for: .editingChanged)
+        //verificationCodeTextField_Sign_up.addTarget(self, action: #selector(isCorrectVerificationCode_Sign_up(_sender: )), for: .editingChanged)
+        PWtextField_Sign_up.addTarget(self, action: #selector(isCorrectPWCheck_Sign_up(_sender: )), for: .editingChanged)
+        PWtextField_Sign_up.addTarget(self, action: #selector(isPWInput_Sign_up(_sender: )), for: .editingChanged)
+        passwordConfirmationTextField_Sign_up.addTarget(self, action: #selector(isCorrectPWCheck_Sign_up(_sender: )), for: .editingChanged)
+        passwordConfirmationTextField_Sign_up.addTarget(self, action: #selector(isPWConfirmationInput_Sign_up(_sender: )), for: .editingChanged)
+        
         greenCheck_Sign_up.alpha = 0
         exclamationMark_Sign_up.alpha = 0
         showPWButton_Sign_up.alpha = 0
         showPWConfirmationButton_Sign_up.alpha = 0
+        
     }
     
     func addKeyboardObserver_Sign_up(){
@@ -315,6 +342,56 @@ class Sign_up_ViewController: UIViewController {
         scrollView_Sign_up.scrollIndicatorInsets = edgeInset_Sign_up
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func isCorrectPWCheck_Sign_up(_sender: Any){
+        let PWArray_Sign_up = Array(PWtextField_Sign_up.text ?? "")
+        var regexPW_Sign_up: Bool = true
+        if(PWArray_Sign_up.count >= 8){
+            let pattern_Sign_up = "^[a-zA-Z0-9]$"
+            if let regex_Sign_up = try? NSRegularExpression(pattern: pattern_Sign_up, options: .caseInsensitive) {
+                var index_Sign_up = 0
+                while index_Sign_up < PWArray_Sign_up.count {
+                    let results_Sign_up = regex_Sign_up.matches(in: String(PWArray_Sign_up[index_Sign_up]), options: [], range: NSRange(location: 0, length: 1))
+                    if results_Sign_up.count == 0 {
+                        regexPW_Sign_up = false
+                    } else {
+                        index_Sign_up += 1
+                    }
+                }
+            }
+        }else{
+            regexPW_Sign_up = false
+        }
+        
+        if(regexPW_Sign_up){
+            if(passwordConfirmationTextField_Sign_up.text == PWtextField_Sign_up.text && PWtextField_Sign_up.text != ""){
+                isCorrectPW_Sign_up = true
+            }
+        }
+        else{
+            isCorrectPW_Sign_up = false
+        }
+        
+        isNextButtonActive_Sign_up = isVerified_Sign_up && isCorrectPW_Sign_up
+        changeNextButtonState_Sign_up()
+    }
+    
+    
+    @objc func isPWInput_Sign_up(_sender: Any){
+        if(PWtextField_Sign_up.text == ""){
+            showPWButton_Sign_up.alpha = 0
+        }else{
+            showPWButton_Sign_up.alpha = 1
+        }
+    }
+    
+    @objc func isPWConfirmationInput_Sign_up(_sender: Any){
+        if(passwordConfirmationTextField_Sign_up.text == ""){
+            showPWConfirmationButton_Sign_up.alpha = 0
+        }else{
+            showPWConfirmationButton_Sign_up.alpha = 1
         }
     }
     
