@@ -22,6 +22,7 @@ class CharacterEdit_ViewController: UIViewController {
     var sign_upData_CharacterEdit: SignupData = SignupData()
     var curIndex_CharacterEdit: Int = 0
     var constraintsArray_CharacterEdit: [NSLayoutConstraint] = []
+    var delegate: sendCharacterDataDelegate?
     
     
     @IBAction func backButtonTap_CharacterEdit(_ sender: Any) {
@@ -29,9 +30,8 @@ class CharacterEdit_ViewController: UIViewController {
     }
     
     @IBAction func saveButtonTap_CharacterEdit(_ sender: Any) {
-        for view in selectView_CharacterEdit.subviews {
-            view.removeFromSuperview()
-        }
+        delegate?.sendCharacterData(data: sign_upData_CharacterEdit)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func BGTap_CharacterEdit(_ sender: Any) {
@@ -285,4 +285,7 @@ class CharacterEdit_ViewController: UIViewController {
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
     }
     
+}
+protocol sendCharacterDataDelegate{
+    func sendCharacterData(data: SignupData)
 }

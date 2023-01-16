@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Sign_up_ViewController: UIViewController {
+class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     //Page
     @IBOutlet weak var BackButton_Sign_up: UIButton!
     @IBOutlet weak var pageControllBar_Sign_up: RoundedShadow_UIView!
@@ -195,6 +195,14 @@ class Sign_up_ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.hideKeyboard()
         pageInit_Sign_up()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        character_Sign_up.setCharacter(componentArray: sign_upData_Sign_up.characterComponent)
+    }
+    
+    func sendCharacterData(data: SignupData) {
+        sign_upData_Sign_up = data
     }
     
     //Page 1
@@ -443,9 +451,11 @@ class Sign_up_ViewController: UIViewController {
     }
     
     @IBAction func characterChange_Sign_up(_ sender: Any){
-        let characterEditVC_Sign_up = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit")
-        characterEditVC_Sign_up?.modalPresentationStyle = .fullScreen
-        self.present(characterEditVC_Sign_up!,animated:true)
+        let characterEditVC_Sign_up = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit") as! CharacterEdit_ViewController
+        characterEditVC_Sign_up.sign_upData_CharacterEdit = sign_upData_Sign_up
+        characterEditVC_Sign_up.modalPresentationStyle = .fullScreen
+        characterEditVC_Sign_up.delegate = self
+        self.present(characterEditVC_Sign_up,animated:true)
     }
     
 }
