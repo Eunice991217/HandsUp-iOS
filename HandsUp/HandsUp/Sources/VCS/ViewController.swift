@@ -9,8 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var HomeSwitch: UISwitch!
+    @IBOutlet weak var HomeTabBarPlusBtn: UIButton!
+    
+    @IBOutlet weak var MapView: UIView!
+    @IBOutlet weak var ListView: UIView!
+    
     @IBOutlet weak var HomeTabView: UIView!
-    @IBOutlet weak var HomeRestartBtn: UIView!
     @IBOutlet weak var HomeSettingBtn: UIButton!
     
     @IBAction func HomeSettingDidTap(_ sender: Any) {
@@ -53,13 +58,32 @@ class ViewController: UIViewController {
         
     }
     
+    //MapView, ListView
+    
+    @IBAction func HomeSwitchDidTap(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            view.addSubview(ListView)
+            view.addSubview(HomeSwitch)
+            view.addSubview(HomeTabView)
+            view.addSubview(HomeTabBarPlusBtn)
+        }
+        else {
+            view.addSubview(MapView)
+            view.addSubview(HomeSwitch)
+            view.addSubview(HomeTabView)
+            view.addSubview(HomeTabBarPlusBtn)
+        }
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         HomeTabView.clipsToBounds = true
         HomeTabView.layer.cornerRadius = 40
         HomeTabView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         
-        HomeRestartBtn.layer.cornerRadius=13
+        self.HomeSwitch.isOn = false
         // Do any additional setup after loading the view.
     }
     

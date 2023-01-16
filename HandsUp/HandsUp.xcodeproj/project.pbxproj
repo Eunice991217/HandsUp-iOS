@@ -14,8 +14,24 @@
 		48398AE829728FA0006FD205 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AE729728FA0006FD205 /* MyPost.swift */; };
 		48398AEA297295C5006FD205 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */; };
 		48398AED2972DB34006FD205 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 48398AEC2972DB34006FD205 /* Tabman */; };
+		48398AF329753FB7006FD205 /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF229753FB7006FD205 /* TabManViewController.swift */; };
+		48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF429754011006FD205 /* FirstTabViewController.swift */; };
+		48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF629754025006FD205 /* SecondTabViewController.swift */; };
+		48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF829754035006FD205 /* ThirdTabViewController.swift */; };
+		48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFA29754068006FD205 /* FourthTabViewController.swift */; };
+		48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFC29754071006FD205 /* FifthTabViewController.swift */; };
+		48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFE29754098006FD205 /* SixthTabViewController.swift */; };
 		4842441C2971924700D9C803 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842441B2971924700D9C803 /* AccountManagement.swift */; };
+		486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4829756BD0003761E7 /* TabManListVC.swift */; };
+		486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */; };
+		486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */; };
+		486CFF4F29756C49003761E7 /* ListThirdTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */; };
+		486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5029756C55003761E7 /* ListFourthTabVC.swift */; };
+		486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5229756C60003761E7 /* ListFifthTabVC.swift */; };
+		486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */; };
+		4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872E7A929758DCE00C706B4 /* TableViewCell.swift */; };
 		487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D5FDC296AA8EF00BE2CCC /* FAQ.swift */; };
+		48C318942975B26000037D89 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48C318932975B26000037D89 /* SnapKit */; };
 		8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109162966DFF20042D14A /* AppDelegate.swift */; };
 		8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109182966DFF20042D14A /* SceneDelegate.swift */; };
 		8B21091B2966DFF20042D14A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21091A2966DFF20042D14A /* ViewController.swift */; };
@@ -37,7 +53,22 @@
 		48398AE5297288F9006FD205 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		48398AE729728FA0006FD205 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
 		48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
+		48398AF229753FB7006FD205 /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
+		48398AF429754011006FD205 /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
+		48398AF629754025006FD205 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
+		48398AF829754035006FD205 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
+		48398AFA29754068006FD205 /* FourthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
+		48398AFC29754071006FD205 /* FifthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
+		48398AFE29754098006FD205 /* SixthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthTabViewController.swift; sourceTree = "<group>"; };
 		4842441B2971924700D9C803 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
+		486CFF4829756BD0003761E7 /* TabManListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManListVC.swift; sourceTree = "<group>"; };
+		486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFirstTabVC.swift; sourceTree = "<group>"; };
+		486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSecondTabVC.swift; sourceTree = "<group>"; };
+		486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListThirdTabVC.swift; sourceTree = "<group>"; };
+		486CFF5029756C55003761E7 /* ListFourthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFourthTabVC.swift; sourceTree = "<group>"; };
+		486CFF5229756C60003761E7 /* ListFifthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFifthTabVC.swift; sourceTree = "<group>"; };
+		486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSixthTabVC.swift; sourceTree = "<group>"; };
+		4872E7A929758DCE00C706B4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		487D5FDC296AA8EF00BE2CCC /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		8B2109132966DFF20042D14A /* HandsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2109162966DFF20042D14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48C318942975B26000037D89 /* SnapKit in Frameworks */,
 				8B21092C2966E1430042D14A /* Alamofire in Frameworks */,
 				48398AED2972DB34006FD205 /* Tabman in Frameworks */,
 			);
@@ -146,6 +178,21 @@
 				48398AE5297288F9006FD205 /* Report.swift */,
 				48398AE729728FA0006FD205 /* MyPost.swift */,
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
+				48398AF229753FB7006FD205 /* TabManViewController.swift */,
+				48398AF429754011006FD205 /* FirstTabViewController.swift */,
+				48398AF629754025006FD205 /* SecondTabViewController.swift */,
+				48398AF829754035006FD205 /* ThirdTabViewController.swift */,
+				48398AFA29754068006FD205 /* FourthTabViewController.swift */,
+				48398AFC29754071006FD205 /* FifthTabViewController.swift */,
+				48398AFE29754098006FD205 /* SixthTabViewController.swift */,
+				486CFF4829756BD0003761E7 /* TabManListVC.swift */,
+				486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */,
+				486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */,
+				486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */,
+				486CFF5029756C55003761E7 /* ListFourthTabVC.swift */,
+				486CFF5229756C60003761E7 /* ListFifthTabVC.swift */,
+				486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */,
+				4872E7A929758DCE00C706B4 /* TableViewCell.swift */,
 			);
 			path = VCS;
 			sourceTree = "<group>";
@@ -169,6 +216,7 @@
 			packageProductDependencies = (
 				8B21092B2966E1430042D14A /* Alamofire */,
 				48398AEC2972DB34006FD205 /* Tabman */,
+				48C318932975B26000037D89 /* SnapKit */,
 			);
 			productName = HandsUp;
 			productReference = 8B2109132966DFF20042D14A /* HandsUp.app */;
@@ -201,6 +249,7 @@
 			packageReferences = (
 				8B21092A2966E1430042D14A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				48398AEB2972DB34006FD205 /* XCRemoteSwiftPackageReference "Tabman" */,
+				48C318922975B26000037D89 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 8B2109142966DFF20042D14A /* Products */;
 			projectDirPath = "";
@@ -234,17 +283,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */,
+				486CFF4F29756C49003761E7 /* ListThirdTabVC.swift in Sources */,
 				480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */,
 				487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */,
 				8B21091B2966DFF20042D14A /* ViewController.swift in Sources */,
 				48398AE829728FA0006FD205 /* MyPost.swift in Sources */,
+				486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */,
 				4824DC93297007C9004F0177 /* ToS.swift in Sources */,
 				4842441C2971924700D9C803 /* AccountManagement.swift in Sources */,
+				486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */,
+				48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */,
 				48398AE6297288F9006FD205 /* Report.swift in Sources */,
+				48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */,
+				4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */,
+				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
+				48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */,
+				48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */,
 				48398AEA297295C5006FD205 /* MyPostTableViewCell.swift in Sources */,
+				486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */,
+				48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
+				48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */,
 				480B01E5297149D1007054B1 /* EditProfile.swift in Sources */,
+				486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */,
+				48398AF329753FB7006FD205 /* TabManViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +534,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		48C318922975B26000037D89 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		8B21092A2966E1430042D14A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -485,6 +557,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 48398AEB2972DB34006FD205 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		48C318932975B26000037D89 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48C318922975B26000037D89 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		8B21092B2966E1430042D14A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
