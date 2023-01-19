@@ -60,6 +60,12 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
         
         EditProfileNameTextField.delegate = self
         EditProfileNameTextField.borderStyle = .none
+        
+        self.navigationController?.navigationBar.tintColor = .black
+        
+        self.navigationController?.navigationBar.topItem?.title = ""
+        
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "submitBtn"), style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         // Do any additional setup after loading the view.
     }
     

@@ -130,15 +130,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onp-Y0-j1N">
                                 <rect key="frame" x="0.0" y="752" width="414" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-fI-ShE">
-                                        <rect key="frame" x="195" y="35" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="c5h-ba-bIy"/>
-                                            <constraint firstAttribute="height" constant="44" id="mem-oo-D8p"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="HomeIconDidTap"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIj-CL-tyd">
                                         <rect key="frame" x="304" y="35" width="44" height="44"/>
                                         <constraints>
@@ -147,6 +138,21 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="notifications"/>
+                                        <connections>
+                                            <action selector="NotificationBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="fDw-Os-lAa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-fI-ShE">
+                                        <rect key="frame" x="195" y="35" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="c5h-ba-bIy"/>
+                                            <constraint firstAttribute="height" constant="44" id="mem-oo-D8p"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="HomeIconDidTap"/>
+                                        <connections>
+                                            <action selector="HomeBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="X52-KL-cRt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -201,12 +207,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="HomeDidBtn" destination="IZg-fI-ShE" id="Czx-Y3-TAK"/>
                         <outlet property="HomeSettingBtn" destination="GDi-dv-laM" id="OlA-Qd-UqB"/>
                         <outlet property="HomeSwitch" destination="F1I-m2-fJg" id="tS1-69-ris"/>
                         <outlet property="HomeTabBarPlusBtn" destination="avG-yn-v71" id="PXb-ur-xar"/>
                         <outlet property="HomeTabView" destination="onp-Y0-j1N" id="ghW-Pu-NJD"/>
                         <outlet property="ListView" destination="ITc-c2-465" id="bDq-xp-JJt"/>
                         <outlet property="MapView" destination="gat-5a-4gY" id="Vpu-8z-OEo"/>
+                        <outlet property="NotificationBtn" destination="jIj-CL-tyd" id="BxJ-ib-ORP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMG-Jc-An6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -412,7 +420,7 @@
         <!--Edit Profile-->
         <scene sceneID="W4l-jj-O7K">
             <objects>
-                <viewController id="WCv-nd-Qsv" customClass="EditProfile" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfile" id="WCv-nd-Qsv" customClass="EditProfile" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Vd-X4-BlJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,6 +450,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="93" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="EditProfileNameDidTap:" destination="WCv-nd-Qsv" eventType="touchUpInside" id="tfA-hd-4OG"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임 변경" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBh-fC-CMD">
                                         <rect key="frame" x="0.0" y="0.0" width="93" height="32"/>
@@ -553,7 +564,7 @@
         <!--Edit Profile Name-->
         <scene sceneID="O7c-Ay-GVe">
             <objects>
-                <viewController id="1Ft-NN-i9e" customClass="EditProfileName" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileName" id="1Ft-NN-i9e" customClass="EditProfileName" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pS2-Gc-vCc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

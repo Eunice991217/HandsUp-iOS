@@ -28,6 +28,7 @@ class ListSecondTabVC: UIViewController {
 //         nextButton.setTitle("다음", for: .normal)
 //         nextButton.setTitleColor(.black, for: .normal)
 //         nextButton.backgroundColor = .orange
+        
         // Do any additional setup after loading the view.
     }
 

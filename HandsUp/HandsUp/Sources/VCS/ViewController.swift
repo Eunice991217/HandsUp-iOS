@@ -18,6 +18,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var HomeTabView: UIView!
     @IBOutlet weak var HomeSettingBtn: UIButton!
     
+    @IBOutlet weak var HomeDidBtn: UIButton!
+    @IBOutlet weak var NotificationBtn: UIButton!
+    
+    var bRec:Bool = true
+
+    @IBAction func HomeBtnDidTap(_ sender: Any) {
+        bRec = !bRec
+        if bRec {
+            HomeDidBtn.setImage(UIImage(named: "HomeIconDidTap"), for: .normal)
+            NotificationBtn.setImage(UIImage(named: "notifications"), for: .normal)
+        } else {
+            HomeDidBtn.setImage(UIImage(named: "HomeIcon"), for: .normal)
+        }
+    }
+    
+    @IBAction func NotificationBtnDidTap(_ sender: Any) {
+        bRec = !bRec
+        if bRec {
+            NotificationBtn.setImage(UIImage(named: "notifications"), for: .normal)
+            
+        } else {
+            NotificationBtn.setImage(UIImage(named: "notificationsDidTap"), for: .normal)
+            HomeDidBtn.setImage(UIImage(named: "HomeIcon"), for: .normal)
+        }
+        
+    }
+    
+    
     @IBAction func HomeSettingDidTap(_ sender: Any) {
         let alert = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         
