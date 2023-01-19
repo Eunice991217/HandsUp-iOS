@@ -32,9 +32,22 @@
 		4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872E7A929758DCE00C706B4 /* TableViewCell.swift */; };
 		487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D5FDC296AA8EF00BE2CCC /* FAQ.swift */; };
 		48C318942975B26000037D89 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48C318932975B26000037D89 /* SnapKit */; };
+		3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229E7622977CA54006FC6CB /* ChatViewController.swift */; };
+		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
+		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
+		328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */; };
+		328C297329781E26007DCDD9 /* YourChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */; };
+		329296782978FDC00077F98E /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329296772978FDC00077F98E /* RegisterPostViewController.swift */; };
+		32A3F1772974646C00B0347D /* AlarmNChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F1762974646C00B0347D /* AlarmNChatListViewController.swift */; };
+		32A3F17929747B4500B0347D /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */; };
+		32A3F17B2974818400B0347D /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17A2974818400B0347D /* ChatListViewController.swift */; };
+		32A3F17D297515C600B0347D /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17C297515C600B0347D /* AlarmListViewController.swift */; };
+		32A3F17F2976DFB000B0347D /* ChatAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */; };
+		32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
+		32AB018329730B2F007D550A /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018229730B2F007D550A /* CustomSwitch.swift */; };
+		32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018429730C4C007D550A /* CustomThumbView.swift */; };
 		8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109162966DFF20042D14A /* AppDelegate.swift */; };
 		8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109182966DFF20042D14A /* SceneDelegate.swift */; };
-		8B21091B2966DFF20042D14A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21091A2966DFF20042D14A /* ViewController.swift */; };
 		8B21091E2966DFF20042D14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091C2966DFF20042D14A /* Main.storyboard */; };
 		8B2109202966DFF30042D14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091F2966DFF30042D14A /* Assets.xcassets */; };
 		8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2109212966DFF30042D14A /* LaunchScreen.storyboard */; };
@@ -70,10 +83,23 @@
 		486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSixthTabVC.swift; sourceTree = "<group>"; };
 		4872E7A929758DCE00C706B4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		487D5FDC296AA8EF00BE2CCC /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
+		328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourChatTableViewCell.xib; sourceTree = "<group>"; };
+		329296772978FDC00077F98E /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
+		32A3F1762974646C00B0347D /* AlarmNChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNChatListViewController.swift; sourceTree = "<group>"; };
+		32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		32A3F17A2974818400B0347D /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		32A3F17C297515C600B0347D /* AlarmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewController.swift; sourceTree = "<group>"; };
+		32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		32AB016C2969A0C5007D550A /* HandsUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HandsUp.storyboard; sourceTree = "<group>"; };
+		32AB018229730B2F007D550A /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
+		32AB018429730C4C007D550A /* CustomThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
 		8B2109132966DFF20042D14A /* HandsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2109162966DFF20042D14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B2109182966DFF20042D14A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8B21091A2966DFF20042D14A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B21091D2966DFF20042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B21091F2966DFF30042D14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B2109222966DFF30042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +125,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32AB01712969A3D5007D550A /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				32A3F1762974646C00B0347D /* AlarmNChatListViewController.swift */,
+				32A3F17A2974818400B0347D /* ChatListViewController.swift */,
+				32A3F17C297515C600B0347D /* AlarmListViewController.swift */,
+				3229E7622977CA54006FC6CB /* ChatViewController.swift */,
+				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
+				329296772978FDC00077F98E /* RegisterPostViewController.swift */,
+			);
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		8B21090A2966DFF20042D14A = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +179,13 @@
 		8B6DB32629682211007D6D25 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */,
+				328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */,
+				328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */,
+				328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */,
+				32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */,
+				32AB018229730B2F007D550A /* CustomSwitch.swift */,
+				32AB018429730C4C007D550A /* CustomThumbView.swift */,
 				8B2109182966DFF20042D14A /* SceneDelegate.swift */,
 				8B2109162966DFF20042D14A /* AppDelegate.swift */,
 				8B4BF0C82968DA6000B00890 /* Fonts */,
@@ -162,6 +208,7 @@
 			children = (
 				8B21091C2966DFF20042D14A /* Main.storyboard */,
 				8B2109212966DFF30042D14A /* LaunchScreen.storyboard */,
+				32AB016C2969A0C5007D550A /* HandsUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -193,6 +240,7 @@
 				486CFF5229756C60003761E7 /* ListFifthTabVC.swift */,
 				486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */,
 				4872E7A929758DCE00C706B4 /* TableViewCell.swift */,
+				32AB01712969A3D5007D550A /* New Group1 */,
 			);
 			path = VCS;
 			sourceTree = "<group>";
@@ -266,12 +314,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */,
+				328C297329781E26007DCDD9 /* YourChatTableViewCell.xib in Resources */,
 				8B2109202966DFF30042D14A /* Assets.xcassets in Resources */,
 				8B4BF0E02968DAD200B00890 /* Roboto-Bold.ttf in Resources */,
+				328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */,
 				8B4BF0D72968DAD200B00890 /* Roboto-Thin.ttf in Resources */,
 				8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */,
 				8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */,
 				8B21091E2966DFF20042D14A /* Main.storyboard in Resources */,
+				32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */,
 				8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +349,13 @@
 				48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */,
 				4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */,
 				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
+				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
+				328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */,
+				3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */,
+				32A3F17D297515C600B0347D /* AlarmListViewController.swift in Sources */,
+				329296782978FDC00077F98E /* RegisterPostViewController.swift in Sources */,
+				32AB018329730B2F007D550A /* CustomSwitch.swift in Sources */,
+				32A3F17B2974818400B0347D /* ChatListViewController.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
 				48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */,
 				48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */,
@@ -309,6 +367,10 @@
 				480B01E5297149D1007054B1 /* EditProfile.swift in Sources */,
 				486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */,
 				48398AF329753FB7006FD205 /* TabManViewController.swift in Sources */,
+				32A3F1772974646C00B0347D /* AlarmNChatListViewController.swift in Sources */,
+				32A3F17929747B4500B0347D /* AlarmTableViewCell.swift in Sources */,
+				32A3F17F2976DFB000B0347D /* ChatAlarmTableViewCell.swift in Sources */,
+				328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +524,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,6 +552,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
