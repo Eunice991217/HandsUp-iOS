@@ -9,19 +9,19 @@ import UIKit
 
 class RoundedShadow_UIView: UIView {
     
-    @IBInspectable var cornerRadius: CGFloat = 0{
+    @IBInspectable override var cornerRadius: CGFloat{
         didSet{
             self.layer.cornerRadius = cornerRadius
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 0{
+    @IBInspectable override var borderWidth: CGFloat{
         didSet{
             self.layer.borderWidth = borderWidth
         }
     }
     
-    @IBInspectable var borderColor: UIColor = UIColor.clear{
+    @IBInspectable override var borderColor: UIColor{
         didSet{
             self.layer.borderColor = borderColor.cgColor
         }
