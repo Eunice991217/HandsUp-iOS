@@ -358,7 +358,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @objc func isCorrectPWCheck_Sign_up(_sender: Any){
         let PWArray_Sign_up = Array(PWtextField_Sign_up.text ?? "")
         var regexPW_Sign_up: Bool = true
-        if(PWArray_Sign_up.count >= 8){
+        if(8 <= PWArray_Sign_up.count && PWArray_Sign_up.count <= 10){
             let pattern_Sign_up = "^[a-zA-Z0-9]$"
             if let regex_Sign_up = try? NSRegularExpression(pattern: pattern_Sign_up, options: .caseInsensitive) {
                 var index_Sign_up = 0
