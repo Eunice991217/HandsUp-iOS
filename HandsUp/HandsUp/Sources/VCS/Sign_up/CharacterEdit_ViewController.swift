@@ -1,11 +1,11 @@
 
 import UIKit
 
-class CharacterEdit_ViewController: UIViewController {
+class CharacterEdit_ViewController: UIViewController{
     
     @IBOutlet weak var characterView_CharacterEdit: Character_UIView!
-    @IBOutlet weak var scrollView_CharacterEdit: UIScrollView! // tap bar
-    @IBOutlet weak var selectComponentScrollView_CharacterEdit: UIScrollView! // component select scroll
+    @IBOutlet weak var scrollView_CharacterEdit: EnableButtonScroll! // tap bar
+    @IBOutlet weak var selectComponentScrollView_CharacterEdit: EnableButtonScroll! // component select scroll
     @IBOutlet weak var BGButton_CharacterEdit: UIButton!
     @IBOutlet weak var faceButton_CharacterEdit: UIButton!
     @IBOutlet weak var eyebrowButton_CharacterEdit: UIButton!
@@ -139,7 +139,7 @@ class CharacterEdit_ViewController: UIViewController {
         }
         
         let orangeButton_CharacterEdit: UIButton = UIButton()
-        orangeButton_CharacterEdit.setImage(UIImage(named: "CharacterBackgroundOrange"), for: .normal)
+        orangeButton_CharacterEdit.setImage(UIImage(named: "characterBackgroundOrange"), for: .normal)
         orangeButton_CharacterEdit.translatesAutoresizingMaskIntoConstraints = false
         orangeButton_CharacterEdit.addTarget(self, action: #selector(select0(_:)), for: .touchUpInside)
         let blueButton_CharacterEdit: UIButton = UIButton()
@@ -258,6 +258,7 @@ class CharacterEdit_ViewController: UIViewController {
         tabbarInit_CharacterEdit()
         BGSelect_CharacterEdit()
         tabbarXInit_CharacterEdit()
+        selectComponentScrollView_CharacterEdit.canCancelContentTouches = true
     }
     
     @objc func select0(_ sender: Any){

@@ -202,7 +202,9 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     func sendCharacterData(data: SignupData) {
-        sign_upData_Sign_up = data
+        for i in 0...6{
+            sign_upData_Sign_up.characterComponent[i] = data.characterComponent[i]
+        }
     }
     
     //Page 1
@@ -452,7 +454,11 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     
     @IBAction func characterChange_Sign_up(_ sender: Any){
         let characterEditVC_Sign_up = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit") as! CharacterEdit_ViewController
-        characterEditVC_Sign_up.sign_upData_CharacterEdit = sign_upData_Sign_up
+        var componentIndex_Sign_up = 0
+        sign_upData_Sign_up.characterComponent.forEach{
+            characterEditVC_Sign_up.sign_upData_CharacterEdit.characterComponent[componentIndex_Sign_up] = $0
+            componentIndex_Sign_up += 1
+        }
         characterEditVC_Sign_up.modalPresentationStyle = .fullScreen
         characterEditVC_Sign_up.delegate = self
         self.present(characterEditVC_Sign_up,animated:true)
