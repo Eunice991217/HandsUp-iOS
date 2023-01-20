@@ -108,18 +108,6 @@ class ChatViewController: UIViewController, UITextViewDelegate {
             }
         }
     
-   // func textViewDidChange(_ textView: UITextView) {
-   //        if chatTableView_CVC.contentSize.height <= 35{
-   //            chatTextViewHeight_CVC.constant = 35
-  //         }
-   //        else if chatTableView_CVC.contentSize.height >= 102{
-   //            chatTextViewHeight_CVC.constant = 102
-    //       }
-    //       else{
-    //           chatTextViewHeight_CVC.constant = //chatTableView_CVC.contentSize.height
-    //       }
-
-    //   }
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
