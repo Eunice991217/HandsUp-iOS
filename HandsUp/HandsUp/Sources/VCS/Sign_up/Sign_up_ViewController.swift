@@ -36,7 +36,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var titlePG2_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG2_Sign_up: UILabel!
     @IBOutlet weak var schoolPickerView_Sign_up: UIPickerView!
-    var schoolList_Sign_up: [String] = ["서울대학교", "가천대학교", "건국대학교"]
+    var schoolList_Sign_up: [String] = ["가천대학교", "건국대학교", "동국대학교", "세종대학교", "숭실대학교" ]
     //Page3
     @IBOutlet weak var titlePG3_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG3_Sign_up: UILabel!
