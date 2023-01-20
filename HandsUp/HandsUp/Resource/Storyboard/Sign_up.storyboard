@@ -287,12 +287,20 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGk-y9-9Aa">
-                                        <rect key="frame" x="17" y="365.66666666666669" width="132.66666666666666" height="19"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                        <color key="textColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="036-qW-5bz">
+                                        <rect key="frame" x="17" y="365.66666666666669" width="133" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="s38-br-Nlp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="이용약관 자세히 보기">
+                                            <color key="titleColor" name="HandsUpGrey"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="TermsButton_Sign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="txT-zG-Taw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpBackground"/>
                                 <constraints>
@@ -301,21 +309,21 @@
                                     <constraint firstItem="kle-6s-uJu" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="BLF-Ph-KjJ"/>
                                     <constraint firstItem="kle-6s-uJu" firstAttribute="top" secondItem="VC5-QM-Ch5" secondAttribute="bottom" constant="37" id="D9g-if-tPj"/>
                                     <constraint firstItem="E3Z-K3-Z48" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="18" id="DGg-2A-4iN"/>
+                                    <constraint firstItem="036-qW-5bz" firstAttribute="top" secondItem="Yad-1M-Iie" secondAttribute="bottom" constant="37" id="DOb-n0-wIR"/>
                                     <constraint firstItem="E3Z-K3-Z48" firstAttribute="top" secondItem="VwP-Py-qfr" secondAttribute="bottom" constant="20" id="FU8-Sw-P2h"/>
                                     <constraint firstItem="lPA-KC-E6u" firstAttribute="leading" secondItem="VC5-QM-Ch5" secondAttribute="trailing" constant="16" id="LYH-js-BRn"/>
                                     <constraint firstItem="v30-B2-m0t" firstAttribute="centerY" secondItem="kle-6s-uJu" secondAttribute="centerY" id="M31-lI-Spa"/>
                                     <constraint firstItem="VC5-QM-Ch5" firstAttribute="top" secondItem="j48-TD-bVX" secondAttribute="bottom" constant="37" id="RDv-jK-JmX"/>
-                                    <constraint firstItem="XGk-y9-9Aa" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="VVF-Sy-XO3"/>
                                     <constraint firstItem="7HW-Dr-1dE" firstAttribute="leading" secondItem="j48-TD-bVX" secondAttribute="trailing" constant="16" id="XDj-ZG-qub"/>
                                     <constraint firstItem="j48-TD-bVX" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="ZVG-FQ-ibc"/>
                                     <constraint firstItem="VwP-Py-qfr" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="18" id="aR8-RB-YDy"/>
                                     <constraint firstAttribute="trailing" secondItem="7HW-Dr-1dE" secondAttribute="trailing" constant="16" id="apx-xW-kW8"/>
                                     <constraint firstItem="Hgk-sf-knp" firstAttribute="leading" secondItem="Yad-1M-Iie" secondAttribute="trailing" constant="16" id="b2T-gg-VVz"/>
                                     <constraint firstItem="j48-TD-bVX" firstAttribute="top" secondItem="E3Z-K3-Z48" secondAttribute="bottom" constant="49" id="b2q-Ww-Fkp"/>
+                                    <constraint firstItem="036-qW-5bz" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="c0T-ge-r94"/>
                                     <constraint firstItem="VC5-QM-Ch5" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="cqW-iL-dVF"/>
                                     <constraint firstItem="VwP-Py-qfr" firstAttribute="top" secondItem="cI6-Mx-N0V" secondAttribute="top" constant="16" id="fOo-oo-DGl"/>
                                     <constraint firstItem="lPA-KC-E6u" firstAttribute="centerY" secondItem="VC5-QM-Ch5" secondAttribute="centerY" id="lxQ-DU-Af1"/>
-                                    <constraint firstItem="XGk-y9-9Aa" firstAttribute="top" secondItem="Yad-1M-Iie" secondAttribute="bottom" constant="37" id="olc-Af-hVB"/>
                                     <constraint firstItem="Yad-1M-Iie" firstAttribute="top" secondItem="kle-6s-uJu" secondAttribute="bottom" constant="37" id="q1d-UK-v1G"/>
                                     <constraint firstAttribute="trailing" secondItem="Hgk-sf-knp" secondAttribute="trailing" constant="16" id="r50-vs-zva"/>
                                     <constraint firstAttribute="trailing" secondItem="lPA-KC-E6u" secondAttribute="trailing" constant="16" id="uLX-8t-fRk"/>

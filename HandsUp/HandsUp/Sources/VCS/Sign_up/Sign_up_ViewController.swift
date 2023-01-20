@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     //Page
@@ -273,6 +274,11 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         changeNextButtonState_Sign_up()
     }
     
+    @IBAction func TermsButton_Sign_up(_ sender: Any) {
+        let termUrl_Sign_up = NSURL(string: "https://miniahiru.notion.site/55bb2cb2fd8b4f3db75775c7065977a2")
+        let termSafariView_Sign_up: SFSafariViewController = SFSafariViewController(url: termUrl_Sign_up! as URL)
+        self.present(termSafariView_Sign_up, animated: true, completion: nil)
+    }
     
     //Page 2
     func page2Init_Sign_up(){
