@@ -72,8 +72,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     var curPageInt_Sign_up: Int = 1
     var isNextButtonActive_Sign_up: Bool = false
     var pageWidth_Sign_up: CGFloat = 1
-    
-    
+
     //Page func
     func pageUpdate_Sign_up(){
         if(curPageInt_Sign_up < 5){
@@ -121,6 +120,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         nextButton_Sign_up.setTitleColor(UIColor(named: "HandsUpRealWhite"), for: .normal)
     }
     
+    
     func pageInit_Sign_up(){
         curBarWidth_Sign_up.constant = pageControllBar_Sign_up.frame.width * curPageCGFloat_Sign_up / 5
         titlePG1_Sign_up.text = titleArray_Sign_up[0]
@@ -144,7 +144,6 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         page5Width_Sign_up.constant = pageWidth_Sign_up
         page5Leading_Sign_up.constant = pageWidth_Sign_up
         
-        print(pageWidth_Sign_up)
         page1Init_Sign_up()
         page2Init_Sign_up()
         page3Init_Sign_up()
