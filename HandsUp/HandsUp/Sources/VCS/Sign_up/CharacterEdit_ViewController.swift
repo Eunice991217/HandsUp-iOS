@@ -1,7 +1,7 @@
 
 import UIKit
 
-class CharacterEdit_ViewController: UIViewController{
+class CharacterEdit_ViewController: UIViewController, UIScrollViewDelegate{
     
     @IBOutlet weak var characterView_CharacterEdit: Character_UIView!
     @IBOutlet weak var scrollView_CharacterEdit: EnableButtonScroll! // tap bar
@@ -15,14 +15,19 @@ class CharacterEdit_ViewController: UIViewController{
     @IBOutlet weak var glassesButton_CharacterEdit: UIButton!
     @IBOutlet weak var selectView_CharacterEdit: UIView!
     @IBOutlet weak var selectViewWidth_CharacterEdit: NSLayoutConstraint!
+    @IBOutlet weak var barView_CharacterEdit: UIView!
+    @IBOutlet weak var barViewX_CharacterEdit: NSLayoutConstraint!
     
     let componentCount_CharacterEdit: [Int] = [2, 5, 3, 4, 4, 4, 4]
     var tabbarX_CharacterEdit: [CGFloat] = [0, 0, 0, 0, 0, 0, 0]
+    var tabbarX2_CharacterEdit: [CGFloat] = [0, 0, 0, 0, 0, 0, 0]
+    var barX_CharacterEdit: [NSLayoutConstraint] = []
     var buttonArray_CharacterEdit: [UIButton] = [UIButton]()
     var sign_upData_CharacterEdit: SignupData = SignupData()
     var curIndex_CharacterEdit: Int = 0
     var constraintsArray_CharacterEdit: [NSLayoutConstraint] = []
     var delegate: sendCharacterDataDelegate?
+    var selectComponentOffsetX_CharacterEdit: [CGFloat] = []
     
     
     @IBAction func backButtonTap_CharacterEdit(_ sender: Any) {
@@ -35,81 +40,31 @@ class CharacterEdit_ViewController: UIViewController{
     }
     
     @IBAction func BGTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 0){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 0
-            selectTab_CharacterEdit()
-            BGSelect_CharacterEdit()
-            
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[0], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[0], y: 0), animated: true)
     }
     
     @IBAction func faceTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 1){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 1
-            selectTab_CharacterEdit()
-            characterComponentSelect_CharacterEdit()
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[1], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[1], y: 0), animated: true)
     }
     
     @IBAction func eyebrowTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 2){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 2
-            selectTab_CharacterEdit()
-            characterComponentSelect_CharacterEdit()
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[2], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[2], y: 0), animated: true)
     }
     
     @IBAction func mouthTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 3){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 3
-            selectTab_CharacterEdit()
-            characterComponentSelect_CharacterEdit()
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[3], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[3], y: 0), animated: true)
     }
     
     @IBAction func noseTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 4){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 4
-            selectTab_CharacterEdit()
-            characterComponentSelect_CharacterEdit()
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[4], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[4], y: 0), animated: true)
     }
     
     @IBAction func eyesTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 5){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 5
-            selectTab_CharacterEdit()
-            characterComponentSelect_CharacterEdit()
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[5], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[5], y: 0), animated: true)
     }
     
     @IBAction func glassesTap_CharacterEdit(_ sender: Any) {
-        if(curIndex_CharacterEdit != 6){
-            deselectTab_CharacterEdit()
-            curIndex_CharacterEdit = 6
-            selectTab_CharacterEdit()
-            characterComponentSelect_CharacterEdit()
-            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[6], y: 0), animated: true)
-            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left, y: 0), animated: true)
-        }
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[6], y: 0), animated: true)
     }
     
     func deselectTab_CharacterEdit(){
@@ -134,6 +89,7 @@ class CharacterEdit_ViewController: UIViewController{
         constraintsArray_CharacterEdit.forEach{
             $0.isActive = false
         }
+        
         for subviews_CharacterEdit in selectView_CharacterEdit.subviews {
             subviews_CharacterEdit.removeFromSuperview()
         }
@@ -172,6 +128,11 @@ class CharacterEdit_ViewController: UIViewController{
     }
     
     func characterComponentSelect_CharacterEdit(){
+        selectComponentOffsetX_CharacterEdit = [-selectComponentScrollView_CharacterEdit.contentInset.left + 75]
+        for i in 1...componentCount_CharacterEdit[curIndex_CharacterEdit] - 1 {
+            selectComponentOffsetX_CharacterEdit.append(selectComponentOffsetX_CharacterEdit[i-1] + 150)
+        }
+        
         constraintsArray_CharacterEdit.forEach{
             $0.isActive = false
         }
@@ -244,12 +205,26 @@ class CharacterEdit_ViewController: UIViewController{
     
     func tabbarXInit_CharacterEdit(){
         tabbarX_CharacterEdit[0] = -scrollView_CharacterEdit.contentInset.left
+        tabbarX2_CharacterEdit[0] = tabbarX_CharacterEdit[0] + 20 + BGButton_CharacterEdit.frame.width
         tabbarX_CharacterEdit[1] = tabbarX_CharacterEdit[0] + 40 + BGButton_CharacterEdit.frame.width
+        tabbarX2_CharacterEdit[1] = tabbarX_CharacterEdit[1] + 20 + faceButton_CharacterEdit.frame.width
         tabbarX_CharacterEdit[2] = tabbarX_CharacterEdit[1] + 40 + faceButton_CharacterEdit.frame.width
+        tabbarX2_CharacterEdit[2] = tabbarX_CharacterEdit[2] + 20 + eyebrowButton_CharacterEdit.frame.width
         tabbarX_CharacterEdit[3] = tabbarX_CharacterEdit[2] + 40 + eyebrowButton_CharacterEdit.frame.width
+        tabbarX2_CharacterEdit[3] = tabbarX_CharacterEdit[3] + 20 + mouthButton_CharacterEdit.frame.width
         tabbarX_CharacterEdit[4] = tabbarX_CharacterEdit[3] + 40 + mouthButton_CharacterEdit.frame.width
+        tabbarX2_CharacterEdit[4] = tabbarX_CharacterEdit[4] + 20 + noseButton_CharacterEdit.frame.width
         tabbarX_CharacterEdit[5] = tabbarX_CharacterEdit[4] + 40 + noseButton_CharacterEdit.frame.width
+        tabbarX2_CharacterEdit[5] = tabbarX_CharacterEdit[5] + 20 + eyesButton_CharacterEdit.frame.width
         tabbarX_CharacterEdit[6] = tabbarX_CharacterEdit[5] + 40 + eyesButton_CharacterEdit.frame.width
+        tabbarX2_CharacterEdit[6] = tabbarX_CharacterEdit[6] + 20 + glassesButton_CharacterEdit.frame.width
+        
+        buttonArray_CharacterEdit.forEach{
+            barX_CharacterEdit.append(barView_CharacterEdit.centerXAnchor.constraint(equalTo: $0.centerXAnchor))
+        }
+        barX_CharacterEdit.append(barViewX_CharacterEdit)
+        
+        moveBar_CharacterEdit()
     }
     
     override func viewDidLoad() {
@@ -258,35 +233,89 @@ class CharacterEdit_ViewController: UIViewController{
         tabbarInit_CharacterEdit()
         BGSelect_CharacterEdit()
         tabbarXInit_CharacterEdit()
-        selectComponentScrollView_CharacterEdit.canCancelContentTouches = true
+        scrollView_CharacterEdit.delegate = self
+    }
+    
+    func moveBar_CharacterEdit(){
+        barX_CharacterEdit.forEach{
+            $0.isActive = false
+        }
+        barX_CharacterEdit[curIndex_CharacterEdit].isActive = true
+    }
+    
+    func scrollContent_CharacterEdit(){
+        if(curIndex_CharacterEdit == 0){
+            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left + CGFloat(sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] * 118), y: 0), animated: true)
+        }else{
+            selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left + CGFloat(sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] * 150), y: 0), animated: true)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[curIndex_CharacterEdit], y: 0), animated: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate{
+            scrollView_CharacterEdit.setContentOffset(CGPoint(x: tabbarX_CharacterEdit[curIndex_CharacterEdit], y: 0), animated: true)
+
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //tapbar
+        for i in 0...6{
+            if(self.scrollView_CharacterEdit.contentOffset.x < tabbarX2_CharacterEdit[i]){
+                if(curIndex_CharacterEdit != i){
+                    deselectTab_CharacterEdit()
+                    curIndex_CharacterEdit = i
+                    selectTab_CharacterEdit()
+                    if(i == 0){
+                        BGSelect_CharacterEdit()
+                        selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left + CGFloat(sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] * 158), y: 0), animated: true)
+                    }else{
+                        characterComponentSelect_CharacterEdit()
+                        selectComponentScrollView_CharacterEdit.setContentOffset(CGPoint(x: -selectComponentScrollView_CharacterEdit.contentInset.left + CGFloat(sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] * 150), y: 0), animated: true)
+                    }
+                    moveBar_CharacterEdit()
+                }
+                break
+            }
+        }
     }
     
     @objc func select0(_ sender: Any){
         sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] = 0
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
+        scrollContent_CharacterEdit()
     }
     
     @objc func select1(_ sender: Any){
         sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] = 1
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
+        scrollContent_CharacterEdit()
     }
     
     @objc func select2(_ sender: Any){
         sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] = 2
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
+        scrollContent_CharacterEdit()
     }
     
     @objc func select3(_ sender: Any){
         sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] = 3
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
+        scrollContent_CharacterEdit()
     }
     
     @objc func select4(_ sender: Any){
         sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] = 4
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
+        scrollContent_CharacterEdit()
     }
     
 }
+
 protocol sendCharacterDataDelegate{
     func sendCharacterData(data: SignupData)
 }
