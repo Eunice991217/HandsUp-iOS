@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Cd-TB-JtM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Cd-TB-JtM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -250,7 +250,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="2bN-u2-Ar5">
-                                            <rect key="frame" x="233.66666666666663" y="4" width="80" height="80"/>
+                                            <rect key="frame" x="192" y="4" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="02J-ZX-faY"/>
                                                 <constraint firstAttribute="width" constant="80" id="e9N-Ed-8YG"/>
@@ -301,12 +301,12 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="2bN-u2-Ar5" firstAttribute="leading" secondItem="TLj-PD-9jo" secondAttribute="trailing" constant="-40" id="1Y3-JL-GT8"/>
                                         <constraint firstItem="2bN-u2-Ar5" firstAttribute="top" secondItem="Mm7-VP-NFw" secondAttribute="top" constant="4" id="7mo-cC-ndU"/>
                                         <constraint firstItem="arV-rs-iao" firstAttribute="top" secondItem="Mm7-VP-NFw" secondAttribute="topMargin" constant="10" id="AAM-SQ-B5a"/>
                                         <constraint firstItem="arV-rs-iao" firstAttribute="leading" secondItem="7vC-KU-9J4" secondAttribute="trailing" constant="12" id="AJd-o3-yh4"/>
                                         <constraint firstItem="YTg-Tn-LX5" firstAttribute="top" secondItem="TLj-PD-9jo" secondAttribute="bottom" constant="3" id="F8p-Ly-CqX"/>
                                         <constraint firstItem="TLj-PD-9jo" firstAttribute="top" secondItem="arV-rs-iao" secondAttribute="bottom" constant="3" id="GhE-CQ-OCJ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="2bN-u2-Ar5" secondAttribute="trailing" constant="59.469999999999999" id="UJT-Wl-Lxu"/>
                                         <constraint firstItem="YTg-Tn-LX5" firstAttribute="leading" secondItem="7vC-KU-9J4" secondAttribute="trailing" constant="12" id="YDK-oy-9zu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="9Dg-F6-Rpk" secondAttribute="trailing" constant="10" id="ZUr-oc-AAv"/>
                                         <constraint firstItem="TLj-PD-9jo" firstAttribute="leading" secondItem="7vC-KU-9J4" secondAttribute="trailing" constant="12" id="emq-oj-MbF"/>
@@ -547,53 +547,59 @@
         <!--Register Post View Controller-->
         <scene sceneID="Ng1-47-be5">
             <objects>
-                <viewController id="2Cd-TB-JtM" customClass="RegisterPostViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterPostViewController" id="2Cd-TB-JtM" customClass="RegisterPostViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFL-Uz-pid">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="980"/>
+                        <rect key="frame" x="0.0" y="0.0" width="435" height="944"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="핸즈업 등록" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kj2-kF-H1r">
-                                <rect key="frame" x="178.33333333333334" y="59" width="73.333333333333343" height="19"/>
+                                <rect key="frame" x="181" y="83" width="73.333333333333314" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgq-j7-y17">
-                                <rect key="frame" x="21" y="59" width="30" height="31"/>
+                                <rect key="frame" x="21" y="83" width="30" height="31"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="취소">
                                     <color key="titleColor" name="HandsUpMainText"/>
                                 </state>
+                                <connections>
+                                    <action selector="CancelBtnDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="kF5-if-Z0i"/>
+                                </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-gR-CAe">
-                                <rect key="frame" x="0.0" y="114" width="430" height="746"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-gR-CAe">
+                                <rect key="frame" x="0.0" y="138" width="435" height="686"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMY-3T-nAn">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="744"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="435" height="700"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample2" translatesAutoresizingMaskIntoConstraints="NO" id="39D-oM-O34">
-                                                <rect key="frame" x="12.666666666666657" y="21" width="405" height="145"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="characterExample2" translatesAutoresizingMaskIntoConstraints="NO" id="39D-oM-O34">
+                                                <rect key="frame" x="15" y="21" width="145" height="145"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="145" id="noq-PF-lsz"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxx-9I-oBp">
-                                                <rect key="frame" x="189" y="190" width="52" height="23.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxx-9I-oBp">
+                                                <rect key="frame" x="191.66666666666666" y="190" width="52" height="23.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uc-p0-KOZ" customClass="CustomSwitch" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="304" y="241" width="96" height="24"/>
+                                                <rect key="frame" x="309" y="241" width="96" height="24"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="96" id="HTR-Uf-y43"/>
                                                     <constraint firstAttribute="height" constant="24" id="O0A-iM-D93"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="locationSwitchBtnDidTap:" destination="2Cd-TB-JtM" eventType="valueChanged" id="vxy-Jk-We5"/>
+                                                </connections>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="메세지를 입력해주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G1l-Bs-4h4">
-                                                <rect key="frame" x="16" y="277" width="398" height="179"/>
+                                                <rect key="frame" x="16" y="277" width="403" height="179"/>
                                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="179" id="wnk-W1-HaO"/>
@@ -608,13 +614,117 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="태그" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXm-n1-Fdj">
-                                                <rect key="frame" x="22" y="484" width="28" height="23.666666666666686"/>
+                                                <rect key="frame" x="22" y="484" width="28" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" name="HandsUpMainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMW-aL-c7c" customClass="TagScrollView" customModule="HandsUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="503" width="435" height="59"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-xK-9Y1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="429.66666666666669" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWl-fG-O6q">
+                                                                <rect key="frame" x="20" y="15" width="33" height="29"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="#전체">
+                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="totalTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="QMn-xK-TM7"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62E-eu-ehT">
+                                                                <rect key="frame" x="89" y="15" width="35" height="29"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="#Talk">
+                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="talkTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="ZLh-Iw-UKd"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHf-Pc-6QQ">
+                                                                <rect key="frame" x="160" y="15" width="30" height="29"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="#밥">
+                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="foodTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="lv3-vZ-wFm"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-Dv-g3e">
+                                                                <rect key="frame" x="226" y="15" width="45" height="29"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="#스터디">
+                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="studyTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="PZj-Tp-brZ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byZ-gQ-fui">
+                                                                <rect key="frame" x="307" y="15" width="33" height="29"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="33" id="miG-FZ-2lm"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="#취미">
+                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="hobbyTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="lVl-xQ-gfy"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEr-rb-O0j">
+                                                                <rect key="frame" x="376" y="15" width="33" height="29"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="#여행">
+                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="tripTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="qX4-Yz-MVS"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="HandsUpBackground"/>
+                                                        <constraints>
+                                                            <constraint firstItem="oHf-Pc-6QQ" firstAttribute="leading" secondItem="62E-eu-ehT" secondAttribute="trailing" constant="36" id="0is-kQ-jFO"/>
+                                                            <constraint firstItem="oHf-Pc-6QQ" firstAttribute="top" secondItem="9Ec-xK-9Y1" secondAttribute="top" constant="15" id="4FX-Tf-2Y5"/>
+                                                            <constraint firstItem="n5t-Dv-g3e" firstAttribute="leading" secondItem="oHf-Pc-6QQ" secondAttribute="trailing" constant="36" id="7cV-bC-sgB"/>
+                                                            <constraint firstItem="MWl-fG-O6q" firstAttribute="leading" secondItem="9Ec-xK-9Y1" secondAttribute="leading" constant="20" id="BuZ-tQ-cRz"/>
+                                                            <constraint firstAttribute="width" constant="429.66666666666669" id="L72-ZS-ivV"/>
+                                                            <constraint firstItem="n5t-Dv-g3e" firstAttribute="centerY" secondItem="9Ec-xK-9Y1" secondAttribute="centerY" id="OCI-04-Y1t"/>
+                                                            <constraint firstAttribute="height" constant="59" id="Whj-u9-DwJ"/>
+                                                            <constraint firstItem="yEr-rb-O0j" firstAttribute="leading" secondItem="byZ-gQ-fui" secondAttribute="trailing" constant="36" id="ZRP-s8-GI9"/>
+                                                            <constraint firstItem="62E-eu-ehT" firstAttribute="top" secondItem="9Ec-xK-9Y1" secondAttribute="top" constant="15" id="dla-Px-ucd"/>
+                                                            <constraint firstItem="MWl-fG-O6q" firstAttribute="top" secondItem="9Ec-xK-9Y1" secondAttribute="top" constant="15" id="dvD-1J-PkI"/>
+                                                            <constraint firstItem="byZ-gQ-fui" firstAttribute="leading" secondItem="n5t-Dv-g3e" secondAttribute="trailing" constant="36" id="iCy-7N-VNo"/>
+                                                            <constraint firstItem="byZ-gQ-fui" firstAttribute="centerY" secondItem="9Ec-xK-9Y1" secondAttribute="centerY" id="jKT-6N-rRo"/>
+                                                            <constraint firstItem="oHf-Pc-6QQ" firstAttribute="centerY" secondItem="9Ec-xK-9Y1" secondAttribute="centerY" id="o5g-3n-m6T"/>
+                                                            <constraint firstItem="62E-eu-ehT" firstAttribute="leading" secondItem="MWl-fG-O6q" secondAttribute="trailing" constant="36" id="oo5-os-N1Z"/>
+                                                            <constraint firstItem="yEr-rb-O0j" firstAttribute="centerY" secondItem="9Ec-xK-9Y1" secondAttribute="centerY" id="zyq-uS-9Uf"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="9Ec-xK-9Y1" firstAttribute="leading" secondItem="sMW-aL-c7c" secondAttribute="leading" id="0jI-gR-f3s"/>
+                                                    <constraint firstItem="9Ec-xK-9Y1" firstAttribute="bottom" secondItem="sMW-aL-c7c" secondAttribute="bottom" id="JrZ-cR-5DG"/>
+                                                    <constraint firstItem="9Ec-xK-9Y1" firstAttribute="top" secondItem="sMW-aL-c7c" secondAttribute="top" id="W3H-7w-Axg"/>
+                                                    <constraint firstItem="9Ec-xK-9Y1" firstAttribute="height" secondItem="sMW-aL-c7c" secondAttribute="height" id="Z83-4q-tsH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9Ec-xK-9Y1" secondAttribute="trailing" constant="5.3333333333333144" id="fJd-d7-5Sk"/>
+                                                </constraints>
+                                            </scrollView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgm-5Q-Tcm">
-                                                <rect key="frame" x="0.0" y="590" width="430" height="1"/>
+                                                <rect key="frame" x="0.0" y="562" width="435" height="1"/>
                                                 <color key="backgroundColor" name="HandsUpGrey"/>
                                                 <color key="tintColor" name="HandsUpMainText"/>
                                                 <constraints>
@@ -622,7 +732,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메세지 지속시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6h-x3-Qr2">
-                                                <rect key="frame" x="22" y="611" width="101" height="19"/>
+                                                <rect key="frame" x="22" y="583" width="101" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="tU3-NO-BXu"/>
                                                 </constraints>
@@ -631,7 +741,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-qd-uRs">
-                                                <rect key="frame" x="195" y="648" width="40" height="22"/>
+                                                <rect key="frame" x="197.66666666666666" y="620" width="40" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="gqY-WB-2t7"/>
                                                     <constraint firstAttribute="width" constant="40" id="zIx-mg-2xf"/>
@@ -647,7 +757,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="48" translatesAutoresizingMaskIntoConstraints="NO" id="AcV-MB-aoP">
-                                                <rect key="frame" x="29" y="682" width="371" height="23"/>
+                                                <rect key="frame" x="29" y="654" width="376" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="1qv-uG-iZB"/>
                                                 </constraints>
@@ -658,108 +768,8 @@
                                                     <action selector="timeChangeDidChange:" destination="2Cd-TB-JtM" eventType="valueChanged" id="fd3-cr-Xjq"/>
                                                 </connections>
                                             </slider>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0N-F2-ybe">
-                                                <rect key="frame" x="20" y="524" width="410" height="66"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQp-a4-OHL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="410" height="66"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWl-fG-O6q">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33" height="29"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="#전체">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="totalTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="QMn-xK-TM7"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62E-eu-ehT">
-                                                                <rect key="frame" x="69" y="0.0" width="35" height="29"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="#Talk">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="talkTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="ZLh-Iw-UKd"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHf-Pc-6QQ">
-                                                                <rect key="frame" x="140" y="0.0" width="30" height="29"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="#밥">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="foodTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="lv3-vZ-wFm"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-Dv-g3e">
-                                                                <rect key="frame" x="206" y="0.0" width="45" height="29"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="#스터디">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="studyTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="PZj-Tp-brZ"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byZ-gQ-fui">
-                                                                <rect key="frame" x="287" y="0.0" width="33" height="29"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="#취미">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="hobbyTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="lVl-xQ-gfy"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEr-rb-O0j">
-                                                                <rect key="frame" x="356" y="0.0" width="33" height="29"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="#여행">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="tripTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="qX4-Yz-MVS"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" name="HandsUpBackground"/>
-                                                        <constraints>
-                                                            <constraint firstItem="byZ-gQ-fui" firstAttribute="leading" secondItem="n5t-Dv-g3e" secondAttribute="trailing" constant="36" id="5Ii-0B-UIk"/>
-                                                            <constraint firstItem="n5t-Dv-g3e" firstAttribute="top" secondItem="dQp-a4-OHL" secondAttribute="top" id="Ao5-27-Oxw"/>
-                                                            <constraint firstItem="n5t-Dv-g3e" firstAttribute="leading" secondItem="oHf-Pc-6QQ" secondAttribute="trailing" constant="36" id="H4E-yn-xAD"/>
-                                                            <constraint firstItem="oHf-Pc-6QQ" firstAttribute="leading" secondItem="62E-eu-ehT" secondAttribute="trailing" constant="36" id="MOJ-k0-MKF"/>
-                                                            <constraint firstItem="byZ-gQ-fui" firstAttribute="centerY" secondItem="n5t-Dv-g3e" secondAttribute="centerY" id="TgP-A4-Jws"/>
-                                                            <constraint firstItem="yEr-rb-O0j" firstAttribute="centerY" secondItem="byZ-gQ-fui" secondAttribute="centerY" id="VHm-RR-GrR"/>
-                                                            <constraint firstItem="MWl-fG-O6q" firstAttribute="leading" secondItem="dQp-a4-OHL" secondAttribute="leading" id="dNg-NU-chc"/>
-                                                            <constraint firstItem="yEr-rb-O0j" firstAttribute="leading" secondItem="byZ-gQ-fui" secondAttribute="trailing" constant="36" id="kpc-wJ-354"/>
-                                                            <constraint firstItem="oHf-Pc-6QQ" firstAttribute="top" secondItem="dQp-a4-OHL" secondAttribute="top" id="l7o-aF-32w"/>
-                                                            <constraint firstItem="62E-eu-ehT" firstAttribute="leading" secondItem="MWl-fG-O6q" secondAttribute="trailing" constant="36" id="nXz-AM-2Yd"/>
-                                                            <constraint firstItem="MWl-fG-O6q" firstAttribute="top" secondItem="dQp-a4-OHL" secondAttribute="top" id="sQ6-Fr-TMK"/>
-                                                            <constraint firstItem="62E-eu-ehT" firstAttribute="top" secondItem="dQp-a4-OHL" secondAttribute="top" id="vVM-vU-naf"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="dQp-a4-OHL" firstAttribute="centerX" secondItem="U0N-F2-ybe" secondAttribute="centerX" id="BGj-ex-55A"/>
-                                                    <constraint firstAttribute="bottom" secondItem="dQp-a4-OHL" secondAttribute="bottom" id="C9c-rn-etO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="dQp-a4-OHL" secondAttribute="trailing" id="MWp-7a-yNl"/>
-                                                    <constraint firstAttribute="height" constant="66" id="cfo-Bg-ieh"/>
-                                                    <constraint firstItem="dQp-a4-OHL" firstAttribute="leading" secondItem="U0N-F2-ybe" secondAttribute="leading" id="iya-nJ-gW8"/>
-                                                    <constraint firstItem="dQp-a4-OHL" firstAttribute="centerY" secondItem="U0N-F2-ybe" secondAttribute="centerY" id="rwD-Mr-YKV"/>
-                                                    <constraint firstItem="dQp-a4-OHL" firstAttribute="top" secondItem="U0N-F2-ybe" secondAttribute="top" id="zuy-Fr-hjE"/>
-                                                </constraints>
-                                            </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="정자동 내정로" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DL3-FM-1Bq">
-                                                <rect key="frame" x="182" y="217.66666666666669" width="66" height="14"/>
+                                                <rect key="frame" x="184.66666666666666" y="217.66666666666669" width="66" height="14"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                                 <nil key="highlightedColor"/>
@@ -767,12 +777,12 @@
                                         </subviews>
                                         <color key="backgroundColor" name="HandsUpBackground"/>
                                         <constraints>
-                                            <constraint firstItem="Kgm-5Q-Tcm" firstAttribute="bottom" secondItem="U0N-F2-ybe" secondAttribute="bottom" constant="1" id="0iv-0h-Umo"/>
+                                            <constraint firstItem="sMW-aL-c7c" firstAttribute="top" secondItem="cXm-n1-Fdj" secondAttribute="bottom" id="0M1-YO-sJI"/>
                                             <constraint firstItem="Zxx-9I-oBp" firstAttribute="centerX" secondItem="YMY-3T-nAn" secondAttribute="centerX" id="0v1-19-eBD"/>
+                                            <constraint firstAttribute="trailing" secondItem="sMW-aL-c7c" secondAttribute="trailing" id="8wn-Px-drX"/>
                                             <constraint firstItem="AcV-MB-aoP" firstAttribute="top" secondItem="xEj-qd-uRs" secondAttribute="bottom" constant="12" id="942-hP-4gm"/>
                                             <constraint firstItem="DL3-FM-1Bq" firstAttribute="top" secondItem="Zxx-9I-oBp" secondAttribute="bottom" constant="4" id="Cvm-Ei-JVi"/>
                                             <constraint firstItem="m6h-x3-Qr2" firstAttribute="leading" secondItem="YMY-3T-nAn" secondAttribute="leading" constant="22" id="E0y-h0-Kqq"/>
-                                            <constraint firstAttribute="bottom" secondItem="AcV-MB-aoP" secondAttribute="bottom" constant="40" id="EXC-LU-Oca"/>
                                             <constraint firstItem="cXm-n1-Fdj" firstAttribute="leading" secondItem="YMY-3T-nAn" secondAttribute="leading" constant="22" id="Grr-Rk-oVv"/>
                                             <constraint firstItem="DL3-FM-1Bq" firstAttribute="centerX" secondItem="YMY-3T-nAn" secondAttribute="centerX" id="Hdx-bj-NCA"/>
                                             <constraint firstItem="Kgm-5Q-Tcm" firstAttribute="leading" secondItem="YMY-3T-nAn" secondAttribute="leading" id="IVh-gB-ldf"/>
@@ -784,8 +794,6 @@
                                             <constraint firstItem="G1l-Bs-4h4" firstAttribute="top" secondItem="1Uc-p0-KOZ" secondAttribute="bottom" constant="12" id="UWM-LE-7la"/>
                                             <constraint firstItem="Zxx-9I-oBp" firstAttribute="top" secondItem="39D-oM-O34" secondAttribute="bottom" constant="24" id="WIC-wH-9oo"/>
                                             <constraint firstAttribute="trailing" secondItem="AcV-MB-aoP" secondAttribute="trailing" constant="32.039999999999999" id="XGq-GI-hGk"/>
-                                            <constraint firstAttribute="trailing" secondItem="U0N-F2-ybe" secondAttribute="trailing" id="Zex-BB-yQ5"/>
-                                            <constraint firstItem="U0N-F2-ybe" firstAttribute="leading" secondItem="YMY-3T-nAn" secondAttribute="leading" constant="20" id="ZiJ-d0-s7B"/>
                                             <constraint firstItem="AcV-MB-aoP" firstAttribute="leading" secondItem="YMY-3T-nAn" secondAttribute="leading" constant="31.030000000000001" id="Zmf-7R-dCJ"/>
                                             <constraint firstItem="m6h-x3-Qr2" firstAttribute="top" secondItem="Kgm-5Q-Tcm" secondAttribute="bottom" constant="20" id="aK1-1r-DSy"/>
                                             <constraint firstItem="39D-oM-O34" firstAttribute="centerX" secondItem="YMY-3T-nAn" secondAttribute="centerX" id="csQ-74-iqS"/>
@@ -793,21 +801,23 @@
                                             <constraint firstAttribute="trailing" secondItem="1Uc-p0-KOZ" secondAttribute="trailing" constant="30" id="eYW-ku-txB"/>
                                             <constraint firstItem="G1l-Bs-4h4" firstAttribute="leading" secondItem="YMY-3T-nAn" secondAttribute="leading" constant="16" id="hpP-Ln-xj1"/>
                                             <constraint firstItem="xEj-qd-uRs" firstAttribute="centerX" secondItem="YMY-3T-nAn" secondAttribute="centerX" id="jq2-Vi-fw9"/>
-                                            <constraint firstItem="U0N-F2-ybe" firstAttribute="top" secondItem="cXm-n1-Fdj" secondAttribute="bottom" constant="16.333333333333314" id="s0a-oX-Lhs"/>
-                                            <constraint firstAttribute="height" constant="744" id="uok-0U-uMF"/>
+                                            <constraint firstItem="Kgm-5Q-Tcm" firstAttribute="top" secondItem="sMW-aL-c7c" secondAttribute="bottom" id="mLg-vK-2tl"/>
+                                            <constraint firstItem="sMW-aL-c7c" firstAttribute="top" secondItem="cXm-n1-Fdj" secondAttribute="bottom" id="nu3-Jc-Gnw"/>
+                                            <constraint firstItem="sMW-aL-c7c" firstAttribute="leading" secondItem="Kgm-5Q-Tcm" secondAttribute="leading" id="og4-Xf-AO8"/>
+                                            <constraint firstAttribute="height" constant="700" id="uok-0U-uMF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="YMY-3T-nAn" firstAttribute="leading" secondItem="6eF-gR-CAe" secondAttribute="leading" id="0aU-H9-Sq3"/>
                                     <constraint firstItem="YMY-3T-nAn" firstAttribute="top" secondItem="6eF-gR-CAe" secondAttribute="top" id="W69-Zx-YFR"/>
-                                    <constraint firstAttribute="bottom" secondItem="YMY-3T-nAn" secondAttribute="bottom" constant="2" id="biW-J2-JFi"/>
+                                    <constraint firstAttribute="bottom" secondItem="YMY-3T-nAn" secondAttribute="bottom" id="biW-J2-JFi"/>
                                     <constraint firstAttribute="trailing" secondItem="YMY-3T-nAn" secondAttribute="trailing" id="jgi-Ok-64H"/>
                                     <constraint firstItem="YMY-3T-nAn" firstAttribute="centerX" secondItem="6eF-gR-CAe" secondAttribute="centerX" id="qlC-gm-zUG"/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tN8-vN-y3m">
-                                <rect key="frame" x="16" y="880" width="398" height="50"/>
+                                <rect key="frame" x="16" y="844" width="403" height="50"/>
                                 <color key="backgroundColor" name="HandsUpOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8BK-Tw-IxU"/>
@@ -817,17 +827,20 @@
                                 <state key="normal" title="핸즈업 올리기">
                                     <color key="titleColor" name="HandsUpRealWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendBtnDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="X3K-xG-YEJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6nZ-WX-Vp4"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
-                            <constraint firstItem="Xgq-j7-y17" firstAttribute="top" secondItem="6nZ-WX-Vp4" secondAttribute="top" id="0el-WF-SbZ"/>
+                            <constraint firstItem="Xgq-j7-y17" firstAttribute="top" secondItem="6nZ-WX-Vp4" secondAttribute="top" constant="24" id="0el-WF-SbZ"/>
                             <constraint firstItem="6nZ-WX-Vp4" firstAttribute="trailing" secondItem="tN8-vN-y3m" secondAttribute="trailing" constant="16" id="592-ya-6hv"/>
                             <constraint firstItem="tN8-vN-y3m" firstAttribute="leading" secondItem="6nZ-WX-Vp4" secondAttribute="leading" constant="16" id="60d-IT-cEf"/>
                             <constraint firstItem="6eF-gR-CAe" firstAttribute="top" secondItem="Xgq-j7-y17" secondAttribute="bottom" constant="24" id="96g-sl-9iH"/>
                             <constraint firstItem="6nZ-WX-Vp4" firstAttribute="bottom" secondItem="tN8-vN-y3m" secondAttribute="bottom" constant="16" id="JaS-iV-JK5"/>
-                            <constraint firstItem="Kj2-kF-H1r" firstAttribute="top" secondItem="6nZ-WX-Vp4" secondAttribute="top" id="Nzy-1U-tZa"/>
+                            <constraint firstItem="Kj2-kF-H1r" firstAttribute="top" secondItem="6nZ-WX-Vp4" secondAttribute="top" constant="24" id="Nzy-1U-tZa"/>
                             <constraint firstItem="6eF-gR-CAe" firstAttribute="leading" secondItem="6nZ-WX-Vp4" secondAttribute="leading" id="OTQ-8O-ncd"/>
                             <constraint firstItem="tN8-vN-y3m" firstAttribute="top" secondItem="6eF-gR-CAe" secondAttribute="bottom" constant="20" id="Qge-bp-Dbv"/>
                             <constraint firstItem="Xgq-j7-y17" firstAttribute="leading" secondItem="6nZ-WX-Vp4" secondAttribute="leading" constant="21" id="bwB-ps-SKS"/>
@@ -835,25 +848,27 @@
                             <constraint firstItem="6nZ-WX-Vp4" firstAttribute="trailing" secondItem="6eF-gR-CAe" secondAttribute="trailing" id="wta-2F-Fof"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="430" height="980"/>
+                    <size key="freeformSize" width="435" height="944"/>
                     <connections>
                         <outlet property="borderLine_HVC" destination="Kgm-5Q-Tcm" id="7gt-sg-NNO"/>
                         <outlet property="foodTagBtn_HVC" destination="oHf-Pc-6QQ" id="qbj-6R-JTb"/>
                         <outlet property="hobbyTagBtn_HVC" destination="byZ-gQ-fui" id="eka-te-kK4"/>
                         <outlet property="msgTextView_HVC" destination="G1l-Bs-4h4" id="KyY-nV-WkN"/>
+                        <outlet property="profileImgViewHeight" destination="noq-PF-lsz" id="GG2-I2-TuZ"/>
                         <outlet property="sendBtn_HVC" destination="tN8-vN-y3m" id="h2G-wJ-5qg"/>
                         <outlet property="studyTagBtn_HVC" destination="n5t-Dv-g3e" id="iAM-Pv-Pdy"/>
-                        <outlet property="tagScrollView_HVC" destination="U0N-F2-ybe" id="9eq-LI-Enm"/>
+                        <outlet property="tagScrollView_HVC" destination="sMW-aL-c7c" id="nZO-NN-qTq"/>
                         <outlet property="talkTagBtn_HVC" destination="62E-eu-ehT" id="uoO-aX-z6F"/>
                         <outlet property="timeLb_HVC" destination="xEj-qd-uRs" id="8Bc-fI-xG5"/>
                         <outlet property="timeSlider_HVC" destination="AcV-MB-aoP" id="OVB-9j-oW5"/>
+                        <outlet property="totalScrollView_HVC" destination="6eF-gR-CAe" id="5mK-UY-sAL"/>
                         <outlet property="totalTagBtn_HVC" destination="MWl-fG-O6q" id="rOR-2v-gc3"/>
                         <outlet property="tripTagBtn_HVC" destination="yEr-rb-O0j" id="3RI-0W-gLn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ6-mK-wsf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="615" y="-197"/>
+            <point key="canvasLocation" x="608" y="-238"/>
         </scene>
     </scenes>
     <resources>

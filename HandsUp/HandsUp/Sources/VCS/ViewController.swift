@@ -105,6 +105,21 @@ class ViewController: UIViewController {
 
     }
     
+    @IBAction func HomePlusBtnDidTap(_ sender: Any) {
+        
+        // 스토리보드의 파일 찾기
+                let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+                
+                // 스토리보드에서 지정해준 ViewController의 ID
+                guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+                    return
+                }
+                
+        
+                // 화면 전환!
+                self.present(registerPostVC, animated: true)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         HomeTabView.clipsToBounds = true
