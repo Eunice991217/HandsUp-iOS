@@ -21,6 +21,7 @@
 		32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
 		32AB018329730B2F007D550A /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018229730B2F007D550A /* CustomSwitch.swift */; };
 		32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018429730C4C007D550A /* CustomThumbView.swift */; };
+		32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6577829824271007609A2 /* PostThroughChatViewController.swift */; };
 		480B01E5297149D1007054B1 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E4297149D1007054B1 /* EditProfile.swift */; };
 		480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E629715A3C007054B1 /* EditProfileName.swift */; };
 		4824DC93297007C9004F0177 /* ToS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824DC92297007C9004F0177 /* ToS.swift */; };
@@ -95,6 +96,7 @@
 		32AB016C2969A0C5007D550A /* HandsUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HandsUp.storyboard; sourceTree = "<group>"; };
 		32AB018229730B2F007D550A /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		32AB018429730C4C007D550A /* CustomThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
+		32D6577829824271007609A2 /* PostThroughChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThroughChatViewController.swift; sourceTree = "<group>"; };
 		480B01E4297149D1007054B1 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		480B01E629715A3C007054B1 /* EditProfileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileName.swift; sourceTree = "<group>"; };
 		4824DC92297007C9004F0177 /* ToS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToS.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				3229E7622977CA54006FC6CB /* ChatViewController.swift */,
 				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
 				329296772978FDC00077F98E /* RegisterPostViewController.swift */,
+				32D6577829824271007609A2 /* PostThroughChatViewController.swift */,
 			);
 			path = "New Group1";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */,
 				48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */,
 				48398AEA297295C5006FD205 /* MyPostTableViewCell.swift in Sources */,
+				32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */,
 				486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */,
 				48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,

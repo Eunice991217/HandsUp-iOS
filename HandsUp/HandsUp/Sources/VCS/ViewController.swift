@@ -114,8 +114,6 @@ class ViewController: UIViewController {
                 guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
                     return
                 }
-                
-        
                 // 화면 전환!
                 self.present(registerPostVC, animated: true)
         

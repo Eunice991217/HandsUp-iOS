@@ -3,58 +3,16 @@
     {
       "filename" : "Rectangle 136.png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 18,
-          "left" : 58,
-          "right" : 63,
-          "top" : 17
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "stretch",
-          "width" : 50
-        },
-        "mode" : "9-part"
-      },
       "scale" : "1x"
     },
     {
       "filename" : "Rectangle 136 (1).png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 38,
-          "left" : 135,
-          "right" : 142,
-          "top" : 33
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "stretch",
-          "width" : 50
-        },
-        "mode" : "9-part"
-      },
       "scale" : "2x"
     },
     {
       "filename" : "Rectangle 136 (2).png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 62,
-          "left" : 190,
-          "right" : 195,
-          "top" : 42
-        },
-        "center" : {
-          "height" : 4,
-          "mode" : "stretch",
-          "width" : 50
-        },
-        "mode" : "9-part"
-      },
       "scale" : "3x"
     }
   ],

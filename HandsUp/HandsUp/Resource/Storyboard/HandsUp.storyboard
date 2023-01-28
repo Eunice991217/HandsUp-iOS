@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Cd-TB-JtM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vrt-P4-vvb">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -357,6 +357,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="moreVert" title=""/>
+                                        <connections>
+                                            <action selector="moreBtnDidTap:" destination="Vrt-P4-vvb" eventType="touchUpInside" id="de6-xs-aAp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpBackground"/>
@@ -495,7 +498,7 @@
                                     <constraint firstItem="fBW-Ef-ZvP" firstAttribute="leading" secondItem="wXT-xb-sBq" secondAttribute="trailing" id="Sn9-L1-277"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="leading" secondItem="r4o-Ql-8nT" secondAttribute="leading" constant="10" id="dwB-LM-dh4"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="gch-Js-H4N"/>
-                                    <constraint firstAttribute="height" constant="42" id="tNv-yO-cZP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="tNv-yO-cZP"/>
                                     <constraint firstAttribute="trailing" secondItem="fBW-Ef-ZvP" secondAttribute="trailing" constant="7.5" id="y9b-Gq-BDZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -542,7 +545,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3461.8320610687019" y="613.38028169014092"/>
+            <point key="canvasLocation" x="3497" y="613"/>
         </scene>
         <!--Register Post View Controller-->
         <scene sceneID="Ng1-47-be5">
@@ -870,6 +873,153 @@
             </objects>
             <point key="canvasLocation" x="608" y="-238"/>
         </scene>
+        <!--Post Through Chat View Controller-->
+        <scene sceneID="w0A-k0-YPy">
+            <objects>
+                <viewController storyboardIdentifier="PostThroughChatViewController" id="Mth-dF-th1" customClass="PostThroughChatViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pV3-hd-fQT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-8S-4Yn">
+                                <rect key="frame" x="30" y="113" width="333" height="540.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqc-bx-htm">
+                                        <rect key="frame" x="140.66666666666666" y="44" width="52" height="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample2" translatesAutoresizingMaskIntoConstraints="NO" id="lr9-rP-ME9">
+                                        <rect key="frame" x="94" y="107.33333333333334" width="145" height="145"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="145" id="bAK-Py-ddn"/>
+                                            <constraint firstAttribute="height" constant="145" id="fk7-Sb-7xw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-tL-y2O">
+                                        <rect key="frame" x="15" y="270.66666666666669" width="303" height="247.66666666666669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="247.66666666666674" id="hsg-Tg-NZc"/>
+                                        </constraints>
+                                        <string key="text">제가 3시쯤 수업이 끝날거 같은데 3시 30에 학교 근처에서 쌀국수 먹으실분 계신가요? 
+
+연락주세요😎</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0p-OF-DBS">
+                                        <rect key="frame" x="136.66666666666666" y="78.333333333333343" width="1" height="13"/>
+                                        <color key="backgroundColor" name="HandsUpDarkGrey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="13" id="ajh-ks-hhz"/>
+                                            <constraint firstAttribute="width" constant="1" id="gYx-wJ-cwF"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치비밀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw5-vr-04r">
+                                        <rect key="frame" x="145.66666666666666" y="77.666666666666657" width="42" height="14.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-E8-Tuu">
+                                        <rect key="frame" x="195.66666666666666" y="78.333333333333343" width="1" height="13"/>
+                                        <color key="backgroundColor" name="HandsUpDarkGrey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="13" id="Wth-wq-FqY"/>
+                                            <constraint firstAttribute="width" constant="1" id="z9q-wh-EeG"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Aa-0q-gRg">
+                                        <rect key="frame" x="96.666666666666671" y="77.666666666666657" width="32.000000000000014" height="14"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pil-kz-xsk">
+                                        <rect key="frame" x="284" y="30.000000000000004" width="23" height="5.6666666666666679"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5.5300000000000002" id="L5a-G5-hJC"/>
+                                            <constraint firstAttribute="width" constant="23.129999999999999" id="g8g-WJ-B7T"/>
+                                        </constraints>
+                                        <color key="tintColor" name="HandsUpMainText"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="threeDotsHorizon"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10분전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzq-M7-7oj">
+                                        <rect key="frame" x="204.66666666666666" y="77.666666666666657" width="35" height="14"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" name="HandsUpDarkGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Tw5-vr-04r" firstAttribute="leading" secondItem="L0p-OF-DBS" secondAttribute="trailing" constant="8" id="28f-zs-bqY"/>
+                                    <constraint firstAttribute="trailing" secondItem="pil-kz-xsk" secondAttribute="trailing" constant="25.890000000000001" id="54e-wQ-tO2"/>
+                                    <constraint firstItem="Tw5-vr-04r" firstAttribute="centerX" secondItem="hZv-8S-4Yn" secondAttribute="centerX" id="6PU-Hi-TZF"/>
+                                    <constraint firstItem="gzc-E8-Tuu" firstAttribute="leading" secondItem="Tw5-vr-04r" secondAttribute="trailing" constant="8" id="9gY-WV-Ian"/>
+                                    <constraint firstAttribute="trailing" secondItem="uEC-tL-y2O" secondAttribute="trailing" constant="15" id="A6C-Dd-y17"/>
+                                    <constraint firstItem="gzc-E8-Tuu" firstAttribute="centerY" secondItem="Tw5-vr-04r" secondAttribute="centerY" id="DYj-ng-d0f"/>
+                                    <constraint firstAttribute="bottom" secondItem="uEC-tL-y2O" secondAttribute="bottom" constant="22" id="EgR-4t-6Uc"/>
+                                    <constraint firstItem="Tw5-vr-04r" firstAttribute="top" secondItem="Iqc-bx-htm" secondAttribute="bottom" constant="9.5800000000000001" id="Pfm-Ve-EX8"/>
+                                    <constraint firstItem="lr9-rP-ME9" firstAttribute="top" secondItem="Tw5-vr-04r" secondAttribute="bottom" constant="15.58" id="QRq-h2-fHy"/>
+                                    <constraint firstItem="L0p-OF-DBS" firstAttribute="centerY" secondItem="Tw5-vr-04r" secondAttribute="centerY" id="TAt-oq-xqe"/>
+                                    <constraint firstItem="Xzq-M7-7oj" firstAttribute="centerY" secondItem="Tw5-vr-04r" secondAttribute="centerY" id="WCY-uT-JYf"/>
+                                    <constraint firstItem="L0p-OF-DBS" firstAttribute="leading" secondItem="1Aa-0q-gRg" secondAttribute="trailing" constant="8" id="Wea-8X-kE5"/>
+                                    <constraint firstItem="Xzq-M7-7oj" firstAttribute="leading" secondItem="gzc-E8-Tuu" secondAttribute="trailing" constant="8" id="aHl-3d-RWe"/>
+                                    <constraint firstItem="Iqc-bx-htm" firstAttribute="centerX" secondItem="hZv-8S-4Yn" secondAttribute="centerX" id="cro-SW-k3K"/>
+                                    <constraint firstItem="lr9-rP-ME9" firstAttribute="centerX" secondItem="hZv-8S-4Yn" secondAttribute="centerX" id="kSB-Qe-Ogi"/>
+                                    <constraint firstItem="1Aa-0q-gRg" firstAttribute="centerY" secondItem="Tw5-vr-04r" secondAttribute="centerY" id="oZC-6B-Av2"/>
+                                    <constraint firstItem="Iqc-bx-htm" firstAttribute="top" secondItem="hZv-8S-4Yn" secondAttribute="topMargin" constant="35.93" id="q9X-ax-WYK"/>
+                                    <constraint firstItem="uEC-tL-y2O" firstAttribute="top" secondItem="lr9-rP-ME9" secondAttribute="bottom" constant="18.280000000000001" id="vbZ-k2-LM6"/>
+                                    <constraint firstItem="pil-kz-xsk" firstAttribute="top" secondItem="hZv-8S-4Yn" secondAttribute="top" constant="30.09" id="yKh-Y9-1tA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cip-uH-cJG">
+                                <rect key="frame" x="174" y="707.33333333333337" width="45" height="44.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="XIE-bF-IxT"/>
+                                    <constraint firstAttribute="height" constant="44.670000000000002" id="cfA-wt-ZTP"/>
+                                </constraints>
+                                <color key="tintColor" name="HandsUpRealWhite"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="xmarkInGreyCircle"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelBtnDidTap:" destination="Mth-dF-th1" eventType="touchUpInside" id="1Fm-SC-sLM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lmH-7t-s0U"/>
+                        <color key="backgroundColor" name="HandsUpRealWhite"/>
+                        <constraints>
+                            <constraint firstItem="hZv-8S-4Yn" firstAttribute="top" secondItem="lmH-7t-s0U" secondAttribute="top" constant="54" id="5pc-rH-m5a"/>
+                            <constraint firstItem="hZv-8S-4Yn" firstAttribute="leading" secondItem="lmH-7t-s0U" secondAttribute="leading" constant="30" id="JHq-pJ-bXa"/>
+                            <constraint firstItem="uEC-tL-y2O" firstAttribute="leading" secondItem="hZv-8S-4Yn" secondAttribute="leading" constant="15" id="Oxb-kE-YVl"/>
+                            <constraint firstItem="cip-uH-cJG" firstAttribute="centerX" secondItem="lmH-7t-s0U" secondAttribute="centerX" id="Tw7-DG-W5c"/>
+                            <constraint firstItem="lmH-7t-s0U" firstAttribute="trailing" secondItem="hZv-8S-4Yn" secondAttribute="trailing" constant="30" id="Wrl-Z5-fz3"/>
+                            <constraint firstItem="cip-uH-cJG" firstAttribute="top" secondItem="hZv-8S-4Yn" secondAttribute="bottom" constant="54" id="oT7-YT-eUI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentTextView_PTCVC" destination="uEC-tL-y2O" id="efr-FR-JPs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayh-Ox-3oZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4346" y="613"/>
+        </scene>
     </scenes>
     <resources>
         <image name="characterExample2" width="405" height="406"/>
@@ -877,6 +1027,8 @@
         <image name="favorite" width="75" height="74"/>
         <image name="flight" width="27" height="23"/>
         <image name="moreVert" width="4" height="16"/>
+        <image name="threeDotsHorizon" width="23.666666030883789" height="6"/>
+        <image name="xmarkInGreyCircle" width="90" height="90"/>
         <namedColor name="HandsUpBackground">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
