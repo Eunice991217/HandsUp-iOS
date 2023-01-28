@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextViewDelegate {
+class ChatViewController: UIViewController {
     
     var chatDatas_CVC = [String]()
     
@@ -117,25 +117,21 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        if chatTextView_CVC.contentSize.height >= maxHeight {
-            isOversized = true
-        }
-    }
-    
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        chatSendBtn_CVC.isHidden = true
         postView_CVC.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         postView_CVC.layer.shadowOpacity = 1
         postView_CVC.layer.shadowRadius = 24
         postView_CVC.layer.shadowOffset = CGSize(width: 0, height: 8)
 
         chatTextView_CVC.isScrollEnabled = false
+        
         chatTableView_CVC.register(UINib(nibName: "MyChatTableViewCell", bundle:nil), forCellReuseIdentifier: "MyChatTableViewCell")
+        
         // nibName : xib 파일 이름.     forCellReuseIdentifier: Cell의 identifier. xib파일안에서 설정가능
         chatTableView_CVC.register(UINib(nibName: "YourChatTableViewCell", bundle:nil), forCellReuseIdentifier: "YourChatTableViewCell")
         //테이블뷰 높이 설정 - 자동으로
@@ -149,8 +145,12 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         postView_CVC.addGestureRecognizer(tapGesture)
+                               
                                                 
-                                                
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     
@@ -206,6 +206,30 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         var current_time_string = formatter_time.string(from: Date())
         
         return current_time_string
+    }
+    
+}
+
+extension ChatViewController: UITextViewDelegate{
+    func textViewDidChange(_ textView: UITextView) {
+        if chatTextView_CVC.contentSize.height >= maxHeight {
+            isOversized = true
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = chatTextView_CVC.text ?? ""
+        guard let stringRange = Range(range, in: currentText)else { return false}
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        let text_count = changedText.count
+        
+        // textview에 입력된 글자가 없을 때 입력 버튼 숨기기
+        if(text_count > 0){
+            chatSendBtn_CVC.isHidden = false
+        }
+        else if (text_count == 0){
+            chatSendBtn_CVC.isHidden = true
+        }
+        return changedText.count >= 0
     }
     
 }
