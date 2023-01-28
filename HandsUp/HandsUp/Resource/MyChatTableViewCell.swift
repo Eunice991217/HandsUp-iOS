@@ -21,6 +21,7 @@ class MyChatTableViewCell: UITableViewCell, UITextViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentTV_MCTVC.isEditable = false
         //setTextView()
     }
 

@@ -16,6 +16,7 @@ class YourChatTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentTV_YCTVC.isEditable = false
         // Initialization code
     }
 
@@ -41,10 +42,6 @@ class YourChatTableViewCell: UITableViewCell {
     func setupLayout() {
         contentTV_YCTVC.textContainerInset = .zero
         contentTV_YCTVC.sizeToFit()
-        
-        //contentView.backgroundColor = .orange
-        
-
 
     }
 }

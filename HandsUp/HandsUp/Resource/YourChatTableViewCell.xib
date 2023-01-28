@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greySquare" translatesAutoresizingMaskIntoConstraints="NO" id="D1B-Cn-AGh">
-                        <rect key="frame" x="19" y="0.0" width="217" height="48"/>
+                        <rect key="frame" x="18.999999999999993" y="0.0" width="125.33333333333331" height="48"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:29PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4L2-tP-c8z">
                         <rect key="frame" x="19" y="52" width="48" height="14"/>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="너도 말해줄래" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qGc-xG-sAP">
-                        <rect key="frame" x="28" y="8" width="194" height="30"/>
+                        <rect key="frame" x="32.999999999999993" y="8" width="97.333333333333314" height="32"/>
                         <color key="textColor" name="HandsUpMainText"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -43,10 +43,10 @@
                     <constraint firstItem="D1B-Cn-AGh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="5CA-kb-n2b"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D1B-Cn-AGh" secondAttribute="trailing" constant="100" id="BSb-he-jMi"/>
                     <constraint firstItem="D1B-Cn-AGh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SZd-fq-Iwc"/>
-                    <constraint firstItem="qGc-xG-sAP" firstAttribute="bottom" secondItem="D1B-Cn-AGh" secondAttribute="bottom" constant="-10" id="aCF-dx-2Ra"/>
+                    <constraint firstItem="qGc-xG-sAP" firstAttribute="bottom" secondItem="D1B-Cn-AGh" secondAttribute="bottom" constant="-8" id="aCF-dx-2Ra"/>
                     <constraint firstAttribute="bottom" secondItem="D1B-Cn-AGh" secondAttribute="bottom" constant="20" id="af1-wJ-mXp"/>
                     <constraint firstItem="qGc-xG-sAP" firstAttribute="top" secondItem="D1B-Cn-AGh" secondAttribute="top" constant="8" id="cUe-3A-KVJ"/>
-                    <constraint firstItem="qGc-xG-sAP" firstAttribute="leading" secondItem="D1B-Cn-AGh" secondAttribute="leading" constant="9" id="e2d-Uk-vyL"/>
+                    <constraint firstItem="qGc-xG-sAP" firstAttribute="leading" secondItem="D1B-Cn-AGh" secondAttribute="leading" constant="14" id="e2d-Uk-vyL"/>
                     <constraint firstItem="qGc-xG-sAP" firstAttribute="trailing" secondItem="D1B-Cn-AGh" secondAttribute="trailing" constant="-14" id="hhc-E6-0P4"/>
                 </constraints>
             </tableViewCellContentView>
@@ -62,7 +62,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="greySquare" width="304" height="43"/>
+        <image name="greySquare" width="39" height="43"/>
         <namedColor name="HandsUpDarkGrey">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

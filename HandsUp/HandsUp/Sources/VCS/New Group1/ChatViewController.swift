@@ -10,7 +10,9 @@ import UIKit
 class ChatViewController: UIViewController {
     
     var chatDatas_CVC = [String]()
+    var chatName = ""
     
+    @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
     
     @IBOutlet weak var chatPersonIdLb_CVC: NSLayoutConstraint!
     @IBOutlet weak var charImgView_CVC: UIImageView!
@@ -49,6 +51,7 @@ class ChatViewController: UIViewController {
         self.showAlertController(style: UIAlertController.Style.actionSheet)
     }
     
+
     func showAlertController(style: UIAlertController.Style) {
         let alert = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         
@@ -56,15 +59,12 @@ class ChatViewController: UIViewController {
         alert.addAction(cancel)
         
         let storyboard_main: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let Report = storyboard_main?.instantiateViewController(identifier: "Report") else { return }
         
-        // 스토리보드에서 지정해준 ViewController의 ID
-        guard let Report = storyboard_main?.instantiateViewController(identifier: "Report") else {
-            return
-        }
         
-        let report = UIAlertAction(title: "이 사용자 신고하기",style: UIAlertAction.Style.default,      handler:{(action) in
-                    // 화면 전환!
-                    self.present(Report, animated: true)
+        let report = UIAlertAction(title: "이 사용자 신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+            // 화면 전환!
+            self.present(Report, animated: true)
             self.navigationController?.pushViewController(Report, animated: true)}
         )
         alert.addAction(report)
@@ -115,6 +115,8 @@ class ChatViewController: UIViewController {
         
         // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
         chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+        
+        chatPersonNameLabel_CVC.text = chatName
     }
     
     
@@ -145,13 +147,48 @@ class ChatViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         postView_CVC.addGestureRecognizer(tapGesture)
-                               
+        
+        chatPersonNameLabel_CVC.text = chatName
+                      
+        swipeRecognizer()
                                                 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    @IBAction func backBtnDidTap(_ sender: Any) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.dismiss(animated: false, completion: nil)
     }
+    
+    func swipeRecognizer() {
+            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
+            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+            self.view.addGestureRecognizer(swipeRight)
+            
+        }
+        
+        @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+                switch swipeGesture.direction{
+                case UISwipeGestureRecognizer.Direction.right:
+                    // 스와이프 시, 원하는 기능 구현.
+                    let transition: CATransition = CATransition()
+                    transition.duration = 0.3
+                    transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                    transition.type = CATransitionType.reveal
+                    transition.subtype = CATransitionSubtype.fromLeft
+                    self.view.window!.layer.add(transition, forKey: nil)
+                    self.dismiss(animated: true, completion: nil)
+                default: break
+                }
+            }
+        }
+
+    
     
     
     
@@ -211,11 +248,18 @@ class ChatViewController: UIViewController {
 }
 
 extension ChatViewController: UITextViewDelegate{
+    
+    // 메세지 입력창 textview의 height autosizing
     func textViewDidChange(_ textView: UITextView) {
-        if chatTextView_CVC.contentSize.height >= maxHeight {
-            isOversized = true
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = chatTextView_CVC.sizeThatFits(size)
+        chatTextView_CVC.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
         }
     }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let currentText = chatTextView_CVC.text ?? ""
         guard let stringRange = Range(range, in: currentText)else { return false}

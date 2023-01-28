@@ -74,7 +74,6 @@ class RegisterPostViewController: UIViewController {
         //처음 화면이 로드되었을 때 플레이스 홀더처럼 보이게끔 만들어주기
         msgTextView_HVC.text = "메세지를 입력해주세요!"
         msgTextView_HVC.textColor = UIColor.lightGray
-        
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
     
                 

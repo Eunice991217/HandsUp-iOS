@@ -53,8 +53,27 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         cell.contentLb_CATVC.text = contentArr_CLVC[indexPath.row]
         
         cell.countLb_CATVX.text = String(msgCountArr_CLVC[indexPath.row])
+        
+        cell.selectionStyle = .none
         return cell
     }
-    
+  //  private func tableView(tableView: UITableView, didSelectRowAtIndexPath /indexPath: NSIndexPath) {
+    //    let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
+   //     let viewController = /storyboard.instantiateViewController(withIdentifier: "ChatViewController")
+    //    self.navigationController?.pushViewController(viewController, animated: true)
+   // }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") else { return  }
+        
+        destinationVC.modalPresentationStyle = .fullScreen
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+        present(destinationVC, animated: false, completion: nil)
+        
+    }
     
 }

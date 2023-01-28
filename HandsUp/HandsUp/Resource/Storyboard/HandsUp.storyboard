@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vrt-P4-vvb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pMp-1M-dlZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -59,7 +59,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2h-mo-Oge">
                                 <rect key="frame" x="0.0" y="129" width="393" height="597"/>
                                 <connections>
-                                    <segue destination="Zy0-QT-N5s" kind="embed" id="gPK-6o-FpT"/>
+                                    <segue destination="Zy0-QT-N5s" kind="embed" id="jjN-9g-SmE"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGt-DD-PVt">
@@ -224,13 +224,15 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <navigationItem key="navigationItem" id="bnW-JO-jut"/>
                     <connections>
                         <outlet property="chatAlarmTableView_CLVC" destination="KlV-rd-06g" id="kKy-lh-Jfs"/>
+                        <segue destination="Vrt-P4-vvb" kind="presentation" identifier="ShowMoreChat" modalPresentationStyle="fullScreen" id="ZYE-VO-N7k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3h-Tz-0AP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="614"/>
+            <point key="canvasLocation" x="2512" y="613"/>
         </scene>
         <!--Alarm List View Controller-->
         <scene sceneID="8Ww-Gg-fn2">
@@ -295,9 +297,6 @@
                                                 </backgroundConfiguration>
                                                 <color key="baseForegroundColor" name="HandsUpBlue"/>
                                             </buttonConfiguration>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="circleButton" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -335,9 +334,9 @@
         <!--Chat View Controller-->
         <scene sceneID="uF3-eA-6hF">
             <objects>
-                <viewController id="Vrt-P4-vvb" customClass="ChatViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="Vrt-P4-vvb" customClass="ChatViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4c6-Op-aWP">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6km-VQ-BSe">
@@ -361,14 +360,30 @@
                                             <action selector="moreBtnDidTap:" destination="Vrt-P4-vvb" eventType="touchUpInside" id="de6-xs-aAp"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBY-Ib-5rn">
+                                        <rect key="frame" x="5" y="7" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="aRo-zc-crC"/>
+                                            <constraint firstAttribute="height" constant="40" id="ogW-Jk-kwN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <backgroundConfiguration key="background" image="BackArrow"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backBtnDidTap:" destination="Vrt-P4-vvb" eventType="touchUpInside" id="KEQ-Ri-uDe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Bal-hC-FiV"/>
+                                    <constraint firstItem="xBY-Ib-5rn" firstAttribute="centerY" secondItem="ike-7b-8zY" secondAttribute="centerY" id="BgP-Yl-4NO"/>
                                     <constraint firstAttribute="trailing" secondItem="OMd-53-6SA" secondAttribute="trailing" constant="14" id="IFX-cv-pk3"/>
                                     <constraint firstItem="ike-7b-8zY" firstAttribute="top" secondItem="6km-VQ-BSe" secondAttribute="top" constant="15" id="NK6-gW-vnb"/>
                                     <constraint firstAttribute="bottom" secondItem="OMd-53-6SA" secondAttribute="bottom" constant="12" id="Zso-nb-X2f"/>
                                     <constraint firstItem="OMd-53-6SA" firstAttribute="top" secondItem="6km-VQ-BSe" secondAttribute="top" constant="12" id="cxg-NV-3sB"/>
+                                    <constraint firstItem="xBY-Ib-5rn" firstAttribute="leading" secondItem="6km-VQ-BSe" secondAttribute="leading" constant="5" id="qWh-y0-omM"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgS-5S-lgA">
@@ -451,7 +466,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-ty-BAG">
-                                <rect key="frame" x="0.0" y="275" width="393" height="465"/>
+                                <rect key="frame" x="0.0" y="275" width="393" height="244"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
@@ -466,7 +481,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-Ql-8nT">
-                                <rect key="frame" x="16" y="760" width="361" height="42"/>
+                                <rect key="frame" x="16" y="539" width="361" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBW-Ef-ZvP">
                                         <rect key="frame" x="287.66666666666669" y="7" width="66" height="28"/>
@@ -510,6 +525,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t8n-E5-1qy"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6km-VQ-BSe" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" id="6ob-ww-W3n"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="LgS-5S-lgA" secondAttribute="trailing" constant="16" id="9aA-my-Vfl"/>
@@ -531,6 +547,7 @@
                     <connections>
                         <outlet property="charImgView_CVC" destination="XI8-t0-pWX" id="JbP-n2-qsg"/>
                         <outlet property="chatPersonIdLb_CVC" destination="zVn-bf-tnC" id="3Vv-VZ-znp"/>
+                        <outlet property="chatPersonNameLabel_CVC" destination="ike-7b-8zY" id="Xdt-6B-DVj"/>
                         <outlet property="chatSendBtn_CVC" destination="fBW-Ef-ZvP" id="dvt-1r-w81"/>
                         <outlet property="chatTableView_CVC" destination="s0q-ty-BAG" id="yhr-NR-B86"/>
                         <outlet property="chatTextView_CVC" destination="wXT-xb-sBq" id="Vtv-qd-4qB"/>
@@ -544,8 +561,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="hX5-vG-hL5"/>
             </objects>
-            <point key="canvasLocation" x="3497" y="613"/>
+            <point key="canvasLocation" x="3344" y="693"/>
         </scene>
         <!--Register Post View Controller-->
         <scene sceneID="Ng1-47-be5">
@@ -949,6 +967,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="threeDotsHorizon"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moreBtnDidTap:" destination="Mth-dF-th1" eventType="touchUpInside" id="Ccp-md-7oB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10분전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzq-M7-7oj">
                                         <rect key="frame" x="204.66666666666666" y="77.666666666666657" width="35" height="14"/>
@@ -1018,10 +1039,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayh-Ox-3oZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4346" y="613"/>
+            <point key="canvasLocation" x="4302" y="692"/>
         </scene>
     </scenes>
     <resources>
+        <image name="BackArrow" width="512" height="512"/>
         <image name="characterExample2" width="405" height="406"/>
         <image name="characterExample3" width="405" height="405"/>
         <image name="favorite" width="75" height="74"/>

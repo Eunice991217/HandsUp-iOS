@@ -22,18 +22,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="425" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blueSquare" translatesAutoresizingMaskIntoConstraints="NO" id="nn8-1J-AUG">
-                        <rect key="frame" x="300" y="0.0" width="100" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="TiK-T7-5Jc"/>
-                        </constraints>
-                    </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" text="너도 말해줄래" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-zb-0ny">
-                        <rect key="frame" x="227" y="10" width="164" height="36"/>
-                        <color key="textColor" name="HandsUpMainText"/>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:21 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnm-Ek-I3z">
                         <rect key="frame" x="358" y="54" width="51" height="14"/>
                         <constraints>
@@ -43,38 +31,46 @@
                         <color key="textColor" name="HandsUpDarkGrey"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueSquare" translatesAutoresizingMaskIntoConstraints="NO" id="t86-aB-As4">
+                        <rect key="frame" x="283.66666666666669" y="0.0" width="125.33333333333331" height="50"/>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="너도 말해줄래" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4ao-Xu-vwy">
+                        <rect key="frame" x="297.66666666666669" y="8" width="97.333333333333314" height="34"/>
+                        <color key="textColor" name="HandsUpRealWhite"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <rect key="contentStretch" x="0.5" y="0.5" width="1" height="1"/>
                 <constraints>
-                    <constraint firstItem="nn8-1J-AUG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="82" id="1O0-dy-X2O"/>
-                    <constraint firstItem="nn8-1J-AUG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GcI-9K-FdR"/>
-                    <constraint firstItem="Apm-zb-0ny" firstAttribute="top" secondItem="nn8-1J-AUG" secondAttribute="top" constant="8" id="HPp-t5-AJG"/>
+                    <constraint firstItem="t86-aB-As4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="3th-lZ-hzq"/>
+                    <constraint firstItem="4ao-Xu-vwy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Fqq-ud-A67"/>
+                    <constraint firstAttribute="bottom" secondItem="t86-aB-As4" secondAttribute="bottom" constant="20" id="JJ9-S5-81g"/>
+                    <constraint firstItem="wnm-Ek-I3z" firstAttribute="top" secondItem="t86-aB-As4" secondAttribute="bottom" constant="4" id="P9Y-W1-x9S"/>
+                    <constraint firstItem="4ao-Xu-vwy" firstAttribute="bottom" secondItem="t86-aB-As4" secondAttribute="bottom" constant="-8" id="QBJ-FQ-cmE"/>
                     <constraint firstAttribute="trailing" secondItem="wnm-Ek-I3z" secondAttribute="trailing" constant="16" id="QFc-f6-TKa"/>
-                    <constraint firstItem="wnm-Ek-I3z" firstAttribute="top" secondItem="nn8-1J-AUG" secondAttribute="bottom" constant="4" id="YxX-Xg-72h"/>
-                    <constraint firstAttribute="bottom" secondItem="nn8-1J-AUG" secondAttribute="bottom" constant="20" id="bIt-GA-OjP"/>
-                    <constraint firstAttribute="trailing" secondItem="nn8-1J-AUG" secondAttribute="trailing" constant="16" id="e0M-l8-bmp"/>
-                    <constraint firstItem="nn8-1J-AUG" firstAttribute="leading" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="217" id="e7r-62-NCa"/>
-                    <constraint firstItem="Apm-zb-0ny" firstAttribute="leading" secondItem="nn8-1J-AUG" secondAttribute="leading" constant="14" id="gpp-PD-eYJ"/>
-                    <constraint firstItem="wnm-Ek-I3z" firstAttribute="top" secondItem="nn8-1J-AUG" secondAttribute="bottom" constant="4" id="jXg-yF-Uqo"/>
-                    <constraint firstItem="Apm-zb-0ny" firstAttribute="bottom" secondItem="nn8-1J-AUG" secondAttribute="bottom" constant="-8" id="pcw-G6-Mjh"/>
-                    <constraint firstItem="Apm-zb-0ny" firstAttribute="trailing" secondItem="nn8-1J-AUG" secondAttribute="trailing" constant="-14" id="ynQ-mI-M4f"/>
+                    <constraint firstItem="t86-aB-As4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QQp-g6-DIp"/>
+                    <constraint firstItem="4ao-Xu-vwy" firstAttribute="leading" secondItem="t86-aB-As4" secondAttribute="leading" constant="14" id="R01-VI-0kf"/>
+                    <constraint firstAttribute="trailing" secondItem="t86-aB-As4" secondAttribute="trailing" constant="16" id="STH-iG-78K"/>
+                    <constraint firstItem="4ao-Xu-vwy" firstAttribute="trailing" secondItem="t86-aB-As4" secondAttribute="trailing" constant="-14" id="mPa-eE-6Ku"/>
+                    <constraint firstItem="wnm-Ek-I3z" firstAttribute="top" secondItem="t86-aB-As4" secondAttribute="bottom" constant="4" id="pK4-Ze-FCv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="contentTV_MCTVC" destination="Apm-zb-0ny" id="rws-xU-GjO"/>
+                <outlet property="contentTV_MCTVC" destination="4ao-Xu-vwy" id="6R5-VN-zO2"/>
                 <outlet property="timeLb_MCTVC" destination="wnm-Ek-I3z" id="WX8-AL-dog"/>
             </connections>
-            <point key="canvasLocation" x="209.92366412213741" y="-141.5492957746479"/>
+            <point key="canvasLocation" x="145.80152671755724" y="-25.35211267605634"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="blueSquare" width="192" height="36"/>
+        <image name="blueSquare" width="29" height="36"/>
         <namedColor name="HandsUpDarkGrey">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="HandsUpMainText">
-            <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="HandsUpRealWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
