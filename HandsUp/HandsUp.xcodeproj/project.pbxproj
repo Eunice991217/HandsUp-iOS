@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		321B1E31298566B500E2CFEE /* customSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E30298566B500E2CFEE /* customSegue.swift */; };
+		321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */; };
 		3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229E7622977CA54006FC6CB /* ChatViewController.swift */; };
 		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
 		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
@@ -83,7 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		321B1E30298566B500E2CFEE /* customSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSegue.swift; sourceTree = "<group>"; };
+		321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
 				329296772978FDC00077F98E /* RegisterPostViewController.swift */,
 				32D6577829824271007609A2 /* PostThroughChatViewController.swift */,
-				321B1E30298566B500E2CFEE /* customSegue.swift */,
+				321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */,
 			);
 			path = "New Group1";
 			sourceTree = "<group>";
@@ -449,6 +449,7 @@
 				48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */,
 				4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */,
 				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
+				321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */,
 				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
 				328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */,
 				3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */,
@@ -479,7 +480,6 @@
 				8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */,
 				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
 				8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */,
-				321B1E31298566B500E2CFEE /* customSegue.swift in Sources */,
 				8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,

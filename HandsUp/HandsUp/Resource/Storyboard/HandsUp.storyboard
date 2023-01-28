@@ -563,7 +563,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="hX5-vG-hL5"/>
             </objects>
-            <point key="canvasLocation" x="3344" y="693"/>
+            <point key="canvasLocation" x="3289" y="612"/>
         </scene>
         <!--Register Post View Controller-->
         <scene sceneID="Ng1-47-be5">
@@ -762,10 +762,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-qd-uRs">
-                                                <rect key="frame" x="197.66666666666666" y="620" width="40" height="22"/>
+                                                <rect key="frame" x="193" y="623" width="49" height="19"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="gqY-WB-2t7"/>
-                                                    <constraint firstAttribute="width" constant="40" id="zIx-mg-2xf"/>
+                                                    <constraint firstAttribute="height" constant="19" id="gqY-WB-2t7"/>
+                                                    <constraint firstAttribute="width" constant="49" id="zIx-mg-2xf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -775,6 +775,15 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="HandsUpLightGrey"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="48" translatesAutoresizingMaskIntoConstraints="NO" id="AcV-MB-aoP">

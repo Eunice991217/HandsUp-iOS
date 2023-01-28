@@ -12,6 +12,24 @@ class PostThroughChatViewController: UIViewController {
     
     @IBOutlet weak var contentTextView_PTCVC: UITextView!
     
+    lazy var blurredView: UIView = {
+            // 1. create container view
+            let containerView = UIView()
+            // 2. create custom blur view
+            let blurEffect = UIBlurEffect(style: .light)
+            let customBlurEffectView = CustomVisualEffectView(effect: blurEffect, intensity: 0.2)
+            customBlurEffectView.frame = self.view.bounds
+            // 3. create semi-transparent black view
+            let dimmedView = UIView()
+            dimmedView.backgroundColor = .white.withAlphaComponent(0.1)
+            dimmedView.frame = self.view.bounds
+            
+            // 4. add both as subviews
+            containerView.addSubview(customBlurEffectView)
+            containerView.addSubview(dimmedView)
+            return containerView
+        }()
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,24 +37,18 @@ class PostThroughChatViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 0.642, green: 0.642, blue: 0.642, alpha: 0.8)
         contentTextView_PTCVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         contentTextView_PTCVC.isEditable = false
+        
+        setupView()
     }
     
-    func setupBlurEffect() {
-        let blurEffect = UIBlurEffect(style: .light)
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.frame = view.frame
-        view.addSubview(visualEffectView)
-    }
+    func setupView() {
+           // 6. add blur view and send it to back
+           view.addSubview(blurredView)
+           view.sendSubviewToBack(blurredView)
+       }
+    
     
     @IBAction func cancelBtnDidTap(_ sender: Any) {
-        
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromRight
-        self.view.window!.layer.add(transition, forKey: nil)
-        
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -88,6 +100,8 @@ class PostThroughChatViewController: UIViewController {
 
         present(alert, animated: true, completion: nil)
     }
+    
+    
     
 
 }

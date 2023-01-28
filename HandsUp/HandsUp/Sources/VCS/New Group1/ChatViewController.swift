@@ -10,7 +10,7 @@ import UIKit
 class ChatViewController: UIViewController {
     
     var chatDatas_CVC = [String]()
-    var chatName = ""
+    public var chatPersonName = ""
     
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
     
@@ -91,7 +91,7 @@ class ChatViewController: UIViewController {
         confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        let attributedString = NSAttributedString(string: "해당 게시물을 차단하면 이 게시물은 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        let attributedString = NSAttributedString(string: "해당 사용자를 차단하면 이 사용자는 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 
         present(alert, animated: true, completion: nil)
@@ -116,7 +116,6 @@ class ChatViewController: UIViewController {
         // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
         chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
         
-        chatPersonNameLabel_CVC.text = chatName
     }
     
     
@@ -148,7 +147,7 @@ class ChatViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         postView_CVC.addGestureRecognizer(tapGesture)
         
-        chatPersonNameLabel_CVC.text = chatName
+        chatPersonNameLabel_CVC.text = chatPersonName
                       
         swipeRecognizer()
                                                 
