@@ -130,6 +130,11 @@ class ViewController: UIViewController {
                 self.present(registerPostVC, animated: true)
         
     }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         HomeTabView.clipsToBounds = true

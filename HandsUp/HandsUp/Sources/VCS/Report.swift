@@ -17,10 +17,18 @@ class Report: UIViewController {
     @IBOutlet weak var ReportBackBtn: UIButton!
     
     
-//    @IBAction func ReportBackBtnDidTap(_ sender: Any) {
-//        let reportBack = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-//                self.navigationController?.popViewController(animated: true)
-//    }
+    @IBAction func ReportBackBtnDidTap(_ sender: Any) {
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.dismiss(animated: false, completion: nil)
+        
+               self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func ReportSubmitDidTap(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)

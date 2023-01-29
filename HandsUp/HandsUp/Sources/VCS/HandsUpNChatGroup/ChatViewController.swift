@@ -64,8 +64,14 @@ class ChatViewController: UIViewController {
         
         let report = UIAlertAction(title: "이 사용자 신고하기",style: UIAlertAction.Style.default, handler:{(action) in
             // 화면 전환!
-            self.present(Report, animated: true)
-            self.navigationController?.pushViewController(Report, animated: true)}
+          
+            Report.modalPresentationStyle = .fullScreen
+            
+            self.present(Report, animated: false, completion: nil)
+            
+            self.navigationController?.pushViewController(Report, animated: true)
+            
+        }
         )
         alert.addAction(report)
         
@@ -91,7 +97,7 @@ class ChatViewController: UIViewController {
         confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        let attributedString = NSAttributedString(string: "해당 사용자를 차단하면 이 사용자는 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        let attributedString = NSAttributedString(string: "해당 사용자를 차단하면 이 채팅은 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 
         present(alert, animated: true, completion: nil)
@@ -200,7 +206,7 @@ class ChatViewController: UIViewController {
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
                 // 스토리보드에서 지정해준 ViewController의 ID
-        guard let registerPostVC = self.storyboard?.instantiateViewController(identifier: "PostThroughChatViewController") else {
+        guard let registerPostVC = self.storyboard?.instantiateViewController(identifier: "ChatNavigationViewController") else {
                     return
                 }
         

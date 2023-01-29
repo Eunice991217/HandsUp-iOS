@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */; };
 		321B1E352986382400E2CFEE /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
+		321B1E3729864E9100E2CFEE /* ChatNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */; };
 		3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229E7622977CA54006FC6CB /* ChatViewController.swift */; };
 		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
 		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
+		321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationViewController.swift; sourceTree = "<group>"; };
 		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				3229E7622977CA54006FC6CB /* ChatViewController.swift */,
 				329296772978FDC00077F98E /* RegisterPostViewController.swift */,
 				32D6577829824271007609A2 /* PostThroughChatViewController.swift */,
+				321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */,
 			);
 			path = HandsUpNChatGroup;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */,
+				321B1E3729864E9100E2CFEE /* ChatNavigationViewController.swift in Sources */,
 				486CFF4F29756C49003761E7 /* ListThirdTabVC.swift in Sources */,
 				480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */,
 				487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */,

@@ -73,12 +73,12 @@ class AlarmNChatListViewController: UIViewController {
         alarmBtn_ANCLV.titleLabel?.textColor = unClickedColor
         
         alarmBtn_ANCLV.setTitleColor(.orange, for: .normal)
-       chatBtn_ANCLV.setTitleColor(.orange, for: .normal)
+        chatBtn_ANCLV.setTitleColor(.orange, for: .normal)
         
         UIView.animate(withDuration: 0.2) {
             let scale = CGAffineTransform(translationX: 75, y:0)
-                self.markLineUIView_ANCLVC.transform = scale
-               }
-
+            self.markLineUIView_ANCLVC.transform = scale
+        }
     }
+    
 }
