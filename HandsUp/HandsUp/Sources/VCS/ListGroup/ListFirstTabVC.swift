@@ -21,8 +21,8 @@ class ListFirstTabVC: UIViewController {
       self.myTableView.dataSource = self
       self.myTableView.delegate = self
         
-      self.myTableView.register(TableViewCell.self,
-                              forCellReuseIdentifier: "TableViewCell")
+      self.myTableView.register(FirtstListTableViewCell.self,
+                              forCellReuseIdentifier: "FirtstListTableViewCell")
         
       self.view.addSubview(self.myTableView)
 
@@ -48,7 +48,7 @@ class ListFirstTabVC: UIViewController {
 extension ListFirstTabVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print(items[indexPath.row])
-      tableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .blue
+      //tableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .blue
   }
 }
 
@@ -61,26 +61,26 @@ extension ListFirstTabVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        switch indexPath.row {
-        case 0:
-            return 100
-        case 1:
-            return 200
-        case 2:
-            return 300
-        default:
-            return 400
-        }
+//        switch indexPath.row {
+//        case 0:
+//            return 100
+//        case 1:
+//            return 200
+//        case 2:
+//            return 300
+//        default:
+//            return 400
+//        }
         
-        //return 100
+        return 100
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.id, for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FirtstListTableViewCell.id, for: indexPath) as? FirtstListTableViewCell else { return UITableViewCell() }
+        
         
         cell.title.text = items[indexPath.row]
         cell.title.textColor = .black
-        print("아아아아아아아아악")
         return cell
     }
 }

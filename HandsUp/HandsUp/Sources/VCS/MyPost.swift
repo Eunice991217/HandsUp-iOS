@@ -30,12 +30,21 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var HomeMyPostTableView: UITableView!
     
+    
+    @IBAction func MyPostBackBtnDidTap(_ sender: Any) {
+        let myPost = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         HomeMyPostTableView.delegate = self
         HomeMyPostTableView.dataSource = self
 
+        self.navigationController?.navigationBar.isHidden = true;
+//        self.navigationController?.navigationBar.tintColor = .black
+//        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
     }
 
@@ -50,6 +59,20 @@ struct MyPostDataModel {
 }
 
 let MyPostData: [MyPostDataModel] = [
+    MyPostDataModel(
+            profileImage: UIImage(named: "characterExample2"),
+            name: "차라나",
+            location: "경기도 성남시",
+            time: "10분전",
+            content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
+        ),
+    MyPostDataModel(
+            profileImage: UIImage(named: "characterExample3"),
+            name: "차라나",
+            location: "경기도 성남시",
+            time: "10분전",
+            content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
+        ),
     MyPostDataModel(
             profileImage: UIImage(named: "characterExample2"),
             name: "차라나",

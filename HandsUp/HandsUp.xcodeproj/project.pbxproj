@@ -23,6 +23,8 @@
 		32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018429730C4C007D550A /* CustomThumbView.swift */; };
 		480B01E5297149D1007054B1 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E4297149D1007054B1 /* EditProfile.swift */; };
 		480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E629715A3C007054B1 /* EditProfileName.swift */; };
+		4819DCD82980CA1100549538 /* FirtstListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4819DCD72980CA1100549538 /* FirtstListTableViewCell.swift */; };
+		4819DD3229828C1300549538 /* CustromSwitchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4819DD3129828C1300549538 /* CustromSwitchHome.swift */; };
 		4824DC93297007C9004F0177 /* ToS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824DC92297007C9004F0177 /* ToS.swift */; };
 		48398AE6297288F9006FD205 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AE5297288F9006FD205 /* Report.swift */; };
 		48398AE829728FA0006FD205 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AE729728FA0006FD205 /* MyPost.swift */; };
@@ -43,7 +45,6 @@
 		486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5029756C55003761E7 /* ListFourthTabVC.swift */; };
 		486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5229756C60003761E7 /* ListFifthTabVC.swift */; };
 		486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */; };
-		4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872E7A929758DCE00C706B4 /* TableViewCell.swift */; };
 		487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D5FDC296AA8EF00BE2CCC /* FAQ.swift */; };
 		48C318942975B26000037D89 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48C318932975B26000037D89 /* SnapKit */; };
 		8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109162966DFF20042D14A /* AppDelegate.swift */; };
@@ -97,6 +98,8 @@
 		32AB018429730C4C007D550A /* CustomThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
 		480B01E4297149D1007054B1 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		480B01E629715A3C007054B1 /* EditProfileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileName.swift; sourceTree = "<group>"; };
+		4819DCD72980CA1100549538 /* FirtstListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirtstListTableViewCell.swift; sourceTree = "<group>"; };
+		4819DD3129828C1300549538 /* CustromSwitchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustromSwitchHome.swift; sourceTree = "<group>"; };
 		4824DC92297007C9004F0177 /* ToS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToS.swift; sourceTree = "<group>"; };
 		48398AE5297288F9006FD205 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		48398AE729728FA0006FD205 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
@@ -116,7 +119,6 @@
 		486CFF5029756C55003761E7 /* ListFourthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFourthTabVC.swift; sourceTree = "<group>"; };
 		486CFF5229756C60003761E7 /* ListFifthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFifthTabVC.swift; sourceTree = "<group>"; };
 		486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSixthTabVC.swift; sourceTree = "<group>"; };
-		4872E7A929758DCE00C706B4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		487D5FDC296AA8EF00BE2CCC /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		8B082A4B2972DBDF0063E6E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B2109132966DFF20042D14A /* HandsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,11 +181,48 @@
 			path = "New Group1";
 			sourceTree = "<group>";
 		};
+		4819DCD92982480300549538 /* MapGroup */ = {
+			isa = PBXGroup;
+			children = (
+				48398AF229753FB7006FD205 /* TabManViewController.swift */,
+				48398AF429754011006FD205 /* FirstTabViewController.swift */,
+				48398AF629754025006FD205 /* SecondTabViewController.swift */,
+				48398AF829754035006FD205 /* ThirdTabViewController.swift */,
+				48398AFA29754068006FD205 /* FourthTabViewController.swift */,
+				48398AFC29754071006FD205 /* FifthTabViewController.swift */,
+				48398AFE29754098006FD205 /* SixthTabViewController.swift */,
+			);
+			path = MapGroup;
+			sourceTree = "<group>";
+		};
+		4819DCDA2982481C00549538 /* ListGroup */ = {
+			isa = PBXGroup;
+			children = (
+				486CFF4829756BD0003761E7 /* TabManListVC.swift */,
+				486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */,
+				486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */,
+				486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */,
+				486CFF5029756C55003761E7 /* ListFourthTabVC.swift */,
+				486CFF5229756C60003761E7 /* ListFifthTabVC.swift */,
+				486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */,
+				4819DCD72980CA1100549538 /* FirtstListTableViewCell.swift */,
+			);
+			path = ListGroup;
+			sourceTree = "<group>";
+		};
+		4819DD1E298252E400549538 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B21090A2966DFF20042D14A = {
 			isa = PBXGroup;
 			children = (
 				8B2109152966DFF20042D14A /* HandsUp */,
 				8B2109142966DFF20042D14A /* Products */,
+				4819DD1E298252E400549538 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,6 +274,7 @@
 				328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */,
 				32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */,
 				32AB018229730B2F007D550A /* CustomSwitch.swift */,
+				4819DD3129828C1300549538 /* CustromSwitchHome.swift */,
 				32AB018429730C4C007D550A /* CustomThumbView.swift */,
 				8B2109182966DFF20042D14A /* SceneDelegate.swift */,
 				8B2109162966DFF20042D14A /* AppDelegate.swift */,
@@ -270,6 +310,8 @@
 		8B6DB32A296825B2007D6D25 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
+				4819DCDA2982481C00549538 /* ListGroup */,
+				4819DCD92982480300549538 /* MapGroup */,
 				8BE974D6297959E8008DD78D /* ViewController.swift */,
 				487D5FDC296AA8EF00BE2CCC /* FAQ.swift */,
 				4824DC92297007C9004F0177 /* ToS.swift */,
@@ -279,21 +321,6 @@
 				48398AE5297288F9006FD205 /* Report.swift */,
 				48398AE729728FA0006FD205 /* MyPost.swift */,
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
-				48398AF229753FB7006FD205 /* TabManViewController.swift */,
-				48398AF429754011006FD205 /* FirstTabViewController.swift */,
-				48398AF629754025006FD205 /* SecondTabViewController.swift */,
-				48398AF829754035006FD205 /* ThirdTabViewController.swift */,
-				48398AFA29754068006FD205 /* FourthTabViewController.swift */,
-				48398AFC29754071006FD205 /* FifthTabViewController.swift */,
-				48398AFE29754098006FD205 /* SixthTabViewController.swift */,
-				486CFF4829756BD0003761E7 /* TabManListVC.swift */,
-				486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */,
-				486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */,
-				486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */,
-				486CFF5029756C55003761E7 /* ListFourthTabVC.swift */,
-				486CFF5229756C60003761E7 /* ListFifthTabVC.swift */,
-				486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */,
-				4872E7A929758DCE00C706B4 /* TableViewCell.swift */,
 				32AB01712969A3D5007D550A /* New Group1 */,
 				8BA6064D2968864900F89636 /* Login */,
 				8BD2AF98296A5E1F007FD6BD /* Sign_up */,
@@ -441,7 +468,6 @@
 				48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */,
 				48398AE6297288F9006FD205 /* Report.swift in Sources */,
 				48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */,
-				4872E7AA29758DCE00C706B4 /* TableViewCell.swift in Sources */,
 				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
 				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
 				328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */,
@@ -476,6 +502,7 @@
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,
 				8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */,
+				4819DD3229828C1300549538 /* CustromSwitchHome.swift in Sources */,
 				8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */,
 				8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */,
 				8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */,
@@ -484,6 +511,7 @@
 				8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */,
 				8B4589742970B0FE0044227F /* FirstResponder.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
+				4819DCD82980CA1100549538 /* FirtstListTableViewCell.swift in Sources */,
 				8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,9 +649,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQ4G9SX78Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DaumMap.embeddedframework",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -640,6 +673,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -650,9 +684,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQ4G9SX78Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DaumMap.embeddedframework",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -669,6 +708,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

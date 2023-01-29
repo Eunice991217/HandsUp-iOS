@@ -38,9 +38,19 @@ class AccountManagement: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
+    
+    @IBAction func AMBackBtnDidTap(_ sender: Any) {
+        let AMBack = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.isHidden = true;
 
+//        self.navigationController?.navigationBar.tintColor = .black
+//        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
     }
 

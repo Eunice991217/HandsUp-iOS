@@ -15,6 +15,15 @@ class EditProfile: UIViewController {
     @IBOutlet weak var EditProfileView: UIView!
     @IBOutlet weak var EditProfileSend: UIView!
     
+   
+    @IBOutlet weak var EditProfileBackBtn: UIButton!
+    
+    
+    @IBAction func EditProfileBackDidTap(_ sender: Any) {
+        let editBack = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.navigationController?.popViewController(animated: true)
+    }
+    
     
     @IBAction func EditProfileNameDidTap(_ sender: Any) {
         let EditName = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileName")
@@ -29,7 +38,8 @@ class EditProfile: UIViewController {
         EditProfileView.layer.cornerRadius=115
         EditProfileSend.layer.cornerRadius=10
         
-        self.navigationController?.navigationBar.topItem?.title = "내정보변경"
+        self.navigationController?.navigationBar.isHidden = true;
+        
         // Do any additional setup after loading the view.
     }
 

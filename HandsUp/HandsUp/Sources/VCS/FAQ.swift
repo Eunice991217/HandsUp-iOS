@@ -12,6 +12,14 @@ class FAQ: UIViewController {
     @IBOutlet weak var HomeFAQTextField: UIView!
     @IBOutlet weak var HomeFAQTextView: UITextView!
     
+    @IBOutlet weak var FAQSubmit: UIButton!
+    
+    
+    @IBAction func FAQBackBtnDidTap(_ sender: Any) {
+        let FAQBack = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +35,7 @@ class FAQ: UIViewController {
             self.HomeFAQTextView.resignFirstResponder()
         }
         
+        self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.
     }
 

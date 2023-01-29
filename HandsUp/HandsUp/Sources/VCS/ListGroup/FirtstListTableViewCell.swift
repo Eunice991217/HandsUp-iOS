@@ -1,16 +1,16 @@
 //
-//  TableViewCell.swift
-//  Test
+//  FirtstListTableViewCell.swift
+//  HandsUp
 //
-//  Created by 김민경 on 2023/01/17.
+//  Created by 김민경 on 2023/01/25.
 //
 
 import UIKit
 import SnapKit
 
-class TableViewCell: UITableViewCell {
-    
-    static let id = "TableViewCell"
+class FirtstListTableViewCell: UITableViewCell {
+
+    static let id = "FirtstListTableViewCell"
 
     lazy var title: UILabel = { // 선언만했음. 메모리에는 아직 안올라가있음
         let label = UILabel()
@@ -31,7 +31,7 @@ class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(title) // 타이틀은 메모리에 올라갔음
-        contentView.backgroundColor = .purple
+        // contentView.backgroundColor = .purple
         
         // 레이아웃 맞추기
         title.snp.makeConstraints { make in
