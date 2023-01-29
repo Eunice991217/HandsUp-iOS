@@ -164,7 +164,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		321B1E342986360300E2CFEE /* ChatViewElement */ = {
+		321B1E342986360300E2CFEE /* HandsUpNChatViewElement */ = {
 			isa = PBXGroup;
 			children = (
 				328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */,
@@ -177,7 +177,7 @@
 				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
 				321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */,
 			);
-			path = ChatViewElement;
+			path = HandsUpNChatViewElement;
 			sourceTree = "<group>";
 		};
 		32AB01712969A3D5007D550A /* HandsUpNChatGroup */ = {
@@ -329,7 +329,7 @@
 				48398AE5297288F9006FD205 /* Report.swift */,
 				48398AE729728FA0006FD205 /* MyPost.swift */,
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
-				321B1E342986360300E2CFEE /* ChatViewElement */,
+				321B1E342986360300E2CFEE /* HandsUpNChatViewElement */,
 				32AB01712969A3D5007D550A /* HandsUpNChatGroup */,
 				8BA6064D2968864900F89636 /* Login */,
 				8BD2AF98296A5E1F007FD6BD /* Sign_up */,

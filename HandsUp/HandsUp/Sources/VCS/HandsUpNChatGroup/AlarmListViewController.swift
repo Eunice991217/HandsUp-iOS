@@ -18,6 +18,9 @@ class AlarmListViewController: UIViewController{
         alarmTableView_ALVC.delegate = self
         alarmTableView_ALVC.dataSource = self
         alarmTableView_ALVC.rowHeight = 98
+        
+        alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
+        
     }
 
 }

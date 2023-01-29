@@ -62,16 +62,20 @@ class ChatViewController: UIViewController {
         guard let Report = storyboard_main?.instantiateViewController(identifier: "Report") else { return }
         
         
-        let report = UIAlertAction(title: "이 사용자 신고하기",style: UIAlertAction.Style.default, handler:{(action) in
-            // 화면 전환!
-          
+        let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+            
             Report.modalPresentationStyle = .fullScreen
+            // 화면 전환!
             
-            self.present(Report, animated: false, completion: nil)
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.view.window!.layer.add(transition, forKey: kCATransition)
             
-            self.navigationController?.pushViewController(Report, animated: true)
+            self.present(Report, animated: false)
             
-        }
+            }
         )
         alert.addAction(report)
         
@@ -135,6 +139,7 @@ class ChatViewController: UIViewController {
         postView_CVC.layer.shadowRadius = 24
         postView_CVC.layer.shadowOffset = CGSize(width: 0, height: 8)
 
+        chatTableView_CVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         chatTextView_CVC.isScrollEnabled = false
         
         chatTableView_CVC.register(UINib(nibName: "MyChatTableViewCell", bundle:nil), forCellReuseIdentifier: "MyChatTableViewCell")

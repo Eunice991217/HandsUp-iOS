@@ -180,7 +180,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="notifications"/>
                                         <connections>
-                                            <action selector="NotificationBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="fDw-Os-lAa"/>
+                                            <action selector="BellBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="xVn-HP-RoJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-fI-ShE">
