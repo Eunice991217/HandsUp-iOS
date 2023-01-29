@@ -7,13 +7,10 @@
 
 import UIKit
 
-protocol TableViewCellDelegate:class {
-    func updateTextViewHeight(_ cell:TableViewCell,_ textView:UITextView)
-}
+
 
 class MyChatTableViewCell: UITableViewCell, UITextViewDelegate {
     
-    weak var delegate: TableViewCellDelegate?
 
    @IBOutlet weak var contentTV_MCTVC: UITextView!
     

@@ -12,8 +12,13 @@ class RegisterPostViewController: UIViewController {
 
     // 위치정보를 가져오기 위한 locationManager
     var locationManager_HVC: CLLocationManager!
+    @IBOutlet weak var characterView_HVC: Character_UIView!
     
-    @IBOutlet weak var profileImgViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var characterViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var characterViewHeight: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var characterViewHeight_HVC: NSLayoutConstraint!
     //tag btn 설정
     @IBOutlet weak var totalTagBtn_HVC: UIButton!
     
@@ -96,6 +101,8 @@ class RegisterPostViewController: UIViewController {
         singleTapGestureRecognizer.cancelsTouchesInView = false
 
         totalScrollView_HVC.addGestureRecognizer(singleTapGestureRecognizer)
+        
+        characterView_HVC.setUserCharacter()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,14 +125,18 @@ class RegisterPostViewController: UIViewController {
             UIView.animate(
                 withDuration: 0.3
                 , animations: {
-                    self.profileImgViewHeight.constant = 0.0
+                    self.characterViewWidth.constant = 0
+                    self.characterViewHeight.constant = 0
+                    self.characterView_HVC.isHidden = true
+                    print("키보드 올라감")
                 }
             )
-        
     }
     
     @objc func keyboardDown() {
-        self.profileImgViewHeight.constant = 145.0
+        self.characterViewWidth.constant = 145
+        self.characterViewHeight.constant = 145
+        self.characterView_HVC.isHidden = false
     }
     
   

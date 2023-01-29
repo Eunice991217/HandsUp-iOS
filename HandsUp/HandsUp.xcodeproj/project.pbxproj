@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */; };
+		321B1E352986382400E2CFEE /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
 		3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229E7622977CA54006FC6CB /* ChatViewController.swift */; };
 		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
 		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
@@ -19,7 +20,6 @@
 		32A3F17B2974818400B0347D /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17A2974818400B0347D /* ChatListViewController.swift */; };
 		32A3F17D297515C600B0347D /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17C297515C600B0347D /* AlarmListViewController.swift */; };
 		32A3F17F2976DFB000B0347D /* ChatAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */; };
-		32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
 		32AB018329730B2F007D550A /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018229730B2F007D550A /* CustomSwitch.swift */; };
 		32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018429730C4C007D550A /* CustomThumbView.swift */; };
 		32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6577829824271007609A2 /* PostThroughChatViewController.swift */; };
@@ -162,19 +162,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32AB01712969A3D5007D550A /* New Group1 */ = {
+		321B1E342986360300E2CFEE /* ChatViewElement */ = {
+			isa = PBXGroup;
+			children = (
+				328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */,
+				328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */,
+				328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */,
+				328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */,
+				32AB018229730B2F007D550A /* CustomSwitch.swift */,
+				32AB018429730C4C007D550A /* CustomThumbView.swift */,
+				32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */,
+				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
+				321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */,
+			);
+			path = ChatViewElement;
+			sourceTree = "<group>";
+		};
+		32AB01712969A3D5007D550A /* HandsUpNChatGroup */ = {
 			isa = PBXGroup;
 			children = (
 				32A3F1762974646C00B0347D /* AlarmNChatListViewController.swift */,
 				32A3F17A2974818400B0347D /* ChatListViewController.swift */,
 				32A3F17C297515C600B0347D /* AlarmListViewController.swift */,
 				3229E7622977CA54006FC6CB /* ChatViewController.swift */,
-				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
 				329296772978FDC00077F98E /* RegisterPostViewController.swift */,
 				32D6577829824271007609A2 /* PostThroughChatViewController.swift */,
-				321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */,
 			);
-			path = "New Group1";
+			path = HandsUpNChatGroup;
 			sourceTree = "<group>";
 		};
 		4819DCD92982480300549538 /* MapGroup */ = {
@@ -266,14 +280,7 @@
 		8B6DB32629682211007D6D25 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */,
-				328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */,
-				328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */,
-				328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */,
-				32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */,
-				32AB018229730B2F007D550A /* CustomSwitch.swift */,
 				4819DD3129828C1300549538 /* CustromSwitchHome.swift */,
-				32AB018429730C4C007D550A /* CustomThumbView.swift */,
 				8B2109182966DFF20042D14A /* SceneDelegate.swift */,
 				8B2109162966DFF20042D14A /* AppDelegate.swift */,
 				8B4BF0C82968DA6000B00890 /* Fonts */,
@@ -319,7 +326,8 @@
 				48398AE5297288F9006FD205 /* Report.swift */,
 				48398AE729728FA0006FD205 /* MyPost.swift */,
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
-				32AB01712969A3D5007D550A /* New Group1 */,
+				321B1E342986360300E2CFEE /* ChatViewElement */,
+				32AB01712969A3D5007D550A /* HandsUpNChatGroup */,
 				8BA6064D2968864900F89636 /* Login */,
 				8BD2AF98296A5E1F007FD6BD /* Sign_up */,
 			);
@@ -425,6 +433,7 @@
 			files = (
 				8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */,
 				8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */,
+				321B1E352986382400E2CFEE /* HandsUp.storyboard in Resources */,
 				8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */,
 				328C297329781E26007DCDD9 /* YourChatTableViewCell.xib in Resources */,
 				8B2109202966DFF30042D14A /* Assets.xcassets in Resources */,
@@ -435,7 +444,6 @@
 				8B4BF0DF2968DAD200B00890 /* Roboto-Light.ttf in Resources */,
 				8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */,
 				8B21091E2966DFF20042D14A /* (null) in Resources */,
-				32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */,
 				8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
