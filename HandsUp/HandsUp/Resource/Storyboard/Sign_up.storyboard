@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ovc-KX-eDF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8oQ-p1-jeL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -468,6 +468,9 @@
                                                                 <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="getVerificationCode_Sign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="i4g-h7-fQv"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교메일이 아이디로 사용됩니다.이메일을 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QD9-oE-ILz">
                                                         <rect key="frame" x="22" y="201.66666666666669" width="264.66666666666669" height="14"/>
@@ -819,7 +822,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sd-8e-jdy" userLabel="Page5">
-                                <rect key="frame" x="500" y="126" width="393" height="625"/>
+                                <rect key="frame" x="0.0" y="126" width="393" height="625"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-bh-Cqz">
                                         <rect key="frame" x="17.999999999999996" y="15.999999999999996" width="55.666666666666657" height="37.666666666666657"/>
@@ -887,7 +890,7 @@
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="bottom" secondItem="6Lh-ff-FVa" secondAttribute="bottom" constant="16" id="TTK-kA-9vo"/>
                             <constraint firstItem="prg-rP-BGt" firstAttribute="top" secondItem="RST-Yy-uWN" secondAttribute="top" id="XR4-YB-EY9"/>
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="gEO-VW-DWC" secondAttribute="trailing" constant="16" id="cFo-Jt-3Iv"/>
-                            <constraint firstItem="5Sd-8e-jdy" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="500" id="gqa-0E-Adm"/>
+                            <constraint firstItem="5Sd-8e-jdy" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="gqa-0E-Adm"/>
                             <constraint firstItem="gEO-VW-DWC" firstAttribute="top" secondItem="prg-rP-BGt" secondAttribute="bottom" constant="10" id="m4E-Xu-gcC"/>
                             <constraint firstItem="vFd-ps-zlS" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="mOn-RD-MS5"/>
                             <constraint firstItem="VTS-mU-gjN" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="400" id="s0P-zG-D3O"/>
@@ -945,7 +948,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBD-UO-I3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.70229007633588" y="726.76056338028172"/>
+            <point key="canvasLocation" x="122.90076335877862" y="17.605633802816904"/>
         </scene>
         <!--Character Edit View Controller-->
         <scene sceneID="bYr-HE-qBY">
@@ -1202,7 +1205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLf-Se-Xgl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942.7480916030534" y="726.76056338028172"/>
+            <point key="canvasLocation" x="979" y="18"/>
         </scene>
     </scenes>
     <resources>

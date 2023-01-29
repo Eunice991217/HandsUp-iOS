@@ -241,6 +241,10 @@ class Character_UIView: UIView {
         setCharacter()
     }
     
+    func setUserCharacter(){
+        setCharacter()
+    }
+    
     func setCharacterOnly(){
         for view in self.subviews {
             view.removeFromSuperview()

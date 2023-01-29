@@ -23,6 +23,13 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var page4Leading_Sign_up: NSLayoutConstraint!
     @IBOutlet weak var page5Width_Sign_up: NSLayoutConstraint!
     @IBOutlet weak var page5Leading_Sign_up: NSLayoutConstraint!
+    var sign_upData_Sign_up : SignupData = SignupData()
+    let titleArray_Sign_up: [String] = ["대학생 여러분 \n환영합니다:)", "다니시는 대학교\n선택해주세요", "학교확인\n도와드릴게요", "닉네임을\n만들어보세요", "자신의 프로필\n캐릭터를 만들어봐요!"]
+    var subTitleArray_Sign_up: [String] = ["원활한 서비스 이용을 위해 동의해주세요", "해당 대학교학생들만 사용가능해요", "학교이메일을 적고 비밀번호를\n만들어주세요.", "닉네임은 7일후 변경가능하니 신중히\n선택해주세요:)", "캐릭터 클릭해 만들고\n자신만의 개성을 뽐내봐요!"]
+    var curPageCGFloat_Sign_up: CGFloat = 1
+    var curPageInt_Sign_up: Int = 1
+    var isNextButtonActive_Sign_up: Bool = false
+    var pageWidth_Sign_up: CGFloat = 1
     
     //Page1
     @IBOutlet weak var titlePG1_Sign_up: UILabel!
@@ -38,6 +45,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var subTitlePG2_Sign_up: UILabel!
     @IBOutlet weak var schoolPickerView_Sign_up: UIPickerView!
     var schoolList_Sign_up: [String] = ["가천대학교", "건국대학교", "동국대학교", "세종대학교", "숭실대학교" ]
+    
     //Page3
     @IBOutlet weak var titlePG3_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG3_Sign_up: UILabel!
@@ -52,8 +60,10 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var showPWButton_Sign_up:UIButton!
     @IBOutlet weak var passwordConfirmationTextField_Sign_up: UITextField!
     @IBOutlet weak var showPWConfirmationButton_Sign_up:UIButton!
-    var isVerified_Sign_up: Bool = true
+    var isVerified_Sign_up: Bool = false
     var isCorrectPW_Sign_up: Bool = false
+    var vefifiedCode_Sign_up: String = "12"
+    let emailRegexDict: [String: String] = ["가천대학교": "gachon\\.ac\\.kr$", "건국대학교": "konkuk\\.ac\\.kr$", "동국대학교": "(dgu\\.ac\\.kr|dongguk\\.edu)$", "세종대학교": "sju\\.ac\\.kr$", "숭실대학교": "soongsil\\.ac\\.kr$"]
     
     //Page4
     @IBOutlet weak var titlePG4_Sign_up: UILabel!
@@ -65,14 +75,6 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var subTitlePG5_Sign_up: UILabel!
     @IBOutlet weak var character_Sign_up: Character_UIView!
     @IBOutlet weak var characterButton_Sign_up: UIButton!
-    
-    var sign_upData_Sign_up : SignupData = SignupData()
-    let titleArray_Sign_up: [String] = ["대학생 여러분 \n환영합니다:)", "다니시는 대학교\n선택해주세요", "학교확인\n도와드릴게요", "닉네임을\n만들어보세요", "자신의 프로필\n캐릭터를 만들어봐요!"]
-    var subTitleArray_Sign_up: [String] = ["원활한 서비스 이용을 위해 동의해주세요", "해당 대학교학생들만 사용가능해요", "학교이메일을 적고 비밀번호를\n만들어주세요.", "닉네임은 7일후 변경가능하니 신중히\n선택해주세요:)", "캐릭터 클릭해 만들고\n자신만의 개성을 뽐내봐요!"]
-    var curPageCGFloat_Sign_up: CGFloat = 1
-    var curPageInt_Sign_up: Int = 1
-    var isNextButtonActive_Sign_up: Bool = false
-    var pageWidth_Sign_up: CGFloat = 1
 
     //Page func
     func pageUpdate_Sign_up(){
@@ -84,7 +86,6 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         switch curPageInt_Sign_up{
         case 1:
             page2Leading_Sign_up.constant = pageWidth_Sign_up
-            isNextButtonActive_Sign_up = sign_upData_Sign_up.policyAgreement
         case 2:
             page3Leading_Sign_up.constant = pageWidth_Sign_up
             page2Leading_Sign_up.constant = 0
@@ -218,11 +219,9 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     func checkAgreement_Sign_up()->Bool{
         for check_Sign_up in agreement_Sign_up{
             if(!check_Sign_up){
-                sign_upData_Sign_up.policyAgreement = false
                 return false
             }
         }
-        sign_upData_Sign_up.policyAgreement = true
         return true
     }
     
@@ -292,6 +291,19 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     //Page 3
+    @IBAction func getVerificationCode_Sign_up(_ sender: Any){
+        verificationCodeTextField_Sign_up.text = ""
+        verificationCodeBox_Sign_up.borderWidth = 0
+        greenCheck_Sign_up.alpha = 0
+        exclamationMark_Sign_up.alpha = 0
+        isVerified_Sign_up = false
+        changeNextButtonState_Sign_up()
+        if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? ""){
+            sign_upData_Sign_up.email = emailTextField_Sign_up.text!
+            
+        }
+    }
+    
     @IBAction func setPWSecureTextEntry_EmailSign_up(_ sender: Any) {
         PWtextField_Sign_up.isSecureTextEntry.toggle()
         if(PWtextField_Sign_up.isSecureTextEntry){
@@ -311,8 +323,8 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     func page3Init_Sign_up(){
-        //emailTextField_Sign_up.addTarget(self, action: #selector(isEmailInput_Sign_up(_sender: )), for: .editingChanged)
-        //verificationCodeTextField_Sign_up.addTarget(self, action: #selector(isCorrectVerificationCode_Sign_up(_sender: )), for: .editingChanged)
+        emailTextField_Sign_up.addTarget(self, action: #selector(isEmailInput_Sign_up(_sender: )), for: .editingChanged)
+        verificationCodeTextField_Sign_up.addTarget(self, action: #selector(isCorrectVerificationCode_Sign_up(_sender: )), for: .editingChanged)
         PWtextField_Sign_up.addTarget(self, action: #selector(isCorrectPWCheck_Sign_up(_sender: )), for: .editingChanged)
         PWtextField_Sign_up.addTarget(self, action: #selector(isPWInput_Sign_up(_sender: )), for: .editingChanged)
         passwordConfirmationTextField_Sign_up.addTarget(self, action: #selector(isCorrectPWCheck_Sign_up(_sender: )), for: .editingChanged)
@@ -322,7 +334,18 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         exclamationMark_Sign_up.alpha = 0
         showPWButton_Sign_up.alpha = 0
         showPWConfirmationButton_Sign_up.alpha = 0
-        
+    }
+    
+    func emailValidation_Sign_up(text: String) -> Bool{
+        var pattern_Sign_up = "^[a-zA-Z0-9+-\\_.]+@"
+        guard let schoolEmail = emailRegexDict[sign_upData_Sign_up.school] else {
+            return false
+        }
+        pattern_Sign_up += schoolEmail
+        guard let _ = text.range(of: pattern_Sign_up, options: .regularExpression) else {
+                return false
+            }
+        return true
     }
     
     func addKeyboardObserver_Sign_up(){
@@ -358,6 +381,41 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    @objc func isEmailInput_Sign_up(_sender: Any){
+        if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? "") {
+            getVerificationCodeButton_Sign_up.backgroundColor = UIColor(named: "HandsUpOrange")
+        }
+        else{
+            getVerificationCodeButton_Sign_up.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+        }
+        isVerified_Sign_up = false
+        changeNextButtonState_Sign_up()
+    }
+    
+    @objc func isCorrectVerificationCode_Sign_up(_sender: Any){
+        if vefifiedCode_Sign_up == verificationCodeTextField_Sign_up.text && vefifiedCode_Sign_up != ""{
+            verificationCodeBox_Sign_up.borderWidth = 1
+            verificationCodeBox_Sign_up.borderColor = UIColor(named: "HandsUpGreen")!
+            greenCheck_Sign_up.alpha = 1
+            exclamationMark_Sign_up.alpha = 0
+            isVerified_Sign_up = true
+        }
+        else if verificationCodeTextField_Sign_up.text == ""{
+            verificationCodeBox_Sign_up.borderWidth = 0
+            greenCheck_Sign_up.alpha = 0
+            exclamationMark_Sign_up.alpha = 0
+            isVerified_Sign_up = false
+        }
+        else{
+            verificationCodeBox_Sign_up.borderWidth = 1
+            verificationCodeBox_Sign_up.borderColor = UIColor(named: "HandsUpRed")!
+            greenCheck_Sign_up.alpha = 0
+            exclamationMark_Sign_up.alpha = 1
+            isVerified_Sign_up = false
+        }
+        changeNextButtonState_Sign_up()
     }
     
     @objc func isCorrectPWCheck_Sign_up(_sender: Any){
