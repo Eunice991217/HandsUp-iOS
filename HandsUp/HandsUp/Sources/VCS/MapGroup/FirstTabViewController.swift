@@ -7,20 +7,19 @@
 
 import UIKit
 
-class FirstTabViewController: UIViewController {
-    
-//    var mapView: MTMapView!
-//
+class FirstTabViewController: UIViewController, MTMapViewDelegate{
+         
+    var mapView: MTMapView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .red
+        mapView = MTMapView(frame: self.view.bounds)
 
-//        mapView = MTMapView(frame:self.view.frame)
-//        mapView.delegate = self
-//        mapView.baseMapType = .standard
-//        self.view.addSubview(mapView)
-        // Do any additional setup after loading the view.
+        if let mapView = mapView {
+            mapView.delegate = self
+            mapView.baseMapType = .standard
+            self.view.addSubview(mapView)
+        }
     }
-
 }
