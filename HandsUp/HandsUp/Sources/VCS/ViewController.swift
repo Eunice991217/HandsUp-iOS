@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var HomeSwitch: UISwitch!
     @IBOutlet weak var HomeTabBarPlusBtn: UIButton!
     
     @IBOutlet weak var MapView: UIView!
@@ -96,23 +95,20 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func HomeSwitchDidTap(_ sender: UISwitch) {
+    @IBOutlet weak var CustomSwitchBtn: CustromSwitchHome!
+    
+    @IBAction func CustomSwitchBtnDidTap(_ sender: Any) {
         
-        if sender.isOn {
-            view.addSubview(ListView)
-            view.addSubview(HomeSwitch)
-            view.addSubview(HomeTabView)
-            view.addSubview(HomeTabBarPlusBtn)
-            //view.addSubview(CustomSwitch)
+        if (CustomSwitchBtn.isOn==false) {
+            ListView.alpha = 1
+            MapView.alpha = 0
+            CustomSwitchBtn.alpha = 1
         }
         else {
-            view.addSubview(MapView)
-            view.addSubview(HomeSwitch)
-            view.addSubview(HomeTabView)
-            view.addSubview(HomeTabBarPlusBtn)
-            //view.addSubview(CustomSwitch)
+            MapView.alpha = 1
+            ListView.alpha = 0
+            CustomSwitchBtn.alpha = 1
         }
-        
     }
     
     @IBAction func HomePlusBtnDidTap(_ sender: Any) {
@@ -134,7 +130,7 @@ class ViewController: UIViewController {
         HomeTabView.layer.cornerRadius = 40
         HomeTabView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         
-        self.HomeSwitch.isOn = false
+        // CustomSwitchBtn.isOn = true
 
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.

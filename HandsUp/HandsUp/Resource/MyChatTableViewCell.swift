@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TableViewCellDelegate:class {
-    func updateTextViewHeight(_ cell:TableViewCell,_ textView:UITextView)
+    //func updateTextViewHeight(_ cell:TableViewCell,_ textView:UITextView)
 }
 
 class MyChatTableViewCell: UITableViewCell, UITextViewDelegate {

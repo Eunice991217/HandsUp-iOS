@@ -26,13 +26,13 @@ public class CustromSwitchHome: UIControl {
         }
     }
     
-    @IBInspectable  public var onTintColor: UIColor = UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1){
+    @IBInspectable  public var onTintColor: UIColor =  UIColor(red: 0.937, green: 0.482, blue: 0.086, alpha: 1) {
         didSet {
             self.setupUI()
         }
     }
     
-    @IBInspectable public var offTintColor: UIColor = UIColor(red: 0.937, green: 0.482, blue: 0.086, alpha: 1) {
+    @IBInspectable public var offTintColor: UIColor = UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1) {
         didSet {
             self.setupUI()
         }
@@ -234,10 +234,10 @@ extension CustromSwitchHome {
         let labelWidth = 70.0
         
         if(self.isOn){
-            self.labelOn.text = "List"
+            self.labelOn.text = "Map"
             self.labelOn.frame = CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height)
         }else{
-            self.labelOn.text = "Map"
+            self.labelOn.text = "List"
             self.labelOn.frame = CGRect(x: self.frame.width - labelWidth, y: 0, width: labelWidth, height: self.frame.height)
         }
         UIView.animate(withDuration: self.animationDuration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [UIView.AnimationOptions.curveEaseOut, UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.allowUserInteraction], animations: {
@@ -334,7 +334,7 @@ extension CustromSwitchHome {
         
         self.labelOn.sizeToFit()
 
-        self.labelOn.text = "List"
+        self.labelOn.text = "Map"
         self.labelOn.textAlignment = .center
         
         self.insertSubview(self.labelOn, belowSubview: self.thumbView)
