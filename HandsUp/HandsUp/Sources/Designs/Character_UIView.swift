@@ -43,7 +43,7 @@ class Character_UIView: UIView {
     let glassesHeight:[CGFloat] = [0, 50, 54, 54]
     let glassesBottomEdges:[CGFloat] = [0, 153, 154, 151]
     let headWidth:CGFloat = 288
-    let headHeight:[CGFloat] = [385, 350, 314, 341, 315]
+    let headHeight:[CGFloat] = [385, 350, 314, 341, 372]
     let shadowOffsetHeightArray:[Int] = [160, 103, 58, 26, 6, 0]
     let shadowRadiusArray:[CGFloat] = [45, 41, 35, 26, 14, 0]
     let shadowOpacityArray:[Float] = [0, 0.01, 0.05, 0.09, 0.1, 0.1]
@@ -200,7 +200,7 @@ class Character_UIView: UIView {
         constraintsArray = [ headButton.heightAnchor.constraint(equalToConstant: headHeignt)
                              , headButton.widthAnchor.constraint(equalToConstant: headWidth),
                              headButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
-                             headButton.bottomAnchor.constraint(equalTo: characterView.bottomAnchor),
+                             headButton.bottomAnchor.constraint(equalTo: characterView.bottomAnchor,constant: 1),
                              
                              eyebrowButton.heightAnchor.constraint(equalToConstant: eyebrowHeight),
                              eyebrowButton.widthAnchor.constraint(equalToConstant: eyebrowWidth),
@@ -238,6 +238,10 @@ class Character_UIView: UIView {
     
     func setCharacter(componentArray: [Int]){
         setAll(componentArray: componentArray)
+        setCharacter()
+    }
+    
+    func setUserCharacter(){
         setCharacter()
     }
     

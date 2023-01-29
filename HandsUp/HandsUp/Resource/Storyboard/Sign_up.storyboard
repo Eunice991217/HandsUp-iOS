@@ -23,304 +23,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Sign up1 View Controller-->
-        <scene sceneID="s0d-6b-0kx">
-            <objects>
-                <viewController storyboardIdentifier="Sign_up1" id="Y6W-OH-hqX" customClass="Sign_up1_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXq-fx-h21" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="S10-GW-0np"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonTap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ni4-Kk-LiP"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0C-Ku-CUW" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="113" width="361" height="9"/>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="hTZ-xW-u0O"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" restorationIdentifier="curPageBar" translatesAutoresizingMaskIntoConstraints="NO" id="Lh7-3k-PzD" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="34" y="113" width="80" height="9"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="Eb9-C0-TTj"/>
-                                    <constraint firstAttribute="width" constant="80" id="FmW-Gg-JES"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGA-bd-xEY">
-                                <rect key="frame" x="17.999999999999996" y="138" width="55.666666666666657" height="37.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원활한 서비스 이용을 위해 동의해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad7-Kb-NwN">
-                                <rect key="frame" x="17" y="195.66666666666666" width="251" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용약관 동의 (필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFK-d8-0Tv">
-                                <rect key="frame" x="17" y="263.66666666666669" width="320" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWh-jq-bvk" userLabel="CheckBoxBG_1" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="261.33333333333331" width="24" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Ve-QRw" userLabel="Check Box1 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="4SR-tv-khN"/>
-                                            <constraint firstAttribute="height" constant="24" id="s41-bG-f0b"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="OrangeCheck"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="checkBox1Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1EX-e2-NnN"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hAJ-Ve-QRw" secondAttribute="trailing" id="1sz-KH-6FF"/>
-                                    <constraint firstItem="hAJ-Ve-QRw" firstAttribute="top" secondItem="jWh-jq-bvk" secondAttribute="top" id="9vl-Ie-c6h"/>
-                                    <constraint firstAttribute="bottom" secondItem="hAJ-Ve-QRw" secondAttribute="bottom" id="Cp5-WV-Ov6"/>
-                                    <constraint firstAttribute="width" constant="24" id="kNz-be-27W"/>
-                                    <constraint firstItem="hAJ-Ve-QRw" firstAttribute="leading" secondItem="jWh-jq-bvk" secondAttribute="leading" id="ljm-Qb-SAt"/>
-                                    <constraint firstAttribute="height" constant="24" id="yy3-A2-iaR"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 및 이용 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFO-yB-APm">
-                                <rect key="frame" x="17" y="319.66666666666669" width="320" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zw5-GN-qji" userLabel="CheckBoxBG_2" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="317.33333333333331" width="24" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Pl-CPR" userLabel="Check Box2 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="JFI-Zk-pF4"/>
-                                            <constraint firstAttribute="height" constant="24" id="UIB-LN-0vK"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="OrangeCheck">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="checkBox2Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WtG-ig-Jsz"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="Gtu-NH-kUE"/>
-                                    <constraint firstAttribute="width" constant="24" id="U7b-g8-I6F"/>
-                                    <constraint firstAttribute="bottom" secondItem="hbz-Pl-CPR" secondAttribute="bottom" id="aVI-aG-Vuo"/>
-                                    <constraint firstItem="hbz-Pl-CPR" firstAttribute="leading" secondItem="zw5-GN-qji" secondAttribute="leading" id="gpR-Ak-lwX"/>
-                                    <constraint firstAttribute="trailing" secondItem="hbz-Pl-CPR" secondAttribute="trailing" id="i1P-00-heo"/>
-                                    <constraint firstItem="hbz-Pl-CPR" firstAttribute="top" secondItem="zw5-GN-qji" secondAttribute="top" id="zje-ho-X5n"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치정보서비스 제공 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcw-gs-Ikx">
-                                <rect key="frame" x="17" y="375.66666666666669" width="320" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-De-0bD" userLabel="CheckBoxBG_3" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="373.33333333333331" width="24" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-H7-ERF" userLabel="Check Box3 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="8ar-yH-EcI"/>
-                                            <constraint firstAttribute="width" constant="24" id="fUl-dP-chQ"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="OrangeCheck"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="checkBox3Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BpK-2v-1kj"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Le5-H7-ERF" firstAttribute="leading" secondItem="fFn-De-0bD" secondAttribute="leading" id="OV2-IO-nsO"/>
-                                    <constraint firstAttribute="width" constant="24" id="TNa-HK-MlG"/>
-                                    <constraint firstItem="Le5-H7-ERF" firstAttribute="top" secondItem="fFn-De-0bD" secondAttribute="top" id="aAu-Jt-p7m"/>
-                                    <constraint firstAttribute="bottom" secondItem="Le5-H7-ERF" secondAttribute="bottom" id="bBv-3b-mxv"/>
-                                    <constraint firstAttribute="height" constant="24" id="c9K-wu-L4P"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 제3자 동의(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9F-UG-7m0">
-                                <rect key="frame" x="17" y="431.66666666666669" width="320" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRK-q9-Jhd" userLabel="CheckBoxBG_4" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="353" y="429.33333333333331" width="24" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J11-Yn-sCt" userLabel="Check Box4 Sign up" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.69999999999999996" height="1"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="Bd0-10-ZUq"/>
-                                            <constraint firstAttribute="height" constant="24" id="ys6-Uq-yg7"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="OrangeCheck"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="checkBox4Tap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qKM-xV-xLh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="3AG-BF-dP4"/>
-                                    <constraint firstItem="J11-Yn-sCt" firstAttribute="leading" secondItem="cRK-q9-Jhd" secondAttribute="leading" id="B2h-bu-vi3"/>
-                                    <constraint firstAttribute="trailing" secondItem="J11-Yn-sCt" secondAttribute="trailing" id="I4J-BX-5Eg"/>
-                                    <constraint firstAttribute="height" constant="24" id="LVj-pJ-gh2"/>
-                                    <constraint firstAttribute="bottom" secondItem="J11-Yn-sCt" secondAttribute="bottom" id="N0P-WY-Q9t"/>
-                                    <constraint firstItem="J11-Yn-sCt" firstAttribute="top" secondItem="cRK-q9-Jhd" secondAttribute="top" id="QaE-d4-ODf"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epx-2b-qvG">
-                                <rect key="frame" x="17" y="487.66666666666669" width="132.66666666666666" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.72549019607843135" green="0.72549019607843135" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DXq-fx-h21" secondAttribute="bottom" constant="16" id="0qu-du-zZA"/>
-                            <constraint firstItem="jWh-jq-bvk" firstAttribute="centerY" secondItem="IFK-d8-0Tv" secondAttribute="centerY" id="564-6s-aGU"/>
-                            <constraint firstItem="epx-2b-qvG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="8YC-L2-U6H"/>
-                            <constraint firstItem="cRK-q9-Jhd" firstAttribute="centerY" secondItem="X9F-UG-7m0" secondAttribute="centerY" id="Abf-7c-hHT"/>
-                            <constraint firstItem="ad7-Kb-NwN" firstAttribute="top" secondItem="qGA-bd-xEY" secondAttribute="bottom" constant="20" id="C3b-rq-rnE"/>
-                            <constraint firstItem="iFO-yB-APm" firstAttribute="top" secondItem="IFK-d8-0Tv" secondAttribute="top" constant="56" id="DTF-aS-Q6l"/>
-                            <constraint firstItem="qcw-gs-Ikx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="DWT-yz-9wx"/>
-                            <constraint firstItem="Lh7-3k-PzD" firstAttribute="leading" secondItem="p0C-Ku-CUW" secondAttribute="leading" constant="18" id="G7O-rp-pN7"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zw5-GN-qji" secondAttribute="trailing" constant="16" id="HIs-qz-7sP"/>
-                            <constraint firstItem="fFn-De-0bD" firstAttribute="centerY" secondItem="qcw-gs-Ikx" secondAttribute="centerY" id="HWu-sk-34a"/>
-                            <constraint firstItem="IFK-d8-0Tv" firstAttribute="top" secondItem="ad7-Kb-NwN" secondAttribute="bottom" constant="49" id="NHt-Ax-AQA"/>
-                            <constraint firstItem="qcw-gs-Ikx" firstAttribute="top" secondItem="iFO-yB-APm" secondAttribute="top" constant="56" id="NXq-FM-u54"/>
-                            <constraint firstItem="qGA-bd-xEY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="O6O-6i-Vd8"/>
-                            <constraint firstItem="IFK-d8-0Tv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="Rvv-XJ-qiK"/>
-                            <constraint firstItem="iFO-yB-APm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="Se2-Lx-Ahe"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fFn-De-0bD" secondAttribute="trailing" constant="16" id="TNr-eN-rdW"/>
-                            <constraint firstItem="p0C-Ku-CUW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Tgn-rH-unk"/>
-                            <constraint firstItem="jWh-jq-bvk" firstAttribute="leading" secondItem="IFK-d8-0Tv" secondAttribute="trailing" constant="16" id="UPh-Ub-Qkm"/>
-                            <constraint firstItem="zw5-GN-qji" firstAttribute="leading" secondItem="iFO-yB-APm" secondAttribute="trailing" constant="16" id="VfK-gi-nOm"/>
-                            <constraint firstItem="zw5-GN-qji" firstAttribute="centerY" secondItem="iFO-yB-APm" secondAttribute="centerY" id="WKn-i8-ECX"/>
-                            <constraint firstItem="p0C-Ku-CUW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WjZ-Ga-0wb"/>
-                            <constraint firstItem="Lh7-3k-PzD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="dUS-CO-UMM"/>
-                            <constraint firstItem="cRK-q9-Jhd" firstAttribute="leading" secondItem="X9F-UG-7m0" secondAttribute="trailing" constant="16" id="glW-id-J0P"/>
-                            <constraint firstAttribute="trailing" secondItem="jWh-jq-bvk" secondAttribute="trailing" constant="16" id="hZR-jz-KdN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cRK-q9-Jhd" secondAttribute="trailing" constant="16" id="iTt-gS-n8v"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="p0C-Ku-CUW" secondAttribute="trailing" constant="16" id="nlS-sd-Zll"/>
-                            <constraint firstItem="X9F-UG-7m0" firstAttribute="top" secondItem="qcw-gs-Ikx" secondAttribute="top" constant="56" id="qVy-Im-GUM"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DXq-fx-h21" secondAttribute="trailing" constant="16" id="qfC-Ko-ySC"/>
-                            <constraint firstItem="ad7-Kb-NwN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="rOX-63-pwR"/>
-                            <constraint firstItem="fFn-De-0bD" firstAttribute="leading" secondItem="qcw-gs-Ikx" secondAttribute="trailing" constant="16" id="t5p-q1-QoI"/>
-                            <constraint firstItem="X9F-UG-7m0" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="17" id="uKW-KT-D74"/>
-                            <constraint firstItem="DXq-fx-h21" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vRb-Ca-wWK"/>
-                            <constraint firstItem="epx-2b-qvG" firstAttribute="top" secondItem="X9F-UG-7m0" secondAttribute="top" constant="56" id="wGs-6U-eJI"/>
-                            <constraint firstItem="qGA-bd-xEY" firstAttribute="top" secondItem="p0C-Ku-CUW" secondAttribute="bottom" constant="16" id="ygM-yx-BMU"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="raQ-eB-4DL"/>
-                    <connections>
-                        <outlet property="checkBox1_Sign_up1" destination="hAJ-Ve-QRw" id="os8-ph-bQK"/>
-                        <outlet property="checkBox2_Sign_up1" destination="hbz-Pl-CPR" id="nmT-1D-WpU"/>
-                        <outlet property="checkBox3_Sign_up1" destination="Le5-H7-ERF" id="fcq-yb-5a8"/>
-                        <outlet property="checkBox4_Sign_up1" destination="J11-Yn-sCt" id="UJy-eR-6Am"/>
-                        <outlet property="curPageBarWidth_Sign_up1" destination="FmW-Gg-JES" id="Cmj-JW-fNV"/>
-                        <outlet property="curPageBarX_Sign_up1" destination="G7O-rp-pN7" id="zwA-Pv-Ibd"/>
-                        <outlet property="nextButton_Sign_up1" destination="DXq-fx-h21" id="erd-X2-iVq"/>
-                        <outlet property="pageControlView_Sign_up1" destination="p0C-Ku-CUW" id="mJf-5g-baj"/>
-                        <outlet property="titleLable_Sign_up1" destination="qGA-bd-xEY" id="gHT-dQ-1xl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="970.2290076335878" y="-2.1126760563380285"/>
-        </scene>
         <!--Sign up View Controller-->
         <scene sceneID="Pry-hz-IHo">
             <objects>
@@ -387,7 +89,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="nextButtonTap_Sign_up1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vd2-dd-QGU"/>
                                     <action selector="nextButtonTap_Sign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="hUl-VJ-wM9"/>
                                 </connections>
                             </button>
@@ -586,12 +287,20 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관 자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGk-y9-9Aa">
-                                        <rect key="frame" x="17" y="365.66666666666669" width="132.66666666666666" height="19"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                        <color key="textColor" red="0.72549019609999998" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="036-qW-5bz">
+                                        <rect key="frame" x="17" y="365.66666666666669" width="133" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="s38-br-Nlp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="이용약관 자세히 보기">
+                                            <color key="titleColor" name="HandsUpGrey"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="TermsButton_Sign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="txT-zG-Taw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpBackground"/>
                                 <constraints>
@@ -600,21 +309,21 @@
                                     <constraint firstItem="kle-6s-uJu" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="BLF-Ph-KjJ"/>
                                     <constraint firstItem="kle-6s-uJu" firstAttribute="top" secondItem="VC5-QM-Ch5" secondAttribute="bottom" constant="37" id="D9g-if-tPj"/>
                                     <constraint firstItem="E3Z-K3-Z48" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="18" id="DGg-2A-4iN"/>
+                                    <constraint firstItem="036-qW-5bz" firstAttribute="top" secondItem="Yad-1M-Iie" secondAttribute="bottom" constant="37" id="DOb-n0-wIR"/>
                                     <constraint firstItem="E3Z-K3-Z48" firstAttribute="top" secondItem="VwP-Py-qfr" secondAttribute="bottom" constant="20" id="FU8-Sw-P2h"/>
                                     <constraint firstItem="lPA-KC-E6u" firstAttribute="leading" secondItem="VC5-QM-Ch5" secondAttribute="trailing" constant="16" id="LYH-js-BRn"/>
                                     <constraint firstItem="v30-B2-m0t" firstAttribute="centerY" secondItem="kle-6s-uJu" secondAttribute="centerY" id="M31-lI-Spa"/>
                                     <constraint firstItem="VC5-QM-Ch5" firstAttribute="top" secondItem="j48-TD-bVX" secondAttribute="bottom" constant="37" id="RDv-jK-JmX"/>
-                                    <constraint firstItem="XGk-y9-9Aa" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="VVF-Sy-XO3"/>
                                     <constraint firstItem="7HW-Dr-1dE" firstAttribute="leading" secondItem="j48-TD-bVX" secondAttribute="trailing" constant="16" id="XDj-ZG-qub"/>
                                     <constraint firstItem="j48-TD-bVX" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="ZVG-FQ-ibc"/>
                                     <constraint firstItem="VwP-Py-qfr" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="18" id="aR8-RB-YDy"/>
                                     <constraint firstAttribute="trailing" secondItem="7HW-Dr-1dE" secondAttribute="trailing" constant="16" id="apx-xW-kW8"/>
                                     <constraint firstItem="Hgk-sf-knp" firstAttribute="leading" secondItem="Yad-1M-Iie" secondAttribute="trailing" constant="16" id="b2T-gg-VVz"/>
                                     <constraint firstItem="j48-TD-bVX" firstAttribute="top" secondItem="E3Z-K3-Z48" secondAttribute="bottom" constant="49" id="b2q-Ww-Fkp"/>
+                                    <constraint firstItem="036-qW-5bz" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="c0T-ge-r94"/>
                                     <constraint firstItem="VC5-QM-Ch5" firstAttribute="leading" secondItem="cI6-Mx-N0V" secondAttribute="leading" constant="17" id="cqW-iL-dVF"/>
                                     <constraint firstItem="VwP-Py-qfr" firstAttribute="top" secondItem="cI6-Mx-N0V" secondAttribute="top" constant="16" id="fOo-oo-DGl"/>
                                     <constraint firstItem="lPA-KC-E6u" firstAttribute="centerY" secondItem="VC5-QM-Ch5" secondAttribute="centerY" id="lxQ-DU-Af1"/>
-                                    <constraint firstItem="XGk-y9-9Aa" firstAttribute="top" secondItem="Yad-1M-Iie" secondAttribute="bottom" constant="37" id="olc-Af-hVB"/>
                                     <constraint firstItem="Yad-1M-Iie" firstAttribute="top" secondItem="kle-6s-uJu" secondAttribute="bottom" constant="37" id="q1d-UK-v1G"/>
                                     <constraint firstAttribute="trailing" secondItem="Hgk-sf-knp" secondAttribute="trailing" constant="16" id="r50-vs-zva"/>
                                     <constraint firstAttribute="trailing" secondItem="lPA-KC-E6u" secondAttribute="trailing" constant="16" id="uLX-8t-fRk"/>
@@ -683,11 +392,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeY-wB-U3Q" userLabel="Page3">
                                 <rect key="frame" x="0.0" y="126" width="393" height="625"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-N5-2aN">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-N5-2aN">
                                         <rect key="frame" x="0.0" y="8" width="393" height="609"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1U-5d-SAE">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="575.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="574.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uZ-G9-OwT">
                                                         <rect key="frame" x="17.999999999999996" y="8" width="55.666666666666657" height="37.666666666666664"/>
@@ -760,7 +469,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="getVerificationCodeButtonTap_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="2UN-Zx-prT"/>
+                                                            <action selector="getVerificationCode_Sign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="i4g-h7-fQv"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교메일이 아이디로 사용됩니다.이메일을 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QD9-oE-ILz">
@@ -860,7 +569,6 @@
                                                                 <state key="normal" image="PWVisibility"/>
                                                                 <connections>
                                                                     <action selector="setPWSecureTextEntry_EmailSign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="7fx-7E-X3C"/>
-                                                                    <action selector="setPWSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="k2N-de-zeR"/>
                                                                 </connections>
                                                             </button>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GO7-aQ-zx0">
@@ -908,13 +616,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yw-oq-CGW">
-                                                        <rect key="frame" x="22.000000000000007" y="464.66666666666663" width="87.666666666666686" height="19"/>
+                                                        <rect key="frame" x="22.000000000000007" y="463.66666666666663" width="87.666666666666686" height="19"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                         <color key="textColor" name="HandsUpMainText"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nde-cn-uPv" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="491.66666666666663" width="361" height="50"/>
+                                                        <rect key="frame" x="16" y="490.66666666666663" width="361" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEz-yd-WgN">
                                                                 <rect key="frame" x="321" y="13" width="24" height="24"/>
@@ -927,7 +635,6 @@
                                                                 <state key="normal" image="PWVisibility"/>
                                                                 <connections>
                                                                     <action selector="setPWConfirmationSecureTextEntry_EmailSign_up:" destination="8oQ-p1-jeL" eventType="touchUpInside" id="6R7-h0-IAY"/>
-                                                                    <action selector="setPWConfirmationSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="r1N-9Y-FGG"/>
                                                                 </connections>
                                                             </button>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dG-25-5cf">
@@ -975,7 +682,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 최소8자리 이상으로 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F0-mn-eCt">
-                                                        <rect key="frame" x="22" y="429.66666666666663" width="206" height="15"/>
+                                                        <rect key="frame" x="22" y="429.66666666666663" width="206" height="14"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                                         <nil key="highlightedColor"/>
@@ -1115,7 +822,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sd-8e-jdy" userLabel="Page5">
-                                <rect key="frame" x="500" y="126" width="393" height="625"/>
+                                <rect key="frame" x="0.0" y="126" width="393" height="625"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-bh-Cqz">
                                         <rect key="frame" x="17.999999999999996" y="15.999999999999996" width="55.666666666666657" height="37.666666666666657"/>
@@ -1166,6 +873,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RST-Yy-uWN"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oeY-wB-U3Q" firstAttribute="top" secondItem="gEO-VW-DWC" secondAttribute="bottom" id="1Qa-MJ-0af"/>
                             <constraint firstItem="5Sd-8e-jdy" firstAttribute="top" secondItem="gEO-VW-DWC" secondAttribute="bottom" id="1iK-wx-sgF"/>
@@ -1182,7 +890,7 @@
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="bottom" secondItem="6Lh-ff-FVa" secondAttribute="bottom" constant="16" id="TTK-kA-9vo"/>
                             <constraint firstItem="prg-rP-BGt" firstAttribute="top" secondItem="RST-Yy-uWN" secondAttribute="top" id="XR4-YB-EY9"/>
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="gEO-VW-DWC" secondAttribute="trailing" constant="16" id="cFo-Jt-3Iv"/>
-                            <constraint firstItem="5Sd-8e-jdy" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="500" id="gqa-0E-Adm"/>
+                            <constraint firstItem="5Sd-8e-jdy" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="gqa-0E-Adm"/>
                             <constraint firstItem="gEO-VW-DWC" firstAttribute="top" secondItem="prg-rP-BGt" secondAttribute="bottom" constant="10" id="m4E-Xu-gcC"/>
                             <constraint firstItem="vFd-ps-zlS" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="mOn-RD-MS5"/>
                             <constraint firstItem="VTS-mU-gjN" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="400" id="s0P-zG-D3O"/>
@@ -1240,7 +948,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBD-UO-I3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.70229007633588" y="726.76056338028172"/>
+            <point key="canvasLocation" x="122.90076335877862" y="17.605633802816904"/>
         </scene>
         <!--Character Edit View Controller-->
         <scene sceneID="bYr-HE-qBY">
@@ -1281,11 +989,18 @@
                                     <constraint firstAttribute="width" constant="233" id="R5o-xT-GVh"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-zI-ZnL" userLabel="TabBar">
-                                <rect key="frame" x="0.0" y="408" width="393" height="45"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zm-jf-Vd0" userLabel="Line">
+                                <rect key="frame" x="0.0" y="453" width="393" height="1"/>
+                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="cR8-oj-xuP"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-zI-ZnL" userLabel="TabBar" customClass="EnableButtonScroll" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="408" width="393" height="46"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wI-Fa-nnH">
-                                        <rect key="frame" x="0.0" y="0.0" width="450" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiO-96-Zyv">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="45"/>
@@ -1378,6 +1093,14 @@
                                                     <action selector="glassesTap_CharacterEdit:" destination="Ovc-KX-eDF" eventType="touchUpInside" id="VDa-WS-UE6"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaY-ob-WM1" userLabel="Bar">
+                                                <rect key="frame" x="5" y="45" width="30" height="1"/>
+                                                <color key="backgroundColor" name="HandsUpBlue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="PZi-XN-79f"/>
+                                                    <constraint firstAttribute="height" constant="1" id="ZBZ-94-12x"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1385,24 +1108,26 @@
                                             <constraint firstItem="Pgn-bW-er7" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="1hG-8P-PTo"/>
                                             <constraint firstItem="AW4-rb-84a" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="21u-NW-Zag"/>
                                             <constraint firstItem="fiO-96-Zyv" firstAttribute="leading" secondItem="0wI-Fa-nnH" secondAttribute="leading" id="36h-wo-A5F"/>
-                                            <constraint firstAttribute="bottom" secondItem="9yO-x1-vWX" secondAttribute="bottom" id="5RE-q9-VDX"/>
+                                            <constraint firstAttribute="bottom" secondItem="9yO-x1-vWX" secondAttribute="bottom" constant="1" id="5RE-q9-VDX"/>
                                             <constraint firstItem="Gtd-MN-FDJ" firstAttribute="leading" secondItem="9yO-x1-vWX" secondAttribute="trailing" constant="40" id="6ld-Hz-6ty"/>
-                                            <constraint firstAttribute="bottom" secondItem="Kbg-2V-xYk" secondAttribute="bottom" id="AX5-5J-ea3"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kbg-2V-xYk" secondAttribute="bottom" constant="1" id="AX5-5J-ea3"/>
                                             <constraint firstItem="9yO-x1-vWX" firstAttribute="leading" secondItem="Fez-te-n6e" secondAttribute="trailing" constant="40" id="Dx8-bD-mGQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="DaY-ob-WM1" secondAttribute="bottom" id="Fhu-6S-rjh"/>
                                             <constraint firstItem="Gtd-MN-FDJ" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="G0e-Pi-TBz"/>
-                                            <constraint firstAttribute="bottom" secondItem="Pgn-bW-er7" secondAttribute="bottom" id="Pqp-TV-xYT"/>
+                                            <constraint firstItem="DaY-ob-WM1" firstAttribute="leading" secondItem="0wI-Fa-nnH" secondAttribute="leading" constant="5" id="MWH-WM-GBB"/>
+                                            <constraint firstAttribute="bottom" secondItem="Pgn-bW-er7" secondAttribute="bottom" constant="1" id="Pqp-TV-xYT"/>
                                             <constraint firstAttribute="trailing" secondItem="Pgn-bW-er7" secondAttribute="trailing" id="U33-DP-BdC"/>
                                             <constraint firstItem="Kbg-2V-xYk" firstAttribute="leading" secondItem="Gtd-MN-FDJ" secondAttribute="trailing" constant="40" id="XaW-X4-gUT"/>
                                             <constraint firstItem="Pgn-bW-er7" firstAttribute="leading" secondItem="Kbg-2V-xYk" secondAttribute="trailing" constant="40" id="XvP-9p-XAM"/>
                                             <constraint firstItem="Kbg-2V-xYk" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="YXT-Zz-K9M"/>
-                                            <constraint firstAttribute="bottom" secondItem="AW4-rb-84a" secondAttribute="bottom" id="ZA9-YA-AJg"/>
+                                            <constraint firstAttribute="bottom" secondItem="AW4-rb-84a" secondAttribute="bottom" constant="1" id="ZA9-YA-AJg"/>
                                             <constraint firstItem="Fez-te-n6e" firstAttribute="leading" secondItem="AW4-rb-84a" secondAttribute="trailing" constant="40" id="ZFf-Vh-ozf"/>
-                                            <constraint firstAttribute="bottom" secondItem="Fez-te-n6e" secondAttribute="bottom" id="a4h-tB-DUS"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fez-te-n6e" secondAttribute="bottom" constant="1" id="a4h-tB-DUS"/>
                                             <constraint firstItem="fiO-96-Zyv" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="eBx-27-lEE"/>
                                             <constraint firstItem="AW4-rb-84a" firstAttribute="leading" secondItem="fiO-96-Zyv" secondAttribute="trailing" constant="40" id="fFj-IB-UkI"/>
-                                            <constraint firstAttribute="bottom" secondItem="Gtd-MN-FDJ" secondAttribute="bottom" id="lmU-B1-wwO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gtd-MN-FDJ" secondAttribute="bottom" constant="1" id="lmU-B1-wwO"/>
                                             <constraint firstItem="9yO-x1-vWX" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="ndc-HU-y5E"/>
-                                            <constraint firstAttribute="bottom" secondItem="fiO-96-Zyv" secondAttribute="bottom" id="uf0-Gw-3WL"/>
+                                            <constraint firstAttribute="bottom" secondItem="fiO-96-Zyv" secondAttribute="bottom" constant="1" id="uf0-Gw-3WL"/>
                                             <constraint firstItem="Fez-te-n6e" firstAttribute="top" secondItem="0wI-Fa-nnH" secondAttribute="top" id="z7e-XP-83I"/>
                                         </constraints>
                                     </view>
@@ -1412,20 +1137,13 @@
                                     <constraint firstItem="0wI-Fa-nnH" firstAttribute="height" secondItem="fTG-Nd-obe" secondAttribute="height" id="FNn-xJ-ULo"/>
                                     <constraint firstItem="0wI-Fa-nnH" firstAttribute="trailing" secondItem="onW-nm-eYV" secondAttribute="trailing" id="Nhd-tm-1PW"/>
                                     <constraint firstItem="0wI-Fa-nnH" firstAttribute="bottom" secondItem="onW-nm-eYV" secondAttribute="bottom" id="kEA-lv-F3P"/>
-                                    <constraint firstAttribute="height" constant="45" id="mVL-Lf-yvx"/>
+                                    <constraint firstAttribute="height" constant="46" id="mVL-Lf-yvx"/>
                                     <constraint firstItem="0wI-Fa-nnH" firstAttribute="leading" secondItem="onW-nm-eYV" secondAttribute="leading" id="syj-23-qhs"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="onW-nm-eYV"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="fTG-Nd-obe"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zm-jf-Vd0" userLabel="Line">
-                                <rect key="frame" x="0.0" y="453" width="393" height="1"/>
-                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="cR8-oj-xuP"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ol-yr-4xl">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ol-yr-4xl" customClass="EnableButtonScroll" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="454" width="393" height="364"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Tr-3K-mv3">
@@ -1452,24 +1170,26 @@
                         <constraints>
                             <constraint firstItem="6cC-Je-Zm1" firstAttribute="top" secondItem="bHG-Bb-6yd" secondAttribute="top" constant="18" id="6ec-Yp-3PA"/>
                             <constraint firstItem="wyQ-Lc-wYd" firstAttribute="top" secondItem="bHG-Bb-6yd" secondAttribute="top" constant="66" id="8lO-zM-ea0"/>
+                            <constraint firstAttribute="trailing" secondItem="7Zm-jf-Vd0" secondAttribute="trailing" id="AyJ-kI-Jkr"/>
                             <constraint firstItem="wyQ-Lc-wYd" firstAttribute="centerX" secondItem="bHG-Bb-6yd" secondAttribute="centerX" id="FKX-xa-K4I"/>
-                            <constraint firstItem="7Zm-jf-Vd0" firstAttribute="top" secondItem="vfE-zI-ZnL" secondAttribute="bottom" id="FeT-lt-5b5"/>
                             <constraint firstItem="1ol-yr-4xl" firstAttribute="bottom" secondItem="bHG-Bb-6yd" secondAttribute="bottom" id="I8b-ry-LLg"/>
                             <constraint firstItem="1ol-yr-4xl" firstAttribute="leading" secondItem="bHG-Bb-6yd" secondAttribute="leading" id="Om8-ti-Xni"/>
                             <constraint firstItem="vfE-zI-ZnL" firstAttribute="top" secondItem="wyQ-Lc-wYd" secondAttribute="bottom" constant="50" id="X3E-fF-9Fe"/>
+                            <constraint firstItem="7Zm-jf-Vd0" firstAttribute="leading" secondItem="ph4-wb-7F4" secondAttribute="leading" id="XJe-Wo-IAM"/>
                             <constraint firstItem="6cC-Je-Zm1" firstAttribute="leading" secondItem="bHG-Bb-6yd" secondAttribute="leading" constant="18" id="ZrR-KV-vXT"/>
                             <constraint firstItem="vfE-zI-ZnL" firstAttribute="trailing" secondItem="bHG-Bb-6yd" secondAttribute="trailing" id="cuj-ve-GGN"/>
-                            <constraint firstItem="7Zm-jf-Vd0" firstAttribute="leading" secondItem="bHG-Bb-6yd" secondAttribute="leading" id="fHu-vD-Jgi"/>
                             <constraint firstItem="bHG-Bb-6yd" firstAttribute="trailing" secondItem="meL-xR-blb" secondAttribute="trailing" constant="18" id="h0s-cd-Pco"/>
                             <constraint firstItem="meL-xR-blb" firstAttribute="top" secondItem="bHG-Bb-6yd" secondAttribute="top" constant="18" id="nL8-dx-TY7"/>
                             <constraint firstItem="vfE-zI-ZnL" firstAttribute="leading" secondItem="bHG-Bb-6yd" secondAttribute="leading" id="ovu-1E-PpI"/>
                             <constraint firstItem="1ol-yr-4xl" firstAttribute="trailing" secondItem="bHG-Bb-6yd" secondAttribute="trailing" id="qi7-hm-jjI"/>
-                            <constraint firstItem="1ol-yr-4xl" firstAttribute="top" secondItem="7Zm-jf-Vd0" secondAttribute="bottom" id="rXV-db-8MD"/>
-                            <constraint firstItem="bHG-Bb-6yd" firstAttribute="trailing" secondItem="7Zm-jf-Vd0" secondAttribute="trailing" id="z6O-8g-6cR"/>
+                            <constraint firstItem="1ol-yr-4xl" firstAttribute="top" secondItem="vfE-zI-ZnL" secondAttribute="bottom" id="rXV-db-8MD"/>
+                            <constraint firstItem="1ol-yr-4xl" firstAttribute="top" secondItem="7Zm-jf-Vd0" secondAttribute="bottom" id="wp4-XJ-CV1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="BGButton_CharacterEdit" destination="fiO-96-Zyv" id="0s5-ay-siX"/>
+                        <outlet property="barViewX_CharacterEdit" destination="MWH-WM-GBB" id="4Ex-pd-Lay"/>
+                        <outlet property="barView_CharacterEdit" destination="DaY-ob-WM1" id="DEp-KW-Zwx"/>
                         <outlet property="characterView_CharacterEdit" destination="wyQ-Lc-wYd" id="Z0b-mn-FN9"/>
                         <outlet property="eyebrowButton_CharacterEdit" destination="Fez-te-n6e" id="Nv2-4R-hkp"/>
                         <outlet property="eyesButton_CharacterEdit" destination="Kbg-2V-xYk" id="fMl-oO-ao5"/>
@@ -1485,1098 +1205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLf-Se-Xgl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942.7480916030534" y="726.76056338028172"/>
-        </scene>
-        <!--Sign up2 View Controller-->
-        <scene sceneID="AUq-Dc-MZa">
-            <objects>
-                <viewController storyboardIdentifier="Sign_up2" id="U9I-Mb-lZN" customClass="Sign_up2_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bTB-IL-caL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpv-f8-nhi" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="69" width="357" height="9"/>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="lfl-Cg-1Kt"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56P-iu-67U" userLabel="curPageBar" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="36" y="69" width="80" height="9"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="1eu-ZM-UcQ"/>
-                                    <constraint firstAttribute="width" constant="80" id="NAc-dZ-FtX"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFz-GT-4rT">
-                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 대학교학생들만 사용 가능해요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3H-xz-FxF">
-                                <rect key="frame" x="18" y="151.66666666666666" width="219.33333333333334" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph0-lX-685" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="aD8-OJ-vDb"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonTap_Sign_up2:" destination="U9I-Mb-lZN" eventType="touchUpInside" id="DsN-xU-dYP"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTB-T0-sOj" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="257.66666666666669" width="361" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2YC-um-6gc"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.10000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-pW-Y7f">
-                                <rect key="frame" x="16" y="174.66666666666663" width="361" height="216"/>
-                            </pickerView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="AC3-Qb-EKU"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="dpv-f8-nhi" secondAttribute="trailing" constant="18" id="3Fa-5h-kJK"/>
-                            <constraint firstItem="56P-iu-67U" firstAttribute="leading" secondItem="dpv-f8-nhi" secondAttribute="leading" constant="18" id="Bgs-Lf-Q99"/>
-                            <constraint firstItem="CTB-T0-sOj" firstAttribute="top" secondItem="P3H-xz-FxF" secondAttribute="top" constant="106" id="DZQ-WB-Txx"/>
-                            <constraint firstItem="c1v-pW-Y7f" firstAttribute="centerY" secondItem="CTB-T0-sOj" secondAttribute="centerY" id="Ojs-J7-L5j"/>
-                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="c1v-pW-Y7f" secondAttribute="trailing" constant="16" id="WUt-Qp-ZHg"/>
-                            <constraint firstItem="dpv-f8-nhi" firstAttribute="leading" secondItem="bTB-IL-caL" secondAttribute="leading" constant="18" id="WmX-CO-Use"/>
-                            <constraint firstItem="ph0-lX-685" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="Ysl-QA-nrF"/>
-                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="ph0-lX-685" secondAttribute="trailing" constant="16" id="e4t-eB-b9G"/>
-                            <constraint firstItem="CTB-T0-sOj" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="gmT-FI-7pN"/>
-                            <constraint firstItem="c1v-pW-Y7f" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="16" id="hbe-6x-cOx"/>
-                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="trailing" secondItem="CTB-T0-sOj" secondAttribute="trailing" constant="16" id="icK-1m-GRz"/>
-                            <constraint firstItem="P3H-xz-FxF" firstAttribute="leading" secondItem="bTB-IL-caL" secondAttribute="leading" constant="18" id="lKs-yR-z5q"/>
-                            <constraint firstItem="dpv-f8-nhi" firstAttribute="top" secondItem="AC3-Qb-EKU" secondAttribute="top" constant="10" id="mzq-aQ-j4s"/>
-                            <constraint firstItem="YFz-GT-4rT" firstAttribute="top" secondItem="dpv-f8-nhi" secondAttribute="bottom" constant="16" id="rPR-Go-v4I"/>
-                            <constraint firstItem="AC3-Qb-EKU" firstAttribute="bottom" secondItem="ph0-lX-685" secondAttribute="bottom" constant="16" id="tUW-Fs-5RZ"/>
-                            <constraint firstItem="P3H-xz-FxF" firstAttribute="top" secondItem="YFz-GT-4rT" secondAttribute="bottom" constant="20" id="vrU-yc-YaJ"/>
-                            <constraint firstItem="56P-iu-67U" firstAttribute="top" secondItem="AC3-Qb-EKU" secondAttribute="top" constant="10" id="yPJ-FZ-d72"/>
-                            <constraint firstItem="YFz-GT-4rT" firstAttribute="leading" secondItem="AC3-Qb-EKU" secondAttribute="leading" constant="18" id="zzu-f2-4d6"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="curPageBarWidth_Sign_up2" destination="NAc-dZ-FtX" id="km9-de-gUL"/>
-                        <outlet property="curPageBarX_Sign_up2" destination="Bgs-Lf-Q99" id="Kmj-HY-g0G"/>
-                        <outlet property="pageControlView_Sign_up2" destination="dpv-f8-nhi" id="09w-xV-slA"/>
-                        <outlet property="schoolPickerView_Sign_up2" destination="c1v-pW-Y7f" id="ghC-Hi-Bpk"/>
-                        <outlet property="titleLable_Sign_up2" destination="YFz-GT-4rT" id="4UE-9Y-IHG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w1h-WB-Cs8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1943" y="-2"/>
-        </scene>
-        <!--Email Sign up View Controller-->
-        <scene sceneID="ZBK-sC-RJP">
-            <objects>
-                <viewController storyboardIdentifier="EmailSign_up" id="6yJ-z2-Oym" customClass="EmailSign_up_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bs7-wn-e2y">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91f-oE-XFo" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="69" width="357" height="9"/>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="M1j-QP-aTb"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUn-Ev-7vG" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="36" y="69" width="80" height="9"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="f9x-sO-eeC"/>
-                                    <constraint firstAttribute="height" constant="9" id="n94-UT-3Pn"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xn0-hL-D2H">
-                                <rect key="frame" x="0.0" y="86" width="393" height="657"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-q4-U0P">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="544.66666666666663"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-iv-qW8">
-                                                <rect key="frame" x="17.999999999999996" y="8" width="55.666666666666657" height="37.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                                <color key="textColor" name="HandsUpMainText"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H9-he-Gvv">
-                                                <rect key="frame" x="18" y="65.666666666666657" width="28" height="19"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5L-AN-bfW" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="135.66666666666666" width="245" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="개인 학교 이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwk-PT-WMW">
-                                                        <rect key="frame" x="16" y="0.0" width="213" height="50"/>
-                                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartInsertDeleteType="no" textContentType="email"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" name="HandsUpGrey"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="fwk-PT-WMW" firstAttribute="top" secondItem="m5L-AN-bfW" secondAttribute="top" id="4Cm-id-mlM"/>
-                                                    <constraint firstItem="fwk-PT-WMW" firstAttribute="leading" secondItem="m5L-AN-bfW" secondAttribute="leading" constant="16" id="bJE-Hw-TNa"/>
-                                                    <constraint firstAttribute="height" constant="50" id="c2K-WA-eiS"/>
-                                                    <constraint firstAttribute="trailing" secondItem="fwk-PT-WMW" secondAttribute="trailing" constant="16" id="gBn-Hq-8zB"/>
-                                                    <constraint firstAttribute="bottom" secondItem="fwk-PT-WMW" secondAttribute="bottom" id="nN0-ic-aBq"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="0.10000000000000001"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="0.0" height="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="24"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-TQ-GVD" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="277" y="135.66666666666666" width="100" height="50"/>
-                                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="74h-oO-Mze"/>
-                                                    <constraint firstAttribute="height" constant="50" id="W3x-Ni-FQD"/>
-                                                </constraints>
-                                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="인증번호받기">
-                                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                </buttonConfiguration>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="getVerificationCodeButtonTap_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="u4A-vt-CEV"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교메일이 아이디로 사용됩니다.이메일을 확인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvl-RC-qLs">
-                                                <rect key="frame" x="22" y="201.66666666666669" width="264.66666666666669" height="14"/>
-                                                <color key="tintColor" name="HandsUpDarkGrey"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRR-8w-G9I">
-                                                <rect key="frame" x="22.000000000000007" y="235.66666666666669" width="87.666666666666686" height="19"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                <color key="textColor" name="HandsUpMainText"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3df-9X-0jW" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="266.66666666666669" width="361" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bni-YR-qoA">
-                                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
-                                                        <color key="tintColor" name="HandsUpDarkGrey"/>
-                                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" name="HandsUpGrey"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenCheck" translatesAutoresizingMaskIntoConstraints="NO" id="eFp-RX-Qsk">
-                                                        <rect key="frame" x="325" y="17" width="16" height="16"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="DTl-CS-oSd"/>
-                                                            <constraint firstAttribute="width" constant="16" id="yFF-Ud-L9E"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-PK-TCx">
-                                                        <rect key="frame" x="321" y="13.999999999999998" width="24" height="22.666666666666664"/>
-                                                        <color key="tintColor" name="HandsUpRed"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="4Gt-XE-q9q"/>
-                                                            <constraint firstAttribute="width" constant="24" id="kRI-eZ-DmM"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="eFp-RX-Qsk" secondAttribute="trailing" constant="20" id="6Y6-G8-RZ3"/>
-                                                    <constraint firstAttribute="height" constant="50" id="8RY-RL-9db"/>
-                                                    <constraint firstAttribute="trailing" secondItem="bni-YR-qoA" secondAttribute="trailing" constant="56" id="91N-IH-9Jd"/>
-                                                    <constraint firstAttribute="trailing" secondItem="WrV-PK-TCx" secondAttribute="trailing" constant="16" id="EAq-ac-n0u"/>
-                                                    <constraint firstItem="bni-YR-qoA" firstAttribute="top" secondItem="3df-9X-0jW" secondAttribute="top" id="FoH-Ed-VGI"/>
-                                                    <constraint firstItem="WrV-PK-TCx" firstAttribute="centerY" secondItem="3df-9X-0jW" secondAttribute="centerY" id="N5D-4P-2B5"/>
-                                                    <constraint firstItem="eFp-RX-Qsk" firstAttribute="centerY" secondItem="3df-9X-0jW" secondAttribute="centerY" id="l6u-8d-m4S"/>
-                                                    <constraint firstItem="bni-YR-qoA" firstAttribute="leading" secondItem="3df-9X-0jW" secondAttribute="leading" constant="16" id="nhc-5G-ATJ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="bni-YR-qoA" secondAttribute="bottom" id="qXo-ee-022"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="0.10000000000000001"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="0.0" height="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="24"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ff-bh-NK0">
-                                                <rect key="frame" x="21.999999999999996" y="336.66666666666669" width="55.666666666666657" height="19"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                <color key="textColor" name="HandsUpMainText"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toc-hG-WD6" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="363.66666666666669" width="361" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyR-BL-jf2">
-                                                        <rect key="frame" x="321" y="13" width="24" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="JIH-sc-xSK"/>
-                                                            <constraint firstAttribute="width" constant="24" id="UKQ-PW-hD8"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="HandsUpDarkGrey"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="setPWSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="0m0-AZ-pap"/>
-                                                        </connections>
-                                                    </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Gf-Ug-JUe">
-                                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
-                                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="new-password"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" name="HandsUpGrey"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="2gg-oQ-ZXI"/>
-                                                    <constraint firstAttribute="bottom" secondItem="4Gf-Ug-JUe" secondAttribute="bottom" id="Bpl-bZ-fDT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="IyR-BL-jf2" secondAttribute="trailing" constant="16" id="HVQ-iR-f65"/>
-                                                    <constraint firstItem="4Gf-Ug-JUe" firstAttribute="leading" secondItem="Toc-hG-WD6" secondAttribute="leading" constant="16" id="SvE-nk-kjv"/>
-                                                    <constraint firstItem="4Gf-Ug-JUe" firstAttribute="top" secondItem="Toc-hG-WD6" secondAttribute="top" id="Zr8-jq-5nJ"/>
-                                                    <constraint firstItem="IyR-BL-jf2" firstAttribute="centerY" secondItem="Toc-hG-WD6" secondAttribute="centerY" id="oSu-1v-u9a"/>
-                                                    <constraint firstItem="IyR-BL-jf2" firstAttribute="leading" secondItem="4Gf-Ug-JUe" secondAttribute="trailing" constant="16" id="vZp-3b-LUK"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="0.10000000000000001"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="0.0" height="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="24"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWw-LP-l4i">
-                                                <rect key="frame" x="22.000000000000007" y="433.66666666666663" width="87.666666666666686" height="19"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                <color key="textColor" name="HandsUpMainText"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-Zm-2S9" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="460.66666666666663" width="361" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-0J-b4B">
-                                                        <rect key="frame" x="321" y="13" width="24" height="24"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="24" id="8sB-sG-F0q"/>
-                                                            <constraint firstAttribute="height" constant="24" id="z8B-Mt-RlU"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="HandsUpDarkGrey"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="setPWConfirmationSecureTextEntry_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="rrR-OB-F56"/>
-                                                        </connections>
-                                                    </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-2p-26J">
-                                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
-                                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="new-password"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" name="HandsUpGrey"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="FbJ-2p-26J" firstAttribute="leading" secondItem="ZJn-Zm-2S9" secondAttribute="leading" constant="16" id="9va-l6-Zyg"/>
-                                                    <constraint firstItem="OzB-0J-b4B" firstAttribute="centerY" secondItem="ZJn-Zm-2S9" secondAttribute="centerY" id="F1b-jL-3QY"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OzB-0J-b4B" secondAttribute="trailing" constant="16" id="OPK-c0-WjX"/>
-                                                    <constraint firstItem="FbJ-2p-26J" firstAttribute="top" secondItem="ZJn-Zm-2S9" secondAttribute="top" id="aXw-10-gO0"/>
-                                                    <constraint firstAttribute="height" constant="50" id="bji-jP-neZ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="FbJ-2p-26J" secondAttribute="bottom" id="cQE-DK-4Ba"/>
-                                                    <constraint firstItem="OzB-0J-b4B" firstAttribute="leading" secondItem="FbJ-2p-26J" secondAttribute="trailing" constant="16" id="yiX-ZC-eyQ"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="0.10000000000000001"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="0.0" height="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="24"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" name="HandsUpBackground"/>
-                                        <constraints>
-                                            <constraint firstItem="kvl-RC-qLs" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="0xT-Hd-qPa"/>
-                                            <constraint firstItem="bV9-iv-qW8" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="18" id="18c-gA-mwo"/>
-                                            <constraint firstItem="BRR-8w-G9I" firstAttribute="top" secondItem="kvl-RC-qLs" secondAttribute="bottom" constant="20" id="1GF-uQ-aEa"/>
-                                            <constraint firstAttribute="trailing" secondItem="Toc-hG-WD6" secondAttribute="trailing" constant="16" id="47P-Oh-ae5"/>
-                                            <constraint firstAttribute="trailing" secondItem="Nw4-TQ-GVD" secondAttribute="trailing" constant="16" id="4D3-sI-ELi"/>
-                                            <constraint firstItem="Nw4-TQ-GVD" firstAttribute="leading" secondItem="m5L-AN-bfW" secondAttribute="trailing" constant="16" id="5OC-ey-nah"/>
-                                            <constraint firstItem="ZJn-Zm-2S9" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="6G9-tX-76K"/>
-                                            <constraint firstAttribute="height" priority="500" constant="55" id="84g-0d-Sb1"/>
-                                            <constraint firstItem="6H9-he-Gvv" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="18" id="8Q6-cK-Lmc"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZJn-Zm-2S9" secondAttribute="bottom" constant="34" id="EBt-d0-Tn2"/>
-                                            <constraint firstItem="m5L-AN-bfW" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="Kio-P9-7J1"/>
-                                            <constraint firstItem="bV9-iv-qW8" firstAttribute="top" secondItem="Ych-q4-U0P" secondAttribute="top" constant="8" id="Lx8-gX-26q"/>
-                                            <constraint firstItem="HWw-LP-l4i" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="OCn-b6-rgp"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZJn-Zm-2S9" secondAttribute="trailing" constant="16" id="QYD-Ac-6Eo"/>
-                                            <constraint firstItem="9Ff-bh-NK0" firstAttribute="top" secondItem="3df-9X-0jW" secondAttribute="bottom" constant="20" id="RW3-XG-Fgd"/>
-                                            <constraint firstItem="3df-9X-0jW" firstAttribute="top" secondItem="BRR-8w-G9I" secondAttribute="bottom" constant="12" id="U25-hy-nxQ"/>
-                                            <constraint firstItem="Toc-hG-WD6" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="ZuA-95-3su"/>
-                                            <constraint firstItem="HWw-LP-l4i" firstAttribute="top" secondItem="Toc-hG-WD6" secondAttribute="bottom" constant="20" id="aKt-YV-SeO"/>
-                                            <constraint firstItem="3df-9X-0jW" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="16" id="bcz-bm-3fL"/>
-                                            <constraint firstItem="kvl-RC-qLs" firstAttribute="top" secondItem="m5L-AN-bfW" secondAttribute="bottom" constant="16" id="dkw-ew-2Ve"/>
-                                            <constraint firstItem="BRR-8w-G9I" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="ffS-Ca-tSE"/>
-                                            <constraint firstItem="m5L-AN-bfW" firstAttribute="top" secondItem="6H9-he-Gvv" secondAttribute="bottom" constant="51" id="imo-sE-Z3C"/>
-                                            <constraint firstItem="6H9-he-Gvv" firstAttribute="top" secondItem="bV9-iv-qW8" secondAttribute="bottom" constant="20" id="kzg-fd-0E2"/>
-                                            <constraint firstItem="ZJn-Zm-2S9" firstAttribute="top" secondItem="HWw-LP-l4i" secondAttribute="bottom" constant="8" id="lQq-w9-htS"/>
-                                            <constraint firstItem="9Ff-bh-NK0" firstAttribute="leading" secondItem="Ych-q4-U0P" secondAttribute="leading" constant="22" id="mlO-6h-4YB"/>
-                                            <constraint firstAttribute="trailing" secondItem="3df-9X-0jW" secondAttribute="trailing" constant="16" id="vD8-WK-kjA"/>
-                                            <constraint firstItem="Toc-hG-WD6" firstAttribute="top" secondItem="9Ff-bh-NK0" secondAttribute="bottom" constant="8" id="xB0-07-cZo"/>
-                                            <constraint firstItem="Nw4-TQ-GVD" firstAttribute="centerY" secondItem="m5L-AN-bfW" secondAttribute="centerY" id="zPg-0t-Ic6"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="width" secondItem="U3j-h3-lV6" secondAttribute="width" id="9MH-F6-rGQ"/>
-                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="top" secondItem="ugX-aS-9T9" secondAttribute="top" id="CXn-L5-63n"/>
-                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="bottom" secondItem="ugX-aS-9T9" secondAttribute="bottom" id="UiE-bS-MmS"/>
-                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="trailing" secondItem="ugX-aS-9T9" secondAttribute="trailing" id="YJm-uI-ft3"/>
-                                    <constraint firstItem="Ych-q4-U0P" firstAttribute="leading" secondItem="ugX-aS-9T9" secondAttribute="leading" id="s9R-7a-0aK"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="ugX-aS-9T9"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="U3j-h3-lV6"/>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhu-Hz-NnL" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="z30-zY-MKq"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonTap_EmailSign_up:" destination="6yJ-z2-Oym" eventType="touchUpInside" id="M6H-iF-wDp"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="rxT-wN-7b0"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstItem="rxT-wN-7b0" firstAttribute="trailing" secondItem="Jhu-Hz-NnL" secondAttribute="trailing" constant="16" id="29S-tC-Syh"/>
-                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="top" secondItem="91f-oE-XFo" secondAttribute="bottom" constant="8" symbolic="YES" id="47C-ip-o8l"/>
-                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="trailing" secondItem="rxT-wN-7b0" secondAttribute="trailing" id="8bG-0w-IVt"/>
-                            <constraint firstItem="Xn0-hL-D2H" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" id="AWC-QH-Xjz"/>
-                            <constraint firstItem="rxT-wN-7b0" firstAttribute="trailing" secondItem="91f-oE-XFo" secondAttribute="trailing" constant="18" id="R6r-0c-011"/>
-                            <constraint firstItem="91f-oE-XFo" firstAttribute="leading" secondItem="bs7-wn-e2y" secondAttribute="leading" constant="18" id="UC1-Z5-c6r"/>
-                            <constraint firstItem="Jhu-Hz-NnL" firstAttribute="leading" secondItem="rxT-wN-7b0" secondAttribute="leading" constant="16" id="e0P-9Q-hjc"/>
-                            <constraint firstItem="lUn-Ev-7vG" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="j3F-oF-TIh"/>
-                            <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Jhu-Hz-NnL" secondAttribute="bottom" constant="16" id="row-eh-LZj"/>
-                            <constraint firstItem="lUn-Ev-7vG" firstAttribute="leading" secondItem="91f-oE-XFo" secondAttribute="leading" constant="18" id="vIY-4g-XZD"/>
-                            <constraint firstItem="rxT-wN-7b0" firstAttribute="bottom" secondItem="Xn0-hL-D2H" secondAttribute="bottom" priority="200" constant="75" id="x6g-I0-mL5"/>
-                            <constraint firstItem="91f-oE-XFo" firstAttribute="top" secondItem="rxT-wN-7b0" secondAttribute="top" constant="10" id="xgJ-wa-7o4"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="PWConfirmationBox_EmailSign_up" destination="ZJn-Zm-2S9" id="3n9-79-0NG"/>
-                        <outlet property="PWtextField_EmailSign_up" destination="4Gf-Ug-JUe" id="Q8G-6h-EFZ"/>
-                        <outlet property="curPageBarWidth_EmailSign_up" destination="f9x-sO-eeC" id="Gxt-sL-uma"/>
-                        <outlet property="curPageBarX_EmailSign_up" destination="vIY-4g-XZD" id="xRG-NE-1QO"/>
-                        <outlet property="emailTextField_EmailSign_up" destination="fwk-PT-WMW" id="OPh-IC-3VS"/>
-                        <outlet property="exclamationMark_EmailSign_up" destination="WrV-PK-TCx" id="yNz-Z9-e8r"/>
-                        <outlet property="getVerificationCodeButton_EmailSign_up" destination="Nw4-TQ-GVD" id="hOz-DZ-XdW"/>
-                        <outlet property="greenCheck_EmailSign_up" destination="eFp-RX-Qsk" id="flu-sG-LJi"/>
-                        <outlet property="nextButton_EmailSign_up" destination="Jhu-Hz-NnL" id="HNN-u0-Pkg"/>
-                        <outlet property="pageControlView_EmailSign_up" destination="91f-oE-XFo" id="wQY-Kc-JLw"/>
-                        <outlet property="passwordConfirmationTextField_EmailSign_up" destination="FbJ-2p-26J" id="hWq-F8-pET"/>
-                        <outlet property="scrollViewBottomConstraints_EmailSign_up" destination="x6g-I0-mL5" id="xDx-Co-rnR"/>
-                        <outlet property="scrollView_EmailSign_up" destination="Xn0-hL-D2H" id="DtV-e1-0Q1"/>
-                        <outlet property="showPWButton_EmailSign_up" destination="IyR-BL-jf2" id="Ysc-EA-JIf"/>
-                        <outlet property="showPWConfirmationButton_EmailSign_up" destination="OzB-0J-b4B" id="vff-8v-3uD"/>
-                        <outlet property="subTitleLabe_EmailSign_up" destination="6H9-he-Gvv" id="wAq-Gr-86w"/>
-                        <outlet property="titleLable_EmailSign_up" destination="bV9-iv-qW8" id="Tn0-Gh-5VY"/>
-                        <outlet property="verificationCodeBox_EmailSign_up" destination="3df-9X-0jW" id="FT1-tA-OHc"/>
-                        <outlet property="verificationCodeTextField_EmailSign_up" destination="bni-YR-qoA" id="nwx-VT-fLZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="spz-Pz-0bZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2806.8702290076335" y="-2.1126760563380285"/>
-        </scene>
-        <!--Social Login View Controller-->
-        <scene sceneID="mU9-Pg-tOM">
-            <objects>
-                <viewController storyboardIdentifier="SocialLogin" id="hVv-om-iC8" customClass="SocialLogin_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1Z2-b1-ege">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOh-Q8-LiP" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="69" width="357" height="9"/>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="4Bt-k9-b9F"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0k-JR-e7S" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="36" y="69" width="80" height="9"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="84H-Wq-IgN"/>
-                                    <constraint firstAttribute="height" constant="9" id="wl2-lG-8rA"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daE-vg-AY3">
-                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교이메일을 적어주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTm-4g-oiU">
-                                <rect key="frame" x="18" y="151.66666666666666" width="160" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD9-kH-Z62" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="6yW-3z-lPW"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonTap_SocialLogin:" destination="hVv-om-iC8" eventType="touchUpInside" id="eWx-6W-Aro"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vu3-Mg-uGk" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="220.66666666666666" width="245" height="49.999999999999972"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="개인 학교 이메일주소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-4f-DcF">
-                                        <rect key="frame" x="16" y="0.0" width="213" height="50"/>
-                                        <color key="tintColor" name="HandsUpDarkGrey"/>
-                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                <color key="value" name="HandsUpGrey"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                <constraints>
-                                    <constraint firstItem="z4a-4f-DcF" firstAttribute="top" secondItem="Vu3-Mg-uGk" secondAttribute="top" id="76u-qE-saP"/>
-                                    <constraint firstAttribute="bottom" secondItem="z4a-4f-DcF" secondAttribute="bottom" id="H8b-QB-9qH"/>
-                                    <constraint firstAttribute="trailing" secondItem="z4a-4f-DcF" secondAttribute="trailing" constant="16" id="dtj-Ip-ZKQ"/>
-                                    <constraint firstAttribute="height" constant="50" id="qiR-xp-NkA"/>
-                                    <constraint firstItem="z4a-4f-DcF" firstAttribute="leading" secondItem="Vu3-Mg-uGk" secondAttribute="leading" constant="16" id="rCS-CV-a81"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.10000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgT-YQ-mY9" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="277" y="220.66666666666666" width="100" height="49.999999999999972"/>
-                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="pT5-cG-yhe"/>
-                                    <constraint firstAttribute="height" constant="50" id="uEm-Uf-NLq"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="인증번호받기">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="getVerificationCodeButtonTap_SocialLogin:" destination="hVv-om-iC8" eventType="touchUpInside" id="iCG-i4-Qu5"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVM-1p-WUs">
-                                <rect key="frame" x="16" y="290.66666666666669" width="87.666666666666671" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrP-VU-go9" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="321.66666666666669" width="361" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEc-cJ-kJ5">
-                                        <rect key="frame" x="16" y="0.0" width="289" height="50"/>
-                                        <color key="tintColor" name="HandsUpDarkGrey"/>
-                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                <color key="value" name="HandsUpGrey"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenCheck" translatesAutoresizingMaskIntoConstraints="NO" id="c2P-Dg-ihV">
-                                        <rect key="frame" x="325" y="17" width="16" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="16" id="maf-gE-jbS"/>
-                                            <constraint firstAttribute="height" constant="16" id="rhp-PT-4p9"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Xj-zH-Bk3">
-                                        <rect key="frame" x="321" y="13.999999999999998" width="24" height="22.666666666666664"/>
-                                        <color key="tintColor" name="HandsUpRed"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="KRf-4t-b4s"/>
-                                            <constraint firstAttribute="height" constant="24" id="V4Y-UO-lni"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                <constraints>
-                                    <constraint firstItem="GEc-cJ-kJ5" firstAttribute="leading" secondItem="BrP-VU-go9" secondAttribute="leading" constant="16" id="4EK-3A-1Lp"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Xj-zH-Bk3" secondAttribute="trailing" constant="16" id="DPk-kC-uCs"/>
-                                    <constraint firstItem="GEc-cJ-kJ5" firstAttribute="top" secondItem="BrP-VU-go9" secondAttribute="top" id="IUr-Rg-LrA"/>
-                                    <constraint firstAttribute="bottom" secondItem="GEc-cJ-kJ5" secondAttribute="bottom" id="JgH-dZ-ml2"/>
-                                    <constraint firstItem="8Xj-zH-Bk3" firstAttribute="centerY" secondItem="BrP-VU-go9" secondAttribute="centerY" id="Lye-lG-0I8"/>
-                                    <constraint firstItem="c2P-Dg-ihV" firstAttribute="centerY" secondItem="BrP-VU-go9" secondAttribute="centerY" id="hy3-WR-pK5"/>
-                                    <constraint firstAttribute="height" constant="50" id="iKT-AT-c9h"/>
-                                    <constraint firstAttribute="trailing" secondItem="GEc-cJ-kJ5" secondAttribute="trailing" constant="56" id="nqj-QS-lNE"/>
-                                    <constraint firstAttribute="trailing" secondItem="c2P-Dg-ihV" secondAttribute="trailing" constant="20" id="v1e-fg-eJa"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.10000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="AHr-6g-ZOW"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstItem="ZOh-Q8-LiP" firstAttribute="top" secondItem="AHr-6g-ZOW" secondAttribute="top" constant="10" id="8RM-8x-a7y"/>
-                            <constraint firstItem="A0k-JR-e7S" firstAttribute="leading" secondItem="ZOh-Q8-LiP" secondAttribute="leading" constant="18" id="91M-yU-2Z3"/>
-                            <constraint firstItem="sgT-YQ-mY9" firstAttribute="leading" secondItem="Vu3-Mg-uGk" secondAttribute="trailing" constant="16" id="Dq1-d4-Ffv"/>
-                            <constraint firstItem="AHr-6g-ZOW" firstAttribute="bottom" secondItem="mD9-kH-Z62" secondAttribute="bottom" constant="16" id="IIM-mB-aCX"/>
-                            <constraint firstItem="ZOh-Q8-LiP" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="K8M-qn-EeO"/>
-                            <constraint firstItem="AHr-6g-ZOW" firstAttribute="trailing" secondItem="ZOh-Q8-LiP" secondAttribute="trailing" constant="18" id="L1M-oA-lA8"/>
-                            <constraint firstItem="mD9-kH-Z62" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="NpE-YF-PoA"/>
-                            <constraint firstItem="daE-vg-AY3" firstAttribute="top" secondItem="ZOh-Q8-LiP" secondAttribute="bottom" constant="16" id="Om2-2Q-CCY"/>
-                            <constraint firstItem="BrP-VU-go9" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="R9l-RH-epd"/>
-                            <constraint firstItem="A0k-JR-e7S" firstAttribute="top" secondItem="AHr-6g-ZOW" secondAttribute="top" constant="10" id="RNc-EN-TTZ"/>
-                            <constraint firstItem="hTm-4g-oiU" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="RZT-Ay-9M6"/>
-                            <constraint firstItem="Vu3-Mg-uGk" firstAttribute="top" secondItem="hTm-4g-oiU" secondAttribute="bottom" constant="50" id="T1R-kY-Fbu"/>
-                            <constraint firstItem="AHr-6g-ZOW" firstAttribute="trailing" secondItem="BrP-VU-go9" secondAttribute="trailing" constant="16" id="ZMR-1e-WKn"/>
-                            <constraint firstItem="AHr-6g-ZOW" firstAttribute="trailing" secondItem="sgT-YQ-mY9" secondAttribute="trailing" constant="16" id="ZRv-V3-8HS"/>
-                            <constraint firstItem="daE-vg-AY3" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="18" id="cwD-nH-87b"/>
-                            <constraint firstItem="sgT-YQ-mY9" firstAttribute="centerY" secondItem="Vu3-Mg-uGk" secondAttribute="centerY" id="fiF-k4-yBK"/>
-                            <constraint firstItem="hTm-4g-oiU" firstAttribute="top" secondItem="daE-vg-AY3" secondAttribute="bottom" constant="20" id="jmW-Fl-9bs"/>
-                            <constraint firstItem="BrP-VU-go9" firstAttribute="top" secondItem="SVM-1p-WUs" secondAttribute="bottom" constant="12" id="mob-6T-M7s"/>
-                            <constraint firstItem="Vu3-Mg-uGk" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="oJC-R2-MQl"/>
-                            <constraint firstItem="SVM-1p-WUs" firstAttribute="leading" secondItem="AHr-6g-ZOW" secondAttribute="leading" constant="16" id="wED-xI-ZkQ"/>
-                            <constraint firstItem="SVM-1p-WUs" firstAttribute="top" secondItem="Vu3-Mg-uGk" secondAttribute="bottom" constant="20" id="ymS-1C-piS"/>
-                            <constraint firstAttribute="trailing" secondItem="mD9-kH-Z62" secondAttribute="trailing" constant="16" id="zoo-Fz-sb7"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="curPageBarWidth_SocialLogin" destination="84H-Wq-IgN" id="Epz-zw-yfz"/>
-                        <outlet property="curPageBarX_SocialLogin" destination="91M-yU-2Z3" id="G7Q-Az-5fk"/>
-                        <outlet property="emailTextField_SocialLogin" destination="z4a-4f-DcF" id="mqR-Xl-rIp"/>
-                        <outlet property="exclamationMark_SocialLogin" destination="8Xj-zH-Bk3" id="dqu-TV-910"/>
-                        <outlet property="getVerificationCodeButton_SocialLogin" destination="sgT-YQ-mY9" id="5yy-fi-h5m"/>
-                        <outlet property="greenCheck_SocialLogin" destination="c2P-Dg-ihV" id="viY-ag-K74"/>
-                        <outlet property="nextButton_SocialLogin" destination="mD9-kH-Z62" id="m2H-3X-phl"/>
-                        <outlet property="pageControlView_SocialLogin" destination="ZOh-Q8-LiP" id="slR-Em-OGY"/>
-                        <outlet property="titleLable_SocialLogin" destination="daE-vg-AY3" id="RJx-ng-bjS"/>
-                        <outlet property="verificationCodeBox_SocialLogin" destination="BrP-VU-go9" id="Vmt-xn-o3V"/>
-                        <outlet property="verificationCodeTextField_SocialLogin" destination="GEc-cJ-kJ5" id="aML-Ak-Lom"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPh-y1-9QI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3771.7557251908397" y="-2.1126760563380285"/>
-        </scene>
-        <!--Nickname View Controller-->
-        <scene sceneID="LCp-wY-dCZ">
-            <objects>
-                <viewController storyboardIdentifier="Nickname" id="Gd4-yC-81k" customClass="Nickname_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0Y9-YB-4qX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71A-hH-v50" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="69" width="357" height="9"/>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="TOf-61-l9A"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaT-Jr-xIl" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="36" y="69" width="80" height="9"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="5Pi-tw-fQS"/>
-                                    <constraint firstAttribute="height" constant="9" id="9mU-ul-ZI8"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-i1-yo2">
-                                <rect key="frame" x="17.999999999999996" y="94" width="55.666666666666657" height="37.333333333333343"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jA-Ih-vuy">
-                                <rect key="frame" x="18" y="151.33333333333334" width="28" height="18.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79K-o3-ld2" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="BO3-qD-V3c"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextButtonTap_Nickname:" destination="Gd4-yC-81k" eventType="touchUpInside" id="mz1-Ti-4eh"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6T-gu-044" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="220" width="361" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfi-wr-WXm">
-                                        <rect key="frame" x="16" y="0.0" width="329" height="50"/>
-                                        <color key="tintColor" name="HandsUpDarkGrey"/>
-                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                <color key="value" name="HandsUpGrey"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                <constraints>
-                                    <constraint firstItem="mfi-wr-WXm" firstAttribute="top" secondItem="R6T-gu-044" secondAttribute="top" id="YXI-Yz-lwj"/>
-                                    <constraint firstAttribute="trailing" secondItem="mfi-wr-WXm" secondAttribute="trailing" constant="16" id="hML-yo-KXA"/>
-                                    <constraint firstItem="mfi-wr-WXm" firstAttribute="leading" secondItem="R6T-gu-044" secondAttribute="leading" constant="16" id="iQc-3d-dWh"/>
-                                    <constraint firstAttribute="bottom" secondItem="mfi-wr-WXm" secondAttribute="bottom" id="s8m-kV-W0f"/>
-                                    <constraint firstAttribute="height" constant="50" id="vVv-9p-7Vm"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.10000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2글자 이상 5글자 이하로 생성 가능해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaD-aL-DO9">
-                                <rect key="frame" x="23" y="290" width="189" height="14"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="XCl-4g-7GO"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstItem="R6T-gu-044" firstAttribute="top" secondItem="0jA-Ih-vuy" secondAttribute="bottom" constant="50" id="34X-YB-8JK"/>
-                            <constraint firstItem="XCl-4g-7GO" firstAttribute="trailing" secondItem="R6T-gu-044" secondAttribute="trailing" constant="16" id="3Vk-kl-nlK"/>
-                            <constraint firstItem="0jA-Ih-vuy" firstAttribute="top" secondItem="8Ti-i1-yo2" secondAttribute="bottom" constant="20" id="7Ek-pg-Y7n"/>
-                            <constraint firstItem="BaD-aL-DO9" firstAttribute="top" secondItem="R6T-gu-044" secondAttribute="bottom" constant="20" id="8fO-eV-qK1"/>
-                            <constraint firstItem="QaT-Jr-xIl" firstAttribute="leading" secondItem="71A-hH-v50" secondAttribute="leading" constant="18" id="HAO-Ap-kt5"/>
-                            <constraint firstItem="8Ti-i1-yo2" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="MHy-oC-tsE"/>
-                            <constraint firstItem="79K-o3-ld2" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="16" id="RTC-t7-OaC"/>
-                            <constraint firstItem="XCl-4g-7GO" firstAttribute="bottom" secondItem="79K-o3-ld2" secondAttribute="bottom" constant="16" id="SW7-ke-Rrg"/>
-                            <constraint firstItem="BaD-aL-DO9" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="23" id="UvR-bs-HQf"/>
-                            <constraint firstAttribute="trailing" secondItem="71A-hH-v50" secondAttribute="trailing" constant="18" id="VlA-Xq-Haw"/>
-                            <constraint firstItem="8Ti-i1-yo2" firstAttribute="top" secondItem="71A-hH-v50" secondAttribute="bottom" constant="16" id="geD-ba-Tel"/>
-                            <constraint firstItem="XCl-4g-7GO" firstAttribute="trailing" secondItem="79K-o3-ld2" secondAttribute="trailing" constant="16" id="gzC-Tc-plD"/>
-                            <constraint firstItem="71A-hH-v50" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="mmC-QI-j5Q"/>
-                            <constraint firstItem="0jA-Ih-vuy" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="18" id="pKy-ku-XYf"/>
-                            <constraint firstItem="R6T-gu-044" firstAttribute="leading" secondItem="XCl-4g-7GO" secondAttribute="leading" constant="16" id="rtp-IW-PLw"/>
-                            <constraint firstItem="QaT-Jr-xIl" firstAttribute="top" secondItem="XCl-4g-7GO" secondAttribute="top" constant="10" id="v7t-th-Z4t"/>
-                            <constraint firstItem="71A-hH-v50" firstAttribute="top" secondItem="XCl-4g-7GO" secondAttribute="top" constant="10" id="ylK-KW-moT"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="curPageBarWidth_Nickname" destination="5Pi-tw-fQS" id="nZe-lu-RXG"/>
-                        <outlet property="curPageBarX_Nickname" destination="HAO-Ap-kt5" id="gnf-vV-gVe"/>
-                        <outlet property="nextButton_Nickname" destination="79K-o3-ld2" id="GFX-HA-tha"/>
-                        <outlet property="nicknameTextField_Nickname" destination="mfi-wr-WXm" id="AtL-4r-RNd"/>
-                        <outlet property="pageControlView_Nickname" destination="71A-hH-v50" id="p53-4s-wzi"/>
-                        <outlet property="subTitleLabe_Nickname" destination="0jA-Ih-vuy" id="04Q-t8-IpF"/>
-                        <outlet property="titleLable_Nickname" destination="8Ti-i1-yo2" id="P0k-0V-GDd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fGF-IX-woV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4668" y="-2"/>
-        </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="aFY-FN-CaV">
-            <objects>
-                <viewController storyboardIdentifier="Profile" id="DCc-Ea-A9V" customClass="Profile_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VxJ-kX-QZp">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xv-BJ-lOT" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="69" width="357" height="9"/>
-                                <color key="backgroundColor" name="HandsUpSnowWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="9" id="34S-Ez-Qa6"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-gZ-vnP" customClass="RoundedShadow_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="295" y="69" width="80" height="9"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="1eo-WF-f06"/>
-                                    <constraint firstAttribute="height" constant="9" id="cGz-qU-AlJ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dub-sO-VFd" customClass="RoundedShadow_UIButton" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="751" width="361" height="51"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="VRd-wQ-5Hd"/>
-                                </constraints>
-                                <color key="tintColor" name="HandsUpRealWhite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="핸즈업 들어가기">
-                                    <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="joinHandsUpButtonTap_Profile:" destination="DCc-Ea-A9V" eventType="touchUpInside" id="Lqx-BZ-sgg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwY-bS-aXg">
-                                <rect key="frame" x="17.999999999999996" y="98" width="55.666666666666657" height="37.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="32"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdI-ZW-iKE">
-                                <rect key="frame" x="18" y="155.66666666666666" width="28" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" name="HandsUpDarkGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jof-25-iMq" userLabel="Character" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
-                                <rect key="frame" x="80" y="238.66666666666663" width="233" height="233"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="233" id="9MF-Vy-eWf"/>
-                                    <constraint firstAttribute="width" constant="233" id="IaI-pI-hq3"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLa-Lx-V78" userLabel="button">
-                                <rect key="frame" x="80" y="238.66666666666663" width="233" height="233"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="233" id="kAw-UB-f3K"/>
-                                    <constraint firstAttribute="width" constant="233" id="xNU-vK-eaT"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="characterButtonTap_Profile:" destination="DCc-Ea-A9V" eventType="touchUpInside" id="KL0-oc-cTo"/>
-                                    <action selector="characterHighlightToggle_Profile:" destination="DCc-Ea-A9V" eventType="touchDown" id="3cc-Kj-NdR"/>
-                                    <action selector="characterHighlightToggle_Profile:" destination="DCc-Ea-A9V" eventType="touchUpOutside" id="87U-lB-Oqh"/>
-                                    <action selector="characterHighlightToggle_Profile:" destination="DCc-Ea-A9V" eventType="touchUpInside" id="9I4-gf-GBT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="QbE-67-uNN"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1xv-BJ-lOT" secondAttribute="trailing" constant="18" id="8pA-NK-Cga"/>
-                            <constraint firstItem="RtO-gZ-vnP" firstAttribute="top" secondItem="QbE-67-uNN" secondAttribute="top" constant="10" id="F6N-y9-f3l"/>
-                            <constraint firstItem="1xv-BJ-lOT" firstAttribute="trailing" secondItem="RtO-gZ-vnP" secondAttribute="trailing" id="HNW-6w-NJK"/>
-                            <constraint firstItem="1xv-BJ-lOT" firstAttribute="top" secondItem="QbE-67-uNN" secondAttribute="top" constant="10" id="I0M-oV-hW2"/>
-                            <constraint firstItem="Jof-25-iMq" firstAttribute="centerX" secondItem="QbE-67-uNN" secondAttribute="centerX" id="I3g-ae-7km"/>
-                            <constraint firstItem="DLa-Lx-V78" firstAttribute="centerX" secondItem="QbE-67-uNN" secondAttribute="centerX" id="Ie6-LC-MGr"/>
-                            <constraint firstItem="cwY-bS-aXg" firstAttribute="top" secondItem="1xv-BJ-lOT" secondAttribute="bottom" constant="20" id="NIC-sB-E9w"/>
-                            <constraint firstItem="sdI-ZW-iKE" firstAttribute="top" secondItem="cwY-bS-aXg" secondAttribute="bottom" constant="20" id="PWB-Wr-RMp"/>
-                            <constraint firstItem="DLa-Lx-V78" firstAttribute="top" secondItem="Jof-25-iMq" secondAttribute="top" id="VwH-ar-1mf"/>
-                            <constraint firstItem="QbE-67-uNN" firstAttribute="bottom" secondItem="dub-sO-VFd" secondAttribute="bottom" constant="16" id="WzZ-Oh-Gxu"/>
-                            <constraint firstItem="sdI-ZW-iKE" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="18" id="c0u-Hf-V80"/>
-                            <constraint firstAttribute="trailing" secondItem="dub-sO-VFd" secondAttribute="trailing" constant="16" id="erT-0v-cha"/>
-                            <constraint firstItem="cwY-bS-aXg" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="18" id="g1S-wC-3no"/>
-                            <constraint firstItem="dub-sO-VFd" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="16" id="jYX-dT-BRn"/>
-                            <constraint firstItem="1xv-BJ-lOT" firstAttribute="leading" secondItem="QbE-67-uNN" secondAttribute="leading" constant="18" id="pQN-en-8Ax"/>
-                            <constraint firstItem="Jof-25-iMq" firstAttribute="top" secondItem="sdI-ZW-iKE" secondAttribute="bottom" constant="64" id="sEP-FJ-y1W"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="characterButton_Profile" destination="DLa-Lx-V78" id="M6L-VS-mi5"/>
-                        <outlet property="characterView_Profile" destination="Jof-25-iMq" id="eHA-4N-wYb"/>
-                        <outlet property="curPageBarWidth_Profile" destination="1eo-WF-f06" id="UlW-Xr-5vZ"/>
-                        <outlet property="pageControlView_Profile" destination="1xv-BJ-lOT" id="Wr3-lJ-rUi"/>
-                        <outlet property="subTitleLabe_Profile" destination="sdI-ZW-iKE" id="JBs-AB-grc"/>
-                        <outlet property="titleLable_Profile" destination="cwY-bS-aXg" id="FVS-v1-4M6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ard-TI-1HA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5682" y="-2"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="PeQ-0y-anm">
-            <objects>
-                <navigationController storyboardIdentifier="Sign_upNC" automaticallyAdjustsScrollViewInsets="NO" id="FKn-rs-iRw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z7J-QI-kzQ">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Rth-I1-w0o"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzy-nZ-e41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="43.511450381679388" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="979" y="18"/>
         </scene>
     </scenes>
     <resources>
@@ -2585,9 +1214,11 @@
         <image name="OrangeCheck" width="512" height="410"/>
         <image name="PWVisibility" width="512" height="533"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="123"/>
-        <image name="eye" catalog="system" width="128" height="79"/>
         <namedColor name="HandsUpBackground">
-            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpBlue">
+            <color red="0.27058823529411763" green="0.45098039215686275" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpDarkGrey">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -56,6 +56,7 @@
 		8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2109212966DFF30042D14A /* LaunchScreen.storyboard */; };
 		8B21092C2966E1430042D14A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B21092B2966E1430042D14A /* Alamofire */; };
 		8B4589742970B0FE0044227F /* FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4589732970B0FE0044227F /* FirstResponder.swift */; };
+		8B45E0D2297A3CC50057D156 /* EnableButtonScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */; };
 		8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4BF0C62968C11F00B00890 /* FindPW_ViewController.swift */; };
 		8B4BF0D62968DAD200B00890 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */; };
 		8B4BF0D72968DAD200B00890 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */; };
@@ -67,19 +68,13 @@
 		8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648084296ECD5D008D28CF /* Character_UIView.swift */; };
 		8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */; };
 		8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */; };
-		8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */; };
-		8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */; };
-		8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */; };
-		8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */; };
-		8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */; };
 		8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */; };
+		8BA3980C29862F2600A532D4 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA3980B29862F2600A532D4 /* ServerAPI.swift */; };
 		8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */; };
 		8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064B2968861400F89636 /* Login_ViewController.swift */; };
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
 		8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1EB5E296866D000820C07 /* Login.storyboard */; };
-		8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */; };
 		8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */; };
-		8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */; };
 		8BE974D7297959E8008DD78D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE974D6297959E8008DD78D /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +127,7 @@
 		8B2109222966DFF30042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B2109242966DFF30042D14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B4589732970B0FE0044227F /* FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponder.swift; sourceTree = "<group>"; };
+		8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButtonScroll.swift; sourceTree = "<group>"; };
 		8B4BF0C62968C11F00B00890 /* FindPW_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPW_ViewController.swift; sourceTree = "<group>"; };
 		8B4BF0CA2968DAD100B00890 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		8B4BF0CB2968DAD100B00890 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -142,19 +138,13 @@
 		8B648084296ECD5D008D28CF /* Character_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character_UIView.swift; sourceTree = "<group>"; };
 		8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEdit_ViewController.swift; sourceTree = "<group>"; };
 		8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up_ViewController.swift; sourceTree = "<group>"; };
-		8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up2_ViewController.swift; sourceTree = "<group>"; };
-		8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSign_up_ViewController.swift; sourceTree = "<group>"; };
-		8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin_ViewController.swift; sourceTree = "<group>"; };
-		8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickname_ViewController.swift; sourceTree = "<group>"; };
-		8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile_ViewController.swift; sourceTree = "<group>"; };
 		8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisappear_UIViewController.swift; sourceTree = "<group>"; };
+		8BA3980B29862F2600A532D4 /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
 		8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIButton.swift; sourceTree = "<group>"; };
 		8BA6064B2968861400F89636 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
 		8BB1EB5E296866D000820C07 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView_ViewController.swift; sourceTree = "<group>"; };
 		8BD2AF96296A5E0A007FD6BD /* Sign_up.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign_up.storyboard; sourceTree = "<group>"; };
-		8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up1_ViewController.swift; sourceTree = "<group>"; };
 		8BE974D6297959E8008DD78D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +257,8 @@
 			children = (
 				8B648082296E9191008D28CF /* SignupData.swift */,
 				8B4589732970B0FE0044227F /* FirstResponder.swift */,
+				8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */,
+				8BA3980B29862F2600A532D4 /* ServerAPI.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -337,7 +329,6 @@
 		8BA6064D2968864900F89636 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				8BB1EB602968676C00820C07 /* FirstView_ViewController.swift */,
 				8BA6064B2968861400F89636 /* Login_ViewController.swift */,
 				8B4BF0C62968C11F00B00890 /* FindPW_ViewController.swift */,
 			);
@@ -358,12 +349,6 @@
 		8BD2AF98296A5E1F007FD6BD /* Sign_up */ = {
 			isa = PBXGroup;
 			children = (
-				8BD2AF99296A5E75007FD6BD /* Sign_up1_ViewController.swift */,
-				8B7E8771296A6FE6008F6BF5 /* Sign_up2_ViewController.swift */,
-				8B7E8775296A9712008F6BF5 /* SocialLogin_ViewController.swift */,
-				8B7E8773296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift */,
-				8B7E8777296AA03F008F6BF5 /* Nickname_ViewController.swift */,
-				8B7E8779296AA237008F6BF5 /* Profile_ViewController.swift */,
 				8B648088296F3FF2008D28CF /* CharacterEdit_ViewController.swift */,
 				8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */,
 			);
@@ -500,27 +485,22 @@
 				32A3F17929747B4500B0347D /* AlarmTableViewCell.swift in Sources */,
 				32A3F17F2976DFB000B0347D /* ChatAlarmTableViewCell.swift in Sources */,
 				328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */,
-				8BB1EB612968676C00820C07 /* FirstView_ViewController.swift in Sources */,
 				8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */,
 				8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */,
-				8B7E8776296A9712008F6BF5 /* SocialLogin_ViewController.swift in Sources */,
-				8B7E877A296AA237008F6BF5 /* Profile_ViewController.swift in Sources */,
 				8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */,
+				8B45E0D2297A3CC50057D156 /* EnableButtonScroll.swift in Sources */,
 				8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,
 				8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */,
 				4819DD3229828C1300549538 /* CustromSwitchHome.swift in Sources */,
-				8B7E8772296A6FE6008F6BF5 /* Sign_up2_ViewController.swift in Sources */,
 				8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */,
-				8B7E8778296AA03F008F6BF5 /* Nickname_ViewController.swift in Sources */,
+				8BA3980C29862F2600A532D4 /* ServerAPI.swift in Sources */,
 				8B648083296E9191008D28CF /* SignupData.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
-				8BD2AF9A296A5E75007FD6BD /* Sign_up1_ViewController.swift in Sources */,
 				8B4589742970B0FE0044227F /* FirstResponder.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 				4819DCD82980CA1100549538 /* FirtstListTableViewCell.swift in Sources */,
-				8B7E8774296A8CD1008F6BF5 /* EmailSign_up_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
