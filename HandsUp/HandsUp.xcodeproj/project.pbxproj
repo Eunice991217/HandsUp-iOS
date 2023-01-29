@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */; };
 		3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229E7622977CA54006FC6CB /* ChatViewController.swift */; };
 		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
 		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
@@ -21,6 +22,7 @@
 		32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
 		32AB018329730B2F007D550A /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018229730B2F007D550A /* CustomSwitch.swift */; };
 		32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018429730C4C007D550A /* CustomThumbView.swift */; };
+		32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6577829824271007609A2 /* PostThroughChatViewController.swift */; };
 		480B01E5297149D1007054B1 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E4297149D1007054B1 /* EditProfile.swift */; };
 		480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E629715A3C007054B1 /* EditProfileName.swift */; };
 		4819DCD82980CA1100549538 /* FirtstListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4819DCD72980CA1100549538 /* FirtstListTableViewCell.swift */; };
@@ -82,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		32AB016C2969A0C5007D550A /* HandsUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HandsUp.storyboard; sourceTree = "<group>"; };
 		32AB018229730B2F007D550A /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		32AB018429730C4C007D550A /* CustomThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
+		32D6577829824271007609A2 /* PostThroughChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThroughChatViewController.swift; sourceTree = "<group>"; };
 		480B01E4297149D1007054B1 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		480B01E629715A3C007054B1 /* EditProfileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileName.swift; sourceTree = "<group>"; };
 		4819DCD72980CA1100549538 /* FirtstListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirtstListTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				3229E7622977CA54006FC6CB /* ChatViewController.swift */,
 				32A3F17E2976DFB000B0347D /* ChatAlarmTableViewCell.swift */,
 				329296772978FDC00077F98E /* RegisterPostViewController.swift */,
+				32D6577829824271007609A2 /* PostThroughChatViewController.swift */,
+				321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */,
 			);
 			path = "New Group1";
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 				48398AE6297288F9006FD205 /* Report.swift in Sources */,
 				48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */,
 				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
+				321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */,
 				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
 				328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */,
 				3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */,
@@ -481,6 +488,7 @@
 				48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */,
 				48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */,
 				48398AEA297295C5006FD205 /* MyPostTableViewCell.swift in Sources */,
+				32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */,
 				486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */,
 				48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
@@ -662,8 +670,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -697,8 +706,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

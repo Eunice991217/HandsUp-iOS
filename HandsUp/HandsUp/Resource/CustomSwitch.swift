@@ -26,13 +26,13 @@ public class CustomSwitch: UIControl {
         }
     }
     
-    @IBInspectable  public var onTintColor: UIColor = UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1){
+    @IBInspectable  public var onTintColor: UIColor = UIColor(red: 0.937, green: 0.482, blue: 0.086, alpha: 1){
         didSet {
             self.setupUI()
         }
     }
     
-    @IBInspectable public var offTintColor: UIColor = UIColor(red: 0.937, green: 0.482, blue: 0.086, alpha: 1) {
+    @IBInspectable public var offTintColor: UIColor = UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1){
         didSet {
             self.setupUI()
         }

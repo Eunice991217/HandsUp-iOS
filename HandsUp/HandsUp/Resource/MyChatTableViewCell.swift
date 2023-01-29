@@ -7,15 +7,22 @@
 
 import UIKit
 
-class MyChatTableViewCell: UITableViewCell{
+protocol TableViewCellDelegate:class {
+    func updateTextViewHeight(_ cell:TableViewCell,_ textView:UITextView)
+}
 
-    @IBOutlet weak var contentTV_MCTVC: UITextView!
+class MyChatTableViewCell: UITableViewCell, UITextViewDelegate {
+    
+    weak var delegate: TableViewCellDelegate?
+
+   @IBOutlet weak var contentTV_MCTVC: UITextView!
     
     @IBOutlet weak var timeLb_MCTVC: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        contentTV_MCTVC.isEditable = false
+        //setTextView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,29 +35,13 @@ class MyChatTableViewCell: UITableViewCell{
        super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        
-        self.setupLayout()
-    }
     
-    func setupLayout() {
-        contentTV_MCTVC.textContainerInset = .zero
-        
-        textViewDidChange(contentTV_MCTVC)
-        
-        //contentView.backgroundColor = .orange
-        
+    func setTextView() {
+        contentTV_MCTVC.delegate = self
+        contentTV_MCTVC.isScrollEnabled = false
+        contentTV_MCTVC.sizeToFit()
+        }
+  
 
-
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        let newSize = textView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
-        textView.frame = CGRect(origin: textView.frame.origin, size: newSize)
-        
-        
-    }
     
 }
