@@ -20,8 +20,8 @@ class ListThirdTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
 
-        self.myTableView.register(ThirdListTableViewCell.self,
-                              forCellReuseIdentifier: "ThirdListTableViewCell")
+        self.myTableView.register(ListTableViewCell.self,
+                              forCellReuseIdentifier: "ListTableViewCell")
 
         self.view.addSubview(self.myTableView)
 
@@ -72,7 +72,7 @@ class ListThirdTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ThirdListTableViewCell.id, for: indexPath) as? ThirdListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         
         cell.name.text = MyHomeList3Data[indexPath.row].name
         cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
@@ -96,6 +96,13 @@ class ListThirdTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.img.image = MyHomeList3Data[indexPath.row].profileImage
 
+        cell.label1.text = "|"
+        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        cell.label2.text = "|"
+        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
         return cell
     }
 
@@ -111,16 +118,16 @@ struct MyHomeList3DataModel {
 
 let MyHomeList3Data: [MyHomeList3DataModel] = [
     MyHomeList3DataModel(
-            profileImage: UIImage(named: "characterExample2"),
-            name: "차라나   |   ",
-            location: "경기도 성남시   |   ",
+            profileImage: UIImage(named: "characterExample4"),
+            name: "차라나",
+            location: "경기도 성남시",
             time: "10분전",
             content: "제가 3시쯤에 수업이 끝날거 같은데 ..."
         ),
     MyHomeList3DataModel(
-            profileImage: UIImage(named: "characterExample3"),
-            name: "카리나   |   ",
-            location: "경기도 성남시   |   ",
+            profileImage: UIImage(named: "characterExample4"),
+            name: "카리나",
+            location: "경기도 성남시",
             time: "10분전",
             content: "제가 5시쯤에 수업이 끝날거 같은데 ..."
         )

@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class FifthListTableViewCell: UITableViewCell {
+class ListTableViewCell: UITableViewCell {
 
-    static let id = "FifthListTableViewCell"
+    static let id = "ListTableViewCell"
     
     lazy var img : UIImageView = { // 이미지 생성
        let imgView = UIImageView()
@@ -51,7 +51,7 @@ class FifthListTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left:10, bottom: 5, right: 10))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left:10, bottom: 10, right: 10))
     }
     
     override func awakeFromNib() {
@@ -59,6 +59,8 @@ class FifthListTableViewCell: UITableViewCell {
         
         content.lineBreakMode = .byWordWrapping
         content.numberOfLines = 0
+        
+        // self.backgroundColor = UIColor(red: 0.975, green: 0.975, blue: 0.975, alpha: 1)
         
         // Initialization code
     }
@@ -77,6 +79,9 @@ class FifthListTableViewCell: UITableViewCell {
         contentView.addSubview(time)
         contentView.addSubview(content)
         contentView.addSubview(img)
+        contentView.addSubview(label1)
+        contentView.addSubview(label2)
+        
         contentView.backgroundColor = .white
         
         contentView.layer.shadowOffset = CGSize(width: 10, height: 10)
@@ -91,13 +96,23 @@ class FifthListTableViewCell: UITableViewCell {
             //make.trailing.equalTo(-5)
         }
         
+        label1.snp.makeConstraints { make in
+            make.leading.equalTo(name.snp.leading).offset(47)
+            make.top.equalTo(30)
+        }
+        
         location.snp.makeConstraints { make in
-            make.leading.equalTo(name.snp.leading).offset(57)
+            make.leading.equalTo(label1.snp.leading).offset(20)
+            make.top.equalTo(30)
+        }
+        
+        label2.snp.makeConstraints { make in
+            make.leading.equalTo(location.snp.leading).offset(87)
             make.top.equalTo(30)
         }
         
         time.snp.makeConstraints { make in
-            make.leading.equalTo(location.snp.leading).offset(105)
+            make.leading.equalTo(label2.snp.leading).offset(20)
             make.top.equalTo(30)
         }
         
@@ -108,7 +123,7 @@ class FifthListTableViewCell: UITableViewCell {
         }
         
         img.snp.makeConstraints { make in
-            make.leading.top.equalTo(20)
+            make.leading.top.equalTo(15)
             make.size.width.height.equalTo(75)
         }
     }

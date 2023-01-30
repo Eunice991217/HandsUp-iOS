@@ -59,31 +59,24 @@ struct MyPostDataModel {
 
 let MyPostData: [MyPostDataModel] = [
     MyPostDataModel(
-            profileImage: UIImage(named: "characterExample2"),
+            profileImage: UIImage(named: "characterExample4"),
             name: "차라나",
             location: "경기도 성남시",
             time: "10분전",
             content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
         ),
     MyPostDataModel(
-            profileImage: UIImage(named: "characterExample3"),
+            profileImage: UIImage(named: "characterExample4"),
             name: "차라나",
             location: "경기도 성남시",
-            time: "10분전",
-            content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
+            time: "40분전",
+            content: "제가 6시쯤에 수업이 끝날거 같은데 7시 30에 학교근처.."
         ),
     MyPostDataModel(
-            profileImage: UIImage(named: "characterExample2"),
+            profileImage: UIImage(named: "characterExample4"),
             name: "차라나",
             location: "경기도 성남시",
-            time: "10분전",
-            content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
-        ),
-    MyPostDataModel(
-            profileImage: UIImage(named: "characterExample3"),
-            name: "차라나",
-            location: "경기도 성남시",
-            time: "10분전",
-            content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
+            time: "15분전",
+            content: "제가 4시쯤에 수업이 끝날거 같은데 5시 30에 학교근처.."
         )
 ]

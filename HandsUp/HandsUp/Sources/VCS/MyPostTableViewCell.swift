@@ -29,7 +29,10 @@ class MyPostTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        contentView.layer.shadowOffset = CGSize(width: 10, height: 10)
+        contentView.layer.shadowOpacity = 0.1
+        contentView.layer.shadowRadius = 30
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
