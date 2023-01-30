@@ -424,16 +424,16 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
             exclamationMark_Sign_up.alpha = 1
             isVerified_Sign_up = false
         }
+        isNextButtonActive_Sign_up = isVerified_Sign_up && isCorrectPW_Sign_up
         changeNextButtonState_Sign_up()
     }
     
     @objc func isCorrectPWCheck_Sign_up(_sender: Any){
-        let pattern_Sign_up = "^[a-zA-Z0-9~!@#$%^&*()_+[]{}\\|;:'\",./<>?]{8,16}$"
+        let pattern_Sign_up = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()_+\\[\\]{}\\\\\\|;:\'\",\\.\\/<>\\?]).{8,16}$"
         var regexPW_Sign_up: Bool = true
-        let text = PWtextField_Sign_up.text ?? ""
-        guard let _ = text.range(of: pattern_Sign_up, options: .regularExpression) else {
+        let text: String = PWtextField_Sign_up.text ?? ""
+        if text.range(of: pattern_Sign_up, options: .regularExpression) == nil{
             regexPW_Sign_up = false
-            return
         }
         
         if(regexPW_Sign_up && passwordConfirmationTextField_Sign_up.text == PWtextField_Sign_up.text){
