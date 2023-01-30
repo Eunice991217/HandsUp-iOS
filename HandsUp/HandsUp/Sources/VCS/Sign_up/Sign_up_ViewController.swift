@@ -165,7 +165,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBAction func nextButtonTap_Sign_up(_ sender: Any){
         if(isNextButtonActive_Sign_up){
             if(curPageInt_Sign_up == 4){
-                if ServerAPI.nicknameDoubleCheck(vc: self) == 1{
+                if ServerAPI.nicknameDoubleCheck(vc: self) == 2000{
                     sign_upData_Sign_up.nickname = nicknameTextField_Sign_up.text!
                 }else{
                     return
