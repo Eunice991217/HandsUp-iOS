@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Server Error View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="ServerError_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-Mu-7JB" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
+                                <rect key="frame" x="100.66666666666669" y="251" width="192" height="192"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="192" id="dfp-7O-j2G"/>
+                                    <constraint firstAttribute="height" constant="192" id="eAh-h4-ojr"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laa-aA-5S1">
+                                <rect key="frame" x="180.33333333333334" y="469" width="32.666666666666657" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                <color key="textColor" name="HandsUpMainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잠시후 다시 시도해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jg-Uo-vHo">
+                                <rect key="frame" x="134.66666666666666" y="504" width="123.66666666666666" height="14.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                <color key="textColor" name="HandsUpDarkGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vmj-Mu-7JB" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1RB-L1-mf5"/>
+                            <constraint firstItem="laa-aA-5S1" firstAttribute="top" secondItem="vmj-Mu-7JB" secondAttribute="bottom" constant="26" id="1y4-Mf-Zna"/>
+                            <constraint firstItem="0Jg-Uo-vHo" firstAttribute="top" secondItem="laa-aA-5S1" secondAttribute="bottom" constant="16" id="2D7-cZ-gvw"/>
+                            <constraint firstItem="0Jg-Uo-vHo" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="3M2-pg-u44"/>
+                            <constraint firstItem="vmj-Mu-7JB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="192" id="qOV-gC-jyE"/>
+                            <constraint firstItem="laa-aA-5S1" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="yET-ad-Bl3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="character_SE" destination="vmj-Mu-7JB" id="Srn-eW-QGR"/>
+                        <outlet property="title_SE" destination="laa-aA-5S1" id="g3n-hT-L19"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="HandsUpDarkGrey">
+            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpMainText">
+            <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

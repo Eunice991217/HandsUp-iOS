@@ -9,7 +9,7 @@ import UIKit
 import SafariServices
 
 class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
-    //Page
+    // MARK: - Page
     @IBOutlet weak var BackButton_Sign_up: UIButton!
     @IBOutlet weak var pageControllBar_Sign_up: RoundedShadow_UIView!
     @IBOutlet weak var curBarWidth_Sign_up: NSLayoutConstraint!
@@ -31,7 +31,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     var isNextButtonActive_Sign_up: Bool = false
     var pageWidth_Sign_up: CGFloat = 1
     
-    //Page1
+    // MARK: - Page1
     @IBOutlet weak var titlePG1_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG1_Sign_up: UILabel!
     @IBOutlet weak var checkBoxButton1_Sign_up: RoundedShadow_UIButton!
@@ -40,13 +40,13 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var checkBoxButton4_Sign_up: RoundedShadow_UIButton!
     var agreement_Sign_up =  [Bool](repeating: false, count: 4)
     
-    //Page2
+    // MARK: - Page2
     @IBOutlet weak var titlePG2_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG2_Sign_up: UILabel!
     @IBOutlet weak var schoolPickerView_Sign_up: UIPickerView!
     var schoolList_Sign_up: [String] = ["가천대학교", "건국대학교", "동국대학교", "세종대학교", "숭실대학교" ]
     
-    //Page3
+    // MARK: - Page3
     @IBOutlet weak var titlePG3_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG3_Sign_up: UILabel!
     @IBOutlet weak var scrollView_Sign_up: UIScrollView!
@@ -65,18 +65,18 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     var vefifiedCode_Sign_up: String = "12"
     let emailRegexDict: [String: String] = ["가천대학교": "gachon\\.ac\\.kr$", "건국대학교": "konkuk\\.ac\\.kr$", "동국대학교": "(dgu\\.ac\\.kr|dongguk\\.edu)$", "세종대학교": "sju\\.ac\\.kr$", "숭실대학교": "soongsil\\.ac\\.kr$"]
     
-    //Page4
+    // MARK: - Page4
     @IBOutlet weak var titlePG4_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG4_Sign_up: UILabel!
     @IBOutlet weak var nicknameTextField_Sign_up: UITextField!
     
-    //Page5
+    // MARK: - Page5
     @IBOutlet weak var titlePG5_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG5_Sign_up: UILabel!
     @IBOutlet weak var character_Sign_up: Character_UIView!
     @IBOutlet weak var characterButton_Sign_up: UIButton!
-
-    //Page func
+    
+    // MARK: - Page func
     func pageUpdate_Sign_up(){
         if(curPageInt_Sign_up < 5){
             curBarWidth_Sign_up.constant = pageControllBar_Sign_up.frame.width * curPageCGFloat_Sign_up / 5
@@ -165,10 +165,15 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBAction func nextButtonTap_Sign_up(_ sender: Any){
         if(isNextButtonActive_Sign_up){
             if(curPageInt_Sign_up == 4){
-                sign_upData_Sign_up.nickname = nicknameTextField_Sign_up.text!
+                if ServerAPI.nicknameDoubleCheck(vc: self) == 1{
+                    sign_upData_Sign_up.nickname = nicknameTextField_Sign_up.text!
+                }else{
+                    return
+                }
             }
             
             if(curPageInt_Sign_up < 5){
+                print(curPageInt_Sign_up)
                 curPageInt_Sign_up += 1
                 curPageCGFloat_Sign_up += 1
                 pageUpdate_Sign_up()
@@ -208,7 +213,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         }
     }
     
-    //Page 1
+    // MARK: - Page 1
     func page1Init_Sign_up(){
         checkBoxButton1_Sign_up.setImage(nil, for: .normal)
         checkBoxButton2_Sign_up.setImage(nil, for: .normal)
@@ -279,7 +284,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         self.present(termSafariView_Sign_up, animated: true, completion: nil)
     }
     
-    //Page 2
+    // MARK: - Page 2
     func page2Init_Sign_up(){
         sign_upData_Sign_up.school = schoolList_Sign_up[0]
         schoolPickerView_Sign_up.delegate = self
@@ -290,7 +295,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         schoolPickerView_Sign_up.subviews[1].backgroundColor = .clear
     }
     
-    //Page 3
+    // MARK: - Page 3
     @IBAction func getVerificationCode_Sign_up(_ sender: Any){
         verificationCodeTextField_Sign_up.text = ""
         verificationCodeBox_Sign_up.borderWidth = 0
@@ -300,7 +305,11 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         changeNextButtonState_Sign_up()
         if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? ""){
             sign_upData_Sign_up.email = emailTextField_Sign_up.text!
-            
+            if ServerAPI.emailVerify(vc: self, email: emailTextField_Sign_up.text!) == 1{
+                
+            }else{
+                
+            }
         }
     }
     
@@ -343,8 +352,8 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         }
         pattern_Sign_up += schoolEmail
         guard let _ = text.range(of: pattern_Sign_up, options: .regularExpression) else {
-                return false
-            }
+            return false
+        }
         return true
     }
     
@@ -363,7 +372,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
               let keyboardFrame_Sign_up = userInfo_Sign_up[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
             return
         }
-        scrollView_Sign_up.contentInset.bottom = keyboardFrame_Sign_up.size.height       
+        scrollView_Sign_up.contentInset.bottom = keyboardFrame_Sign_up.size.height
         let firstResponder_Sign_up = UIResponder.currentFirstResponder
         if let currentView_Sign_up = firstResponder_Sign_up as? UITextView {
             scrollView_Sign_up.scrollRectToVisible(currentView_Sign_up.frame, animated: true)
@@ -443,6 +452,10 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 sign_upData_Sign_up.PW = PWtextField_Sign_up.text!
                 isCorrectPW_Sign_up = true
             }
+            else{
+                sign_upData_Sign_up.PW = ""
+                isCorrectPW_Sign_up = false
+            }
         }
         else{
             sign_upData_Sign_up.PW = ""
@@ -470,7 +483,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         }
     }
     
-    //Page 4
+    // MARK: - Page 4
     func page4Init_Sign_up(){
         nicknameTextField_Sign_up.addTarget(self, action: #selector(nicknameInput_Sign_up(_sender: )), for: .editingChanged)
     }
@@ -482,16 +495,16 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         }
         let pattern_Sign_up = "^[가-힣]$"
         if let regex_Sign_up = try? NSRegularExpression(pattern: pattern_Sign_up, options: .caseInsensitive) {
-                var index_Sign_up = 0
-                while index_Sign_up < nickNameArray_Sign_up.count {
-                    let results_Sign_up = regex_Sign_up.matches(in: String(nickNameArray_Sign_up[index_Sign_up]), options: [], range: NSRange(location: 0, length: 1))
-                    if results_Sign_up.count == 0 {
-                        return false
-                    } else {
-                        index_Sign_up += 1
-                    }
+            var index_Sign_up = 0
+            while index_Sign_up < nickNameArray_Sign_up.count {
+                let results_Sign_up = regex_Sign_up.matches(in: String(nickNameArray_Sign_up[index_Sign_up]), options: [], range: NSRange(location: 0, length: 1))
+                if results_Sign_up.count == 0 {
+                    return false
+                } else {
+                    index_Sign_up += 1
                 }
             }
+        }
         return true
     }
     
@@ -505,7 +518,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         changeNextButtonState_Sign_up()
     }
     
-    //Page 5
+    // MARK: - Page 5
     func page5Init_Sign_up(){
         character_Sign_up.setAll(componentArray: sign_upData_Sign_up.characterComponent)
         character_Sign_up.setCharacter()
@@ -526,9 +539,9 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         characterEditVC_Sign_up.delegate = self
         self.present(characterEditVC_Sign_up,animated:true)
     }
-    
 }
 
+// MARK: - extension
 extension Sign_up_ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

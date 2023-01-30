@@ -216,6 +216,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="80"/>
                                     <color key="baseForegroundColor" name="HandsUpOrange"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="HomePlusBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="Ujf-gP-wgM"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-m2-fJg">
                                 <rect key="frame" x="182.5" y="432.5" width="51" height="31"/>

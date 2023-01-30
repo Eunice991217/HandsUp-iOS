@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qdh-ox-a5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rZZ-BR-PVU">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -398,7 +398,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디/비밀번호 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-nH-VEM">
-                                <rect key="frame" x="112.33333333333333" y="71.333333333333329" width="168.33333333333337" height="23.666666666666671"/>
+                                <rect key="frame" x="112.66666666666669" y="71.333333333333329" width="168" height="23.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -434,6 +434,32 @@
             </objects>
             <point key="canvasLocation" x="3776.3358778625952" y="-21.126760563380284"/>
         </scene>
+        <!--First View Controller-->
+        <scene sceneID="T0e-Th-dp0">
+            <objects>
+                <viewController storyboardIdentifier="First" id="rZZ-BR-PVU" customClass="First_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fOj-IM-9TE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="typoLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="usn-tA-5vz">
+                                <rect key="frame" x="100" y="336.66666666666669" width="193" height="204.00000000000006"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gzS-a0-5DZ"/>
+                        <color key="backgroundColor" name="HandsUpOrange"/>
+                        <constraints>
+                            <constraint firstItem="usn-tA-5vz" firstAttribute="leading" secondItem="gzS-a0-5DZ" secondAttribute="leading" constant="100" id="52D-lL-Gib"/>
+                            <constraint firstItem="usn-tA-5vz" firstAttribute="centerY" secondItem="gzS-a0-5DZ" secondAttribute="centerY" id="BSB-UV-mbh"/>
+                            <constraint firstItem="gzS-a0-5DZ" firstAttribute="trailing" secondItem="usn-tA-5vz" secondAttribute="trailing" constant="100" id="QPB-DD-bNW"/>
+                            <constraint firstItem="usn-tA-5vz" firstAttribute="centerX" secondItem="gzS-a0-5DZ" secondAttribute="centerX" id="ng2-gs-x1u"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Krz-wD-Vzk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="-21"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bbw-h2-9Sb">
             <objects>
@@ -462,6 +488,7 @@
         <image name="characterExample2" width="405" height="406"/>
         <image name="characterExample3" width="405" height="405"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="123"/>
+        <image name="typoLogoWhite" width="644" height="204"/>
         <namedColor name="HandsUpBackground">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -473,6 +500,9 @@
         </namedColor>
         <namedColor name="HandsUpMainText">
             <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpOrange">
+            <color red="0.95686274509803926" green="0.48627450980392156" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpRealWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
