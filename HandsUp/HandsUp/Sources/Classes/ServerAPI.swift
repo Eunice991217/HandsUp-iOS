@@ -91,6 +91,7 @@ class ServerAPI{
                 check = output.statusCode
                 UserDefaults.standard.set(output.result.accessToken, forKey: "accessToken")
                 UserDefaults.standard.set(output.result.refreshToken, forKey: "refreshToken")
+                UserDefaults.standard.set(true, forKey: "login")
             }
             semaphore.signal()
         }.resume()

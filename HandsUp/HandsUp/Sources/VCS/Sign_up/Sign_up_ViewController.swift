@@ -62,7 +62,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var showPWConfirmationButton_Sign_up:UIButton!
     var isVerified_Sign_up: Bool = false
     var isCorrectPW_Sign_up: Bool = false
-    var vefifiedCode_Sign_up: String = "12"
+    var vefifiedCode_Sign_up: String = ""
     let emailRegexDict: [String: String] = ["가천대학교": "gachon\\.ac\\.kr$", "건국대학교": "konkuk\\.ac\\.kr$", "동국대학교": "(dgu\\.ac\\.kr|dongguk\\.edu)$", "세종대학교": "sju\\.ac\\.kr$", "숭실대학교": "soongsil\\.ac\\.kr$"]
     
     // MARK: - Page4
@@ -428,34 +428,17 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     @objc func isCorrectPWCheck_Sign_up(_sender: Any){
-        let PWArray_Sign_up = Array(PWtextField_Sign_up.text ?? "")
+        let pattern_Sign_up = "^[a-zA-Z0-9~!@#$%^&*()_+[]{}\\|;:'\",./<>?]{8,16}$"
         var regexPW_Sign_up: Bool = true
-        if(8 <= PWArray_Sign_up.count && PWArray_Sign_up.count <= 10){
-            let pattern_Sign_up = "^[a-zA-Z0-9]$"
-            if let regex_Sign_up = try? NSRegularExpression(pattern: pattern_Sign_up, options: .caseInsensitive) {
-                var index_Sign_up = 0
-                while index_Sign_up < PWArray_Sign_up.count {
-                    let results_Sign_up = regex_Sign_up.matches(in: String(PWArray_Sign_up[index_Sign_up]), options: [], range: NSRange(location: 0, length: 1))
-                    if results_Sign_up.count == 0 {
-                        regexPW_Sign_up = false
-                    } else {
-                        index_Sign_up += 1
-                    }
-                }
-            }
-        }else{
+        let text = PWtextField_Sign_up.text ?? ""
+        guard let _ = text.range(of: pattern_Sign_up, options: .regularExpression) else {
             regexPW_Sign_up = false
+            return
         }
         
-        if(regexPW_Sign_up){
-            if(passwordConfirmationTextField_Sign_up.text == PWtextField_Sign_up.text && PWtextField_Sign_up.text != ""){
-                sign_upData_Sign_up.PW = PWtextField_Sign_up.text!
-                isCorrectPW_Sign_up = true
-            }
-            else{
-                sign_upData_Sign_up.PW = ""
-                isCorrectPW_Sign_up = false
-            }
+        if(regexPW_Sign_up && passwordConfirmationTextField_Sign_up.text == PWtextField_Sign_up.text){
+            sign_upData_Sign_up.PW = PWtextField_Sign_up.text!
+            isCorrectPW_Sign_up = true
         }
         else{
             sign_upData_Sign_up.PW = ""
@@ -489,21 +472,9 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     func nicknameValidation_Sign_up(text: String) -> Bool{
-        let nickNameArray_Sign_up = Array(text)
-        if(nickNameArray_Sign_up.count < 2 || 5 < nickNameArray_Sign_up.count){
+        let pattern_Sign_up = "^[가-힣]{2,5}$"
+        guard let _ = text.range(of: pattern_Sign_up, options: .regularExpression) else {
             return false
-        }
-        let pattern_Sign_up = "^[가-힣]$"
-        if let regex_Sign_up = try? NSRegularExpression(pattern: pattern_Sign_up, options: .caseInsensitive) {
-            var index_Sign_up = 0
-            while index_Sign_up < nickNameArray_Sign_up.count {
-                let results_Sign_up = regex_Sign_up.matches(in: String(nickNameArray_Sign_up[index_Sign_up]), options: [], range: NSRange(location: 0, length: 1))
-                if results_Sign_up.count == 0 {
-                    return false
-                } else {
-                    index_Sign_up += 1
-                }
-            }
         }
         return true
     }

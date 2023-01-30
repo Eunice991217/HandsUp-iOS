@@ -8,21 +8,31 @@
 import UIKit
 
 class First_ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
+        let status: Int
         if UserDefaults.standard.bool(forKey: "login") {
-        //자동 로그인
-            if ServerAPI.login(email: UserDefaults.standard.string(forKey: "email") ?? "", pw: UserDefaults.standard.string(forKey: "password") ?? "") == 1{
-            }else{
-                UserDefaults.standard.set(false, forKey: "login")
-                let loginVC_First = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                self.present(loginVC_First!, animated: false)
-            }
+            status = ServerAPI.login(email: UserDefaults.standard.string(forKey: "email") ?? "", pw: UserDefaults.standard.string(forKey: "password") ?? "")
+        }else{
+            status = 0
+        }
+        
+        if status == 1{
+            let mainSB_First = UIStoryboard(name: "Main", bundle: nil)
+            let homeVC_First = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.present(homeVC_First!, animated: false)
+        }
+        else if status == -1{
+            let serverSB_First = UIStoryboard(name: "ServerError", bundle: nil)
+            let serverErrorVC_First = self.storyboard?.instantiateViewController(withIdentifier: "ServerError")
+            self.present(serverErrorVC_First!, animated: false)
         }
         else{
+            UserDefaults.standard.set(false, forKey: "login")
             let loginVC_First = self.storyboard?.instantiateViewController(withIdentifier: "Login")
             self.present(loginVC_First!, animated: false)
         }

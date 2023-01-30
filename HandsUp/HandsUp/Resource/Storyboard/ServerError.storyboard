@@ -17,7 +17,7 @@
         <!--Server Error View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="ServerError_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ServerError" id="Y6W-OH-hqX" customClass="ServerError_ViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,13 +31,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laa-aA-5S1">
-                                <rect key="frame" x="180.33333333333334" y="469" width="32.666666666666657" height="19"/>
+                                <rect key="frame" x="181.66666666666666" y="469" width="30" height="18.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                 <color key="textColor" name="HandsUpMainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잠시후 다시 시도해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jg-Uo-vHo">
-                                <rect key="frame" x="134.66666666666666" y="504" width="123.66666666666666" height="14.333333333333371"/>
+                                <rect key="frame" x="134.66666666666666" y="503.66666666666669" width="123.66666666666666" height="14.000000000000057"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
