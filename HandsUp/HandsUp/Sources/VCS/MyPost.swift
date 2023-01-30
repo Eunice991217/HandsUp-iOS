@@ -32,8 +32,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBAction func MyPostBackBtnDidTap(_ sender: Any) {
-        let myPost = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

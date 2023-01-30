@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class FirtstListTableViewCell: UITableViewCell {
+class SixthListTableViewCell: UITableViewCell {
 
-    static let id = "FirtstListTableViewCell"
+    static let id = "SixthListTableViewCell"
     
     lazy var img : UIImageView = { // 이미지 생성
        let imgView = UIImageView()
