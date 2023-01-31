@@ -24,7 +24,7 @@ class Character_UIView: UIView {
     let mouthImages:[String] = ["characterMouth1", "characterMouth2", "characterMouth3", "characterMouth4"]
     let glassesImages:[String] = ["", "characterGlasses1", "characterGlasses2", "characterSunglasses"]
     let headImages:[String] = ["characterHeadCurly", "characterHeadShort", "characterHeadBald", "characterHeadBeanie", "characterHeadPomade"]
-    let bgImages:[String] = ["CharacterBackgroundOrange", "CharacterBackgroundBlue"]
+    let bgImages:[String] = ["characterBackgroundOrange", "characterBackgroundBlue"]
     let eyesWidth:[CGFloat] = [100, 100, 103, 118]
     let eyesHeight:[CGFloat] = [41, 41, 19, 22]
     let eyesBottomEdges:[CGFloat] = [162, 162, 176, 172]

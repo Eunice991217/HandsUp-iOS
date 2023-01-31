@@ -15,13 +15,11 @@ class First_ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let status: Int
-        /*if UserDefaults.standard.bool(forKey: "login") {
+        if UserDefaults.standard.bool(forKey: "login") {
             status = ServerAPI.login(email: UserDefaults.standard.string(forKey: "email") ?? "", pw: UserDefaults.standard.string(forKey: "password") ?? "")
         }else{
             status = 0
-        }*/
-        
-        status = -1
+        }
         
         if status == 1{
             let mainSB_First = UIStoryboard(name: "Main", bundle: nil)

@@ -136,6 +136,7 @@ class Login_ViewController: UIViewController {
         swipeGesture.direction = .down
         detectingInput_Login()
         detectingKeboard_Login()
+        self.navigationController?.isNavigationBarHidden = true
         self.hideKeyboard()
     }
 }
