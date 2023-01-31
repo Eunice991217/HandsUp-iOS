@@ -129,8 +129,6 @@ class ViewController: UIViewController {
         HomeTabView.clipsToBounds = true
         HomeTabView.layer.cornerRadius = 40
         HomeTabView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        
-        // CustomSwitchBtn.isOn = true
 
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.

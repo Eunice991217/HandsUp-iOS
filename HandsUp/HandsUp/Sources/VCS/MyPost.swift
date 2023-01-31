@@ -16,16 +16,16 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 테이블뷰에 넣을 셀
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostTableViewCell", for: indexPath) as? MyPostTableViewCell else {return UITableViewCell() }
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostTableViewCell", for: indexPath) as? MyPostTableViewCell else {return UITableViewCell() }
                
-               // 몇번째 셀에 어떤것이 들어가는지 모르기때문에 indexPath활용
-               cell.MyPostTableViewCellImage.image = MyPostData[indexPath.row].profileImage
-               cell.MyPostTableViewCellName.text=MyPostData[indexPath.row].name
-               cell.MyPostTableViewCellLoaction.text=MyPostData[indexPath.row].location
-               cell.MyPostTableViewCellTime.text=MyPostData[indexPath.row].time
-               cell.MyPostTableViewCellContent.text=MyPostData[indexPath.row].content
-               
-               return cell // 테이블뷰에 넣을 셀
+       // 몇번째 셀에 어떤것이 들어가는지 모르기때문에 indexPath활용
+       cell.MyPostTableViewCellImage.image = MyPostData[indexPath.row].profileImage
+       cell.MyPostTableViewCellName.text=MyPostData[indexPath.row].name
+       cell.MyPostTableViewCellLoaction.text=MyPostData[indexPath.row].location
+       cell.MyPostTableViewCellTime.text=MyPostData[indexPath.row].time
+       cell.MyPostTableViewCellContent.text=MyPostData[indexPath.row].content
+       
+       return cell // 테이블뷰에 넣을 셀
     }
     
     @IBOutlet weak var HomeMyPostTableView: UITableView!
