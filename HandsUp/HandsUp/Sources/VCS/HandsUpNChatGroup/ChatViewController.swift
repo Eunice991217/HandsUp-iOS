@@ -15,7 +15,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
     
     @IBOutlet weak var chatPersonIdLb_CVC: NSLayoutConstraint!
-    @IBOutlet weak var charImgView_CVC: UIImageView!
+    @IBOutlet weak var characterView_CVC: Character_UIView!
     
     @IBOutlet weak var idLb_CVC: UILabel!
     @IBOutlet weak var locationLb_CVC: UILabel!
@@ -161,6 +161,8 @@ class ChatViewController: UIViewController {
         chatPersonNameLabel_CVC.text = chatPersonName
                       
         swipeRecognizer()
+        
+        characterView_CVC.setUserCharacter()
                                                 
     }
     
@@ -283,9 +285,16 @@ extension ChatViewController: UITextViewDelegate{
         else if (text_count == 0){
             chatSendBtn_CVC.isHidden = true
         }
+        
+        if(text == "\n") {
+            //self.chatSendBtn_CVC.isTouchInside = true
+        
+        }
         return changedText.count >= 0
+        
+        
+        
     }
-    
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{

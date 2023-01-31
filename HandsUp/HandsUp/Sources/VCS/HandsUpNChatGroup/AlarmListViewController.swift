@@ -21,6 +21,8 @@ class AlarmListViewController: UIViewController{
         
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         
+        
+        
     }
 
 }
@@ -34,8 +36,9 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
-        cell.characterImgV_ATVC.image = AlarmDataArr[indexPath.row].profileImage
         cell.timeLb_ATVC.text = AlarmDataArr[indexPath.row].time
+        
+        cell.characterView_ATVC.setUserCharacter()
         cell.idLb_ATVC.text = "아래글에 " + AlarmDataArr[indexPath.row].name + "님이 관심있어요"
         cell.contentLb_ATVC.text = AlarmDataArr[indexPath.row].content
         

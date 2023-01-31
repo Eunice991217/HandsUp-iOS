@@ -23,7 +23,7 @@ class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var contentLb_ATVC: UILabel!
     
-    @IBOutlet weak var characterImgV_ATVC: UIImageView!
+    @IBOutlet weak var characterView_ATVC: Character_UIView!
 
     @IBOutlet weak var sendBtn_ATVC: UIButton!
     

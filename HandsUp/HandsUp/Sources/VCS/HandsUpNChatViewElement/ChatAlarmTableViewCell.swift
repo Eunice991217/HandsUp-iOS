@@ -10,7 +10,7 @@ import UIKit
 class ChatAlarmTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var characterImgView_CATVC: UIImageView!
+    @IBOutlet weak var characterView_CATVC: Character_UIView!
     
     @IBOutlet weak var idLb_CATVC: UILabel!
     

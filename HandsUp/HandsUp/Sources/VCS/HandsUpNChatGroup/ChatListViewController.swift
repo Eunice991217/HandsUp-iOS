@@ -39,7 +39,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatAlarmTableViewCell", for: indexPath) as! ChatAlarmTableViewCell
         
-        cell.characterImgView_CATVC.image = MyChatData[indexPath.row].profileImage
+        cell.characterView_CATVC.setUserCharacter()
 
         cell.timeLb_CATVC.text = MyChatData[indexPath.row].time
         cell.idLb_CATVC.text = MyChatData[indexPath.row].name
