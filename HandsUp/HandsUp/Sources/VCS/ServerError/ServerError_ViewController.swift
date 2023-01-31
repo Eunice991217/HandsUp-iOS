@@ -19,5 +19,6 @@ class ServerError_ViewController: UIViewController {
         let attributedStr = NSMutableAttributedString(string: title_SE.text!)
         attributedStr.addAttribute(.foregroundColor, value: UIColor(named:"HandsUpRed")!, range: (title_SE.text! as NSString).range(of: "연결상태"))
         title_SE.attributedText = attributedStr
+        self.navigationController?.isNavigationBarHidden = true
     }
 }

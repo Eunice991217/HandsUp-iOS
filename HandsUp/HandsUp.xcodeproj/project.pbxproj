@@ -74,6 +74,7 @@
 		8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064B2968861400F89636 /* Login_ViewController.swift */; };
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
 		8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB1EB5E296866D000820C07 /* Login.storyboard */; };
+		8BBE680E2989396500763AFA /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBE680D2989396500763AFA /* ServerError.swift */; };
 		8BCA2ED629881FB10005C849 /* First_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCA2ED529881FB10005C849 /* First_ViewController.swift */; };
 		8BCA2EDA298828E50005C849 /* ServerError_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCA2ED9298828E50005C849 /* ServerError_ViewController.swift */; };
 		8BCA2EDC29882BC30005C849 /* ServerError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCA2ED7298828D20005C849 /* ServerError.storyboard */; };
@@ -148,6 +149,7 @@
 		8BA6064B2968861400F89636 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
 		8BB1EB5E296866D000820C07 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8BBE680D2989396500763AFA /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		8BCA2ED529881FB10005C849 /* First_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = First_ViewController.swift; sourceTree = "<group>"; };
 		8BCA2ED7298828D20005C849 /* ServerError.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServerError.storyboard; sourceTree = "<group>"; };
 		8BCA2ED9298828E50005C849 /* ServerError_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError_ViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				8B648082296E9191008D28CF /* SignupData.swift */,
 				8B4589732970B0FE0044227F /* FirstResponder.swift */,
+				8BBE680D2989396500763AFA /* ServerError.swift */,
 				8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */,
 				8BA3980B29862F2600A532D4 /* ServerAPI.swift */,
 			);
@@ -495,6 +498,7 @@
 				48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */,
 				48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */,
 				48398AEA297295C5006FD205 /* MyPostTableViewCell.swift in Sources */,
+				8BBE680E2989396500763AFA /* ServerError.swift in Sources */,
 				32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */,
 				486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */,
 				48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */,

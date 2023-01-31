@@ -7,9 +7,9 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class ServerAPI{
-    
     static func nicknameDoubleCheck(vc: Sign_up_ViewController) -> Int{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/users/nickname")
@@ -22,11 +22,15 @@ class ServerAPI{
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
-            guard let output = try? JSONDecoder().decode(nickname_rp.self, from: data!) else {
-                return
-            }
-            if output.statusCode == 2000{
-                check = output.statusCode
+            if data == nil{
+                check = -1
+            }else{
+                guard let output = try? JSONDecoder().decode(nickname_rp.self, from: data!) else {
+                    return
+                }
+                if output.statusCode == 2000{
+                    check = output.statusCode
+                }
             }
             semaphore.signal()
         }.resume()
@@ -60,12 +64,16 @@ class ServerAPI{
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
-            guard let output = try? JSONDecoder().decode(emailVerify_rp.self, from: data!) else {
-                return
-            }
-            if output.statusCode == 2000{
-                check = output.statusCode
-                vc.vefifiedCode_Sign_up = output.result
+            if data == nil{
+                check = -1
+            }else{
+                guard let output = try? JSONDecoder().decode(emailVerify_rp.self, from: data!) else {
+                    return
+                }
+                if output.statusCode == 2000{
+                    check = output.statusCode
+                    vc.vefifiedCode_Sign_up = output.result
+                }
             }
             semaphore.signal()
         }.resume()

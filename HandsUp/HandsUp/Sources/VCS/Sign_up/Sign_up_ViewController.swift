@@ -183,6 +183,11 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 changeNextButtonState_Sign_up()
                 titleUpdate_Sign_up()
             }
+            else{
+                let mainSB_Sign_up = UIStoryboard(name: "Main", bundle: nil)
+                let homeVC_Sign_up = mainSB_Sign_up.instantiateViewController(withIdentifier: "Home")
+                self.navigationController?.pushViewController(homeVC_Sign_up, animated: false)
+            }
         }
     }
     
