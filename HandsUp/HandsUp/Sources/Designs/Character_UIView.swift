@@ -238,6 +238,15 @@ class Character_UIView: UIView {
     }
     
     func setUserCharacter(){
+        if true{
+            self.bgType = UserDefaults.standard.integer(forKey: "backgroundColor")
+            self.headType = UserDefaults.standard.integer(forKey: "hair")
+            self.eyebrowType = UserDefaults.standard.integer(forKey: "eyeBrow")
+            self.mouthType = UserDefaults.standard.integer(forKey: "mouth")
+            self.noseType = UserDefaults.standard.integer(forKey: "nose")
+            self.eyesType = UserDefaults.standard.integer(forKey: "eye")
+            self.glassesType = UserDefaults.standard.integer(forKey: "glasses")
+        }
         setCharacter()
     }
     

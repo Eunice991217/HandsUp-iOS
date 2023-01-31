@@ -69,6 +69,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     @IBOutlet weak var titlePG4_Sign_up: UILabel!
     @IBOutlet weak var subTitlePG4_Sign_up: UILabel!
     @IBOutlet weak var nicknameTextField_Sign_up: UITextField!
+    @IBOutlet weak var allertLabel_Sign_up: UILabel!
     
     // MARK: - Page5
     @IBOutlet weak var titlePG5_Sign_up: UILabel!
@@ -167,7 +168,9 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
             if(curPageInt_Sign_up == 4){
                 if ServerAPI.nicknameDoubleCheck(vc: self) == 2000{
                     sign_upData_Sign_up.nickname = nicknameTextField_Sign_up.text!
+                    allertLabel_Sign_up.alpha = 0
                 }else{
+                    allertLabel_Sign_up.alpha = 1
                     return
                 }
             }
@@ -469,6 +472,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     // MARK: - Page 4
     func page4Init_Sign_up(){
         nicknameTextField_Sign_up.addTarget(self, action: #selector(nicknameInput_Sign_up(_sender: )), for: .editingChanged)
+        allertLabel_Sign_up.alpha = 0
     }
     
     func nicknameValidation_Sign_up(text: String) -> Bool{

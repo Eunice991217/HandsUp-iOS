@@ -17,6 +17,18 @@ struct emailVerify_rq: Codable{
     let email: String
 }
 
+struct makeCharacter_rq: Codable{
+    var eye: String
+    var eyeBrow: String
+    var glasses: String
+    var nose: String
+    var mouth: String
+    var hair: String
+    var hairColor: String
+    var skinColor: String
+    var backGroundColor: String
+}
+
 struct login_rq: Codable{
     let email: String
     let password: String
@@ -35,6 +47,13 @@ struct emailVerify_rp: Decodable{
     let statusCode: Int
     let message: String
     let result: String
+}
+
+struct makeCharacter_rp: Decodable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: Int
 }
 
 struct login_rp: Decodable{
