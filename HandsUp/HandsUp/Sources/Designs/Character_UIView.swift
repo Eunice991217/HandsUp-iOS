@@ -18,8 +18,6 @@ class Character_UIView: UIView {
     var shadow1: UIButton = UIButton()
     var shadow2: UIButton = UIButton()
     var shadow3: UIButton = UIButton()
-    var shadow4: UIButton = UIButton()
-    var shadow5: UIButton = UIButton()
     let eyesImages:[String] = ["characterEyes1", "characterEyes2", "characterEyes3", "characterEyes4"]
     let eyebrowImages:[String] = ["characterEyebrow1", "characterEyebrow2", "characterEyebrow3"]
     let noseImages:[String] = ["characterNose1", "characterNose2", "characterNose3", "characterNose4"]
@@ -44,9 +42,9 @@ class Character_UIView: UIView {
     let glassesBottomEdges:[CGFloat] = [0, 153, 154, 151]
     let headWidth:CGFloat = 288
     let headHeight:[CGFloat] = [385, 350, 314, 341, 372]
-    let shadowOffsetHeightArray:[Int] = [160, 103, 58, 26, 6, 0]
-    let shadowRadiusArray:[CGFloat] = [45, 41, 35, 26, 14, 0]
-    let shadowOpacityArray:[Float] = [0, 0.01, 0.05, 0.09, 0.1, 0.1]
+    let shadowOffsetHeightArray:[Int] = [ 103, 58, 26, 6]
+    let shadowRadiusArray:[CGFloat] = [ 41, 35, 26, 14]
+    let shadowOpacityArray:[Float] = [ 0.01, 0.05, 0.09, 0.1]
     var constraintsArray: [NSLayoutConstraint] = []
     
     func setEyesType(EyesType : Int){
@@ -123,10 +121,8 @@ class Character_UIView: UIView {
         shadow1 = UIButton()
         shadow2 = UIButton()
         shadow3 = UIButton()
-        shadow4 = UIButton()
-        shadow5 = UIButton()
         
-        let shadowArray: [UIButton] = [shadow1, shadow2, shadow3, shadow4, shadow5, bgButton]
+        let shadowArray: [UIButton] = [shadow1, shadow2, shadow3, bgButton]
         
         let viewWidth = self.frame.width
         let viewHeight = self.frame.height
@@ -242,6 +238,15 @@ class Character_UIView: UIView {
     }
     
     func setUserCharacter(){
+        if true{
+            self.bgType = UserDefaults.standard.integer(forKey: "backgroundColor")
+            self.headType = UserDefaults.standard.integer(forKey: "hair")
+            self.eyebrowType = UserDefaults.standard.integer(forKey: "eyeBrow")
+            self.mouthType = UserDefaults.standard.integer(forKey: "mouth")
+            self.noseType = UserDefaults.standard.integer(forKey: "nose")
+            self.eyesType = UserDefaults.standard.integer(forKey: "eye")
+            self.glassesType = UserDefaults.standard.integer(forKey: "glasses")
+        }
         setCharacter()
     }
     
@@ -345,5 +350,14 @@ class Character_UIView: UIView {
         
         self.addSubview(characterView)
         self.addSubview(characterViewCover)
+    }
+}
+
+extension UIView {
+  func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
     }
 }

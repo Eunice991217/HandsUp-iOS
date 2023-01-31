@@ -15,7 +15,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
     
     @IBOutlet weak var chatPersonIdLb_CVC: NSLayoutConstraint!
-    @IBOutlet weak var charImgView_CVC: UIImageView!
+    @IBOutlet weak var characterView_CVC: Character_UIView!
     
     @IBOutlet weak var idLb_CVC: UILabel!
     @IBOutlet weak var locationLb_CVC: UILabel!
@@ -62,10 +62,20 @@ class ChatViewController: UIViewController {
         guard let Report = storyboard_main?.instantiateViewController(identifier: "Report") else { return }
         
         
-        let report = UIAlertAction(title: "이 사용자 신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+        let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+            
+            Report.modalPresentationStyle = .fullScreen
             // 화면 전환!
-            self.present(Report, animated: true)
-            self.navigationController?.pushViewController(Report, animated: true)}
+            
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.view.window!.layer.add(transition, forKey: kCATransition)
+            
+            self.present(Report, animated: false)
+            
+            }
         )
         alert.addAction(report)
         
@@ -91,7 +101,7 @@ class ChatViewController: UIViewController {
         confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        let attributedString = NSAttributedString(string: "해당 사용자를 차단하면 이 사용자는 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        let attributedString = NSAttributedString(string: "해당 사용자를 차단하면 이 채팅은 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 
         present(alert, animated: true, completion: nil)
@@ -129,6 +139,7 @@ class ChatViewController: UIViewController {
         postView_CVC.layer.shadowRadius = 24
         postView_CVC.layer.shadowOffset = CGSize(width: 0, height: 8)
 
+        chatTableView_CVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         chatTextView_CVC.isScrollEnabled = false
         
         chatTableView_CVC.register(UINib(nibName: "MyChatTableViewCell", bundle:nil), forCellReuseIdentifier: "MyChatTableViewCell")
@@ -150,6 +161,8 @@ class ChatViewController: UIViewController {
         chatPersonNameLabel_CVC.text = chatPersonName
                       
         swipeRecognizer()
+        
+        characterView_CVC.setUserCharacter()
                                                 
     }
     
@@ -200,7 +213,7 @@ class ChatViewController: UIViewController {
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
                 // 스토리보드에서 지정해준 ViewController의 ID
-        guard let registerPostVC = self.storyboard?.instantiateViewController(identifier: "PostThroughChatViewController") else {
+        guard let registerPostVC = self.storyboard?.instantiateViewController(identifier: "ChatNavigationViewController") else {
                     return
                 }
         
@@ -272,9 +285,16 @@ extension ChatViewController: UITextViewDelegate{
         else if (text_count == 0){
             chatSendBtn_CVC.isHidden = true
         }
+        
+        if(text == "\n") {
+            //self.chatSendBtn_CVC.isTouchInside = true
+        
+        }
         return changedText.count >= 0
+        
+        
+        
     }
-    
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8oQ-p1-jeL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ovc-KX-eDF">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -744,7 +744,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTS-mU-gjN" userLabel="Page4">
-                                <rect key="frame" x="400" y="126" width="393" height="625"/>
+                                <rect key="frame" x="0.0" y="126" width="393" height="625"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx1-9A-8PL">
                                         <rect key="frame" x="17.999999999999996" y="15.999999999999996" width="55.666666666666657" height="37.666666666666657"/>
@@ -806,23 +806,31 @@
                                         <color key="textColor" name="HandsUpDarkGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중복된 아이디입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBw-Uj-5vi">
+                                        <rect key="frame" x="23" y="236.66666666666669" width="100" height="14.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" name="HandsUpRed"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpBackground"/>
                                 <constraints>
                                     <constraint firstItem="Kx1-9A-8PL" firstAttribute="top" secondItem="VTS-mU-gjN" secondAttribute="top" constant="16" id="0Wz-SX-xaK"/>
                                     <constraint firstAttribute="width" constant="393" id="2z6-lc-PPf"/>
+                                    <constraint firstItem="GBw-Uj-5vi" firstAttribute="top" secondItem="1rj-kc-x7X" secondAttribute="bottom" constant="10" id="370-AY-rbY"/>
                                     <constraint firstItem="1rj-kc-x7X" firstAttribute="leading" secondItem="VTS-mU-gjN" secondAttribute="leading" constant="23" id="6zA-Rf-XII"/>
                                     <constraint firstItem="eJ5-xg-foM" firstAttribute="top" secondItem="URD-HK-Ss6" secondAttribute="bottom" constant="50" id="Boz-Eb-4Sd"/>
                                     <constraint firstAttribute="trailing" secondItem="eJ5-xg-foM" secondAttribute="trailing" constant="16" id="CBw-Xn-gsH"/>
                                     <constraint firstItem="Kx1-9A-8PL" firstAttribute="leading" secondItem="VTS-mU-gjN" secondAttribute="leading" constant="18" id="Kv5-Xl-YJB"/>
                                     <constraint firstItem="eJ5-xg-foM" firstAttribute="leading" secondItem="VTS-mU-gjN" secondAttribute="leading" constant="16" id="QTN-4P-9Ob"/>
+                                    <constraint firstItem="GBw-Uj-5vi" firstAttribute="leading" secondItem="VTS-mU-gjN" secondAttribute="leading" constant="23" id="XWJ-8C-5le"/>
                                     <constraint firstItem="1rj-kc-x7X" firstAttribute="top" secondItem="eJ5-xg-foM" secondAttribute="bottom" constant="20" id="cl3-pO-Iec"/>
                                     <constraint firstItem="URD-HK-Ss6" firstAttribute="leading" secondItem="VTS-mU-gjN" secondAttribute="leading" constant="18" id="kuH-he-Pl3"/>
                                     <constraint firstItem="URD-HK-Ss6" firstAttribute="top" secondItem="Kx1-9A-8PL" secondAttribute="bottom" constant="20" id="uwY-vP-pKU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sd-8e-jdy" userLabel="Page5">
-                                <rect key="frame" x="0.0" y="126" width="393" height="625"/>
+                                <rect key="frame" x="400" y="126" width="393" height="625"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-bh-Cqz">
                                         <rect key="frame" x="17.999999999999996" y="15.999999999999996" width="55.666666666666657" height="37.666666666666657"/>
@@ -890,10 +898,10 @@
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="bottom" secondItem="6Lh-ff-FVa" secondAttribute="bottom" constant="16" id="TTK-kA-9vo"/>
                             <constraint firstItem="prg-rP-BGt" firstAttribute="top" secondItem="RST-Yy-uWN" secondAttribute="top" id="XR4-YB-EY9"/>
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="gEO-VW-DWC" secondAttribute="trailing" constant="16" id="cFo-Jt-3Iv"/>
-                            <constraint firstItem="5Sd-8e-jdy" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="gqa-0E-Adm"/>
+                            <constraint firstItem="5Sd-8e-jdy" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="400" id="gqa-0E-Adm"/>
                             <constraint firstItem="gEO-VW-DWC" firstAttribute="top" secondItem="prg-rP-BGt" secondAttribute="bottom" constant="10" id="m4E-Xu-gcC"/>
                             <constraint firstItem="vFd-ps-zlS" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="mOn-RD-MS5"/>
-                            <constraint firstItem="VTS-mU-gjN" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" constant="400" id="s0P-zG-D3O"/>
+                            <constraint firstItem="VTS-mU-gjN" firstAttribute="leading" secondItem="RST-Yy-uWN" secondAttribute="leading" id="s0P-zG-D3O"/>
                             <constraint firstItem="6Lh-ff-FVa" firstAttribute="top" secondItem="vFd-ps-zlS" secondAttribute="bottom" id="t86-Uf-rj6"/>
                             <constraint firstItem="RST-Yy-uWN" firstAttribute="trailing" secondItem="cI6-Mx-N0V" secondAttribute="trailing" id="tEB-qa-aej"/>
                             <constraint firstItem="6Lh-ff-FVa" firstAttribute="top" secondItem="cI6-Mx-N0V" secondAttribute="bottom" id="vIY-fW-w8b"/>
@@ -904,6 +912,7 @@
                     <connections>
                         <outlet property="BackButton_Sign_up" destination="prg-rP-BGt" id="MRK-ab-7VZ"/>
                         <outlet property="PWtextField_Sign_up" destination="GO7-aQ-zx0" id="9iN-S3-HuN"/>
+                        <outlet property="allertLabel_Sign_up" destination="GBw-Uj-5vi" id="bb6-Dw-YqH"/>
                         <outlet property="characterButton_Sign_up" destination="vXJ-hl-FOo" id="6jp-Zf-9K2"/>
                         <outlet property="character_Sign_up" destination="fIl-VW-K5d" id="ZOw-2r-KPm"/>
                         <outlet property="checkBoxButton1_Sign_up" destination="OHF-9Z-5uv" id="XoF-O3-8eE"/>

@@ -1,31 +1,41 @@
 //
-//  ChatAlarmTableViewCell.swift
+//  AlarmTableViewCell.swift
 //  HandsUp
 //
-//  Created by 윤지성 on 2023/01/17.
+//  Created by 윤지성 on 2023/01/16.
 //
 
 import UIKit
 
-class ChatAlarmTableViewCell: UITableViewCell {
-
-    
-    @IBOutlet weak var characterImgView_CATVC: UIImageView!
-    
-    @IBOutlet weak var idLb_CATVC: UILabel!
-    
-    @IBOutlet weak var contentLb_CATVC: UILabel!
-    
-    @IBOutlet weak var timeLb_CATVC: UILabel!
-    
-    @IBOutlet weak var countLb_CATVX: UILabel!
+class AlarmTableViewCell: UITableViewCell {
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+      
     }
 
+    @IBOutlet weak var timeLb_ATVC: UILabel!
+    
+
+    @IBOutlet weak var idLb_ATVC: UILabel!
+    
+    @IBOutlet weak var contentLb_ATVC: UILabel!
+    
+    @IBOutlet weak var characterView_ATVC: Character_UIView!
+
+    @IBOutlet weak var sendBtn_ATVC: UIButton!
+    
+    
+    // MARK: Initialize
+      override init(style: AlarmTableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+          
+
+          
+      }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -54,8 +64,10 @@ class ChatAlarmTableViewCell: UITableViewCell {
     }
 
     func makeItCircle() {
-        self.countLb_CATVX.layer.masksToBounds = true
-        self.countLb_CATVX.layer.cornerRadius  = CGFloat(roundf(Float(self.countLb_CATVX.frame.size.width/2.0)))
+        self.sendBtn_ATVC.layer.masksToBounds = true
+        self.sendBtn_ATVC.layer.cornerRadius  = CGFloat(roundf(Float(self.sendBtn_ATVC.frame.size.width/2.0)))
+        self.sendBtn_ATVC.backgroundColor = UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1)
+        
 
     }
     

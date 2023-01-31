@@ -12,6 +12,8 @@ class PostThroughChatViewController: UIViewController {
     
     @IBOutlet weak var contentTextView_PTCVC: UITextView!
     
+    @IBOutlet weak var characterView_PTCVC: Character_UIView!
+    
     lazy var blurredView: UIView = {
             // 1. create container view
             let containerView = UIView()
@@ -39,6 +41,8 @@ class PostThroughChatViewController: UIViewController {
         contentTextView_PTCVC.isEditable = false
         
         setupView()
+        
+        characterView_PTCVC.setUserCharacter()
     }
     
     func setupView() {
@@ -72,7 +76,8 @@ class PostThroughChatViewController: UIViewController {
         
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
             // 화면 전환!
-            self.present(Report, animated: true)
+            //self.present(Report, animated: true)
+            
             self.navigationController?.pushViewController(Report, animated: true)}
         )
         alert.addAction(report)
