@@ -432,7 +432,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     @objc func isCorrectPWCheck_Sign_up(_sender: Any){
-        let pattern_Sign_up = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()_+\\[\\]{}\\\\\\|;:\'\",\\.\\/<>\\?]).{8,16}$"
+        let pattern_Sign_up = "^(?=.*[~!@#$%^&*()_+\\[\\]{}\\\\\\|;:\'\",\\.\\/<>\\?]).{8,16}$"
         var regexPW_Sign_up: Bool = true
         let text: String = PWtextField_Sign_up.text ?? ""
         if text.range(of: pattern_Sign_up, options: .regularExpression) == nil{
