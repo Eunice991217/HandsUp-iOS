@@ -443,14 +443,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="typoLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="usn-tA-5vz">
-                                <rect key="frame" x="100" y="358.66666666666669" width="193" height="204.00000000000006"/>
+                                <rect key="frame" x="100" y="324" width="193" height="204"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gzS-a0-5DZ"/>
                         <color key="backgroundColor" name="HandsUpOrange"/>
                         <constraints>
                             <constraint firstItem="usn-tA-5vz" firstAttribute="leading" secondItem="gzS-a0-5DZ" secondAttribute="leading" constant="100" id="52D-lL-Gib"/>
-                            <constraint firstItem="usn-tA-5vz" firstAttribute="centerY" secondItem="gzS-a0-5DZ" secondAttribute="centerY" id="BSB-UV-mbh"/>
+                            <constraint firstItem="usn-tA-5vz" firstAttribute="centerY" secondItem="fOj-IM-9TE" secondAttribute="centerY" id="BSB-UV-mbh"/>
                             <constraint firstItem="gzS-a0-5DZ" firstAttribute="trailing" secondItem="usn-tA-5vz" secondAttribute="trailing" constant="100" id="QPB-DD-bNW"/>
                             <constraint firstItem="usn-tA-5vz" firstAttribute="centerX" secondItem="gzS-a0-5DZ" secondAttribute="centerX" id="ng2-gs-x1u"/>
                         </constraints>

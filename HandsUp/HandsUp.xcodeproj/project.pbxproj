@@ -89,7 +89,6 @@
 		48C318942975B26000037D89 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48C318932975B26000037D89 /* SnapKit */; };
 		8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109162966DFF20042D14A /* AppDelegate.swift */; };
 		8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109182966DFF20042D14A /* SceneDelegate.swift */; };
-		/*8B21091E2966DFF20042D14A /* (null) in Resources  = {isa = PBXBuildFile; };*/
 		8B2109202966DFF30042D14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091F2966DFF30042D14A /* Assets.xcassets */; };
 		8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2109212966DFF30042D14A /* LaunchScreen.storyboard */; };
 		8B21092C2966E1430042D14A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B21092B2966E1430042D14A /* Alamofire */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -502,7 +501,6 @@
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
 				481758892988EF2E004FACF0 /* MyProfile.swift */,
 				4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */,
-				32AB01712969A3D5007D550A /* New Group1 */,
 				321B1E342986360300E2CFEE /* HandsUpNChatViewElement */,
 				32AB01712969A3D5007D550A /* HandsUpNChatGroup */,
 				8BA6064D2968864900F89636 /* Login */,
@@ -654,9 +652,7 @@
 				489642EF298658CF0095175F /* map_pin_shadow.png in Resources */,
 				489642E7298658CF0095175F /* info_box_tail.png in Resources */,
 				489642DE298658CF0095175F /* th_line.png in Resources */,
-				/*8B21091E2966DFF20042D14A /* (null) in Resources , */
 				8BCA2EDC29882BC30005C849 /* ServerError.storyboard in Resources */,
-				32AB016D2969A0C5007D550A /* HandsUp.storyboard in Resources */,
 				489642D9298658CF0095175F /* detail_button.png in Resources */,
 				489642DA298658CF0095175F /* map_pin_custom@3x.png in Resources */,
 				8B4BF0DA2968DAD200B00890 /* Roboto-Medium.ttf in Resources */,
@@ -786,6 +782,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -806,6 +803,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jaesang/Desktop/Develop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -846,6 +844,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -859,6 +858,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jaesang/Desktop/Develop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -894,7 +894,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimminkyung/Desktop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jaesang/Desktop/Develop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -930,7 +930,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimminkyung/Desktop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jaesang/Desktop/Develop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
