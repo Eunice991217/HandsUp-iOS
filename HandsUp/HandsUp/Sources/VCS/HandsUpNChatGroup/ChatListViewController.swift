@@ -21,6 +21,8 @@ class ChatListViewController: UIViewController {
         
         chatAlarmTableView_CLVC.clipsToBounds = true
         
+        
+        chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         // Do any additional setup after loading the view.
     }
 
@@ -37,7 +39,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatAlarmTableViewCell", for: indexPath) as! ChatAlarmTableViewCell
         
-        cell.characterImgView_CATVC.image = MyChatData[indexPath.row].profileImage
+        cell.characterView_CATVC.setUserCharacter()
 
         cell.timeLb_CATVC.text = MyChatData[indexPath.row].time
         cell.idLb_CATVC.text = MyChatData[indexPath.row].name

@@ -28,21 +28,10 @@ class ViewController: UIViewController {
             HomeDidBtn.setImage(UIImage(named: "HomeIconDidTap"), for: .normal)
             NotificationBtn.setImage(UIImage(named: "notifications"), for: .normal)
         } else {
-            HomeDidBtn.setImage(UIImage(named: "HomeIcon"), for: .normal)
+            //HomeDidBtn.setImage(UIImage(named: "HomeIcon"), for: .normal)
         }
     }
     
-    @IBAction func NotificationBtnDidTap(_ sender: Any) {
-        bRec = !bRec
-        if bRec {
-            NotificationBtn.setImage(UIImage(named: "notifications"), for: .normal)
-            
-        } else {
-            NotificationBtn.setImage(UIImage(named: "notificationsDidTap"), for: .normal)
-            HomeDidBtn.setImage(UIImage(named: "HomeIcon"), for: .normal)
-        }
-        
-    }
     
     @IBAction func HomeSettingDidTap(_ sender: Any) {
         self.showAlertController(style: UIAlertController.Style.actionSheet)
@@ -124,6 +113,24 @@ class ViewController: UIViewController {
                 self.present(registerPostVC, animated: true)
         
     }
+    
+    @IBAction func BellBtnDidTap(_ sender: Any) {
+        let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+        
+        // 스토리보드에서 지정해준 ViewController의 ID
+        guard let alarmNChatVC = storyboard?.instantiateViewController(identifier: "AlarmNChatListViewController") else {
+            return
+        }
+        
+        alarmNChatVC.modalPresentationStyle = .fullScreen
+        // 화면 전환!
+        self.present(alarmNChatVC, animated: false)
+        
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         HomeTabView.clipsToBounds = true

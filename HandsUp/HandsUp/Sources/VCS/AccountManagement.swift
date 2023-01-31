@@ -12,7 +12,11 @@ class AccountManagement: UIViewController {
     @IBAction func AMLogoutDidTap(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
-        let confirm = UIAlertAction(title: "네", style: .default) { (action) in }; alert.addAction(confirm)
+        let confirm = UIAlertAction(title: "네", style: .default) { (action) in
+            UserDefaults.standard.set(false, forKey: "login")
+        }; alert.addAction(confirm
+        
+        )
 
         confirm.setValue(UIColor(red: 0.608, green: 0.608, blue: 0.608, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.957, green: 0.486, blue: 0.086, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
