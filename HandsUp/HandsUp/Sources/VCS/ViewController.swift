@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func BellBtnDidTap(_ sender: Any) {
+    @IBAction func BellBtnDidTap(_ sender: Any) { // 연결하기
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
         // 스토리보드에서 지정해준 ViewController의 ID

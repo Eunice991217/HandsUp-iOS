@@ -32,7 +32,7 @@ class FirstTabViewController: UIViewController, MTMapViewDelegate{
             // 지도 중심점, 레벨
             mapView.setMapCenter(MTMapPoint(geoCoord: DEFAULT_POSITION1), zoomLevel: 0, animated: true)
             
-            // 현재 위치 트래킹
+//            // 현재 위치 트래킹
 //            mapView.showCurrentLocationMarker = true
 //            mapView.currentLocationTrackingMode = .onWithoutHeading
             
@@ -58,7 +58,7 @@ class FirstTabViewController: UIViewController, MTMapViewDelegate{
         }
     }
     
-    // Custom: 현 위치 트래킹 함수
+//     // Custom: 현 위치 트래킹 함수
 //    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
 //        let currentLocation = location?.mapPointGeo()
 //        if let latitude = currentLocation?.latitude, let longitude = currentLocation?.longitude{

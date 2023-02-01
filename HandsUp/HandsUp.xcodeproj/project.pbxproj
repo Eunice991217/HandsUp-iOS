@@ -894,7 +894,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jaesang/Desktop/Develop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimminkyung/Desktop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -930,7 +930,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JSHwang.HandsUp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jaesang/Desktop/Develop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimminkyung/Desktop/HandsUp-iOS/HandsUp/HandsUp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
