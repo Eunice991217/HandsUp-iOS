@@ -27,7 +27,7 @@ class Report: UIViewController {
         self.view.window!.layer.add(transition, forKey: nil)
         self.dismiss(animated: false, completion: nil)
         
-               self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func ReportSubmitDidTap(_ sender: Any) {

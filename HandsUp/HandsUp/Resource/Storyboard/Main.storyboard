@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xED-Xi-HIY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbJ-ed-6Bl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -125,7 +125,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gat-5a-4gY">
                                 <rect key="frame" x="0.0" y="152" width="414" height="710"/>
                                 <connections>
-                                    <segue destination="14G-pt-0Qb" kind="embed" id="dES-Sa-Z3A"/>
+                                    <segue destination="qSb-Na-ogv" kind="embed" id="dES-Sa-Z3A"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAj-r9-ZQz">
@@ -150,7 +150,7 @@
                                             <action selector="HomeSettingDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="kXm-x2-wj4"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가천대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-DS-p90">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세종대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-DS-p90">
                                         <rect key="frame" x="53" y="33" width="60" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="AS9-nh-H0Z"/>
@@ -898,7 +898,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신고내용을 적어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-mn-zv1">
-                                <rect key="frame" x="33" y="132" width="348" height="31"/>
+                                <rect key="frame" x="33" y="172" width="348" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="348" id="XPn-Nf-LWY"/>
                                 </constraints>
@@ -907,7 +907,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VY-8A-WFh">
-                                <rect key="frame" x="33" y="212" width="348" height="179"/>
+                                <rect key="frame" x="33" y="252" width="348" height="179"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6hV-dd-WkK">
                                         <rect key="frame" x="10" y="10" width="328" height="159"/>
@@ -927,7 +927,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-rg-Coq">
-                                <rect key="frame" x="36" y="411" width="342" height="35.5"/>
+                                <rect key="frame" x="36" y="451" width="342" height="35.5"/>
                                 <string key="text">신고 내용검토후 해당 유저에게 알맞은 대체를 하겠습니다. 
 더욱더 발전하는 핸즈업이 되겠습니다 감사합니다.</string>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
@@ -992,7 +992,7 @@
                             <constraint firstItem="2VY-8A-WFh" firstAttribute="top" secondItem="eWX-mn-zv1" secondAttribute="bottom" constant="49" id="AWm-tZ-Bwd"/>
                             <constraint firstItem="7Ru-rg-Coq" firstAttribute="top" secondItem="2VY-8A-WFh" secondAttribute="bottom" constant="20" id="ApJ-kL-35Q"/>
                             <constraint firstItem="xng-47-NcG" firstAttribute="top" secondItem="cAa-J7-Dng" secondAttribute="top" id="PGL-Ua-QXq"/>
-                            <constraint firstItem="eWX-mn-zv1" firstAttribute="top" secondItem="cAa-J7-Dng" secondAttribute="top" constant="40" id="PkX-9c-2sH"/>
+                            <constraint firstItem="eWX-mn-zv1" firstAttribute="top" secondItem="cAa-J7-Dng" secondAttribute="top" constant="80" id="PkX-9c-2sH"/>
                             <constraint firstItem="xng-47-NcG" firstAttribute="leading" secondItem="cAa-J7-Dng" secondAttribute="leading" id="vzc-vX-f6j"/>
                             <constraint firstItem="2VY-8A-WFh" firstAttribute="centerX" secondItem="3Ho-v6-szU" secondAttribute="centerX" id="wbu-Li-cy0"/>
                         </constraints>
@@ -1211,7 +1211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="avr-hk-4Mc">
-                                <rect key="frame" x="0.0" y="68" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2kA-eC-s12">
                                     <size key="itemSize" width="410" height="662"/>
@@ -1285,6 +1285,9 @@
                                                                     <buttonConfiguration key="configuration" style="plain">
                                                                         <backgroundConfiguration key="background" image="threeDotsHorizon"/>
                                                                     </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="MyProfilemoreDidTap:" destination="6JL-fC-7hn" eventType="touchUpInside" id="Pcw-og-tSx"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10분전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIH-wE-8m8">
                                                                     <rect key="frame" x="205" y="77.5" width="35" height="14"/>
@@ -1295,7 +1298,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzi-cG-XJM">
                                                                     <rect key="frame" x="42" y="272" width="250" height="200"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksr-PL-AZD">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksr-PL-AZD">
                                                                             <rect key="frame" x="14" y="14" width="222" height="105.5"/>
                                                                             <string key="text">제가 3시쯤 수업이 끝날거 같은데 3시 30에 학교근처에서 쌀국수 먹으실분 계신가요? 쌀국수 먹고 커피 한잔 같이 하실분 구해요~! 
 
@@ -1381,7 +1384,7 @@
                                         <size key="customSize" width="410" height="662"/>
                                         <connections>
                                             <outlet property="CardView" destination="mEL-8H-fNL" id="qDl-fr-w6V"/>
-                                            <outlet property="MyProfileCellContent" destination="Ksr-PL-AZD" id="OuK-1d-5wp"/>
+                                            <outlet property="MyProfileCellContent" destination="Ksr-PL-AZD" id="sVN-7A-T5u"/>
                                             <outlet property="MyProfileCellImage" destination="lZl-xB-73D" id="O21-YG-7uS"/>
                                             <outlet property="MyProfileCellLargeName" destination="jTa-kh-JfX" id="kFa-4t-ayM"/>
                                             <outlet property="MyProfileCellLocation" destination="euC-sf-BBc" id="9V4-9E-JqH"/>
@@ -1406,6 +1409,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="send"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="MyProfileChatBtnDidTap:" destination="6JL-fC-7hn" eventType="touchUpInside" id="PjD-8k-PJY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiR-pD-pg8">
                                         <rect key="frame" x="77" y="45" width="60" height="60"/>
@@ -1417,6 +1423,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="xmarkInGreyCircle"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="MyProfileDismissBtnDidTap:" destination="6JL-fC-7hn" eventType="touchUpInside" id="VKG-av-3GY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6X-Bi-asM">
                                         <rect key="frame" x="277" y="40" width="70" height="70"/>
@@ -1452,13 +1461,14 @@
                             <constraint firstItem="xxD-ij-cme" firstAttribute="top" secondItem="avr-hk-4Mc" secondAttribute="bottom" id="xxu-Rc-8G9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="anf-Cs-myq"/>
                     <connections>
                         <outlet property="MyProfileCollectionView" destination="avr-hk-4Mc" id="Nmp-CR-v1m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEI-pr-ISe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="1371"/>
+            <point key="canvasLocation" x="963.76811594202911" y="1579.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aSa-eG-xKo">
@@ -1598,19 +1608,34 @@
                                     <constraint firstItem="RPk-2N-7LF" firstAttribute="leading" secondItem="qbg-Qd-N6Y" secondAttribute="trailing" constant="5" id="mrq-Xj-ynx"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEQ-Lm-e19">
+                                <rect key="frame" x="177" y="325" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="5VX-u8-5Oh"/>
+                                    <constraint firstAttribute="width" constant="60" id="sKB-0c-PrI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="profileBtnDidTap:" destination="14G-pt-0Qb" eventType="touchUpInside" id="55x-L9-1lF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PAb-Bz-kgX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bWI-CO-rO6" firstAttribute="centerX" secondItem="vPY-Un-xJH" secondAttribute="centerX" id="CEC-n7-Do0"/>
+                            <constraint firstItem="IEQ-Lm-e19" firstAttribute="centerX" secondItem="vPY-Un-xJH" secondAttribute="centerX" id="GPc-fp-a0e"/>
                             <constraint firstItem="PAb-Bz-kgX" firstAttribute="trailing" secondItem="Asu-WU-3l1" secondAttribute="trailing" constant="24" id="Jft-lW-ZVu"/>
                             <constraint firstItem="PAb-Bz-kgX" firstAttribute="bottom" secondItem="Asu-WU-3l1" secondAttribute="bottom" constant="120" id="Wal-E0-HFa"/>
                             <constraint firstItem="bWI-CO-rO6" firstAttribute="top" secondItem="A2S-JF-bqB" secondAttribute="bottom" constant="20" id="ZQh-L8-6Gg"/>
                             <constraint firstAttribute="trailing" secondItem="A2S-JF-bqB" secondAttribute="trailing" id="csK-eM-MoH"/>
                             <constraint firstItem="A2S-JF-bqB" firstAttribute="leading" secondItem="vPY-Un-xJH" secondAttribute="leading" id="dEZ-xZ-ldv"/>
                             <constraint firstItem="A2S-JF-bqB" firstAttribute="top" secondItem="vPY-Un-xJH" secondAttribute="top" id="hMy-L9-tPE"/>
+                            <constraint firstItem="IEQ-Lm-e19" firstAttribute="centerY" secondItem="vPY-Un-xJH" secondAttribute="centerY" id="ztN-jN-Xtl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Mhc-hc-eJC"/>
                     <connections>
                         <outlet property="HomeRestartBtn" destination="bWI-CO-rO6" id="a2E-lk-G6J"/>
                         <outlet property="TabManTabBar" destination="A2S-JF-bqB" id="aIT-1c-o3K"/>
@@ -1618,7 +1643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Db-gx-Ukn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="-583.25892857142856"/>
+            <point key="canvasLocation" x="1949.2753623188407" y="-583.25892857142856"/>
         </scene>
         <!--Tab Man ListVC-->
         <scene sceneID="R2u-dM-Lyg">
@@ -1669,6 +1694,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Di1-XB-xnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="3.3482142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I27-yR-Svl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSb-Na-ogv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tba-6M-JG9">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="14G-pt-0Qb" kind="relationship" relationship="rootViewController" id="fm1-PT-tHt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTa-4T-quc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="-583.25892857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Iw3-s6-Lv4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbJ-ed-6Bl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Dk-Ie-gve">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6JL-fC-7hn" kind="relationship" relationship="rootViewController" id="lzD-Ep-FhA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JLG-af-Fwe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.623188405797109" y="1579.6875"/>
         </scene>
     </scenes>
     <resources>

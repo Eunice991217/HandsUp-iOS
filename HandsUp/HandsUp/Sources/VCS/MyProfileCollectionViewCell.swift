@@ -12,12 +12,13 @@ class MyProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet var CardView: UIView!
     
     
+    @IBOutlet var MyProfileCellContent: UILabel!
+    
     @IBOutlet var MyProfileCellLargeName: UILabel!
     @IBOutlet var MyProfileSmallName: UILabel!
     @IBOutlet var MyProfileCellLocation: UILabel!
     @IBOutlet var MyProfileCellTime: UILabel!
     @IBOutlet var MyProfileCellImage: UIImageView!
-    @IBOutlet var MyProfileCellContent: UILabel!
     
     
     @IBOutlet var MyProfileTag: UIView!

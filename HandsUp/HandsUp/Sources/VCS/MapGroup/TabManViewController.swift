@@ -14,6 +14,16 @@ class TabManViewController: TabmanViewController {
     @IBOutlet weak var TabManTabBar: UIView!
     @IBOutlet weak var HomeRestartBtn: UIView!
     
+    
+    @IBAction func profileBtnDidTap(_ sender: Any) {
+        
+        guard let myProfile = self.storyboard?.instantiateViewController(withIdentifier: "MyProfile") else {return}
+        
+        myProfile.modalPresentationStyle = .overFullScreen
+        self.present(myProfile, animated: true, completion:nil)
+    }
+    
+    
     private var viewControllers: [UIViewController] = []
     let firstVC = FirstTabViewController()
     let secondVC = SecondTabViewController()
@@ -24,6 +34,8 @@ class TabManViewController: TabmanViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true
         
         HomeRestartBtn.layer.cornerRadius = 13
         

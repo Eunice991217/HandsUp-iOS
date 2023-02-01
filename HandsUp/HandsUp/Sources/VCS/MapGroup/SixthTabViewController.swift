@@ -44,14 +44,14 @@ class SixthTabViewController: UIViewController, MTMapViewDelegate {
             poiItem1?.markerType = MTMapPOIItemMarkerType.customImage
             poiItem1?.customImageName = "characterExample4Small"
             poiItem1?.mapPoint = mapPoint1
-            poiItem1?.itemName = "세종대학교 대양AI센터"
+            // poiItem1?.itemName = "세종대학교 대양AI센터"
             mapView.add(poiItem1)
             
             poiItem2 = MTMapPOIItem()
             poiItem2?.markerType = MTMapPOIItemMarkerType.customImage
             poiItem2?.customImageName = "characterExample4Small"
             poiItem2?.mapPoint = mapPoint2
-            poiItem2?.itemName = "세종대학교 광개토관"
+            // poiItem2?.itemName = "세종대학교 광개토관"
             mapView.add(poiItem2)
             
             self.view.addSubview(mapView)
