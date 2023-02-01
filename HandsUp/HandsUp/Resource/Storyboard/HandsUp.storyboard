@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pMp-1M-dlZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pMp-1M-dlZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -960,6 +960,7 @@
                         <outlet property="characterView_HVC" destination="Mxk-lb-mRd" id="gZY-Bb-aLe"/>
                         <outlet property="foodTagBtn_HVC" destination="oHf-Pc-6QQ" id="qbj-6R-JTb"/>
                         <outlet property="hobbyTagBtn_HVC" destination="byZ-gQ-fui" id="eka-te-kK4"/>
+                        <outlet property="locationLabel_HVC" destination="DL3-FM-1Bq" id="Afe-gZ-J0N"/>
                         <outlet property="msgTextView_HVC" destination="G1l-Bs-4h4" id="KyY-nV-WkN"/>
                         <outlet property="sendBtn_HVC" destination="tN8-vN-y3m" id="h2G-wJ-5qg"/>
                         <outlet property="studyTagBtn_HVC" destination="n5t-Dv-g3e" id="iAM-Pv-Pdy"/>

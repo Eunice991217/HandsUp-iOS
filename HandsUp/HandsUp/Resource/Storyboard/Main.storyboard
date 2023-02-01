@@ -184,7 +184,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="notifications"/>
                                         <connections>
-                                            <action selector="NotificationBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="fDw-Os-lAa"/>
+                                            <action selector="BellBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="pSX-3y-LR1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-fI-ShE">
@@ -1345,7 +1345,7 @@
                                                             <rect key="frame" x="171" y="10" width="68" height="24"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 스터디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ie1-YW-pc3">
-                                                                    <rect key="frame" x="11.5" y="4.5" width="45" height="15.5"/>
+                                                                    <rect key="frame" x="11.5" y="4.5" width="45" height="15"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                                     <color key="textColor" name="HandsUpRealWhite"/>
                                                                     <nil key="highlightedColor"/>
