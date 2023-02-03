@@ -11,6 +11,18 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     @IBOutlet var MyProfileCollectionView: UICollectionView!
     
+    @IBOutlet var MyProfileHeartBtn: UIButton!
+    
+    var bRec:Bool = true
+    
+    @IBAction func HeartBtnDidTap(_ sender: Any) {
+        bRec = !bRec
+        if bRec {
+            MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
+        } else {
+            MyProfileHeartBtn.setImage(UIImage(named: "HeartDidTap"), for: .normal)
+        }
+    }
     
     @IBAction func MyProfilemoreDidTap(_ sender: Any) {
         self.showAlertController(style: UIAlertController.Style.actionSheet)
@@ -22,16 +34,14 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in };
         alert.addAction(cancel)
         
-        let storyboard_main: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let Report = storyboard_main?.instantiateViewController(identifier: "Report") else { return }
-        
         let block = UIAlertAction(title: "이 게시물 그만보기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
         )
         alert.addAction(block)
         
+        let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
-        // 화면 전환!
-        self.navigationController?.pushViewController(Report, animated: true)}
+            // 화면 전환!
+            self.navigationController?.pushViewController(Report!, animated: true)}
         )
         alert.addAction(report)
         
@@ -63,24 +73,21 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         // ChatViewController
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
-        guard let chat = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") else {return}
-//        let chat = storyboard?.instantiateViewController(withIdentifier: "ChatViewController")
-//        self.navigationController?.pushViewController(chat!, animated: true)
-
-        chat.modalPresentationStyle = .fullScreen
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
         
-        self.present(chat, animated: true, completion:nil)
+        nextVC.modalPresentationStyle = .fullScreen
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+        
+    
+        present(nextVC, animated: false, completion: nil)
     }
     
     @IBAction func MyProfileDismissBtnDidTap(_ sender: Any) {
-//        let backHome = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-//        self.navigationController?.pushViewController(backHome!, animated: true)
-        
-//        guard let backHome = self.storyboard?.instantiateViewController(withIdentifier: "MyProfile") else {return}
-//        self.present(backHome, animated: true, completion:nil)
-//
-//        backHome.modalPresentationStyle = .fullScreen
-        
         self.dismiss(animated: true, completion: nil)
     }
     

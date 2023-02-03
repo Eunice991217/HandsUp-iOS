@@ -1334,6 +1334,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="heartInWhiteCircle"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="HeartBtnDidTap:" destination="6JL-fC-7hn" eventType="touchUpInside" id="BOV-Eg-Kjf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1361,6 +1364,7 @@
                     <navigationItem key="navigationItem" id="anf-Cs-myq"/>
                     <connections>
                         <outlet property="MyProfileCollectionView" destination="avr-hk-4Mc" id="Nmp-CR-v1m"/>
+                        <outlet property="MyProfileHeartBtn" destination="u6X-Bi-asM" id="r6h-Xs-MXh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEI-pr-ISe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
