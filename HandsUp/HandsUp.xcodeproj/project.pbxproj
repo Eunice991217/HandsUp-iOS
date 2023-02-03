@@ -29,7 +29,6 @@
 		4817588A2988EF36004FACF0 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481758892988EF2E004FACF0 /* MyProfile.swift */; };
 		4817588C2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */; };
 		4819DD3229828C1300549538 /* CustromSwitchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4819DD3129828C1300549538 /* CustromSwitchHome.swift */; };
-		4824DC93297007C9004F0177 /* ToS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824DC92297007C9004F0177 /* ToS.swift */; };
 		482903AB2987F0C6003E6E18 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482903AA2987F0C6003E6E18 /* ListTableViewCell.swift */; };
 		48398AE6297288F9006FD205 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AE5297288F9006FD205 /* Report.swift */; };
 		48398AE829728FA0006FD205 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AE729728FA0006FD205 /* MyPost.swift */; };
@@ -143,7 +142,6 @@
 		481758892988EF2E004FACF0 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		4819DD3129828C1300549538 /* CustromSwitchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustromSwitchHome.swift; sourceTree = "<group>"; };
-		4824DC92297007C9004F0177 /* ToS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToS.swift; sourceTree = "<group>"; };
 		482903AA2987F0C6003E6E18 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		48398AE5297288F9006FD205 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		48398AE729728FA0006FD205 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 				4819DCD92982480300549538 /* MapGroup */,
 				8BE974D6297959E8008DD78D /* ViewController.swift */,
 				487D5FDC296AA8EF00BE2CCC /* FAQ.swift */,
-				4824DC92297007C9004F0177 /* ToS.swift */,
 				480B01E4297149D1007054B1 /* EditProfile.swift */,
 				480B01E629715A3C007054B1 /* EditProfileName.swift */,
 				4842441B2971924700D9C803 /* AccountManagement.swift */,
@@ -678,7 +675,6 @@
 				48398AE829728FA0006FD205 /* MyPost.swift in Sources */,
 				4817588C2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift in Sources */,
 				486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */,
-				4824DC93297007C9004F0177 /* ToS.swift in Sources */,
 				4842441C2971924700D9C803 /* AccountManagement.swift in Sources */,
 				486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */,
 				48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */,

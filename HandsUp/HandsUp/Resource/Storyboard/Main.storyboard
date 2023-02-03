@@ -24,90 +24,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--ToS-->
-        <scene sceneID="9Ve-eQ-2hU">
-            <objects>
-                <viewController storyboardIdentifier="ToS" id="ruj-UN-dIF" customClass="ToS" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dtR-vA-3SZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="핸즈업 서비스 이용약관" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4w-TX-yj2">
-                                <rect key="frame" x="20" y="166" width="274.5" height="35.5"/>
-                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="30"/>
-                                <color key="textColor" name="HandsUpMainText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjK-eq-wMv">
-                                <rect key="frame" x="20" y="223.5" width="318" height="79"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="DD1-X2-AJV"/>
-                                    <constraint firstAttribute="width" constant="318" id="i07-NO-f0Y"/>
-                                </constraints>
-                                <string key="text">제1조 (수집하는 개인정보 항목 및 수집방법)
-① 회사는 이용자의 회원가입 및 관리, 원활한 고충처리, 서비스의 제공을 위해 이용자로부터 다음의 개인정보를 수집하고 있습니다.</string>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwD-8q-wkF">
-                                <rect key="frame" x="0.0" y="92" width="414" height="34"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtR-Xd-zkf">
-                                        <rect key="frame" x="0.0" y="0.0" width="36" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="VVb-fw-sTl"/>
-                                            <constraint firstAttribute="width" constant="36" id="Xxh-fp-Zgi"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="BackArrowSmall"/>
-                                        <connections>
-                                            <action selector="EditProfileBackDidTap:" destination="WCv-nd-Qsv" eventType="touchUpInside" id="08M-PT-w3j"/>
-                                            <action selector="EditProfileNameBackBtnDidTap:" destination="1Ft-NN-i9e" eventType="touchUpInside" id="uzB-IW-LlF"/>
-                                            <action selector="TosBackBtnDidTap:" destination="ruj-UN-dIF" eventType="touchUpInside" id="ZeI-De-WWC"/>
-                                        </connections>
-                                    </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="typeLogoOrangeSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ex1-RO-WT3">
-                                        <rect key="frame" x="147" y="0.0" width="120" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="ccd-Lh-Iey"/>
-                                            <constraint firstAttribute="height" constant="34" id="gtB-co-T8C"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpBackground"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="1T0-X3-0Eb"/>
-                                    <constraint firstAttribute="width" constant="414" id="3yg-LQ-Btm"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="9aR-NX-v4V"/>
-                                    <constraint firstItem="Ex1-RO-WT3" firstAttribute="centerX" secondItem="wwD-8q-wkF" secondAttribute="centerX" id="DWc-Vg-hr6"/>
-                                    <constraint firstAttribute="bottom" secondItem="XtR-Xd-zkf" secondAttribute="bottom" id="jdf-6P-KHq"/>
-                                    <constraint firstAttribute="height" constant="34" id="ks5-Pn-QIw"/>
-                                    <constraint firstItem="XtR-Xd-zkf" firstAttribute="leading" secondItem="wwD-8q-wkF" secondAttribute="leading" id="mmY-UT-aMO"/>
-                                    <constraint firstItem="Ex1-RO-WT3" firstAttribute="centerY" secondItem="wwD-8q-wkF" secondAttribute="centerY" id="oUn-lV-kEj"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="zxk-qK-RZF"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
-                        <constraints>
-                            <constraint firstItem="zxk-qK-RZF" firstAttribute="trailing" secondItem="wwD-8q-wkF" secondAttribute="trailing" id="Ffd-SE-5X0"/>
-                            <constraint firstItem="t4w-TX-yj2" firstAttribute="top" secondItem="wwD-8q-wkF" secondAttribute="bottom" constant="40" id="Fq0-kP-Wqk"/>
-                            <constraint firstItem="wwD-8q-wkF" firstAttribute="top" secondItem="zxk-qK-RZF" secondAttribute="top" id="IPH-O0-mWe"/>
-                            <constraint firstItem="t4w-TX-yj2" firstAttribute="leading" secondItem="zxk-qK-RZF" secondAttribute="leading" constant="20" id="JGD-AD-qKK"/>
-                            <constraint firstItem="hjK-eq-wMv" firstAttribute="top" secondItem="t4w-TX-yj2" secondAttribute="bottom" constant="22" id="XI6-9f-Gpy"/>
-                            <constraint firstItem="hjK-eq-wMv" firstAttribute="leading" secondItem="zxk-qK-RZF" secondAttribute="leading" constant="20" id="p5w-qB-eza"/>
-                            <constraint firstItem="wwD-8q-wkF" firstAttribute="leading" secondItem="dtR-vA-3SZ" secondAttribute="leading" id="qim-F3-nVG"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="lHy-Qb-TzG">
-                        <nil key="title"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JBL-QF-XEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="214.50381679389312" y="3.5211267605633805"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="8Fb-gd-uXJ">
             <objects>
@@ -553,24 +469,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1T-PR-ojI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2717.3913043478265" y="15.401785714285714"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ure-1e-kJm">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kSp-9p-6Ap" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ilg-6g-eJ3">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ruj-UN-dIF" kind="relationship" relationship="rootViewController" id="WVE-YK-mWT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="32n-vN-Oha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-712.2137404580152" y="3.5211267605633805"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="W4l-jj-O7K">
@@ -1745,7 +1643,6 @@
         <image name="segment" width="35" height="35"/>
         <image name="send" width="124" height="124"/>
         <image name="threeDotsHorizon" width="24" height="6"/>
-        <image name="typeLogoOrangeSmall" width="96" height="31"/>
         <image name="xmarkInGreyCircle" width="90" height="90"/>
         <namedColor name="HandsUpBackground">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

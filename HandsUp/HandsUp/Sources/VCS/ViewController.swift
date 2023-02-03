@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -55,9 +56,15 @@ class ViewController: UIViewController {
         )
         alert.addAction(mypost)
         
-        let tos = self.storyboard?.instantiateViewController(withIdentifier: "ToS")
-        let Tos = UIAlertAction(title: "이용약관", style: UIAlertAction.Style.default, handler:{(action) in self.navigationController?.pushViewController(tos!, animated: true)}
+        
+        let tos = NSURL(string: "https://miniahiru.notion.site/55bb2cb2fd8b4f3db75775c7065977a2")
+        let SafariView_Tos: SFSafariViewController = SFSafariViewController(url: tos! as URL)
+        
+        let Tos = UIAlertAction(title: "이용약관", style: UIAlertAction.Style.default, handler:{(action) in 
+            self.present(SafariView_Tos, animated: true, completion: nil)
+        }
         )
+        
         
         alert.addAction(Tos)
         
