@@ -1518,11 +1518,20 @@
                                     <action selector="profileBtnDidTap:" destination="14G-pt-0Qb" eventType="touchUpInside" id="55x-L9-1lF"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ca0-on-LW7">
+                                <rect key="frame" x="0.0" y="50" width="414" height="2"/>
+                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="YT8-4A-DBd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PAb-Bz-kgX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ca0-on-LW7" firstAttribute="top" secondItem="A2S-JF-bqB" secondAttribute="bottom" id="BVj-vi-KLm"/>
                             <constraint firstItem="bWI-CO-rO6" firstAttribute="centerX" secondItem="vPY-Un-xJH" secondAttribute="centerX" id="CEC-n7-Do0"/>
+                            <constraint firstItem="PAb-Bz-kgX" firstAttribute="trailing" secondItem="Ca0-on-LW7" secondAttribute="trailing" id="CH5-Wa-9XZ"/>
                             <constraint firstItem="IEQ-Lm-e19" firstAttribute="centerX" secondItem="vPY-Un-xJH" secondAttribute="centerX" id="GPc-fp-a0e"/>
                             <constraint firstItem="PAb-Bz-kgX" firstAttribute="trailing" secondItem="Asu-WU-3l1" secondAttribute="trailing" constant="24" id="Jft-lW-ZVu"/>
                             <constraint firstItem="PAb-Bz-kgX" firstAttribute="bottom" secondItem="Asu-WU-3l1" secondAttribute="bottom" constant="120" id="Wal-E0-HFa"/>
@@ -1530,6 +1539,7 @@
                             <constraint firstAttribute="trailing" secondItem="A2S-JF-bqB" secondAttribute="trailing" id="csK-eM-MoH"/>
                             <constraint firstItem="A2S-JF-bqB" firstAttribute="leading" secondItem="vPY-Un-xJH" secondAttribute="leading" id="dEZ-xZ-ldv"/>
                             <constraint firstItem="A2S-JF-bqB" firstAttribute="top" secondItem="vPY-Un-xJH" secondAttribute="top" id="hMy-L9-tPE"/>
+                            <constraint firstItem="Ca0-on-LW7" firstAttribute="leading" secondItem="PAb-Bz-kgX" secondAttribute="leading" id="sY6-if-bAT"/>
                             <constraint firstItem="IEQ-Lm-e19" firstAttribute="centerY" secondItem="vPY-Un-xJH" secondAttribute="centerY" id="ztN-jN-Xtl"/>
                         </constraints>
                     </view>
@@ -1558,13 +1568,23 @@
                                     <constraint firstAttribute="height" constant="50" id="P3d-dL-LYZ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUT-pE-wd7">
+                                <rect key="frame" x="0.0" y="50" width="414" height="2"/>
+                                <color key="backgroundColor" name="HandsUpLightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="TAW-G4-SfO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F4l-xe-RoU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="PUT-pE-wd7" firstAttribute="top" secondItem="W7G-bx-NK8" secondAttribute="bottom" id="3Ql-xw-eSA"/>
                             <constraint firstItem="W7G-bx-NK8" firstAttribute="leading" secondItem="Lqs-hv-uwl" secondAttribute="leading" id="6vC-1B-4VT"/>
+                            <constraint firstItem="PUT-pE-wd7" firstAttribute="leading" secondItem="F4l-xe-RoU" secondAttribute="leading" id="B2Q-dS-svL"/>
                             <constraint firstAttribute="trailing" secondItem="W7G-bx-NK8" secondAttribute="trailing" id="GJ7-52-Gy6"/>
                             <constraint firstItem="W7G-bx-NK8" firstAttribute="top" secondItem="Lqs-hv-uwl" secondAttribute="top" id="HpN-tn-ZAX"/>
+                            <constraint firstItem="F4l-xe-RoU" firstAttribute="trailing" secondItem="PUT-pE-wd7" secondAttribute="trailing" id="mxE-an-qlv"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1596,6 +1616,7 @@
         <!--Navigation Controller-->
         <scene sceneID="I27-yR-Svl">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTa-4T-quc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSb-Na-ogv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tba-6M-JG9">
@@ -1607,7 +1628,6 @@
                         <segue destination="14G-pt-0Qb" kind="relationship" relationship="rootViewController" id="fm1-PT-tHt"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qTa-4T-quc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="-583.25892857142856"/>
         </scene>
@@ -1652,6 +1672,9 @@
         </namedColor>
         <namedColor name="HandsUpGrey">
             <color red="0.65490196078431373" green="0.65490196078431373" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpLightGrey">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpMainText">
             <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
