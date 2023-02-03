@@ -68,10 +68,10 @@ class ChatAlarmTableViewCell: UITableViewCell {
         contentView.layer.shadowRadius = 24
         contentView.layer.shadowOffset = CGSize(width: 0, height: 8)
         contentView.layer.masksToBounds = false
+        contentView.clipsToBounds = false
 
         contentView.layer.cornerRadius = 15
-        
-        contentView.layer.masksToBounds = false
+    
 
         contentView.layer.backgroundColor = UIColor(named: "HandsUpRealWhite")?.cgColor
         

@@ -20,7 +20,8 @@ class AlarmListViewController: UIViewController{
         alarmTableView_ALVC.rowHeight = 98
         
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
-        
+        alarmTableView_ALVC.layer.masksToBounds = false
+        alarmTableView_ALVC.clipsToBounds = false
         
         
     }

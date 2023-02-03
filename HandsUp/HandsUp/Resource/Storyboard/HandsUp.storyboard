@@ -213,13 +213,13 @@
         <scene sceneID="cCA-Pa-b3z">
             <objects>
                 <viewController id="Zy0-QT-N5s" customClass="ChatListViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="KlV-rd-06g">
+                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="KlV-rd-06g">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="597"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatAlarmTableViewCell" rowHeight="84" id="dBA-sp-WWb" customClass="ChatAlarmTableViewCell" customModule="HandsUp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatAlarmTableViewCell" rowHeight="84" id="dBA-sp-WWb" customClass="ChatAlarmTableViewCell" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dBA-sp-WWb" id="HY9-Ml-xCJ">
@@ -304,13 +304,13 @@
         <scene sceneID="8Ww-Gg-fn2">
             <objects>
                 <viewController id="xxS-0Q-oGj" customClass="AlarmListViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Hdb-Ai-Xef">
+                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Hdb-Ai-Xef">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="597"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" name="HandsUpBlue"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmTableViewCell" rowHeight="98" id="GXe-ud-vd2" customClass="AlarmTableViewCell" customModule="HandsUp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmTableViewCell" rowHeight="98" id="GXe-ud-vd2" customClass="AlarmTableViewCell" customModule="HandsUp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GXe-ud-vd2" id="Mm7-VP-NFw">
@@ -456,88 +456,8 @@
                                     <constraint firstItem="xBY-Ib-5rn" firstAttribute="leading" secondItem="6km-VQ-BSe" secondAttribute="leading" constant="5" id="qWh-y0-omM"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgS-5S-lgA">
-                                <rect key="frame" x="16" y="171" width="361" height="124"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제가 3시쯤에 수업이 끝날거 같은데 3시 30분에 학교근처.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-yM-0AT">
-                                        <rect key="frame" x="113" y="53" width="228" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="UJY-Lq-53B"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치 비밀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfG-am-AEh">
-                                        <rect key="frame" x="174.66666666666666" y="31" width="45" height="14"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10분전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H26-ch-0g6">
-                                        <rect key="frame" x="236.66666666666666" y="31" width="34.999999999999972" height="14"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sC-yS-pvy">
-                                        <rect key="frame" x="165.66666666666666" y="31.666666666666657" width="1" height="13"/>
-                                        <color key="backgroundColor" name="HandsUpDarkGrey"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="13" id="BZc-tc-7Md"/>
-                                            <constraint firstAttribute="width" constant="1" id="dv4-YK-mCc"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nea-lw-a3I">
-                                        <rect key="frame" x="227.66666666666666" y="31.666666666666657" width="1" height="13"/>
-                                        <color key="backgroundColor" name="HandsUpDarkGrey"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="13" id="JXt-gp-Pwf"/>
-                                            <constraint firstAttribute="width" constant="1" id="zFq-Fm-GO4"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cht-fD-RzC">
-                                        <rect key="frame" x="126.66666666666666" y="31" width="32" height="14"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                        <color key="textColor" name="HandsUpDarkGrey"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl7-h8-Xzu" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="24" width="76" height="76"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="76" id="FdJ-ch-YaN"/>
-                                            <constraint firstAttribute="width" constant="76" id="hdI-Vt-lRQ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" name="HandsUpRealWhite"/>
-                                <constraints>
-                                    <constraint firstItem="H26-ch-0g6" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="31" id="2Zd-eg-HlE"/>
-                                    <constraint firstItem="6kH-yM-0AT" firstAttribute="top" secondItem="Cht-fD-RzC" secondAttribute="bottom" constant="8" id="8VP-PF-NRl"/>
-                                    <constraint firstItem="Cht-fD-RzC" firstAttribute="leading" secondItem="Fl7-h8-Xzu" secondAttribute="trailing" constant="30.5" id="AAb-YC-KCJ"/>
-                                    <constraint firstItem="nea-lw-a3I" firstAttribute="leading" secondItem="vfG-am-AEh" secondAttribute="trailing" constant="8" id="Atj-2Y-uoG"/>
-                                    <constraint firstAttribute="trailing" secondItem="6kH-yM-0AT" secondAttribute="trailing" constant="20" id="FCr-1W-uL9"/>
-                                    <constraint firstItem="vfG-am-AEh" firstAttribute="leading" secondItem="6sC-yS-pvy" secondAttribute="trailing" constant="8" id="MwZ-Yq-7y5"/>
-                                    <constraint firstItem="6sC-yS-pvy" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="31.5" id="NI8-nL-5Xi"/>
-                                    <constraint firstAttribute="height" constant="124" id="Xo3-ub-VIq"/>
-                                    <constraint firstItem="Cht-fD-RzC" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="31" id="dFl-yy-9lA"/>
-                                    <constraint firstItem="6sC-yS-pvy" firstAttribute="trailing" secondItem="Cht-fD-RzC" secondAttribute="trailing" constant="8" id="fa8-aw-Vfg"/>
-                                    <constraint firstItem="Fl7-h8-Xzu" firstAttribute="leading" secondItem="LgS-5S-lgA" secondAttribute="leading" constant="20" id="m7x-Up-qfY"/>
-                                    <constraint firstItem="Fl7-h8-Xzu" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="24" id="oa6-wj-MFj"/>
-                                    <constraint firstItem="vfG-am-AEh" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="31" id="rLI-T4-CQU"/>
-                                    <constraint firstItem="H26-ch-0g6" firstAttribute="leading" secondItem="nea-lw-a3I" secondAttribute="trailing" constant="8" id="vcJ-A7-gmJ"/>
-                                    <constraint firstItem="nea-lw-a3I" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="31.5" id="wK9-8N-h1c"/>
-                                    <constraint firstItem="6kH-yM-0AT" firstAttribute="leading" secondItem="Fl7-h8-Xzu" secondAttribute="trailing" constant="17" id="wjV-r7-t1v"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-ty-BAG">
-                                <rect key="frame" x="0.0" y="319" width="393" height="421"/>
+                                <rect key="frame" x="0.0" y="262" width="393" height="478"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
@@ -551,6 +471,50 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgS-5S-lgA">
+                                <rect key="frame" x="16" y="171" width="361" height="74"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제가 3시쯤에 수업이 끝날거 같은데 3시 30분에 학교근처.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-yM-0AT">
+                                        <rect key="frame" x="76.333333333333343" y="39.666666666666657" width="270.66666666666663" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="X2S-mU-Awp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cht-fD-RzC">
+                                        <rect key="frame" x="72" y="18" width="36.333333333333343" height="16.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" name="HandsUpMainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl7-h8-Xzu" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
+                                        <rect key="frame" x="14" y="12" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FdJ-ch-YaN"/>
+                                            <constraint firstAttribute="width" constant="50" id="hdI-Vt-lRQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6kH-yM-0AT" firstAttribute="top" secondItem="Cht-fD-RzC" secondAttribute="bottom" constant="5" id="8VP-PF-NRl"/>
+                                    <constraint firstItem="Cht-fD-RzC" firstAttribute="leading" secondItem="Fl7-h8-Xzu" secondAttribute="trailing" constant="8" symbolic="YES" id="AAb-YC-KCJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="6kH-yM-0AT" secondAttribute="trailing" constant="14" id="FCr-1W-uL9"/>
+                                    <constraint firstAttribute="height" constant="74" id="Xo3-ub-VIq"/>
+                                    <constraint firstItem="Cht-fD-RzC" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="18" id="dFl-yy-9lA"/>
+                                    <constraint firstItem="Fl7-h8-Xzu" firstAttribute="leading" secondItem="LgS-5S-lgA" secondAttribute="leading" constant="13.960000000000001" id="m7x-Up-qfY"/>
+                                    <constraint firstItem="Fl7-h8-Xzu" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="top" constant="12" id="oa6-wj-MFj"/>
+                                    <constraint firstItem="6kH-yM-0AT" firstAttribute="leading" secondItem="Fl7-h8-Xzu" secondAttribute="trailing" constant="12.220000000000001" id="wjV-r7-t1v"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-Ql-8nT">
                                 <rect key="frame" x="16" y="760" width="361" height="42"/>
                                 <subviews>
@@ -603,7 +567,7 @@
                             <constraint firstItem="LgS-5S-lgA" firstAttribute="top" secondItem="6km-VQ-BSe" secondAttribute="bottom" constant="20" id="AIA-OL-mmP"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="r4o-Ql-8nT" secondAttribute="trailing" constant="16" id="Gt3-eZ-3lg"/>
                             <constraint firstItem="r4o-Ql-8nT" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" constant="16" id="Kap-kz-Fei"/>
-                            <constraint firstItem="s0q-ty-BAG" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="bottom" constant="24" id="NkC-zp-j9k"/>
+                            <constraint firstItem="s0q-ty-BAG" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="bottom" constant="17" id="NkC-zp-j9k"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="bottom" secondItem="r4o-Ql-8nT" secondAttribute="bottom" constant="16" id="VtV-sn-jgr"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="6km-VQ-BSe" secondAttribute="trailing" id="YUv-dj-hQL"/>
                             <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" constant="20" id="ZSG-Cz-6AZ"/>
@@ -626,9 +590,7 @@
                         <outlet property="idLb_CVC" destination="Cht-fD-RzC" id="zrd-qD-QwG"/>
                         <outlet property="inputUIView_CVC" destination="r4o-Ql-8nT" id="Fp2-wS-jjL"/>
                         <outlet property="inputViewBottomMargin" destination="VtV-sn-jgr" id="dzy-mD-2cX"/>
-                        <outlet property="locationLb_CVC" destination="vfG-am-AEh" id="cfa-y4-ffT"/>
                         <outlet property="postView_CVC" destination="LgS-5S-lgA" id="zTE-ev-1pA"/>
-                        <outlet property="timeLb_CVC" destination="H26-ch-0g6" id="E3P-yL-Nu2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
