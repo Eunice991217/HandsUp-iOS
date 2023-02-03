@@ -25,7 +25,7 @@ class First_ViewController: UIViewController {
         
         if status == 1{
             let mainSB_First = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC_First = mainSB_First.instantiateViewController(withIdentifier: "MyProfile")
+            let homeVC_First = mainSB_First.instantiateViewController(withIdentifier: "Home")
             self.navigationController?.pushViewController(homeVC_First, animated: false)
         }
         else if status == -1{

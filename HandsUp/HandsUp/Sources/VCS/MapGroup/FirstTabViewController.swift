@@ -6,69 +6,44 @@
 //
 
 import UIKit
-import SnapKit
+import CoreLocation
+import NMapsMap
 
-public let DEFAULT_POSITION1 = MTMapPointGeo(latitude: 37.55084892824633, longitude: 127.07551820008577)
+class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
 
-class FirstTabViewController: UIViewController, MTMapViewDelegate{
-    
-    var mapView: MTMapView?
-    
-    var mapPoint1: MTMapPoint?
-    var poiItem1: MTMapPOIItem?
-    
-    var mapPoint2: MTMapPoint?
-    var poiItem2: MTMapPOIItem?
-    
+    var locationManager = CLLocationManager()
+    let marker = NMFMarker()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 지도 불러오기
-        mapView = MTMapView(frame: self.view.bounds)
+        let mapView = NMFMapView(frame: view.frame)
+        view.addSubview(mapView)
         
-        if let mapView = mapView {
-            mapView.delegate = self
-            mapView.baseMapType = .standard
+        marker.position = NMGLatLng(lat: 37.36247139001076, lng: 127.10519331440649)
+        marker.iconImage = NMFOverlayImage(name: "characterExample4")
+        marker.width = 60
+        marker.height = 60
         
-            // 지도 중심점, 레벨
-            mapView.setMapCenter(MTMapPoint(geoCoord: DEFAULT_POSITION1), zoomLevel: 0, animated: true)
-            
-            //            // 현재 위치 트래킹
-            //            mapView.showCurrentLocationMarker = true
-            //            mapView.currentLocationTrackingMode = .onWithoutHeading
-            
-            // 마커 추가
-            self.mapPoint1 = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.55084892824633, longitude: 127.07551820008577))
-            self.mapPoint2 = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.54990522391498, longitude: 127.07466624750248))
-            
-            poiItem1 = MTMapPOIItem()
-            poiItem1?.markerType = MTMapPOIItemMarkerType.customImage
-            poiItem1?.customImageName = "characterExample4Small"
-            poiItem1?.mapPoint = mapPoint1
-            //poiItem1?.itemName = "세종대학교 대양AI센터"
-            mapView.add(poiItem1)
-            
-            poiItem2 = MTMapPOIItem()
-            poiItem2?.markerType = MTMapPOIItemMarkerType.customImage
-            poiItem2?.customImageName = "characterExample4Small"
-            poiItem2?.mapPoint = mapPoint2
-            //poiItem2?.itemName = "세종대학교 세종관"
-            mapView.add(poiItem2)
-            
-            self.view.addSubview(mapView)
-            
+        marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+            //guard let myProfile = self.storyboard?.instantiateViewController(withIdentifier: "MyProfile") else {return}
+            //myProfile.modalPresentationStyle = .overFullScreen
+            //self.present(myProfile, animated: true, completion:nil)
+            print("마커 터치")
+            return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
         }
         
-        //     // Custom: 현 위치 트래킹 함수
-        //    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        //        let currentLocation = location?.mapPointGeo()
-        //        if let latitude = currentLocation?.latitude, let longitude = currentLocation?.longitude{
-        //            print("MTMapView updateCurrentLocation (\(latitude),\(longitude)) accuracy (\(accuracy))")
-        //        }
-        //    }
-        //
-        //    func mapView(_ mapView: MTMapView?, updateDeviceHeading headingAngle: MTMapRotationAngle) {
-        //        print("MTMapView updateDeviceHeading (\(headingAngle)) degrees")
-        //    }
+        
+
+        
+        marker.mapView = mapView
+        
+        
+        
+        // Do any additional setup after loading the view.
     }
+    
+    
+        
 }
+
