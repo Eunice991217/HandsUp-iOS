@@ -31,12 +31,9 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
         // 화면 전환!
-        self.present(Report, animated: true)
-            
         self.navigationController?.pushViewController(Report, animated: true)}
         )
         alert.addAction(report)
-        
         
         cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")

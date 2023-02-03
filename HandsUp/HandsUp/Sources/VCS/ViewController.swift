@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         )
         alert.addAction(faq)
         
-        let cancel = UIAlertAction(title: "닫기", style: UIAlertAction.Style.default) { (action) in };
+        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in };
         alert.addAction(cancel)
 
         editProfile.setValue(UIColor(red: 0.937, green: 0.482, blue: 0.11, alpha: 1), forKey: "titleTextColor")

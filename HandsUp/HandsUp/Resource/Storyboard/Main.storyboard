@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbJ-ed-6Bl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hDI-Ie-lGm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -919,7 +919,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5FM-ah-dMA">
                                 <rect key="frame" x="16" y="142" width="382" height="720"/>
-                                <color key="backgroundColor" name="HandsUpBackground"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPostTableViewCell" rowHeight="160" id="NmR-8y-UwK" customClass="MyPostTableViewCell" customModule="HandsUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="382" height="160"/>
@@ -1002,7 +1003,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" name="HandsUpBackground"/>
                                             <constraints>
                                                 <constraint firstItem="c3P-UV-qFN" firstAttribute="centerY" secondItem="eOB-vK-vEB" secondAttribute="centerY" id="c0V-7l-7NX"/>
                                                 <constraint firstItem="c3P-UV-qFN" firstAttribute="leading" secondItem="eOB-vK-vEB" secondAttribute="leadingMargin" id="lXl-8U-FQF"/>
@@ -1010,7 +1010,6 @@
                                                 <constraint firstItem="56y-ue-onz" firstAttribute="centerY" secondItem="eOB-vK-vEB" secondAttribute="centerY" id="y5h-o3-6aD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="HandsUpBackground"/>
                                         <connections>
                                             <outlet property="MyPostTableContentView" destination="eOB-vK-vEB" id="Iiy-tU-nrp"/>
                                             <outlet property="MyPostTableViewCellContent" destination="uyU-4L-0fv" id="ijj-i2-6xv"/>
@@ -1616,7 +1615,6 @@
         <!--Navigation Controller-->
         <scene sceneID="I27-yR-Svl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qTa-4T-quc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSb-Na-ogv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tba-6M-JG9">
@@ -1628,6 +1626,7 @@
                         <segue destination="14G-pt-0Qb" kind="relationship" relationship="rootViewController" id="fm1-PT-tHt"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTa-4T-quc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="-583.25892857142856"/>
         </scene>

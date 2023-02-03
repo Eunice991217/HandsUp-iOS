@@ -75,10 +75,10 @@ class PostThroughChatViewController: UIViewController {
         let block = UIAlertAction(title: "이 게시물 그만보기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
         )
         alert.addAction(block)
-        
+    
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
         // 화면 전환!
-        self.present(Report, animated: true)
+        // self.present(Report, animated: true)
             
         self.navigationController?.pushViewController(Report, animated: true)}
         )
