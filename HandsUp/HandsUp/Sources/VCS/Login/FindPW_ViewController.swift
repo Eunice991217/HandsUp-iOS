@@ -1,7 +1,6 @@
 import UIKit
 
 class FindPW_ViewController: UIViewController {
-
     @IBOutlet weak var emailTextField_FindPW: UITextField!
     @IBOutlet weak var findPWButton_FindPW: RoundedShadow_UIButton!
     var isFindPWEnable_FindPW: Bool  = false
@@ -20,6 +19,7 @@ class FindPW_ViewController: UIViewController {
     @IBAction func backButtonTap_FindPW(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
