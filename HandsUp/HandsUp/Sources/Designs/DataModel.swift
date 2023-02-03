@@ -43,26 +43,38 @@ struct login_rq: Codable{
     let password: String
 }
 
+struct reissue_rq: Codable {
+    let grantType, accessToken, refreshToken: String
+    let accessTokenExpiresIn: Int
+}
+
 //MARK: - response
-struct nickname_rp: Decodable{
+struct nickname_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
     let result: String
 }
 
-struct emailVerify_rp: Decodable{
+struct emailVerify_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
     let result: String
 }
 
-struct makeCharacter_rp: Decodable{
+struct makeCharacter_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
     let result: Int
+}
+
+struct Sign_up_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String
 }
 
 struct login_rp: Codable{
@@ -72,15 +84,25 @@ struct login_rp: Codable{
     let result: login_rp_result
 }
 
-struct Sign_up_rp: Decodable{
-    let isSuccess: Bool
-    let statusCode: Int
-    let message: String
-    let result: String
-}
-
 struct login_rp_result: Codable{
     let grantType, accessToken, refreshToken: String
     let accessTokenExpiresIn: Int
 }
 
+struct logout_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
+}
+
+struct reissue_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: reissue_rp_result
+}
+
+struct reissue_rp_result: Codable {
+    let grantType, accessToken, refreshToken: String
+    let accessTokenExpiresIn: Int
+}

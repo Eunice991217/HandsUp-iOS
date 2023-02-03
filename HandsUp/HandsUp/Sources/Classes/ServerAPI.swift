@@ -144,8 +144,10 @@ class ServerAPI{
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
+                UserDefaults.standard.set(output!.result.grantType, forKey: "grantType")
                 UserDefaults.standard.set(output!.result.accessToken, forKey: "accessToken")
                 UserDefaults.standard.set(output!.result.refreshToken, forKey: "refreshToken")
+                UserDefaults.standard.set(output!.result.accessTokenExpiresIn, forKey: "accessTokenExpiresIn")
                 UserDefaults.standard.set(email, forKey: "email")
                 UserDefaults.standard.set(pw, forKey: "pw")
                 UserDefaults.standard.set(true, forKey: "login")
@@ -153,6 +155,73 @@ class ServerAPI{
             else{
                 check = output!.statusCode
                 UserDefaults.standard.set(false, forKey: "login")
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        return check
+    }
+    
+    static func logout() -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users/logout")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+                
+        var check:Int = -1
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(logout_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else if output!.statusCode == 2000{
+                check = output!.statusCode
+                UserDefaults.standard.set(false, forKey: "login")
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        return check
+    }
+    
+    
+    static func reissue() -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users/reissue")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let grantType = UserDefaults.standard.string(forKey: "grantType") ?? ""
+        let accessToken = UserDefaults.standard.string(forKey: "accessToken") ?? ""
+        let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") ?? ""
+        let accessTokenExpiresIn = UserDefaults.standard.integer(forKey: "accessTokenExpiresIn")
+        
+        let uploadData = try! JSONEncoder().encode(reissue_rq(grantType: grantType, accessToken: accessToken, refreshToken: refreshToken, accessTokenExpiresIn: accessTokenExpiresIn))
+        var check:Int = -1
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(reissue_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else if output!.statusCode == 2000{
+                check = output!.statusCode
+                UserDefaults.standard.set(output!.result.grantType, forKey: "grantType")
+                UserDefaults.standard.set(output!.result.accessToken, forKey: "accessToken")
+                UserDefaults.standard.set(output!.result.refreshToken, forKey: "refreshToken")
+                UserDefaults.standard.set(output!.result.accessTokenExpiresIn, forKey: "accessTokenExpiresIn")
+            }
+            else{
+                check = output!.statusCode
             }
             semaphore.signal()
         }.resume()
