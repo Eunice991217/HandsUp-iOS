@@ -103,7 +103,7 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         customBlurEffectView.frame = self.view.bounds
         // 3. create semi-transparent black view
         let dimmedView = UIView()
-        dimmedView.backgroundColor = .white.withAlphaComponent(0.1)
+        dimmedView.backgroundColor = .black.withAlphaComponent(0.3)
         dimmedView.frame = self.view.bounds
         
         // 4. add both as subviews

@@ -27,12 +27,7 @@ class MyProfileCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        // MyProfileTag.layer.cornerRadius = 5
+        
     }
     
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 }
