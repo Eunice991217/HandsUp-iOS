@@ -538,7 +538,7 @@
                                         <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="42"/>
                                         <color key="textColor" name="HandsUpMainText"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
