@@ -163,6 +163,21 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         }
     }
     
+    func handsup_Sign_up()->Bool{
+        let charInd_Sign_up = ServerAPI.makeCharacter(vc: self)
+        if charInd_Sign_up != -1{
+            print("character")
+            if ServerAPI.sign_up(data: sign_upData_Sign_up, charIDX: charInd_Sign_up) != -1{
+                print("sign_up")
+                if ServerAPI.login(email: sign_upData_Sign_up.email, pw: sign_upData_Sign_up.PW) != -1{
+                    print("login")
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     @IBAction func nextButtonTap_Sign_up(_ sender: Any){
         if(isNextButtonActive_Sign_up){
             if(curPageInt_Sign_up == 4){
@@ -184,9 +199,13 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 titleUpdate_Sign_up()
             }
             else{
-                let mainSB_Sign_up = UIStoryboard(name: "Main", bundle: nil)
-                let homeVC_Sign_up = mainSB_Sign_up.instantiateViewController(withIdentifier: "Home")
-                self.navigationController?.pushViewController(homeVC_Sign_up, animated: false)
+                if handsup_Sign_up(){
+                    let mainSB_Sign_up = UIStoryboard(name: "Main", bundle: nil)
+                    let homeVC_Sign_up = mainSB_Sign_up.instantiateViewController(withIdentifier: "Home")
+                    self.navigationController?.pushViewController(homeVC_Sign_up, animated: false)
+                }else{
+                    ServerError()
+                }
             }
         }
     }

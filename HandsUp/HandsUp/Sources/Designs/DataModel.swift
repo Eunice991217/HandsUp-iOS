@@ -29,6 +29,15 @@ struct makeCharacter_rq: Codable{
     var backGroundColor: String
 }
 
+struct sign_up_rq: Codable{
+    let email: String
+    let password: String
+    let nickname: String
+    let characterIdx: Int
+    let schoolName: String
+}
+
+
 struct login_rq: Codable{
     let email: String
     let password: String
@@ -56,17 +65,22 @@ struct makeCharacter_rp: Decodable{
     let result: Int
 }
 
-struct login_rp: Decodable{
+struct login_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
     let result: login_rp_result
 }
 
-struct login_rp_result: Decodable{
-    let grandType: String
-    let accessToken: String
-    let refreshToken: String
+struct Sign_up_rp: Decodable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String
+}
+
+struct login_rp_result: Codable{
+    let grantType, accessToken, refreshToken: String
     let accessTokenExpiresIn: Int
 }
 

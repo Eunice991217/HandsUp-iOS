@@ -91,10 +91,15 @@ class Login_ViewController: UIViewController {
     
     @IBAction func login_Login(_ sender: Any) {
         if(self.isLoginEnable_Login){
-            //이메일 로그인 실행
-            if(false){
-                
-            }else{
+            let status = ServerAPI.login(email: IDTextField_Login.text!, pw: PWTextField_Login.text!)
+            switch status{
+            case 2000:
+                let mainSB_Login = UIStoryboard(name: "Main", bundle: nil)
+                let homeVC_Login = mainSB_Login.instantiateViewController(withIdentifier: "Home")
+                self.navigationController?.pushViewController(homeVC_Login, animated: false)
+            case -1:
+                ServerError()
+            default:
                 loginErrorAlert_Login()
             }
         }
@@ -129,7 +134,6 @@ class Login_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         disableShowPwButton()
         loginErrorMark_Login.alpha = 0
         emailBox_Login.layer.borderColor = UIColor(named: "HandsUpRed")?.cgColor

@@ -16,12 +16,12 @@ class First_ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let status: Int
         if UserDefaults.standard.bool(forKey: "login") {
-            status = ServerAPI.login(email: UserDefaults.standard.string(forKey: "email") ?? "", pw: UserDefaults.standard.string(forKey: "password") ?? "")
+            status = ServerAPI.login(email: UserDefaults.standard.string(forKey: "email") ?? "", pw: UserDefaults.standard.string(forKey: "pw") ?? "")
         }else{
             status = 0
         }
         
-        if status == 1{
+        if status == 2000{
             let mainSB_First = UIStoryboard(name: "Main", bundle: nil)
             let homeVC_First = mainSB_First.instantiateViewController(withIdentifier: "Home")
             self.navigationController?.pushViewController(homeVC_First, animated: false)
@@ -32,7 +32,6 @@ class First_ViewController: UIViewController {
             self.navigationController?.pushViewController(serverErrorVC_First, animated: false)
         }
         else{
-            UserDefaults.standard.set(false, forKey: "login")
             let loginVC_First = self.storyboard?.instantiateViewController(withIdentifier: "Login")
             self.navigationController?.pushViewController(loginVC_First!, animated: false)
         }

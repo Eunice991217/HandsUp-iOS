@@ -106,6 +106,125 @@ class Character_UIView: UIView {
         bgButton.isHighlighted.toggle()
     }
     
+    func setCharacter_NoShadow(){
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        self.backgroundColor = .clear
+        eyesButton = UIButton()
+        eyebrowButton = UIButton()
+        noseButton = UIButton()
+        mouthButton = UIButton()
+        glassesButton = UIButton()
+        headButton = UIButton()
+        bgButton = UIButton()
+        
+        let shadowArray: [UIButton] = [bgButton]
+        
+        let viewWidth = self.frame.width
+        let viewHeight = self.frame.height
+        let length = viewWidth < viewHeight ? viewWidth : viewHeight
+        
+        let headWidth = length * headWidth / 406
+        let headHeignt = length * headHeight[headType] / 406
+        let eyebrowWidth = length * eyebrowWidth / 406
+        let eyebrowHeight = length * eyebrowHeight[eyebrowType] / 406
+        let eyebrowBottomEdge = length * eyebrowBottomEdges[eyebrowType] / 406
+        let mouthWidth = length * mouthWidth[mouthType] / 406
+        let mouthHeight = length * mouthHeight[mouthType] / 406
+        let mouthBottomEdge = length * mouthBottomEdges[mouthType] / 406
+        let noseWidth = length * noseWidth[noseType] / 406
+        let noseHeight = length * noseHeight[noseType] / 406
+        let noseBottomEdge = length * noseBottomEdges[noseType] / 406
+        let eyesWidth = length * eyesWidth[eyesType] / 406
+        let eyesHeight = length * eyesHeight[eyesType] / 406
+        let eyesBottomEdge = length * eyesBottomEdges[eyesType] / 406
+        let glassesWidth = length * glassesWidth[glassesType] / 406
+        let glassesHeight = length * glassesHeight[glassesType] / 406
+        let glassesBottomEdge = length * glassesBottomEdges[glassesType] / 406
+        
+        let characterView = UIView(frame:CGRect(x: 0, y: 0, width: length, height: length))
+        let characterViewCover = UIView(frame:CGRect(x: 0, y: 0, width: length, height: length))
+        
+        shadowArray.forEach {
+            characterView.addSubview($0)
+        }
+        characterView.addSubview(headButton)
+        characterView.addSubview(eyebrowButton)
+        characterView.addSubview(mouthButton)
+        characterView.addSubview(noseButton)
+        characterView.addSubview(eyesButton)
+        characterView.addSubview(glassesButton)
+        
+        shadowArray.forEach {
+            $0.setImage(UIImage(named: bgImages[bgType]), for: .normal)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.heightAnchor.constraint(equalToConstant: length).isActive = true
+            $0.widthAnchor.constraint(equalToConstant: length).isActive = true
+            $0.centerXAnchor.constraint(equalTo: characterView.centerXAnchor).isActive = true
+            $0.centerYAnchor.constraint(equalTo: characterView.centerYAnchor).isActive = true
+        }
+        
+        headButton.setImage(UIImage(named: headImages[headType]), for: .normal)
+        headButton.translatesAutoresizingMaskIntoConstraints = false
+        eyebrowButton.setImage(UIImage(named: eyebrowImages[eyebrowType]), for: .normal)
+        eyebrowButton.translatesAutoresizingMaskIntoConstraints = false
+        mouthButton.setImage(UIImage(named: mouthImages[mouthType]), for: .normal)
+        mouthButton.translatesAutoresizingMaskIntoConstraints = false
+        noseButton.setImage(UIImage(named: noseImages[noseType]), for: .normal)
+        noseButton.translatesAutoresizingMaskIntoConstraints = false
+        eyesButton.setImage(UIImage(named: eyesImages[eyesType]), for: .normal)
+        eyesButton.translatesAutoresizingMaskIntoConstraints = false
+        if(glassesType != 0){
+            glassesButton.setImage(UIImage(named: glassesImages[glassesType]), for: .normal)
+        }
+        glassesButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        constraintsArray.forEach {
+            $0.isActive = false
+        }
+        
+        constraintsArray = [ headButton.heightAnchor.constraint(equalToConstant: headHeignt)
+                             , headButton.widthAnchor.constraint(equalToConstant: headWidth),
+                             headButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
+                             headButton.bottomAnchor.constraint(equalTo: characterView.bottomAnchor,constant: 1),
+                             
+                             eyebrowButton.heightAnchor.constraint(equalToConstant: eyebrowHeight),
+                             eyebrowButton.widthAnchor.constraint(equalToConstant: eyebrowWidth),
+                             eyebrowButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
+                             characterView.bottomAnchor.constraint(equalTo: eyebrowButton.bottomAnchor,constant: eyebrowBottomEdge),
+                             
+                             mouthButton.heightAnchor.constraint(equalToConstant: mouthHeight),
+                             mouthButton.widthAnchor.constraint(equalToConstant: mouthWidth),
+                             mouthButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
+                             characterView.bottomAnchor.constraint(equalTo: mouthButton.bottomAnchor,constant: mouthBottomEdge),
+                             
+                             noseButton.heightAnchor.constraint(equalToConstant: noseHeight),
+                             noseButton.widthAnchor.constraint(equalToConstant: noseWidth),
+                             noseButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
+                             characterView.bottomAnchor.constraint(equalTo: noseButton.bottomAnchor,constant: noseBottomEdge),
+                             
+                             eyesButton.heightAnchor.constraint(equalToConstant: eyesHeight),
+                             eyesButton.widthAnchor.constraint(equalToConstant: eyesWidth),
+                             eyesButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
+                             characterView.bottomAnchor.constraint(equalTo: eyesButton.bottomAnchor,constant: eyesBottomEdge),
+                             
+                             glassesButton.heightAnchor.constraint(equalToConstant: glassesHeight),
+                             glassesButton.widthAnchor.constraint(equalToConstant: glassesWidth),
+                             glassesButton.centerXAnchor.constraint(equalTo: characterView.centerXAnchor),
+                             characterView.bottomAnchor.constraint(equalTo: glassesButton.bottomAnchor,constant: glassesBottomEdge)
+        ]
+        
+        constraintsArray.forEach {
+            $0.isActive = true
+        }
+        
+        self.addSubview(characterView)
+        self.addSubview(characterViewCover)
+    }
+    
+    
+    
     func setCharacter(){
         for view in self.subviews {
             view.removeFromSuperview()
