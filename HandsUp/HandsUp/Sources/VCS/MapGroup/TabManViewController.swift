@@ -9,20 +9,13 @@ import UIKit
 import Tabman
 import Pageboy
 
-class TabManViewController: TabmanViewController {
+import CoreLocation
+import NMapsMap
+import SnapKit
+
+class TabManViewController: TabmanViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var TabManTabBar: UIView!
-    @IBOutlet weak var HomeRestartBtn: UIView!
-    
-    
-//    @IBAction func profileBtnDidTap(_ sender: Any) {
-//        
-//        guard let myProfile = self.storyboard?.instantiateViewController(withIdentifier: "MyProfile") else {return}
-//        
-//        myProfile.modalPresentationStyle = .overFullScreen
-//        self.present(myProfile, animated: true, completion:nil)
-//    }
-    
     
     private var viewControllers: [UIViewController] = []
     let firstVC = FirstTabViewController()
@@ -36,8 +29,6 @@ class TabManViewController: TabmanViewController {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
-        
-        HomeRestartBtn.layer.cornerRadius = 13
         
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)
