@@ -20,7 +20,7 @@ class AlarmListViewController: UIViewController{
         alarmTableView_ALVC.rowHeight = 98
         
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
-        
+
         
         
     }
@@ -130,4 +130,6 @@ let AlarmDataArr: [AlarmDataModel] = [
             time: "20분전",
             content: "아바타 4d 영화 같이 보실 분 있나요?!"
         )
+    
+    
 ]

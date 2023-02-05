@@ -7,16 +7,16 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
-class RegisterPostViewController: UIViewController {
-
-    // 위치정보를 가져오기 위한 locationManager
-    var locationManager_HVC: CLLocationManager!
+class RegisterPostViewController: UIViewController{
+    
     @IBOutlet weak var characterView_HVC: Character_UIView!
     
     @IBOutlet weak var characterViewWidth: NSLayoutConstraint!
     @IBOutlet weak var characterViewHeight: NSLayoutConstraint!
     
+    @IBOutlet var locationLabel_HVC: UILabel!
     
     @IBOutlet weak var characterViewHeight_HVC: NSLayoutConstraint!
     //tag btn 설정
@@ -24,6 +24,8 @@ class RegisterPostViewController: UIViewController {
     
     @IBOutlet weak var totalScrollView_HVC: UIScrollView!
     @IBOutlet weak var msgTextView_HVC: UITextView!
+    var textIsEmpty = true
+    
     
     @IBOutlet weak var talkTagBtn_HVC: UIButton!
     @IBOutlet weak var foodTagBtn_HVC: UIButton!
@@ -31,8 +33,16 @@ class RegisterPostViewController: UIViewController {
     @IBOutlet weak var hobbyTagBtn_HVC: UIButton!
     @IBOutlet weak var tripTagBtn_HVC: UIButton!
     
+    var selectedTag = "전체"
+    var messageDuration = 12
+    var content = ""
+    var location = ""
+    
     @IBOutlet weak var tagScrollView_HVC: TagScrollView!
     @IBOutlet weak var borderLine_HVC: UIView!
+    
+    
+    @IBOutlet var locationSwitchBtn_HVC: CustomSwitch!
     
     @IBOutlet weak var timeLb_HVC: UILabel!
     @IBOutlet weak var timeSlider_HVC: UISlider!
@@ -46,63 +56,51 @@ class RegisterPostViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true)
     }
     
+    //LocationManager 선언
+    var locationManager:CLLocationManager?
+    var currentLocation:CLLocationCoordinate2D!
+    
+    var findLocation:CLLocation!
+    let geocoder = CLGeocoder()
+    let locale = Locale(identifier: "Ko-kr") //원하는 언어의 나라 코드를 넣어주시면 됩니다.
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        locationManager_HVC = CLLocationManager()
-        // 델리게이트를 설정하고,
-        locationManager_HVC.delegate = self
-        
-        locationManager_HVC.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        
-        locationManager_HVC.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled(){
-            print("위치상태 on!")
-            locationManager_HVC.startUpdatingLocation()
-            
-            print(locationManager_HVC.location?.coordinate)
-            
-        }else{
-            print("위치상태 off!")
-        }
-        
         borderLine_HVC.backgroundColor =  UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         sendBtn_HVC.layer.cornerRadius = 10
         
-        self.timeLb_HVC.text = "1h"
-        
+        self.timeLb_HVC.text = "12h"
+        self.timeSlider_HVC.value = 12.0
         
         msgTextView_HVC.delegate = self
-                
-        //처음 화면이 로드되었을 때 플레이스 홀더처럼 보이게끔 만들어주기
-        msgTextView_HVC.text = "메세지를 입력해주세요!"
+        
         msgTextView_HVC.textColor = UIColor.lightGray
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
-    
-                
+        
+        
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.msgTextView_HVC.resignFirstResponder()
         }
         let xUnit = tagScrollView_HVC.bounds.width
-
+        
         tagScrollView_HVC.contentSize.width = xUnit * 10
         
         tagScrollView_HVC.canCancelContentTouches = true
         
         //scrollview에서 터치했을 때 키보드가 내려가게 함
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
-
         singleTapGestureRecognizer.numberOfTapsRequired = 1
-
         singleTapGestureRecognizer.isEnabled = true
-
         singleTapGestureRecognizer.cancelsTouchesInView = false
-
         totalScrollView_HVC.addGestureRecognizer(singleTapGestureRecognizer)
         
         characterView_HVC.setUserCharacter()
+        
+        requestAuthorization()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,24 +111,97 @@ class RegisterPostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-        
-     
-
+    
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc func keyboardUp(notification:NSNotification) {
-            UIView.animate(
-                withDuration: 0.3
-                , animations: {
-                    self.characterViewWidth.constant = 0
-                    self.characterViewHeight.constant = 0
-                    self.characterView_HVC.isHidden = true
-                    print("키보드 올라감")
+    private func requestAuthorization() {
+        if locationManager == nil {
+            
+            locationManager = CLLocationManager()
+            locationManager!.delegate = self
+            //정확도를 검사한다.
+            //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            //앱을 사용할때 권한요청
+            
+            
+            switch locationManager!.authorizationStatus {
+            case .restricted, .denied:
+                locationManager!.requestWhenInUseAuthorization()
+            default:
+                locationManager!.startUpdatingLocation()
+            }
+            
+            locationManagerDidChangeAuthorization(locationManager!)
+
+            if(LocationService.shared.latitude == nil || LocationService.shared.longitude == nil){
+                self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
+            }
+            else{
+                getAddressByLocation()
+            }
+            
+        }else{
+            //사용자의 위치가 바뀌고 있는지 확인하는 메소드
+            locationManager!.startMonitoringSignificantLocationChanges()
+            getAddressByLocation()
+        }
+        
+    }
+    
+    private func getAddressByLocation(){
+        findLocation = CLLocation(latitude: LocationService.shared.latitude, longitude: LocationService.shared.longitude)
+
+        if findLocation != nil {
+            var address = ""
+                    geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
+                        if error != nil {
+                            return
+                        }
+                        if let placemark = placemarks?.first {
+                            
+                            if let administrativeArea = placemark.administrativeArea {
+                                address = "\(address) \(administrativeArea) "
+                                print(administrativeArea) //서울특별시
+                            }
+                            
+                            if let locality = placemark.locality {
+                                address = "\(address) \(locality) "
+                                print(locality) //광진구
+                            }
+                            
+                            if let thoroughfare = placemark.thoroughfare {
+                                address = "\(address) \(thoroughfare) "
+                                print(thoroughfare) //중곡동
+                            }
+                            
+                            if let subThoroughfare = placemark.subThoroughfare {
+                               // address = "\(address) \(subThoroughfare)"
+                                print(subThoroughfare) //272-13
+                            }
+                        }
+                        self.locationLabel_HVC.text = address
+                        print(address) //서울특별시 광진구 중곡동 272-13
+                    }
                 }
-            )
+        
+    }
+    
+    @objc func keyboardUp(notification:NSNotification) {
+        UIView.animate(
+            withDuration: 0.3
+            , animations: {
+                self.characterViewWidth.constant = 0
+                self.characterViewHeight.constant = 0
+                self.characterView_HVC.isHidden = true
+                print("키보드 올라감")
+            }
+        )
     }
     
     @objc func keyboardDown() {
@@ -139,13 +210,13 @@ class RegisterPostViewController: UIViewController {
         self.characterView_HVC.isHidden = false
     }
     
-  
     
-    //화면 터치하면 키보드 사라지는 함수 
+    
+    //화면 터치하면 키보드 사라지는 함수
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-
-         self.view.endEditing(true)
-   }
+        
+        self.view.endEditing(true)
+    }
     
     @objc func MyTapMethod(sender: UITapGestureRecognizer) {
         
@@ -153,7 +224,11 @@ class RegisterPostViewController: UIViewController {
     }
     
     @IBAction func locationSwitchBtnDidTap(_ sender: Any) {
-        
+        if(locationSwitchBtn_HVC.isOn){
+            requestAuthorization()
+        }else{
+            self.locationLabel_HVC.text = "위치 비밀"
+        }
         
     }
     
@@ -163,15 +238,20 @@ class RegisterPostViewController: UIViewController {
         let timeValue = round(sender.value / step) * step
         sender.value = timeValue
         
+        messageDuration = Int(timeValue)
+        
         self.timeLb_HVC.text = String(Int(timeValue)) + "h"
     }
-   
+    
     
     //'핸즈업 올리기' 버튼 action method
     @IBAction func sendBtnDidTap(_ sender: Any) {
-        
-        
-        self.presentingViewController?.dismiss(animated: true)
+        //위치 정보 표시할 때
+        if(textIsEmpty){
+            
+        }else{
+            self.presentingViewController?.dismiss(animated: true)
+        }
         
     }
     
@@ -179,52 +259,64 @@ class RegisterPostViewController: UIViewController {
     //tag 버튼 action 설정
     @IBAction func totalTagDidTap(_ sender: UIButton) {
         if(totalIsOn){
-           totalIsOn = false
+            totalIsOn = false
             totalTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             
             totalIsOn = true
             totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            selectedTag = "전체"
         }
     }
     @IBAction func talkTagDidTap(_ sender: UIButton) {
+        
         if(talkIsOn){
             talkIsOn = false
             talkTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
-           
+            
             talkIsOn = true
             talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            selectedTag = "Talk"
         }
     }
     @IBAction func foodTagDidTap(_ sender: UIButton) {
         if(foodIsOn){
             foodIsOn = false
             foodTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
-           foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             foodIsOn = true
-
+            selectedTag = "밥"
+            
         }
     }
     @IBAction func studyTagDidTap(_ sender: UIButton) {
+        
         if(studyIsOn){
             studyIsOn = false
             studyTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             studyIsOn = true
-
+            selectedTag = "스터디"
+            
         }
     }
     @IBAction func hobbyTagDidTap(_ sender: UIButton) {
+        selectedTag = "취미"
         if(hobbyIsOn){
             hobbyIsOn = false
             hobbyTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
@@ -233,13 +325,16 @@ class RegisterPostViewController: UIViewController {
     }
     
     @IBAction func tripTagDidTap(_ sender: UIButton) {
+        
         if(tripIsOn){
             tripIsOn = false
             tripTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             tripIsOn = true
+            selectedTag = "여행"
         }
     }
     
@@ -252,21 +347,43 @@ class RegisterPostViewController: UIViewController {
         tripTagBtn_HVC.titleLabel?.textColor = unClickedColor
         totalIsOn = false; talkIsOn = false; foodIsOn = false; studyIsOn = false; hobbyIsOn = false; tripIsOn = false
     }
-
+    
 }
 
 extension RegisterPostViewController : UITextViewDelegate{
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = msgTextView_HVC.text ?? ""
+        guard let stringRange = Range(range, in: currentText)else { return false}
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        let text_count = changedText.count
+        
+        
+        
+        // textview에 입력된 글자가 없을 때 입력 버튼 숨기기
+        if(text_count > 0){
+            sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
+            textIsEmpty = false
+        }
+        else if (text_count == 0){
+            sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+            textIsEmpty = true
+        }
+        
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView)  {
         if msgTextView_HVC.text.isEmpty {
             msgTextView_HVC.text =  "메세지를 입력해주세요!"
             msgTextView_HVC.textColor = UIColor.lightGray
         }
-
+   
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if msgTextView_HVC.textColor == UIColor.lightGray {
             msgTextView_HVC.text = nil
             msgTextView_HVC.textColor = UIColor.black
+
         }
     }
 }
@@ -280,20 +397,7 @@ class TagScrollView: UIScrollView{
       }
 }
 
-extension RegisterPostViewController:CLLocationManagerDelegate{
-    
-    private func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        print("did update location")
-            if let location = locations.first {
-                print("위도: \(location.coordinate.latitude)")
-                print("경도: \(location.coordinate.longitude)")
-            }
-        }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("에러입니다.")
-    }
-}
+
 
 extension RegisterPostViewController:UIScrollViewDelegate{
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView){
@@ -301,6 +405,42 @@ extension RegisterPostViewController:UIScrollViewDelegate{
             self.view.endEditing(true)
 
         }
+}
+
+extension RegisterPostViewController:CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse {
+            if let currentLocation = locationManager!.location?.coordinate{
+                
+                LocationService.shared.longitude = currentLocation.longitude
+                LocationService.shared.latitude = currentLocation.latitude
+            }
+            else if manager.authorizationStatus == .authorizedAlways{
+                LocationService.shared.longitude = currentLocation.longitude
+                LocationService.shared.latitude = currentLocation.latitude
+            }
+            else if manager.authorizationStatus == .notDetermined {
+                
+            } else if manager.authorizationStatus == .denied{
+
+            }else if manager.authorizationStatus == .restricted{
+            } else if manager.authorizationStatus == .authorized{
+            }
+            else{
+
+            }
+    
+            
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            LocationService.shared.latitude =  location.coordinate.latitude
+            LocationService.shared.longitude = location.coordinate.longitude
+        }
+    }
+
 }
     
 

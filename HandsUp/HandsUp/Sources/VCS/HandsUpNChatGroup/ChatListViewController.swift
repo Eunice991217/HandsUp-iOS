@@ -19,8 +19,6 @@ class ChatListViewController: UIViewController {
         chatAlarmTableView_CLVC.dataSource = self
         chatAlarmTableView_CLVC.rowHeight = 84
         
-        chatAlarmTableView_CLVC.clipsToBounds = true
-        
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         // Do any additional setup after loading the view.

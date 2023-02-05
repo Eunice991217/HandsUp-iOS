@@ -47,14 +47,15 @@ class AlarmNChatListViewController: UIViewController {
         redAlarmBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
         redChatBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
         
-        homeTabView_ANCLV.clipsToBounds = true
+        homeTabView_ANCLV.clipsToBounds = false
         homeTabView_ANCLV.layer.cornerRadius = 40
         homeTabView_ANCLV.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         
         homeTabView_ANCLV.layer.shadowOpacity = 1
-        homeTabView_ANCLV.layer.shadowColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1).cgColor
-        homeTabView_ANCLV.layer.shadowOffset = CGSize(width: 0, height: 8)
+        homeTabView_ANCLV.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        homeTabView_ANCLV.layer.shadowOffset = CGSize(width: 0, height: -8)
         homeTabView_ANCLV.layer.shadowRadius = 24
+        homeTabView_ANCLV.layer.masksToBounds = false
         
         configureCustomView()
         self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
