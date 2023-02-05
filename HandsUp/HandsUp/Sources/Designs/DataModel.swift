@@ -39,8 +39,11 @@ struct sign_up_rq: Codable{
 
 
 struct login_rq: Codable{
-    let email: String
-    let password: String
+    let email, password: String
+}
+
+struct password_rq: Codable{
+    let currentPwd, newPwd: String
 }
 
 struct reissue_rq: Codable {
@@ -106,6 +109,13 @@ struct reissue_rp_result: Codable {
     let grantType, accessToken, refreshToken: String
     let accessTokenExpiresIn: Int
 }
+
+struct password_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
+}
+
 
 struct users_rp: Codable {
     let isSuccess: Bool
