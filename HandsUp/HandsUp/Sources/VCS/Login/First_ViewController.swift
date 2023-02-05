@@ -27,9 +27,7 @@ class First_ViewController: UIViewController {
             self.navigationController?.pushViewController(homeVC_First, animated: false)
         }
         else if status == -1{
-            let serverSB_First = UIStoryboard(name: "ServerError", bundle: nil)
-            let serverErrorVC_First = serverSB_First.instantiateViewController(withIdentifier: "ServerError")
-            self.navigationController?.pushViewController(serverErrorVC_First, animated: false)
+            ServerError()
         }
         else{
             let loginVC_First = self.storyboard?.instantiateViewController(withIdentifier: "Login")
