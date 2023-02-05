@@ -16,7 +16,7 @@ class ServerAPI{
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let uploadData = try! JSONEncoder().encode(nickname_rq(schoolName: vc.sign_upData_Sign_up.school, nickname: vc.nicknameTextField_Sign_up.text ?? ""))
+        let uploadData = try! JSONEncoder().encode(nicknameCheck_rq(schoolName: vc.sign_upData_Sign_up.school, nickname: vc.nicknameTextField_Sign_up.text ?? ""))
         var check:Int = 0
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
@@ -24,12 +24,10 @@ class ServerAPI{
             if data == nil{
                 check = -1
             }else{
-                guard let output = try? JSONDecoder().decode(nickname_rp.self, from: data!) else {
+                guard let output = try? JSONDecoder().decode(nicknameCheck_rp.self, from: data!) else {
                     return
                 }
-                if output.statusCode == 2000{
-                    check = output.statusCode
-                }
+                check = output.statusCode
             }
             semaphore.signal()
         }.resume()
@@ -48,16 +46,12 @@ class ServerAPI{
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
-            if data == nil{
+            let output = try? JSONDecoder().decode(emailVerify_rp.self, from: data!)
+            if output == nil{
                 check = -1
-            }else{
-                guard let output = try? JSONDecoder().decode(emailVerify_rp.self, from: data!) else {
-                    return
-                }
-                if output.statusCode == 2000{
-                    check = output.statusCode
-                    vc.vefifiedCode_Sign_up = output.result
-                }
+            }else if output!.statusCode == 2000{
+                    check = output!.statusCode
+                    vc.vefifiedCode_Sign_up = output!.result
             }
             semaphore.signal()
         }.resume()
@@ -302,4 +296,32 @@ class ServerAPI{
         return check
     }
     
+    static func nickname(nickname: String) -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users/nickname")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        let uploadData = try! JSONEncoder().encode(nickname_rq(nickname: nickname))
+        var check:Int = 0
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(nickname_rp.self, from: data!)
+            if output == nil{
+                check = -1
+            }else if output!.statusCode == 2000{
+                check = output!.statusCode
+                UserDefaults.standard.set(nickname, forKey: "nickname")
+            }else{
+                check = output!.statusCode
+            }
+            
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        return check
+    }
 }

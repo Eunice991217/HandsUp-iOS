@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - request
-struct nickname_rq: Codable{
+struct nicknameCheck_rq: Codable{
     let schoolName: String
     let nickname: String
 }
@@ -51,8 +51,12 @@ struct reissue_rq: Codable {
     let accessTokenExpiresIn: Int
 }
 
+struct nickname_rq: Codable {
+    let nickname: String
+}
+
 //MARK: - response
-struct nickname_rp: Codable{
+struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
@@ -130,3 +134,8 @@ struct users_rp_result: Codable {
     let skinColor, backGroundColor: String
 }
 
+struct nickname_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+}
