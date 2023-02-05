@@ -30,6 +30,8 @@ class PostThroughChatViewController: UIViewController {
             containerView.addSubview(customBlurEffectView)
             containerView.addSubview(dimmedView)
             return containerView
+        
+        
         }()
     
    
@@ -41,7 +43,7 @@ class PostThroughChatViewController: UIViewController {
         contentTextView_PTCVC.isEditable = false
         
         setupView()
-        
+        contentTextView_PTCVC.text =  "dkssudgdf /n dsfsd  /n 연락주세요"
         characterView_PTCVC.setUserCharacter()
     }
     

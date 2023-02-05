@@ -678,7 +678,7 @@
                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="#전체">
-                                                                    <color key="titleColor" name="HandsUpLightGrey"/>
+                                                                    <color key="titleColor" name="HandsUpOrange"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="totalTagDidTap:" destination="2Cd-TB-JtM" eventType="touchUpInside" id="QMn-xK-TM7"/>
@@ -883,7 +883,7 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tN8-vN-y3m">
                                 <rect key="frame" x="16" y="844" width="403" height="50"/>
-                                <color key="backgroundColor" name="HandsUpOrange"/>
+                                <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8BK-Tw-IxU"/>
                                 </constraints>
@@ -923,6 +923,7 @@
                         <outlet property="foodTagBtn_HVC" destination="oHf-Pc-6QQ" id="qbj-6R-JTb"/>
                         <outlet property="hobbyTagBtn_HVC" destination="byZ-gQ-fui" id="eka-te-kK4"/>
                         <outlet property="locationLabel_HVC" destination="DL3-FM-1Bq" id="Afe-gZ-J0N"/>
+                        <outlet property="locationSwitchBtn_HVC" destination="1Uc-p0-KOZ" id="u6a-gB-jo1"/>
                         <outlet property="msgTextView_HVC" destination="G1l-Bs-4h4" id="KyY-nV-WkN"/>
                         <outlet property="sendBtn_HVC" destination="tN8-vN-y3m" id="h2G-wJ-5qg"/>
                         <outlet property="studyTagBtn_HVC" destination="n5t-Dv-g3e" id="iAM-Pv-Pdy"/>
@@ -956,7 +957,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-tL-y2O">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-tL-y2O">
                                         <rect key="frame" x="15" y="270.33333333333331" width="303" height="247.66666666666669"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>

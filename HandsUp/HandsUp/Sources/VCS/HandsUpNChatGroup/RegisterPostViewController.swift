@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreLocation
-import MapKit
+import Alamofire
 
 class RegisterPostViewController: UIViewController{
     
@@ -24,6 +24,8 @@ class RegisterPostViewController: UIViewController{
     
     @IBOutlet weak var totalScrollView_HVC: UIScrollView!
     @IBOutlet weak var msgTextView_HVC: UITextView!
+    var textIsEmpty = true
+    
     
     @IBOutlet weak var talkTagBtn_HVC: UIButton!
     @IBOutlet weak var foodTagBtn_HVC: UIButton!
@@ -31,8 +33,16 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var hobbyTagBtn_HVC: UIButton!
     @IBOutlet weak var tripTagBtn_HVC: UIButton!
     
+    var selectedTag = "전체"
+    var messageDuration = 12
+    var content = ""
+    var location = ""
+    
     @IBOutlet weak var tagScrollView_HVC: TagScrollView!
     @IBOutlet weak var borderLine_HVC: UIView!
+    
+    
+    @IBOutlet var locationSwitchBtn_HVC: CustomSwitch!
     
     @IBOutlet weak var timeLb_HVC: UILabel!
     @IBOutlet weak var timeSlider_HVC: UISlider!
@@ -61,13 +71,11 @@ class RegisterPostViewController: UIViewController{
         borderLine_HVC.backgroundColor =  UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         sendBtn_HVC.layer.cornerRadius = 10
         
-        self.timeLb_HVC.text = "1h"
-        
+        self.timeLb_HVC.text = "12h"
+        self.timeSlider_HVC.value = 12.0
         
         msgTextView_HVC.delegate = self
         
-        //처음 화면이 로드되었을 때 플레이스 홀더처럼 보이게끔 만들어주기
-        msgTextView_HVC.text = "메세지를 입력해주세요!"
         msgTextView_HVC.textColor = UIColor.lightGray
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         
@@ -148,12 +156,7 @@ class RegisterPostViewController: UIViewController{
     
     private func getAddressByLocation(){
         findLocation = CLLocation(latitude: LocationService.shared.latitude, longitude: LocationService.shared.longitude)
-       // geocoder.reverseGeocodeLocation(findLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in
-         //   if let address: [CLPlacemark] = placemarks {
-           //     self.locationLabel_HVC.text = (address.last?.administrativeArea)! + " " + (address.last?.subLocality)!
 
-            //}
-        //})
         if findLocation != nil {
             var address = ""
                     geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
@@ -168,7 +171,7 @@ class RegisterPostViewController: UIViewController{
                             }
                             
                             if let locality = placemark.locality {
-                               // address = "\(address) \(locality) "
+                                address = "\(address) \(locality) "
                                 print(locality) //광진구
                             }
                             
@@ -221,7 +224,11 @@ class RegisterPostViewController: UIViewController{
     }
     
     @IBAction func locationSwitchBtnDidTap(_ sender: Any) {
-        
+        if(locationSwitchBtn_HVC.isOn){
+            requestAuthorization()
+        }else{
+            self.locationLabel_HVC.text = "위치 비밀"
+        }
         
     }
     
@@ -231,15 +238,20 @@ class RegisterPostViewController: UIViewController{
         let timeValue = round(sender.value / step) * step
         sender.value = timeValue
         
+        messageDuration = Int(timeValue)
+        
         self.timeLb_HVC.text = String(Int(timeValue)) + "h"
     }
     
     
     //'핸즈업 올리기' 버튼 action method
     @IBAction func sendBtnDidTap(_ sender: Any) {
-        
-        
-        self.presentingViewController?.dismiss(animated: true)
+        //위치 정보 표시할 때
+        if(textIsEmpty){
+            
+        }else{
+            self.presentingViewController?.dismiss(animated: true)
+        }
         
     }
     
@@ -249,50 +261,62 @@ class RegisterPostViewController: UIViewController{
         if(totalIsOn){
             totalIsOn = false
             totalTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             
             totalIsOn = true
             totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            selectedTag = "전체"
         }
     }
     @IBAction func talkTagDidTap(_ sender: UIButton) {
+        
         if(talkIsOn){
             talkIsOn = false
             talkTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             
             talkIsOn = true
             talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            selectedTag = "Talk"
         }
     }
     @IBAction func foodTagDidTap(_ sender: UIButton) {
         if(foodIsOn){
             foodIsOn = false
             foodTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             foodIsOn = true
+            selectedTag = "밥"
             
         }
     }
     @IBAction func studyTagDidTap(_ sender: UIButton) {
+        
         if(studyIsOn){
             studyIsOn = false
             studyTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             studyIsOn = true
+            selectedTag = "스터디"
             
         }
     }
     @IBAction func hobbyTagDidTap(_ sender: UIButton) {
+        selectedTag = "취미"
         if(hobbyIsOn){
             hobbyIsOn = false
             hobbyTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
@@ -301,13 +325,16 @@ class RegisterPostViewController: UIViewController{
     }
     
     @IBAction func tripTagDidTap(_ sender: UIButton) {
+        
         if(tripIsOn){
             tripIsOn = false
             tripTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
+            selectedTag = ""
         }else{
             resetTagBtn()
             tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             tripIsOn = true
+            selectedTag = "여행"
         }
     }
     
@@ -324,17 +351,39 @@ class RegisterPostViewController: UIViewController{
 }
 
 extension RegisterPostViewController : UITextViewDelegate{
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = msgTextView_HVC.text ?? ""
+        guard let stringRange = Range(range, in: currentText)else { return false}
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        let text_count = changedText.count
+        
+        
+        
+        // textview에 입력된 글자가 없을 때 입력 버튼 숨기기
+        if(text_count > 0){
+            sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
+            textIsEmpty = false
+        }
+        else if (text_count == 0){
+            sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
+            textIsEmpty = true
+        }
+        
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView)  {
         if msgTextView_HVC.text.isEmpty {
             msgTextView_HVC.text =  "메세지를 입력해주세요!"
             msgTextView_HVC.textColor = UIColor.lightGray
         }
-
+   
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if msgTextView_HVC.textColor == UIColor.lightGray {
             msgTextView_HVC.text = nil
             msgTextView_HVC.textColor = UIColor.black
+
         }
     }
 }
@@ -365,35 +414,22 @@ extension RegisterPostViewController:CLLocationManagerDelegate {
                 
                 LocationService.shared.longitude = currentLocation.longitude
                 LocationService.shared.latitude = currentLocation.latitude
-                
-                print("위도: " + String(format: "%.3f", currentLocation.longitude))
-                print("경도: " + String(format: "%.3f", currentLocation.latitude))
-                print("사용할 때만 위치 허용")
             }
             else if manager.authorizationStatus == .authorizedAlways{
                 LocationService.shared.longitude = currentLocation.longitude
                 LocationService.shared.latitude = currentLocation.latitude
-                
-                print("위도: " + String(format: "%.3f", currentLocation.longitude))
-                print("경도: " + String(format: "%.3f", currentLocation.latitude))
-                print("항상 위치 허용")
             }
             else if manager.authorizationStatus == .notDetermined {
-                print("not determined")
                 
             } else if manager.authorizationStatus == .denied{
-                print("denied")
-                
+
             }else if manager.authorizationStatus == .restricted{
-                print("restricted")
             } else if manager.authorizationStatus == .authorized{
-                print("authorized")
             }
             else{
-                print("뭐데")
+
             }
-            
-            print(manager.authorizationStatus)
+    
             
         }
     }
