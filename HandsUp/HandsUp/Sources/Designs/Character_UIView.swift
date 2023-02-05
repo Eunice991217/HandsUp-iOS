@@ -357,15 +357,14 @@ class Character_UIView: UIView {
     }
     
     func setUserCharacter(){
-        if true{
-            self.bgType = UserDefaults.standard.integer(forKey: "backgroundColor")
-            self.headType = UserDefaults.standard.integer(forKey: "hair")
-            self.eyebrowType = UserDefaults.standard.integer(forKey: "eyeBrow")
-            self.mouthType = UserDefaults.standard.integer(forKey: "mouth")
-            self.noseType = UserDefaults.standard.integer(forKey: "nose")
-            self.eyesType = UserDefaults.standard.integer(forKey: "eye")
-            self.glassesType = UserDefaults.standard.integer(forKey: "glasses")
-        }
+        self.bgType = UserDefaults.standard.integer(forKey: "backgroundColor")
+        self.headType = UserDefaults.standard.integer(forKey: "hair")
+        self.eyebrowType = UserDefaults.standard.integer(forKey: "eyeBrow")
+        self.mouthType = UserDefaults.standard.integer(forKey: "mouth")
+        self.noseType = UserDefaults.standard.integer(forKey: "nose")
+        self.eyesType = UserDefaults.standard.integer(forKey: "eye")
+        self.glassesType = UserDefaults.standard.integer(forKey: "glasses")
+        
         setCharacter()
     }
     
@@ -473,7 +472,7 @@ class Character_UIView: UIView {
 }
 
 extension UIView {
-  func asImage() -> UIImage {
+    func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)

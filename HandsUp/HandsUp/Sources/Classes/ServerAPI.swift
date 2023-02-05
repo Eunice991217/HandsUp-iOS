@@ -159,6 +159,11 @@ class ServerAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
+        
+        if(check == 2000){
+            check = users()
+        }
+        
         return check
     }
     
@@ -169,7 +174,7 @@ class ServerAPI{
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-                
+        
         var check:Int = -1
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
@@ -228,4 +233,43 @@ class ServerAPI{
         semaphore.wait()
         return check
     }
+    
+    static func users() -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check:Int = -1
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(users_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else if output!.statusCode == 2000{
+                check = output!.statusCode
+                let glasses: Int = output!.result.glasses == "" ? 0 : Int(output!.result.glasses)!
+                
+                UserDefaults.standard.set(output!.result.nickname, forKey: "nickname")
+                UserDefaults.standard.set(Int(output!.result.backGroundColor)! - 1,forKey: "backgroundColor")
+                UserDefaults.standard.set(Int(output!.result.hair)! - 1,forKey: "hair")
+                UserDefaults.standard.set(Int(output!.result.eyeBrow)! - 1,forKey: "eyeBrow")
+                UserDefaults.standard.set(Int(output!.result.mouth)! - 1,forKey: "mouth")
+                UserDefaults.standard.set(Int(output!.result.nose)! - 1,forKey: "nose")
+                UserDefaults.standard.set(Int(output!.result.eye)! - 1,forKey: "eye")
+                UserDefaults.standard.set(glasses,forKey: "glasses")
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        return check
+    }
+    
 }

@@ -106,3 +106,17 @@ struct reissue_rp_result: Codable {
     let grantType, accessToken, refreshToken: String
     let accessTokenExpiresIn: Int
 }
+
+struct users_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: users_rp_result
+}
+
+struct users_rp_result: Codable {
+    let nickname, eye, eyeBrow, glasses: String
+    let nose, mouth, hair, hairColor: String
+    let skinColor, backGroundColor: String
+}
+
