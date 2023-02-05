@@ -29,7 +29,7 @@ class EditProfile: UIViewController {
     
     @IBAction func EditProfileNameDidTap(_ sender: Any) {
         let EditName = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileName")
-                self.navigationController?.pushViewController(EditName!, animated: true)
+        self.navigationController?.pushViewController(EditName!, animated: true)
     }
     
     @objc func editCharProfile(_ sender: Any){

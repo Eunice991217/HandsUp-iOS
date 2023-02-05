@@ -9,10 +9,13 @@ import UIKit
 import Tabman
 import Pageboy
 
-class TabManViewController: TabmanViewController {
+import CoreLocation
+import NMapsMap
+import SnapKit
+
+class TabManViewController: TabmanViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var TabManTabBar: UIView!
-    @IBOutlet weak var HomeRestartBtn: UIView!
     
     private var viewControllers: [UIViewController] = []
     let firstVC = FirstTabViewController()
@@ -25,7 +28,7 @@ class TabManViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HomeRestartBtn.layer.cornerRadius = 13
+        self.navigationController?.isNavigationBarHidden = true
         
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)

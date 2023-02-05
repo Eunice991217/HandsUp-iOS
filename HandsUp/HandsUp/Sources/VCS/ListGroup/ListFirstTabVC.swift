@@ -26,8 +26,6 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.addSubview(self.myTableView)
 
         myTableView.separatorStyle = .none
-        
-        myTableView.backgroundColor = UIColor(red: 0.975, green: 0.975, blue: 0.975, alpha: 1)
 
         self.myTableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -46,8 +44,12 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      // print(names[indexPath.row])
-//        tableView.cellForRow(at: indexPath)?.contentView.backgroundColor =  UIColor(red: 0.975, green: 0.975, blue: 0.975, alpha: 1)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+                       
+        // 스토리보드에서 지정해준 ViewController의 ID
+        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {return}
+        myProfile.modalPresentationStyle = .overFullScreen
+        self.present(myProfile, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +92,8 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
         
         cell.img.image = MyHomeList1Data[indexPath.row].profileImage
+        
+        cell.selectionStyle = .none
 
         return cell
     }

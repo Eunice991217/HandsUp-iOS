@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "nmapsmap-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jaemyeong/NMapsMap-SPM",
+      "state" : {
+        "revision" : "839d2d2a76abc8e352ccec7d2ae5755bb4cf0387",
+        "version" : "3.16.1"
+      }
+    },
+    {
       "identity" : "pageboy",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/uias/Pageboy",

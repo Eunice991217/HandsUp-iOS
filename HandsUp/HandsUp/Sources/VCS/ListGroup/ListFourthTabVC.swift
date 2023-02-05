@@ -47,8 +47,12 @@ class ListFourthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      // print(names[indexPath.row])
-        //tableView.cellForRow(at: indexPath)?.contentView.backgroundColor = .blue
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+                       
+        // 스토리보드에서 지정해준 ViewController의 ID
+        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {return}
+        myProfile.modalPresentationStyle = .overFullScreen
+        self.present(myProfile, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,6 +107,8 @@ class ListFourthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.label2.text = "|"
         cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        cell.selectionStyle = .none
 
         return cell
     }

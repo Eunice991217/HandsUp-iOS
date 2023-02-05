@@ -4,8 +4,8 @@
 <dict>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>KAKAO_APP_KEY</key>
-	<string>40f02c3eb0b904135b8ae5363df3a016</string>
+	<key>NMFClientId</key>
+	<string>3w1kzr13wh</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>위치 사용하게 해주세요~</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

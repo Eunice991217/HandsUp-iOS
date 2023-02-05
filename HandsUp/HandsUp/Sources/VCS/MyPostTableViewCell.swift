@@ -19,9 +19,6 @@ class MyPostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //MyPostTableViewCellImage.layer.cornerRadius = 63
-        MyPostTableContentView.layer.cornerRadius = 20
-        MyPostTableContentView.backgroundColor = UIColor.white
         
         // Initialization code
     }
@@ -30,9 +27,14 @@ class MyPostTableViewCell: UITableViewCell {
         super.layoutSubviews()
 
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        contentView.layer.shadowOffset = CGSize(width: 10, height: 10)
-        contentView.layer.shadowOpacity = 0.1
-        contentView.layer.shadowRadius = 30
+        contentView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowRadius = 24
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 8)
+        contentView.layer.masksToBounds = false
+        contentView.layer.cornerRadius = 15
+
+        contentView.layer.backgroundColor = UIColor(named: "HandsUpRealWhite")?.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

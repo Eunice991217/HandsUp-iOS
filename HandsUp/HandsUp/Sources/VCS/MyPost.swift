@@ -13,19 +13,32 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return MyPostData.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+                
+        // 스토리보드에서 지정해준 ViewController의 ID
+        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {return}
+        
+        // 화면 전환!
+        self.present(registerPostVC, animated: true)
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 테이블뷰에 넣을 셀
         
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostTableViewCell", for: indexPath) as? MyPostTableViewCell else {return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostTableViewCell", for: indexPath) as? MyPostTableViewCell else {return UITableViewCell() }
                
-       // 몇번째 셀에 어떤것이 들어가는지 모르기때문에 indexPath활용
-       cell.MyPostTableViewCellImage.image = MyPostData[indexPath.row].profileImage
-       cell.MyPostTableViewCellName.text=MyPostData[indexPath.row].name
-       cell.MyPostTableViewCellLoaction.text=MyPostData[indexPath.row].location
-       cell.MyPostTableViewCellTime.text=MyPostData[indexPath.row].time
-       cell.MyPostTableViewCellContent.text=MyPostData[indexPath.row].content
+        // 몇번째 셀에 어떤것이 들어가는지 모르기때문에 indexPath활용
+        cell.MyPostTableViewCellImage.image = MyPostData[indexPath.row].profileImage
+        cell.MyPostTableViewCellName.text=MyPostData[indexPath.row].name
+        cell.MyPostTableViewCellLoaction.text=MyPostData[indexPath.row].location
+        cell.MyPostTableViewCellTime.text=MyPostData[indexPath.row].time
+        cell.MyPostTableViewCellContent.text=MyPostData[indexPath.row].content
+        
+        cell.selectionStyle = .none
        
-       return cell // 테이블뷰에 넣을 셀
+        return cell // 테이블뷰에 넣을 셀
     }
     
     @IBOutlet weak var HomeMyPostTableView: UITableView!
@@ -40,6 +53,9 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         HomeMyPostTableView.delegate = self
         HomeMyPostTableView.dataSource = self
+        
+        HomeMyPostTableView.clipsToBounds = true
+        HomeMyPostTableView.backgroundColor = UIColor(named: "HandsUpBackGround")
 
         self.navigationController?.navigationBar.isHidden = true;
 //        self.navigationController?.navigationBar.tintColor = .black

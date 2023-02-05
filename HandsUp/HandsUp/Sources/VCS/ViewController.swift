@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -41,10 +42,6 @@ class ViewController: UIViewController {
     func showAlertController(style: UIAlertController.Style) {
         let alert = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         
-        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in };
-        
-        alert.addAction(cancel)
-        
         let Edit = self.storyboard?.instantiateViewController(withIdentifier: "EditProfile")
         let editProfile = UIAlertAction(title: "내 정보 변경", style: UIAlertAction.Style.default,         handler:{(action) in self.navigationController?.pushViewController(Edit!, animated: true)}
         )
@@ -55,22 +52,27 @@ class ViewController: UIViewController {
         )
         alert.addAction(mypost)
         
-        let tos = self.storyboard?.instantiateViewController(withIdentifier: "ToS")
-        let Tos = UIAlertAction(title: "이용약관", style: UIAlertAction.Style.default, handler:{(action) in self.navigationController?.pushViewController(tos!, animated: true)}
-        )
         
+        let tos = NSURL(string: "https://miniahiru.notion.site/55bb2cb2fd8b4f3db75775c7065977a2")
+        let SafariView_Tos: SFSafariViewController = SFSafariViewController(url: tos! as URL)
+        
+        let Tos = UIAlertAction(title: "이용약관", style: UIAlertAction.Style.default, handler:{(action) in 
+            self.present(SafariView_Tos, animated: true, completion: nil)}
+        )
         alert.addAction(Tos)
         
         let AM = self.storyboard?.instantiateViewController(withIdentifier: "AccountManagement")
         let accountManagement = UIAlertAction(title: "계정관리",style: UIAlertAction.Style.default,      handler:{(action) in self.navigationController?.pushViewController(AM!, animated: true)}
         )
-        
         alert.addAction(accountManagement)
         
         let FAQ = self.storyboard?.instantiateViewController(withIdentifier: "FAQ")
         let faq = UIAlertAction(title: "문의하기", style: UIAlertAction.Style.default, handler:{(action) in self.navigationController?.pushViewController(FAQ!, animated: true)}
         )
         alert.addAction(faq)
+        
+        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in };
+        alert.addAction(cancel)
 
         editProfile.setValue(UIColor(red: 0.937, green: 0.482, blue: 0.11, alpha: 1), forKey: "titleTextColor")
         cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
@@ -78,8 +80,6 @@ class ViewController: UIViewController {
         Tos.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         accountManagement.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         faq.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
-        
-        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
 
         present(alert, animated: true, completion: nil)
     }
@@ -103,18 +103,18 @@ class ViewController: UIViewController {
     @IBAction func HomePlusBtnDidTap(_ sender: Any) {
         
         // 스토리보드의 파일 찾기
-                let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
                 
-                // 스토리보드에서 지정해준 ViewController의 ID
-                guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
-                    return
-                }
-                // 화면 전환!
-                self.present(registerPostVC, animated: true)
+        // 스토리보드에서 지정해준 ViewController의 ID
+        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+            return
+        }
+        // 화면 전환!
+        self.present(registerPostVC, animated: true)
         
     }
     
-    @IBAction func BellBtnDidTap(_ sender: Any) {
+    @IBAction func BellBtnDidTap(_ sender: Any) { // 연결하기
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
         // 스토리보드에서 지정해준 ViewController의 ID
@@ -127,8 +127,6 @@ class ViewController: UIViewController {
         self.present(alarmNChatVC, animated: false)
         
     }
-    
-    
     
     
     override func viewDidLoad() {

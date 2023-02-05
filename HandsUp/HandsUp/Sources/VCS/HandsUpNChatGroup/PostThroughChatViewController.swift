@@ -35,6 +35,8 @@ class PostThroughChatViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true
 
         self.view.backgroundColor = UIColor(red: 0.642, green: 0.642, blue: 0.642, alpha: 0.8)
         contentTextView_PTCVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
@@ -73,12 +75,12 @@ class PostThroughChatViewController: UIViewController {
         let block = UIAlertAction(title: "이 게시물 그만보기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
         )
         alert.addAction(block)
-        
+    
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
-            // 화면 전환!
-            //self.present(Report, animated: true)
+        // 화면 전환!
+        // self.present(Report, animated: true)
             
-            self.navigationController?.pushViewController(Report, animated: true)}
+        self.navigationController?.pushViewController(Report, animated: true)}
         )
         alert.addAction(report)
         
