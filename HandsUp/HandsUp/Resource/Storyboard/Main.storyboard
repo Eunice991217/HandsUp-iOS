@@ -116,7 +116,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="2R8-Uh-ecZ"/>
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="9Xq-5H-YpE"/>

@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var HomeDidBtn: UIButton!
     @IBOutlet weak var NotificationBtn: UIButton!
     
+    let safeAreaView = UIView()
+    var bomttomSafeAreaInsets: CGFloat = 0.0
+    
     var bRec:Bool = true
 
     @IBAction func HomeBtnDidTap(_ sender: Any) {
@@ -131,12 +134,40 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HomeTabView.clipsToBounds = true
+        
+        HomeTabView.layer.shadowOpacity = 1
+        HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        HomeTabView.layer.shadowOffset = CGSize(width: 0, height: -8)
+        HomeTabView.layer.shadowRadius = 24
+        HomeTabView.layer.masksToBounds = false
+        
+        HomeTabView.clipsToBounds = false
         HomeTabView.layer.cornerRadius = 40
         HomeTabView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        
+        configureCustomView()
+        self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.safeAreaView)
 
+        self.safeAreaView.backgroundColor = .white
+
+        NSLayoutConstraint.activate([
+            self.safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
+        ])
+        
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.
+    }
+    
+    func configureCustomView() {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        if let hasWindowScene = windowScene {
+            bomttomSafeAreaInsets = hasWindowScene.windows.first?.safeAreaInsets.bottom ?? 0
+        }
     }
     
 }
