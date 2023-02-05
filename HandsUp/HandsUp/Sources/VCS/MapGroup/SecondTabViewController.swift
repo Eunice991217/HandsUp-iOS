@@ -6,13 +6,15 @@
 //
 
 import UIKit
-
-import UIKit
 import CoreLocation
 import NMapsMap
 import SnapKit
 
 class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
+    
+    var locationManager = CLLocationManager()
+    let cameraPosition = NMFCameraPosition()
+    let marker = NMFMarker()
     
     lazy var MyPosition: UIButton = {
         let MPbtn = UIButton()
@@ -31,10 +33,21 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
         MPbtn.setImage(UIImage(named: "restart"), for: .normal)
         return MPbtn
     }()
-
-    var locationManager = CLLocationManager()
-    let cameraPosition = NMFCameraPosition()
-    let marker = NMFMarker()
+    
+//    lazy var MarkerImage: UIImageView = {
+//        let image = UIImageView()
+//        image.image = UIImage(named: "characterExample4")
+//        image.layer.shadowColor = UIColor.black.cgColor
+//        image.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        image.layer.shadowRadius = 4
+//        image.layer.shadowOpacity = 0.25
+//        return image
+//    }()
+    
+    lazy var MarkerImage: UIImage = {
+        let image = UIImage(named: "characterExample4")
+        return image!
+    }()
     
     @objc func restartDidTap() {
         viewDidLoad()
@@ -54,6 +67,7 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
         let mapView = NMFMapView(frame: view.frame)
         mapView.allowsZooming = true // 줌 가능
         mapView.allowsScrolling = true // 스크롤 가능
+        mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0) // 컨텐츠 패딩값 (하단 탭바만큼 패딩값)
         view.addSubview(mapView)
 
         view.addSubview(MyPosition)
@@ -78,32 +92,39 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
         }
         
         // 지정한 위치로 카메라 이동
-        let cameraSet = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.67151516118892, lng: 127.07768966850527))
-        cameraSet.animation = .easeIn
-        mapView.moveCamera(cameraSet)
-        // print(cameraSet)
+//        let cameraSet = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.67151516118892, lng: 127.07768966850527), zoomTo: 20.0)
+//        cameraSet.animation = .easeIn
+//        mapView.moveCamera(cameraSet)
+        
+        // 마커 추가
+//        marker.position = NMGLatLng(lat: 37.67151516118892, lng: 127.07768966850527)
+//        marker.iconImage = NMFOverlayImage(name: "characterExample4")
+//        marker.width = 60
+//        marker.height = 60
         
         MapReset.addTarget(self, action: #selector(restartDidTap), for: .touchUpInside)
         MyPosition.addTarget(self, action: #selector(SearchMP), for: .touchUpInside)
         
-//        // 내 위치 가져오기
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
-//
-//        // 위도, 경도 가져오기
-//        let latitude = locationManager.location?.coordinate.latitude ?? 0
-//        let longitude = locationManager.location?.coordinate.longitude ?? 0
-//        print(latitude)
-//        print(longitude)
-//
-//        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 8)
-//        mapView.moveCamera(cameraUpdate)
-//        cameraUpdate.animation = .easeIn
-       
-        // 마커 추가
-        marker.position = NMGLatLng(lat: 37.67151516118892, lng: 127.07768966850527)
-        marker.iconImage = NMFOverlayImage(name: "characterExample4")
+        // 내 위치 가져오기
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
+        // 위도, 경도 가져오기
+        let latitude = locationManager.location?.coordinate.latitude ?? 0
+        let longitude = locationManager.location?.coordinate.longitude ?? 0
+        print(latitude)
+        print(longitude)
+
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 20.0)
+        mapView.moveCamera(cameraUpdate)
+        cameraUpdate.animation = .easeIn
+        
+        // characterExample4
+        
+        marker.position = NMGLatLng(lat: latitude, lng: longitude)
+        marker.iconImage = NMFOverlayImage(image: MarkerImage)
+        
         marker.width = 60
         marker.height = 60
         
@@ -121,8 +142,6 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
             return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
         }
         
-        mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0) // 컨텐츠 패딩값 (하단 탭바만큼 패딩값)
-
         marker.mapView = mapView
         
         // Do any additional setup after loading the view.
