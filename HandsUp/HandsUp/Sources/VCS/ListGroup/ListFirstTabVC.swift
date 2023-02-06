@@ -26,6 +26,8 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.addSubview(self.myTableView)
 
         myTableView.separatorStyle = .none
+        
+        myTableView.backgroundColor = UIColor(red: 0.975, green: 0.975, blue: 0.975, alpha: 1)
 
         self.myTableView.translatesAutoresizingMaskIntoConstraints = false
 

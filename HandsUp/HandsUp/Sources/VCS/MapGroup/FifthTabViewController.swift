@@ -28,22 +28,6 @@ class FifthTabViewController: UIViewController, CLLocationManagerDelegate{
         return MPbtn
     }()
     
-    lazy var restart: UIButton = {
-        let MPbtn = UIButton()
-        MPbtn.setImage(UIImage(named: "restart"), for: .normal)
-        return MPbtn
-    }()
-    
-//    lazy var MarkerImage: UIImageView = {
-//        let image = UIImageView()
-//        image.image = UIImage(named: "characterExample4")
-//        image.layer.shadowColor = UIColor.black.cgColor
-//        image.layer.shadowOffset = CGSize(width: 0, height: 4)
-//        image.layer.shadowRadius = 4
-//        image.layer.shadowOpacity = 0.25
-//        return image
-//    }()
-    
     lazy var MarkerImage: UIImage = {
         let image = UIImage(named: "characterExample4")
         return image!
@@ -59,9 +43,6 @@ class FifthTabViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         
-        //        let cameraPosition = mapView.cameraPosition // 현재 위치를 얻는 예제
-        //        print(cameraPosition)
-        
         super.viewDidLoad()
         
         let mapView = NMFMapView(frame: view.frame)
@@ -72,13 +53,6 @@ class FifthTabViewController: UIViewController, CLLocationManagerDelegate{
 
         view.addSubview(MyPosition)
         view.addSubview(MapReset)
-        MapReset.addSubview(restart)
-        
-        restart.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(18)
-            make.leading.equalToSuperview().offset(130)
-            //make.center.equalToSuperview()
-        }
         
         MapReset.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(50)
