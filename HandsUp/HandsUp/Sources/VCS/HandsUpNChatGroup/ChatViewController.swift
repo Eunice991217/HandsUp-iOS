@@ -162,7 +162,7 @@ class ChatViewController: UIViewController {
                       
         swipeRecognizer()
         
-        characterView_CVC.setUserCharacter()
+        characterView_CVC.setCharacter_NoShadow()
                                                 
     }
     

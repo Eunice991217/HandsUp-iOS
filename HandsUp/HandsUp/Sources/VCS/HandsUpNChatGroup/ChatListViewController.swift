@@ -37,7 +37,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatAlarmTableViewCell", for: indexPath) as! ChatAlarmTableViewCell
         
-        cell.characterView_CATVC.setUserCharacter()
+        cell.characterView_CATVC.setCharacter_NoShadow()
 
         cell.timeLb_CATVC.text = MyChatData[indexPath.row].time
         cell.idLb_CATVC.text = MyChatData[indexPath.row].name
