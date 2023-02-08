@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import Alamofire
+import MapKit
 
 class RegisterPostViewController: UIViewController{
     
@@ -33,10 +34,12 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var hobbyTagBtn_HVC: UIButton!
     @IBOutlet weak var tripTagBtn_HVC: UIButton!
     
-    var selectedTag = "전체"
-    var messageDuration = 12
-    var content = ""
-    var location = ""
+    var indicateLocation_HVC = "true"
+    var selectedTag_HVC = "전체"
+    var messageDuration_HVC = 12
+    var content_HVC = ""
+    var longitude_HVC = 0.0
+    var latitude_HVC = 0.0
     
     @IBOutlet weak var tagScrollView_HVC: TagScrollView!
     @IBOutlet weak var borderLine_HVC: UIView!
@@ -57,7 +60,7 @@ class RegisterPostViewController: UIViewController{
     }
     
     //LocationManager 선언
-    var locationManager:CLLocationManager?
+    let locationManager = CLLocationManager()
     var currentLocation:CLLocationCoordinate2D!
     
     var findLocation:CLLocation!
@@ -98,9 +101,9 @@ class RegisterPostViewController: UIViewController{
         
         characterView_HVC.setUserCharacter()
         
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
         requestAuthorization()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,75 +123,74 @@ class RegisterPostViewController: UIViewController{
     }
     
     private func requestAuthorization() {
-        if locationManager == nil {
-            
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
+        
+            print("nil 이었음")
+
             //정확도를 검사한다.
             //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             //앱을 사용할때 권한요청
             
             
-            switch locationManager!.authorizationStatus {
+            switch locationManager.authorizationStatus {
             case .restricted, .denied:
-                locationManager!.requestWhenInUseAuthorization()
+                print("restricted n denied")
+                locationManager.requestWhenInUseAuthorization()
+            case .authorizedWhenInUse, .authorizedAlways:
+                print("권한있음")
+                locationManagerDidChangeAuthorization(locationManager)
             default:
-                locationManager!.startUpdatingLocation()
+                locationManager.startUpdatingLocation()
+                print("default")
             }
             
-            locationManagerDidChangeAuthorization(locationManager!)
-
-            if(LocationService.shared.latitude == nil || LocationService.shared.longitude == nil){
+            locationManagerDidChangeAuthorization(locationManager)
+            getAddressByLocation()
+            
+            if(latitude_HVC == 0.0 || longitude_HVC == 0.0){
                 self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
             }
             else{
                 getAddressByLocation()
             }
-            
-        }else{
-            //사용자의 위치가 바뀌고 있는지 확인하는 메소드
-            locationManager!.startMonitoringSignificantLocationChanges()
-            getAddressByLocation()
-        }
         
     }
     
     private func getAddressByLocation(){
-        findLocation = CLLocation(latitude: LocationService.shared.latitude, longitude: LocationService.shared.longitude)
-
+        findLocation = CLLocation(latitude: latitude_HVC, longitude: longitude_HVC)
+        print("latitude: \(latitude_HVC), longitude: \(longitude_HVC)")
         if findLocation != nil {
             var address = ""
-                    geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
-                        if error != nil {
-                            return
-                        }
-                        if let placemark = placemarks?.first {
-                            
-                            if let administrativeArea = placemark.administrativeArea {
-                                address = "\(address) \(administrativeArea) "
-                                print(administrativeArea) //서울특별시
-                            }
-                            
-                            if let locality = placemark.locality {
-                                address = "\(address) \(locality) "
-                                print(locality) //광진구
-                            }
-                            
-                            if let thoroughfare = placemark.thoroughfare {
-                                address = "\(address) \(thoroughfare) "
-                                print(thoroughfare) //중곡동
-                            }
-                            
-                            if let subThoroughfare = placemark.subThoroughfare {
-                               // address = "\(address) \(subThoroughfare)"
-                                print(subThoroughfare) //272-13
-                            }
-                        }
-                        self.locationLabel_HVC.text = address
-                        print(address) //서울특별시 광진구 중곡동 272-13
+            geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
+                if error != nil {
+                    return
+                }
+                if let placemark = placemarks?.first {
+                    
+                    if let administrativeArea = placemark.administrativeArea {
+                        //address = "\(address) \(administrativeArea) "
+                        print(administrativeArea) //서울특별시
+                    }
+                    
+                    if let locality = placemark.locality {
+                        address = "\(address) \(locality) "
+                        print(locality) //광진구
+                    }
+                    
+                    if let thoroughfare = placemark.thoroughfare {
+                        address = "\(address) \(thoroughfare) "
+                        print(thoroughfare) //중곡동
+                    }
+                    
+                    if let subThoroughfare = placemark.subThoroughfare {
+                        // address = "\(address) \(subThoroughfare)"
+                        print(subThoroughfare) //272-13
                     }
                 }
+                self.locationLabel_HVC.text = address
+                print(address) //서울특별시 광진구 중곡동 272-13
+            }
+        }
         
     }
     
@@ -225,9 +227,11 @@ class RegisterPostViewController: UIViewController{
     
     @IBAction func locationSwitchBtnDidTap(_ sender: Any) {
         if(locationSwitchBtn_HVC.isOn){
+            indicateLocation_HVC = "true"
             requestAuthorization()
         }else{
             self.locationLabel_HVC.text = "위치 비밀"
+            indicateLocation_HVC = "false"
         }
         
     }
@@ -238,7 +242,7 @@ class RegisterPostViewController: UIViewController{
         let timeValue = round(sender.value / step) * step
         sender.value = timeValue
         
-        messageDuration = Int(timeValue)
+        messageDuration_HVC = Int(timeValue)
         
         self.timeLb_HVC.text = String(Int(timeValue)) + "h"
     }
@@ -247,10 +251,21 @@ class RegisterPostViewController: UIViewController{
     //'핸즈업 올리기' 버튼 action method
     @IBAction func sendBtnDidTap(_ sender: Any) {
         //위치 정보 표시할 때
-        if(textIsEmpty){
+        if(!textIsEmpty){
+            content_HVC = msgTextView_HVC.text
+            let result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
             
-        }else{
-            self.presentingViewController?.dismiss(animated: true)
+            print("result:  \(result)")
+            switch result {
+            case 2000:
+                print("게시물 등록에 성공하였습니다.")
+                self.presentingViewController?.dismiss(animated: true)
+            case -1:
+                ServerError()
+            default:
+                print("게시물 등록에 실패하였습니다.")
+                
+            }
         }
         
     }
@@ -258,84 +273,46 @@ class RegisterPostViewController: UIViewController{
     
     //tag 버튼 action 설정
     @IBAction func totalTagDidTap(_ sender: UIButton) {
-        if(totalIsOn){
-            totalIsOn = false
-            totalTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
-            selectedTag = ""
-        }else{
             resetTagBtn()
             
             totalIsOn = true
             totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-            selectedTag = "전체"
-        }
+            selectedTag_HVC = "전체"
+        
     }
     @IBAction func talkTagDidTap(_ sender: UIButton) {
-        
-        if(talkIsOn){
-            talkIsOn = false
-            talkTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
-            selectedTag = ""
-        }else{
             resetTagBtn()
             
             talkIsOn = true
             talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-            selectedTag = "Talk"
-        }
+            selectedTag_HVC = "Talk"
     }
     @IBAction func foodTagDidTap(_ sender: UIButton) {
-        if(foodIsOn){
-            foodIsOn = false
-            foodTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
-            selectedTag = ""
-        }else{
             resetTagBtn()
             foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             foodIsOn = true
-            selectedTag = "밥"
-            
-        }
+            selectedTag_HVC = "밥"
     }
     @IBAction func studyTagDidTap(_ sender: UIButton) {
-        
-        if(studyIsOn){
-            studyIsOn = false
-            studyTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
-            selectedTag = ""
-        }else{
             resetTagBtn()
             studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             studyIsOn = true
-            selectedTag = "스터디"
-            
-        }
+            selectedTag_HVC = "스터디"
+
     }
     @IBAction func hobbyTagDidTap(_ sender: UIButton) {
-        selectedTag = "취미"
-        if(hobbyIsOn){
-            hobbyIsOn = false
-            hobbyTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
-            selectedTag = ""
-        }else{
-            resetTagBtn()
-            hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-            hobbyIsOn = true
-        }
+        resetTagBtn()
+        hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+        hobbyIsOn = true
+        selectedTag_HVC = "취미"
     }
     
     @IBAction func tripTagDidTap(_ sender: UIButton) {
         
-        if(tripIsOn){
-            tripIsOn = false
-            tripTagBtn_HVC.setTitleColor(unClickedColor, for: .normal)
-            selectedTag = ""
-        }else{
-            resetTagBtn()
-            tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-            tripIsOn = true
-            selectedTag = "여행"
-        }
+        resetTagBtn()
+        tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+        tripIsOn = true
+        selectedTag_HVC = "여행"
     }
     
     func resetTagBtn() {
@@ -356,9 +333,7 @@ extension RegisterPostViewController : UITextViewDelegate{
         guard let stringRange = Range(range, in: currentText)else { return false}
         let changedText = currentText.replacingCharacters(in: stringRange, with: text)
         let text_count = changedText.count
-        
-        
-        
+
         // textview에 입력된 글자가 없을 때 입력 버튼 숨기기
         if(text_count > 0){
             sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
@@ -409,35 +384,23 @@ extension RegisterPostViewController:UIScrollViewDelegate{
 
 extension RegisterPostViewController:CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .authorizedWhenInUse {
-            if let currentLocation = locationManager!.location?.coordinate{
-                
-                LocationService.shared.longitude = currentLocation.longitude
-                LocationService.shared.latitude = currentLocation.latitude
+        if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways {
+            if let currentLocation = locationManager.location?.coordinate{
+                print("coordinate")
+                longitude_HVC = currentLocation.longitude
+                latitude_HVC = currentLocation.latitude
             }
-            else if manager.authorizationStatus == .authorizedAlways{
-                LocationService.shared.longitude = currentLocation.longitude
-                LocationService.shared.latitude = currentLocation.latitude
-            }
-            else if manager.authorizationStatus == .notDetermined {
-                
-            } else if manager.authorizationStatus == .denied{
-
-            }else if manager.authorizationStatus == .restricted{
-            } else if manager.authorizationStatus == .authorized{
-            }
-            else{
-
-            }
-    
-            
+  
+        }
+        else{
+            print("else")
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            LocationService.shared.latitude =  location.coordinate.latitude
-            LocationService.shared.longitude = location.coordinate.longitude
+        if let location = locations.last {
+            latitude_HVC =  location.coordinate.latitude
+            longitude_HVC = location.coordinate.longitude
         }
     }
 

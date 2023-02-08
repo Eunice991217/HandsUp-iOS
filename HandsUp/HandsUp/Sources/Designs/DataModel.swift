@@ -55,6 +55,18 @@ struct nickname_rq: Codable {
     let nickname: String
 }
 
+struct editCharacter_rq: Codable{
+    var eye: String
+    var eyeBrow: String
+    var glasses: String
+    var nose: String
+    var mouth: String
+    var hair: String
+    var hairColor: String
+    var skinColor: String
+    var backGroundColor: String
+}
+
 //MARK: - response
 struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
@@ -139,3 +151,21 @@ struct nickname_rp: Codable {
     let statusCode: Int
     let message: String
 }
+
+struct editCharacter_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let messagem, result: String
+}
+
+struct withdraw_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: withdraw_rp_result
+}
+
+struct withdraw_rp_result: Codable{
+    let userIdx: Int
+}
+
