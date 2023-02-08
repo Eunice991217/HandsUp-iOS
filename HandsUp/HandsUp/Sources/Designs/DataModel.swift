@@ -157,3 +157,15 @@ struct editCharacter_rp: Codable {
     let statusCode: Int
     let messagem, result: String
 }
+
+struct withdraw_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: withdraw_rp_result
+}
+
+struct withdraw_rp_result: Codable{
+    let userIdx: Int
+}
+

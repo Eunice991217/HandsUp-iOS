@@ -419,6 +419,8 @@ class ServerAPI{
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
         let backGroundColor = String(characterComponent[0] + 1)
         let hair = String(characterComponent[1] + 1)
         let eyeBrow = String(characterComponent[2] + 1)
@@ -473,6 +475,45 @@ class ServerAPI{
             }
         }
         
+        return check
+    }
+    
+    static func withdraw()->Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users/withdraw")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check:Int = -1
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(withdraw_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else {
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    let output = try? JSONDecoder().decode(withdraw_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else {
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+            }
+        }
         return check
     }
 }
