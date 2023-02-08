@@ -343,9 +343,10 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 
                 let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
                 alertController.setValue(attributeString, forKey: "attributedTitle") // 폰트 및 색상 적용.
-                let ok = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
                 ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
                 alertController.addAction(ok)
+                self.present(alertController, animated: false)
             case 4002:
                 let text: String = "이미 가입한 이메일 입니다\n바로 로그인해주세요!"
                 let attributeString = NSMutableAttributedString(string: text)
@@ -355,12 +356,13 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 
                 let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
                 alertController.setValue(attributeString, forKey: "attributedTitle")
-                let backToLogin = UIAlertAction(title: "로그인 화면으로 이동", style: .cancel, handler: {
+                let backToLogin = UIAlertAction(title: "로그인 화면으로 이동", style: .default, handler: {
                     action in
                     self.navigationController?.popViewController(animated: true);
                 })
                 backToLogin.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
                 alertController.addAction(backToLogin)
+                self.present(alertController, animated: false)
             default :
                 ServerError()
             }

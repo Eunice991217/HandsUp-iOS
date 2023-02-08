@@ -51,7 +51,9 @@ class ServerAPI{
                 check = -1
             }else if output!.statusCode == 2000{
                 check = output!.statusCode
-                vc.vefifiedCode_Sign_up = output!.result
+                vc.vefifiedCode_Sign_up = output!.result!
+            }else{
+                check = output!.statusCode
             }
             semaphore.signal()
         }.resume()
@@ -89,7 +91,7 @@ class ServerAPI{
                 check = -1;
             }
             else if output!.statusCode == 2000{
-                check = output!.result
+                check = output!.result!
             }
             semaphore.signal()
         }.resume()
@@ -138,10 +140,10 @@ class ServerAPI{
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
-                UserDefaults.standard.set(output!.result.grantType, forKey: "grantType")
-                UserDefaults.standard.set(output!.result.accessToken, forKey: "accessToken")
-                UserDefaults.standard.set(output!.result.refreshToken, forKey: "refreshToken")
-                UserDefaults.standard.set(output!.result.accessTokenExpiresIn, forKey: "accessTokenExpiresIn")
+                UserDefaults.standard.set(output!.result!.grantType, forKey: "grantType")
+                UserDefaults.standard.set(output!.result!.accessToken, forKey: "accessToken")
+                UserDefaults.standard.set(output!.result!.refreshToken, forKey: "refreshToken")
+                UserDefaults.standard.set(output!.result!.accessTokenExpiresIn, forKey: "accessTokenExpiresIn")
                 UserDefaults.standard.set(email, forKey: "email")
                 UserDefaults.standard.set(pw, forKey: "pw")
                 UserDefaults.standard.set(true, forKey: "login")
@@ -316,15 +318,15 @@ class ServerAPI{
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
-                let glasses: Int = output!.result.glasses == "" ? 0 : Int(output!.result.glasses)!
+                let glasses: Int = output!.result!.glasses == "" ? 0 : Int(output!.result!.glasses)!
                 
-                UserDefaults.standard.set(output!.result.nickname, forKey: "nickname")
-                UserDefaults.standard.set(Int(output!.result.backGroundColor)! - 1,forKey: "backgroundColor")
-                UserDefaults.standard.set(Int(output!.result.hair)! - 1,forKey: "hair")
-                UserDefaults.standard.set(Int(output!.result.eyeBrow)! - 1,forKey: "eyeBrow")
-                UserDefaults.standard.set(Int(output!.result.mouth)! - 1,forKey: "mouth")
-                UserDefaults.standard.set(Int(output!.result.nose)! - 1,forKey: "nose")
-                UserDefaults.standard.set(Int(output!.result.eye)! - 1,forKey: "eye")
+                UserDefaults.standard.set(output!.result!.nickname, forKey: "nickname")
+                UserDefaults.standard.set(Int(output!.result!.backGroundColor)! - 1,forKey: "backgroundColor")
+                UserDefaults.standard.set(Int(output!.result!.hair)! - 1,forKey: "hair")
+                UserDefaults.standard.set(Int(output!.result!.eyeBrow)! - 1,forKey: "eyeBrow")
+                UserDefaults.standard.set(Int(output!.result!.mouth)! - 1,forKey: "mouth")
+                UserDefaults.standard.set(Int(output!.result!.nose)! - 1,forKey: "nose")
+                UserDefaults.standard.set(Int(output!.result!.eye)! - 1,forKey: "eye")
                 UserDefaults.standard.set(glasses,forKey: "glasses")
             }
             else{
@@ -343,15 +345,15 @@ class ServerAPI{
                     }
                     else if output!.statusCode == 2000{
                         check = output!.statusCode
-                        let glasses: Int = output!.result.glasses == "" ? 0 : Int(output!.result.glasses)!
+                        let glasses: Int = output!.result!.glasses == "" ? 0 : Int(output!.result!.glasses)!
                         
-                        UserDefaults.standard.set(output!.result.nickname, forKey: "nickname")
-                        UserDefaults.standard.set(Int(output!.result.backGroundColor)! - 1,forKey: "backgroundColor")
-                        UserDefaults.standard.set(Int(output!.result.hair)! - 1,forKey: "hair")
-                        UserDefaults.standard.set(Int(output!.result.eyeBrow)! - 1,forKey: "eyeBrow")
-                        UserDefaults.standard.set(Int(output!.result.mouth)! - 1,forKey: "mouth")
-                        UserDefaults.standard.set(Int(output!.result.nose)! - 1,forKey: "nose")
-                        UserDefaults.standard.set(Int(output!.result.eye)! - 1,forKey: "eye")
+                        UserDefaults.standard.set(output!.result!.nickname, forKey: "nickname")
+                        UserDefaults.standard.set(Int(output!.result!.backGroundColor)! - 1,forKey: "backgroundColor")
+                        UserDefaults.standard.set(Int(output!.result!.hair)! - 1,forKey: "hair")
+                        UserDefaults.standard.set(Int(output!.result!.eyeBrow)! - 1,forKey: "eyeBrow")
+                        UserDefaults.standard.set(Int(output!.result!.mouth)! - 1,forKey: "mouth")
+                        UserDefaults.standard.set(Int(output!.result!.nose)! - 1,forKey: "nose")
+                        UserDefaults.standard.set(Int(output!.result!.eye)! - 1,forKey: "eye")
                         UserDefaults.standard.set(glasses,forKey: "glasses")
                     }
                     else{

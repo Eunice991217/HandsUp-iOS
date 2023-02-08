@@ -72,35 +72,35 @@ struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: String
+    let result: String?
 }
 
 struct emailVerify_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: String
+    let result: String?
 }
 
 struct makeCharacter_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: Int
+    let result: Int?
 }
 
 struct Sign_up_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: String
+    let result: String?
 }
 
 struct login_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: login_rp_result
+    let result: login_rp_result?
 }
 
 struct login_rp_result: Codable{
@@ -111,7 +111,7 @@ struct login_rp_result: Codable{
 struct logout_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let message, result: String
+    let message, result: String?
 }
 
 struct reissue_rp: Codable {
@@ -129,7 +129,8 @@ struct reissue_rp_result: Codable {
 struct password_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let message, result: String
+    let message: String
+    let result: String?
 }
 
 
@@ -137,7 +138,7 @@ struct users_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: users_rp_result
+    let result: users_rp_result?
 }
 
 struct users_rp_result: Codable {
@@ -149,20 +150,21 @@ struct users_rp_result: Codable {
 struct nickname_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let message: String
+    let message: String?
 }
 
 struct editCharacter_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let messagem, result: String
+    let message: String
+    let result: String?
 }
 
 struct withdraw_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let result: withdraw_rp_result
+    let result: withdraw_rp_result?
 }
 
 struct withdraw_rp_result: Codable{
