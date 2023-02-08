@@ -50,8 +50,8 @@ class ServerAPI{
             if output == nil{
                 check = -1
             }else if output!.statusCode == 2000{
-                    check = output!.statusCode
-                    vc.vefifiedCode_Sign_up = output!.result
+                check = output!.statusCode
+                vc.vefifiedCode_Sign_up = output!.result
             }
             semaphore.signal()
         }.resume()
@@ -410,6 +410,69 @@ class ServerAPI{
                 semaphore.wait()
             }
         }
+        return check
+    }
+    
+    static func editCharacter(characterComponent:[Int])->Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users/character")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let backGroundColor = String(characterComponent[0] + 1)
+        let hair = String(characterComponent[1] + 1)
+        let eyeBrow = String(characterComponent[2] + 1)
+        let mouth = String(characterComponent[3] + 1)
+        let nose = String(characterComponent[4] + 1)
+        let eye = String(characterComponent[5] + 1)
+        let glasses: String
+        if characterComponent[5] == 0{
+            glasses = ""
+        }else{
+            glasses = String(characterComponent[6])
+        }
+        let hairColor = ""
+        let skinColor = ""
+        let uploadData = try! JSONEncoder().encode(editCharacter_rq(eye: eye, eyeBrow: eyeBrow, glasses: glasses, nose: nose, mouth: mouth, hair: hair, hairColor: hairColor, skinColor: skinColor, backGroundColor: backGroundColor))
+        var check:Int = -1
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(editCharacter_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else {
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+                    let output = try? JSONDecoder().decode(editCharacter_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else {
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{
+            let userDefaultsKey:[String] = ["backgroundColor", "hair", "eyeBrow", "mouth", "nose", "eye", "glasses"]
+            var index:Int = 0
+            userDefaultsKey.forEach{
+                UserDefaults.standard.set(characterComponent[index], forKey: $0)
+                index += 1
+            }
+        }
+        
         return check
     }
 }

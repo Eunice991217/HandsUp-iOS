@@ -346,7 +346,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 let ok = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
                 alertController.addAction(ok)
-            case 0:
+            case 4002:
                 let text: String = "이미 가입한 이메일 입니다\n바로 로그인해주세요!"
                 let attributeString = NSMutableAttributedString(string: text)
                 let font = UIFont(name: "Roboto-Medium", size: 16)
