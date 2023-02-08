@@ -58,6 +58,7 @@ class AlarmNChatListViewController: UIViewController {
         homeTabView_ANCLV.layer.masksToBounds = false
         
         configureCustomView()
+        
         self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.safeAreaView)
         
@@ -139,8 +140,6 @@ class AlarmNChatListViewController: UIViewController {
         if let hasWindowScene = windowScene {
             bomttomSafeAreaInsets = hasWindowScene.windows.first?.safeAreaInsets.bottom ?? 0
         }
-        
-        
-        
+    
     }
 }

@@ -38,7 +38,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
         cell.timeLb_ATVC.text = AlarmDataArr[indexPath.row].time
         
-        cell.characterView_ATVC.setUserCharacter()
+        cell.characterView_ATVC.setCharacter_NoShadow()
         cell.idLb_ATVC.text = "아래글에 " + AlarmDataArr[indexPath.row].name + "님이 관심있어요"
         cell.contentLb_ATVC.text = AlarmDataArr[indexPath.row].content
         
