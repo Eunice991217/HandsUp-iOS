@@ -187,6 +187,26 @@ class ServerAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    let output = try? JSONDecoder().decode(logout_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else if output!.statusCode == 2000{
+                        check = output!.statusCode
+                        UserDefaults.standard.set(false, forKey: "login")
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
         return check
     }
     
@@ -217,6 +237,26 @@ class ServerAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+                    let output = try? JSONDecoder().decode(password_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else if output!.statusCode == 2000{
+                        check = output!.statusCode
+                        UserDefaults.standard.set(newPwd, forKey: "pw")
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
         return check
     }
     
@@ -293,6 +333,35 @@ class ServerAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    let output = try? JSONDecoder().decode(users_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else if output!.statusCode == 2000{
+                        check = output!.statusCode
+                        let glasses: Int = output!.result.glasses == "" ? 0 : Int(output!.result.glasses)!
+                        
+                        UserDefaults.standard.set(output!.result.nickname, forKey: "nickname")
+                        UserDefaults.standard.set(Int(output!.result.backGroundColor)! - 1,forKey: "backgroundColor")
+                        UserDefaults.standard.set(Int(output!.result.hair)! - 1,forKey: "hair")
+                        UserDefaults.standard.set(Int(output!.result.eyeBrow)! - 1,forKey: "eyeBrow")
+                        UserDefaults.standard.set(Int(output!.result.mouth)! - 1,forKey: "mouth")
+                        UserDefaults.standard.set(Int(output!.result.nose)! - 1,forKey: "nose")
+                        UserDefaults.standard.set(Int(output!.result.eye)! - 1,forKey: "eye")
+                        UserDefaults.standard.set(glasses,forKey: "glasses")
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
         return check
     }
     
@@ -322,6 +391,25 @@ class ServerAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+                    let output = try? JSONDecoder().decode(nickname_rp.self, from: data!)
+                    if output == nil{
+                        check = -1
+                    }else if output!.statusCode == 2000{
+                        check = output!.statusCode
+                        UserDefaults.standard.set(nickname, forKey: "nickname")
+                    }else{
+                        check = output!.statusCode
+                    }
+                    
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
         return check
     }
 }

@@ -332,10 +332,37 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         changeNextButtonState_Sign_up()
         if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? ""){
             sign_upData_Sign_up.email = emailTextField_Sign_up.text!
-            if ServerAPI.emailVerify(vc: self, email: emailTextField_Sign_up.text!) == 1{
+            let status = ServerAPI.emailVerify(vc: self, email: emailTextField_Sign_up.text!)
+            switch status{
+            case 2000:
+                let text: String = "인증번호가 발송되었습니다"
+                let attributeString = NSMutableAttributedString(string: text)
+                let font = UIFont(name: "Roboto-Medium", size: 16)
+                attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
+                attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
                 
-            }else{
+                let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
+                alertController.setValue(attributeString, forKey: "attributedTitle") // 폰트 및 색상 적용.
+                let ok = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
+                alertController.addAction(ok)
+            case 0:
+                let text: String = "이미 가입한 이메일 입니다\n바로 로그인해주세요!"
+                let attributeString = NSMutableAttributedString(string: text)
+                let font = UIFont(name: "Roboto-Medium", size: 16)
+                attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
+                attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
                 
+                let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
+                alertController.setValue(attributeString, forKey: "attributedTitle")
+                let backToLogin = UIAlertAction(title: "로그인 화면으로 이동", style: .cancel, handler: {
+                    action in
+                    self.navigationController?.popViewController(animated: true);
+                })
+                backToLogin.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
+                alertController.addAction(backToLogin)
+            default :
+                ServerError()
             }
         }
     }
