@@ -58,6 +58,8 @@ class Report: UIViewController {
         ReportView.layer.cornerRadius=20
         
         self.navigationController?.navigationBar.isHidden = true;
+        
+        self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
 

@@ -45,6 +45,8 @@
 		48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFC29754071006FD205 /* FifthTabViewController.swift */; };
 		48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFE29754098006FD205 /* SixthTabViewController.swift */; };
 		4842441C2971924700D9C803 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842441B2971924700D9C803 /* AccountManagement.swift */; };
+		485FCFA82991ED6F00163D0A /* HomeServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */; };
+		485FCFAA2991EE2D00163D0A /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FCFA92991EE2D00163D0A /* HomeDataModel.swift */; };
 		486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4829756BD0003761E7 /* TabManListVC.swift */; };
 		486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */; };
 		486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */; };
@@ -126,6 +128,8 @@
 		48398AFC29754071006FD205 /* FifthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
 		48398AFE29754098006FD205 /* SixthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthTabViewController.swift; sourceTree = "<group>"; };
 		4842441B2971924700D9C803 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
+		485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerAPI.swift; sourceTree = "<group>"; };
+		485FCFA92991EE2D00163D0A /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		486CFF4829756BD0003761E7 /* TabManListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManListVC.swift; sourceTree = "<group>"; };
 		486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFirstTabVC.swift; sourceTree = "<group>"; };
 		486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSecondTabVC.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				8BBE680D2989396500763AFA /* ServerError.swift */,
 				8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */,
 				8BA3980B29862F2600A532D4 /* ServerAPI.swift */,
+				485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */,
 				8B648084296ECD5D008D28CF /* Character_UIView.swift */,
 				8BDB0C0129864DE6008A6822 /* DataModel.swift */,
+				485FCFA92991EE2D00163D0A /* HomeDataModel.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 				8BCA2ED629881FB10005C849 /* First_ViewController.swift in Sources */,
 				487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */,
 				48398AE829728FA0006FD205 /* MyPost.swift in Sources */,
+				485FCFA82991ED6F00163D0A /* HomeServerAPI.swift in Sources */,
 				4817588C2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift in Sources */,
 				486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */,
 				4842441C2971924700D9C803 /* AccountManagement.swift in Sources */,
@@ -549,6 +556,7 @@
 				32A3F1772974646C00B0347D /* AlarmNChatListViewController.swift in Sources */,
 				8BDB0C0229864DE6008A6822 /* DataModel.swift in Sources */,
 				32A3F17929747B4500B0347D /* AlarmTableViewCell.swift in Sources */,
+				485FCFAA2991EE2D00163D0A /* HomeDataModel.swift in Sources */,
 				32A3F17F2976DFB000B0347D /* ChatAlarmTableViewCell.swift in Sources */,
 				8BCA2EDA298828E50005C849 /* ServerError_ViewController.swift in Sources */,
 				328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */,

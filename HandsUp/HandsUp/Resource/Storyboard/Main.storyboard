@@ -261,6 +261,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="보내기">
                                             <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="SubmitBtnDidTap:" destination="aco-MH-oO1" eventType="touchUpInside" id="cua-1d-zrL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpBackground"/>

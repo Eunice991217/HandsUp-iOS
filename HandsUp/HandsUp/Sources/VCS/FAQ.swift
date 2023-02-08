@@ -14,10 +14,24 @@ class FAQ: UIViewController {
     
     @IBOutlet weak var FAQSubmit: UIButton!
     
+    @IBAction func SubmitBtnDidTap(_ sender: Any) {
+        let stat = HomeServerAPI.FAQ(contents: HomeFAQTextView.text)
+        switch stat {
+        case -1:
+            ServerError()
+        case 2000:
+            print("요청성공")
+        case 4000:
+            print("존재안하는 이메일")
+        default:
+            print("디비 저장 오류")
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func FAQBackBtnDidTap(_ sender: Any) {
-        let FAQBack = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                self.navigationController?.popViewController(animated: true)
+//        let FAQBack = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -36,6 +50,8 @@ class FAQ: UIViewController {
         }
         
         self.navigationController?.navigationBar.isHidden = true;
+        
+        self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
 
