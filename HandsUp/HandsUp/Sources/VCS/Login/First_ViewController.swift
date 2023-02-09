@@ -15,7 +15,7 @@ class First_ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let status: Int
-        ServerAPI.logout()
+        
         if UserDefaults.standard.bool(forKey: "login") {
             status = ServerAPI.login(email: UserDefaults.standard.string(forKey: "email") ?? "", pw: UserDefaults.standard.string(forKey: "pw") ?? "")
         }else{

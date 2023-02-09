@@ -21,13 +21,11 @@ class ServerAPI{
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
-            if data == nil{
+            let output = try? JSONDecoder().decode(nicknameCheck_rp.self, from: data!)
+            if output == nil{
                 check = -1
             }else{
-                guard let output = try? JSONDecoder().decode(nicknameCheck_rp.self, from: data!) else {
-                    return
-                }
-                check = output.statusCode
+                check = output!.statusCode
             }
             semaphore.signal()
         }.resume()
