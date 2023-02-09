@@ -284,6 +284,14 @@ class CharacterEdit_ViewController: UIViewController, UIScrollViewDelegate{
         }
     }
     
+    func characterComponentInit(dataArr: [Int]){
+        var index = 0
+        dataArr.forEach{
+            sign_upData_CharacterEdit.characterComponent[index] = $0
+            index += 1
+        }
+    }
+    
     @objc func select0(_ sender: Any){
         sign_upData_CharacterEdit.characterComponent[curIndex_CharacterEdit] = 0
         characterView_CharacterEdit.setCharacter(componentArray: sign_upData_CharacterEdit.characterComponent)
