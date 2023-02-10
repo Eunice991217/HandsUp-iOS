@@ -7,6 +7,7 @@
 
 import UIKit
 import NMapsMap
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         NMFAuthManager.shared().clientId = "3w1kzr13wh"
+        FirebaseApp.configure()
+        
         return true
 
     }
