@@ -194,9 +194,11 @@
                     </view>
                     <connections>
                         <outlet property="alarmBtn_ANCLV" destination="7nx-N1-2f5" id="Tc3-5J-fWH"/>
+                        <outlet property="bellBtnXConstraint_ANCLV" destination="LZB-Ql-rfJ" id="DHY-Xn-zuV"/>
                         <outlet property="bellBtn_ANCLV" destination="KKU-if-mEX" id="DVy-iW-Ov4"/>
                         <outlet property="chatBtn_ANCLV" destination="jNo-lY-aMH" id="MZ3-Q4-5iR"/>
                         <outlet property="firstView" destination="hGt-DD-PVt" id="VSn-bk-oBX"/>
+                        <outlet property="homeBtnXConstraint_ANCLV" destination="wb5-M3-uBJ" id="DxA-QR-yIT"/>
                         <outlet property="homeBtn_ANCLV" destination="T3v-t9-dd2" id="lp4-QB-Cvh"/>
                         <outlet property="homeTabView_ANCLV" destination="jHm-3p-Ko5" id="0Vw-BQ-Ucv"/>
                         <outlet property="markLineUIView_ANCLVC" destination="qdx-Z1-Sdo" id="dQD-dZ-S63"/>

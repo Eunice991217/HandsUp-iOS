@@ -26,8 +26,10 @@ class AlarmNChatListViewController: UIViewController {
     
     @IBOutlet weak var homeBtn_ANCLV: UIButton!
     
+    @IBOutlet var homeBtnXConstraint_ANCLV: NSLayoutConstraint!
     @IBOutlet weak var bellBtn_ANCLV: UIButton!
     
+    @IBOutlet var bellBtnXConstraint_ANCLV: NSLayoutConstraint!
     let safeAreaView = UIView()
     var bomttomSafeAreaInsets: CGFloat = 0.0
     
@@ -57,6 +59,7 @@ class AlarmNChatListViewController: UIViewController {
         homeTabView_ANCLV.layer.shadowRadius = 24
         homeTabView_ANCLV.layer.masksToBounds = false
         
+        
         configureCustomView()
         
         self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +73,12 @@ class AlarmNChatListViewController: UIViewController {
             self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
         ])
+        
+        
+        let screenWidth = UIScreen.main.bounds.size.width
+        
+        homeBtnXConstraint_ANCLV.constant = screenWidth * 0.496
+        bellBtnXConstraint_ANCLV.constant = screenWidth * 0.165
     }
     
     let unClickedColor = UIColor(named: "HandsUpDarkGrey")

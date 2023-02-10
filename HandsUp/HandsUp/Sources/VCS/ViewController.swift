@@ -21,8 +21,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var HomeDidBtn: UIButton!
     @IBOutlet weak var NotificationBtn: UIButton!
     
+    
+    @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
+    @IBOutlet var bellBtnXConstraint: NSLayoutConstraint!
+    
     let safeAreaView = UIView()
     var bomttomSafeAreaInsets: CGFloat = 0.0
+    
     
     var bRec:Bool = true
 
@@ -157,6 +162,12 @@ class ViewController: UIViewController {
             self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
         ])
+        
+        //tab bar 폰에 따라 유동적인 layout
+        let screenWidth = UIScreen.main.bounds.size.width
+        
+        homeBtnXConstraint.constant = screenWidth * 0.496
+        bellBtnXConstraint.constant = screenWidth * 0.165
         
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.
