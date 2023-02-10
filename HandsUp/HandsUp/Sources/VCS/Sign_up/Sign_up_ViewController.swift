@@ -330,12 +330,47 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         exclamationMark_Sign_up.alpha = 0
         isVerified_Sign_up = false
         changeNextButtonState_Sign_up()
-        if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? ""){
-            sign_upData_Sign_up.email = emailTextField_Sign_up.text!
-            let status = ServerAPI.emailVerify(vc: self, email: emailTextField_Sign_up.text!)
-            switch status{
-            case 2000:
-                let text: String = "인증번호가 발송되었습니다"
+        if isEmail_Sign_up(text: emailTextField_Sign_up.text ?? ""){
+            if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? "") {
+                getVerificationCodeButton_Sign_up.backgroundColor = UIColor(named: "HandsUpOrange")
+                sign_upData_Sign_up.email = emailTextField_Sign_up.text!
+                let status = ServerAPI.emailVerify(vc: self, email: emailTextField_Sign_up.text!)
+                switch status{
+                case 2000:
+                    let text: String = "인증번호가 발송되었습니다"
+                    let attributeString = NSMutableAttributedString(string: text)
+                    let font = UIFont(name: "Roboto-Medium", size: 16)
+                    attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
+                    attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
+                    
+                    let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
+                    alertController.setValue(attributeString, forKey: "attributedTitle") // 폰트 및 색상 적용.
+                    let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
+                    alertController.addAction(ok)
+                    self.present(alertController, animated: false)
+                case 4002:
+                    let text: String = "이미 가입한 이메일 입니다\n바로 로그인해주세요!"
+                    let attributeString = NSMutableAttributedString(string: text)
+                    let font = UIFont(name: "Roboto-Medium", size: 16)
+                    attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
+                    attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
+                    
+                    let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
+                    alertController.setValue(attributeString, forKey: "attributedTitle")
+                    let backToLogin = UIAlertAction(title: "로그인 화면으로 이동", style: .default, handler: {
+                        action in
+                        self.navigationController?.popViewController(animated: true);
+                    })
+                    backToLogin.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
+                    alertController.addAction(backToLogin)
+                    self.present(alertController, animated: false)
+                default :
+                    ServerError()
+                }
+            }
+            else{
+                let text: String = "학교가 일치하지않습니다\n확인해주세요."
                 let attributeString = NSMutableAttributedString(string: text)
                 let font = UIFont(name: "Roboto-Medium", size: 16)
                 attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
@@ -343,28 +378,17 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 
                 let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
                 alertController.setValue(attributeString, forKey: "attributedTitle") // 폰트 및 색상 적용.
-                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-                ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
-                alertController.addAction(ok)
-                self.present(alertController, animated: false)
-            case 4002:
-                let text: String = "이미 가입한 이메일 입니다\n바로 로그인해주세요!"
-                let attributeString = NSMutableAttributedString(string: text)
-                let font = UIFont(name: "Roboto-Medium", size: 16)
-                attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
-                attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
-                
-                let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
-                alertController.setValue(attributeString, forKey: "attributedTitle")
-                let backToLogin = UIAlertAction(title: "로그인 화면으로 이동", style: .default, handler: {
+                let backToLogin = UIAlertAction(title: "대학교 선택으로 이동", style: .default, handler: {
                     action in
-                    self.navigationController?.popViewController(animated: true);
+                    self.curPageInt_Sign_up -= 1
+                    self.curPageCGFloat_Sign_up -= 1
+                    self.pageUpdate_Sign_up()
+                    self.changeNextButtonState_Sign_up()
+                    self.titleUpdate_Sign_up()
                 })
                 backToLogin.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
                 alertController.addAction(backToLogin)
                 self.present(alertController, animated: false)
-            default :
-                ServerError()
             }
         }
     }
@@ -399,6 +423,14 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
         exclamationMark_Sign_up.alpha = 0
         showPWButton_Sign_up.alpha = 0
         showPWConfirmationButton_Sign_up.alpha = 0
+    }
+    
+    func isEmail_Sign_up(text: String) -> Bool{
+        var pattern_Sign_up = "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
+        guard let _ = text.range(of: pattern_Sign_up, options: .regularExpression) else {
+            return false
+        }
+        return true
     }
     
     func emailValidation_Sign_up(text: String) -> Bool{
@@ -449,7 +481,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
     }
     
     @objc func isEmailInput_Sign_up(_sender: Any){
-        if emailValidation_Sign_up(text: emailTextField_Sign_up.text ?? "") {
+        if isEmail_Sign_up(text: emailTextField_Sign_up.text ?? "") {
             getVerificationCodeButton_Sign_up.backgroundColor = UIColor(named: "HandsUpOrange")
         }
         else{
