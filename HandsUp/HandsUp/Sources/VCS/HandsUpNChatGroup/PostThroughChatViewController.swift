@@ -14,6 +14,8 @@ class PostThroughChatViewController: UIViewController {
     
     @IBOutlet weak var characterView_PTCVC: Character_UIView!
     
+    @IBOutlet var tagLabelXConstraint_PTCVC: NSLayoutConstraint!
+    
     lazy var blurredView: UIView = {
             // 1. create container view
             let containerView = UIView()
@@ -47,6 +49,11 @@ class PostThroughChatViewController: UIViewController {
         setupView()
         contentTextView_PTCVC.text =  "dkssudgdf /n dsfsd  /n 연락주세요"
         characterView_PTCVC.setUserCharacter()
+        
+        let screenWidth = UIScreen.main.bounds.size.width
+        
+        tagLabelXConstraint_PTCVC.constant = screenWidth / 2 - 74
+        
     }
     
     func setupView() {

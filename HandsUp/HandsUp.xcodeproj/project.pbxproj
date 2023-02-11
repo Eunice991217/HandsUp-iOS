@@ -11,6 +11,9 @@
 		321B1E352986382400E2CFEE /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
 		321B1E3729864E9100E2CFEE /* ChatNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */; };
 		3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229E7622977CA54006FC6CB /* ChatViewController.swift */; };
+		32880C5A299661F200647FCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32880C59299661F200647FCC /* GoogleService-Info.plist */; };
+		32880C6129967F7D00647FCC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 32880C6029967F7D00647FCC /* FirebaseAnalytics */; };
+		32880C6329967F7D00647FCC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 32880C6229967F7D00647FCC /* FirebaseMessaging */; };
 		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
 		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
 		328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */; };
@@ -94,6 +97,8 @@
 		321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationViewController.swift; sourceTree = "<group>"; };
 		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		32880C59299661F200647FCC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		32880C5E2996785100647FCC /* HandsUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HandsUp.entitlements; sourceTree = "<group>"; };
 		328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
 		328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,9 +182,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32880C6329967F7D00647FCC /* FirebaseMessaging in Frameworks */,
 				48C318942975B26000037D89 /* SnapKit in Frameworks */,
 				48D45322298D765200552B72 /* NMapsMap in Frameworks */,
 				8B21092C2966E1430042D14A /* Alamofire in Frameworks */,
+				32880C6129967F7D00647FCC /* FirebaseAnalytics in Frameworks */,
 				48398AED2972DB34006FD205 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +290,7 @@
 		8B2109152966DFF20042D14A /* HandsUp */ = {
 			isa = PBXGroup;
 			children = (
+				32880C5E2996785100647FCC /* HandsUp.entitlements */,
 				8B6DB3272968223B007D6D25 /* Sources */,
 				8B6DB32629682211007D6D25 /* Resource */,
 				8B2109242966DFF30042D14A /* Info.plist */,
@@ -324,6 +332,7 @@
 				8B4BF0C82968DA6000B00890 /* Fonts */,
 				8B6DB32929682586007D6D25 /* Storyboard */,
 				8B21091F2966DFF30042D14A /* Assets.xcassets */,
+				32880C59299661F200647FCC /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -437,6 +446,8 @@
 				48398AEC2972DB34006FD205 /* Tabman */,
 				48C318932975B26000037D89 /* SnapKit */,
 				48D45321298D765200552B72 /* NMapsMap */,
+				32880C6029967F7D00647FCC /* FirebaseAnalytics */,
+				32880C6229967F7D00647FCC /* FirebaseMessaging */,
 			);
 			productName = HandsUp;
 			productReference = 8B2109132966DFF20042D14A /* HandsUp.app */;
@@ -471,6 +482,7 @@
 				48398AEB2972DB34006FD205 /* XCRemoteSwiftPackageReference "Tabman" */,
 				48C318922975B26000037D89 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				48D45320298D765200552B72 /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */,
+				32880C5F29967F7D00647FCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 8B2109142966DFF20042D14A /* Products */;
 			projectDirPath = "";
@@ -488,6 +500,7 @@
 			files = (
 				8BD2AF97296A5E0A007FD6BD /* Sign_up.storyboard in Resources */,
 				8BB1EB5F296866D000820C07 /* Login.storyboard in Resources */,
+				32880C5A299661F200647FCC /* GoogleService-Info.plist in Resources */,
 				321B1E352986382400E2CFEE /* HandsUp.storyboard in Resources */,
 				8B2109232966DFF30042D14A /* LaunchScreen.storyboard in Resources */,
 				328C297329781E26007DCDD9 /* YourChatTableViewCell.xib in Resources */,
@@ -716,9 +729,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = HandsUp/HandsUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FQ4G9SX78Z;
+				DEVELOPMENT_TEAM = KSR8K3JPUM;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsUp/Info.plist;
@@ -749,9 +763,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = HandsUp/HandsUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FQ4G9SX78Z;
+				DEVELOPMENT_TEAM = KSR8K3JPUM;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsUp/Info.plist;
@@ -800,6 +815,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		32880C5F29967F7D00647FCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		48398AEB2972DB34006FD205 /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman";
@@ -835,6 +858,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		32880C6029967F7D00647FCC /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32880C5F29967F7D00647FCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		32880C6229967F7D00647FCC /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32880C5F29967F7D00647FCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		48398AEC2972DB34006FD205 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 48398AEB2972DB34006FD205 /* XCRemoteSwiftPackageReference "Tabman" */;

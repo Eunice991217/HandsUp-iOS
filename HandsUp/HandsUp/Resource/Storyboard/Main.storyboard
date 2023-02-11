@@ -187,6 +187,8 @@
                         <outlet property="ListView" destination="ITc-c2-465" id="bDq-xp-JJt"/>
                         <outlet property="MapView" destination="gat-5a-4gY" id="Vpu-8z-OEo"/>
                         <outlet property="NotificationBtn" destination="jIj-CL-tyd" id="BxJ-ib-ORP"/>
+                        <outlet property="bellBtnXConstraint" destination="sFl-Wn-Uk6" id="WZG-Id-OPU"/>
+                        <outlet property="homeBtnXConstraint" destination="9Fr-eL-xk1" id="0ZH-EB-deV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMG-Jc-An6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
