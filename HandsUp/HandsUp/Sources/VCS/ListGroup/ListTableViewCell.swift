@@ -50,17 +50,20 @@ class ListTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
+        contentView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowRadius = 40
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        contentView.layer.masksToBounds = false
+        contentView.layer.cornerRadius = 15
 
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left:10, bottom: 10, right: 10))
+        contentView.layer.backgroundColor = UIColor(named: "HandsUpRealWhite")?.cgColor
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        content.lineBreakMode = .byWordWrapping
-        content.numberOfLines = 0
-        
-        // self.backgroundColor = UIColor(red: 0.975, green: 0.975, blue: 0.975, alpha: 1)
         
         // Initialization code
     }
@@ -81,15 +84,8 @@ class ListTableViewCell: UITableViewCell {
         contentView.addSubview(label1)
         contentView.addSubview(label2)
         
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        contentView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
-        contentView.layer.shadowOpacity = 1
-        contentView.layer.shadowRadius = 24
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 8)
-        contentView.layer.masksToBounds = false
-        contentView.layer.cornerRadius = 20
-
-        contentView.layer.backgroundColor = UIColor(named: "HandsUpRealWhite")?.cgColor
+        content.lineBreakMode = .byWordWrapping
+        content.numberOfLines = 0
 
         name.snp.makeConstraints { make in
             make.leading.equalTo(img.snp.trailing).offset(27)

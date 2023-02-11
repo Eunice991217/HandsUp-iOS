@@ -23,7 +23,10 @@ class MyProfileCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var MyProfileTag: UIView!
     @IBOutlet var MyProfileCellTag: UILabel!
-
+    
+    
+    @IBOutlet var MyProfileUniv: UIView!
+    @IBOutlet var MyProfileCellUniv: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

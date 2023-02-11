@@ -21,6 +21,9 @@ class First_ViewController: UIViewController {
         }else{
             status = 0
         }
+        
+        // status = 2000
+        
         if status == 2000{
             let mainSB_First = UIStoryboard(name: "Main", bundle: nil)
             let homeVC_First = mainSB_First.instantiateViewController(withIdentifier: "Home")

@@ -54,8 +54,10 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         HomeMyPostTableView.delegate = self
         HomeMyPostTableView.dataSource = self
         
-        HomeMyPostTableView.clipsToBounds = true
+        HomeMyPostTableView.clipsToBounds = false
         HomeMyPostTableView.backgroundColor = UIColor(named: "HandsUpBackGround")
+        
+        HomeMyPostTableView.separatorStyle = .none
 
         self.navigationController?.navigationBar.isHidden = true;
 //        self.navigationController?.navigationBar.tintColor = .black

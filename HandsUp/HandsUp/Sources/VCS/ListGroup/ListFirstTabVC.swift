@@ -67,22 +67,18 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.name.text = MyHomeList1Data[indexPath.row].name
         cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
-        // cell.name.font = .systemFont(ofSize: 14)
         cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
         
         cell.location.text = MyHomeList1Data[indexPath.row].location
         cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
-//        cell.location.font = .systemFont(ofSize: 14)
         cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
         
         cell.time.text = MyHomeList1Data[indexPath.row].time
         cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
-//        cell.time.font = .systemFont(ofSize: 14)
         cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
         cell.content.text = MyHomeList1Data[indexPath.row].content
         cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
-//        cell.content.font = .systemFont(ofSize: 14)
         cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
         
         cell.label1.text = "|"

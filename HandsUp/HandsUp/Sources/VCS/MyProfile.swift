@@ -123,16 +123,22 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyProfileCollectionViewCell", for: indexPath) as! MyProfileCollectionViewCell
         
-        cell.MyProfileCellImage.image = MyProfileData[indexPath.row].profileImage
+        cell.MyProfileCellImage.image=MyProfileData[indexPath.row].profileImage
         cell.MyProfileSmallName.text=MyProfileData[indexPath.row].name
         cell.MyProfileCellLargeName.text=MyProfileData[indexPath.row].name
         cell.MyProfileCellLocation.text=MyProfileData[indexPath.row].location
         cell.MyProfileCellTime.text=MyProfileData[indexPath.row].time
         cell.MyProfileCellContent.text=MyProfileData[indexPath.row].content
-        cell.MyProfileCellContent.sizeToFit()
-        cell.MyProfileCellTag.text=MyProfileData[indexPath.row].tag
+        
+        cell.MyProfileCellTag.text = MyProfileData[indexPath.row].tag
         cell.MyProfileCellTag.font = UIFont(name: "Roboto-Bold", size: 14)
+        
         cell.MyProfileTag.cornerRadius = 12
+        
+        cell.MyProfileCellUniv.text = MyProfileData[indexPath.row].univ
+        cell.MyProfileCellUniv.font = UIFont(name: "Roboto-Bold", size: 14)
+        
+        cell.MyProfileUniv.cornerRadius = 12
         
         cell.MyProfileCellContent.sizeToFit()
         
@@ -175,6 +181,7 @@ struct MyProfileDataModel {
     let time: String
     let content: String
     let tag: String
+    let univ: String
 }
 
 let MyProfileData: [MyProfileDataModel] = [
@@ -184,7 +191,8 @@ let MyProfileData: [MyProfileDataModel] = [
         location: "경기도 성남시",
         time: "10분전",
         content: "제가 3시쯤 수업이 끝날거 같은데 3시 30에 학교근처에서 토익 스터디 하실분 계신가요? 공부 끝나고 커피 한잔 같이 하실분 구해요~! \n \n연락주세요😎",
-        tag: "#스터디"
+        tag: "#스터디",
+        univ: "세종대"
     ),
     MyProfileDataModel(
         profileImage: UIImage(named: "characterExample4"),
@@ -192,7 +200,8 @@ let MyProfileData: [MyProfileDataModel] = [
         location: "경기도 성남시",
         time: "40분전",
         content: "제가 5시쯤 수업이 끝날거 같은데 6시 30에 학교근처에서 노래방 가실분 계신가요? \n \n연락주세요💚",
-        tag: "#취미"
+        tag: "#취미",
+        univ: "세종대"
     ),
     MyProfileDataModel(
         profileImage: UIImage(named: "characterExample4"),
@@ -200,6 +209,7 @@ let MyProfileData: [MyProfileDataModel] = [
         location: "경기도 성남시",
         time: "15분전",
         content: "제가 2시쯤 수업이 끝날거 같은데 2시 30에 학교근처에서 잔치국수 먹으실분 계신가요? 잔치국수 먹고 커피 한잔 같이 하실분 구해요~! \n \n연락주세요😁",
-        tag: "#밥"
+        tag: "#밥",
+        univ: "세종대"
     )
 ]
