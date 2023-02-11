@@ -348,6 +348,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                     let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
                     ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
                     alertController.addAction(ok)
+                    alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
                     self.present(alertController, animated: false)
                 case 4002:
                     let text: String = "이미 가입한 이메일 입니다\n바로 로그인해주세요!"
@@ -364,6 +365,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                     })
                     backToLogin.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
                     alertController.addAction(backToLogin)
+                    alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
                     self.present(alertController, animated: false)
                 default :
                     ServerError()
@@ -378,6 +380,7 @@ class Sign_up_ViewController: UIViewController, sendCharacterDataDelegate {
                 
                 let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
                 alertController.setValue(attributeString, forKey: "attributedTitle") // 폰트 및 색상 적용.
+                alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
                 let backToLogin = UIAlertAction(title: "대학교 선택으로 이동", style: .default, handler: {
                     action in
                     self.curPageInt_Sign_up -= 1
