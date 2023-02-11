@@ -14,9 +14,22 @@ class AccountManagement: UIViewController {
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
         let confirm = UIAlertAction(title: "네", style: .default) { (action) in
             UserDefaults.standard.set(false, forKey: "login")
-        }; alert.addAction(confirm
+            let stat = ServerAPI.logout()
+            switch stat {
+            case 2000:
+                print("요청성공")
+            case 4011:
+                print("유저 인덱스가 존재하지 않음")
+            default:
+                print("이건뭘까")
+            }
+            
+            let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
+            let logoutBtnDidTap = storyboard.instantiateViewController(identifier: "First")
+            self.navigationController?.pushViewController(logoutBtnDidTap, animated: false)
+        };
         
-        )
+        alert.addAction(confirm)
 
         confirm.setValue(UIColor(red: 0.608, green: 0.608, blue: 0.608, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.957, green: 0.486, blue: 0.086, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기

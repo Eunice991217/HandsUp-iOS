@@ -15,6 +15,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     let cameraPosition = NMFCameraPosition()
     let marker = NMFMarker()
+    let markerEx = NMFMarker()
 
     lazy var MyPosition: UIButton = {
         let MPbtn = UIButton()
@@ -98,9 +99,15 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
 
         marker.position = NMGLatLng(lat: latitude, lng: longitude)
         marker.iconImage = NMFOverlayImage(image: MarkerImage)
-
+        
         marker.width = 60
         marker.height = 60
+        
+        markerEx.position = NMGLatLng(lat: 37.55062343729491, lng: 127.07303737298145)
+        markerEx.iconImage = NMFOverlayImage(image: MarkerImage)
+        
+        markerEx.width = 60
+        markerEx.height = 60
 
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
 
@@ -115,8 +122,14 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
             self.present(myProfile, animated: true)
             return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
         }
+        
+        markerEx.touchHandler = { (overlay: NMFOverlay) -> Bool in
+            self.present(myProfile, animated: true)
+            return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
+        }
 
         marker.mapView = mapView
+        markerEx.mapView = mapView
         
         // Do any additional setup after loading the view.
     }
