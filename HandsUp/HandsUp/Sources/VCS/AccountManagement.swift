@@ -21,7 +21,7 @@ class AccountManagement: UIViewController {
             case 4011:
                 print("유저 인덱스가 존재하지 않음")
             default:
-                print("이건뭘까")
+                print("Test")
             }
             
             let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)

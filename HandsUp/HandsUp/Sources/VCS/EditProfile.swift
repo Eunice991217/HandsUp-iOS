@@ -11,7 +11,9 @@ class EditProfile: UIViewController {
     
     
     @IBOutlet weak var EditProfileBtn: UIView!
+    
     @IBOutlet weak var EditProfileLabel: UILabel!
+    var EditProfile_nickName = "차라나" // 닉네임을 전달받아 저장할 변수
     
     @IBOutlet weak var EditProfileView: Character_UIView!
     
@@ -27,9 +29,19 @@ class EditProfile: UIViewController {
     }
     
     
+    @IBAction func EditProfileSubmit(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     @IBAction func EditProfileNameDidTap(_ sender: Any) {
-        let EditName = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileName")
-        self.navigationController?.pushViewController(EditName!, animated: true)
+        
+        guard let EditProfileName = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileName") as? EditProfileName else{return}
+        
+        EditProfileName.delegate = self
+        EditProfileName.modalPresentationStyle = .fullScreen
+        present(EditProfileName, animated: true, completion: nil)
+        
     }
     
     @objc func editCharProfile(_ sender: Any){
@@ -61,6 +73,8 @@ class EditProfile: UIViewController {
         EditProfileView.layer.cornerRadius=115
         EditProfileSend.layer.cornerRadius=10
         
+        EditProfileLabel.sizeToFit()
+        
         self.navigationController?.navigationBar.isHidden = true;
         
         buttonInit()
@@ -68,3 +82,11 @@ class EditProfile: UIViewController {
     }
 
 }
+
+extension EditProfile: SendData {
+    func send(_ vc: UIViewController, Input value: String?) {
+        EditProfileLabel.text = value
+    }
+}
+
+

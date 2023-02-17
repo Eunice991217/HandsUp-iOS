@@ -40,10 +40,21 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+            
+            Report?.modalPresentationStyle = .fullScreen
             // 화면 전환!
-            self.navigationController?.pushViewController(Report!, animated: true)}
+
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.view.window!.layer.add(transition, forKey: kCATransition)
+
+            self.present(Report!, animated: false)
+        }
         )
         alert.addAction(report)
+    
         
         cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")

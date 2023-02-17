@@ -14,7 +14,8 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EditProfileNameBackBtn: UIButton!
     
     @IBAction func EditProfileNameBackBtnDidTap(_ sender: Any) {
-                self.navigationController?.popViewController(animated: true)
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     func nicknameValidation() -> Bool{
@@ -37,13 +38,16 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
             return true
         }
     
+    var delegate : SendData?
+    
     
     @IBAction func EditProfileNameBtnDidTap(_ sender: Any) {
         
         if nicknameValidation() {
             // 닉네임 올바른 경우
-            // let nickName = self.storyboard?.instantiateViewController(withIdentifier: "EditProfile")
-                    self.navigationController?.popViewController(animated: true)
+            delegate?.send(self, Input: EditProfileNameTextField.text)
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            
             // 닉네임 서버로 보내줌
         }
         else {
@@ -77,18 +81,15 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
                         let newString = text[text.startIndex..<index]
                         textField.text = String(newString)
                     }
-                    
-                    // 2글자 이하일경우 확인버튼 안눌림
-//                    else if text.count < 2 {
-//
-//                    }
-                    // 제대로 입력됐을때만 확인버튼 눌림
-//                    else {
-//
-//                    }
                 }
             }
         }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.send(self, Input: EditProfileNameTextField.text)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,11 +97,13 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: UITextField.textDidChangeNotification, object: EditProfileNameTextField)
         
         EditProfileNameTextField.delegate = self
+        
+        self.EditProfileNameTextField.delegate = self
+        
         EditProfileNameTextField.borderStyle = .none
         
         self.navigationController?.navigationBar.isHidden = true;
-        //self.navigationController?.navigationBar.tintColor = .black
-        //self.navigationController?.navigationBar.topItem?.title = ""
+
         // Do any additional setup after loading the view.
     }
     

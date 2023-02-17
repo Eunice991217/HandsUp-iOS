@@ -501,8 +501,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKf-0C-snY">
                                 <rect key="frame" x="90.5" y="265.5" width="233" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cv-ty-zVL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" showsExpansionTextWhenTruncated="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cv-ty-zVL">
                                         <rect key="frame" x="30" y="18" width="52" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="2xY-qB-Bsz"/>
+                                            <constraint firstAttribute="width" constant="52" id="4ks-TX-KJR"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -550,15 +554,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pKf-0C-snY" secondAttribute="height" multiplier="233:58" id="9Ox-aA-yK2"/>
+                                    <constraint firstItem="zAV-sI-OWc" firstAttribute="leading" secondItem="2cv-ty-zVL" secondAttribute="trailing" constant="33" id="Cca-TJ-4l2"/>
                                     <constraint firstItem="8eA-pH-ecX" firstAttribute="top" secondItem="2cv-ty-zVL" secondAttribute="bottom" constant="2" id="Ccu-JS-DSz"/>
                                     <constraint firstItem="2cv-ty-zVL" firstAttribute="centerY" secondItem="zAV-sI-OWc" secondAttribute="centerY" id="DFd-6L-vru"/>
                                     <constraint firstAttribute="height" constant="58" id="N9L-Oj-PtA"/>
                                     <constraint firstItem="8eA-pH-ecX" firstAttribute="leading" secondItem="pKf-0C-snY" secondAttribute="leading" constant="27" id="aef-l4-c6T"/>
-                                    <constraint firstItem="2cv-ty-zVL" firstAttribute="leading" secondItem="pKf-0C-snY" secondAttribute="leading" constant="30" id="eBz-QH-Hts"/>
                                     <constraint firstAttribute="width" constant="233" id="jJx-o7-Oes"/>
                                     <constraint firstAttribute="trailing" secondItem="zAV-sI-OWc" secondAttribute="trailing" constant="25" id="oH4-mQ-8NG"/>
                                     <constraint firstAttribute="bottom" secondItem="8eA-pH-ecX" secondAttribute="bottom" constant="15" id="s8e-LL-JCL"/>
-                                    <constraint firstItem="zAV-sI-OWc" firstAttribute="leading" secondItem="2cv-ty-zVL" secondAttribute="trailing" constant="33" id="tCb-6R-IUa"/>
                                     <constraint firstItem="zAV-sI-OWc" firstAttribute="centerY" secondItem="pKf-0C-snY" secondAttribute="centerY" id="xKh-x0-4Dt"/>
                                 </constraints>
                             </view>
@@ -569,6 +572,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="EditProfileSubmit:" destination="WCv-nd-Qsv" eventType="touchUpInside" id="gzv-9W-2vn"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="확인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-fv-v1k">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
@@ -732,7 +738,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임은 변경후 7일후 다시 바꿀수있으니 신중히 바꿔주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjX-Xb-yj2">
-                                <rect key="frame" x="16" y="225" width="286.5" height="14"/>
+                                <rect key="frame" x="16" y="225" width="284.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
@@ -857,7 +863,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-rg-Coq">
-                                <rect key="frame" x="34.5" y="451" width="345" height="35"/>
+                                <rect key="frame" x="36" y="451" width="342" height="35.5"/>
                                 <string key="text">신고 내용검토후 해당 유저에게 알맞은 대체를 하겠습니다. 
 더욱더 발전하는 핸즈업이 되겠습니다 감사합니다.</string>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>

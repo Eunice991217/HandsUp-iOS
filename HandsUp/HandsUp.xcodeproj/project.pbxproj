@@ -60,6 +60,7 @@
 		487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D5FDC296AA8EF00BE2CCC /* FAQ.swift */; };
 		48C318942975B26000037D89 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48C318932975B26000037D89 /* SnapKit */; };
 		48D45322298D765200552B72 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 48D45321298D765200552B72 /* NMapsMap */; };
+		48D72C63299F63A50003E481 /* EditProfileDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D72C62299F63A50003E481 /* EditProfileDelegateProtocol.swift */; };
 		8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109162966DFF20042D14A /* AppDelegate.swift */; };
 		8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2109182966DFF20042D14A /* SceneDelegate.swift */; };
 		8B2109202966DFF30042D14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B21091F2966DFF30042D14A /* Assets.xcassets */; };
@@ -143,6 +144,7 @@
 		486CFF5229756C60003761E7 /* ListFifthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFifthTabVC.swift; sourceTree = "<group>"; };
 		486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSixthTabVC.swift; sourceTree = "<group>"; };
 		487D5FDC296AA8EF00BE2CCC /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		48D72C62299F63A50003E481 /* EditProfileDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileDelegateProtocol.swift; sourceTree = "<group>"; };
 		8B082A4B2972DBDF0063E6E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B2109132966DFF20042D14A /* HandsUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2109162966DFF20042D14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				8BE974D6297959E8008DD78D /* ViewController.swift */,
 				487D5FDC296AA8EF00BE2CCC /* FAQ.swift */,
 				480B01E4297149D1007054B1 /* EditProfile.swift */,
+				48D72C62299F63A50003E481 /* EditProfileDelegateProtocol.swift */,
 				480B01E629715A3C007054B1 /* EditProfileName.swift */,
 				4842441B2971924700D9C803 /* AccountManagement.swift */,
 				48398AE5297288F9006FD205 /* Report.swift */,
@@ -559,6 +562,7 @@
 				32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */,
 				486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */,
 				482903AB2987F0C6003E6E18 /* ListTableViewCell.swift in Sources */,
+				48D72C63299F63A50003E481 /* EditProfileDelegateProtocol.swift in Sources */,
 				48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 				48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */,
