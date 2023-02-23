@@ -67,6 +67,12 @@ struct editCharacter_rq: Codable{
     var backGroundColor: String
 }
 
+struct reportBoard_rq: Codable{
+    var content: String
+    var boardIdx: Int
+}
+
+
 //MARK: - response
 struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
@@ -171,3 +177,9 @@ struct withdraw_rp_result: Codable{
     let userIdx: Int
 }
 
+struct reportBoard_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}

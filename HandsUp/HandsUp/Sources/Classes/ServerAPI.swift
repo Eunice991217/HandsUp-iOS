@@ -516,4 +516,52 @@ class ServerAPI{
         }
         return check
     }
+    
+    static func reportBoard(content: String, boardIdx: Int) -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/help/report/board")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check:Int = -1
+        var output: logout_rp? = nil
+        let session = URLSession(configuration: .default)
+        let uploadData = try! JSONEncoder().encode(reportBoard_rq(content: content, boardIdx: boardIdx))
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(logout_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(logout_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{
+            //output!.result
+        }
+        
+        return check
+    }
 }
