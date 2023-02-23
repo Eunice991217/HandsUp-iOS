@@ -177,10 +177,6 @@ class ServerAPI{
             if output == nil{
                 check = -1;
             }
-            else if output!.statusCode == 2000{
-                check = output!.statusCode
-                UserDefaults.standard.set(false, forKey: "login")
-            }
             else{
                 check = output!.statusCode
             }
@@ -195,10 +191,6 @@ class ServerAPI{
                     if output == nil{
                         check = -1;
                     }
-                    else if output!.statusCode == 2000{
-                        check = output!.statusCode
-                        UserDefaults.standard.set(false, forKey: "login")
-                    }
                     else{
                         check = output!.statusCode
                     }
@@ -206,6 +198,11 @@ class ServerAPI{
                 }.resume()
                 semaphore.wait()
             }
+        }
+        
+        if check == 2000{
+            UserDefaults.standard.set(false, forKey: "login")
+            PostAPI.deleteFCMToken()
         }
         return check
     }

@@ -130,5 +130,54 @@ class HomeServerAPI {
         }
         return check
     }
-    
+ 
+    static func boardsShowList() -> [boardsShowList_rp_getBoardList]?{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/showList")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: [boardsShowList_rp_getBoardList]? = nil
+        var output: boardsShowList_rp? = nil
+        let session = URLSession(configuration: .default)
+        let uploadData = try! JSONEncoder().encode(boardsShowList_rq(schoolName: "schoolName"))
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{//서버 통신 성공
+            rtn = output!.result!.getBoardList
+        }
+        
+        return rtn
+        // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
+    }
 }
