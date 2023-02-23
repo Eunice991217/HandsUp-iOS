@@ -143,7 +143,7 @@ class HomeServerAPI {
         var rtn: [boardsShowList_rp_getBoardList]? = nil
         var output: boardsShowList_rp? = nil
         let session = URLSession(configuration: .default)
-        let uploadData = try! JSONEncoder().encode(boardsShowList_rq(schoolName: "schoolName"))
+        let uploadData = try! JSONEncoder().encode(boardsShowList_rq(schoolName: UserDefaults.standard.string(forKey: "schoolName")!))
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
