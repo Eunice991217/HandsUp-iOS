@@ -27,5 +27,24 @@ struct boards_rq: Codable {
 struct boards_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let message, result: String
+    let message: String
+    let result: String?
+}
+
+struct fcmToken_rq: Codable {
+    let fcmToken: String
+}
+
+struct fcmToken_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
+struct delete_fcmToken_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
 }
