@@ -136,12 +136,25 @@
                                             <action selector="homeBtnDidTap:" destination="pMp-1M-dlZ" eventType="touchUpInside" id="hsC-1J-j5b"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blQ-1J-Eyr">
+                                        <rect key="frame" x="328.66666666666669" y="41" width="10" height="10"/>
+                                        <color key="backgroundColor" name="HandsUpRed"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="CJK-g0-LgV"/>
+                                            <constraint firstAttribute="height" constant="10" id="j8E-tm-Hyy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="HandsUpRed"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
                                     <constraint firstItem="KKU-if-mEX" firstAttribute="top" secondItem="jHm-3p-Ko5" secondAttribute="top" constant="35" id="3i8-JO-9r6"/>
+                                    <constraint firstItem="blQ-1J-Eyr" firstAttribute="top" secondItem="KKU-if-mEX" secondAttribute="top" constant="6" id="IF6-t1-mVT"/>
                                     <constraint firstItem="KKU-if-mEX" firstAttribute="leading" secondItem="T3v-t9-dd2" secondAttribute="trailing" constant="65" id="LZB-Ql-rfJ"/>
                                     <constraint firstAttribute="height" constant="110" id="fc2-b7-HgZ"/>
+                                    <constraint firstItem="blQ-1J-Eyr" firstAttribute="trailing" secondItem="KKU-if-mEX" secondAttribute="trailing" constant="-9.3300000000000001" id="ffU-vf-I8E"/>
                                     <constraint firstItem="T3v-t9-dd2" firstAttribute="top" secondItem="jHm-3p-Ko5" secondAttribute="top" constant="35" id="nbU-sX-pUw"/>
                                     <constraint firstItem="T3v-t9-dd2" firstAttribute="leading" secondItem="jHm-3p-Ko5" secondAttribute="leading" constant="195" id="wb5-M3-uBJ"/>
                                 </constraints>
@@ -203,13 +216,14 @@
                         <outlet property="homeTabView_ANCLV" destination="jHm-3p-Ko5" id="0Vw-BQ-Ucv"/>
                         <outlet property="markLineUIView_ANCLVC" destination="qdx-Z1-Sdo" id="dQD-dZ-S63"/>
                         <outlet property="redAlarmBtnLb" destination="tcO-jF-Ch5" id="HTS-zW-c4j"/>
+                        <outlet property="redBellBtnLb" destination="blQ-1J-Eyr" id="YpC-LR-eEk"/>
                         <outlet property="redChatBtnLb" destination="1ef-cX-F0e" id="MDG-7N-J8z"/>
                         <outlet property="secondView" destination="u2h-mo-Oge" id="LF5-kI-Vkw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bll-tY-gQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="-82"/>
+            <point key="canvasLocation" x="2026.7175572519084" y="-82.394366197183103"/>
         </scene>
         <!--Chat List View Controller-->
         <scene sceneID="cCA-Pa-b3z">

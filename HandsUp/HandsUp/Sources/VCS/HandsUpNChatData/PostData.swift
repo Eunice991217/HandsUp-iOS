@@ -31,6 +31,14 @@ struct boards_rp: Codable {
     let result: String?
 }
 
+struct boards_delete_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
+
 struct fcmToken_rq: Codable {
     let fcmToken: String
 }

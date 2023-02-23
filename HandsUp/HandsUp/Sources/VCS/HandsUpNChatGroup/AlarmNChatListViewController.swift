@@ -16,9 +16,10 @@ class AlarmNChatListViewController: UIViewController {
     @IBOutlet weak var chatBtn_ANCLV: UIButton!
     
     @IBOutlet weak var redAlarmBtnLb: UILabel!
-    
-    
     @IBOutlet weak var redChatBtnLb: UILabel!
+    
+    @IBOutlet var redBellBtnLb: UILabel!
+    
     
     @IBOutlet weak var markLineUIView_ANCLVC: UIView!
     
@@ -46,8 +47,13 @@ class AlarmNChatListViewController: UIViewController {
         redChatBtnLb.layer.cornerRadius  = redChatBtnLb.layer.frame.size.width/2
         redChatBtnLb.clipsToBounds = true
         
+        redBellBtnLb.layer.cornerRadius  = redBellBtnLb.layer.frame.size.width/2
+        redBellBtnLb.clipsToBounds = true
+        
         redAlarmBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
         redChatBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
+        
+        redBellBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
         
         homeTabView_ANCLV.clipsToBounds = false
         homeTabView_ANCLV.layer.cornerRadius = 40
