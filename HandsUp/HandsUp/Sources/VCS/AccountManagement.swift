@@ -44,7 +44,25 @@ class AccountManagement: UIViewController {
     @IBAction func AMDeleteDidTap(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
-        let confirm = UIAlertAction(title: "네", style: .default) { (action) in }; alert.addAction(confirm)
+        let confirm = UIAlertAction(title: "네", style: .default) { (action) in
+            UserDefaults.standard.set(false, forKey: "login")
+            let stat = ServerAPI.withdraw()
+            switch stat {
+            case 2000:
+                print("요청성공")
+            case 4011:
+                print("유저 인덱스가 존재하지 않음")
+            case 4017:
+                print("이미 탈퇴한 회원")
+            default: // 5000
+                print("DB저장 오류")
+            }
+            
+            let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
+            let withDrawBtnDidTap = storyboard.instantiateViewController(identifier: "First")
+            self.navigationController?.pushViewController(withDrawBtnDidTap, animated: false)
+        };
+        alert.addAction(confirm)
 
         confirm.setValue(UIColor(red: 0.608, green: 0.608, blue: 0.608, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.957, green: 0.486, blue: 0.086, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
