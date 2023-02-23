@@ -2,14 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>NMFClientId</key>
 	<string>3w1kzr13wh</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>위치 권한 요청</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 권한 요청</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Bold.ttf</string>
@@ -37,5 +31,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
