@@ -72,6 +72,10 @@ struct reportBoard_rq: Codable{
     var boardIdx: Int
 }
 
+struct reportUser_rq: Codable{
+    var content: String
+    var userIdx: Int
+}
 
 //MARK: - response
 struct nicknameCheck_rp: Codable{
@@ -183,3 +187,11 @@ struct reportBoard_rp: Codable{
     let message: String
     let result: String?
 }
+
+struct reportUser_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
