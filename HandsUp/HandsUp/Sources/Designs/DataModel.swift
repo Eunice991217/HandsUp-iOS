@@ -152,9 +152,9 @@ struct users_rp: Codable {
 }
 
 struct users_rp_result: Codable {
-    let nickname, eye, eyeBrow, glasses: String
-    let nose, mouth, hair, hairColor: String
-    let skinColor, backGroundColor: String
+    let nickname, schoolName, eye, eyeBrow: String
+    let glasses, nose, mouth, hair: String
+    let hairColor, skinColor, backGroundColor: String
 }
 
 struct nickname_rp: Codable {

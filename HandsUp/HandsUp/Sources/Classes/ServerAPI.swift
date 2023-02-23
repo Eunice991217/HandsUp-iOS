@@ -316,6 +316,7 @@ class ServerAPI{
                 let glasses: Int = output!.result!.glasses == "" ? 0 : Int(output!.result!.glasses)!
                 
                 UserDefaults.standard.set(output!.result!.nickname, forKey: "nickname")
+                UserDefaults.standard.set(output!.result!.schoolName,forKey: "schoolName")
                 UserDefaults.standard.set(Int(output!.result!.backGroundColor)! - 1,forKey: "backgroundColor")
                 UserDefaults.standard.set(Int(output!.result!.hair)! - 1,forKey: "hair")
                 UserDefaults.standard.set(Int(output!.result!.eyeBrow)! - 1,forKey: "eyeBrow")
@@ -343,6 +344,7 @@ class ServerAPI{
                         let glasses: Int = output!.result!.glasses == "" ? 0 : Int(output!.result!.glasses)!
                         
                         UserDefaults.standard.set(output!.result!.nickname, forKey: "nickname")
+                        UserDefaults.standard.set(output!.result!.schoolName,forKey: "schoolName")
                         UserDefaults.standard.set(Int(output!.result!.backGroundColor)! - 1,forKey: "backgroundColor")
                         UserDefaults.standard.set(Int(output!.result!.hair)! - 1,forKey: "hair")
                         UserDefaults.standard.set(Int(output!.result!.eyeBrow)! - 1,forKey: "eyeBrow")
