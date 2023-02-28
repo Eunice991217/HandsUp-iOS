@@ -15,6 +15,18 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: ViewController override method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let stat = HomeServerAPI.boardsShowList().self
+//        switch stat {
+//        case -1:
+//            ServerError()
+//        case 2000:
+//            print("요청성공")
+//        case 4000:
+//            print("존재안하는 이메일")
+//        default: // 4019
+//            print("디비 저장 오류")
+//        }
 
         // Do any additional setup after loading the view.
         self.myTableView.dataSource = self
