@@ -20,11 +20,11 @@ class FAQ: UIViewController {
         case -1:
             ServerError()
         case 2000:
-            print("요청성공")
+            print("문의사항 요청성공")
         case 4000:
-            print("존재안하는 이메일")
+            print("문의사항 존재안하는 이메일")
         default:
-            print("디비 저장 오류")
+            print("문의사항 디비 저장 오류")
         }
         self.navigationController?.popViewController(animated: true)
     }

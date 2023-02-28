@@ -17,9 +17,9 @@ class AccountManagement: UIViewController {
             let stat = ServerAPI.logout()
             switch stat {
             case 2000:
-                print("요청성공")
+                print("로그아웃 요청성공")
             case 4011:
-                print("유저 인덱스가 존재하지 않음")
+                print("로그아웃 유저 인덱스가 존재하지 않음")
             default:
                 print("Test")
             }
@@ -49,13 +49,13 @@ class AccountManagement: UIViewController {
             let stat = ServerAPI.withdraw()
             switch stat {
             case 2000:
-                print("요청성공")
+                print("탈퇴 요청성공")
             case 4011:
-                print("유저 인덱스가 존재하지 않음")
+                print("탈퇴 유저 인덱스가 존재하지 않음")
             case 4017:
                 print("이미 탈퇴한 회원")
             default: // 5000
-                print("DB저장 오류")
+                print("탈퇴 DB저장 오류")
             }
             
             let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
