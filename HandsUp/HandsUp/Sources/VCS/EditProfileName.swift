@@ -45,7 +45,35 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
         if nicknameValidation() {
             // 닉네임 올바른 경우
             delegate?.send(self, Input: EditProfileNameTextField.text)
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            let stat = ServerAPI.nickname(nickname: EditProfileNameTextField.text!)
+           
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default) { (action) in
+                switch stat {
+                case -1:
+                    self.ServerError()
+                case 2000:
+                    print("닉네임 변경 요청성공")
+                case 5000:
+                    print("닉네임 변경 DB저장 오류")
+                case 4011:
+                    print("닉네임 변경유저 인덱스 존재 X")
+                case 4005:
+                    print("마지막 닉네임 변경일로부터 7일이 경과하지 않았습니다.")
+                default: // 4006
+                    print("닉네임 변경 디비 저장 오류")
+                }
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
+            };
+            
+            alert.addAction(confirm)
+
+            confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor")
+            alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            let attributedString = NSAttributedString(string: "닉네임 변경이 완료되었습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+            alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
+
+            present(alert, animated: true, completion: nil)
             // 닉네임 서버로 보내줌
         }
         else {

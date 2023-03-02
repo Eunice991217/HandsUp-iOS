@@ -30,21 +30,7 @@ class EditProfile: UIViewController {
     
     
     @IBAction func EditProfileSubmit(_ sender: Any) {
-        let stat = ServerAPI.nickname(nickname: EditProfileLabel.text!)
-        switch stat {
-        case -1:
-            ServerError()
-        case 2000:
-            print("닉네임 변경 요청성공")
-        case 5000:
-            print("닉네임 변경 DB저장 오류")
-        case 4011:
-            print("닉네임 변경유저 인덱스 존재 X")
-        case 4005:
-            print("마지막 닉네임 변경일로부터 7일이 경과하지 않았습니다.")
-        default: // 4006
-            print("닉네임 변경 디비 저장 오류")
-        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     
