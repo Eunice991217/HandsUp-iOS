@@ -29,7 +29,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         return MPbtn
     }()
 
-    lazy var MarkerImage: UIImage = {
+    lazy var MarkerImage: UIImage = { // 마커 이미지
         let image = UIImage(named: "characterExample4")
         return image!
     }()

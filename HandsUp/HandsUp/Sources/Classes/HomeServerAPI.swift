@@ -143,4 +143,6 @@ class HomeServerAPI {
         return rtn
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
+    
+    
 }

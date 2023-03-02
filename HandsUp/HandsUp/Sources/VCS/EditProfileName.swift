@@ -42,12 +42,10 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func EditProfileNameBtnDidTap(_ sender: Any) {
-        
         if nicknameValidation() {
             // 닉네임 올바른 경우
             delegate?.send(self, Input: EditProfileNameTextField.text)
             self.presentingViewController?.dismiss(animated: true, completion: nil)
-            
             // 닉네임 서버로 보내줌
         }
         else {
