@@ -754,4 +754,51 @@ class ServerAPI{
         
         return rtn
     }
+    
+    static func singleList(boardIdx: Int) -> singleList_rp_result?{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/singleList/" + String(boardIdx))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: singleList_rp_result? = nil
+        var output: singleList_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(singleList_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(singleList_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+
+        if check == 2000{
+            rtn = output!.result
+        }
+        return rtn
+    }
 }

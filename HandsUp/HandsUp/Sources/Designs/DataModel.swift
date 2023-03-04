@@ -234,6 +234,22 @@ struct chatsBlock_rp: Codable {
     let result: String?
 }
 
+struct singleList_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: singleList_rp_result?
+}
+
+struct singleList_rp_result: Codable {
+    let nickname: String
+    let latitude, longitude: Double
+    let content, tag, didLike: String
+    let messageDuration: Int
+    let createdAt: String
+}
+
+
 //MARK: - return
 struct boardsBlock_rtn{
     var statusCode: Int
