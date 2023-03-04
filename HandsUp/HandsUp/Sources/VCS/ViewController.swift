@@ -22,12 +22,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var NotificationBtn: UIButton!
     
     
+    @IBOutlet var HomeSchoolName: UILabel!
+    
+    
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
     @IBOutlet var bellBtnXConstraint: NSLayoutConstraint!
     
     let safeAreaView = UIView()
     var bomttomSafeAreaInsets: CGFloat = 0.0
     
+    var schoolName = UserDefaults.standard.string(forKey: "schoolName")
+    var cutSchoolName: String = ""
     
     var bRec:Bool = true
 
@@ -168,6 +173,18 @@ class ViewController: UIViewController {
         
         homeBtnXConstraint.constant = screenWidth * 0.496
         bellBtnXConstraint.constant = screenWidth * 0.165
+        
+        
+        // print(schoolName!)
+        
+        let startIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
+        let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 2)
+        let range = ...endIndex
+        // print(schoolName![range])
+        
+        cutSchoolName = String(schoolName![range])
+        
+        HomeSchoolName.text = cutSchoolName
         
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.

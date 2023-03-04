@@ -84,8 +84,8 @@ class ListTableViewCell: UITableViewCell {
         contentView.addSubview(label1)
         contentView.addSubview(label2)
         
-        content.lineBreakMode = .byWordWrapping
-        content.numberOfLines = 0
+//        content.lineBreakMode = .byWordWrapping
+//        content.numberOfLines = 0
 
         name.snp.makeConstraints { make in
             make.leading.equalTo(img.snp.trailing).offset(27)
@@ -116,7 +116,7 @@ class ListTableViewCell: UITableViewCell {
         content.snp.makeConstraints { make in
             make.leading.equalTo(img.snp.trailing).offset(27)
             make.top.equalTo(60)
-            // make.trailing.equalTo(-5)
+            make.trailing.equalTo(-15)
         }
         
         img.snp.makeConstraints { make in
