@@ -76,7 +76,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
         characterList.append(glasses)
         
         cell.characterView_ATVC.setAll(componentArray: characterList)
-        cell.characterView_ATVC.setCharacter()
+        cell.characterView_ATVC.setCharacter_NoShadow()
         
         cell.idLb_ATVC.text = likeList[indexPath.row].text
         cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
