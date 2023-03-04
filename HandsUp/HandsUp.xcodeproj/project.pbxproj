@@ -19,8 +19,8 @@
 		328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */; };
 		328C297329781E26007DCDD9 /* YourChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */; };
 		328F6065298A5B5600F4BA4A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6064298A5B5600F4BA4A /* LocationService.swift */; };
-		328F6068298E3F4B00F4BA4A /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6067298E3F4B00F4BA4A /* PostData.swift */; };
-		328F606A298FCA1500F4BA4A /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6069298FCA1500F4BA4A /* PostAPI.swift */; };
+		328F6068298E3F4B00F4BA4A /* HandsUpDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6067298E3F4B00F4BA4A /* HandsUpDataModel.swift */; };
+		328F606A298FCA1500F4BA4A /* HandsUpServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6069298FCA1500F4BA4A /* HandsUpServerAPI.swift */; };
 		329296782978FDC00077F98E /* RegisterPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329296772978FDC00077F98E /* RegisterPostViewController.swift */; };
 		32A3F1772974646C00B0347D /* AlarmNChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F1762974646C00B0347D /* AlarmNChatListViewController.swift */; };
 		32A3F17929747B4500B0347D /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */; };
@@ -105,8 +105,8 @@
 		328C297029781E26007DCDD9 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		328C297129781E26007DCDD9 /* YourChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourChatTableViewCell.xib; sourceTree = "<group>"; };
 		328F6064298A5B5600F4BA4A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		328F6067298E3F4B00F4BA4A /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
-		328F6069298FCA1500F4BA4A /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
+		328F6067298E3F4B00F4BA4A /* HandsUpDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsUpDataModel.swift; sourceTree = "<group>"; };
+		328F6069298FCA1500F4BA4A /* HandsUpServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsUpServerAPI.swift; sourceTree = "<group>"; };
 		329296772978FDC00077F98E /* RegisterPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPostViewController.swift; sourceTree = "<group>"; };
 		32A3F1762974646C00B0347D /* AlarmNChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNChatListViewController.swift; sourceTree = "<group>"; };
 		32A3F17829747B4500B0347D /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
@@ -213,15 +213,6 @@
 			path = HandsUpNChatViewElement;
 			sourceTree = "<group>";
 		};
-		328F6066298E3F1C00F4BA4A /* HandsUpNChatData */ = {
-			isa = PBXGroup;
-			children = (
-				328F6067298E3F4B00F4BA4A /* PostData.swift */,
-				328F6069298FCA1500F4BA4A /* PostAPI.swift */,
-			);
-			path = HandsUpNChatData;
-			sourceTree = "<group>";
-		};
 		32AB01712969A3D5007D550A /* HandsUpNChatGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +312,7 @@
 				8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */,
 				8BA3980B29862F2600A532D4 /* ServerAPI.swift */,
 				485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */,
+				328F6069298FCA1500F4BA4A /* HandsUpServerAPI.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -378,7 +370,6 @@
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
 				481758892988EF2E004FACF0 /* MyProfile.swift */,
 				4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */,
-				328F6066298E3F1C00F4BA4A /* HandsUpNChatData */,
 				321B1E342986360300E2CFEE /* HandsUpNChatViewElement */,
 				32AB01712969A3D5007D550A /* HandsUpNChatGroup */,
 				8BA6064D2968864900F89636 /* Login */,
@@ -407,6 +398,7 @@
 				8B648084296ECD5D008D28CF /* Character_UIView.swift */,
 				8BDB0C0129864DE6008A6822 /* DataModel.swift */,
 				485FCFA92991EE2D00163D0A /* HomeDataModel.swift */,
+				328F6067298E3F4B00F4BA4A /* HandsUpDataModel.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -548,7 +540,7 @@
 				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
 				321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */,
 				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
-				328F6068298E3F4B00F4BA4A /* PostData.swift in Sources */,
+				328F6068298E3F4B00F4BA4A /* HandsUpDataModel.swift in Sources */,
 				328C297229781E26007DCDD9 /* YourChatTableViewCell.swift in Sources */,
 				3229E7632977CA54006FC6CB /* ChatViewController.swift in Sources */,
 				32A3F17D297515C600B0347D /* AlarmListViewController.swift in Sources */,
@@ -570,7 +562,7 @@
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 				48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */,
 				480B01E5297149D1007054B1 /* EditProfile.swift in Sources */,
-				328F606A298FCA1500F4BA4A /* PostAPI.swift in Sources */,
+				328F606A298FCA1500F4BA4A /* HandsUpServerAPI.swift in Sources */,
 				486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */,
 				48398AF329753FB7006FD205 /* TabManViewController.swift in Sources */,
 				32A3F1772974646C00B0347D /* AlarmNChatListViewController.swift in Sources */,
