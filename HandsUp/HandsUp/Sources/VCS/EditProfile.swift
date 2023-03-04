@@ -13,7 +13,7 @@ class EditProfile: UIViewController {
     @IBOutlet weak var EditProfileBtn: UIView!
     
     @IBOutlet weak var EditProfileLabel: UILabel!
-    var EditProfile_nickName = "차라나" // 닉네임을 전달받아 저장할 변수
+    var EditProfile_nickName =  UserDefaults.standard.string(forKey: "nickname") // 닉네임을 전달받아 저장할 변수
     
     @IBOutlet weak var EditProfileView: Character_UIView!
     
@@ -30,21 +30,7 @@ class EditProfile: UIViewController {
     
     
     @IBAction func EditProfileSubmit(_ sender: Any) {
-        let stat = ServerAPI.nickname(nickname: EditProfileLabel.text!)
-        switch stat {
-        case -1:
-            ServerError()
-        case 2000:
-            print("요청성공")
-        case 5000:
-            print("DB저장 오류")
-        case 4011:
-            print("유저 인덱스 존재 X")
-        case 4005:
-            print("닉네임 변경 7일 경과")
-        default: // 4006
-            print("디비 저장 오류")
-        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -90,6 +76,8 @@ class EditProfile: UIViewController {
         
         EditProfileLabel.sizeToFit()
         
+        EditProfileLabel.text = EditProfile_nickName!
+        
         self.navigationController?.navigationBar.isHidden = true;
         
         buttonInit()
@@ -98,9 +86,11 @@ class EditProfile: UIViewController {
 
 }
 
+
+
 extension EditProfile: SendData {
-    func send(_ vc: UIViewController, Input value: String?) {
-        EditProfileLabel.text = value
+    func send(_ vc: UIViewController, Input EditProfile_nickName: String?) {
+        EditProfileLabel.text = EditProfile_nickName
     }
 }
 

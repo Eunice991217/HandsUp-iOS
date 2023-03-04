@@ -15,6 +15,18 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: ViewController override method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let stat = HomeServerAPI.boardsShowList()
+//        switch stat {
+//        case -1:
+//            ServerError()
+//        case 2000:
+//            print("요청성공")
+//        case 4000:
+//            print("존재안하는 이메일")
+//        default: // 4019
+//            print("디비 저장 오류")
+//        }
 
         // Do any additional setup after loading the view.
         self.myTableView.dataSource = self
@@ -112,14 +124,14 @@ let MyHomeList1Data: [MyHomeList1DataModel] = [
             name: "차라나",
             location: "경기도 성남시",
             time: "10분전",
-            content: "제가 3시쯤에 수업이 끝날거 같은데 ..."
+            content: "제가 3시쯤에 수업이 끝날거 같은데 쌀국수 드실분 있나용 히히히히"
         ),
     MyHomeList1DataModel(
             profileImage: UIImage(named: "characterExample4"),
             name: "카리나",
             location: "경기도 성남시",
             time: "10분전",
-            content: "제가 5시쯤에 수업이 끝날거 같은데 ..."
+            content: "제가 5시쯤에 수업이 끝날거 같은데 떡볶이 드실분 있나용 히히히히"
         )
 ]
 

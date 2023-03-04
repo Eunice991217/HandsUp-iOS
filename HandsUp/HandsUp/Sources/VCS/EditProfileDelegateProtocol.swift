@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol SendData {
-    func send(_ vc: UIViewController, Input value : String?)
+    func send(_ vc: UIViewController, Input EditProfile_nickName : String?)
 }
