@@ -51,25 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         
         // TODO: - 디바이스 토큰을 보내는 서버통신 구현
         
-        let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
-        if(result == 2000){
-            print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
-            print("fcmtoken의 서버통신에 성공했습니다. ")
-        }else{
-            
-        }
-        
-        let result_ = PostAPI.deleteFCMToken()
-        if(result_ == 2000){
-            print("fcmtoken 삭제 성공. ")
-        }else{
-            print("삭제 실패")
-            print(result_)
+        if UserDefaults.standard.bool(forKey: "login") {
+            let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
+            if(result == 2000){
+                print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
+                print("fcmtoken의 서버통신에 성공했습니다. ")
+            }
         }
         
     
     }
-    
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

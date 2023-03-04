@@ -9,6 +9,14 @@ import UIKit
 
 class AlarmListViewController: UIViewController{
     
+    var likeList : [board_like] = []
+    var characterList: [Int] = []
+    var characterInAlarm: Character = Character.init()
+    
+    // 테스트용 코드 지울것!
+    let like_test = board_like.init()
+    
+    var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
     @IBOutlet var alarmTableView_ALVC: UITableView!
     
@@ -20,27 +28,58 @@ class AlarmListViewController: UIViewController{
         alarmTableView_ALVC.rowHeight = 98
         
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
-
+        
+        likeList = PostAPI.showBoardsLikeList() ?? []
+        
+         
+            print("서버통신 성공 및 원소 개수 ==  \(likeList.count)")
+        
+        likeList.append(like_test)
+        print("추가 이후 서버통신 성공 및 원소 개수 ==  \(likeList.count)")
         
         
     }
+    
 
 }
 
 extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AlarmDataArr.count
+           
+        return likeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
-        cell.timeLb_ATVC.text = AlarmDataArr[indexPath.row].time
+        cell.timeLb_ATVC.text = likeList[indexPath.row].likeCreatedAt
         
-        cell.characterView_ATVC.setCharacter_NoShadow()
-        cell.idLb_ATVC.text = "아래글에 " + AlarmDataArr[indexPath.row].name + "님이 관심있어요"
-        cell.contentLb_ATVC.text = AlarmDataArr[indexPath.row].content
+        //캐릭터 설정
+        characterList = []
+        characterInAlarm = likeList[indexPath.row].character
+        
+        background = (Int(characterInAlarm.backGroundColor) ?? 1) - 1
+        hair = (Int(characterInAlarm.hair) ?? 1) - 1
+        eyebrow = (Int(characterInAlarm.eyeBrow) ?? 1) - 1
+        mouth = (Int(characterInAlarm.mouth) ?? 1) - 1
+        nose = (Int(characterInAlarm.nose) ?? 1) - 1
+        eyes = (Int(characterInAlarm.eye) ?? 1) - 1
+        glasses = Int(characterInAlarm.glasses ?? "1") ?? 0
+        
+        characterList.append(background)
+        characterList.append(hair)
+        characterList.append(eyebrow)
+        characterList.append(mouth)
+        characterList.append(nose)
+        characterList.append(eyes)
+        characterList.append(glasses)
+        
+        cell.characterView_ATVC.setAll(componentArray: characterList)
+        cell.characterView_ATVC.setCharacter()
+        
+        cell.idLb_ATVC.text = likeList[indexPath.row].text
+        cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
         
     
         return cell
@@ -108,28 +147,3 @@ extension UIView {
         
     }
 }
-
-struct AlarmDataModel {
-    let profileImage: UIImage?
-    let name: String
-    let time: String
-    let content: String
-}
-
-let AlarmDataArr: [AlarmDataModel] = [
-    AlarmDataModel(
-            profileImage: UIImage(named: "characterExample2"),
-            name: "차라나",
-            time: "10분전",
-            content: "1/31에 같이 점심 먹을 사람 구합니다!"
-
-        ),
-    AlarmDataModel(
-            profileImage: UIImage(named: "characterExample3"),
-            name: "천애플",
-            time: "20분전",
-            content: "아바타 4d 영화 같이 보실 분 있나요?!"
-        )
-    
-    
-]
