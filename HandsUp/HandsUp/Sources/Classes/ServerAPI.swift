@@ -660,4 +660,51 @@ class ServerAPI{
         return rtn
         // rtn이 nil이면 서버 통신 실패 or 데이터 없음
     }
+    
+    static func boardsBlock(boardIdx: Int) -> boardsBlock_rtn{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/block/" + String(boardIdx))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: boardsBlock_rtn = boardsBlock_rtn(statusCode: -1)
+        var output: boardsBlock_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(boardsBlock_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(boardsBlock_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        rtn.statusCode = check
+        rtn.result_mode = output!.result
+        
+        return rtn
+    }
 }

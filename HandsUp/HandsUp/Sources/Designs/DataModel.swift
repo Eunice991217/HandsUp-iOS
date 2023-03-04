@@ -220,10 +220,15 @@ struct myBoards_rp_myBoardList: Codable {
     let status, content, location, createdAt: String
 }
 
+struct boardsBlock_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
+}
 
 //MARK: - return
 
-struct block_rtn{
-    let statusCode: Int
-    let result_mode: String?
+struct boardsBlock_rtn{
+    var statusCode: Int
+    var result_mode: String?
 }
