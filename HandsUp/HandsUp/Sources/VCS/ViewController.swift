@@ -177,7 +177,7 @@ class ViewController: UIViewController {
         
         // print(schoolName!)
         
-        let startIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
+        _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
         let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 2)
         let range = ...endIndex
         // print(schoolName![range])
