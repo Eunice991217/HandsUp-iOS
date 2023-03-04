@@ -46,6 +46,7 @@ struct boardsShowList_rp_result: Codable {
 
 struct boardsShowList_rp_getBoardList: Codable {
     let board: boardsShowList_rp_board
+    let character: boardsShowList_rp_character
     let tag: String
 }
 
@@ -56,6 +57,12 @@ struct boardsShowList_rp_board: Codable {
     let indicateLocation: String
     let messageDuration: Int
     let createdAt, updatedAt, status: String
+}
+
+struct boardsShowList_rp_character: Codable {
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor: String
 }
 
 //showMapList
