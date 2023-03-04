@@ -707,4 +707,51 @@ class ServerAPI{
         
         return rtn
     }
+    
+    static func chatsBlock(chatRoomIdx: Int) -> chatsBlock_rtn{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/chats/block/" + String(chatRoomIdx))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: chatsBlock_rtn = chatsBlock_rtn(statusCode: -1)
+        var output: chatsBlock_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(chatsBlock_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(chatsBlock_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        rtn.statusCode = check
+        rtn.result_mode = output!.result
+        
+        return rtn
+    }
 }

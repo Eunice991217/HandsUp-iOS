@@ -223,12 +223,24 @@ struct myBoards_rp_myBoardList: Codable {
 struct boardsBlock_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let message, result: String
+    let message: String
+    let result: String?
+}
+
+struct chatsBlock_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
 }
 
 //MARK: - return
-
 struct boardsBlock_rtn{
+    var statusCode: Int
+    var result_mode: String?
+}
+
+struct chatsBlock_rtn{
     var statusCode: Int
     var result_mode: String?
 }
