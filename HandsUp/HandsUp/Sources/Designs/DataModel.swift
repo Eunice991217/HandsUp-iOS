@@ -195,3 +195,35 @@ struct reportUser_rp: Codable{
     let result: String?
 }
 
+struct myBoards_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: myBoards_rp_result?
+}
+
+struct myBoards_rp_result: Codable {
+    let character: myBoards_rp_character
+    let myBoardList: [myBoards_rp_myBoardList]
+}
+
+struct myBoards_rp_character: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+}
+
+struct myBoards_rp_myBoardList: Codable {
+    let boardIdx: Int
+    let status, content, location, createdAt: String
+}
+
+
+//MARK: - return
+
+struct block_rtn{
+    let statusCode: Int
+    let result_mode: String?
+}
