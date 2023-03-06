@@ -53,8 +53,9 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
-        cell.timeLb_ATVC.text = likeList[indexPath.row].likeCreatedAt
         
+        let createdDate  = likeList[indexPath.row].likeCreatedAt.toDate()
+        cell.timeLb_ATVC.text = createdDate.getTimeDifference()
         //캐릭터 설정
         characterList = []
         characterInAlarm = likeList[indexPath.row].character
@@ -145,5 +146,64 @@ extension UIView {
         layer.shadowOffset = CGSize(width: 0, height: 8)
         
         
+    }
+}
+extension String{
+    func toDate() -> Date { //"yyyy-MM-dd HH:mm:ss"
+        let dateFormatter = DateFormatter()
+               dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+               dateFormatter.timeZone = TimeZone(identifier: "UTC")
+               if let date = dateFormatter.date(from: self) {
+                   return date
+               } else {
+                   return Date() // 현재 날짜 출력하기
+               }
+    }
+    
+}
+
+extension Date {
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        return dateFormatter.string(from: self)
+    }
+    func getTimeDifference() -> String {
+        var timeDiff = ""
+        let currentDate = Date()
+        let remainUTC = self.timeIntervalSince(currentDate)
+        var minute: Int?
+        var hour: Int?
+        
+        var formatter_year = DateFormatter()
+        formatter_year.dateFormat = "yyyy"
+        var current_year_string = formatter_year.string(from: Date())
+        var create_year_string = formatter_year.string(from: self)
+        
+        if(remainUTC < 60){ // 1분 보다 적은 시간일 때
+            timeDiff = "방금 전"
+        }
+        else if(remainUTC < 3600 ) {// 1시간 보다 적은 시간일 떄
+            minute = (Int)(remainUTC / 60)
+            timeDiff = "\(String(describing: minute))분 전"
+        }
+        else if(remainUTC < 21600) { // 6시간 보다 적은 시간 경과
+            hour = (Int)(remainUTC / 3600)
+            timeDiff = "\(String(describing: hour))시간 전"
+        }
+        else if( current_year_string == create_year_string){ // 저장된 년도와 현재 년도가 같을 때
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd HH:mm"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            timeDiff =  dateFormatter.string(from: self)
+        }
+        else{ // 년도가 다를 때
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yy/MM/dd HH:mm"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            timeDiff =  dateFormatter.string(from: self)
+        }
+        return timeDiff
     }
 }
