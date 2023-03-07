@@ -100,3 +100,16 @@ struct Character: Codable {
     
 }
 
+// MARK: - Message
+struct Message: Codable {
+    let id: Int
+    let content: String
+    let sentDate: Date
+    
+    init(id: Int, content: String) {
+        self.id = id
+        self.content = content
+        self.sentDate = Date()
+    }
+}
+

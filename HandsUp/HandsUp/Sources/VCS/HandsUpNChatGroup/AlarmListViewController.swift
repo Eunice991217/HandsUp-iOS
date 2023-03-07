@@ -169,7 +169,7 @@ extension Date {
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         return dateFormatter.string(from: self)
     }
-    func getTimeDifference() -> String {
+    func getTimeDifference() -> String { // 경과 시간을 보여주는 함수
         var timeDiff = ""
         let currentDate = Date()
         let remainUTC = self.timeIntervalSince(currentDate)
@@ -205,5 +205,31 @@ extension Date {
             timeDiff =  dateFormatter.string(from: self)
         }
         return timeDiff
+    }
+    func getDateToString() -> String{ // 저장 시간을 보여주는 함수
+        let current = Calendar.current
+        var date = ""
+        
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "yyyy"
+        
+        var current_year_string = myDateFormatter.string(from: Date())
+        var create_year_string = myDateFormatter.string(from: self)
+        
+        myDateFormatter.locale = Locale(identifier:"ko_KR") // PM, AM을 언어에 맞게 setting (ex: PM -> 오후)
+
+        if(current.isDateInToday(self)){//오늘이다.
+            myDateFormatter.dateFormat = "a h시 m분"
+        }
+        else if(current.isDateInYesterday(self)){
+            myDateFormatter.dateFormat = "어제"
+        }
+        else if(current_year_string == create_year_string){ // 올해일 때
+            myDateFormatter.dateFormat = "M월 d일"
+        }else{ // 작년부터 쭉 과거
+            myDateFormatter.dateFormat = "yyyy. M. d."
+        }
+        date = myDateFormatter.string(from: self)
+        return date
     }
 }
