@@ -15,6 +15,7 @@
 		3238BEED29B6F8FD00442D21 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3238BEEC29B6F8FD00442D21 /* FirebaseFirestore */; };
 		3238BEEF29B6F8FD00442D21 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3238BEEE29B6F8FD00442D21 /* FirebaseFirestoreSwift */; };
 		3238BEF129B6F8FD00442D21 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3238BEF029B6F8FD00442D21 /* FirebaseMessaging */; };
+		3238BEF329B8515F00442D21 /* FireStoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3238BEF229B8515F00442D21 /* FireStoreAPI.swift */; };
 		32880C5A299661F200647FCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32880C59299661F200647FCC /* GoogleService-Info.plist */; };
 		328C296E29781DF1007DCDD9 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */; };
 		328C296F29781DF1007DCDD9 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328C296D29781DF1007DCDD9 /* MyChatTableViewCell.xib */; };
@@ -100,6 +101,7 @@
 		321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationViewController.swift; sourceTree = "<group>"; };
 		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		3238BEF229B8515F00442D21 /* FireStoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreAPI.swift; sourceTree = "<group>"; };
 		32880C59299661F200647FCC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32880C5E2996785100647FCC /* HandsUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HandsUp.entitlements; sourceTree = "<group>"; };
 		328C296C29781DF1007DCDD9 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				8BA3980B29862F2600A532D4 /* ServerAPI.swift */,
 				485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */,
 				328F6069298FCA1500F4BA4A /* HandsUpServerAPI.swift */,
+				3238BEF229B8515F00442D21 /* FireStoreAPI.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				328F6065298A5B5600F4BA4A /* LocationService.swift in Sources */,
 				8BBE680E2989396500763AFA /* ServerError.swift in Sources */,
 				32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */,
+				3238BEF329B8515F00442D21 /* FireStoreAPI.swift in Sources */,
 				486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */,
 				482903AB2987F0C6003E6E18 /* ListTableViewCell.swift in Sources */,
 				48D72C63299F63A50003E481 /* EditProfileDelegateProtocol.swift in Sources */,
