@@ -66,13 +66,15 @@ struct boards_like_rp: Codable {
 
 // MARK: - Result
 struct board_like: Codable {
-    var chatRoomIdx: Int
+    var boardIdx: Int
+    let emailFrom: String
     var text, boardContent: String
     var character: Character
     var likeCreatedAt: String
     
     init(){
-        chatRoomIdx = 1
+        boardIdx = 1
+        emailFrom = "wltjd3459@dongguk.edu"
         text = "아래 글에 제이님이 관심있어요"
         boardContent = "내일 저녁 드실 분??"
         character = Character.init()

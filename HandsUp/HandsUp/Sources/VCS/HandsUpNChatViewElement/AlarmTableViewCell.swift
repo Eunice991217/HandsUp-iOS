@@ -15,24 +15,25 @@ class AlarmTableViewCell: UITableViewCell {
         // Initialization code
       
     }
-
+    
+    var sendMessage : (() -> ()) = {}
+    
     @IBOutlet weak var timeLb_ATVC: UILabel!
-    
-
     @IBOutlet weak var idLb_ATVC: UILabel!
-    
     @IBOutlet weak var contentLb_ATVC: UILabel!
-    
     @IBOutlet weak var characterView_ATVC: Character_UIView!
-
     @IBOutlet weak var sendBtn_ATVC: UIButton!
     
     
+    @IBAction func sendBtnDidTap(_ sender: UIButton) {
+        sendMessage()
+    }
+    
+
     // MARK: Initialize
       override init(style: AlarmTableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
           
-
           
       }
     

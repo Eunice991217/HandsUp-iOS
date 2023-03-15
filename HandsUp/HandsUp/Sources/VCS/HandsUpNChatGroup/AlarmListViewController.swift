@@ -20,6 +20,11 @@ class AlarmListViewController: UIViewController{
     
     @IBOutlet var alarmTableView_ALVC: UITableView!
     
+    @objc func sendMsgButtonTapped(sender: UIButton) {
+        PostAPI.makeNewChat(boardIndx: <#T##Int#>, chatRoomKey: <#T##String#>)
+        print("\(sender.tag) 버튼의 Tag로 index값을 받아서 데이터 처리")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +44,7 @@ class AlarmListViewController: UIViewController{
         
         
     }
+    
     
 
 }
@@ -81,11 +87,42 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.idLb_ATVC.text = likeList[indexPath.row].text
         cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
+         
+        // 보내기 버튼 눌렀을 때 실행할 함수 선언
+        cell.sendMessage = { [unowned self] in
+            // 1. 새로운 채팅방 개설하기 위해 DB에 채팅 데이터 추가하는 함수 호출
+            let boardIdx = likeList[indexPath.row].boardIdx
+            let chatRoomKey = String(likeList[indexPath.row].boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
+            let statusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatRoomKey)
+            // 2. DB 에서 요청 데이터 삭제하기
+            switch statusCode {
+            case 2000: // 채팅방 생성 성공 -> 해당 키로 화면 이동
+                
+                break
+                
+            case 4055: // 이미 존재하는 채팅방 -> 해당 이메일로 이동
+                break
+                
+            case 4000: //존재하지 않는 유저이다. -> 팝업창
+                break
+                
+            case 4010: //존재하지 않는 게시물이다. -> 팝업창
+                break
+                
+                
+            default: // 서버 오류이다.
+                ServerError()
+                break
+            }
+            
+        }
+            
+         
         
-    
         return cell
     }
 }
+
     
 
 extension UIButton {

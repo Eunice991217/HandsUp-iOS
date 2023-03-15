@@ -371,6 +371,10 @@
                                                 </backgroundConfiguration>
                                                 <color key="baseForegroundColor" name="HandsUpBlue"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="sendBtnDidTap:" destination="GXe-ud-vd2" eventType="touchUpInside" id="kix-il-y6G"/>
+                                                <action selector="sendMsgBtnDidTap:" destination="GXe-ud-vd2" eventType="touchUpInside" id="Q4Y-zX-7kS"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6W4-Cb-5eh" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
                                             <rect key="frame" x="14" y="24" width="50" height="50"/>
