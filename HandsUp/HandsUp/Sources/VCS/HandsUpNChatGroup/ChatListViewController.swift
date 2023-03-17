@@ -54,7 +54,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
         
-        nextVC.chatPersonName = MyChatData[indexPath.row].name
         nextVC.modalPresentationStyle = .fullScreen
         
         let transition = CATransition()
