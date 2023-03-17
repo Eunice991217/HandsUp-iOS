@@ -113,7 +113,31 @@ struct chat_create_rp: Codable {
     let message, result: String
 }
 
-// MARK: - Message
+//채팅 목록 받아오는 API 관련 구조체
+struct chat_list_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let chatList: [Chat]?
+}
+struct Chat: Codable{
+    let chatRoomIdx: Int
+    let chatRoomKey: String
+    let character: chatCharacter
+    let nickname: String
+}
+
+struct chatCharacter: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+
+}
+
+
+// 채팅방 내 메세지 정보 받아오는 API 관련 구조체
 struct Message: Codable {
     let id: String
     let content: String
