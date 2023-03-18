@@ -981,6 +981,7 @@
                         <outlet property="totalScrollView_HVC" destination="6eF-gR-CAe" id="5mK-UY-sAL"/>
                         <outlet property="totalTagBtn_HVC" destination="MWl-fG-O6q" id="rOR-2v-gc3"/>
                         <outlet property="tripTagBtn_HVC" destination="yEr-rb-O0j" id="3RI-0W-gLn"/>
+                        <outlet property="universityLabel_HVC" destination="zSZ-rP-7Zf" id="pDE-Si-5oW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ6-mK-wsf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

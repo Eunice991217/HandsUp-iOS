@@ -17,8 +17,7 @@ import Foundation
 // request
 struct boards_rq: Codable {
     let indicateLocation: String
-    let latitude: Double
-    let longitude: Double
+    let latitude, longitude: Double?
     let content, tag: String
     let messageDuration: Int
 }
