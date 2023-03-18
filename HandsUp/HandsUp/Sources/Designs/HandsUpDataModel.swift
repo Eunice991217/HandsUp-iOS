@@ -17,8 +17,7 @@ import Foundation
 // request
 struct boards_rq: Codable {
     let indicateLocation: String
-    let latitude: Double
-    let longitude: Double
+    let latitude, longitude: Double?
     let content, tag: String
     let messageDuration: Int
 }
@@ -66,13 +65,15 @@ struct boards_like_rp: Codable {
 
 // MARK: - Result
 struct board_like: Codable {
-    var chatRoomIdx: Int
+    var boardIdx: Int
+    let emailFrom: String
     var text, boardContent: String
     var character: Character
     var likeCreatedAt: String
     
     init(){
-        chatRoomIdx = 1
+        boardIdx = 1
+        emailFrom = "wltjd3459@dongguk.edu"
         text = "아래 글에 제이님이 관심있어요"
         boardContent = "내일 저녁 드실 분??"
         character = Character.init()
@@ -98,5 +99,81 @@ struct Character: Codable {
         backGroundColor = "1"
     }
     
+}
+struct chat_create_rq: Codable{
+    let boardIndx: Int
+    let chatRoomKey: String
+    
+}
+
+struct chat_create_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
+}
+
+//채팅 목록 받아오는 API 관련 구조체
+struct chat_list_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let chatList: [Chat]?
+}
+struct Chat: Codable{
+    let chatRoomIdx: Int
+    let chatRoomKey: String
+    let character: chatCharacter
+    let nickname: String
+}
+
+struct chatCharacter: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+
+}
+
+
+// 채팅방 내 메세지 정보 받아오는 API 관련 구조체
+struct Message: Codable {
+    let id: String
+    let content: String
+    let sentDate: Date
+    
+    init(id: String, content: String) {
+        self.id = id
+        self.content = content
+        self.sentDate = Date()
+    }
+    
+    // MARK: - Date 형을 firestore에 입력하면 Unix Time Stamp형으로 변환하는 작업
+        
+        private enum CodingKeys: String, CodingKey {
+            case id
+            case content
+            case sentDate
+        }
+        
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            id = try values.decode(String.self, forKey: .id)
+            content = try values.decode(String.self, forKey: .content)
+            
+            let dataDouble = try values.decode(Double.self, forKey: .sentDate)
+            sentDate = Date(timeIntervalSince1970: dataDouble)
+        }
+}
+
+extension Encodable {
+    // message 구조체를 firebase에 저장될 수 있는 dictionary로 바꾸는 과정.
+    /// Object to Dictionary
+    /// cf) Dictionary to Object: JSONDecoder().decode(Object.self, from: dictionary)
+    var asDictionary: [String: Any]? {
+        guard let object = try? JSONEncoder().encode(self),
+              let dictinoary = try? JSONSerialization.jsonObject(with: object, options: []) as? [String: Any] else { return nil }
+        return dictinoary
+    }
 }
 

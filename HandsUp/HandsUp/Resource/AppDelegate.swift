@@ -55,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
             if(result == 2000){
                 print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
-                print("fcmtoken의 서버통신에 성공했습니다. ")
             }
         }
         

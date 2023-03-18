@@ -19,6 +19,8 @@ class RegisterPostViewController: UIViewController{
     
     @IBOutlet var locationLabel_HVC: UILabel!
     
+    @IBOutlet var universityLabel_HVC: UILabel!
+    
     @IBOutlet weak var characterViewHeight_HVC: NSLayoutConstraint!
     //tag btn 설정
     @IBOutlet weak var totalTagBtn_HVC: UIButton!
@@ -100,6 +102,8 @@ class RegisterPostViewController: UIViewController{
         totalScrollView_HVC.addGestureRecognizer(singleTapGestureRecognizer)
         
         characterView_HVC.setUserCharacter()
+        
+        self.universityLabel_HVC.text = UserDefaults.standard.string(forKey: "schoolName")!
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()

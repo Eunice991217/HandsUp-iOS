@@ -10,7 +10,12 @@ import UIKit
 class ChatViewController: UIViewController {
     
     var chatDatas_CVC = [String]()
+    public var chatRoomKey = ""
     public var chatPersonName = ""
+    public var statusCode = 0
+    public var boardIdx: Int?
+    
+    
     
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
     
