@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfile: UIViewController {
+class EditProfile: UIViewController, sendCharacterDataDelegate  {
     
     
     @IBOutlet weak var EditProfileBtn: UIView!
@@ -83,6 +83,24 @@ class EditProfile: UIViewController {
         buttonInit()
         // Do any additional setup after loading the view.
     }
+    func sendCharacterData(data: SignupData) {
+        var tmp : [Int] = [0,0,0,0,0,0,0]
+        for i in 0...6{
+            tmp[i] = data.characterComponent[i]
+        }
+    }
+    
+    /*@IBAction func characterEdit(_ sender: Any){
+        let characterEditVC = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit") as! CharacterEdit_ViewController
+        var componentIndex_Sign_up = 0
+        sign_upData_Sign_up.characterComponent.forEach{
+            characterEditVC.sign_upData_CharacterEdit.characterComponent[componentIndex_Sign_up] = $0
+            componentIndex_Sign_up += 1
+        }
+        characterEditVC.modalPresentationStyle = .fullScreen
+        characterEditVC.delegate = self
+        self.present(characterEditVC, animated: true)
+    }*/
 
 }
 
