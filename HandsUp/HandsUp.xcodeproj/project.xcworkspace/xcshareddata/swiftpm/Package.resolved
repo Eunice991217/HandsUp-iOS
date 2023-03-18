@@ -30,10 +30,10 @@
     {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/firebase/firebase-ios-sdk.git",
+      "location" : "https://github.com/firebase/firebase-ios-sdk",
       "state" : {
-        "branch" : "master",
-        "revision" : "c0e6ac1cf278f6efd87cebfb6119a5e5c2141dfb"
+        "revision" : "7e80c25b51c2ffa238879b07fbfc5baa54bb3050",
+        "version" : "9.6.0"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "04351180d4c757c6c16127cb57b685fff9ef260b",
-        "version" : "10.6.0"
+        "revision" : "c1cfde8067668027b23a42c29d11c246152fe046",
+        "version" : "9.6.0"
       }
     },
     {
@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jaemyeong/NMapsMap-SPM",
       "state" : {
-        "revision" : "839d2d2a76abc8e352ccec7d2ae5755bb4cf0387",
-        "version" : "3.16.1"
+        "branch" : "main",
+        "revision" : "f9850a18d73f9438c622e308623b77709e3cd00a"
       }
     },
     {
@@ -149,8 +149,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/uias/Tabman",
       "state" : {
-        "revision" : "6a87a2825939f5da06cf52a6582d67a646488cff",
-        "version" : "3.0.1"
+        "branch" : "main",
+        "revision" : "6a87a2825939f5da06cf52a6582d67a646488cff"
       }
     }
   ],
