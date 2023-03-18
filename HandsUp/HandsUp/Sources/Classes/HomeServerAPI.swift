@@ -11,6 +11,36 @@ import Alamofire
 
 class HomeServerAPI {
     
+    static func boardsHeart(boardIdx: Int) -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/\(boardIdx)/like")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check:Int = 0
+        let session = URLSession(configuration: .default)
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(BoardsHeart_rp.self, from: data!) // rp
+            if output == nil{
+                check = -1
+            }else if output!.statusCode == 2000{
+                check = output!.statusCode
+            }else{
+                check = output!.statusCode
+            }
+            semaphore.signal() // 세마포어 시그널
+        }.resume()
+        
+        semaphore.wait()
+        return check
+    }
+    
     static func FAQ(contents: String) -> Int{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/help/inquiry")

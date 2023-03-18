@@ -793,6 +793,12 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="yvb-aS-tmr"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-cP-hb6">
+                                <rect key="frame" x="16" y="244" width="382" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                <color key="textColor" name="HandsUpRed"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f1N-fX-2vw"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
@@ -800,15 +806,19 @@
                             <constraint firstItem="0l2-zV-1vI" firstAttribute="top" secondItem="95d-wX-adx" secondAttribute="bottom" constant="12" id="91w-Oo-LYq"/>
                             <constraint firstItem="JjX-Xb-yj2" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="AGh-N3-4KI"/>
                             <constraint firstItem="JjX-Xb-yj2" firstAttribute="top" secondItem="0l2-zV-1vI" secondAttribute="bottom" constant="6" id="E4y-k8-1jo"/>
+                            <constraint firstItem="a3I-cP-hb6" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="Ee4-9W-dDR"/>
                             <constraint firstItem="7vS-WW-LBo" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="JSS-9C-adb"/>
                             <constraint firstItem="FRT-r3-a6J" firstAttribute="top" secondItem="f1N-fX-2vw" secondAttribute="top" id="VSA-QQ-dgh"/>
                             <constraint firstItem="0l2-zV-1vI" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="b57-c1-nIH"/>
                             <constraint firstItem="f1N-fX-2vw" firstAttribute="trailing" secondItem="7vS-WW-LBo" secondAttribute="trailing" constant="16" id="cRO-Og-d9w"/>
                             <constraint firstItem="GRb-qZ-iF0" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="hNX-H6-XjW"/>
+                            <constraint firstItem="a3I-cP-hb6" firstAttribute="centerX" secondItem="pS2-Gc-vCc" secondAttribute="centerX" id="hoU-E2-5IF"/>
                             <constraint firstItem="FRT-r3-a6J" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" id="ioV-vr-Nu4"/>
                             <constraint firstItem="95d-wX-adx" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="oFb-4z-n2S"/>
                             <constraint firstAttribute="trailing" secondItem="95d-wX-adx" secondAttribute="trailing" constant="16" id="odE-wu-qA6"/>
+                            <constraint firstItem="f1N-fX-2vw" firstAttribute="trailing" secondItem="a3I-cP-hb6" secondAttribute="trailing" constant="16" id="r3j-uf-BTz"/>
                             <constraint firstAttribute="trailing" secondItem="FRT-r3-a6J" secondAttribute="trailing" id="slq-GP-lHh"/>
+                            <constraint firstItem="a3I-cP-hb6" firstAttribute="top" secondItem="JjX-Xb-yj2" secondAttribute="bottom" constant="5" id="tP2-H6-7CH"/>
                             <constraint firstItem="7vS-WW-LBo" firstAttribute="top" secondItem="GRb-qZ-iF0" secondAttribute="bottom" constant="12" id="ufX-Er-t88"/>
                             <constraint firstItem="GRb-qZ-iF0" firstAttribute="top" secondItem="pS2-Gc-vCc" secondAttribute="top" constant="132" id="vAN-pD-air"/>
                             <constraint firstItem="95d-wX-adx" firstAttribute="top" secondItem="7vS-WW-LBo" secondAttribute="bottom" constant="6" id="yiE-bg-1ie"/>
@@ -820,6 +830,7 @@
                     <connections>
                         <outlet property="EditProfileNameBackBtn" destination="8EK-0W-Cvc" id="lzH-qA-WMb"/>
                         <outlet property="EditProfileNameTextField" destination="7vS-WW-LBo" id="xQ5-WU-qE3"/>
+                        <outlet property="EfitProfileNameLabel" destination="a3I-cP-hb6" id="7S3-gO-3jc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLt-ih-yUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1662,7 +1673,7 @@
         <image name="heartInWhiteCircle" width="100" height="100"/>
         <image name="initialLogoOrange" width="181" height="274"/>
         <image name="notifications" width="29" height="29"/>
-        <image name="plus.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="segment" width="35" height="35"/>
         <image name="send" width="124" height="124"/>
         <image name="threeDotsHorizon" width="24" height="6"/>
@@ -1690,6 +1701,9 @@
         </namedColor>
         <namedColor name="HandsUpRealWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpRed">
+            <color red="0.9882352941176471" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpSnowWhite">
             <color red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

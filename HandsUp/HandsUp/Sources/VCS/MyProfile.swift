@@ -16,10 +16,23 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var bRec:Bool = true
     
     @IBAction func HeartBtnDidTap(_ sender: Any) {
+        
+        let stat = HomeServerAPI.boardsHeart(boardIdx: 1)
+        switch stat {
+        case 2000:
+            print ("하트 요청에 성공하였습니다.")
+        case 4000:
+            print ("하트 요청 존재하지 않는 이메일입니다.")
+        case 4010:
+            print ("하트 요청 게시물 인덱스가 존재하지 않습니다.")
+        default:
+            print ("하트 요청 데이터베이스 저장 오류가 발생했습니다.")
+        }
+        
         bRec = !bRec
-        if bRec {
+        if bRec { // 비어진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
-        } else {
+        } else { // 버튼 눌렀을때 채워진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartDidTap"), for: .normal)
         }
     }
