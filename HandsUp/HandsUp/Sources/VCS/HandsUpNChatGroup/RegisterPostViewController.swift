@@ -103,7 +103,26 @@ class RegisterPostViewController: UIViewController{
         
         characterView_HVC.setUserCharacter()
         
-        self.universityLabel_HVC.text = UserDefaults.standard.string(forKey: "schoolName")!
+    
+        var schoolName = UserDefaults.standard.string(forKey: "schoolName")!
+        var cutSchoolName = ""
+        if(schoolName.count == 6) {
+                    _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+                    let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
+                    let range = ...endIndex
+
+                    cutSchoolName = String(schoolName[range])
+                }
+                else if(schoolName.count == 5) {
+                    _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+                    let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
+                    let range = ...endIndex
+
+                    cutSchoolName = String(schoolName[range])
+                }
+                
+        self.universityLabel_HVC.text = cutSchoolName
+                
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()

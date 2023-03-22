@@ -136,6 +136,31 @@ struct chatCharacter: Codable {
 }
 
 
+struct board_in_chat_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: board_in_chat_result
+}
+
+// MARK: - Result
+struct board_in_chat_result: Codable {
+    let board: Board
+    let character: chatCharacter
+    let nickname: String
+}
+
+// MARK: - Board
+struct Board: Codable {
+    let boardIdx: Int
+    let content: String
+    let latitude, longitude: Int
+    let indicateLocation: String
+    let messageDuration: Int
+    let createdAt, updatedAt, status: String
+}
+
+
 // 채팅방 내 메세지 정보 받아오는 API 관련 구조체
 struct Message: Codable {
     let id: String
