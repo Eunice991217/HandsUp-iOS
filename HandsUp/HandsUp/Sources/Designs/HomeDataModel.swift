@@ -106,7 +106,7 @@ struct ShowMapList_rp: Codable {
 }
 
 struct ShowMapList_rp_result: Codable {
-    let schoolName: String
+//    let schoolName: String
     let getBoardMap: [ShowMapList_rp_getBoardMap]
 }
 

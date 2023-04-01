@@ -145,9 +145,8 @@ class HomeServerAPI {
         var rtn: [ShowMapList_rp_getBoardMap]? = nil
         var output: ShowMapList_rp? = nil
         let session = URLSession(configuration: .default)
-        let uploadData = try! JSONEncoder().encode(showMapList_rq(schoolName: UserDefaults.standard.string(forKey: "schoolName")!))
         let semaphore = DispatchSemaphore(value: 0)
-        session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(ShowMapList_rp.self, from: data!)
             if output == nil{
                 check = -1;

@@ -80,11 +80,7 @@ class FifthTabViewController: UIViewController, CLLocationManagerDelegate{
         cameraUpdate.animation = .easeIn
 
         let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
-        //let map_list = HomeServerAPI.showMapList()
-        //서버가 오류니 임시 데이터 만들어 둠
-        var map_list: [ShowMapList_rp_getBoardMap]? = []
-        map_list?.append(ShowMapList_rp_getBoardMap(boardIdx: 42, nickname: "aa", character: ShowMapList_rp_character(eye: "1", eyeBrow: "1", glasses: "1", nose: "1", mouth: "1", hair: "4", hairColor: "1", skinColor: "1", backGroundColor: "1"), latitude: 37.406284, longitude: 127.116425, createdAt: "aa", tag: "aa"))
-        map_list?.append(ShowMapList_rp_getBoardMap(boardIdx: 42, nickname: "aa", character:  ShowMapList_rp_character(eye: "1", eyeBrow: "1", glasses: "1", nose: "1", mouth: "1", hair: "2", hairColor: "1", skinColor: "1", backGroundColor: "2"), latitude: 37.55062343729491, longitude: 127.07303737298145, createdAt: "aa", tag: "aa"))
+        let map_list = HomeServerAPI.showMapList()
         
         if map_list != nil{
             map_list?.forEach{
