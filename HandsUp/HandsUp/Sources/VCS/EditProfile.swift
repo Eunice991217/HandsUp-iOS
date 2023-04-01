@@ -49,6 +49,7 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
         print(1)
         let Sign_upSB_Login = UIStoryboard(name: "Sign_up", bundle: nil)
         let sign_upVC_Login = Sign_upSB_Login.instantiateViewController(withIdentifier: "CharacterEdit") as! CharacterEdit_ViewController
+        sign_upVC_Login.delegate = self
         sign_upVC_Login.modalPresentationStyle = .fullScreen
         self.present(sign_upVC_Login, animated: true)
     }
@@ -88,6 +89,10 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
         for i in 0...6{
             tmp[i] = data.characterComponent[i]
         }
+        if ServerAPI.editCharacter(characterComponent: tmp) == -1{
+            ServerError()
+        }
+        EditProfileView.setUserCharacter()
     }
     
     /*@IBAction func characterEdit(_ sender: Any){
