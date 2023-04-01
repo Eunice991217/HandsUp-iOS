@@ -58,7 +58,7 @@ class AlarmListViewController: UIViewController{
     func getAllAlarmRead(){ //새로운 알람이 있으면 false을 리턴하는 함수
         let defaults = UserDefaults.standard
         let alarmNchatVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmNChatListViewController") as! AlarmNChatListViewController
-        alarmNchatVC.redBellBtnLb.alpha = 0
+       // alarmNchatVC.redAlarmBtnLb.alpha = 0 
         defaults.set(Date().toString(), forKey:"isAlarmAllRead")
     }
     
