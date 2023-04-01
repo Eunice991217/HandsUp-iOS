@@ -224,7 +224,6 @@ class Character_UIView: UIView {
     }
     
     
-    
     func setCharacter(){
         for view in self.subviews {
             view.removeFromSuperview()
@@ -468,6 +467,18 @@ class Character_UIView: UIView {
         
         self.addSubview(characterView)
         self.addSubview(characterViewCover)
+    }
+    
+    func convertSet(arr: ShowMapList_rp_character){
+        self.bgType = Int(arr.backGroundColor)! - 1
+        self.headType = Int(arr.hair)! - 1
+        self.eyebrowType = Int(arr.eyeBrow)! - 1
+        self.mouthType = Int(arr.mouth)! - 1
+        self.noseType = Int(arr.nose)! - 1
+        self.eyesType = Int(arr.eye)! - 1
+        self.glassesType = arr.glasses == "" ? 0 : Int(arr.glasses)!
+        
+        setCharacter_NoShadow()
     }
 }
 

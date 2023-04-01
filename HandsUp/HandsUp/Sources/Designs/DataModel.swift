@@ -67,6 +67,16 @@ struct editCharacter_rq: Codable{
     var backGroundColor: String
 }
 
+struct reportBoard_rq: Codable{
+    var content: String
+    var boardIdx: Int
+}
+
+struct reportUser_rq: Codable{
+    var content: String
+    var userIdx: Int
+}
+
 //MARK: - response
 struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
@@ -142,9 +152,9 @@ struct users_rp: Codable {
 }
 
 struct users_rp_result: Codable {
-    let nickname, eye, eyeBrow, glasses: String
-    let nose, mouth, hair, hairColor: String
-    let skinColor, backGroundColor: String
+    let nickname, schoolName, eye, eyeBrow: String
+    let glasses, nose, mouth, hair: String
+    let hairColor, skinColor, backGroundColor: String
 }
 
 struct nickname_rp: Codable {
@@ -171,3 +181,82 @@ struct withdraw_rp_result: Codable{
     let userIdx: Int
 }
 
+struct reportBoard_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
+struct reportUser_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
+struct myBoards_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: myBoards_rp_result?
+}
+
+struct myBoards_rp_result: Codable {
+    let character: myBoards_rp_character
+    let myBoardList: [myBoards_rp_myBoardList]
+}
+
+struct myBoards_rp_character: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+}
+
+struct myBoards_rp_myBoardList: Codable {
+    let boardIdx: Int
+    let status, content, location, createdAt: String
+}
+
+struct boardsBlock_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
+struct chatsBlock_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
+struct singleList_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: singleList_rp_result?
+}
+
+struct singleList_rp_result: Codable {
+    let nickname: String
+    let latitude, longitude: Double
+    let content, tag, didLike: String
+    let messageDuration: Int
+    let createdAt: String
+}
+
+
+//MARK: - return
+struct boardsBlock_rtn{
+    var statusCode: Int
+    var result_mode: String?
+}
+
+struct chatsBlock_rtn{
+    var statusCode: Int
+    var result_mode: String?
+}

@@ -16,10 +16,23 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var bRec:Bool = true
     
     @IBAction func HeartBtnDidTap(_ sender: Any) {
+        
+        let stat = HomeServerAPI.boardsHeart(boardIdx: 1)
+        switch stat {
+        case 2000:
+            print ("하트 요청에 성공하였습니다.")
+        case 4000:
+            print ("하트 요청 존재하지 않는 이메일입니다.")
+        case 4010:
+            print ("하트 요청 게시물 인덱스가 존재하지 않습니다.")
+        default:
+            print ("하트 요청 데이터베이스 저장 오류가 발생했습니다.")
+        }
+        
         bRec = !bRec
-        if bRec {
+        if bRec { // 비어진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
-        } else {
+        } else { // 버튼 눌렀을때 채워진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartDidTap"), for: .normal)
         }
     }
@@ -40,10 +53,21 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
         let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+            
+            Report?.modalPresentationStyle = .fullScreen
             // 화면 전환!
-            self.navigationController?.pushViewController(Report!, animated: true)}
+
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.view.window!.layer.add(transition, forKey: kCATransition)
+
+            self.present(Report!, animated: false)
+        }
         )
         alert.addAction(report)
+    
         
         cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")

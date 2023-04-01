@@ -177,10 +177,6 @@ class ServerAPI{
             if output == nil{
                 check = -1;
             }
-            else if output!.statusCode == 2000{
-                check = output!.statusCode
-                UserDefaults.standard.set(false, forKey: "login")
-            }
             else{
                 check = output!.statusCode
             }
@@ -195,10 +191,6 @@ class ServerAPI{
                     if output == nil{
                         check = -1;
                     }
-                    else if output!.statusCode == 2000{
-                        check = output!.statusCode
-                        UserDefaults.standard.set(false, forKey: "login")
-                    }
                     else{
                         check = output!.statusCode
                     }
@@ -206,6 +198,11 @@ class ServerAPI{
                 }.resume()
                 semaphore.wait()
             }
+        }
+        
+        if check == 2000{
+            UserDefaults.standard.set(false, forKey: "login")
+            PostAPI.deleteFCMToken()
         }
         return check
     }
@@ -319,6 +316,7 @@ class ServerAPI{
                 let glasses: Int = output!.result!.glasses == "" ? 0 : Int(output!.result!.glasses)!
                 
                 UserDefaults.standard.set(output!.result!.nickname, forKey: "nickname")
+                UserDefaults.standard.set(output!.result!.schoolName,forKey: "schoolName")
                 UserDefaults.standard.set(Int(output!.result!.backGroundColor)! - 1,forKey: "backgroundColor")
                 UserDefaults.standard.set(Int(output!.result!.hair)! - 1,forKey: "hair")
                 UserDefaults.standard.set(Int(output!.result!.eyeBrow)! - 1,forKey: "eyeBrow")
@@ -346,6 +344,7 @@ class ServerAPI{
                         let glasses: Int = output!.result!.glasses == "" ? 0 : Int(output!.result!.glasses)!
                         
                         UserDefaults.standard.set(output!.result!.nickname, forKey: "nickname")
+                        UserDefaults.standard.set(output!.result!.schoolName,forKey: "schoolName")
                         UserDefaults.standard.set(Int(output!.result!.backGroundColor)! - 1,forKey: "backgroundColor")
                         UserDefaults.standard.set(Int(output!.result!.hair)! - 1,forKey: "hair")
                         UserDefaults.standard.set(Int(output!.result!.eyeBrow)! - 1,forKey: "eyeBrow")
@@ -515,5 +514,291 @@ class ServerAPI{
             }
         }
         return check
+    }
+    
+    static func reportBoard(content: String, boardIdx: Int) -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/help/report/board")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check:Int = -1
+        var output: reportBoard_rp? = nil
+        let session = URLSession(configuration: .default)
+        let uploadData = try! JSONEncoder().encode(reportBoard_rq(content: content, boardIdx: boardIdx))
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(reportBoard_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(reportBoard_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{
+            //output!.result
+        }
+        
+        return check
+    }
+    
+    static func reportUser(content: String, userIdx: Int) -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/help/report/user")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check:Int = -1
+        var output: reportUser_rp? = nil
+        let session = URLSession(configuration: .default)
+        let uploadData = try! JSONEncoder().encode(reportUser_rq(content: content, userIdx: userIdx))
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(reportUser_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(reportUser_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{
+            //output!.result
+        }
+        
+        return check
+    }
+    
+    static func myBoards() -> [myBoards_rp_myBoardList]?{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/myBoards")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: [myBoards_rp_myBoardList]? = nil
+        var output: myBoards_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(myBoards_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(myBoards_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{//서버 통신 성공
+            rtn = output!.result!.myBoardList
+        }
+        
+        return rtn
+        // rtn이 nil이면 서버 통신 실패 or 데이터 없음
+    }
+    
+    static func boardsBlock(boardIdx: Int) -> boardsBlock_rtn{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/block/" + String(boardIdx))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: boardsBlock_rtn = boardsBlock_rtn(statusCode: -1)
+        var output: boardsBlock_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(boardsBlock_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(boardsBlock_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        rtn.statusCode = check
+        rtn.result_mode = output!.result
+        
+        return rtn
+    }
+    
+    static func chatsBlock(chatRoomIdx: Int) -> chatsBlock_rtn{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/chats/block/" + String(chatRoomIdx))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: chatsBlock_rtn = chatsBlock_rtn(statusCode: -1)
+        var output: chatsBlock_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(chatsBlock_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(chatsBlock_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        rtn.statusCode = check
+        rtn.result_mode = output!.result
+        
+        return rtn
+    }
+    
+    static func singleList(boardIdx: Int) -> singleList_rp_result?{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/boards/singleList/" + String(boardIdx))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: singleList_rp_result? = nil
+        var output: singleList_rp? = nil
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(singleList_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(singleList_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+
+        if check == 2000{
+            rtn = output!.result
+        }
+        return rtn
     }
 }

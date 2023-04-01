@@ -66,7 +66,7 @@
                                             <action selector="HomeSettingDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="kXm-x2-wj4"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세종대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-DS-p90">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가톨릭대학교" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-DS-p90">
                                         <rect key="frame" x="53" y="33" width="60" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="AS9-nh-H0Z"/>
@@ -181,6 +181,7 @@
                     <connections>
                         <outlet property="CustomSwitchBtn" destination="VI7-Ts-Sfn" id="mGl-uu-df9"/>
                         <outlet property="HomeDidBtn" destination="IZg-fI-ShE" id="Czx-Y3-TAK"/>
+                        <outlet property="HomeSchoolName" destination="JgI-DS-p90" id="Hvx-od-dbq"/>
                         <outlet property="HomeSettingBtn" destination="GDi-dv-laM" id="OlA-Qd-UqB"/>
                         <outlet property="HomeTabBarPlusBtn" destination="avG-yn-v71" id="PXb-ur-xar"/>
                         <outlet property="HomeTabView" destination="onp-Y0-j1N" id="ghW-Pu-NJD"/>
@@ -501,8 +502,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKf-0C-snY">
                                 <rect key="frame" x="90.5" y="265.5" width="233" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cv-ty-zVL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" showsExpansionTextWhenTruncated="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cv-ty-zVL">
                                         <rect key="frame" x="30" y="18" width="52" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="2xY-qB-Bsz"/>
+                                            <constraint firstAttribute="width" constant="52" id="4ks-TX-KJR"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -550,15 +555,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pKf-0C-snY" secondAttribute="height" multiplier="233:58" id="9Ox-aA-yK2"/>
+                                    <constraint firstItem="zAV-sI-OWc" firstAttribute="leading" secondItem="2cv-ty-zVL" secondAttribute="trailing" constant="33" id="Cca-TJ-4l2"/>
                                     <constraint firstItem="8eA-pH-ecX" firstAttribute="top" secondItem="2cv-ty-zVL" secondAttribute="bottom" constant="2" id="Ccu-JS-DSz"/>
                                     <constraint firstItem="2cv-ty-zVL" firstAttribute="centerY" secondItem="zAV-sI-OWc" secondAttribute="centerY" id="DFd-6L-vru"/>
                                     <constraint firstAttribute="height" constant="58" id="N9L-Oj-PtA"/>
                                     <constraint firstItem="8eA-pH-ecX" firstAttribute="leading" secondItem="pKf-0C-snY" secondAttribute="leading" constant="27" id="aef-l4-c6T"/>
-                                    <constraint firstItem="2cv-ty-zVL" firstAttribute="leading" secondItem="pKf-0C-snY" secondAttribute="leading" constant="30" id="eBz-QH-Hts"/>
                                     <constraint firstAttribute="width" constant="233" id="jJx-o7-Oes"/>
                                     <constraint firstAttribute="trailing" secondItem="zAV-sI-OWc" secondAttribute="trailing" constant="25" id="oH4-mQ-8NG"/>
                                     <constraint firstAttribute="bottom" secondItem="8eA-pH-ecX" secondAttribute="bottom" constant="15" id="s8e-LL-JCL"/>
-                                    <constraint firstItem="zAV-sI-OWc" firstAttribute="leading" secondItem="2cv-ty-zVL" secondAttribute="trailing" constant="33" id="tCb-6R-IUa"/>
                                     <constraint firstItem="zAV-sI-OWc" firstAttribute="centerY" secondItem="pKf-0C-snY" secondAttribute="centerY" id="xKh-x0-4Dt"/>
                                 </constraints>
                             </view>
@@ -569,6 +573,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="EditProfileSubmit:" destination="WCv-nd-Qsv" eventType="touchUpInside" id="gzv-9W-2vn"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="확인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-fv-v1k">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
@@ -732,7 +739,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임은 변경후 7일후 다시 바꿀수있으니 신중히 바꿔주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjX-Xb-yj2">
-                                <rect key="frame" x="16" y="225" width="286.5" height="14"/>
+                                <rect key="frame" x="16" y="225" width="284.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                 <color key="textColor" name="HandsUpDarkGrey"/>
                                 <nil key="highlightedColor"/>
@@ -786,6 +793,12 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="yvb-aS-tmr"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-cP-hb6">
+                                <rect key="frame" x="16" y="244" width="382" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                <color key="textColor" name="HandsUpRed"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f1N-fX-2vw"/>
                         <color key="backgroundColor" name="HandsUpBackground"/>
@@ -793,15 +806,19 @@
                             <constraint firstItem="0l2-zV-1vI" firstAttribute="top" secondItem="95d-wX-adx" secondAttribute="bottom" constant="12" id="91w-Oo-LYq"/>
                             <constraint firstItem="JjX-Xb-yj2" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="AGh-N3-4KI"/>
                             <constraint firstItem="JjX-Xb-yj2" firstAttribute="top" secondItem="0l2-zV-1vI" secondAttribute="bottom" constant="6" id="E4y-k8-1jo"/>
+                            <constraint firstItem="a3I-cP-hb6" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="Ee4-9W-dDR"/>
                             <constraint firstItem="7vS-WW-LBo" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="JSS-9C-adb"/>
                             <constraint firstItem="FRT-r3-a6J" firstAttribute="top" secondItem="f1N-fX-2vw" secondAttribute="top" id="VSA-QQ-dgh"/>
                             <constraint firstItem="0l2-zV-1vI" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="b57-c1-nIH"/>
                             <constraint firstItem="f1N-fX-2vw" firstAttribute="trailing" secondItem="7vS-WW-LBo" secondAttribute="trailing" constant="16" id="cRO-Og-d9w"/>
                             <constraint firstItem="GRb-qZ-iF0" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="hNX-H6-XjW"/>
+                            <constraint firstItem="a3I-cP-hb6" firstAttribute="centerX" secondItem="pS2-Gc-vCc" secondAttribute="centerX" id="hoU-E2-5IF"/>
                             <constraint firstItem="FRT-r3-a6J" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" id="ioV-vr-Nu4"/>
                             <constraint firstItem="95d-wX-adx" firstAttribute="leading" secondItem="f1N-fX-2vw" secondAttribute="leading" constant="16" id="oFb-4z-n2S"/>
                             <constraint firstAttribute="trailing" secondItem="95d-wX-adx" secondAttribute="trailing" constant="16" id="odE-wu-qA6"/>
+                            <constraint firstItem="f1N-fX-2vw" firstAttribute="trailing" secondItem="a3I-cP-hb6" secondAttribute="trailing" constant="16" id="r3j-uf-BTz"/>
                             <constraint firstAttribute="trailing" secondItem="FRT-r3-a6J" secondAttribute="trailing" id="slq-GP-lHh"/>
+                            <constraint firstItem="a3I-cP-hb6" firstAttribute="top" secondItem="JjX-Xb-yj2" secondAttribute="bottom" constant="5" id="tP2-H6-7CH"/>
                             <constraint firstItem="7vS-WW-LBo" firstAttribute="top" secondItem="GRb-qZ-iF0" secondAttribute="bottom" constant="12" id="ufX-Er-t88"/>
                             <constraint firstItem="GRb-qZ-iF0" firstAttribute="top" secondItem="pS2-Gc-vCc" secondAttribute="top" constant="132" id="vAN-pD-air"/>
                             <constraint firstItem="95d-wX-adx" firstAttribute="top" secondItem="7vS-WW-LBo" secondAttribute="bottom" constant="6" id="yiE-bg-1ie"/>
@@ -813,6 +830,7 @@
                     <connections>
                         <outlet property="EditProfileNameBackBtn" destination="8EK-0W-Cvc" id="lzH-qA-WMb"/>
                         <outlet property="EditProfileNameTextField" destination="7vS-WW-LBo" id="xQ5-WU-qE3"/>
+                        <outlet property="EfitProfileNameLabel" destination="a3I-cP-hb6" id="7S3-gO-3jc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLt-ih-yUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -857,7 +875,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-rg-Coq">
-                                <rect key="frame" x="34.5" y="451" width="345" height="35"/>
+                                <rect key="frame" x="36" y="451" width="342" height="35.5"/>
                                 <string key="text">신고 내용검토후 해당 유저에게 알맞은 대체를 하겠습니다. 
 더욱더 발전하는 핸즈업이 되겠습니다 감사합니다.</string>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
@@ -1683,6 +1701,9 @@
         </namedColor>
         <namedColor name="HandsUpRealWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HandsUpRed">
+            <color red="0.9882352941176471" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpSnowWhite">
             <color red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -16,9 +16,10 @@ class AlarmNChatListViewController: UIViewController {
     @IBOutlet weak var chatBtn_ANCLV: UIButton!
     
     @IBOutlet weak var redAlarmBtnLb: UILabel!
-    
-    
     @IBOutlet weak var redChatBtnLb: UILabel!
+    
+    @IBOutlet var redBellBtnLb: UILabel!
+    
     
     @IBOutlet weak var markLineUIView_ANCLVC: UIView!
     
@@ -46,8 +47,13 @@ class AlarmNChatListViewController: UIViewController {
         redChatBtnLb.layer.cornerRadius  = redChatBtnLb.layer.frame.size.width/2
         redChatBtnLb.clipsToBounds = true
         
+        redBellBtnLb.layer.cornerRadius  = redBellBtnLb.layer.frame.size.width/2
+        redBellBtnLb.clipsToBounds = true
+        
         redAlarmBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
         redChatBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
+        
+        redBellBtnLb.backgroundColor = UIColor(red: 0.996, green: 0.378, blue: 0.187, alpha: 1)
         
         homeTabView_ANCLV.clipsToBounds = false
         homeTabView_ANCLV.layer.cornerRadius = 40
@@ -79,6 +85,9 @@ class AlarmNChatListViewController: UIViewController {
         
         homeBtnXConstraint_ANCLV.constant = screenWidth * 0.496
         bellBtnXConstraint_ANCLV.constant = screenWidth * 0.165
+        
+        getAllAlarmRead()
+        getAllChatRead()
     }
     
     let unClickedColor = UIColor(named: "HandsUpDarkGrey")
@@ -150,5 +159,48 @@ class AlarmNChatListViewController: UIViewController {
             bomttomSafeAreaInsets = hasWindowScene.windows.first?.safeAreaInsets.bottom ?? 0
         }
     
+    }
+    func getAllAlarmRead(){ // 알림 빨간점 컨트롤 함수
+        var rtn: Bool = true
+        let defaults = UserDefaults.standard
+        
+        let likeList = PostAPI.showBoardsLikeList() ?? []
+        if defaults.object(forKey: "isAlarmAllRead") == nil { // 읽은 날짜가 저장되지 않았을 때 -> 처음 알람을 볼 때
+            if likeList.isEmpty{
+                redAlarmBtnLb.alpha = 0
+            }
+            
+        }else{
+            let lastReadDate = UserDefaults.standard.string(forKey: "isAlarmAllRead")!.toDate()
+            
+            if !likeList.isEmpty{
+                let newDate = likeList[0].likeCreatedAt.toDate()
+                rtn = newDate.isNew(fromDate: lastReadDate)
+                if(!rtn){
+                    redAlarmBtnLb.alpha = 0
+                }
+            }else{
+                redAlarmBtnLb.alpha = 0
+            }
+        }
+    }
+    
+    func getAllChatRead(){ // 채팅에서 안읽은 메세지 수 계산 함수 -> 처리는 자체 label에서
+        var chatArr = PostAPI.getChatList()
+        var newMessageNum: Int = 0
+        
+        if(chatArr == nil){
+           chatArr = []
+        }
+        
+        for chatRoom in chatArr ?? []{
+            newMessageNum = newMessageNum + chatRoom.notRead
+            
+        }
+        
+        // hasnotread가 상대방인지 자신이지 확인하는 조건문 필요
+        // 안 읽은 메세지 개수 저장
+        UserDefaults.standard.set(newMessageNum, forKey: "NotReadMsgCount")
+        
     }
 }

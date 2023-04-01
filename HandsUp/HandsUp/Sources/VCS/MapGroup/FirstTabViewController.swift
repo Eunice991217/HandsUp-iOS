@@ -15,6 +15,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     let cameraPosition = NMFCameraPosition()
     let marker = NMFMarker()
+    let markerEx = NMFMarker()
 
     lazy var MyPosition: UIButton = {
         let MPbtn = UIButton()
@@ -26,11 +27,6 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         let MPbtn = UIButton()
         MPbtn.setImage(UIImage(named: "mapResearch"), for: .normal)
         return MPbtn
-    }()
-
-    lazy var MarkerImage: UIImage = {
-        let image = UIImage(named: "characterExample4")
-        return image!
     }()
 
     @objc func restartDidTap() {
@@ -64,18 +60,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
             make.right.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-96)
         }
-
-        // 지정한 위치로 카메라 이동
-//        let cameraSet = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.67151516118892, lng: 127.07768966850527), zoomTo: 20.0)
-//        cameraSet.animation = .easeIn
-//        mapView.moveCamera(cameraSet)
-
-        // 마커 추가
-//        marker.position = NMGLatLng(lat: 37.67151516118892, lng: 127.07768966850527)
-//        marker.iconImage = NMFOverlayImage(name: "characterExample4")
-//        marker.width = 60
-//        marker.height = 60
-
+        
         MapReset.addTarget(self, action: #selector(restartDidTap), for: .touchUpInside)
         MyPosition.addTarget(self, action: #selector(SearchMP), for: .touchUpInside)
 
@@ -94,31 +79,32 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         mapView.moveCamera(cameraUpdate)
         cameraUpdate.animation = .easeIn
 
-        // characterExample4
-
-        marker.position = NMGLatLng(lat: latitude, lng: longitude)
-        marker.iconImage = NMFOverlayImage(image: MarkerImage)
-
-        marker.width = 60
-        marker.height = 60
-
-        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-
-        // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {
-            return
+        let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
+        let map_list = HomeServerAPI.showMapList()
+        if map_list != nil{
+            map_list?.forEach{
+                let new_marker = NMFMarker()
+                new_marker.position = NMGLatLng(lat: $0.latitude,lng: $0.longitude)
+                charImg.convertSet(arr: $0.character)
+                self.view.addSubview(charImg)
+                new_marker.iconImage = NMFOverlayImage(image: charImg.asImage())
+                charImg.removeFromSuperview()
+                new_marker.width = 60
+                new_marker.height = 60
+                
+                let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+                guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {
+                    return
+                }
+                myProfile.modalPresentationStyle = .overFullScreen
+                new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+                    self.present(myProfile, animated: true)
+                    return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
+                }
+                new_marker.mapView = mapView
+            }
         }
 
-        myProfile.modalPresentationStyle = .overFullScreen
-
-        marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
-            self.present(myProfile, animated: true)
-            return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
-        }
-
-        marker.mapView = mapView
-        
-        // Do any additional setup after loading the view.
     }
     
 }
