@@ -83,18 +83,24 @@ class HomeServerAPI {
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
         var check: Int = -1
+        print("check0: \(check)")
         var rtn: [boardsShowList_rp_getBoardList]? = nil
         var output: boardsShowList_rp? = nil
         let session = URLSession(configuration: .default)
-        let uploadData = try! JSONEncoder().encode(boardsShowList_rq(schoolName: UserDefaults.standard.string(forKey: "schoolName")!))
+        
+//        let uploadData = try! JSONEncoder().encode(boardsShowList_rq(schoolName: UserDefaults.standard.string(forKey: "schoolName")!))
+        
         let semaphore = DispatchSemaphore(value: 0)
-        session.uploadTask(with: request,from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+        
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
             if output == nil{
                 check = -1;
+                print("check1 : \(check)")
             }
             else{
                 check = output!.statusCode
+                print("check2 : \(check)")
             }
             semaphore.signal()
         }.resume()
@@ -106,9 +112,11 @@ class HomeServerAPI {
                     output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
                     if output == nil{
                         check = -1;
+                        print("check3 : \(check)")
                     }
                     else{
                         check = output!.statusCode
+                        print("check4 : \(check)")
                     }
                     semaphore.signal()
                 }.resume()
@@ -118,6 +126,7 @@ class HomeServerAPI {
         
         if check == 2000{//서버 통신 성공
             rtn = output!.result!.getBoardList
+            print("statusCode : \(output!.statusCode)")
         }
         
         return rtn
