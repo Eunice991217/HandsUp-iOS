@@ -50,6 +50,14 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
         let Sign_upSB_Login = UIStoryboard(name: "Sign_up", bundle: nil)
         let sign_upVC_Login = Sign_upSB_Login.instantiateViewController(withIdentifier: "CharacterEdit") as! CharacterEdit_ViewController
         sign_upVC_Login.delegate = self
+        
+        let userDefaultsKey:[String] = ["backgroundColor", "hair", "eyeBrow", "mouth", "nose", "eye", "glasses"]
+        var index:Int = 0
+        userDefaultsKey.forEach{
+            sign_upVC_Login.sign_upData_CharacterEdit.characterComponent[index] = UserDefaults.standard.integer(forKey: $0)
+            index += 1
+        }
+        
         sign_upVC_Login.modalPresentationStyle = .fullScreen
         self.present(sign_upVC_Login, animated: true)
     }
