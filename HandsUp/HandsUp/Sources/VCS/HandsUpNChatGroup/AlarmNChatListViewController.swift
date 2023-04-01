@@ -185,7 +185,7 @@ class AlarmNChatListViewController: UIViewController {
         }
     }
     
-    func getAllChatRead(){ // 채팅 빨간점 컨트롤 함수
+    func getAllChatRead(){ // 채팅에서 안읽은 메세지 수 계산 함수 -> 처리는 자체 label에서
         var chatArr = PostAPI.getChatList()
         var newMessageNum: Int = 0
         
@@ -196,9 +196,6 @@ class AlarmNChatListViewController: UIViewController {
         for chatRoom in chatArr ?? []{
             newMessageNum = newMessageNum + chatRoom.notRead
             
-        }
-        if(newMessageNum > 0){
-            redChatBtnLb.alpha = 0
         }
         
         // hasnotread가 상대방인지 자신이지 확인하는 조건문 필요
