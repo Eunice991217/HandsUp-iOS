@@ -38,6 +38,8 @@ class AlarmListViewController: UIViewController{
         likeList.append(like_test)
         print("추가 이후 서버통신 성공 및 원소 개수 ==  \(likeList.count)")
         
+        getAllAlarmRead()
+        
         
     }
     
@@ -51,6 +53,13 @@ class AlarmListViewController: UIViewController{
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 
         present(alert, animated: false, completion: nil)
+    }
+    
+    func getAllAlarmRead(){ //새로운 알람이 있으면 false을 리턴하는 함수
+        let defaults = UserDefaults.standard
+        let alarmNchatVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmNChatListViewController") as! AlarmNChatListViewController
+        alarmNchatVC.redBellBtnLb.alpha = 0
+        defaults.set(Date().toString(), forKey:"isAlarmAllRead")
     }
     
     
@@ -147,6 +156,8 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 ServerError()
                 break
             }
+           let status_code =  PostAPI.sendChatAlarm(emailID: "wltjd1234@dongguk.edu")
+            print("chat alarm; \(status_code)")
             
         }
             
@@ -302,4 +313,18 @@ extension Date {
         date = myDateFormatter.string(from: self)
         return date
     }
+    
+     func isNew(fromDate: Date) -> Bool {
+            var strDateMessage:Bool = false
+            let result:ComparisonResult = self.compare(fromDate)
+            switch result {
+            case .orderedAscending:
+                strDateMessage = true
+                break
+            default:
+                strDateMessage = false
+                break
+            }
+            return strDateMessage
+        }
 }

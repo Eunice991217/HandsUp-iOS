@@ -123,7 +123,8 @@ struct Chat: Codable{
     let chatRoomIdx: Int
     let chatRoomKey: String
     let character: chatCharacter
-    let nickname: String
+    let nickname, updatedAt, lastContent: String
+    let lastSenderIdx, notRead: Int
 }
 
 struct chatCharacter: Codable {
@@ -133,6 +134,41 @@ struct chatCharacter: Codable {
     let mouth, hair, hairColor, skinColor: String
     let backGroundColor, status: String
 
+}
+
+
+struct board_in_chat_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: board_in_chat_result
+}
+
+// MARK: - Result
+struct board_in_chat_result: Codable {
+    let board: Board
+    let character: chatCharacter
+    let nickname: String
+}
+
+// MARK: - Board
+struct Board: Codable {
+    let boardIdx: Int
+    let content: String
+    let latitude, longitude: Int
+    let indicateLocation: String
+    let messageDuration: Int
+    let createdAt, updatedAt, status: String
+}
+
+struct chat_alarm_rq: Codable {
+    let email: String
+}
+
+struct chat_alarm_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
 }
 
 

@@ -32,6 +32,7 @@ class ChatListViewController: UIViewController {
         }
     }
     
+    
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "확인", style: .default) { (action) in }; alert.addAction(confirm)
@@ -42,6 +43,13 @@ class ChatListViewController: UIViewController {
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 
         present(alert, animated: false, completion: nil)
+    }
+    
+    func getAllAlarmRead(){ //새로운 알람이 있으면 false을 리턴하는 함수
+        let defaults = UserDefaults.standard
+        let alarmNchatVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmNChatListViewController") as! AlarmNChatListViewController
+        alarmNchatVC.redBellBtnLb.alpha = 0
+        defaults.set(Date().toString(), forKey:"isAlarmAllRead")
     }
 
 
