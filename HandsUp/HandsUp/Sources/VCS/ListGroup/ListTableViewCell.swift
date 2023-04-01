@@ -17,15 +17,10 @@ class ListTableViewCell: UITableViewCell {
        View.translatesAutoresizingMaskIntoConstraints = false
        return View
     }()
-    
-//    lazy var img : UIImageView = { // 캐릭터 생성
-//       let View = UIImageView()
-//       View.translatesAutoresizingMaskIntoConstraints = false
-//       return View
-//    }()
 
     lazy var name: UILabel = { // 선언만했음. 메모리에는 아직 안올라가있음
         let label = UILabel()
+        label.textAlignment = .center // 가운데 정렬로 변경
         return label
     }()
     
@@ -89,33 +84,29 @@ class ListTableViewCell: UITableViewCell {
         contentView.addSubview(img)
         contentView.addSubview(label1)
         contentView.addSubview(label2)
-        
-//        content.lineBreakMode = .byWordWrapping
-//        content.numberOfLines = 0
 
         name.snp.makeConstraints { make in
             make.leading.equalTo(img.snp.trailing).offset(27)
             make.top.equalTo(30)
-            //make.trailing.equalTo(-5)
         }
         
         label1.snp.makeConstraints { make in
-            make.leading.equalTo(name.snp.leading).offset(47)
+            make.leading.equalTo(name.snp.leading).offset(65)
             make.top.equalTo(30)
         }
         
         location.snp.makeConstraints { make in
-            make.leading.equalTo(label1.snp.leading).offset(20)
+            make.leading.equalTo(label1.snp.leading).offset(10)
             make.top.equalTo(30)
         }
         
         label2.snp.makeConstraints { make in
-            make.leading.equalTo(location.snp.leading).offset(87)
+            make.leading.equalTo(location.snp.leading).offset(105)
             make.top.equalTo(30)
         }
         
         time.snp.makeConstraints { make in
-            make.leading.equalTo(label2.snp.leading).offset(20)
+            make.leading.equalTo(label2.snp.leading).offset(10)
             make.top.equalTo(30)
         }
         

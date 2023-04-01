@@ -37,6 +37,10 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
+    }
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
