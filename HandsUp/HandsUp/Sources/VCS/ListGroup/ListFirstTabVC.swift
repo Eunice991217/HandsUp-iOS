@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,7 +19,7 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var characterBoards : boardsShowList_rp_character = boardsShowList_rp_character.init()
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
-    let board_test = boardsShowList_rp_getBoardList.init() // test code
+     let board_test = boardsShowList_rp_getBoardList.init() // test code
 
     // MARK: ViewController override method
     override func viewDidLoad() {
@@ -52,12 +53,19 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         attribute: .trailing, relatedBy: .equal, toItem: self.view,
         attribute: .trailing, multiplier: 1.0, constant: 0))
         
-//        HomeList = HomeServerAPI.boardsShowList() ?? []
-//        print("Home 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        HomeList = HomeServerAPI.boardsShowList() ?? []
+        print("Home 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
-//        HomeList.append(board_test)
-//        print("Home 추가 이후 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        HomeList.append(board_test)
+        print("Home 추가 이후 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+             print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
+             return HomeList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -71,26 +79,73 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          //return MyHomeList1Data.count
-         print("HomeList 서버통신 개수 == \(HomeList.count)")
+         print("HomeList 서버통신 개수 tableView == \(HomeList.count)")
          return HomeList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    var findLocation:CLLocation!
+    let geocoder = CLGeocoder()
+    var longitude_HVC = 0.0
+    var latitude_HVC = 0.0
+    var finalAddress = ""
+    var address = ""
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         
+        func getAddressByLocation(latitude: Double, longitude: Double) -> String {
+            print("위도, 경도 변환 함수 호출 테스트")
+            findLocation = CLLocation(latitude: latitude, longitude: longitude)
+            print("latitude: \(latitude), longitude: \(longitude)")
+            let semaphore = DispatchSemaphore(value: 0)
+            if findLocation != nil {
+                geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
+                    if error != nil {
+                        return
+                    }
+                    if let placemark = placemarks?.first {
+                        if let administrativeArea = placemark.administrativeArea {
+                            print(administrativeArea) // -시
+                            finalAddress.append("\(administrativeArea)")
+                            finalAddress.append(" ")
+                        }
+                        if let locality = placemark.locality {
+                            address = "\(self.address) \(locality) "
+                            print(locality) // -구
+                        }
+                        if let thoroughfare = placemark.thoroughfare {
+                            address = "\(self.address) \(thoroughfare) "
+                            finalAddress.append("\(thoroughfare)")
+                            print(thoroughfare) // -동
+                        }
+                        if let subThoroughfare = placemark.subThoroughfare {
+                            // address = "\(address) \(subThoroughfare)"
+                            print(subThoroughfare)
+                        }
+                    }
+//                    self.finalAddress = address
+                }
+                semaphore.signal()
+            }
+            print("finalAddress 다시 : \(self.finalAddress)")
+            semaphore.wait()
+            return self.finalAddress
+        }
+        
         cell.name.text = HomeList[indexPath.row].nickname
         cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        cell.location.text = String(HomeList[indexPath.row].board.latitude) // 위도, 경도 ~도, ~시 string으로 받기
+        
+        cell.location.text = getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
+        print("cell 위치값 확인 : \(String(describing: cell.location.text))")
         cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
-        cell.time.text = HomeList[indexPath.row].board.createdAt
+        cell.time.text = HomeList[indexPath.row].board.createdAt // 10분전으로 수정 필요 (시간함수 이용)
         cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 

@@ -31,23 +31,6 @@ struct FAQ_rp: Codable {
     let message, result: String
 }
 
-//struct board_like: Codable {
-//    var chatRoomIdx: Int
-//    var text, boardContent: String
-//    var character: Character
-//    var likeCreatedAt: String
-//
-//    init(){
-//        chatRoomIdx = 1
-//        text = "아래 글에 제이님이 관심있어요"
-//        boardContent = "내일 저녁 드실 분??"
-//        character = Character.init()
-//        likeCreatedAt = "2023-01-24T13:40:02.504578"
-//    }
-//
-//}
-//
-
 // boardsShowList
 struct boardsShowList_rp: Codable {
     let isSuccess: Bool
@@ -102,14 +85,14 @@ struct boardsShowList_rp_character: Codable {
     let backGroundColor: String
     
     init(){
-        eye = "1"
+        eye = "2"
         eyeBrow = "1"
         nose = "1"
         mouth = "1"
         hair = "1"
         hairColor = "1"
         skinColor = "1"
-        glasses = "1"
+        glasses = "0"
         backGroundColor = "1"
     }
 }

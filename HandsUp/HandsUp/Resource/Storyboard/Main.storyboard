@@ -66,7 +66,7 @@
                                             <action selector="HomeSettingDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="kXm-x2-wj4"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가천대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-DS-p90">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가톨릭대학교" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-DS-p90">
                                         <rect key="frame" x="53" y="33" width="60" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="AS9-nh-H0Z"/>

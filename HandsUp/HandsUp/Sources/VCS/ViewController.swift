@@ -141,7 +141,6 @@ class ViewController: UIViewController {
         
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -174,17 +173,23 @@ class ViewController: UIViewController {
         homeBtnXConstraint.constant = screenWidth * 0.496
         bellBtnXConstraint.constant = screenWidth * 0.165
         
+        if(schoolName!.count == 6) {
+            _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
+            let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 3)
+            let range = ...endIndex
+
+            cutSchoolName = String(schoolName![range])
+        }
+        else if(schoolName!.count == 5) {
+            _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
+            let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 2)
+            let range = ...endIndex
+
+            cutSchoolName = String(schoolName![range])
+        }
         
-        // print(schoolName!)
+         HomeSchoolName.text = cutSchoolName
         
-        _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
-        let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 2)
-        let range = ...endIndex
-        // print(schoolName![range])
-        
-        cutSchoolName = String(schoolName![range])
-        
-        HomeSchoolName.text = cutSchoolName
         
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.

@@ -141,6 +141,8 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
         
         EditProfileNameTextField.borderStyle = .none
         
+        print(UserDefaults.standard.string(forKey: "nickname")!)
+        
         self.navigationController?.navigationBar.isHidden = true;
 
         // Do any additional setup after loading the view.
