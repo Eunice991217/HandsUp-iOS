@@ -29,6 +29,7 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var msgTextView_HVC: UITextView!
     var textIsEmpty = true
     
+    @IBOutlet var nameLB_HVC: UILabel!
     
     @IBOutlet weak var talkTagBtn_HVC: UIButton!
     @IBOutlet weak var foodTagBtn_HVC: UIButton!
@@ -78,10 +79,11 @@ class RegisterPostViewController: UIViewController{
         
         self.timeLb_HVC.text = "12h"
         self.timeSlider_HVC.value = 12.0
+        self.nameLB_HVC.text = UserDefaults.standard.string(forKey: "nickname")!
         
         msgTextView_HVC.delegate = self
         
-        msgTextView_HVC.textColor = UIColor.lightGray
+        msgTextView_HVC.textColor =  UIColor.lightGray
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         
         
@@ -276,17 +278,18 @@ class RegisterPostViewController: UIViewController{
         //위치 정보 표시할 때
         if(!textIsEmpty){
             content_HVC = msgTextView_HVC.text
-            let result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
+            let result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: 1)
             
             print("result:  \(result)")
             switch result {
             case 2000:
-                print("게시물 등록에 성공하였습니다.")
+                print("게시물 수정에 성공하였습니다.")
                 self.presentingViewController?.dismiss(animated: true)
             case -1:
                 ServerError()
             default:
-                print("게시물 등록에 실패하였습니다.")
+                print("게시물 수정에 실패하였습니다.")
+                
                 
             }
         }

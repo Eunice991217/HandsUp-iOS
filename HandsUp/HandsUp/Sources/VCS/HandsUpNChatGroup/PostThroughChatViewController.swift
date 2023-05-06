@@ -9,6 +9,15 @@ import UIKit
 
 class PostThroughChatViewController: UIViewController {
 
+    var boardIdx_PTCVC: Int = 0
+    
+
+    @IBOutlet var tagLabel_PTCVC: UILabel!
+    @IBOutlet var schoolLabel_PTCVC: UILabel!
+    @IBOutlet var nameLabel_PTCVC: UILabel!
+    @IBOutlet var smallNameLabel_PTCVC: UILabel!
+    @IBOutlet var locationLabel_PTCVC: UILabel!
+    @IBOutlet var timeLabel_PTCVC: UILabel!
     
     @IBOutlet weak var contentTextView_PTCVC: UITextView!
     
@@ -39,6 +48,7 @@ class PostThroughChatViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let singleBoard = ServerAPI.singleList(boardIdx: boardIdx_PTCVC)
         
         self.navigationController?.isNavigationBarHidden = true
 
@@ -47,6 +57,13 @@ class PostThroughChatViewController: UIViewController {
         contentTextView_PTCVC.isEditable = false
         
         setupView()
+        self.tagLabel_PTCVC.text = singleBoard?.tag
+        self.nameLabel_PTCVC.text = singleBoard?.nickname
+        self.smallNameLabel_PTCVC.text = singleBoard?.nickname
+        // self.locationLabel_PTCVC.text = singleBoard. 위치 정보
+        self.contentTextView_PTCVC.text = singleBoard?.content
+        self.timeLabel_PTCVC.text = singleBoard?.createdAt.toDate().getTimeDifference()
+        
         contentTextView_PTCVC.text =  "dkssudgdf /n dsfsd  /n 연락주세요"
         characterView_PTCVC.setUserCharacter()
         

@@ -972,6 +972,7 @@
                         <outlet property="locationLabel_HVC" destination="DL3-FM-1Bq" id="Afe-gZ-J0N"/>
                         <outlet property="locationSwitchBtn_HVC" destination="1Uc-p0-KOZ" id="u6a-gB-jo1"/>
                         <outlet property="msgTextView_HVC" destination="G1l-Bs-4h4" id="KyY-nV-WkN"/>
+                        <outlet property="nameLB_HVC" destination="Zxx-9I-oBp" id="inR-Xx-VQ1"/>
                         <outlet property="sendBtn_HVC" destination="tN8-vN-y3m" id="h2G-wJ-5qg"/>
                         <outlet property="studyTagBtn_HVC" destination="n5t-Dv-g3e" id="iAM-Pv-Pdy"/>
                         <outlet property="tagScrollView_HVC" destination="sMW-aL-c7c" id="nZO-NN-qTq"/>
@@ -1191,7 +1192,13 @@
                     <connections>
                         <outlet property="characterView_PTCVC" destination="wYa-GK-y3Y" id="TUS-0N-Rac"/>
                         <outlet property="contentTextView_PTCVC" destination="uEC-tL-y2O" id="efr-FR-JPs"/>
+                        <outlet property="locationLabel_PTCVC" destination="Tw5-vr-04r" id="Ogb-O5-TUi"/>
+                        <outlet property="nameLabel_PTCVC" destination="Iqc-bx-htm" id="m2G-fF-UUm"/>
+                        <outlet property="schoolLabel_PTCVC" destination="pBj-EG-SAZ" id="ISV-5r-zye"/>
+                        <outlet property="smallNameLabel_PTCVC" destination="1Aa-0q-gRg" id="nQU-R8-7TJ"/>
                         <outlet property="tagLabelXConstraint_PTCVC" destination="6b0-5Q-V8C" id="dqU-s8-dmh"/>
+                        <outlet property="tagLabel_PTCVC" destination="ArN-Mk-dW0" id="16p-8g-dEz"/>
+                        <outlet property="timeLabel_PTCVC" destination="Xzq-M7-7oj" id="cuA-oU-mkB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayh-Ox-3oZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

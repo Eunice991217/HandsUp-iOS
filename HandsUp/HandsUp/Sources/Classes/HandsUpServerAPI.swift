@@ -41,9 +41,10 @@ class PostAPI{
         return check
     }
     
-    static func editPost(indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, boardIdx: String)-> Int {
+    static func editPost(indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, boardIdx: Int)-> Int {
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/{\(boardIdx)}")
+        let url = URL(string: serverDir + "/boards/" + String(boardIdx))
+        
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -66,6 +67,7 @@ class PostAPI{
                 check = output!.statusCode
             }
             semaphore.signal()
+            print(output!.message)
         }.resume()
         semaphore.wait()
         return check
@@ -73,7 +75,8 @@ class PostAPI{
     
     static func deletePost(boardIdx: Int)-> Int {
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/delete/\(boardIdx)")
+        let url = URL(string: serverDir + "/boards/delete/" + String(boardIdx))
+        
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
