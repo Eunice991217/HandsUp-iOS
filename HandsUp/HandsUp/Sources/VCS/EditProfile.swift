@@ -33,6 +33,7 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
         
         self.navigationController?.popViewController(animated: true)
     }
+
     
     
     @IBAction func EditProfileNameDidTap(_ sender: Any) {
@@ -125,4 +126,10 @@ extension EditProfile: SendData {
     }
 }
 
-
+//extension EditProfileViewController: EditProfileNameDelegate {
+//    func didUpdateNickname(_ nickname: String?) {
+//        if let nickname = nickname {
+//            self.nicknameLabel.text = nickname
+//        }
+//    }
+//}
