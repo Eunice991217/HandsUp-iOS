@@ -52,7 +52,6 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         HomeList = HomeServerAPI.boardsShowList() ?? []
         print("Home 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

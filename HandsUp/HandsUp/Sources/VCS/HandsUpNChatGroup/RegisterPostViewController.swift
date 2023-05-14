@@ -278,19 +278,18 @@ class RegisterPostViewController: UIViewController{
         //위치 정보 표시할 때
         if(!textIsEmpty){
             content_HVC = msgTextView_HVC.text
-            let result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: 1)
+            let result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
             
             print("result:  \(result)")
             switch result {
             case 2000:
-                print("게시물 수정에 성공하였습니다.")
+
                 self.presentingViewController?.dismiss(animated: true)
             case -1:
                 ServerError()
             default:
-                print("게시물 수정에 실패하였습니다.")
-                
-                
+                print("게시물 등록에 실패하였습니다.")
+   
             }
         }
         

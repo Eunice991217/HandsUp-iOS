@@ -32,15 +32,26 @@ class AlarmListViewController: UIViewController{
         
         likeList = PostAPI.showBoardsLikeList() ?? []
         
-         
-            print("서버통신 성공 및 원소 개수 ==  \(likeList.count)")
         
         likeList.append(like_test)
-        print("추가 이후 서버통신 성공 및 원소 개수 ==  \(likeList.count)")
+       
         
         getAllAlarmRead()
         
         
+//        let result_edit = PostAPI.deletePost( boardIdx: 40)
+//
+//        print("result:  \(result_edit)")
+//        switch result_edit {
+//        case 2000:
+//            print("게시물 삭제에 성공하였습니다.")
+//        case -1:
+//            ServerError()
+//        default:
+//            print("게시물 수정에 실패하였습니다.")
+//
+//
+//        }
     }
     
     func showBlockAlert(errorContent: String){

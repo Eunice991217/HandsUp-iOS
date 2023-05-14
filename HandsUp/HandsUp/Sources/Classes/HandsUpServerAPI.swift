@@ -60,6 +60,7 @@ class PostAPI{
             let output = try? JSONDecoder().decode(boards_rp.self, from: data!)
             if output == nil{
                 check = -1;
+                print("nil 입니다. ")
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
