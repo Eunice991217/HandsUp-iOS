@@ -283,14 +283,13 @@ class RegisterPostViewController: UIViewController{
             print("result:  \(result)")
             switch result {
             case 2000:
-                print("게시물 수정에 성공하였습니다.")
+
                 self.presentingViewController?.dismiss(animated: true)
             case -1:
                 ServerError()
             default:
-                print("게시물 수정에 실패하였습니다.")
-                
-                
+                print("게시물 등록에 실패하였습니다.")
+   
             }
         }
         
