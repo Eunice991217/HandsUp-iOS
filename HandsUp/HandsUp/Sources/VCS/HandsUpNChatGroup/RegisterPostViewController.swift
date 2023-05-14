@@ -278,7 +278,7 @@ class RegisterPostViewController: UIViewController{
         //위치 정보 표시할 때
         if(!textIsEmpty){
             content_HVC = msgTextView_HVC.text
-            let result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: 1)
+            let result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
             
             print("result:  \(result)")
             switch result {
