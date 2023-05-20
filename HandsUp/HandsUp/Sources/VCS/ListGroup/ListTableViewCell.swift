@@ -84,24 +84,24 @@ class ListTableViewCell: UITableViewCell {
         contentView.addSubview(img)
         contentView.addSubview(label1)
         contentView.addSubview(label2)
-
+        
         name.snp.makeConstraints { make in
             make.leading.equalTo(img.snp.trailing).offset(27)
             make.top.equalTo(30)
         }
-        
+
         label1.snp.makeConstraints { make in
-            make.leading.equalTo(name.snp.leading).offset(65)
+            make.leading.equalTo(name.snp.trailing).offset(10)
             make.top.equalTo(30)
         }
-        
+
         location.snp.makeConstraints { make in
-            make.leading.equalTo(label1.snp.leading).offset(10)
+            make.leading.equalTo(label1.snp.trailing).offset(10)
             make.top.equalTo(30)
         }
         
         label2.snp.makeConstraints { make in
-            make.leading.equalTo(location.snp.leading).offset(105)
+            make.leading.equalTo(location.snp.trailing).offset(10)
             make.top.equalTo(30)
         }
         
