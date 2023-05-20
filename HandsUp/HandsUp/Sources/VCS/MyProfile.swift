@@ -21,6 +21,8 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     var bRec:Bool = true
     
+    var selectedIndexPath: IndexPath?
+    
     @IBAction func HeartBtnDidTap(_ sender: Any) {
         print("하트 버튼을 클릭했습니다.")
         
@@ -45,45 +47,83 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
     
     @IBAction func MyProfilemoreDidTap(_ sender: Any) {
-        self.showAlertController(style: UIAlertController.Style.actionSheet)
+        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+        
+        guard let selectedIndexPath = selectedIndexPath else {
+            return
+        }
+        
+        let postAuthorNickname = HomeList[selectedIndexPath.row].nickname
+        let isMyPost = currentUserNickname == postAuthorNickname
+        
+        self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
     }
     
-    func showAlertController(style: UIAlertController.Style) {
-        let alert = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
+    func showAlertController(style: UIAlertController.Style, isMyPost: Bool) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in };
+        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in }
         alert.addAction(cancel)
         
-        let block = UIAlertAction(title: "이 게시물 그만보기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
-        )
-        alert.addAction(block)
-        
         let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
-        let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+        
+        if isMyPost {
+            let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
+                // 삭제 기능 실행
+            }
+            alert.addAction(delete)
             
-            Report?.modalPresentationStyle = .fullScreen
-            // 화면 전환!
-
-            let transition = CATransition()
-            transition.duration = 0.3
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromRight
-            self.view.window!.layer.add(transition, forKey: kCATransition)
-
-            self.present(Report!, animated: false)
+            
+            let edit = UIAlertAction(title: "수정하기", style: .default) { (action) in
+                // 수정 기능 실행
+            }
+            alert.addAction(edit)
+            
+            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cancel.setValue(titleTextColor, forKey: "titleTextColor")
+            
+            edit.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
+            delete.setValue(titleTextColor, forKey: "titleTextColor")
+            
+        } else {
+            let block = UIAlertAction(title: "이 게시물 그만보기", style: .default) { (action) in
+                self.showBlockAlert()
+            }
+            alert.addAction(block)
+            
+            let report = UIAlertAction(title: "신고하기", style: .default) { (action) in
+                Report?.modalPresentationStyle = .fullScreen
+                // 화면 전환!
+                
+                let transition = CATransition()
+                transition.duration = 0.3
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromRight
+                self.view.window!.layer.add(transition, forKey: kCATransition)
+                
+                self.present(Report!, animated: false)
+            }
+            alert.addAction(report)
+            
+            // 버튼 색상 설정
+            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cancel.setValue(titleTextColor, forKey: "titleTextColor")
+            
+            report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
+            block.setValue(titleTextColor, forKey: "titleTextColor")
         }
-        )
-        alert.addAction(report)
-    
         
-        cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
-        report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
-        block.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
+        // 버튼 색상 설정
+        let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cancel.setValue(titleTextColor, forKey: "titleTextColor")
         
+        
+        // 배경색 설정
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
         
         present(alert, animated: true, completion: nil)
     }
+
     
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -146,6 +186,11 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         containerView.addSubview(dimmedView)
         return containerView
     }()
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        selectedIndexPath = indexPath
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
@@ -265,6 +310,11 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
+    
+    
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -287,8 +337,6 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
     }
-    
-    
 }
 
 extension MyProfile: UICollectionViewDelegateFlowLayout {
@@ -297,42 +345,4 @@ extension MyProfile: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//struct MyProfileDataModel {
-//    let profileImage: UIImage?
-//    let name: String
-//    let location: String
-//    let time: String
-//    let content: String
-//    let tag: String
-//    let univ: String
-//}
-//
-//let MyProfileData: [MyProfileDataModel] = [
-//    MyProfileDataModel(
-//        profileImage: UIImage(named: "characterExample4"),
-//        name: "차라나",
-//        location: "경기도 성남시",
-//        time: "10분전",
-//        content: "제가 4시쯤 수업이 끝날거 같은데 4시 30분에 학교근처에서 토익 스터디 하실분 계신가요? 공부 끝나고 커피 한잔 같이 하실분 구해요~! \n \n연락주세요😎",
-//        tag: "#스터디",
-//        univ: "세종대"
-//    ),
-//    MyProfileDataModel(
-//        profileImage: UIImage(named: "characterExample4"),
-//        name: "카리나",
-//        location: "경기도 성남시",
-//        time: "40분전",
-//        content: "제가 5시쯤 수업이 끝날거 같은데 6시 30에 학교근처에서 노래방 가실분 계신가요? \n \n연락주세요💚",
-//        tag: "#취미",
-//        univ: "세종대"
-//    ),
-//    MyProfileDataModel(
-//        profileImage: UIImage(named: "characterExample4"),
-//        name: "오나라",
-//        location: "경기도 성남시",
-//        time: "15분전",
-//        content: "제가 2시쯤 수업이 끝날거 같은데 2시 30에 학교근처에서 잔치국수 먹으실분 계신가요? 잔치국수 먹고 커피 한잔 같이 하실분 구해요~! \n \n연락주세요😁",
-//        tag: "#밥",
-//        univ: "세종대"
-//    )
-//]
+
