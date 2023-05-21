@@ -6,29 +6,38 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var MyProfileCollectionView: UICollectionView!
     
+    var HomeList : [boardsShowList_rp_getBoardList] = []
+    
+    var boardsCharacterList: [Int] = []
+    var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
+    
     @IBOutlet var MyProfileHeartBtn: UIButton!
     
     var bRec:Bool = true
     
+    var selectedIndexPath: IndexPath?
+    
     @IBAction func HeartBtnDidTap(_ sender: Any) {
+        print("하트 버튼을 클릭했습니다.")
         
-        let stat = HomeServerAPI.boardsHeart(boardIdx: 1)
-        switch stat {
-        case 2000:
-            print ("하트 요청에 성공하였습니다.")
-        case 4000:
-            print ("하트 요청 존재하지 않는 이메일입니다.")
-        case 4010:
-            print ("하트 요청 게시물 인덱스가 존재하지 않습니다.")
-        default:
-            print ("하트 요청 데이터베이스 저장 오류가 발생했습니다.")
-        }
-        
+//        let stat = HomeServerAPI.boardsHeart(boardIdx: 1)
+//        switch stat {
+//        case 2000:
+//            print ("하트 요청에 성공하였습니다.")
+//        case 4000:
+//            print ("하트 요청 존재하지 않는 이메일입니다.")
+//        case 4010:
+//            print ("하트 요청 게시물 인덱스가 존재하지 않습니다.")
+//        default:
+//            print ("하트 요청 데이터베이스 저장 오류가 발생했습니다.")
+//        }
+
         bRec = !bRec
         if bRec { // 비어진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
@@ -38,45 +47,83 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
     
     @IBAction func MyProfilemoreDidTap(_ sender: Any) {
-        self.showAlertController(style: UIAlertController.Style.actionSheet)
+        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+        
+        guard let selectedIndexPath = selectedIndexPath else {
+            return
+        }
+        
+        let postAuthorNickname = HomeList[selectedIndexPath.row].nickname
+        let isMyPost = currentUserNickname == postAuthorNickname
+        
+        self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
     }
     
-    func showAlertController(style: UIAlertController.Style) {
-        let alert = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
+    func showAlertController(style: UIAlertController.Style, isMyPost: Bool) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in };
+        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in }
         alert.addAction(cancel)
         
-        let block = UIAlertAction(title: "이 게시물 그만보기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
-        )
-        alert.addAction(block)
-        
         let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
-        let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
+        
+        if isMyPost {
+            let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
+                // 삭제 기능 실행
+            }
+            alert.addAction(delete)
             
-            Report?.modalPresentationStyle = .fullScreen
-            // 화면 전환!
-
-            let transition = CATransition()
-            transition.duration = 0.3
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromRight
-            self.view.window!.layer.add(transition, forKey: kCATransition)
-
-            self.present(Report!, animated: false)
+            
+            let edit = UIAlertAction(title: "수정하기", style: .default) { (action) in
+                // 수정 기능 실행
+            }
+            alert.addAction(edit)
+            
+            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cancel.setValue(titleTextColor, forKey: "titleTextColor")
+            
+            edit.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
+            delete.setValue(titleTextColor, forKey: "titleTextColor")
+            
+        } else {
+            let block = UIAlertAction(title: "이 게시물 그만보기", style: .default) { (action) in
+                self.showBlockAlert()
+            }
+            alert.addAction(block)
+            
+            let report = UIAlertAction(title: "신고하기", style: .default) { (action) in
+                Report?.modalPresentationStyle = .fullScreen
+                // 화면 전환!
+                
+                let transition = CATransition()
+                transition.duration = 0.3
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromRight
+                self.view.window!.layer.add(transition, forKey: kCATransition)
+                
+                self.present(Report!, animated: false)
+            }
+            alert.addAction(report)
+            
+            // 버튼 색상 설정
+            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cancel.setValue(titleTextColor, forKey: "titleTextColor")
+            
+            report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
+            block.setValue(titleTextColor, forKey: "titleTextColor")
         }
-        )
-        alert.addAction(report)
-    
         
-        cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
-        report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
-        block.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
+        // 버튼 색상 설정
+        let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cancel.setValue(titleTextColor, forKey: "titleTextColor")
         
+        
+        // 배경색 설정
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
         
         present(alert, animated: true, completion: nil)
     }
+
     
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -140,26 +187,120 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         return containerView
     }()
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        selectedIndexPath = indexPath
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MyProfileData.count
+        print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
+        return HomeList.count
+//        return MyProfileData.count
+    }
+    
+    var findLocation:CLLocation!
+    let geocoder = CLGeocoder()
+    var longitude_HVC = 0.0
+    var latitude_HVC = 0.0
+    var finalAddress = ""
+    
+    func getAddressByLocation(latitude: Double, longitude: Double) -> String {
+        print("위도, 경도 변환 함수 호출 테스트")
+        findLocation = CLLocation(latitude: latitude, longitude: longitude)
+        print("latitude: \(latitude), longitude: \(longitude)")
+        if findLocation != nil {
+            var address = ""
+            geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
+                if error != nil {
+                    return
+                }
+                if let placemark = placemarks?.first {
+                    if placemark.administrativeArea != nil {
+                         // address = "\(address) \(administrativeArea) "
+                    }
+                    if let locality = placemark.locality {
+                         address = "\(address)\(locality) "
+                    }
+                    if let thoroughfare = placemark.thoroughfare {
+                         address = "\(address)\(thoroughfare)"
+                    }
+                    if placemark.subThoroughfare != nil {
+                         // address = "\(address) \(subThoroughfare)"
+                    }
+                    finalAddress = address.copy() as! String
+                }
+            }
+        }
+        return self.finalAddress
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyProfileCollectionViewCell", for: indexPath) as! MyProfileCollectionViewCell
         
-        cell.MyProfileCellImage.image=MyProfileData[indexPath.row].profileImage
-        cell.MyProfileSmallName.text=MyProfileData[indexPath.row].name
-        cell.MyProfileCellLargeName.text=MyProfileData[indexPath.row].name
-        cell.MyProfileCellLocation.text=MyProfileData[indexPath.row].location
-        cell.MyProfileCellTime.text=MyProfileData[indexPath.row].time
-        cell.MyProfileCellContent.text=MyProfileData[indexPath.row].content
+        boardsCharacterList = [] // 빈 배열
         
-        cell.MyProfileCellTag.text = MyProfileData[indexPath.row].tag
+        let characterBoards = HomeList[indexPath.row].character
+        
+        background = (Int(characterBoards.backGroundColor) ?? 1) - 1
+        hair = (Int(characterBoards.hair) ?? 1) - 1
+        eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
+        mouth = (Int(characterBoards.mouth) ?? 1) - 1
+        nose = (Int(characterBoards.nose) ?? 1) - 1
+        eyes = (Int(characterBoards.eye) ?? 1) - 1
+        glasses = Int(characterBoards.glasses) ?? 0
+        
+        boardsCharacterList.append(background)
+        boardsCharacterList.append(hair)
+        boardsCharacterList.append(eyebrow)
+        boardsCharacterList.append(mouth)
+        boardsCharacterList.append(nose)
+        boardsCharacterList.append(eyes)
+        boardsCharacterList.append(glasses)
+        
+        cell.MyProfileCellImage.setAll(componentArray: boardsCharacterList) // 가져오기
+        cell.MyProfileCellImage.setCharacter_NoShadow() // 그림자 없애기
+        cell.MyProfileCellImage.setCharacter() // 캐릭터 생성
+        
+        
+//         // 커스터마이징 이미지 넣어야함.
+//         cell.MyProfileCellImage.image=MyProfileData[indexPath.row].profileImage
+        
+        
+        cell.MyProfileSmallName.text=HomeList[indexPath.row].nickname
+        cell.MyProfileCellLargeName.text=HomeList[indexPath.row].nickname
+        
+        cell.MyProfileCellLocation.text=getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
+        print("cell 위치값 확인 MyProfile : \(String(describing: cell.MyProfileCellLocation.text))")
+        
+        let createDate = HomeList[indexPath.row].board.createdAt.toDate()
+        cell.MyProfileCellTime.text=createDate.getTimeDifference()
+        
+        cell.MyProfileCellContent.text=HomeList[indexPath.row].board.content
+        
+        cell.MyProfileCellTag.text = "#" + HomeList[indexPath.row].tag
         cell.MyProfileCellTag.font = UIFont(name: "Roboto-Bold", size: 14)
         
         cell.MyProfileTag.cornerRadius = 12
         
-        cell.MyProfileCellUniv.text = MyProfileData[indexPath.row].univ
+        let schoolName = UserDefaults.standard.string(forKey: "schoolName")
+        var cutSchoolName: String = ""
+        
+        if(schoolName!.count == 6) {
+            _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
+            let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 3)
+            let range = ...endIndex
+
+            cutSchoolName = String(schoolName![range])
+        }
+        else if(schoolName!.count == 5) {
+            _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
+            let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 2)
+            let range = ...endIndex
+
+            cutSchoolName = String(schoolName![range])
+        }
+        
+        cell.MyProfileCellUniv.text = cutSchoolName
         cell.MyProfileCellUniv.font = UIFont(name: "Roboto-Bold", size: 14)
         
         cell.MyProfileUniv.cornerRadius = 12
@@ -168,6 +309,11 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         return cell
     }
+    
+    
+    
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,9 +333,10 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         MyProfileCollectionView.delegate = self
         MyProfileCollectionView.dataSource = self
         
+        HomeList = HomeServerAPI.boardsShowList() ?? []
+        print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        
     }
-    
-    
 }
 
 extension MyProfile: UICollectionViewDelegateFlowLayout {
@@ -198,42 +345,4 @@ extension MyProfile: UICollectionViewDelegateFlowLayout {
     }
 }
 
-struct MyProfileDataModel {
-    let profileImage: UIImage?
-    let name: String
-    let location: String
-    let time: String
-    let content: String
-    let tag: String
-    let univ: String
-}
 
-let MyProfileData: [MyProfileDataModel] = [
-    MyProfileDataModel(
-        profileImage: UIImage(named: "characterExample4"),
-        name: "차라나",
-        location: "경기도 성남시",
-        time: "10분전",
-        content: "제가 3시쯤 수업이 끝날거 같은데 3시 30에 학교근처에서 토익 스터디 하실분 계신가요? 공부 끝나고 커피 한잔 같이 하실분 구해요~! \n \n연락주세요😎",
-        tag: "#스터디",
-        univ: "세종대"
-    ),
-    MyProfileDataModel(
-        profileImage: UIImage(named: "characterExample4"),
-        name: "카리나",
-        location: "경기도 성남시",
-        time: "40분전",
-        content: "제가 5시쯤 수업이 끝날거 같은데 6시 30에 학교근처에서 노래방 가실분 계신가요? \n \n연락주세요💚",
-        tag: "#취미",
-        univ: "세종대"
-    ),
-    MyProfileDataModel(
-        profileImage: UIImage(named: "characterExample4"),
-        name: "오나라",
-        location: "경기도 성남시",
-        time: "15분전",
-        content: "제가 2시쯤 수업이 끝날거 같은데 2시 30에 학교근처에서 잔치국수 먹으실분 계신가요? 잔치국수 먹고 커피 한잔 같이 하실분 구해요~! \n \n연락주세요😁",
-        tag: "#밥",
-        univ: "세종대"
-    )
-]

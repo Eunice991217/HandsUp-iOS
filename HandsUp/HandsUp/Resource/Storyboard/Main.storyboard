@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6JL-fC-7hn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6JL-fC-7hn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1158,7 +1159,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="avr-hk-4Mc">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MyProfileCollectionView" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="avr-hk-4Mc" customClass="MyProfileCollectionView">
                                 <rect key="frame" x="0.0" y="112" width="414" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2kA-eC-s12">
@@ -1187,13 +1188,6 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterExample4" translatesAutoresizingMaskIntoConstraints="NO" id="lZl-xB-73D">
-                                                                    <rect key="frame" x="94.5" y="107" width="145" height="145"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="145" id="Jja-dr-qMe"/>
-                                                                        <constraint firstAttribute="width" constant="145" id="PnJ-9x-KvL"/>
-                                                                    </constraints>
-                                                                </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67Y-Vf-7f5">
                                                                     <rect key="frame" x="137" y="78" width="1" height="13"/>
                                                                     <color key="backgroundColor" name="HandsUpDarkGrey"/>
@@ -1244,7 +1238,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzi-cG-XJM">
-                                                                    <rect key="frame" x="42" y="272" width="250" height="200"/>
+                                                                    <rect key="frame" x="42" y="266.5" width="250" height="200"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksr-PL-AZD">
                                                                             <rect key="frame" x="14" y="14" width="222" height="105.5"/>
@@ -1264,17 +1258,25 @@
                                                                         <constraint firstItem="Ksr-PL-AZD" firstAttribute="top" secondItem="bzi-cG-XJM" secondAttribute="top" constant="14" id="ydS-t0-7BB"/>
                                                                     </constraints>
                                                                 </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBL-rp-S2q" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
+                                                                    <rect key="frame" x="94.5" y="101.5" width="145" height="145"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="145" id="laS-M8-s9R"/>
+                                                                        <constraint firstAttribute="height" constant="145" id="w0G-qr-WqM"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                             <color key="backgroundColor" name="HandsUpRealWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="euC-sf-BBc" firstAttribute="top" secondItem="jTa-kh-JfX" secondAttribute="bottom" constant="9.5800000000000001" id="2oR-VV-glg"/>
                                                                 <constraint firstItem="euC-sf-BBc" firstAttribute="centerX" secondItem="gk1-Oy-fcm" secondAttribute="centerX" id="3Fp-eM-c6V"/>
-                                                                <constraint firstItem="lZl-xB-73D" firstAttribute="top" secondItem="euC-sf-BBc" secondAttribute="bottom" constant="15.58" id="AOc-db-QiG"/>
                                                                 <constraint firstItem="bzi-cG-XJM" firstAttribute="centerX" secondItem="gk1-Oy-fcm" secondAttribute="centerX" id="IWz-rZ-H13"/>
                                                                 <constraint firstItem="JFN-kb-ESk" firstAttribute="centerY" secondItem="euC-sf-BBc" secondAttribute="centerY" id="O1G-Oi-MW9"/>
+                                                                <constraint firstItem="NBL-rp-S2q" firstAttribute="top" secondItem="euC-sf-BBc" secondAttribute="bottom" constant="10" id="RCe-A5-5ET"/>
                                                                 <constraint firstItem="jTa-kh-JfX" firstAttribute="centerX" secondItem="gk1-Oy-fcm" secondAttribute="centerX" id="RJb-BQ-zB0"/>
+                                                                <constraint firstItem="bzi-cG-XJM" firstAttribute="top" secondItem="NBL-rp-S2q" secondAttribute="bottom" constant="20" id="V4J-Q3-8au"/>
                                                                 <constraint firstItem="bZV-9p-lGC" firstAttribute="top" secondItem="gk1-Oy-fcm" secondAttribute="top" constant="30.09" id="aGm-Or-yuB"/>
-                                                                <constraint firstItem="lZl-xB-73D" firstAttribute="centerX" secondItem="gk1-Oy-fcm" secondAttribute="centerX" id="b3D-bN-UxC"/>
                                                                 <constraint firstItem="gTa-oZ-vcD" firstAttribute="leading" secondItem="euC-sf-BBc" secondAttribute="trailing" constant="8" id="c0m-SL-5Qg"/>
                                                                 <constraint firstItem="67Y-Vf-7f5" firstAttribute="leading" secondItem="JFN-kb-ESk" secondAttribute="trailing" constant="8" id="fYv-tJ-Rpx"/>
                                                                 <constraint firstItem="67Y-Vf-7f5" firstAttribute="centerY" secondItem="euC-sf-BBc" secondAttribute="centerY" id="huC-IM-KE8"/>
@@ -1284,7 +1286,7 @@
                                                                 <constraint firstItem="euC-sf-BBc" firstAttribute="leading" secondItem="67Y-Vf-7f5" secondAttribute="trailing" constant="8" id="mZa-Wj-7NV"/>
                                                                 <constraint firstItem="gTa-oZ-vcD" firstAttribute="centerY" secondItem="euC-sf-BBc" secondAttribute="centerY" id="n3V-K2-7yn"/>
                                                                 <constraint firstAttribute="trailing" secondItem="bZV-9p-lGC" secondAttribute="trailing" constant="25.890000000000001" id="pIt-8q-scI"/>
-                                                                <constraint firstItem="bzi-cG-XJM" firstAttribute="top" secondItem="lZl-xB-73D" secondAttribute="bottom" constant="20" id="qDb-P0-qeF"/>
+                                                                <constraint firstItem="NBL-rp-S2q" firstAttribute="centerX" secondItem="gk1-Oy-fcm" secondAttribute="centerX" id="yOR-Ld-MMH"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1364,7 +1366,7 @@
                                         <connections>
                                             <outlet property="CardView" destination="mEL-8H-fNL" id="qDl-fr-w6V"/>
                                             <outlet property="MyProfileCellContent" destination="Ksr-PL-AZD" id="sVN-7A-T5u"/>
-                                            <outlet property="MyProfileCellImage" destination="lZl-xB-73D" id="O21-YG-7uS"/>
+                                            <outlet property="MyProfileCellImage" destination="NBL-rp-S2q" id="j8b-NH-rtH"/>
                                             <outlet property="MyProfileCellLargeName" destination="jTa-kh-JfX" id="kFa-4t-ayM"/>
                                             <outlet property="MyProfileCellLocation" destination="euC-sf-BBc" id="9V4-9E-JqH"/>
                                             <outlet property="MyProfileCellTag" destination="Ie1-YW-pc3" id="7Q9-6m-yEy"/>
@@ -1670,7 +1672,6 @@
     <resources>
         <image name="BackArrowSmall" width="12" height="20"/>
         <image name="HomeIconDidTap" width="22" height="25"/>
-        <image name="characterExample4" width="466" height="466"/>
         <image name="heartInWhiteCircle" width="100" height="100"/>
         <image name="initialLogoOrange" width="181" height="274"/>
         <image name="notifications" width="29" height="29"/>

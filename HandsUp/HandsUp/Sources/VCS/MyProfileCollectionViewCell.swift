@@ -18,8 +18,10 @@ class MyProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet var MyProfileSmallName: UILabel!
     @IBOutlet var MyProfileCellLocation: UILabel!
     @IBOutlet var MyProfileCellTime: UILabel!
-    @IBOutlet var MyProfileCellImage: UIImageView!
     
+    // @IBOutlet var MyProfileCellImage: UIImageView!
+    
+    @IBOutlet var MyProfileCellImage: Character_UIView!
     
     @IBOutlet var MyProfileTag: UIView!
     @IBOutlet var MyProfileCellTag: UILabel!

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ListFirstTabVC.swift
 //  Test
 //
 //  Created by 김민경 on 2023/01/17.
@@ -17,6 +17,7 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var boardsCharacterList: [Int] = []
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
+    
 
     // MARK: ViewController override method
     override func viewDidLoad() {
@@ -52,15 +53,24 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         HomeList = HomeServerAPI.boardsShowList() ?? []
         print("Home 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-             print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
-             return HomeList.count
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//             print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
+//             return HomeList.count
+//        }
+//    }
+    
+        override func viewWillDisappear(_ animated: Bool) {
+    
+            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+                 print("viewWillDisappear table View 성공 및 원소 개수 == \(HomeList.count)")
+                 return HomeList.count
+            }
         }
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -117,39 +127,15 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return self.finalAddress
     }
 
+    var tagCnt = 0
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         
-        cell.name.text = HomeList[indexPath.row].nickname
-        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        cell.location.text = getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
-        print("cell 위치값 확인 : \(String(describing: cell.location.text))")
-        cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        let createDate = HomeList[indexPath.row].board.createdAt.toDate()
-        cell.time.text = createDate.getTimeDifference()
-        cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        cell.content.text = HomeList[indexPath.row].board.content
-        cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
-
-        cell.label1.text = "|"
-        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        cell.label2.text = "|"
-        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
         boardsCharacterList = [] // 빈 배열
-
+        
         let characterBoards = HomeList[indexPath.row].character
-
+        
         background = (Int(characterBoards.backGroundColor) ?? 1) - 1
         hair = (Int(characterBoards.hair) ?? 1) - 1
         eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
@@ -157,7 +143,7 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         nose = (Int(characterBoards.nose) ?? 1) - 1
         eyes = (Int(characterBoards.eye) ?? 1) - 1
         glasses = Int(characterBoards.glasses) ?? 0
-
+        
         boardsCharacterList.append(background)
         boardsCharacterList.append(hair)
         boardsCharacterList.append(eyebrow)
@@ -165,14 +151,53 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         boardsCharacterList.append(nose)
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
-
+        
         cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.img.setCharacter_NoShadow() // 그림자 없애기
         cell.img.setCharacter() // 캐릭터 생성
         
+        cell.name.text = HomeList[indexPath.row].nickname
+        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+//        cell.location.text = getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
+        
+        
+        let locationText = getAddressByLocation(latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
+        if locationText == nil {
+            cell.location.text = "위치 비밀"
+        } else {
+            cell.location.text = locationText
+        }
+        
+        print("cell 위치값 확인 : \(String(describing: cell.location.text))")
+        cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        let createDate = HomeList[indexPath.row].board.createdAt.toDate()
+        cell.time.text = createDate.getTimeDifference()
+        cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        cell.content.text = HomeList[indexPath.row].board.content
+        cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+        
+        cell.label1.text = "|"
+        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        cell.label2.text = "|"
+        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        
+        
         cell.selectionStyle = .none
-
+        
         return cell
     }
 
 }
+
+
