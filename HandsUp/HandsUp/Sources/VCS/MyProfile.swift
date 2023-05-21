@@ -21,6 +21,8 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     var bRec:Bool = true
     
+    var startPage: Int = 0
+    
     var selectedIndexPath: IndexPath?
     
     @IBAction func HeartBtnDidTap(_ sender: Any) {
@@ -337,6 +339,12 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MyProfileCollectionView.setContentOffset(CGPoint(x: Int(self.view.frame.width) * startPage, y: 0), animated: true)
+    }
+        
 }
 
 extension MyProfile: UICollectionViewDelegateFlowLayout {

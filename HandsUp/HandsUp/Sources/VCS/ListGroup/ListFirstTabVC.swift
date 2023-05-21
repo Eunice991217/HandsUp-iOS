@@ -76,8 +76,10 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {return}
+        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else {return}
         myProfile.modalPresentationStyle = .overFullScreen
+        
+        myProfile.startPage = indexPath.row
         self.present(myProfile, animated: true)
     }
     
