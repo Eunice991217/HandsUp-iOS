@@ -183,7 +183,6 @@ class RegisterPostViewController: UIViewController{
     
     private func getAddressByLocation(){
         findLocation = CLLocation(latitude: latitude_HVC, longitude: longitude_HVC)
-        print("latitude: \(latitude_HVC), longitude: \(longitude_HVC)")
         if findLocation != nil {
             var address = ""
             geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
@@ -194,22 +193,19 @@ class RegisterPostViewController: UIViewController{
                     
                     if let administrativeArea = placemark.administrativeArea {
                         //address = "\(address) \(administrativeArea) "
-                        print(administrativeArea) //서울특별시
                     }
                     
                     if let locality = placemark.locality {
                         address = "\(address) \(locality) "
-                        print(locality) //광진구
                     }
                     
                     if let thoroughfare = placemark.thoroughfare {
                         address = "\(address) \(thoroughfare) "
-                        print(thoroughfare) //중곡동
                     }
                     
                     if let subThoroughfare = placemark.subThoroughfare {
                         // address = "\(address) \(subThoroughfare)"
-                        print(subThoroughfare) //272-13
+
                     }
                 }
                 self.locationLabel_HVC.text = address

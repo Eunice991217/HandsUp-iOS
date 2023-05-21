@@ -612,9 +612,9 @@ class ServerAPI{
         return check
     }
     
-    static func myBoards() -> [myBoards_rp_myBoardList]?{
+    static func myBoards(size: Int) -> [myBoards_rp_myBoardList]?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/myBoards")
+        let url = URL(string: serverDir + "/boards/myBoards/" + String(size) + "/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -655,8 +655,9 @@ class ServerAPI{
         
         if check == 2000{//서버 통신 성공
             rtn = output!.result!.myBoardList
+            print("내 게시물 받기 성공")
         }
-        
+        print("내 게시물 check: \(check)")
         return rtn
         // rtn이 nil이면 서버 통신 실패 or 데이터 없음
     }
