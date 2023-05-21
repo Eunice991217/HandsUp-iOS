@@ -121,6 +121,19 @@ class ListTableViewCell: UITableViewCell {
             make.size.width.height.equalTo(75)
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // 셀이 재사용될 때 초기화할 내용을 여기에 구현
+        name.text = nil
+        location.text = nil
+        time.text = nil
+        content.text = nil
+//        img.image = nil
+        label1.text = nil
+        label2.text = nil
+    }
         
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
