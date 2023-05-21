@@ -11,6 +11,7 @@ import Alamofire
 import MapKit
 
 class RegisterPostViewController: UIViewController{
+    var isEdited: Bool = false
     
     @IBOutlet weak var characterView_HVC: Character_UIView!
     
@@ -18,7 +19,6 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var characterViewHeight: NSLayoutConstraint!
     
     @IBOutlet var locationLabel_HVC: UILabel!
-    
     @IBOutlet var universityLabel_HVC: UILabel!
     
     @IBOutlet weak var characterViewHeight_HVC: NSLayoutConstraint!
@@ -77,12 +77,16 @@ class RegisterPostViewController: UIViewController{
         borderLine_HVC.backgroundColor =  UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         sendBtn_HVC.layer.cornerRadius = 10
         
-        self.timeLb_HVC.text = "12h"
-        self.timeSlider_HVC.value = 12.0
+        if(isEdited == false){
+            self.timeLb_HVC.text = "12h"
+            self.timeSlider_HVC.value = 12.0
+        }
+        else{
+            
+        }
         self.nameLB_HVC.text = UserDefaults.standard.string(forKey: "nickname")!
         
         msgTextView_HVC.delegate = self
-        
         msgTextView_HVC.textColor =  UIColor.lightGray
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         
@@ -93,7 +97,6 @@ class RegisterPostViewController: UIViewController{
         let xUnit = tagScrollView_HVC.bounds.width
         
         tagScrollView_HVC.contentSize.width = xUnit * 10
-        
         tagScrollView_HVC.canCancelContentTouches = true
         
         //scrollview에서 터치했을 때 키보드가 내려가게 함
@@ -148,8 +151,6 @@ class RegisterPostViewController: UIViewController{
     }
     
     private func requestAuthorization() {
-        
-            print("nil 이었음")
 
             //정확도를 검사한다.
             //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
