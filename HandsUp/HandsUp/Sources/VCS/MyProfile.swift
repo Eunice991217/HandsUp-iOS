@@ -25,26 +25,20 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     var selectedIndexPath: IndexPath?
     
+    var boardIndex: Int64?
+    
     @IBAction func HeartBtnDidTap(_ sender: Any) {
-        print("하트 버튼을 클릭했습니다.")
-        
-//        let stat = HomeServerAPI.boardsHeart(boardIdx: 1)
-//        switch stat {
-//        case 2000:
-//            print ("하트 요청에 성공하였습니다.")
-//        case 4000:
-//            print ("하트 요청 존재하지 않는 이메일입니다.")
-//        case 4010:
-//            print ("하트 요청 게시물 인덱스가 존재하지 않습니다.")
-//        default:
-//            print ("하트 요청 데이터베이스 저장 오류가 발생했습니다.")
-//        }
-
         bRec = !bRec
+        
         if bRec { // 비어진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
+            print("하트 버튼을 취소했습니다.")
         } else { // 버튼 눌렀을때 채워진 하트
             MyProfileHeartBtn.setImage(UIImage(named: "HeartDidTap"), for: .normal)
+            if let boardIndex = boardIndex {
+                let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex) // 클릭한 id값 전달해야함
+                print("하트 버튼을 클릭했습니다. \(boardIndex)")
+            }
         }
     }
     
@@ -193,11 +187,11 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         selectedIndexPath = indexPath
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
         return HomeList.count
-//        return MyProfileData.count
     }
     
     var findLocation:CLLocation!
@@ -206,10 +200,11 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var latitude_HVC = 0.0
     var finalAddress = ""
     
-    func getAddressByLocation(latitude: Double, longitude: Double) -> String {
+    func getAddressByLocation(latitude: Double, longitude: Double, completion: @escaping (String) -> Void) {
         print("위도, 경도 변환 함수 호출 테스트")
         findLocation = CLLocation(latitude: latitude, longitude: longitude)
         print("latitude: \(latitude), longitude: \(longitude)")
+        
         if findLocation != nil {
             var address = ""
             geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
@@ -233,11 +228,14 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
                 }
             }
         }
-        return self.finalAddress
+        
+        completion(finalAddress) // 완료 후 주소를 반환하는 completion 핸들러 호출
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyProfileCollectionViewCell", for: indexPath) as! MyProfileCollectionViewCell
+        
+        boardIndex = Int64(HomeList[indexPath.row].board.boardIdx) // 클릭한 셀의 index 값을 가져옴
         
         boardsCharacterList = [] // 빈 배열
         
@@ -264,15 +262,15 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         cell.MyProfileCellImage.setCharacter() // 캐릭터 생성
         
         
-//         // 커스터마이징 이미지 넣어야함.
-//         cell.MyProfileCellImage.image=MyProfileData[indexPath.row].profileImage
-        
-        
         cell.MyProfileSmallName.text=HomeList[indexPath.row].nickname
         cell.MyProfileCellLargeName.text=HomeList[indexPath.row].nickname
         
-        cell.MyProfileCellLocation.text=getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
-        print("cell 위치값 확인 MyProfile : \(String(describing: cell.MyProfileCellLocation.text))")
+        // getAddressByLocation를 비동기로 호출하고 클로저 내에서 TableView를 업데이트
+        getAddressByLocation(latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude) { address in
+            DispatchQueue.main.async {
+                cell.MyProfileCellLocation.text = address // 주소를 설정하여 TableView를 업데이트
+            }
+        }
         
         let createDate = HomeList[indexPath.row].board.createdAt.toDate()
         cell.MyProfileCellTime.text=createDate.getTimeDifference()
@@ -284,24 +282,24 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         cell.MyProfileTag.cornerRadius = 12
         
-        let schoolName = UserDefaults.standard.string(forKey: "schoolName")
+        let schoolName = HomeList[indexPath.row].schoolName
         var cutSchoolName: String = ""
-        
-        if(schoolName!.count == 6) {
-            _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
-            let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 3)
+
+        if(schoolName.count == 6) {
+            _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+            let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
             let range = ...endIndex
 
-            cutSchoolName = String(schoolName![range])
+            cutSchoolName = String(schoolName[range])
         }
-        else if(schoolName!.count == 5) {
-            _ = schoolName!.index(schoolName!.startIndex, offsetBy: 0)
-            let endIndex = schoolName!.index(schoolName!.startIndex, offsetBy: 2)
+        else if(schoolName.count == 5) {
+            _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+            let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
             let range = ...endIndex
 
-            cutSchoolName = String(schoolName![range])
+            cutSchoolName = String(schoolName[range])
         }
-        
+    
         cell.MyProfileCellUniv.text = cutSchoolName
         cell.MyProfileCellUniv.font = UIFont(name: "Roboto-Bold", size: 14)
         
@@ -311,11 +309,6 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
         return cell
     }
-    
-    
-    
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -335,8 +328,8 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
         MyProfileCollectionView.delegate = self
         MyProfileCollectionView.dataSource = self
         
-        HomeList = HomeServerAPI.boardsShowList() ?? []
-        print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        // HomeList = HomeServerAPI.boardsShowList() ?? []
+        // print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
     }
     
@@ -352,5 +345,6 @@ extension MyProfile: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
+
 
 

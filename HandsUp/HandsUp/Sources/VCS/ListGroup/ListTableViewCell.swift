@@ -130,7 +130,6 @@ class ListTableViewCell: UITableViewCell {
         location.text = nil
         time.text = nil
         content.text = nil
-//        img.image = nil
         label1.text = nil
         label2.text = nil
     }

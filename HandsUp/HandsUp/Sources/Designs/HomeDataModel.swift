@@ -14,6 +14,10 @@ struct FAQ_rq: Codable {
     let contents: String
 }
 
+struct boardsHeart_rq: Codable {
+    let boardIdx : Int64
+}
+
 struct boardsShowList_rq: Codable{
     let schoolName: String
 }
@@ -40,11 +44,13 @@ struct boardsShowList_rp: Codable {
 }
 
 struct boardsShowList_rp_result: Codable {
+    
     let getBoardList: [boardsShowList_rp_getBoardList]
 }
 
 struct boardsShowList_rp_getBoardList: Codable {
     let board: boardsShowList_rp_board
+    let schoolName: String
     let character: boardsShowList_rp_character
     let nickname: String
     let tag: String
@@ -74,7 +80,6 @@ struct ShowMapList_rp: Codable {
 }
 
 struct ShowMapList_rp_result: Codable {
-//    let schoolName: String
     let getBoardMap: [ShowMapList_rp_getBoardMap]
 }
 

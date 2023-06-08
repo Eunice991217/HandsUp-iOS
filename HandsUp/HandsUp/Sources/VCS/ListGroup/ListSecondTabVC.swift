@@ -15,7 +15,7 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var HomeList : [boardsShowList_rp_getBoardList] = [] // boardsShowList_rp_getBoardList
     
-    var boardsCharacterList: [Int] = []
+    var boardsCharacterListTalk: [Int] = []
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
 
@@ -52,31 +52,36 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         attribute: .trailing, multiplier: 1.0, constant: 0))
         
         HomeList = HomeServerAPI.boardsShowList() ?? []
-        print("Home 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        // print("Home Talk Page 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-             print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
-             return HomeList.count
-        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {return}
+        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
         myProfile.modalPresentationStyle = .overFullScreen
+        
+        let filteredList = HomeList.filter { $0.tag == "Talk" }
+        
+        myProfile.HomeList = filteredList
+        myProfile.startPage = indexPath.row
+        
         self.present(myProfile, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+            return filteredList.count
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         //return MyHomeList1Data.count
-         print("HomeList 서버통신 개수 tableView == \(HomeList.count)")
-         return HomeList.count
+        let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
+        return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -89,71 +94,91 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var latitude_HVC = 0.0
     var finalAddress = ""
     
-    func getAddressByLocation(latitude: Double, longitude: Double) -> String {
+    func getAddressByLocation(latitude: Double, longitude: Double, completion: @escaping (String?) -> Void) {
         print("위도, 경도 변환 함수 호출 테스트")
         findLocation = CLLocation(latitude: latitude, longitude: longitude)
         print("latitude: \(latitude), longitude: \(longitude)")
         if findLocation != nil {
-            var address = ""
             geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
                 if error != nil {
+                    completion(nil)
                     return
                 }
                 if let placemark = placemarks?.first {
+                    var address = ""
                     if placemark.administrativeArea != nil {
-                         // address = "\(address) \(administrativeArea) "
+                        // address = "\(address) \(administrativeArea) "
                     }
                     if let locality = placemark.locality {
-                         address = "\(address)\(locality) "
+                        address = "\(address)\(locality) "
                     }
                     if let thoroughfare = placemark.thoroughfare {
-                         address = "\(address)\(thoroughfare)"
+                        address = "\(address)\(thoroughfare)"
                     }
                     if placemark.subThoroughfare != nil {
-                         // address = "\(address) \(subThoroughfare)"
+                        // address = "\(address) \(subThoroughfare)"
                     }
-                    finalAddress = address.copy() as! String
+                    completion(address)
+                } else {
+                    completion(nil)
+                }
+            }
+        } else {
+            completion(nil)
+        }
+    }
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else {
+                return UITableViewCell()
+            }
+
+        let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let item = filteredList[indexPath.row]
+
+        cell.name.text = item.nickname
+        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        let latitude = item.board.latitude
+        let longitude = item.board.longitude
+
+        getAddressByLocation(latitude: latitude, longitude: longitude) { [weak self] address in
+            DispatchQueue.main.async {
+                if item.board.indicateLocation == "true" {
+                    cell.location.text = address
+                } else {
+                    cell.location.text = "위치 비밀"
                 }
             }
         }
-        return self.finalAddress
-    }
 
-    var tagCnt = 0 
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
-        
-        cell.name.text = HomeList[indexPath.row].nickname
-        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        cell.location.text = getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
-        print("cell 위치값 확인 : \(String(describing: cell.location.text))")
+        print("Talk cell 위치값 확인 : \(String(describing: cell.location.text))")
         cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        let createDate = HomeList[indexPath.row].board.createdAt.toDate()
+
+        let createDate = item.board.createdAt.toDate()
         cell.time.text = createDate.getTimeDifference()
         cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        cell.content.text = HomeList[indexPath.row].board.content
+
+        cell.content.text = item.board.content
         cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
-        
+
         cell.label1.text = "|"
         cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
+
         cell.label2.text = "|"
         cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        boardsCharacterList = [] // 빈 배열
-        
-        let characterBoards = HomeList[indexPath.row].character
-        
+
+        boardsCharacterListTalk = [] // 빈 배열
+
+        let characterBoards = item.character
+
         background = (Int(characterBoards.backGroundColor) ?? 1) - 1
         hair = (Int(characterBoards.hair) ?? 1) - 1
         eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
@@ -161,21 +186,21 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         nose = (Int(characterBoards.nose) ?? 1) - 1
         eyes = (Int(characterBoards.eye) ?? 1) - 1
         glasses = Int(characterBoards.glasses) ?? 0
-        
-        boardsCharacterList.append(background)
-        boardsCharacterList.append(hair)
-        boardsCharacterList.append(eyebrow)
-        boardsCharacterList.append(mouth)
-        boardsCharacterList.append(nose)
-        boardsCharacterList.append(eyes)
-        boardsCharacterList.append(glasses)
-        
-        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
+
+        boardsCharacterListTalk.append(background)
+        boardsCharacterListTalk.append(hair)
+        boardsCharacterListTalk.append(eyebrow)
+        boardsCharacterListTalk.append(mouth)
+        boardsCharacterListTalk.append(nose)
+        boardsCharacterListTalk.append(eyes)
+        boardsCharacterListTalk.append(glasses)
+
+        cell.img.setAll(componentArray: boardsCharacterListTalk) // 가져오기
         cell.img.setCharacter_NoShadow() // 그림자 없애기
         cell.img.setCharacter() // 캐릭터 생성
-        
+
         cell.selectionStyle = .none
-        
+
         return cell
     }
 

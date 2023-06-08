@@ -79,7 +79,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         print(latitude)
         print(longitude)
 
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 20.0)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 15.0)
         mapView.moveCamera(cameraUpdate)
         cameraUpdate.animation = .easeIn
 

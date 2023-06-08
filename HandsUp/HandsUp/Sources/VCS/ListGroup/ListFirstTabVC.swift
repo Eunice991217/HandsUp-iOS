@@ -52,41 +52,36 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         attribute: .trailing, multiplier: 1.0, constant: 0))
         
         HomeList = HomeServerAPI.boardsShowList() ?? []
-        print("Home 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
+        // print("Home Talk Page 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
         
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//             print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
-//             return HomeList.count
-//        }
-//    }
-    
-        override func viewWillDisappear(_ animated: Bool) {
-    
-            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                 print("viewWillDisappear table View 성공 및 원소 개수 == \(HomeList.count)")
-                 return HomeList.count
-            }
-        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else {return}
+        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
         myProfile.modalPresentationStyle = .overFullScreen
         
+        let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
+        
+        myProfile.HomeList = filteredList
         myProfile.startPage = indexPath.row
+        
         self.present(myProfile, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+            return filteredList.count
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         //return MyHomeList1Data.count
-         print("HomeList 서버통신 개수 tableView == \(HomeList.count)")
-         return HomeList.count
+        let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
+        return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -98,46 +93,92 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var longitude_HVC = 0.0
     var latitude_HVC = 0.0
     var finalAddress = ""
-    
-    func getAddressByLocation(latitude: Double, longitude: Double) -> String {
+
+    func getAddressByLocation(latitude: Double, longitude: Double, completion: @escaping (String?) -> Void) {
         print("위도, 경도 변환 함수 호출 테스트")
         findLocation = CLLocation(latitude: latitude, longitude: longitude)
         print("latitude: \(latitude), longitude: \(longitude)")
         if findLocation != nil {
-            var address = ""
             geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
                 if error != nil {
+                    completion(nil)
                     return
                 }
                 if let placemark = placemarks?.first {
+                    var address = ""
                     if placemark.administrativeArea != nil {
-                         // address = "\(address) \(administrativeArea) "
+                        // address = "\(address) \(administrativeArea) "
                     }
                     if let locality = placemark.locality {
-                         address = "\(address)\(locality) "
+                        address = "\(address)\(locality) "
                     }
                     if let thoroughfare = placemark.thoroughfare {
-                         address = "\(address)\(thoroughfare)"
+                        address = "\(address)\(thoroughfare)"
                     }
                     if placemark.subThoroughfare != nil {
-                         // address = "\(address) \(subThoroughfare)"
+                        // address = "\(address) \(subThoroughfare)"
                     }
-                    finalAddress = address.copy() as! String
+                    completion(address)
+                } else {
+                    completion(nil)
+                }
+            }
+        } else {
+            completion(nil)
+        }
+    }
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else {
+                return UITableViewCell()
+            }
+
+        let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
+        let item = filteredList[indexPath.row]
+
+        cell.name.text = item.nickname
+        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        let latitude = item.board.latitude
+        let longitude = item.board.longitude
+
+        getAddressByLocation(latitude: latitude, longitude: longitude) { [weak self] address in
+            DispatchQueue.main.async {
+                if item.board.indicateLocation == "true" {
+                    cell.location.text = address
+                } else {
+                    cell.location.text = "위치 비밀"
                 }
             }
         }
-        return self.finalAddress
-    }
 
-    var tagCnt = 0
+        print("전체 cell 위치값 확인 : \(String(describing: cell.location.text))")
+        cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
-        
+        let createDate = item.board.createdAt.toDate()
+        cell.time.text = createDate.getTimeDifference()
+        cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        cell.content.text = item.board.content
+        cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+
+        cell.label1.text = "|"
+        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        cell.label2.text = "|"
+        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
         boardsCharacterList = [] // 빈 배열
-        
-        let characterBoards = HomeList[indexPath.row].character
-        
+
+        let characterBoards = item.character
+
         background = (Int(characterBoards.backGroundColor) ?? 1) - 1
         hair = (Int(characterBoards.hair) ?? 1) - 1
         eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
@@ -145,7 +186,7 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         nose = (Int(characterBoards.nose) ?? 1) - 1
         eyes = (Int(characterBoards.eye) ?? 1) - 1
         glasses = Int(characterBoards.glasses) ?? 0
-        
+
         boardsCharacterList.append(background)
         boardsCharacterList.append(hair)
         boardsCharacterList.append(eyebrow)
@@ -153,50 +194,13 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         boardsCharacterList.append(nose)
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
-        
+
         cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.img.setCharacter_NoShadow() // 그림자 없애기
         cell.img.setCharacter() // 캐릭터 생성
-        
-        cell.name.text = HomeList[indexPath.row].nickname
-        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-//        cell.location.text = getAddressByLocation (latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
-        
-        
-        let locationText = getAddressByLocation(latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude)
-        if locationText == nil {
-            cell.location.text = "위치 비밀"
-        } else {
-            cell.location.text = locationText
-        }
-        
-        print("cell 위치값 확인 : \(String(describing: cell.location.text))")
-        cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        let createDate = HomeList[indexPath.row].board.createdAt.toDate()
-        cell.time.text = createDate.getTimeDifference()
-        cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        cell.content.text = HomeList[indexPath.row].board.content
-        cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
-        
-        cell.label1.text = "|"
-        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        cell.label2.text = "|"
-        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        
-        
+
         cell.selectionStyle = .none
-        
+
         return cell
     }
 

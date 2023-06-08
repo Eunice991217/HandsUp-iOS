@@ -11,7 +11,7 @@ import Alamofire
 
 class HomeServerAPI {
     
-    static func boardsHeart(boardIdx: Int) -> Int{
+    static func boardsHeart(boardIdx: Int64) -> Int{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/boards/\(boardIdx)/like")
         var request = URLRequest(url: url!)
@@ -23,19 +23,33 @@ class HomeServerAPI {
         var check:Int = 0
         let session = URLSession(configuration: .default)
         
+        let uploadData = try! JSONEncoder().encode(boardsHeart_rq(boardIdx: boardIdx)) // rq
+        
         let semaphore = DispatchSemaphore(value: 0)
         
-        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            let output = try? JSONDecoder().decode(BoardsHeart_rp.self, from: data!) // rp
-            if output == nil{
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            if let error = error {
+                print("하트 요청 실패: \(error.localizedDescription)")
                 check = -1
-            }else if output!.statusCode == 2000{
-                check = output!.statusCode
-            }else{
-                check = output!.statusCode
+            } else if let httpResponse = response as? HTTPURLResponse {
+                let statusCode = httpResponse.statusCode
+                if statusCode == 200 {
+                    check = 2000
+                    print("하트 요청에 성공하였습니다.")
+                } else if statusCode == 400 {
+                    check = 4000
+                    print("하트 요청 존재하지 않는 이메일입니다.")
+                } else if statusCode == 401 {
+                    check = 4010
+                    print("하트 요청 게시물 인덱스가 존재하지 않습니다.")
+                } else {
+                    check = statusCode
+                    print("하트 요청 데이터베이스 저장 오류가 발생했습니다.")
+                }
             }
             semaphore.signal() // 세마포어 시그널
         }.resume()
+
         
         semaphore.wait()
         return check
