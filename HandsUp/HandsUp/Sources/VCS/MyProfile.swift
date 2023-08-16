@@ -72,6 +72,13 @@ class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewD
             
             let edit = UIAlertAction(title: "수정하기", style: .default) { (action) in
                 // 수정 기능 실행
+                
+                let myTabVC = UIStoryboard.init(name: "HandsUp", bundle: nil)
+                guard let nextVC = myTabVC.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
+                    return
+                }
+                nextVC.isEdited = true; nextVC.editedBoard = self.HomeList[self.selectedIndexPath!.row].board; nextVC.selectedTag_HVC = self.HomeList[self.selectedIndexPath!.row].tag
+                self.present(nextVC, animated: true, completion: nil)
             }
             alert.addAction(edit)
             

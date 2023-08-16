@@ -12,6 +12,7 @@ import MapKit
 
 class RegisterPostViewController: UIViewController{
     var isEdited: Bool = false
+    var editedBoard: boardsShowList_rp_board?
     
     @IBOutlet weak var characterView_HVC: Character_UIView!
     
@@ -23,7 +24,7 @@ class RegisterPostViewController: UIViewController{
     
     @IBOutlet weak var characterViewHeight_HVC: NSLayoutConstraint!
     //tag btn 설정
-    @IBOutlet weak var totalTagBtn_HVC: UIButton!
+    @IBOutlet weak var totalTagBtn_HVC: CustomTagBtn!
     
     @IBOutlet weak var totalScrollView_HVC: UIScrollView!
     @IBOutlet weak var msgTextView_HVC: UITextView!
@@ -31,11 +32,11 @@ class RegisterPostViewController: UIViewController{
     
     @IBOutlet var nameLB_HVC: UILabel!
     
-    @IBOutlet weak var talkTagBtn_HVC: UIButton!
-    @IBOutlet weak var foodTagBtn_HVC: UIButton!
-    @IBOutlet weak var studyTagBtn_HVC: UIButton!
-    @IBOutlet weak var hobbyTagBtn_HVC: UIButton!
-    @IBOutlet weak var tripTagBtn_HVC: UIButton!
+    @IBOutlet weak var talkTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var foodTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var studyTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var hobbyTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var tripTagBtn_HVC: CustomTagBtn!
     
     var indicateLocation_HVC = "true"
     var selectedTag_HVC = "전체"
@@ -77,20 +78,51 @@ class RegisterPostViewController: UIViewController{
         borderLine_HVC.backgroundColor =  UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         sendBtn_HVC.layer.cornerRadius = 10
         
-        if(isEdited == false){
-            self.timeLb_HVC.text = "12h"
-            self.timeSlider_HVC.value = 12.0
-        }
-        else{
-            
-        }
+        totalTagBtn_HVC.text = "전체"; talkTagBtn_HVC.text = "Talk"; foodTagBtn_HVC.text = "밥"; studyTagBtn_HVC.text = "스터디"; hobbyTagBtn_HVC.text = "취미"; tripTagBtn_HVC.text = "여행";
+        totalTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                  for:.touchUpInside)
+        talkTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                 for:.touchUpInside)
+        foodTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                 for:.touchUpInside)
+        studyTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                  for:.touchUpInside)
+        hobbyTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                  for:.touchUpInside)
+        tripTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                 for:.touchUpInside)
+        resetTagBtn(isEdited)
         self.nameLB_HVC.text = UserDefaults.standard.string(forKey: "nickname")!
         
         msgTextView_HVC.delegate = self
-        msgTextView_HVC.textColor =  UIColor.lightGray
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         
-        
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+
+        //게시물 수정 시
+        if(isEdited == true){
+            self.msgTextView_HVC.text = editedBoard!.content
+            self.content_HVC = editedBoard!.content
+            self.textIsEmpty = false
+            self.timeLb_HVC.text = String(editedBoard!.messageDuration )
+            self.timeSlider_HVC.value = Float(editedBoard!.messageDuration)
+            self.sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
+            
+            if(editedBoard?.indicateLocation == "false"){
+                print("게시물 수정하는데 위치 ")
+                self.indicateLocation_HVC = "false"
+                locationSwitchBtn_HVC.isOn = false
+                locationSwitchBtn_HVC.setupUI()
+                self.locationLabel_HVC.text = "위치 비밀"
+            }
+        }
+        else{
+            msgTextView_HVC.textColor =  UIColor.lightGray
+            self.timeLb_HVC.text = "12h"
+            self.timeSlider_HVC.value = 12.0
+            requestAuthorization()
+        }
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.msgTextView_HVC.resignFirstResponder()
         }
@@ -108,30 +140,26 @@ class RegisterPostViewController: UIViewController{
         
         characterView_HVC.setUserCharacter()
         
-    
+        
         var schoolName = UserDefaults.standard.string(forKey: "schoolName")!
         var cutSchoolName = ""
         if(schoolName.count == 6) {
-                    _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
-                    let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
-                    let range = ...endIndex
-
-                    cutSchoolName = String(schoolName[range])
-                }
-                else if(schoolName.count == 5) {
-                    _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
-                    let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
-                    let range = ...endIndex
-
-                    cutSchoolName = String(schoolName[range])
-                }
-                
-        self.universityLabel_HVC.text = cutSchoolName
-                
+            _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+            let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
+            let range = ...endIndex
+            
+            cutSchoolName = String(schoolName[range])
+        }
+        else if(schoolName.count == 5) {
+            _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+            let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
+            let range = ...endIndex
+            
+            cutSchoolName = String(schoolName[range])
+        }
         
-        locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
-        requestAuthorization()
+        self.universityLabel_HVC.text = cutSchoolName
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -275,7 +303,15 @@ class RegisterPostViewController: UIViewController{
         //위치 정보 표시할 때
         if(!textIsEmpty){
             content_HVC = msgTextView_HVC.text
-            let result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
+            var result: Int!
+            
+            if(isEdited == true){ //수정하는 글일 시에 수정 API 요청
+                result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: editedBoard!.boardIdx)
+            }
+            else{
+                result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
+            }
+            
             
             print("result:  \(result)")
             switch result {
@@ -293,51 +329,52 @@ class RegisterPostViewController: UIViewController{
     }
     
     
-    //tag 버튼 action 설정
-    @IBAction func totalTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
-            
+    @objc func tagBtnDidTap(_ sender: CustomTagBtn) {
+        resetTagBtn(false)
+        
+        switch sender.text{
+        case "전체":
             totalIsOn = true
             totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             selectedTag_HVC = "전체"
-        
-    }
-    @IBAction func talkTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
+            break
             
+        case "Talk":
             talkIsOn = true
             talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             selectedTag_HVC = "Talk"
-    }
-    @IBAction func foodTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
+            break
+            
+        case "밥":
             foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             foodIsOn = true
             selectedTag_HVC = "밥"
-    }
-    @IBAction func studyTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
+            break
+            
+        case "스터디":
             studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             studyIsOn = true
             selectedTag_HVC = "스터디"
-
+            break
+            
+        case "취미":
+            hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            hobbyIsOn = true
+            selectedTag_HVC = "취미"
+            break
+            
+        case "여행":
+            tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            tripIsOn = true
+            selectedTag_HVC = "여행"
+            break
+            
+        default:
+            break
+        }
+   
     }
-    @IBAction func hobbyTagDidTap(_ sender: UIButton) {
-        resetTagBtn()
-        hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-        hobbyIsOn = true
-        selectedTag_HVC = "취미"
-    }
-    
-    @IBAction func tripTagDidTap(_ sender: UIButton) {
-        
-        resetTagBtn()
-        tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-        tripIsOn = true
-        selectedTag_HVC = "여행"
-    }
-    
-    func resetTagBtn() {
+    func resetTagBtn(_ isEdited: Bool) {
         totalTagBtn_HVC.titleLabel?.textColor = unClickedColor
         talkTagBtn_HVC.titleLabel?.textColor = unClickedColor
         foodTagBtn_HVC.titleLabel?.textColor = unClickedColor
@@ -345,8 +382,49 @@ class RegisterPostViewController: UIViewController{
         hobbyTagBtn_HVC.titleLabel?.textColor = unClickedColor
         tripTagBtn_HVC.titleLabel?.textColor = unClickedColor
         totalIsOn = false; talkIsOn = false; foodIsOn = false; studyIsOn = false; hobbyIsOn = false; tripIsOn = false
+        
+        if(isEdited == true){
+            switch selectedTag_HVC{
+            case "전체":
+                totalIsOn = true
+                totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                break
+                
+            case "Talk":
+                talkIsOn = true
+                talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                break
+                
+            case "밥":
+                foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                foodIsOn = true
+                break
+                
+            case "스터디":
+                studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                studyIsOn = true
+                break
+                
+            case "취미":
+                hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                hobbyIsOn = true
+                break
+                
+            case "여행":
+                tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                tripIsOn = true
+                break
+                
+            default:
+                break
+            }
+        }
     }
     
+}
+
+class CustomTagBtn: UIButton {
+    var text: String?
 }
 
 extension RegisterPostViewController : UITextViewDelegate{
@@ -393,6 +471,7 @@ class TagScrollView: UIScrollView{
         return super.touchesShouldCancel(in: view)
       }
 }
+
 
 
 

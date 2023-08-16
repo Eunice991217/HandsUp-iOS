@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if UserDefaults.standard.bool(forKey: "login") {
             let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
             if(result == 2000){
-                print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
+               // print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
             }
         }
         
