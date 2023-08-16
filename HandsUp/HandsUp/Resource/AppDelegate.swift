@@ -8,10 +8,9 @@
 import UIKit
 import NMapsMap
 import Firebase
-import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         //firebase 초기화 세팅
         FirebaseApp.configure()
         
-        //메세지 대리자 설정
-        Messaging.messaging().delegate = self
-        
-        //fcm 다시 사용 설정
-        Messaging.messaging().isAutoInitEnabled = true
         
         //푸시 알림 권한 설정 및 푸시 알림에 앱 등록
         UNUserNotificationCenter.current().delegate = self
@@ -41,25 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         
     }
     
-    /// APN 토큰과 등록 토큰 매핑
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
-    }
-    
-    /// 현재 등록 토큰 가져오기.
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        
-        // TODO: - 디바이스 토큰을 보내는 서버통신 구현
-        
-        if UserDefaults.standard.bool(forKey: "login") {
-            let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
-            if(result == 2000){
-               // print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
-            }
-        }
-        
-    
-    }
+
+
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

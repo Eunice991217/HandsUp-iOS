@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class ChatListViewController: UIViewController {
 
-
+    let db = Firestore.firestore()
     @IBOutlet weak var chatAlarmTableView_CLVC: UITableView!
     var chatArr: [Chat]?
 
@@ -24,6 +26,10 @@ class ChatListViewController: UIViewController {
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         // Do any additional setup after loading the view.
+        FirestoreAPI.shared.addChat(chatRoomID: "wltjd3459@af dfs", chatRequest: Message(content: "안녕하세요 포스팅보고 연락...더보기"))
+        FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs"){ roadInfos in
+            print(roadInfos)
+        }
         
         chatArr = PostAPI.getChatList()
         if( chatArr == nil){

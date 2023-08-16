@@ -8,52 +8,113 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+struct Message: Codable {
+    
+    // @DocumentID가 붙은 경우 Read시 해당 문서의 ID를 자동으로 할당
+    @DocumentID var documentID: String?
+    
+//    // @ServerTimestamp가 붙은 경우 Create, Update시 서버 시간을 자동으로 입력함 (FirebaseFirestoreSwift 디펜던시 필요)
+//    @ServerTimestamp var serverTS: Timestamp?
+    
+    var content: String
+    var authorUID: String = ""
+    var createdat: String = ""
+    
+    // 왼쪽: Swift 내에서 사용하는 변수이름 / 오른쪽: Firebase에서 사용하는 변수이름
+    enum CodingKeys: String, CodingKey {
+        case documentID = "document_id"
+        case createdat = "createdat"
+        case authorUID = "author_uid"
+        
+        case content = "content"
+    }
+}
+
 
 final class FirestoreAPI {
+    static let shared = FirestoreAPI()
+
+    var db: Firestore!
+    var chatRoomRef: CollectionReference!
     
-    let db = Firestore.firestore()
     
-    private var documentListener: ListenerRegistration?
+    init() {
+        // [START setup]
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        
+        // [END setup]
+        db = Firestore.firestore()
+        
+    }
     
-    //Firebase에 채팅방을 저장하는 메소드
-    func makeNewChatRoom(chatID: String){
-        // Document id 직접 작성하여 데이터 추가 (setdata는 데이터 추가만! 수정 안됨)
-        db.collection("chats").document(chatID).setData([:]) { err in
+    func addChat(chatRoomID: String, chatRequest request: Message) {
+        chatRoomRef = db.collection("chatroom/\(chatRoomID)/chat")
+            var ref: DocumentReference? = nil
+            
+            do {
+                ref = chatRoomRef.document()
+                guard let ref = ref else {
+                    print("Reference is not exist.")
+                    return
+                }
+                
+                var request = request
+                request.createdat = Date().toString()
+                request.authorUID =  UserDefaults.standard.string(forKey: "email")!
+                
+                try ref.setData(from: request) { err in
+                    if let err = err {
+                        print("Firestore>> Error adding document: \(err)")
+                        return
+                    }
+                    
+                    print("Firestore>> Document added with ID: \(ref.documentID)")
+                }
+            } catch  {
+                print("Firestore>> Error from addPost-setData: ", error)
+            }
+        }
+    func readAll(chatRoomID: String, completionHandler: @escaping ([Message]) -> Void) {
+        chatRoomRef = db.collection("chatroom/\(chatRoomID)/chat")
+
+        chatRoomRef.getDocuments() { (querySnapshot, err) in
+            var messages:[Message] = []
+            
             if let err = err {
-                print(err)
+                print("Error getting documents: \(err)")
             } else {
-                print("Success")
+                guard let documents = querySnapshot?.documents else {return}
+                let decoder =  JSONDecoder()
+                
+                for document in documents {
+                    
+                    do {
+                        let data = document.data()
+                        print("createdat: \(data["createdat"]) content: \(data["content"]) author_uid: \(data["author_uid"])")
+                        let jsonData = try JSONSerialization.data(withJSONObject:data)
+                        print(jsonData)
+                        let roadInfo = try decoder.decode(Message.self, from: jsonData)
+                        messages.append(roadInfo)
+                        
+                        if let createdat = String(data["createdat"]) as? String, let content = data["content"] as? String, let author_uid = data["author_uid"] as? String{
+                            
+                            let newMessage = Message(content: content, authorUID: author_uid, createdat: createdat)
+                            messages.append(newMessage)
+                            
+                            
+                        }
+                        
+                    } catch let err {
+                        print("err: \(err)")
+                    }
+                }
+                print("개수: \(documents.count )")
+                completionHandler(messages)
             }
         }
     }
-    //Firebase에 채팅 메세지들을 저장하는 메소드
-    func saveChatMessage(chatID: String, _ message: Message ){
-        let collectionPath = "chats/\(chatID)/chat"
-            let collectionListener = Firestore.firestore().collection(collectionPath)
-            
-            guard let dictionary = message.asDictionary else {
-                print("decode error")
-                return
-            }
-        //addDoucment 키 값 자동 생성
-            collectionListener.addDocument(data: dictionary) { error in
-                if let error = error{
-                    print(error)
-                }else{
-                    print("succesfully save message")
-                }
-            }
-    }
-    //Firestore에 접근하여 실시간으로 데이터를 가져오는 함수
-    func subscribe(id: String) {
-        let collectionPath = "chats/\(id)/chat" //데이터를 가져올 firestore 주소
-        removeListener()
-        let collectionListener = Firestore.firestore().collection(collectionPath)
-        
-     
-    }
     
-    func removeListener() {
-        documentListener?.remove()
-    }
 }
+
