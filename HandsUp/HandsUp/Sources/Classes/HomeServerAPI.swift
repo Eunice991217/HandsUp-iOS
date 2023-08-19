@@ -109,11 +109,11 @@ class HomeServerAPI {
                 check = -1;
                 print("check1 : \(check)")
                 print("output message: \(output?.message)")
-                print("output result: \(output?.result)")
+                print("output 실패 result: \(output?.result)")
             }
             else{
                 check = output!.statusCode
-                print("check2 : \(check)")
+                print("output 성공 result: \(output?.result)")
             }
             semaphore.signal()
         }.resume()

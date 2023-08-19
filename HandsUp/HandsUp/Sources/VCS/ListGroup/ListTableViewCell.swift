@@ -13,9 +13,9 @@ class ListTableViewCell: UITableViewCell {
     static let id = "ListTableViewCell"
     
     lazy var img : Character_UIView = { // 캐릭터 생성
-        let View = Character_UIView()
-        View.translatesAutoresizingMaskIntoConstraints = false
-        return View
+        let view = Character_UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     lazy var imageProfile : UIImageView =  {
@@ -78,59 +78,6 @@ class ListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//
-//        contentView.addSubview(name) // 내용이 메모리에 올라갔음
-//        contentView.addSubview(location)
-//        contentView.addSubview(time)
-//        contentView.addSubview(content)
-//        contentView.addSubview(img)
-//        contentView.addSubview(label1)
-//        contentView.addSubview(label2)
-//
-//        name.snp.makeConstraints { make in
-//            make.leading.equalTo(img.snp.trailing).offset(27)
-//            make.top.equalTo(30)
-//
-//        }
-//
-//        label1.snp.makeConstraints { make in
-//            make.leading.equalTo(name.snp.trailing).offset(10)
-//            make.top.equalTo(30)
-//
-//        }
-//
-//        location.snp.makeConstraints { make in
-//            make.leading.equalTo(label1.snp.trailing).offset(10)
-//            make.top.equalTo(30)
-//
-//        }
-//
-//        label2.snp.makeConstraints { make in
-//            make.leading.equalTo(location.snp.trailing).offset(10)
-//            make.top.equalTo(30)
-//
-//        }
-//
-//        time.snp.makeConstraints { make in
-//            make.leading.equalTo(label2.snp.trailing).offset(10) // label2의 오른쪽에 간격을 두고 위치
-//            make.top.equalTo(30)
-//
-//        }
-//
-//        content.snp.makeConstraints { make in
-//            make.leading.equalTo(img.snp.trailing).offset(27)
-//            make.top.equalTo(60)
-//            make.trailing.equalTo(-15)
-//        }
-//
-//        img.snp.makeConstraints { make in
-//            make.leading.top.equalTo(15)
-//            make.size.width.height.equalTo(75)
-//        }
-//    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

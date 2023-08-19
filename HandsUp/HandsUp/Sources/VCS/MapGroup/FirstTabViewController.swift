@@ -97,7 +97,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
                 new_marker.height = 60
                 
                 let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-                guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") else {
+                guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") else {
                     return
                 }
                 myProfile.modalPresentationStyle = .overFullScreen
