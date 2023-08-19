@@ -220,7 +220,7 @@ struct myBoards_rp_myBoardList: Codable {
     let status, content: String
     let latitude, longitude: Double
     let createdAt: String
-    let location : String
+//    let location : String
 }
 
 struct boardsBlock_rp: Codable {
