@@ -119,7 +119,10 @@ class ViewController: UIViewController {
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
                 
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+//        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+//            return
+//        }
+        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "dfViewController") else {
             return
         }
         // 화면 전환!

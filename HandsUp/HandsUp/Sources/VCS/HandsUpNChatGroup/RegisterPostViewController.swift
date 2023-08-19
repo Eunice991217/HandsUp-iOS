@@ -14,6 +14,8 @@ class RegisterPostViewController: UIViewController{
     var isEdited: Bool = false
     var editedBoard: boardsShowList_rp_board?
     
+    var charcterArr: [Int] = [0, 0, 0, 0, 0, 0, 0]
+    
     @IBOutlet weak var characterView_HVC: Character_UIView!
     
     @IBOutlet weak var characterViewWidth: NSLayoutConstraint!
@@ -138,7 +140,10 @@ class RegisterPostViewController: UIViewController{
         singleTapGestureRecognizer.cancelsTouchesInView = false
         totalScrollView_HVC.addGestureRecognizer(singleTapGestureRecognizer)
         
-        characterView_HVC.setUserCharacter()
+        //characterView_HVC.setUserCharacter()
+        
+        characterView_HVC.setAll(componentArray: charcterArr)
+        characterView_HVC.setCharacter()
         
         
         var schoolName = UserDefaults.standard.string(forKey: "schoolName")!

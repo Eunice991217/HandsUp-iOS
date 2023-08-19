@@ -9,8 +9,9 @@ import UIKit
 
 class ChatViewController: UIViewController {
     
+    var chatRoomKey: String = ""
+    
     var chatDatas_CVC = [String]()
-    public var chatRoomKey = ""
     public var chatPersonName = ""
     public var statusCode = 0
     public var boardIdx: Int?
