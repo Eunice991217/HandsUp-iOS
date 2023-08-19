@@ -79,41 +79,41 @@ final class FirestoreAPI {
     func readAll(chatRoomID: String, completionHandler: @escaping ([Message]) -> Void) {
         chatRoomRef = db.collection("chatroom/\(chatRoomID)/chat")
 
-        chatRoomRef.getDocuments() { (querySnapshot, err) in
-            var messages:[Message] = []
-            
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                guard let documents = querySnapshot?.documents else {return}
-                let decoder =  JSONDecoder()
-                
-                for document in documents {
-                    
-                    do {
-                        let data = document.data()
-                        print("createdat: \(data["createdat"]) content: \(data["content"]) author_uid: \(data["author_uid"])")
-                        let jsonData = try JSONSerialization.data(withJSONObject:data)
-                        print(jsonData)
-                        let roadInfo = try decoder.decode(Message.self, from: jsonData)
-                        messages.append(roadInfo)
-                        
-                        if let createdat = String(data["createdat"]) as? String, let content = data["content"] as? String, let author_uid = data["author_uid"] as? String{
-                            
-                            let newMessage = Message(content: content, authorUID: author_uid, createdat: createdat)
-                            messages.append(newMessage)
-                            
-                            
-                        }
-                        
-                    } catch let err {
-                        print("err: \(err)")
-                    }
-                }
-                print("개수: \(documents.count )")
-                completionHandler(messages)
-            }
-        }
+//        chatRoomRef.getDocuments() { (querySnapshot, err) in
+//            var messages:[Message] = []
+//
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                guard let documents = querySnapshot?.documents else {return}
+//                let decoder =  JSONDecoder()
+//
+//                for document in documents {
+//
+//                    do {
+//                        let data = document.data()
+//                        print("createdat: \(data["createdat"]) content: \(data["content"]) author_uid: \(data["author_uid"])")
+//                        let jsonData = try JSONSerialization.data(withJSONObject:data)
+//                        print(jsonData)
+//                        let roadInfo = try decoder.decode(Message.self, from: jsonData)
+//                        messages.append(roadInfo)
+//
+//                        if let createdat = String(data["createdat"]) as? String, let content = data["content"] as? String, let author_uid = data["author_uid"] as? String{
+//
+//                            let newMessage = Message(content: content, authorUID: author_uid, createdat: createdat)
+//                            messages.append(newMessage)
+//
+//
+//                        }
+//
+//                    } catch let err {
+//                        print("err: \(err)")
+//                    }
+//                }
+//                print("개수: \(documents.count )")
+//                completionHandler(messages)
+//            }
+//        }
     }
     
 }

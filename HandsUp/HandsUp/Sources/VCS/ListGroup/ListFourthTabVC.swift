@@ -60,15 +60,15 @@ class ListFourthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
-        myProfile.modalPresentationStyle = .overFullScreen
-        
-        let filteredList = HomeList.filter { $0.tag == "스터디" }
-        
-        myProfile.HomeList = filteredList
-        myProfile.startPage = indexPath.row
-        
-        self.present(myProfile, animated: true)
+//        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
+//        myProfile.modalPresentationStyle = .overFullScreen
+//        
+//        let filteredList = HomeList.filter { $0.tag == "스터디" }
+//        
+//        myProfile.HomeList = filteredList
+//        myProfile.startPage = indexPath.row
+//        
+//        self.present(myProfile, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -195,9 +195,15 @@ class ListFourthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
 
-        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
-        cell.img.setCharacter_NoShadow() // 그림자 없애기
-        cell.img.setCharacter() // 캐릭터 생성
+//        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
+//        cell.img.setCharacter_NoShadow() // 그림자 없애기
+//        cell.img.setCharacter() // 캐릭터 생성
+        
+        //        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
+                cell.img.setCharacter_NoShadow() // 그림자 없애기
+        //        cell.img.convertSetList(arr: item.character)
+                cell.img.setCharacter(componentArray: boardsCharacterList) // 캐릭터 생성
+        //        cell.img.asImage() // 이미지로 변경
 
         cell.selectionStyle = .none
 

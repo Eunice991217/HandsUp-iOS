@@ -60,26 +60,26 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
-        myProfile.modalPresentationStyle = .overFullScreen
-        
-        let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
-        
-        myProfile.HomeList = filteredList
-        myProfile.startPage = indexPath.row
-        
-        self.present(myProfile, animated: true)
+//        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
+//        myProfile.modalPresentationStyle = .overFullScreen
+//        
+//        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
+//        
+//        myProfile.HomeList = filteredList
+//        myProfile.startPage = indexPath.row
+//        
+//        self.present(myProfile, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+            let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
             return filteredList.count
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
         print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
         return filteredList.count
     }
@@ -133,9 +133,39 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else {
                 return UITableViewCell()
             }
-
-        let filteredList = HomeList.filter { $0.tag != nil && ($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
+        
+        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
         let item = filteredList[indexPath.row]
+        
+        boardsCharacterList = [] // 빈 배열
+
+        let characterBoards = item.character
+        
+//        let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
+//        charImg.convertSetList(arr: item.character)
+//        cell.imageProfile = charImg.asImage()
+    
+        background = (Int(characterBoards.backGroundColor) ?? 1) - 1
+        hair = (Int(characterBoards.hair) ?? 1) - 1
+        eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
+        mouth = (Int(characterBoards.mouth) ?? 1) - 1
+        nose = (Int(characterBoards.nose) ?? 1) - 1
+        eyes = (Int(characterBoards.eye) ?? 1) - 1
+        glasses = Int(characterBoards.glasses) ?? 0
+
+        boardsCharacterList.append(background)
+        boardsCharacterList.append(hair)
+        boardsCharacterList.append(eyebrow)
+        boardsCharacterList.append(mouth)
+        boardsCharacterList.append(nose)
+        boardsCharacterList.append(eyes)
+        boardsCharacterList.append(glasses)
+
+//        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
+        cell.img.setCharacter_NoShadow() // 그림자 없애기
+//        cell.img.convertSetList(arr: item.character)
+        cell.img.setCharacter(componentArray: boardsCharacterList) // 캐릭터 생성
+//        cell.img.asImage() // 이미지로 변경
 
         cell.name.text = item.nickname
         cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
@@ -175,29 +205,7 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
-        boardsCharacterList = [] // 빈 배열
-
-        let characterBoards = item.character
-
-        background = (Int(characterBoards.backGroundColor) ?? 1) - 1
-        hair = (Int(characterBoards.hair) ?? 1) - 1
-        eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
-        mouth = (Int(characterBoards.mouth) ?? 1) - 1
-        nose = (Int(characterBoards.nose) ?? 1) - 1
-        eyes = (Int(characterBoards.eye) ?? 1) - 1
-        glasses = Int(characterBoards.glasses) ?? 0
-
-        boardsCharacterList.append(background)
-        boardsCharacterList.append(hair)
-        boardsCharacterList.append(eyebrow)
-        boardsCharacterList.append(mouth)
-        boardsCharacterList.append(nose)
-        boardsCharacterList.append(eyes)
-        boardsCharacterList.append(glasses)
-
-        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
-        cell.img.setCharacter_NoShadow() // 그림자 없애기
-        cell.img.setCharacter() // 캐릭터 생성
+        
 
         cell.selectionStyle = .none
 

@@ -9,15 +9,20 @@ import UIKit
 import SnapKit
 
 class ListTableViewCell: UITableViewCell {
-
+    
     static let id = "ListTableViewCell"
     
     lazy var img : Character_UIView = { // 캐릭터 생성
-       let View = Character_UIView()
-       View.translatesAutoresizingMaskIntoConstraints = false
-       return View
+        let View = Character_UIView()
+        View.translatesAutoresizingMaskIntoConstraints = false
+        return View
     }()
-
+    
+    lazy var imageProfile : UIImageView =  {
+        let image = UIImageView()
+        return image
+    }()
+    
     lazy var name: UILabel = { // 선언만했음. 메모리에는 아직 안올라가있음
         let label = UILabel()
         label.textAlignment = .center // 가운데 정렬로 변경
@@ -59,7 +64,7 @@ class ListTableViewCell: UITableViewCell {
         contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
         contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 15
-
+        
         contentView.layer.backgroundColor = UIColor(named: "HandsUpRealWhite")?.cgColor
     }
     
@@ -68,7 +73,7 @@ class ListTableViewCell: UITableViewCell {
         
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
@@ -76,7 +81,7 @@ class ListTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
+        
         contentView.addSubview(name) // 내용이 메모리에 올라갔음
         contentView.addSubview(location)
         contentView.addSubview(time)
@@ -88,26 +93,31 @@ class ListTableViewCell: UITableViewCell {
         name.snp.makeConstraints { make in
             make.leading.equalTo(img.snp.trailing).offset(27)
             make.top.equalTo(30)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
-
+        
         label1.snp.makeConstraints { make in
             make.leading.equalTo(name.snp.trailing).offset(10)
             make.top.equalTo(30)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
-
+        
         location.snp.makeConstraints { make in
             make.leading.equalTo(label1.snp.trailing).offset(10)
             make.top.equalTo(30)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
         
         label2.snp.makeConstraints { make in
             make.leading.equalTo(location.snp.trailing).offset(10)
             make.top.equalTo(30)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
         
         time.snp.makeConstraints { make in
-            make.leading.equalTo(label2.snp.leading).offset(10)
+            make.leading.equalTo(label2.snp.trailing).offset(10) // label2의 오른쪽에 간격을 두고 위치
             make.top.equalTo(30)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
         
         content.snp.makeConstraints { make in
@@ -126,16 +136,17 @@ class ListTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         // 셀이 재사용될 때 초기화할 내용을 여기에 구현
-        name.text = nil
-        location.text = nil
-        time.text = nil
-        content.text = nil
-        label1.text = nil
-        label2.text = nil
-    }
+//        name.text = nil
+//        location.text = nil
+//        time.text = nil
+//        content.text = nil
+//        label1.text = nil
+//        label2.text = nil
         
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

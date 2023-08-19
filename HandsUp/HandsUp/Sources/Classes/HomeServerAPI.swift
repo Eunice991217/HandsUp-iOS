@@ -97,7 +97,7 @@ class HomeServerAPI {
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
         var check: Int = -1
-        print("check0: \(check)")
+//        print("check0: \(check)")
         var rtn: [boardsShowList_rp_getBoardList]? = nil
         var output: boardsShowList_rp? = nil
         let session = URLSession(configuration: .default)
