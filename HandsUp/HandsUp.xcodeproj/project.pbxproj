@@ -34,6 +34,7 @@
 		32EE44E12A8CD26B00FE5060 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 32EE44E02A8CD26B00FE5060 /* FirebaseFirestore */; };
 		32EE44E32A8CD26B00FE5060 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 32EE44E22A8CD26B00FE5060 /* FirebaseFirestoreSwift */; };
 		32EE44E52A8CD26B00FE5060 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 32EE44E42A8CD26B00FE5060 /* FirebaseStorage */; };
+		480351942A90E64300E724C1 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480351932A90E64300E724C1 /* MyProfileView.swift */; };
 		480B01E5297149D1007054B1 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E4297149D1007054B1 /* EditProfile.swift */; };
 		480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E629715A3C007054B1 /* EditProfileName.swift */; };
 		4817588A2988EF36004FACF0 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481758892988EF2E004FACF0 /* MyProfile.swift */; };
@@ -124,6 +125,7 @@
 		32AB018229730B2F007D550A /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		32AB018429730C4C007D550A /* CustomThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
 		32D6577829824271007609A2 /* PostThroughChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostThroughChatViewController.swift; sourceTree = "<group>"; };
+		480351932A90E64300E724C1 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		480B01E4297149D1007054B1 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		480B01E629715A3C007054B1 /* EditProfileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileName.swift; sourceTree = "<group>"; };
 		481758892988EF2E004FACF0 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
 				481758892988EF2E004FACF0 /* MyProfile.swift */,
 				4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */,
+				480351932A90E64300E724C1 /* MyProfileView.swift */,
 				321B1E342986360300E2CFEE /* HandsUpNChatViewElement */,
 				32AB01712969A3D5007D550A /* HandsUpNChatGroup */,
 				8BA6064D2968864900F89636 /* Login */,
@@ -593,6 +596,7 @@
 				8B45E0D2297A3CC50057D156 /* EnableButtonScroll.swift in Sources */,
 				8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,
+				480351942A90E64300E724C1 /* MyProfileView.swift in Sources */,
 				8B4BF0C72968C11F00B00890 /* FindPW_ViewController.swift in Sources */,
 				8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */,
 				4819DD3229828C1300549538 /* CustromSwitchHome.swift in Sources */,
