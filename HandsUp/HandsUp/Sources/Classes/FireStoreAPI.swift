@@ -33,7 +33,7 @@ struct Message: Codable {
 
 final class FirestoreAPI {
     static let shared = FirestoreAPI()
-
+    
     var db: Firestore!
     var chatRoomRef: CollectionReference!
     
@@ -51,70 +51,67 @@ final class FirestoreAPI {
     
     func addChat(chatRoomID: String, chatRequest request: Message) {
         chatRoomRef = db.collection("chatroom/\(chatRoomID)/chat")
-            var ref: DocumentReference? = nil
+        var ref: DocumentReference? = nil
+        
+        do {
+            ref = chatRoomRef.document()
+            guard let ref = ref else {
+                print("Reference is not exist.")
+                return
+            }
             
-            do {
-                ref = chatRoomRef.document()
-                guard let ref = ref else {
-                    print("Reference is not exist.")
+            var request = request
+            request.createdat = Date().toString()
+            request.authorUID =  UserDefaults.standard.string(forKey: "email")!
+            
+            try ref.setData(from: request) { err in
+                if let err = err {
+                    print("Firestore>> Error adding document: \(err)")
                     return
                 }
                 
-                var request = request
-                request.createdat = Date().toString()
-                request.authorUID =  UserDefaults.standard.string(forKey: "email")!
-                
-                try ref.setData(from: request) { err in
-                    if let err = err {
-                        print("Firestore>> Error adding document: \(err)")
-                        return
-                    }
-                    
-                    print("Firestore>> Document added with ID: \(ref.documentID)")
-                }
-            } catch  {
-                print("Firestore>> Error from addPost-setData: ", error)
+                print("Firestore>> Document added with ID: \(ref.documentID)")
             }
-        }
-    func readAll(chatRoomID: String, completionHandler: @escaping ([Message]) -> Void) {
-        chatRoomRef = db.collection("chatroom/\(chatRoomID)/chat")
-
-        chatRoomRef.getDocuments() { (querySnapshot, err) in
-            var messages:[Message] = []
-            
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                guard let documents = querySnapshot?.documents else {return}
-                let decoder =  JSONDecoder()
-                
-                for document in documents {
-                    
-                    do {
-                        let data = document.data()
-                        print("createdat: \(data["createdat"]) content: \(data["content"]) author_uid: \(data["author_uid"])")
-                        let jsonData = try JSONSerialization.data(withJSONObject:data)
-                        print(jsonData)
-                        let roadInfo = try decoder.decode(Message.self, from: jsonData)
-                        messages.append(roadInfo)
-                        
-                        if let createdat = String(data["createdat"]) as? String, let content = data["content"] as? String, let author_uid = data["author_uid"] as? String{
-                            
-                            let newMessage = Message(content: content, authorUID: author_uid, createdat: createdat)
-                            messages.append(newMessage)
-                            
-                            
-                        }
-                        
-                    } catch let err {
-                        print("err: \(err)")
-                    }
-                }
-                print("개수: \(documents.count )")
-                completionHandler(messages)
-            }
+        } catch  {
+            print("Firestore>> Error from addPost-setData: ", error)
         }
     }
     
+    func readAll(chatRoomID: String, completionHandler: @escaping ([Message]) -> Void) {
+        
+        db.collection("chatroom/\(chatRoomID)/chat").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                var messages: [Message] = []
+                
+                for document in querySnapshot!.documents {
+                    do {
+                        if var varMessage = try? document.data(as: Message.self) {
+                            varMessage.documentID = document.documentID
+                            messages.append(varMessage)
+                        } else {
+                            print("Failed to decode message data for document \(document.documentID)")
+                        }
+                    } catch {
+                        print("Error decoding message data: \(error)")
+                    }
+                }
+                
+                // 변환된 구조체 배열 사용
+                for message in messages {
+                    print("DocumentID: \(message.documentID ?? "No ID")")
+                    print("Content: \(message.content)")
+                    print("AuthorUID: \(message.authorUID)")
+                    print("CreatedAt: \(message.createdat)")
+                }
+            }
+        }
+    }
 }
+
+
+
+
+
 

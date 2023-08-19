@@ -26,16 +26,16 @@ class ChatListViewController: UIViewController {
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         // Do any additional setup after loading the view.
-        FirestoreAPI.shared.addChat(chatRoomID: "wltjd3459@af dfs", chatRequest: Message(content: "안녕하세요 포스팅보고 연락...더보기"))
+//        FirestoreAPI.shared.addChat(chatRoomID: "wltjd3459@af dfs", chatRequest: Message(content: "안녕하세요 포스팅보고 연락...더보기"))
         FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs"){ roadInfos in
             print(roadInfos)
         }
-        
-        chatArr = PostAPI.getChatList()
-        if( chatArr == nil){
-            chatArr = []
-            showBlockAlert()
-        }
+//        
+//        chatArr = PostAPI.getChatList()
+//        if( chatArr == nil){
+//            chatArr = []
+//            showBlockAlert()
+//        }
     }
     
     
@@ -64,7 +64,7 @@ class ChatListViewController: UIViewController {
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return chatArr!.count
+        return chatArr?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

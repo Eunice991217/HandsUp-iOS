@@ -66,7 +66,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         self.navigationController?.navigationBar.isHidden = true;
         
-        myPostArr = ServerAPI.myBoards(size: 6) ?? []
+        myPostArr = ServerAPI.myBoards(size: 10) ?? []
 //        self.navigationController?.navigationBar.tintColor = .black
 //        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
