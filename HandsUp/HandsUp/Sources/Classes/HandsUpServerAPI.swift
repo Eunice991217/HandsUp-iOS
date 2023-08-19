@@ -121,11 +121,14 @@ class PostAPI{
             let output = try? JSONDecoder().decode(fcmToken_rp.self, from: data!)
             if output == nil{
                 check = -1;
+
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
+
             }else{
                 check = output!.statusCode
+
             }
             semaphore.signal()
         }.resume()
