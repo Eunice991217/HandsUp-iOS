@@ -144,8 +144,25 @@ class ViewController: UIViewController {
         
     }
     
+    @objc func showPage(_ notification:Notification) {
+            if let userInfo = notification.userInfo {
+                if let index = userInfo["index"] as? Int {
+                    let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+                    // navigationController에 연결되어 있는 secondVC를 push 형식으로 전환
+                    print("showpage 호출됨?")
+                    guard let secondVC = storyboard?.instantiateViewController(withIdentifier: "AlarmNChatListViewController") as? AlarmNChatListViewController else { return }
+                    navigationController?.pushViewController(secondVC, animated: true)
+                    
+                    // Modal로 띄우고 싶으면 NavigationController를 연결하는 선행 과정 없이 present 메서드를 사용하면 됨.
+                }
+                
+            }
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showPage(_:)), name: NSNotification.Name("이름 설정"), object: nil)
         
         HomeTabView.layer.shadowOpacity = 1
         HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor

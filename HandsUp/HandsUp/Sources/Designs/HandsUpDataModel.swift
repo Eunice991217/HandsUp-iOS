@@ -135,6 +135,17 @@ struct chatCharacter: Codable {
     let backGroundColor, status: String
 
 }
+struct user_notification_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: [Notification]
+}
+
+// MARK: - Result
+struct Notification: Codable {
+    let title, body, createdAt: String
+}
 
 
 struct board_in_chat_rp: Codable {
