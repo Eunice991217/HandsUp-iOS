@@ -352,63 +352,6 @@ class PostAPI{
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     
-    static func getNotiList()-> [Notification]?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "users/notification")
-        var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        
-        var check: Int = -1
-//        print("check0: \(check)")
-        var rtn: [Notification]? = nil
-        var output: user_notification_rp? = nil
-        let session = URLSession(configuration: .default)
-       
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            output = try? JSONDecoder().decode(user_notification_rp.self, from: data!)
-            if output == nil{
-                check = -1;
-                print("check1 : \(check)")
-            }
-            else{
-                check = output!.statusCode
-                print("check2 : \(check)")
-            }
-            semaphore.signal()
-        }.resume()
-        semaphore.wait()
-        
-        if check == 4044{
-            if ServerAPI.reissue() == 2000{
-                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-                    output = try? JSONDecoder().decode(user_notification_rp.self, from: data!)
-                    if output == nil{
-                        check = -1;
-                        print("check3 : \(check)")
-                    }
-                    else{
-                        check = output!.statusCode
-                        print("check4 : \(check)")
-                    }
-                    semaphore.signal()
-                }.resume()
-                semaphore.wait()
-            }
-        }
-        
-        if check == 2000{//서버 통신 성공
-            rtn = output!.result!.getBoardList
-            print("statusCode : \(output!.statusCode)")
-        }
-        
-        return rtn
-        // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
-    }
-    
     static func sendChatAlarm(emailID : String) -> Int {
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/chats/alarm")
