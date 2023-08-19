@@ -122,7 +122,7 @@ class ViewController: UIViewController {
 //        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
 //            return
 //        }
-        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "dfViewController") else {
+        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
             return
         }
         // 화면 전환!
