@@ -50,7 +50,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
 
         cell.content.text=HomeCardList[indexPath.row].board.content
         cell.content.sizeToFit()
-        
+
         cell.tagType.text = "#" + HomeCardList[indexPath.row].tag
         cell.tagType.font = UIFont(name: "Roboto-Bold", size: 14)
 
