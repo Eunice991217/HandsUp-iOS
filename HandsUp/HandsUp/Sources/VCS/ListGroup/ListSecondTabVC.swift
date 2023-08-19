@@ -15,7 +15,7 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var HomeList : [boardsShowList_rp_getBoardList] = [] // boardsShowList_rp_getBoardList
     
-    var boardsCharacterListTalk: [Int] = []
+    var boardsCharacterList: [Int] = []
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
 
@@ -60,15 +60,15 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
-        myProfile.modalPresentationStyle = .overFullScreen
-        
-        let filteredList = HomeList.filter { $0.tag == "Talk" }
-        
-        myProfile.HomeList = filteredList
-        myProfile.startPage = indexPath.row
-        
-        self.present(myProfile, animated: true)
+//        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
+//        myProfile.modalPresentationStyle = .overFullScreen
+//        
+//        let filteredList = HomeList.filter { $0.tag == "Talk" }
+//        
+//        myProfile.HomeList = filteredList
+//        myProfile.startPage = indexPath.row
+//        
+//        self.present(myProfile, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,7 +175,7 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
-        boardsCharacterListTalk = [] // 빈 배열
+        boardsCharacterList = [] // 빈 배열
 
         let characterBoards = item.character
 
@@ -187,17 +187,22 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         eyes = (Int(characterBoards.eye) ?? 1) - 1
         glasses = Int(characterBoards.glasses) ?? 0
 
-        boardsCharacterListTalk.append(background)
-        boardsCharacterListTalk.append(hair)
-        boardsCharacterListTalk.append(eyebrow)
-        boardsCharacterListTalk.append(mouth)
-        boardsCharacterListTalk.append(nose)
-        boardsCharacterListTalk.append(eyes)
-        boardsCharacterListTalk.append(glasses)
+        boardsCharacterList.append(background)
+        boardsCharacterList.append(hair)
+        boardsCharacterList.append(eyebrow)
+        boardsCharacterList.append(mouth)
+        boardsCharacterList.append(nose)
+        boardsCharacterList.append(eyes)
+        boardsCharacterList.append(glasses)
 
-        cell.img.setAll(componentArray: boardsCharacterListTalk) // 가져오기
-        cell.img.setCharacter_NoShadow() // 그림자 없애기
-        cell.img.setCharacter() // 캐릭터 생성
+//        cell.img.setAll(componentArray: boardsCharacterListTalk) // 가져오기
+//        cell.img.setCharacter_NoShadow() // 그림자 없애기
+//        cell.img.setCharacter() // 캐릭터 생성
+        //        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
+                cell.img.setCharacter_NoShadow() // 그림자 없애기
+        //        cell.img.convertSetList(arr: item.character)
+                cell.img.setCharacter(componentArray: boardsCharacterList) // 캐릭터 생성
+        //        cell.img.asImage() // 이미지로 변경
 
         cell.selectionStyle = .none
 

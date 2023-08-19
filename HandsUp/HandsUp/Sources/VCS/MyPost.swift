@@ -14,6 +14,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let geocoder = CLGeocoder()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("myPostArr.count : \(myPostArr.count)")
         return myPostArr.count
     }
     
@@ -38,7 +39,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.MyPostTableViewCellName.text = UserDefaults.standard.string(forKey: "nickname")!
         cell.MyPostTableViewCellLoaction.text = getAddressByLocation(latitiude: myPostArr[indexPath.row].latitude, longitude: myPostArr[indexPath.row].longitude)
-        cell.MyPostTableViewCellTime.text = myPostArr[indexPath.row].createdAt.toDate().getTimeDifference()
+        cell.MyPostTableViewCellTime.text =  myPostArr[indexPath.row].createdAt.toDate().getTimeDifference()
         cell.MyPostTableViewCellContent.text = myPostArr[indexPath.row].content
         
         cell.selectionStyle = .none
@@ -66,7 +67,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         self.navigationController?.navigationBar.isHidden = true;
         
-        myPostArr = ServerAPI.myBoards(size: 10) ?? []
+        myPostArr = ServerAPI.myBoards() ?? []
 //        self.navigationController?.navigationBar.tintColor = .black
 //        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.

@@ -612,14 +612,14 @@ class ServerAPI{
         return check
     }
     
-    static func myBoards(size: Int) -> [myBoards_rp_myBoardList]?{
+    static func myBoards() -> [myBoards_rp_myBoardList]?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/myBoards/" + String(size) + "/")
+        let url = URL(string: serverDir + "/boards/myBoards")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        
+
         var check: Int = -1
         var rtn: [myBoards_rp_myBoardList]? = nil
         var output: myBoards_rp? = nil
@@ -629,14 +629,17 @@ class ServerAPI{
             output = try? JSONDecoder().decode(myBoards_rp.self, from: data!)
             if output == nil{
                 check = -1;
+                print("내 게시물 output : \(output?.message)")
             }
             else{
                 check = output!.statusCode
+                print(url)
+                print("내 게시물 result : \(output?.result!.myBoardList)")
             }
             semaphore.signal()
         }.resume()
         semaphore.wait()
-        
+
         if check == 4044{
             if ServerAPI.reissue() == 2000{
                 session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -652,10 +655,11 @@ class ServerAPI{
                 semaphore.wait()
             }
         }
-        
+
         if check == 2000{//서버 통신 성공
             rtn = output!.result!.myBoardList
             print("내 게시물 받기 성공")
+            print("rtn : \(rtn)")
         }
         print("내 게시물 check: \(check)")
         return rtn

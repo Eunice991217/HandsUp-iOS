@@ -16,23 +16,23 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
     let cameraPosition = NMFCameraPosition()
     let marker = NMFMarker()
     let markerEx = NMFMarker()
-
+    
     lazy var MyPosition: UIButton = {
         let MPbtn = UIButton()
         MPbtn.setImage(UIImage(named: "FilterCenterFocus"), for: .normal)
         return MPbtn
     }()
-
+    
     lazy var MapReset: UIButton = {
         let MPbtn = UIButton()
         MPbtn.setImage(UIImage(named: "mapResearch"), for: .normal)
         return MPbtn
     }()
-
+    
     @objc func restartDidTap() {
         viewDidLoad()
     }
-
+    
     @objc func SearchMP() {
         viewDidLoad()
     }
@@ -42,7 +42,7 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         
         let mapView = NMFMapView(frame: view.frame)
@@ -50,16 +50,16 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         mapView.allowsScrolling = true // 스크롤 가능
         mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0) // 컨텐츠 패딩값 (하단 탭바만큼 패딩값)
         view.addSubview(mapView)
-
+        
         view.addSubview(MyPosition)
         view.addSubview(MapReset)
-
+        
         MapReset.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(50)
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-24)
         }
-
+        
         MyPosition.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-96)
@@ -67,22 +67,22 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         
         MapReset.addTarget(self, action: #selector(restartDidTap), for: .touchUpInside)
         MyPosition.addTarget(self, action: #selector(SearchMP), for: .touchUpInside)
-
+        
         // 내 위치 가져오기
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-
+        
         // 위도, 경도 가져오기
         let latitude = locationManager.location?.coordinate.latitude ?? 0
         let longitude = locationManager.location?.coordinate.longitude ?? 0
         print(latitude)
         print(longitude)
-
+        
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 15.0)
         mapView.moveCamera(cameraUpdate)
         cameraUpdate.animation = .easeIn
-
+        
         let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
         let map_list = HomeServerAPI.showMapList()
         if map_list != nil{
@@ -102,13 +102,15 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
                 }
                 myProfile.modalPresentationStyle = .overFullScreen
                 new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+//                    let myProfile = MyProfileViewController()
+//                    myProfile.selectedId = overlay.boardIdx// 넘기려는 ID 값을 설정
                     self.present(myProfile, animated: true)
                     return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
                 }
                 new_marker.mapView = mapView
             }
         }
-
+        
     }
     
 }

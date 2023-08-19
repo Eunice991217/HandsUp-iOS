@@ -54,6 +54,7 @@ struct boardsShowList_rp_getBoardList: Codable {
     let character: boardsShowList_rp_character
     let nickname: String
     let tag: String
+    let didLike : String // true, false String 값
 }
 
 struct boardsShowList_rp_board: Codable {

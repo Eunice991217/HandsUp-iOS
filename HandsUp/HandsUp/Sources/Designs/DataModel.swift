@@ -205,7 +205,6 @@ struct myBoards_rp: Codable {
 struct myBoards_rp_result: Codable {
     let character: myBoards_rp_character
     let myBoardList: [myBoards_rp_myBoardList]
-    let hasNext: Bool
 }
 
 struct myBoards_rp_character: Codable {
@@ -221,6 +220,7 @@ struct myBoards_rp_myBoardList: Codable {
     let status, content: String
     let latitude, longitude: Double
     let createdAt: String
+    let location : String
 }
 
 struct boardsBlock_rp: Codable {
