@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class PostAPI{
-    static func makeNewPost( indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int) -> Int {
+    static func makeNewPost( indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, location : String) -> Int {
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/boards/")
         var request = URLRequest(url: url!)
@@ -17,7 +17,7 @@ class PostAPI{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
-        let board_request = boards_rq(indicateLocation: indicateLocation, latitude: latitude, longitude: longitude, content: content, tag: tag, messageDuration: messageDuration)
+        let board_request = boards_rq(indicateLocation: indicateLocation, latitude: latitude, longitude: longitude, content: content, tag: tag, messageDuration: messageDuration, location : location)
         
         let uploadData = try! JSONEncoder().encode(board_request)
         
@@ -41,7 +41,7 @@ class PostAPI{
         return check
     }
     
-    static func editPost(indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, boardIdx: Int)-> Int {
+    static func editPost(indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, boardIdx: Int, location : String)-> Int {
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/boards/" + String(boardIdx))
         
@@ -50,7 +50,7 @@ class PostAPI{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
-        let uploadData = try! JSONEncoder().encode(boards_rq(indicateLocation: indicateLocation, latitude: latitude, longitude: longitude, content: content, tag: tag, messageDuration: messageDuration))
+        let uploadData = try! JSONEncoder().encode(boards_rq(indicateLocation: indicateLocation, latitude: latitude, longitude: longitude, content: content, tag: tag, messageDuration: messageDuration, location : location))
         
         
         var check:Int = -1;

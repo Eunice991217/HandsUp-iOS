@@ -311,13 +311,13 @@ class RegisterPostViewController: UIViewController{
             var result: Int!
             
             if(isEdited == true){ //수정하는 글일 시에 수정 API 요청
-                result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: editedBoard!.boardIdx)
+                result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: editedBoard!.boardIdx, location : locationLabel_HVC.text!)
             }
             else{
-                result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
+                result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, location : locationLabel_HVC.text!)
             }
             
-            
+            print("locationLabel_HVC.text : \(locationLabel_HVC.text!)")
             print("result:  \(result)")
             switch result {
             case 2000:

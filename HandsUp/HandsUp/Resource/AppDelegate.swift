@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //firebase 초기화 세팅
         FirebaseApp.configure()
         
-        
         //푸시 알림 권한 설정 및 푸시 알림에 앱 등록
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

@@ -38,7 +38,8 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.MyPostTableViewCellImage.setUserCharacter()
         
         cell.MyPostTableViewCellName.text = UserDefaults.standard.string(forKey: "nickname")!
-        cell.MyPostTableViewCellLoaction.text = getAddressByLocation(latitiude: myPostArr[indexPath.row].latitude, longitude: myPostArr[indexPath.row].longitude)
+//        cell.MyPostTableViewCellLoaction.text = getAddressByLocation(latitiude: myPostArr[indexPath.row].latitude, longitude: myPostArr[indexPath.row].longitude)
+        cell.MyPostTableViewCellLoaction.text = myPostArr[indexPath.row].location
         cell.MyPostTableViewCellTime.text =  myPostArr[indexPath.row].createdAt.toDate().getTimeDifference()
         cell.MyPostTableViewCellContent.text = myPostArr[indexPath.row].content
         

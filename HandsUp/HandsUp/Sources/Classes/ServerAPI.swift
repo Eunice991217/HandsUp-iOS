@@ -629,12 +629,12 @@ class ServerAPI{
             output = try? JSONDecoder().decode(myBoards_rp.self, from: data!)
             if output == nil{
                 check = -1;
-                print("내 게시물 output : \(output?.message)")
+//                print("내 게시물 output : \(output?.message)")
             }
             else{
                 check = output!.statusCode
                 print(url)
-                print("내 게시물 result : \(output?.result!.myBoardList)")
+//                print("내 게시물 result : \(output?.result!.myBoardList)")
             }
             semaphore.signal()
         }.resume()

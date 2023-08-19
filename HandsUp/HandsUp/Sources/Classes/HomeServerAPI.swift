@@ -97,13 +97,10 @@ class HomeServerAPI {
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
         var check: Int = -1
-//        print("check0: \(check)")
         var rtn: [boardsShowList_rp_getBoardList]? = nil
         var output: boardsShowList_rp? = nil
         let session = URLSession(configuration: .default)
-        
-//        let uploadData = try! JSONEncoder().encode(boardsShowList_rq(schoolName: UserDefaults.standard.string(forKey: "schoolName")!))
-        
+                
         let semaphore = DispatchSemaphore(value: 0)
         
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -111,10 +108,12 @@ class HomeServerAPI {
             if output == nil{
                 check = -1;
                 print("check1 : \(check)")
+                print("output message: \(output?.message)")
+                print("output 실패 result: \(output?.result)")
             }
             else{
                 check = output!.statusCode
-                print("check2 : \(check)")
+                print("output 성공 result: \(output?.result)")
             }
             semaphore.signal()
         }.resume()
