@@ -20,6 +20,7 @@ struct boards_rq: Codable {
     let latitude, longitude: Double?
     let content, tag: String
     let messageDuration: Int
+    let location : String
 }
 
 //reponse

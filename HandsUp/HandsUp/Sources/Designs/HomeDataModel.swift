@@ -64,6 +64,7 @@ struct boardsShowList_rp_board: Codable {
     let indicateLocation: String
     let messageDuration: Int
     let createdAt, updatedAt, status: String
+    let location : String
 }
 
 struct boardsShowList_rp_character: Codable {

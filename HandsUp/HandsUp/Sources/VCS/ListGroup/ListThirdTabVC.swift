@@ -140,19 +140,25 @@ class ListThirdTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.name.text = item.nickname
         cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        let latitude = item.board.latitude
-        let longitude = item.board.longitude
-
-        getAddressByLocation(latitude: latitude, longitude: longitude) { [weak self] address in
-            DispatchQueue.main.async {
-                if item.board.indicateLocation == "true" {
-                    cell.location.text = address
-                } else {
-                    cell.location.text = "위치 비밀"
-                }
-            }
+        
+        if item.board.indicateLocation == "true" {
+            cell.location.text = item.board.location
+        } else {
+            cell.location.text = "위치 비밀"
         }
+
+//        let latitude = item.board.latitude
+//        let longitude = item.board.longitude
+//
+//        getAddressByLocation(latitude: latitude, longitude: longitude) { [weak self] address in
+//            DispatchQueue.main.async {
+//                if item.board.indicateLocation == "true" {
+//                    cell.location.text = address
+//                } else {
+//                    cell.location.text = "위치 비밀"
+//                }
+//            }
+//        }
 
         print("밥 cell 위치값 확인 : \(String(describing: cell.location.text))")
         cell.location.font = UIFont(name: "Roboto-Regular", size: 14)

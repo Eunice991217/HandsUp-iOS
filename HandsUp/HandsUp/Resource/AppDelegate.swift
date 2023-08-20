@@ -13,7 +13,7 @@ import FirebaseMessaging
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(granted, error)
         }
         //firebase 초기화 세팅
-        // FirebaseMessaging: Firebase Core 설정 및 Messaging 딜리게이트 추가
         FirebaseApp.configure()
         
         if #available(iOS 10.0, *) {
