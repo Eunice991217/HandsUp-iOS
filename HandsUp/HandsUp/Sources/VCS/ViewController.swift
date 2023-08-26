@@ -111,6 +111,7 @@ class ViewController: UIViewController {
             ListView.alpha = 0
             CustomSwitchBtn.alpha = 1
         }
+        
     }
     
     @IBAction func HomePlusBtnDidTap(_ sender: Any) {

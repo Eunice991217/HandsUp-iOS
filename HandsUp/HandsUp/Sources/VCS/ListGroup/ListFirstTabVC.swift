@@ -23,14 +23,16 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        HomeList = HomeServerAPI.boardsShowList() ?? []
+        
         // Do any additional setup after loading the view.
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
         
+        self.view.addSubview(self.myTableView)
+        
         self.myTableView.register(ListTableViewCell.self,
                                   forCellReuseIdentifier: "ListTableViewCell")
-        
-        self.view.addSubview(self.myTableView)
         
         myTableView.separatorStyle = .none
         
@@ -51,17 +53,12 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                                                    attribute: .trailing, relatedBy: .equal, toItem: self.view,
                                                    attribute: .trailing, multiplier: 1.0, constant: 0))
         
-        HomeList = HomeServerAPI.boardsShowList() ?? []
-        // print("Home Talk Page 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        //        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
-        
-        // 스토리보드에서 지정해준 ViewController의 ID
+//        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
         
         guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") as? MyProfileView else { return }
         myProfile.modalPresentationStyle = .overFullScreen
@@ -70,6 +67,8 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        myTableView.reloadData()
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
             return filteredList.count
@@ -78,54 +77,12 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
-//        print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
         return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
-//    var findLocation:CLLocation!
-//    let geocoder = CLGeocoder()
-//    var longitude_HVC = 0.0
-//    var latitude_HVC = 0.0
-//    var finalAddress = ""
-//
-//    func getAddressByLocation(latitude: Double, longitude: Double, completion: @escaping (String?) -> Void) {
-//        print("위도, 경도 변환 함수 호출 테스트")
-//        findLocation = CLLocation(latitude: latitude, longitude: longitude)
-//        print("latitude: \(latitude), longitude: \(longitude)")
-//        if findLocation != nil {
-//            geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
-//                if error != nil {
-//                    completion(nil)
-//                    return
-//                }
-//                if let placemark = placemarks?.first {
-//                    var address = ""
-//                    if placemark.administrativeArea != nil {
-//                        // address = "\(address) \(administrativeArea) "
-//                    }
-//                    if let locality = placemark.locality {
-//                        address = "\(address)\(locality) "
-//                    }
-//                    if let thoroughfare = placemark.thoroughfare {
-//                        address = "\(address)\(thoroughfare)"
-//                    }
-//                    if placemark.subThoroughfare != nil {
-//                        // address = "\(address) \(subThoroughfare)"
-//                    }
-//                    completion(address)
-//                } else {
-//                    completion(nil)
-//                }
-//            }
-//        } else {
-//            completion(nil)
-//        }
-//    }
-//
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else {
@@ -138,10 +95,6 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         boardsCharacterList = [] // 빈 배열
         
         let characterBoards = item.character
-        
-        //        let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
-        //        charImg.convertSetList(arr: item.character)
-        //        cell.imageProfile = charImg.asImage()
         
         background = (Int(characterBoards.backGroundColor) ?? 1) - 1
         hair = (Int(characterBoards.hair) ?? 1) - 1
@@ -159,18 +112,14 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
         
-        //        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
+        self.view.layoutIfNeeded()
+    
+        cell.img.setAll(componentArray: boardsCharacterList) // 캐릭터 생성
         cell.img.setCharacter_NoShadow() // 그림자 없애기
-        //        cell.img.convertSetList(arr: item.character)
-        cell.img.setCharacter(componentArray: boardsCharacterList) // 캐릭터 생성
-        //        cell.img.asImage() // 이미지로 변경
         
         cell.name.text = item.nickname
         cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-//        let latitude = item.board.latitude
-//        let longitude = item.board.longitude
         
         if item.board.indicateLocation == "true" {
             cell.location.text = item.board.location
@@ -178,17 +127,6 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.location.text = "위치 비밀"
         }
         
-//        getAddressByLocation(latitude: latitude, longitude: longitude) { [weak self] address in
-//            DispatchQueue.main.async {
-//                if item.board.indicateLocation == "true" {
-//                    cell.location.text = address
-//                } else {
-//                    cell.location.text = "위치 비밀"
-//                }
-//            }
-//        }
-        
-//        print("전체 cell 위치값 확인 : \(String(describing: cell.location.text))")
         cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
         
@@ -208,8 +146,6 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.label2.text = "|"
         cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-        
-        
         
         cell.selectionStyle = .none
         

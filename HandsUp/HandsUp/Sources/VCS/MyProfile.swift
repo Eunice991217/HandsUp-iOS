@@ -9,24 +9,24 @@
 //import CoreLocation
 //
 //class MyProfile: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-//    
+//
 //    @IBOutlet var MyProfileCollectionView: UICollectionView!
-//    
+//
 //    var HomeList : [boardsShowList_rp_getBoardList] = []
-//    
+//
 //    var boardsCharacterList: [Int] = []
 //    var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
-//    
+//
 ////    @IBOutlet var MyProfileHeartBtn: UIButton!
-//    
+//
 //    var bRec:Bool = true
-//    
+//
 //    var startPage: Int = 0
-//    
+//
 //    var selectedIndexPath: IndexPath?
-//    
+//
 //    var boardIndex: Int64?
-//    
+//
 //    @IBAction func HeartBtnDidTap(_ sender: Any) {
 //        bRec = !bRec
 //
@@ -41,20 +41,20 @@
 //            }
 //        }
 //    }
-//    
+//
 //    @IBAction func MyProfilemoreDidTap(_ sender: Any) {
 //        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
-//        
+//
 //        guard let selectedIndexPath = selectedIndexPath else {
 //            return
 //        }
-//        
+//
 //        let postAuthorNickname = HomeList[selectedIndexPath.row].nickname
 //        let isMyPost = currentUserNickname == postAuthorNickname
-//        
+//
 //        self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
 //    }
-//    
+//
 //    func showAlertController(style: UIAlertController.Style, isMyPost: Bool) {
 //        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 //
@@ -141,37 +141,37 @@
 //
 //        present(alert, animated: true, completion: nil)
 //    }
-//    
+//
 //    @IBAction func MyProfileChatBtnDidTap(_ sender: Any) {
-//        
+//
 //        // ChatViewController
 //        let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
-//        
+//
 //        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
-//        
+//
 //        nextVC.modalPresentationStyle = .fullScreen
-//        
+//
 //        let transition = CATransition()
 //        transition.duration = 0.3
 //        transition.type = CATransitionType.push
 //        transition.subtype = CATransitionSubtype.fromRight
 //        view.window!.layer.add(transition, forKey: kCATransition)
-//        
-//    
+//
+//
 //        present(nextVC, animated: false, completion: nil)
 //    }
-//    
+//
 //    @IBAction func MyProfileDismissBtnDidTap(_ sender: Any) {
 //        self.dismiss(animated: true, completion: nil)
 //    }
-//    
-//    
+//
+//
 //    func setupView() {
 //       // 6. add blur view and send it to back
 //       view.addSubview(blurredView)
 //       view.sendSubviewToBack(blurredView)
 //   }
-//    
+//
 //    lazy var blurredView: UIView = {
 //        // 1. create container view
 //        let containerView = UIView()
@@ -183,35 +183,35 @@
 //        let dimmedView = UIView()
 //        dimmedView.backgroundColor = .black.withAlphaComponent(0.3)
 //        dimmedView.frame = self.view.bounds
-//        
+//
 //        // 4. add both as subviews
 //        containerView.addSubview(customBlurEffectView)
 //        containerView.addSubview(dimmedView)
 //        return containerView
 //    }()
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        
+//
 //        selectedIndexPath = indexPath
 //    }
 //
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        print("viewDidAppear table View 성공 및 원소 개수 == \(HomeList.count)")
 //        return HomeList.count
 //    }
-//    
+//
 //    var findLocation:CLLocation!
 //    let geocoder = CLGeocoder()
 //    var longitude_HVC = 0.0
 //    var latitude_HVC = 0.0
 //    var finalAddress = ""
-//    
+//
 //    func getAddressByLocation(latitude: Double, longitude: Double, completion: @escaping (String) -> Void) {
 //        print("위도, 경도 변환 함수 호출 테스트")
 //        findLocation = CLLocation(latitude: latitude, longitude: longitude)
 //        print("latitude: \(latitude), longitude: \(longitude)")
-//        
+//
 //        if findLocation != nil {
 //            var address = ""
 //            geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
@@ -235,19 +235,19 @@
 //                }
 //            }
 //        }
-//        
+//
 //        completion(finalAddress) // 완료 후 주소를 반환하는 completion 핸들러 호출
 //    }
 //
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyProfileCollectionViewCell", for: indexPath) as! MyProfileCollectionViewCell
-//        
+//
 //        boardIndex = Int64(HomeList[indexPath.row].board.boardIdx) // 클릭한 셀의 index 값을 가져옴
-//        
+//
 //        boardsCharacterList = [] // 빈 배열
-//        
+//
 //        let characterBoards = HomeList[indexPath.row].character
-//        
+//
 //        background = (Int(characterBoards.backGroundColor) ?? 1) - 1
 //        hair = (Int(characterBoards.hair) ?? 1) - 1
 //        eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
@@ -255,7 +255,7 @@
 //        nose = (Int(characterBoards.nose) ?? 1) - 1
 //        eyes = (Int(characterBoards.eye) ?? 1) - 1
 //        glasses = Int(characterBoards.glasses) ?? 0
-//        
+//
 //        boardsCharacterList.append(background)
 //        boardsCharacterList.append(hair)
 //        boardsCharacterList.append(eyebrow)
@@ -263,32 +263,32 @@
 //        boardsCharacterList.append(nose)
 //        boardsCharacterList.append(eyes)
 //        boardsCharacterList.append(glasses)
-//        
+//
 //        cell.MyProfileCellImage.setAll(componentArray: boardsCharacterList) // 가져오기
 //        cell.MyProfileCellImage.setCharacter_NoShadow() // 그림자 없애기
 //        cell.MyProfileCellImage.setCharacter() // 캐릭터 생성
-//        
-//        
+//
+//
 //        cell.MyProfileSmallName.text=HomeList[indexPath.row].nickname
 //        cell.MyProfileCellLargeName.text=HomeList[indexPath.row].nickname
-//        
+//
 //        // getAddressByLocation를 비동기로 호출하고 클로저 내에서 TableView를 업데이트
 //        getAddressByLocation(latitude: HomeList[indexPath.row].board.latitude, longitude: HomeList[indexPath.row].board.longitude) { address in
 //            DispatchQueue.main.async {
 //                cell.MyProfileCellLocation.text = address // 주소를 설정하여 TableView를 업데이트
 //            }
 //        }
-//        
+//
 //        let createDate = HomeList[indexPath.row].board.createdAt.toDate()
 //        cell.MyProfileCellTime.text=createDate.getTimeDifference()
-//        
+//
 //        cell.MyProfileCellContent.text=HomeList[indexPath.row].board.content
-//        
+//
 //        cell.MyProfileCellTag.text = "#" + HomeList[indexPath.row].tag
 //        cell.MyProfileCellTag.font = UIFont(name: "Roboto-Bold", size: 14)
-//        
+//
 //        cell.MyProfileTag.cornerRadius = 12
-//        
+//
 //        let schoolName = HomeList[indexPath.row].schoolName
 //        var cutSchoolName: String = ""
 //
@@ -306,45 +306,45 @@
 //
 //            cutSchoolName = String(schoolName[range])
 //        }
-//    
+//
 //        cell.MyProfileCellUniv.text = cutSchoolName
 //        cell.MyProfileCellUniv.font = UIFont(name: "Roboto-Bold", size: 14)
-//        
+//
 //        cell.MyProfileUniv.cornerRadius = 12
-//        
+//
 //        cell.MyProfileCellContent.sizeToFit()
-//        
+//
 //        return cell
 //    }
-//    
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
-//        
+//
 //        setupView()
-//        
+//
 //        MyProfileCollectionView.backgroundColor = .none
-//        
+//
 //        self.navigationController?.isNavigationBarHidden = true
-//        
+//
 //        let flowLayout = UICollectionViewFlowLayout()
 //        flowLayout.scrollDirection = .horizontal
 //        flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
-//        
+//
 //        MyProfileCollectionView.collectionViewLayout = flowLayout
-//        
+//
 //        MyProfileCollectionView.delegate = self
 //        MyProfileCollectionView.dataSource = self
-//        
+//
 //        // HomeList = HomeServerAPI.boardsShowList() ?? []
 //        // print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
-//        
+//
 //    }
-//    
+//
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        MyProfileCollectionView.setContentOffset(CGPoint(x: Int(self.view.frame.width) * startPage, y: 0), animated: true)
 //    }
-//        
+//
 //}
 //
 //extension MyProfile: UICollectionViewDelegateFlowLayout {

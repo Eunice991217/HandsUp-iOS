@@ -18,11 +18,6 @@ class ListTableViewCell: UITableViewCell {
         return view
     }()
     
-    lazy var imageProfile : UIImageView =  {
-        let image = UIImageView()
-        return image
-    }()
-    
     lazy var name: UILabel = { // 선언만했음. 메모리에는 아직 안올라가있음
         let label = UILabel()
         label.textAlignment = .center // 가운데 정렬로 변경
@@ -82,11 +77,11 @@ class ListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.addSubview(img)
         contentView.addSubview(name)
         contentView.addSubview(location)
         contentView.addSubview(time)
         contentView.addSubview(content)
-        contentView.addSubview(img)
         contentView.addSubview(label1)
         contentView.addSubview(label2)
         
