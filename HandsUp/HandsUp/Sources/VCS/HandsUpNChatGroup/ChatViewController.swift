@@ -14,9 +14,11 @@ class ChatViewController: UIViewController {
     var chatDatas_CVC = [String]()
     public var chatPersonName = ""
     public var statusCode = 0
-    public var boardIdx: Int?
+    public var boardIdx: Int = 0
     
-    
+    @IBOutlet var nameInBoard: UILabel!
+    @IBOutlet var profileViewInBoard: UIView!
+    @IBOutlet var contentInBoard: UILabel!
     
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
     
@@ -169,6 +171,11 @@ class ChatViewController: UIViewController {
         swipeRecognizer()
         
         characterView_CVC.setCharacter_NoShadow()
+        
+        let result = ServerAPI.singleList(boardIdx: boardIdx)
+        chatPersonNameLabel_CVC.text = result?.nickname
+        nameInBoard.text = result?.nickname
+        contentInBoard.text = result?.content
                                                 
     }
     

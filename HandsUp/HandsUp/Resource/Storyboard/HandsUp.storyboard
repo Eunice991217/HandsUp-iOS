@@ -605,11 +605,14 @@
                         <outlet property="chatSendBtn_CVC" destination="fBW-Ef-ZvP" id="dvt-1r-w81"/>
                         <outlet property="chatTableView_CVC" destination="s0q-ty-BAG" id="yhr-NR-B86"/>
                         <outlet property="chatTextView_CVC" destination="wXT-xb-sBq" id="Vtv-qd-4qB"/>
+                        <outlet property="contentInBoard" destination="6kH-yM-0AT" id="GER-Xs-tkn"/>
                         <outlet property="contentLb_CVC" destination="6kH-yM-0AT" id="tyz-sv-Uxo"/>
                         <outlet property="idLb_CVC" destination="Cht-fD-RzC" id="zrd-qD-QwG"/>
                         <outlet property="inputUIView_CVC" destination="r4o-Ql-8nT" id="Fp2-wS-jjL"/>
                         <outlet property="inputViewBottomMargin" destination="VtV-sn-jgr" id="dzy-mD-2cX"/>
+                        <outlet property="nameInBoard" destination="Cht-fD-RzC" id="UNF-7J-53I"/>
                         <outlet property="postView_CVC" destination="LgS-5S-lgA" id="zTE-ev-1pA"/>
+                        <outlet property="profileViewInBoard" destination="LgS-5S-lgA" id="Gbh-Y0-Jud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

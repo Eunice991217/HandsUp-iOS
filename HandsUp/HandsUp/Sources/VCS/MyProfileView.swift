@@ -10,7 +10,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     var selectedIndexPath: IndexPath?
     
-    var boardIndex: Int64?
+    var boardIndex: Int?
     var bRec:Bool = false
     
 //    @IBOutlet var heartBtn: UIButton!
@@ -145,6 +145,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
+        nextVC.boardIdx = boardIndex!
         
         nextVC.modalPresentationStyle = .fullScreen
         
@@ -159,7 +160,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     }
     
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            selectedIndexPath = indexPath
+        }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("viewDidAppear Collection View 성공 및 원소 개수 == \(HomeCardList.count)")
@@ -240,8 +243,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         } else {
             cell.location.text = "위치 비밀"
         }
-
-
+        
+        boardIndex =  HomeCardList[indexPath.row].board.boardIdx
         return cell
     }
     
