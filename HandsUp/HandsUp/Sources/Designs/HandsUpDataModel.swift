@@ -171,6 +171,16 @@ struct chat_alarm_rp: Codable {
     let statusCode: Int
     let message, result: String
 }
+struct chats_read_rq: Codable {
+    let chatRoomIdx: Int
+}
+
+struct chats_read_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+}
+
 
 
 

@@ -389,5 +389,44 @@ class PostAPI{
         semaphore.wait()
         return check
     }
+    
+    static func readChat(chatRoomIdx : Int){
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/chats/read")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        let chat_request = chats_read_rq(chatRoomIdx: chatRoomIdx)
+        
+        let uploadData = try! JSONEncoder().encode(chat_request)
+        
+        
+        
+        var check:Int = -1;
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(chats_read_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else if output!.statusCode == 4011{
+                print("유저 인덱스가 존재하지 않습니다. ")
+            }
+            else if output!.statusCode == 4017{
+                print("채팅방이 존재하지 않습니다. ")
+                check = output!.statusCode
+            }
+            else{
+                check = output!.statusCode
+            }
+            print("결과는!!!!!!!: \(output?.message)")
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+
+    }
 }
 

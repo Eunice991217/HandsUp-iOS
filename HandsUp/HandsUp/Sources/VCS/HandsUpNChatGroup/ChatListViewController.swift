@@ -36,6 +36,8 @@ class ChatListViewController: UIViewController {
 //            chatArr = []
 //            showBlockAlert()
 //        }
+        
+        PostAPI.readChat(chatRoomIdx: 1)
     }
     
     
