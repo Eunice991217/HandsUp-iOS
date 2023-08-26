@@ -8,6 +8,158 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     var HomeCardList : [boardsShowList_rp_getBoardList] = []
     var boardsCharacterList: [Int] = []
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
+    var selectedIndexPath: IndexPath?
+    
+    var boardIndex: Int64?
+    var bRec:Bool = false
+    
+//    @IBOutlet var heartBtn: UIButton!
+    
+    @IBAction func heartBtnDidTap(_ sender: UIButton) {
+        
+        sender.isSelected.toggle() // 버튼 상태를 토글
+            
+        if sender.isSelected {
+            sender.setImage(UIImage(named: "HeartDidTap"), for: .normal)
+            // 서버에 좋아요 요청 보내기 등의 추가 로직을 넣을 수 있습니다.
+//            let stat = HomeServerAPI.boardsHeart(boardIdx: Int64(HomeCardList[selectedIndexPath!.row].board.boardIdx))
+            print("하트 클릭")
+//            print("stat : \(stat)")
+            
+        } else {
+            sender.setImage(UIImage(named: "HeartOff"), for: .normal)
+            print("하트 취소")
+            // 서버에 좋아요 취소 요청 보내기 등의 추가 로직을 넣을 수 있습니다.
+        }
+    }
+    
+    
+    @IBAction func myProfileMoreDidTap(_ sender: Any) {
+        
+        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
+        
+        guard let selectedIndexPath = selectedIndexPath else {
+            return
+        }
+        
+        let postAuthorNickname = HomeCardList[selectedIndexPath.row].nickname
+        let isMyPost = currentUserNickname == postAuthorNickname
+        
+        self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
+    }
+    
+    func showAlertController(style: UIAlertController.Style, isMyPost: Bool) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in }
+        alert.addAction(cancel)
+        
+        let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
+        
+        if isMyPost {
+            let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
+                // 삭제 기능 실행
+            }
+            alert.addAction(delete)
+            
+            
+            let edit = UIAlertAction(title: "수정하기", style: .default) { (action) in
+                // 수정 기능 실행
+                
+                let myTabVC = UIStoryboard.init(name: "HandsUp", bundle: nil)
+                guard let nextVC = myTabVC.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
+                    return
+                }
+                nextVC.isEdited = true; nextVC.editedBoard = self.HomeCardList[self.selectedIndexPath!.row].board; nextVC.selectedTag_HVC = self.HomeCardList[self.selectedIndexPath!.row].tag
+                self.present(nextVC, animated: true, completion: nil)
+            }
+            alert.addAction(edit)
+            
+            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cancel.setValue(titleTextColor, forKey: "titleTextColor")
+            
+            edit.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
+            delete.setValue(titleTextColor, forKey: "titleTextColor")
+            
+        } else {
+            let block = UIAlertAction(title: "이 게시물 그만보기", style: .default) { (action) in
+                self.showBlockAlert()
+            }
+            alert.addAction(block)
+            
+            let report = UIAlertAction(title: "신고하기", style: .default) { (action) in
+                Report?.modalPresentationStyle = .fullScreen
+                // 화면 전환!
+                
+                let transition = CATransition()
+                transition.duration = 0.3
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromRight
+                self.view.window!.layer.add(transition, forKey: kCATransition)
+                
+                self.present(Report!, animated: false)
+            }
+            alert.addAction(report)
+            
+            // 버튼 색상 설정
+            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cancel.setValue(titleTextColor, forKey: "titleTextColor")
+            
+            report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
+            block.setValue(titleTextColor, forKey: "titleTextColor")
+        }
+        
+        // 버튼 색상 설정
+        let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cancel.setValue(titleTextColor, forKey: "titleTextColor")
+        
+        
+        // 배경색 설정
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    
+    func showBlockAlert(){
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
+        let confirm = UIAlertAction(title: "네", style: .default) { (action) in }; alert.addAction(confirm)
+
+        confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
+        cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        let attributedString = NSAttributedString(string: "해당 게시물을 차단하면 이 게시물은 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func dismissBtnDidTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func chatBtnDidTap(_ sender: Any) {
+        let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+        
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
+        
+        nextVC.modalPresentationStyle = .fullScreen
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+        
+    
+        present(nextVC, animated: false, completion: nil)
+    }
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("viewDidAppear Collection View 성공 및 원소 개수 == \(HomeCardList.count)")
@@ -75,6 +227,19 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
 
         cell.school.text = cutSchoolName
         cell.school.font = UIFont(name: "Roboto-Bold", size: 14)
+        
+//        if(HomeCardList[indexPath.row].didLike=="true") {
+//            cell.heart.setImage(UIImage(named: "HeartDidTap"), for: .normal)
+//        }
+//        else if(HomeCardList[indexPath.row].didLike=="false") {
+//            cell.heart.setImage(UIImage(named: "HeartOff"), for: .normal)
+//        }
+        
+        if HomeCardList[indexPath.row].board.indicateLocation == "true" {
+            cell.location.text = HomeCardList[indexPath.row].board.location
+        } else {
+            cell.location.text = "위치 비밀"
+        }
 
 
         return cell
@@ -99,12 +264,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeCardList.count)")
         
         setupView()
-        
-        //        let postCollectionViewCell = UIHostingController(rootView: PostCollectionviewCell())
-        //        addChild(postCollectionViewCell)
-        //        postCollectionViewCell.view.frame = view.bounds
-        //        view.addSubview(postCollectionViewCell.view)
-        //        postCollectionViewCell.didMove(toParent: self)
     }
     
     func setupView() {

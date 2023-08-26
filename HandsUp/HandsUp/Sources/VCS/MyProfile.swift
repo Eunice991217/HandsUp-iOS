@@ -27,20 +27,20 @@
 //    
 //    var boardIndex: Int64?
 //    
-////    @IBAction func HeartBtnDidTap(_ sender: Any) {
-////        bRec = !bRec
-////
-////        if bRec { // 비어진 하트
-////            MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
-////            print("하트 버튼을 취소했습니다.")
-////        } else { // 버튼 눌렀을때 채워진 하트
-////            MyProfileHeartBtn.setImage(UIImage(named: "HeartDidTap"), for: .normal)
-////            if let boardIndex = boardIndex {
-////                let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex) // 클릭한 id값 전달해야함
-////                print("하트 버튼을 클릭했습니다. \(boardIndex)")
-////            }
-////        }
-////    }
+//    @IBAction func HeartBtnDidTap(_ sender: Any) {
+//        bRec = !bRec
+//
+//        if bRec { // 비어진 하트
+//            MyProfileHeartBtn.setImage(UIImage(named: "HeartSmall"), for: .normal)
+//            print("하트 버튼을 취소했습니다.")
+//        } else { // 버튼 눌렀을때 채워진 하트
+//            MyProfileHeartBtn.setImage(UIImage(named: "HeartDidTap"), for: .normal)
+//            if let boardIndex = boardIndex {
+//                let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex) // 클릭한 id값 전달해야함
+//                print("하트 버튼을 클릭했습니다. \(boardIndex)")
+//            }
+//        }
+//    }
 //    
 //    @IBAction func MyProfilemoreDidTap(_ sender: Any) {
 //        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
@@ -57,22 +57,22 @@
 //    
 //    func showAlertController(style: UIAlertController.Style, isMyPost: Bool) {
 //        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        
+//
 //        let cancel = UIAlertAction(title: "닫기", style: .cancel) { (action) in }
 //        alert.addAction(cancel)
-//        
+//
 //        let Report = self.storyboard?.instantiateViewController(withIdentifier: "Report")
-//        
+//
 //        if isMyPost {
 //            let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
 //                // 삭제 기능 실행
 //            }
 //            alert.addAction(delete)
-//            
-//            
+//
+//
 //            let edit = UIAlertAction(title: "수정하기", style: .default) { (action) in
 //                // 수정 기능 실행
-//                
+//
 //                let myTabVC = UIStoryboard.init(name: "HandsUp", bundle: nil)
 //                guard let nextVC = myTabVC.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
 //                    return
@@ -81,53 +81,53 @@
 //                self.present(nextVC, animated: true, completion: nil)
 //            }
 //            alert.addAction(edit)
-//            
+//
 //            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
 //            cancel.setValue(titleTextColor, forKey: "titleTextColor")
-//            
+//
 //            edit.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
 //            delete.setValue(titleTextColor, forKey: "titleTextColor")
-//            
+//
 //        } else {
 //            let block = UIAlertAction(title: "이 게시물 그만보기", style: .default) { (action) in
 //                self.showBlockAlert()
 //            }
 //            alert.addAction(block)
-//            
+//
 //            let report = UIAlertAction(title: "신고하기", style: .default) { (action) in
 //                Report?.modalPresentationStyle = .fullScreen
 //                // 화면 전환!
-//                
+//
 //                let transition = CATransition()
 //                transition.duration = 0.3
 //                transition.type = CATransitionType.push
 //                transition.subtype = CATransitionSubtype.fromRight
 //                self.view.window!.layer.add(transition, forKey: kCATransition)
-//                
+//
 //                self.present(Report!, animated: false)
 //            }
 //            alert.addAction(report)
-//            
+//
 //            // 버튼 색상 설정
 //            let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
 //            cancel.setValue(titleTextColor, forKey: "titleTextColor")
-//            
+//
 //            report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
 //            block.setValue(titleTextColor, forKey: "titleTextColor")
 //        }
-//        
+//
 //        // 버튼 색상 설정
 //        let titleTextColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
 //        cancel.setValue(titleTextColor, forKey: "titleTextColor")
-//        
-//        
+//
+//
 //        // 배경색 설정
 //        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
-//        
+//
 //        present(alert, animated: true, completion: nil)
 //    }
 //
-//    
+//
 //    func showBlockAlert(){
 //        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 //        let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
