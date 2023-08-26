@@ -13,7 +13,7 @@ import FirebaseMessaging
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -51,8 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-
-
+    
+    
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -67,74 +67,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    
 }
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    // foreground에서 시스템 푸시를 수신했을 때 해당 메소드가 호출
+    
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.sound, .badge, .banner])
+      /// 앱이 foreground  상태일 때 Push 받으면 alert를 띄워준다
+        ///
+      completionHandler([.alert, .sound])
     }
     
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        // 푸시알림에 들어있는 데이터들
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         // 푸시알림 클릭시 화면 이동
-        if let apsData = userInfo["aps"] as? [String : AnyObject] {
-            if let alertData = apsData["alert"] as? [String : Any] {
+        guard let apsData = userInfo["aps"] as? [String : AnyObject], let alertData = apsData["alert"] as? [String : Any] else { return
+        }
                 // 내가 필요한 pidx라는 데이터는 aps > alert > pidx 에 들어있었다.
-                if let postIndex = alertData["body"] as? String {
-                    // 현재 뷰컨트롤러 구하기
-                    // 이동해야 하는 뷰컨트롤러
-                    
-                    if(postIndex.contains("채팅")){
-                         coordinateToSomeVC(isLike: false)
-                        switchToNextScreen()
-
-                        
-                    }
-                    else if(postIndex.contains("하트")){
-                         coordinateToSomeVC(isLike: true)
-                        switchToNextScreen()
-
-                        
-                    }
-                    
-                    
-                }
-                
-            }
+        if let postIndex = alertData["body"] as? String, postIndex.contains("채팅이 도착하였습니다."){
+            UserDefaults.standard.set("chat", forKey: "alarmOrChat")
+            coordinateToSomeVC()
+           
         }
+        else if let postIndex = alertData["body"] as? String, postIndex.contains("회원님의 핸즈업에 누군가 하트를 눌렀습니다."){
+            UserDefaults.standard.set("alarm", forKey: "alarmOrChat")
+            coordinateToSomeVC()
+            
+
+        }
+        
+        
+        // tell the app that we have finished processing the user’s action / response
+        completionHandler()
     }
-    private func coordinateToSomeVC(isLike: Bool)
-    {
-        guard let window = UIApplication.shared.keyWindow else { return }
+    private func coordinateToSomeVC(){
+        guard let window = UIApplication.shared.keyWindow else {return}
         
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let main = mainStoryboard.instantiateViewController(identifier: "Home")
+        let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
+        let yourVC = storyboard.instantiateViewController(withIdentifier: "AlarmNChatListViewController")
         
-        let handStoryboard = UIStoryboard(name: "HandsUp", bundle: nil)
-        let yourVC = handStoryboard.instantiateViewController(identifier: "AlarmNChatListViewController")
         
-        print("여기까진 되는거니?")
-        if(isLike == false ){
-        }
-        else{
-            print("되는거니?")
-            let navController = UINavigationController(rootViewController: yourVC)
-            navController.modalPresentationStyle = .fullScreen
-            
-            window.rootViewController = navController
-            window.makeKeyAndVisible()
-            
-            NotificationCenter.default.post(name: Notification.Name("이름 설정"), object: nil, userInfo: ["index":3])
-            
-            
-        }
+        let storyboard_1 = UIStoryboard(name: "Main", bundle: nil)
+        let home = storyboard_1.instantiateViewController(withIdentifier: "Home")
+        
+        
+        let navController = UINavigationController(rootViewController: yourVC)
+        navController.setNavigationBarHidden(true, animated: false)
+        
+        window.rootViewController = navController
+        window.makeKeyAndVisible()
     }
-
-
+    
     func switchToNextScreen() {
         guard let window = UIApplication.shared.keyWindow else { return }
            let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
@@ -142,19 +124,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
            
         window.rootViewController = nextViewController
        }
-
-    
 }
-
-
-
-
-extension AppDelegate: MessagingDelegate {
     
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("fcmToken: \(fcmToken)")
-        PostAPI.updateFCMToken(fcmToken: fcmToken!)
+    extension AppDelegate: MessagingDelegate {
+        
+        func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+
+            PostAPI.updateFCMToken(fcmToken: fcmToken!)
+        }
+        
+        
     }
-    
-}
 
+    

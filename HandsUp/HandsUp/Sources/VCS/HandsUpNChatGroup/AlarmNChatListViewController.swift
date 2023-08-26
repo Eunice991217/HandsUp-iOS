@@ -8,6 +8,7 @@
 import UIKit
 
 class AlarmNChatListViewController: UIViewController {
+    var isFirstPageAlarm: Bool = true
     
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var secondView: UIView!
@@ -88,6 +89,32 @@ class AlarmNChatListViewController: UIViewController {
         
         getAllAlarmRead()
         getAllChatRead()
+        
+        let firstPage = UserDefaults.standard.string(forKey: "alarmOrChat") ?? ""
+        if(firstPage == "chat"){
+            firstView.alpha = 0
+            secondView.alpha = 1
+            
+            chatBtn_ANCLV.titleLabel?.textColor = clickedColor
+            alarmBtn_ANCLV.titleLabel?.textColor = unClickedColor
+            
+            alarmBtn_ANCLV.setTitleColor(.orange, for: .normal)
+            chatBtn_ANCLV.setTitleColor(.orange, for: .normal)
+            
+            let scale = CGAffineTransform(translationX: 75, y:0)
+            self.markLineUIView_ANCLVC.transform = scale
+            UserDefaults.standard.set("alarm", forKey: "alarmOrChat")
+        }
+    }
+  
+    @objc func chatAlarmDidArrive(_ noti: Notification) {
+        print("chat noti 받음")
+        isFirstPageAlarm = false
+    }
+    
+    @objc func heartAlarmDidArrive(_ noti: Notification) {
+        print("heart noti 받음")
+        isFirstPageAlarm = true
     }
     
     let unClickedColor = UIColor(named: "HandsUpDarkGrey")
@@ -133,6 +160,9 @@ class AlarmNChatListViewController: UIViewController {
         bellBtn_ANCLV.setImage(UIImage(named: "notifications"), for: .normal)
         
         self.dismiss(animated: false)
+        let mainSB_Login = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC_Login = mainSB_Login.instantiateViewController(withIdentifier: "Home")
+        self.navigationController?.pushViewController(homeVC_Login, animated: false)
     }
     
     
