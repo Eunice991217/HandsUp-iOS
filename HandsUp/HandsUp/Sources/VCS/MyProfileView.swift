@@ -17,19 +17,10 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         sender.isSelected.toggle() // 버튼 상태를 토글
         
-        print("가드에 걸리는가")
-        
-        guard let selectedIndexPath = selectedIndexPath else {
-            return
-        }
-        
-        print("가드에 걸리나봄")
-        
-        boardIndex = Int64(HomeCardList[selectedIndexPath.row].board.boardIdx)
+        boardIndex = Int64(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
             
         if sender.isSelected {
             sender.setImage(UIImage(named: "heartTap"), for: .normal)
-            // 서버에 좋아요 요청 보내기 등의 추가 로직을 넣을 수 있습니다.
             let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex ?? 0)
             print("하트 클릭")
             print("stat : \(stat)")
@@ -37,7 +28,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         } else {
             sender.setImage(UIImage(named: "heartOff"), for: .normal)
             print("하트 취소")
-            // 서버에 좋아요 취소 요청 보내기 등의 추가 로직을 넣을 수 있습니다.
         }
     }
     
@@ -46,11 +36,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
-        guard let selectedIndexPath = selectedIndexPath else {
-            return
-        }
-        
-        let postAuthorNickname = HomeCardList[selectedIndexPath.row].nickname
+        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
         let isMyPost = currentUserNickname == postAuthorNickname
         
         self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
