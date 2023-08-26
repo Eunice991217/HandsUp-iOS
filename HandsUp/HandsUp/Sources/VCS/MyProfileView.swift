@@ -13,21 +13,29 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     var boardIndex: Int64?
     var bRec:Bool = false
     
-//    @IBOutlet var heartBtn: UIButton!
-    
     @IBAction func heartBtnDidTap(_ sender: UIButton) {
         
         sender.isSelected.toggle() // 버튼 상태를 토글
+        
+        print("가드에 걸리는가")
+        
+        guard let selectedIndexPath = selectedIndexPath else {
+            return
+        }
+        
+        print("가드에 걸리나봄")
+        
+        boardIndex = Int64(HomeCardList[selectedIndexPath.row].board.boardIdx)
             
         if sender.isSelected {
-            sender.setImage(UIImage(named: "HeartDidTap"), for: .normal)
+            sender.setImage(UIImage(named: "heartTap"), for: .normal)
             // 서버에 좋아요 요청 보내기 등의 추가 로직을 넣을 수 있습니다.
-//            let stat = HomeServerAPI.boardsHeart(boardIdx: Int64(HomeCardList[selectedIndexPath!.row].board.boardIdx))
+            let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex ?? 0)
             print("하트 클릭")
-//            print("stat : \(stat)")
+            print("stat : \(stat)")
             
         } else {
-            sender.setImage(UIImage(named: "HeartOff"), for: .normal)
+            sender.setImage(UIImage(named: "heartOff"), for: .normal)
             print("하트 취소")
             // 서버에 좋아요 취소 요청 보내기 등의 추가 로직을 넣을 수 있습니다.
         }
@@ -159,7 +167,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     }
     
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("viewDidAppear Collection View 성공 및 원소 개수 == \(HomeCardList.count)")
@@ -228,12 +238,12 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         cell.school.text = cutSchoolName
         cell.school.font = UIFont(name: "Roboto-Bold", size: 14)
         
-//        if(HomeCardList[indexPath.row].didLike=="true") {
-//            cell.heart.setImage(UIImage(named: "HeartDidTap"), for: .normal)
-//        }
-//        else if(HomeCardList[indexPath.row].didLike=="false") {
-//            cell.heart.setImage(UIImage(named: "HeartOff"), for: .normal)
-//        }
+        if(HomeCardList[indexPath.row].didLike=="true") {
+            cell.heart.setImage(UIImage(named: "heartTap"), for: .normal)
+        }
+        else if(HomeCardList[indexPath.row].didLike=="false") {
+            cell.heart.setImage(UIImage(named: "heartOff"), for: .normal)
+        }
         
         if HomeCardList[indexPath.row].board.indicateLocation == "true" {
             cell.location.text = HomeCardList[indexPath.row].board.location

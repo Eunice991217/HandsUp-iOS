@@ -80,7 +80,7 @@ class ListSecondTabVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
-//        print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
+        print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
         return filteredList.count
     }
     
