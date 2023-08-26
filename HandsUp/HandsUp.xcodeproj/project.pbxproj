@@ -10,7 +10,6 @@
 		321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */; };
 		321B1E352986382400E2CFEE /* HandsUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AB016C2969A0C5007D550A /* HandsUp.storyboard */; };
 		321B1E3729864E9100E2CFEE /* ChatNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */; };
-		321B40212A909462005E55AA /* PostCollectionviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321B40202A909462005E55AA /* PostCollectionviewCell.swift */; };
 		321B402D2A912857005E55AA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 321B402C2A912857005E55AA /* FirebaseFirestore */; };
 		321B402F2A912857005E55AA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 321B402E2A912857005E55AA /* FirebaseFirestoreSwift */; };
 		321B40312A912857005E55AA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 321B40302A912857005E55AA /* FirebaseMessaging */; };
@@ -34,9 +33,6 @@
 		32AB018329730B2F007D550A /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018229730B2F007D550A /* CustomSwitch.swift */; };
 		32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB018429730C4C007D550A /* CustomThumbView.swift */; };
 		32D6577929824271007609A2 /* PostThroughChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D6577829824271007609A2 /* PostThroughChatViewController.swift */; };
-		32EE44E12A8CD26B00FE5060 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 32EE44E02A8CD26B00FE5060 /* FirebaseFirestore */; };
-		32EE44E32A8CD26B00FE5060 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 32EE44E22A8CD26B00FE5060 /* FirebaseFirestoreSwift */; };
-		32EE44E52A8CD26B00FE5060 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 32EE44E42A8CD26B00FE5060 /* FirebaseStorage */; };
 		480351942A90E64300E724C1 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480351932A90E64300E724C1 /* MyProfileView.swift */; };
 		480B01E5297149D1007054B1 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E4297149D1007054B1 /* EditProfile.swift */; };
 		480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E629715A3C007054B1 /* EditProfileName.swift */; };
@@ -105,7 +101,6 @@
 /* Begin PBXFileReference section */
 		321B1E32298589FF00E2CFEE /* CustomVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVisualEffectView.swift; sourceTree = "<group>"; };
 		321B1E3629864E9100E2CFEE /* ChatNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationViewController.swift; sourceTree = "<group>"; };
-		321B40202A909462005E55AA /* PostCollectionviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionviewCell.swift; sourceTree = "<group>"; };
 		3229E7622977CA54006FC6CB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3238BEF229B8515F00442D21 /* FireStoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreAPI.swift; sourceTree = "<group>"; };
 		32425D6929CEE58500B24024 /* RoundRedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundRedLabel.swift; sourceTree = "<group>"; };
@@ -415,7 +410,6 @@
 				485FCFA92991EE2D00163D0A /* HomeDataModel.swift */,
 				328F6067298E3F4B00F4BA4A /* HandsUpDataModel.swift */,
 				32425D6929CEE58500B24024 /* RoundRedLabel.swift */,
-				321B40202A909462005E55AA /* PostCollectionviewCell.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -552,7 +546,6 @@
 				4817588C2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift in Sources */,
 				486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */,
 				4842441C2971924700D9C803 /* AccountManagement.swift in Sources */,
-				321B40212A909462005E55AA /* PostCollectionviewCell.swift in Sources */,
 				486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */,
 				48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */,
 				48398AE6297288F9006FD205 /* Report.swift in Sources */,

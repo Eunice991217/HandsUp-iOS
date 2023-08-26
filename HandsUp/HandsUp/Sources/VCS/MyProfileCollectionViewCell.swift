@@ -10,6 +10,8 @@ import UIKit
 class MyProfileCollectionViewCell: UICollectionViewCell {
     
     
+    
+    
     @IBOutlet var Card: UIView!
     
     @IBOutlet var tagView: UIView!
@@ -26,7 +28,16 @@ class MyProfileCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet var school: UILabel!
+//    @IBOutlet var tagType: UILabel!
+    
     @IBOutlet var tagType: UILabel!
+    
+    
+    @IBOutlet var heart: UIButton!
+    @IBOutlet var send: UIButton!
+    @IBOutlet var cancel: UIButton!
+    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
