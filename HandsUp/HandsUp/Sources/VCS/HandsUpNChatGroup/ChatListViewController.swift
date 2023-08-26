@@ -31,13 +31,13 @@ class ChatListViewController: UIViewController {
   //          print(roadInfos)
  //       }
 //        
-//        chatArr = PostAPI.getChatList()
-//        if( chatArr == nil){
-//            chatArr = []
-//            showBlockAlert()
-//        }
+        chatArr = PostAPI.getChatList()
+        if( chatArr == nil){
+            chatArr = []
+            showBlockAlert()
+        }
         
-        PostAPI.readChat(chatRoomIdx: 1)
+        PostAPI.sendChatAlarm(emailID: "wltjd3459@naver.com")
     }
     
     

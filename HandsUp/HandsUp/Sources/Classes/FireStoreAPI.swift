@@ -77,36 +77,36 @@ final class FirestoreAPI {
         }
     }
     
-    func readAll(chatRoomID: String, completionHandler: @escaping ([Message]) -> Void) {
-        
+    func readAll(chatRoomID: String) -> [Message]?{
+        var messages: [Message] = []
+        let semaphore = DispatchSemaphore(value: 0)
         db.collection("chatroom/\(chatRoomID)/chat").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
-            } else {
-                var messages: [Message] = []
                 
+            } else {
                 for document in querySnapshot!.documents {
                     do {
                         if var varMessage = try? document.data(as: Message.self) {
                             varMessage.documentID = document.documentID
                             messages.append(varMessage)
+                            print("message 개수: \(messages.count)")
+
                         } else {
                             print("Failed to decode message data for document \(document.documentID)")
                         }
                     } catch {
                         print("Error decoding message data: \(error)")
                     }
+                    semaphore.signal()
                 }
-                
-                // 변환된 구조체 배열 사용
-                for message in messages {
-                    print("DocumentID: \(message.documentID ?? "No ID")")
-                    print("Content: \(message.content)")
-                    print("AuthorUID: \(message.authorUID)")
-                    print("CreatedAt: \(message.createdat)")
-                }
+                semaphore.signal()
             }
+            
         }
+        semaphore.wait()
+        print("message 개수: \(messages.count)")
+        return messages
     }
 }
 

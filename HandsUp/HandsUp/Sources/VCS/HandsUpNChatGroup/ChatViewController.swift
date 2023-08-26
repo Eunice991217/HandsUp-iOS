@@ -11,7 +11,7 @@ class ChatViewController: UIViewController {
     
     var chatRoomKey: String = ""
     
-    var chatDatas_CVC = [String]()
+    var chatDatas_CVC: [Message] = []
     public var chatPersonName = ""
     public var statusCode = 0
     public var boardIdx: Int = 0
@@ -118,10 +118,10 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatSendBtn_CVC: UIButton!
     
     @IBAction func chatSendBtnDidTap_CVC(_ sender: Any) {
-        if chatTextView_CVC.text != ""{
-            chatDatas_CVC.append(chatTextView_CVC.text)
-            chatTextView_CVC.text = ""
-        }
+//        if chatTextView_CVC.text != ""{
+//            chatDatas_CVC.append(chatTextView_CVC.text)
+//            chatTextView_CVC.text = ""
+//        }
         
         let lastindexPath = IndexPath(row: chatDatas_CVC.count - 1, section: 0)
         
@@ -176,6 +176,9 @@ class ChatViewController: UIViewController {
         chatPersonNameLabel_CVC.text = result?.nickname
         nameInBoard.text = result?.nickname
         contentInBoard.text = result?.content
+        
+        chatDatas_CVC = FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs") ?? []
+        print("채팅 메세지 개수: \(chatDatas_CVC.count)")
                                                 
     }
     
@@ -300,10 +303,10 @@ extension ChatViewController: UITextViewDelegate{
         }
         
         if(text == "\n") {
-            if chatTextView_CVC.text != ""{
-                chatDatas_CVC.append(chatTextView_CVC.text)
-                chatTextView_CVC.text = ""
-            }
+//            if chatTextView_CVC.text != ""{
+//                chatDatas_CVC.append(chatTextView_CVC.text)
+//                chatTextView_CVC.text = ""
+//            }
             
             let lastindexPath = IndexPath(row: chatDatas_CVC.count - 1, section: 0)
             
@@ -331,12 +334,13 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0{
+        let userEmail = UserDefaults.standard.string(forKey: "email")!
+        if userEmail == chatDatas_CVC[indexPath.row].authorUID {
                     
                     let myCell = tableView.dequeueReusableCell(withIdentifier: "MyChatTableViewCell", for: indexPath) as! MyChatTableViewCell
                     // MyCell 형식으로 사용하기 위해 형변환이 필요하다.
-                    myCell.contentTV_MCTVC.text = chatDatas_CVC[indexPath.row]
-            myCell.timeLb_MCTVC.text = getNowTime()
+            myCell.contentTV_MCTVC.text = chatDatas_CVC[indexPath.row].content
+            myCell.timeLb_MCTVC.text = chatDatas_CVC[indexPath.row].createdat
             // 버튼 누르면 chatDatas 에 텍스트를 넣을 것이기 때문에 거기서 꺼내오면 되는거다.
                     myCell.selectionStyle = .none
                     return myCell
@@ -346,7 +350,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
                     
                     let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourChatTableViewCell", for: indexPath) as! YourChatTableViewCell
                     // 이것도 마찬가지.
-                    yourCell.contentTV_YCTVC.text = chatDatas_CVC[indexPath.row]
+                    yourCell.contentTV_YCTVC.text = chatDatas_CVC[indexPath.row].content
                     yourCell.timeLb_YCTVC.text = getNowTime()
                     yourCell.selectionStyle = .none
                     return yourCell

@@ -422,7 +422,6 @@ class PostAPI{
             else{
                 check = output!.statusCode
             }
-            print("결과는!!!!!!!: \(output?.message)")
             semaphore.signal()
         }.resume()
         semaphore.wait()
