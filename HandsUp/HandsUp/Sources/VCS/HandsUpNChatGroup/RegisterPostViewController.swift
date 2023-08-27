@@ -72,6 +72,8 @@ class RegisterPostViewController: UIViewController{
     let geocoder = CLGeocoder()
     let locale = Locale(identifier: "Ko-kr") //원하는 언어의 나라 코드를 넣어주시면 됩니다.
     
+    var listVC: ListVC?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -323,7 +325,9 @@ class RegisterPostViewController: UIViewController{
             switch result {
             case 2000:
                 
-                self.presentingViewController?.dismiss(animated: true)
+                self.presentingViewController?.dismiss(animated: true){
+                    self.listVC?.refresh()
+                }
             case -1:
                 ServerError()
             default:

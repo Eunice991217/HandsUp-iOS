@@ -13,7 +13,8 @@ class TabManListVC: TabmanViewController {
     
     @IBOutlet weak var TabManTabBar: UIView!
     
-    private var viewControllers: [UIViewController] = []
+    var viewControllers: [ListVC] = []
+    var curIndex: Int = 0
     let firstVC = ListFirstTabVC()
     let secondVC = ListSecondTabVC()
     let thirdVC = ListThirdTabVC()
@@ -93,6 +94,7 @@ extension TabManListVC: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        curIndex = index
         return viewControllers[index]
     }
     

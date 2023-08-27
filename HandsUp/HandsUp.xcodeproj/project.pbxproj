@@ -85,6 +85,7 @@
 		8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */; };
 		8B7E877C296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */; };
 		8BA3980C29862F2600A532D4 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA3980B29862F2600A532D4 /* ServerAPI.swift */; };
+		8BA4721A2A9B326500F8EF79 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA472192A9B326500F8EF79 /* ListVC.swift */; };
 		8BA6064A2968805000F89636 /* RoundedShadow_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */; };
 		8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064B2968861400F89636 /* Login_ViewController.swift */; };
 		8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */; };
@@ -173,6 +174,7 @@
 		8B6A60B0296FE40300E55A5D /* Sign_up_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_up_ViewController.swift; sourceTree = "<group>"; };
 		8B7E877B296AE67A008F6BF5 /* KeyboardDisappear_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisappear_UIViewController.swift; sourceTree = "<group>"; };
 		8BA3980B29862F2600A532D4 /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
+		8BA472192A9B326500F8EF79 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		8BA606492968805000F89636 /* RoundedShadow_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIButton.swift; sourceTree = "<group>"; };
 		8BA6064B2968861400F89636 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
 		8BA6064E29688D7800F89636 /* RoundedShadow_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadow_UIView.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				8B648082296E9191008D28CF /* SignupData.swift */,
 				8B4589732970B0FE0044227F /* FirstResponder.swift */,
 				8BBE680D2989396500763AFA /* ServerError.swift */,
+				8BA472192A9B326500F8EF79 /* ListVC.swift */,
 				8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */,
 				8BA3980B29862F2600A532D4 /* ServerAPI.swift */,
 				485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */,
@@ -589,6 +592,7 @@
 				8BA6064F29688D7800F89636 /* RoundedShadow_UIView.swift in Sources */,
 				8B6A60B1296FE40300E55A5D /* Sign_up_ViewController.swift in Sources */,
 				8B648089296F3FF2008D28CF /* CharacterEdit_ViewController.swift in Sources */,
+				8BA4721A2A9B326500F8EF79 /* ListVC.swift in Sources */,
 				8B45E0D2297A3CC50057D156 /* EnableButtonScroll.swift in Sources */,
 				8B648085296ECD5D008D28CF /* Character_UIView.swift in Sources */,
 				8BA6064C2968861400F89636 /* Login_ViewController.swift in Sources */,

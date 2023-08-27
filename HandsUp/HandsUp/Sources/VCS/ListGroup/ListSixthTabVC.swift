@@ -9,12 +9,9 @@
 import UIKit
 import CoreLocation
 
-class ListSixthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
-    let myTableView: UITableView = UITableView()
-    
-    var HomeList : [boardsShowList_rp_getBoardList] = [] // boardsShowList_rp_getBoardList
     
     var boardsCharacterList: [Int] = []
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0

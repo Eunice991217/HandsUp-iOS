@@ -28,8 +28,6 @@ class TabManViewController: TabmanViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
-        
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)
         viewControllers.append(thirdVC)
