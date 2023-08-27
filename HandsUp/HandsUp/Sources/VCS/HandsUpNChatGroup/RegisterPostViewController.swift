@@ -40,8 +40,6 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var hobbyTagBtn_HVC: CustomTagBtn!
     @IBOutlet weak var tripTagBtn_HVC: CustomTagBtn!
     
-    var listVC:ListVC?
-    
     var indicateLocation_HVC = "true"
     var selectedTag_HVC = "전체"
     var messageDuration_HVC = 12
