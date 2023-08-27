@@ -12,7 +12,7 @@ import MapKit
 
 class RegisterPostViewController: UIViewController{
     var isEdited: Bool = false
-    var editedBoard: boardsShowList_rp_board?
+    var boardIdx: Int = 0
     
     var charcterArr: [Int] = [0, 0, 0, 0, 0, 0, 0]
     
@@ -101,7 +101,8 @@ class RegisterPostViewController: UIViewController{
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-
+        print("boardidx: \(boardIdx)")
+        let editedBoard = ServerAPI.singleList(boardIdx: boardIdx)
         //게시물 수정 시
         if(isEdited == true){
             self.msgTextView_HVC.text = editedBoard!.content
@@ -111,7 +112,7 @@ class RegisterPostViewController: UIViewController{
             self.timeSlider_HVC.value = Float(editedBoard!.messageDuration)
             self.sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
             
-            if(editedBoard?.indicateLocation == "false"){
+            if(editedBoard?.locationAgreement == "false"){
                 print("게시물 수정하는데 위치 ")
                 self.indicateLocation_HVC = "false"
                 locationSwitchBtn_HVC.isOn = false
@@ -311,7 +312,7 @@ class RegisterPostViewController: UIViewController{
             var result: Int!
             
             if(isEdited == true){ //수정하는 글일 시에 수정 API 요청
-                result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: editedBoard!.boardIdx, location : locationLabel_HVC.text!)
+                result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: boardIdx, location : locationLabel_HVC.text!)
             }
             else{
                 result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, location : locationLabel_HVC.text!)
