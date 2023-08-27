@@ -14,7 +14,7 @@ class ChatListViewController: UIViewController {
     let db = Firestore.firestore()
     @IBOutlet weak var chatAlarmTableView_CLVC: UITableView!
     var chatArr: [Chat]?
-
+    var chatDatas_CVC: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class ChatListViewController: UIViewController {
         }
         
         PostAPI.sendChatAlarm(emailID: "wltjd3459@naver.com")
+        
     }
     
     

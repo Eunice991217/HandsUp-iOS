@@ -318,7 +318,6 @@ class RegisterPostViewController: UIViewController{
                 result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, location : locationLabel_HVC.text!)
             }
             
-            print("locationLabel_HVC.text : \(locationLabel_HVC.text!)")
             print("result:  \(result)")
             switch result {
             case 2000:

@@ -197,7 +197,20 @@ class ChatViewController: UIViewController {
         characterView_CVC.setCharacter() // 캐릭터 생성
         
         
-        //  chatDatas_CVC = FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs") ?? []
+        
+        FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs") { messages, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            if let messages = messages {
+                // 데이터 처리
+                for message in messages {
+                    self.chatDatas_CVC.append(message)
+                }
+            }
+        }
         print("채팅 메세지 개수: \(chatDatas_CVC.count)")
         
     }
