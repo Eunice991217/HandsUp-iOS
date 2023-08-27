@@ -151,7 +151,5 @@ class ListFirstTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
 }
-
 

@@ -107,13 +107,13 @@ class HomeServerAPI {
             output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
             if output == nil{
                 check = -1;
-                print("check1 : \(check)")
-                print("output message: \(output?.message)")
-                print("output 실패 result: \(output?.result)")
+//                print("리스트 output message: \(output?.message)")
+//                print("리스트 output 실패 result: \(output?.result)")
             }
             else{
                 check = output!.statusCode
-                print("output 성공 result: \(output?.result)")
+//                print("리스트 output message: \(output?.message)")
+//                print("리스트 output 성공 result: \(output?.result)")
             }
             semaphore.signal()
         }.resume()
@@ -163,9 +163,13 @@ class HomeServerAPI {
             output = try? JSONDecoder().decode(ShowMapList_rp.self, from: data!)
             if output == nil{
                 check = -1;
+//                print("지도 output message: \(output?.message)")
+//                print("지도 output 실패 result: \(output?.result)")
             }
             else{
                 check = output!.statusCode
+//                print("지도 output message: \(output?.message)")
+//                print("지도 output 성공 result: \(output?.result)")
             }
             semaphore.signal()
         }.resume()

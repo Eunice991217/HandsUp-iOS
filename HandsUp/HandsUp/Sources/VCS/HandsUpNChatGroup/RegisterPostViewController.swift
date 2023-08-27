@@ -40,6 +40,8 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var hobbyTagBtn_HVC: CustomTagBtn!
     @IBOutlet weak var tripTagBtn_HVC: CustomTagBtn!
     
+    var listVC:ListVC?
+    
     var indicateLocation_HVC = "true"
     var selectedTag_HVC = "전체"
     var messageDuration_HVC = 12
@@ -321,7 +323,7 @@ class RegisterPostViewController: UIViewController{
             print("result:  \(result)")
             switch result {
             case 2000:
-
+                
                 self.presentingViewController?.dismiss(animated: true)
             case -1:
                 ServerError()

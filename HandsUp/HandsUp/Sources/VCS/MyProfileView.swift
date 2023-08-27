@@ -17,7 +17,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         sender.isSelected.toggle() // 버튼 상태를 토글
         
-        boardIndex = Int64(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
+        boardIndex = Int64(HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
             
         if sender.isSelected {
             sender.setImage(UIImage(named: "heartTap"), for: .normal)
