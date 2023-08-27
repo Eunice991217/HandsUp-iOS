@@ -156,7 +156,8 @@ struct board_in_chat_result: Codable {
 struct Board: Codable {
     let boardIdx: Int
     let content: String
-    let latitude, longitude: Int
+    let latitude, longitude: Double
+    let location: String
     let indicateLocation: String
     let messageDuration: Int
     let createdAt, updatedAt, status: String
