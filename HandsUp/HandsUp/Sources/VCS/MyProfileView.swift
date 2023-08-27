@@ -37,6 +37,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
         let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
+            
         let isMyPost = currentUserNickname == postAuthorNickname
         
         self.showAlertController(style: .actionSheet, isMyPost: isMyPost)

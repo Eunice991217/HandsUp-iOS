@@ -25,6 +25,9 @@ class ListSixthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        HomeList = HomeServerAPI.boardsShowList() ?? []
+        
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
 
@@ -52,9 +55,6 @@ class ListSixthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         attribute: .trailing, relatedBy: .equal, toItem: self.view,
         attribute: .trailing, multiplier: 1.0, constant: 0))
         
-        HomeList = HomeServerAPI.boardsShowList() ?? []
-        // print("Home Talk Page 서버통신 성공 및 원소 개수 ==  \(HomeList.count)")
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,12 +64,17 @@ class ListSixthTabVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
 //        myProfile.modalPresentationStyle = .overFullScreen
         
-        let filteredList = HomeList.filter { $0.tag == "여행" }
+//        let filteredList = HomeList.filter { $0.tag == "여행" }
         
 //        myProfile.HomeList = filteredList
 //        myProfile.startPage = indexPath.row
 //        
 //        self.present(myProfile, animated: true)
+        
+        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") as? MyProfileView else { return }
+        myProfile.modalPresentationStyle = .overFullScreen
+
+        self.present(myProfile, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
