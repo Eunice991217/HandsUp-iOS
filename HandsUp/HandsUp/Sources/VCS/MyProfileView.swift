@@ -52,7 +52,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         if isMyPost {
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
-                PostAPI.deletePost(boardIdx: Int(self.boardIndex!))
+                PostAPI.deletePost(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
             }
             alert.addAction(delete)
             
@@ -67,7 +67,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
                 nextVC.isEdited = true;
 //                self.boardIndex = Int64(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
 //
-//                nextVC.boardIdx = HomeCardList[boardIndex].board
+                nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
                 self.present(nextVC, animated: true, completion: nil)
             }
             alert.addAction(edit)

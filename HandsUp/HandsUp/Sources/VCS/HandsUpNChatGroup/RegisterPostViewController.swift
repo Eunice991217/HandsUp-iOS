@@ -14,7 +14,6 @@ class RegisterPostViewController: UIViewController{
     var isEdited: Bool = false
     var boardIdx: Int = 0
     
-    var charcterArr: [Int] = [0, 0, 0, 0, 0, 0, 0]
     
     @IBOutlet weak var characterView_HVC: Character_UIView!
     
@@ -93,7 +92,7 @@ class RegisterPostViewController: UIViewController{
                                   for:.touchUpInside)
         tripTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
                                  for:.touchUpInside)
-        resetTagBtn(isEdited)
+        
         self.nameLB_HVC.text = UserDefaults.standard.string(forKey: "nickname")!
         
         msgTextView_HVC.delegate = self
@@ -111,6 +110,8 @@ class RegisterPostViewController: UIViewController{
             self.timeLb_HVC.text = String(editedBoard!.messageDuration )
             self.timeSlider_HVC.value = Float(editedBoard!.messageDuration)
             self.sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
+            self.selectedTag_HVC = editedBoard!.tag
+            
             
             if(editedBoard?.locationAgreement == "false"){
                 print("게시물 수정하는데 위치 ")
@@ -126,6 +127,7 @@ class RegisterPostViewController: UIViewController{
             self.timeSlider_HVC.value = 12.0
             requestAuthorization()
         }
+        resetTagBtn()
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.msgTextView_HVC.resignFirstResponder()
         }
@@ -141,10 +143,8 @@ class RegisterPostViewController: UIViewController{
         singleTapGestureRecognizer.cancelsTouchesInView = false
         totalScrollView_HVC.addGestureRecognizer(singleTapGestureRecognizer)
         
-        //characterView_HVC.setUserCharacter()
         
-        characterView_HVC.setAll(componentArray: charcterArr)
-        characterView_HVC.setCharacter()
+        characterView_HVC.setUserCharacter()
         
         
         var schoolName = UserDefaults.standard.string(forKey: "schoolName")!
@@ -336,7 +336,7 @@ class RegisterPostViewController: UIViewController{
     
     
     @objc func tagBtnDidTap(_ sender: CustomTagBtn) {
-        resetTagBtn(false)
+        resetTagBtn()
         
         switch sender.text{
         case "전체":
@@ -380,7 +380,7 @@ class RegisterPostViewController: UIViewController{
         }
    
     }
-    func resetTagBtn(_ isEdited: Bool) {
+    func resetTagBtn() {
         totalTagBtn_HVC.titleLabel?.textColor = unClickedColor
         talkTagBtn_HVC.titleLabel?.textColor = unClickedColor
         foodTagBtn_HVC.titleLabel?.textColor = unClickedColor
@@ -389,7 +389,7 @@ class RegisterPostViewController: UIViewController{
         tripTagBtn_HVC.titleLabel?.textColor = unClickedColor
         totalIsOn = false; talkIsOn = false; foodIsOn = false; studyIsOn = false; hobbyIsOn = false; tripIsOn = false
         
-        if(isEdited == true){
+
             switch selectedTag_HVC{
             case "전체":
                 totalIsOn = true
@@ -424,7 +424,6 @@ class RegisterPostViewController: UIViewController{
             default:
                 break
             }
-        }
     }
     
 }
