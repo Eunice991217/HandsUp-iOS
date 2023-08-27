@@ -35,6 +35,9 @@ class ViewController: UIViewController {
     var cutSchoolName: String = ""
     
     var bRec:Bool = true
+    
+    var tabmanList: TabManListVC?
+    var tabmanMap: TabManViewController?
 
     @IBAction func HomeBtnDidTap(_ sender: Any) {
         bRec = !bRec
@@ -123,10 +126,12 @@ class ViewController: UIViewController {
 //        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
 //            return
 //        }
-        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
             return
         }
         // 화면 전환!
+        registerPostVC.listVC = self.tabmanList?.viewControllers[self.tabmanList!.curIndex]
+        
         self.present(registerPostVC, animated: true)
         
     }
@@ -197,6 +202,15 @@ class ViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true;
         // Do any additional setup after loading the view.
+        
+        tabmanList = self.storyboard?.instantiateViewController(withIdentifier: "TabManList") as? TabManListVC
+        tabmanMap = self.storyboard?.instantiateViewController(withIdentifier: "TabManMap") as? TabManViewController
+        
+        ListView.addSubview(tabmanList!.view)
+        MapView.addSubview(tabmanMap!.view)
+        
+        tabmanList!.view.frame = ListView.bounds
+        tabmanMap!.view.frame = MapView.bounds
     }
     
     func configureCustomView() {
