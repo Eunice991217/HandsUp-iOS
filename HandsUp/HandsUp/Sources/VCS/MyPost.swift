@@ -22,10 +22,15 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
                 
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {return}
-        
+        let myTabVC = UIStoryboard.init(name: "HandsUp", bundle: nil)
+        guard let nextVC = myTabVC.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
+            return
+        }
+        nextVC.boardIdx = myPostArr[indexPath.row].boardIdx
+        nextVC.isEdited = true
+
         // 화면 전환!
-        self.present(registerPostVC, animated: true)
+        self.present(nextVC, animated: true)
         
     }
     

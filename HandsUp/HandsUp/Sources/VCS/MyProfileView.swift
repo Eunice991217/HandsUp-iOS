@@ -53,7 +53,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         if isMyPost {
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
-                // 삭제 기능 실행
+                PostAPI.deletePost(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
             }
             alert.addAction(delete)
             
@@ -65,7 +65,10 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
                 guard let nextVC = myTabVC.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
                     return
                 }
-                nextVC.isEdited = true; nextVC.editedBoard = self.HomeCardList[self.selectedIndexPath!.row].board; nextVC.selectedTag_HVC = self.HomeCardList[self.selectedIndexPath!.row].tag
+                nextVC.isEdited = true;
+//                self.boardIndex = Int64(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
+//
+                nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
                 self.present(nextVC, animated: true, completion: nil)
             }
             alert.addAction(edit)
@@ -141,7 +144,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
         nextVC.boardIdx = Int(boardIndex!)
-        
         nextVC.modalPresentationStyle = .fullScreen
         
         let transition = CATransition()

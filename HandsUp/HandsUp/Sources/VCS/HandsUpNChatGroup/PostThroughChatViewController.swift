@@ -9,9 +9,9 @@ import UIKit
 
 class PostThroughChatViewController: UIViewController {
 
-    var boardIdx_PTCVC: Int = 0
+    var boardIdx: Int = 0
     
-
+    var boardsCharacterList: [Int] = []
     @IBOutlet var tagLabel_PTCVC: UILabel!
     @IBOutlet var schoolLabel_PTCVC: UILabel!
     @IBOutlet var nameLabel_PTCVC: UILabel!
@@ -48,7 +48,7 @@ class PostThroughChatViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let singleBoard = ServerAPI.singleList(boardIdx: boardIdx_PTCVC)
+        let singleBoard = PostAPI.getBoardInChat(boardIdx: boardIdx)
         
         self.navigationController?.isNavigationBarHidden = true
 
@@ -57,15 +57,34 @@ class PostThroughChatViewController: UIViewController {
         contentTextView_PTCVC.isEditable = false
         
         setupView()
-        self.tagLabel_PTCVC.text = singleBoard?.tag
+       // self.tagLabel_PTCVC.text = singleBoard?.board.tag
         self.nameLabel_PTCVC.text = singleBoard?.nickname
         self.smallNameLabel_PTCVC.text = singleBoard?.nickname
         // self.locationLabel_PTCVC.text = singleBoard. 위치 정보
-        self.contentTextView_PTCVC.text = singleBoard?.content
-        self.timeLabel_PTCVC.text = singleBoard?.createdAt.toDate().getTimeDifference()
+        self.contentTextView_PTCVC.text = singleBoard?.board.content
+        self.timeLabel_PTCVC.text = singleBoard?.board.createdAt.toDate().getTimeDifference()
         
-        contentTextView_PTCVC.text =  "dkssudgdf /n dsfsd  /n 연락주세요"
-        characterView_PTCVC.setUserCharacter()
+        boardsCharacterList = []
+        
+        let background = (Int(singleBoard!.character.backGroundColor) ?? 1) - 1
+        let hair = (Int(singleBoard!.character.hair) ?? 1) - 1
+        let eyebrow = (Int(singleBoard!.character.eyeBrow) ?? 1) - 1
+        let mouth = (Int(singleBoard!.character.mouth) ?? 1) - 1
+        let nose = (Int(singleBoard!.character.nose) ?? 1) - 1
+        let eyes = (Int(singleBoard!.character.eye) ?? 1) - 1
+        let glasses = Int(singleBoard!.character.glasses) ?? 0
+        
+        boardsCharacterList.append(background)
+        boardsCharacterList.append(hair)
+        boardsCharacterList.append(eyebrow)
+        boardsCharacterList.append(mouth)
+        boardsCharacterList.append(nose)
+        boardsCharacterList.append(eyes)
+        boardsCharacterList.append(glasses)
+        
+        characterView_PTCVC.setAll(componentArray: boardsCharacterList) // 가져오기
+        characterView_PTCVC.setCharacter_NoShadow() // 그림자 없애기
+        characterView_PTCVC.setCharacter() // 캐릭터 생성
         
         let screenWidth = UIScreen.main.bounds.size.width
         

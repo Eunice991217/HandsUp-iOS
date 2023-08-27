@@ -246,6 +246,8 @@ struct singleList_rp: Codable {
 
 struct singleList_rp_result: Codable {
     let nickname: String
+    let schoolName: String
+    let locationAgreement: String
     let latitude, longitude: Double
     let content, tag, didLike: String
     let messageDuration: Int

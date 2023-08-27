@@ -302,9 +302,9 @@ class PostAPI{
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     
-    static func getBoardInChat(chatRoomKey: String) -> board_in_chat_result?{
+    static func getBoardInChat(boardIdx: Int) -> board_in_chat_result?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/\(chatRoomKey)")
+        let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -349,7 +349,7 @@ class PostAPI{
         }else{
             print("채팅내 게시물 : \(check)")
         }
-        
+        print("api 결과물: \(output?.message)")
         
         return rtn
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
