@@ -168,8 +168,9 @@ class ChatViewController: UIViewController {
         
         swipeRecognizer()
         
-        
+        //채팅 내 상단 게시물 설정 코드
         let boardInfo = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        print("boardidx: " + String(boardIdx))
         chatPersonNameLabel_CVC.text = boardInfo?.nickname
         nameInBoard.text = boardInfo?.nickname
         contentInBoard.text = boardInfo?.board.content
@@ -196,8 +197,14 @@ class ChatViewController: UIViewController {
         characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
         characterView_CVC.setCharacter() // 캐릭터 생성
         
-        
-        
+        //이미 채팅 내역이 존재하는지 확인
+        //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
+        let chatKey = String((boardInfo?.board.boardIdx)!) + UserDefaults.standard.string(forKey: "email")! // + 상대방 이메일
+        let email = "wltjd3459@dongguk.edu"
+        let isChatExisted = PostAPI.checkChatExists(chatRoomKey: "200", boardIdx: 223, oppositeUserEmail: email)
+
+//        print("chat 존재 유뮤 API: \(message!)")
+//
         FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs") { messages, error in
             if let error = error {
                 print("Error: \(error)")

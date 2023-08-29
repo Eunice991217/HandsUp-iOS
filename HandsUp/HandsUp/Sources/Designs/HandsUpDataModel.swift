@@ -134,7 +134,6 @@ struct chatCharacter: Codable {
     let eye, eyeBrow, glasses, nose: String
     let mouth, hair, hairColor, skinColor: String
     let backGroundColor, status: String
-
 }
 
 
@@ -147,18 +146,17 @@ struct board_in_chat_rp: Codable {
 
 // MARK: - Result
 struct board_in_chat_result: Codable {
-    let board: Board
+    let board: board_in_chat
     let character: chatCharacter
     let nickname: String
 }
 
 // MARK: - Board
-struct Board: Codable {
+struct board_in_chat: Codable {
     let boardIdx: Int
     let content: String
     let latitude, longitude: Double
-    let location: String
-    let indicateLocation: String
+    let location, indicateLocation: String
     let messageDuration: Int
     let createdAt, updatedAt, status: String
 }
@@ -198,4 +196,39 @@ extension Encodable {
         return dictinoary
     }
 }
+
+struct chat_check_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: chatCheckResult
+}
+
+// MARK: - Result
+struct chatCheckResult: Codable {
+    let board: chatCheckBoard
+    let character: chatCheckCharacter
+    let nickname: String
+    let isSaved: Bool
+}
+
+// MARK: - Board
+struct chatCheckBoard: Codable {
+    let boardIdx: Int
+    let content: String
+    let latitude, longitude: Double
+    let location, indicateLocation: String
+    let messageDuration: Int
+    let createdAt, updatedAt, status: String
+}
+
+// MARK: - Character
+struct chatCheckCharacter: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+}
+
 

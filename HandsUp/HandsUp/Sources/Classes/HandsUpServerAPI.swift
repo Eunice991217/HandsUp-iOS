@@ -121,14 +121,14 @@ class PostAPI{
             let output = try? JSONDecoder().decode(fcmToken_rp.self, from: data!)
             if output == nil{
                 check = -1;
-
+                
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
-
+                
             }else{
                 check = output!.statusCode
-
+                
             }
             semaphore.signal()
         }.resume()
@@ -162,7 +162,7 @@ class PostAPI{
         semaphore.wait()
         return check
     }
- 
+    
     static func showBoardsLikeList() -> [board_like]?{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/boards/like")
@@ -175,7 +175,7 @@ class PostAPI{
         var rtn: [board_like]? = nil
         var output: boards_like_rp? = nil
         let session = URLSession(configuration: .default)
-       
+        
         let semaphore = DispatchSemaphore(value: 0)
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(boards_like_rp.self, from: data!)
@@ -261,7 +261,7 @@ class PostAPI{
         var rtn: [Chat]? = nil
         var output: chat_list_rp? = nil
         let session = URLSession(configuration: .default)
-       
+        
         let semaphore = DispatchSemaphore(value: 0)
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(chat_list_rp.self, from: data!)
@@ -304,7 +304,9 @@ class PostAPI{
     
     static func getBoardInChat(boardIdx: Int) -> board_in_chat_result?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
+        
+        //let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
+        let url = URL(string: serverDir + "/chats/223" )
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -314,7 +316,7 @@ class PostAPI{
         var rtn: board_in_chat_result? = nil
         var output: board_in_chat_rp? = nil
         let session = URLSession(configuration: .default)
-       
+        
         let semaphore = DispatchSemaphore(value: 0)
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(board_in_chat_rp.self, from: data!)
@@ -349,8 +351,6 @@ class PostAPI{
         }else{
             print("채팅내 게시물 : \(check)")
         }
-        print("api 결과물: \(output?.message)")
-        
         return rtn
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
@@ -425,7 +425,61 @@ class PostAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
-
+        
+    }
+    
+    static func checkChatExists(chatRoomKey: String, boardIdx: Int, oppositeUserEmail: String) -> chatCheckResult?{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/chats/check-key/\(chatRoomKey)/" + String(boardIdx) + "/\(oppositeUserEmail)" )
+        print("url: \(serverDir)/chats/check-key/\(chatRoomKey)/" + String(boardIdx) + "/\(oppositeUserEmail)")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
+        var check: Int = -1
+        var rtn: chatCheckResult? = nil
+        var output: chat_check_rp? = nil
+        let session = URLSession(configuration: .default)
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            output = try? JSONDecoder().decode(chat_check_rp.self, from: data!)
+            if output == nil{
+                check = -1;
+            }
+            else{
+                check = output!.statusCode
+            }
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        if check == 4044{
+            if ServerAPI.reissue() == 2000{
+                session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                    output = try? JSONDecoder().decode(chat_check_rp.self, from: data!)
+                    if output == nil{
+                        check = -1;
+                    }
+                    else{
+                        check = output!.statusCode
+                    }
+                    semaphore.signal()
+                }.resume()
+                semaphore.wait()
+            }
+        }
+        
+        if check == 2000{//서버 통신 성공
+            rtn = output!.result
+        }else{
+            print("채팅 존재 check 통신 실패 statuscode: \(check)")
+        }
+        print("api 결과물: \(output?.message)")
+        
+        return rtn
+        // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
 }
 
