@@ -147,7 +147,9 @@ struct board_in_chat_rp: Codable {
 // MARK: - Result
 struct board_in_chat_result: Codable {
     let board: board_in_chat
+    let tag: String
     let character: chatCharacter
+    let writerEmail: String
     let nickname: String
 }
 
@@ -209,6 +211,7 @@ struct chatCheckResult: Codable {
     let board: chatCheckBoard
     let character: chatCheckCharacter
     let nickname: String
+    let writerEmail: String
     let isSaved: Bool
 }
 

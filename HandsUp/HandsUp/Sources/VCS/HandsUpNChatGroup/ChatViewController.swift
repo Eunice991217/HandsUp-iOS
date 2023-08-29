@@ -15,6 +15,8 @@ class ChatViewController: UIViewController {
     public var chatPersonName = ""
     public var statusCode = 0
     public var boardIdx: Int = 0
+    var isChatExisted: Bool = false
+    var chatKey: String = ""
     
     @IBOutlet var nameInBoard: UILabel!
     @IBOutlet var profileViewInBoard: UIView!
@@ -197,29 +199,44 @@ class ChatViewController: UIViewController {
         characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
         characterView_CVC.setCharacter() // 캐릭터 생성
         
-        //이미 채팅 내역이 존재하는지 확인
-        //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
-        let chatKey = String((boardInfo?.board.boardIdx)!) + UserDefaults.standard.string(forKey: "email")! // + 상대방 이메일
-        let email = "wltjd3459@dongguk.edu"
-        let isChatExisted = PostAPI.checkChatExists(chatRoomKey: "200", boardIdx: 223, oppositeUserEmail: email)
-
-//        print("chat 존재 유뮤 API: \(message!)")
-//
-        FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs") { messages, error in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
+        let myUserEmail = UserDefaults.standard.string(forKey: "email")!
+        let boardWriter = boardInfo?.writerEmail
+        //게시물 작성자가 이 사용자 일 때
+        if(boardWriter == myUserEmail){
             
-            if let messages = messages {
-                // 데이터 처리
-                for message in messages {
-                    self.chatDatas_CVC.append(message)
-                }
+        }
+        else{ //이미 채팅 내역이 존재하는지 확인
+            //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
+            chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
+            let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)
+            
+            if(isChatExistedResult?.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
+                isChatExisted = true
+            }else{
+                isChatExisted = false
             }
         }
-        print("채팅 메세지 개수: \(chatDatas_CVC.count)")
-        
+       // FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: "안녕하세요 포스팅보고 연락드렸습니다!"))
+
+        if(isChatExisted == true){
+            //채팅 정보 가져오기
+            FirestoreAPI.shared.readAll(chatRoomID: chatKey) { messages, error in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                }
+                
+                if let messages = messages {
+                    // 데이터 처리
+                    for message in messages {
+                        self.chatDatas_CVC.append(message)
+                    }
+                    print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
+                    self.chatTableView_CVC.reloadData()
+                }
+            }
+            
+        }
     }
     
     @IBAction func backBtnDidTap(_ sender: Any) {
