@@ -118,14 +118,15 @@ struct chat_list_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let chatList: [Chat]?
+    let result: [Chat]?
 }
 struct Chat: Codable{
     let chatRoomIdx: Int
     let chatRoomKey: String
     let character: chatCharacter
-    let nickname, updatedAt, lastContent: String
-    let lastSenderIdx, notRead: Int
+    let nickname, updatedAt, lastContent, lastSenderEmail: String
+    let notRead: Int
+    let oppositeEmail: String
 }
 
 struct chatCharacter: Codable {
@@ -165,12 +166,15 @@ struct board_in_chat: Codable {
 
 struct chat_alarm_rq: Codable {
     let email: String
+    let chatContent: String
+    let chatRoomKey: String
 }
 
 struct chat_alarm_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
+    let result: String
 }
 struct chats_read_rq: Codable {
     let chatRoomIdx: Int

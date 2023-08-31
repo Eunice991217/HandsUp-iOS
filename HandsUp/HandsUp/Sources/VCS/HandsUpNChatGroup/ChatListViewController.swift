@@ -37,7 +37,7 @@ class ChatListViewController: UIViewController {
             showBlockAlert()
         }
         
-        PostAPI.sendChatAlarm(emailID: "wltjd3459@naver.com")
+
         
     }
     

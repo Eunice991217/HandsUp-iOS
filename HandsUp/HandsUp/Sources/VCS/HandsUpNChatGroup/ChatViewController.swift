@@ -17,6 +17,7 @@ class ChatViewController: UIViewController {
     public var boardIdx: Int = 0
     var isChatExisted: Bool = false
     var chatKey: String = ""
+    var oppositeEmail: String = ""
     
     @IBOutlet var nameInBoard: UILabel!
     @IBOutlet var profileViewInBoard: UIView!
@@ -120,21 +121,40 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatSendBtn_CVC: UIButton!
     
     @IBAction func chatSendBtnDidTap_CVC(_ sender: Any) {
-        //        if chatTextView_CVC.text != ""{
-        //            chatDatas_CVC.append(chatTextView_CVC.text)
-        //            chatTextView_CVC.text = ""
-        //        }
         
-        let lastindexPath = IndexPath(row: chatDatas_CVC.count - 1, section: 0)
+        if(isChatExisted == false){
+            let makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
+            print("게시물 인덱스: \(boardIdx)")
+            print("여기 들어왔니 \(makeChatStatusCode)")
+            if(statusCode == 2000){
+                print("채팅방 생성에 성공하였습니다. ")
+            }
+        }
+                
+//        let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : oppositeEmail, chatContent: chatTextView_CVC.text, chatRoomIdx: chatRoomKey)
+//        FirestoreAPI.shared.readAll(chatRoomID: chatKey) { messages, error in
+//            if let error = error {
+//                print("Error: \(error)")
+//                return
+//            }
+//
+//            if let messages = messages {
+//                // 데이터 처리
+//                for message in messages {
+//                    self.chatDatas_CVC.append(message)
+//                }
+//                print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
+//                self.chatTableView_CVC.reloadData()
+//
+//                // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
+//                let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
+//                self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+//            }
+//        }
         
-        // 방법 1 : chatTableView.reloadData() 리로드는 조금 부자연스럽다.
         // 방법 2 :
-        chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
-        
-        // inputTextViewHeight.constant = 35
-        
-        // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
-        chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+        //chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
+
         
     }
     
@@ -171,8 +191,9 @@ class ChatViewController: UIViewController {
         swipeRecognizer()
         
         //채팅 내 상단 게시물 설정 코드
+
         let boardInfo = PostAPI.getBoardInChat(boardIdx: boardIdx)
-        print("boardidx: " + String(boardIdx))
+
         chatPersonNameLabel_CVC.text = boardInfo?.nickname
         nameInBoard.text = boardInfo?.nickname
         contentInBoard.text = boardInfo?.board.content
@@ -201,22 +222,23 @@ class ChatViewController: UIViewController {
         
         let myUserEmail = UserDefaults.standard.string(forKey: "email")!
         let boardWriter = boardInfo?.writerEmail
-        //게시물 작성자가 이 사용자 일 때
+        //게시물 작성자가 자신일 때
         if(boardWriter == myUserEmail){
             
         }
-        else{ //이미 채팅 내역이 존재하는지 확인
+        else{
+            //이미 채팅 내역이 존재하는지 확인
             //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
             chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
             let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)
             
+            oppositeEmail = boardWriter!
             if(isChatExistedResult?.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                 isChatExisted = true
             }else{
                 isChatExisted = false
             }
         }
-       // FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: "안녕하세요 포스팅보고 연락드렸습니다!"))
 
         if(isChatExisted == true){
             //채팅 정보 가져오기
@@ -233,6 +255,10 @@ class ChatViewController: UIViewController {
                     }
                     print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
                     self.chatTableView_CVC.reloadData()
+                    
+                    // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
+                    let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
+                    self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
                 }
             }
             

@@ -167,8 +167,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 ServerError()
                 break
             }
-           let status_code =  PostAPI.sendChatAlarm(emailID: "wltjd1234@dongguk.edu")
-            print("chat alarm; \(status_code)")
+
             
         }
             

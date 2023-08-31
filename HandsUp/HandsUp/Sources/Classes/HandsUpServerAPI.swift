@@ -235,6 +235,7 @@ class PostAPI{
             }
             else if output!.statusCode == 2000{
                 check = output!.statusCode
+                print("채팅방 생성에 성공했습니다.")
             }
             else if output!.statusCode == 4055{
                 print("이미 존재하는 채팅방입니다. ")
@@ -292,7 +293,10 @@ class PostAPI{
         }
         
         if check == 2000{//서버 통신 성공
-            rtn = output!.chatList
+            rtn = output!.result
+            print("채팅리스트 통신 성공")
+            print(rtn)
+
         }else{
             print("채팅리스트 통신 실패 statuscode: \(check)")
         }
@@ -306,7 +310,7 @@ class PostAPI{
         let serverDir = "http://13.124.196.200:8080"
         
         //let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
-        let url = URL(string: serverDir + "/chats/223" )
+        let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -354,8 +358,8 @@ class PostAPI{
         return rtn
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
-    
-    static func sendChatAlarm(emailID : String) -> Int {
+    //미완성
+    static func sendChatAlarm(emailID : String, chatContent: String, chatRoomIdx: String ) -> Bool {
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/chats/alarm")
         var request = URLRequest(url: url!)
@@ -363,16 +367,20 @@ class PostAPI{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
-        let uploadData = try! JSONEncoder().encode(chat_alarm_rq( email: emailID))
+        let uploadData = try! JSONEncoder().encode(chat_alarm_rq(email: emailID, chatContent: chatContent, chatRoomKey: chatRoomIdx))
         
-        
+
         var check:Int = -1;
+        var rtn: Bool = false
         let session = URLSession(configuration: .default)
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
             let output = try? JSONDecoder().decode(chat_alarm_rp.self, from: data!)
             if output == nil{
                 check = -1;
+            }
+            else if output!.statusCode == 2000{
+                rtn = true
             }
             else if output!.statusCode == 4000{
                 print("존재하지 않는 이메일입니다. ")
@@ -387,7 +395,7 @@ class PostAPI{
             semaphore.signal()
         }.resume()
         semaphore.wait()
-        return check
+        return rtn
     }
     
     static func readChat(chatRoomIdx : Int){
