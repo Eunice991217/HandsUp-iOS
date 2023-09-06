@@ -14,21 +14,35 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     var bRec:Bool = false
     var collectionViewIndexPath = 0;
     
+    var isMyPost:Bool = false;
+    
     @IBAction func heartBtnDidTap(_ sender: UIButton) {
         
-        sender.isSelected.toggle() // 버튼 상태를 토글
+        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
-        boardIndex = Int64(HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
         
-        if sender.isSelected {
-            sender.setImage(UIImage(named: "heartTap"), for: .normal)
-            let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex ?? 0)
-            print("하트 클릭")
-            print("stat : \(stat)")
+        isMyPost = currentUserNickname == postAuthorNickname
+    
+        if(isMyPost==false) {
             
-        } else {
-            sender.setImage(UIImage(named: "heartOff"), for: .normal)
-            print("하트 취소")
+            sender.isSelected.toggle() // 버튼 상태를 토글
+            
+            boardIndex = Int64(HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+            
+            if sender.isSelected {
+                sender.setImage(UIImage(named: "heartTap"), for: .normal)
+                let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex ?? 0)
+                print("하트 클릭")
+                print("stat : \(stat)")
+                
+            } else {
+                sender.setImage(UIImage(named: "heartOff"), for: .normal)
+                print("하트 취소")
+            }
+        }
+        else {
+            showBlockAlertMyHeart()
         }
     }
     
@@ -39,7 +53,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
         
-        let isMyPost = currentUserNickname == postAuthorNickname
+        isMyPost = currentUserNickname == postAuthorNickname
+        
+        print("isMyPost : \(isMyPost)")
         
         self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
     }
@@ -134,6 +150,30 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         present(alert, animated: true, completion: nil)
     }
     
+    func showBlockAlertMyCard(){
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default) { (action) in }; alert.addAction(confirm)
+        
+        confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        let attributedString = NSAttributedString(string: "본인 게시물은\n채팅을 보낼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showBlockAlertMyHeart(){
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default) { (action) in }; alert.addAction(confirm)
+        
+        confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        let attributedString = NSAttributedString(string: "본인 게시물은\n하트를 보낼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     @IBAction func dismissBtnDidTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -141,21 +181,38 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     
     @IBAction func chatBtnDidTap(_ sender: Any) {
-        let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
-        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
-        //        nextVC.boardIdx = Int(boardIndex!)
-        nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
-        nextVC.modalPresentationStyle = .fullScreen
+        let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        view.window!.layer.add(transition, forKey: kCATransition)
+        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
+        
+        isMyPost = currentUserNickname == postAuthorNickname
+    
+        if(isMyPost==false) {
+            let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
+            
+            guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
+            //        nextVC.boardIdx = Int(boardIndex!)
+            nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
+            nextVC.modalPresentationStyle = .fullScreen
+            
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            view.window!.layer.add(transition, forKey: kCATransition)
+            
+            
+            present(nextVC, animated: false, completion: nil)
+            
+        }
+        
+        else {
+            showBlockAlertMyCard()
+        }
+      
         
         
-        present(nextVC, animated: false, completion: nil)
     }
     
     
