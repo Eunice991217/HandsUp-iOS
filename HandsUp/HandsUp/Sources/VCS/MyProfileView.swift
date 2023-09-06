@@ -12,6 +12,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     var boardIndex: Int64?
     var bRec:Bool = false
+    var collectionViewIndexPath = 0;
     
     @IBAction func heartBtnDidTap(_ sender: UIButton) {
         
@@ -242,7 +243,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             cell.location.text = "위치 비밀"
         }
         
-        boardIndex =  Int64(HomeCardList[indexPath.row].board.boardIdx)
         return cell
     }
     
@@ -250,8 +250,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("boardIdx : \(boardIndex)")
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -267,6 +265,25 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeCardList.count)")
         
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if boardIndex == nil {
+            return
+        }
+        
+        var i: Int = 0
+        while i < HomeCardList.count{
+            if Int(boardIndex!) == HomeCardList[i].board.boardIdx{
+                break
+            }
+            i += 1
+        }
+        
+        self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width), y: 0), animated: true)
+        
     }
     
     func setupView() {
