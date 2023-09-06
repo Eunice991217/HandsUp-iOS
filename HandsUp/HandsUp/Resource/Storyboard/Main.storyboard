@@ -1369,7 +1369,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xm-Jn-CCV">
-                                                            <rect key="frame" x="25" y="506.5" width="300" height="130"/>
+                                                            <rect key="frame" x="25" y="556.5" width="300" height="130"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-eB-r9J">
                                                                     <rect key="frame" x="28" y="35" width="60" height="60"/>
@@ -1438,7 +1438,7 @@
                                                         <constraint firstItem="w6U-Sq-Ney" firstAttribute="top" secondItem="X5H-TP-eSF" secondAttribute="top" constant="-30" id="5tc-bq-QFl"/>
                                                         <constraint firstAttribute="height" constant="700" id="7bw-v6-ySz"/>
                                                         <constraint firstItem="vOX-Wp-aTP" firstAttribute="centerX" secondItem="X5H-TP-eSF" secondAttribute="centerX" id="CkN-m1-eQ6"/>
-                                                        <constraint firstItem="0Xm-Jn-CCV" firstAttribute="top" secondItem="vn0-BH-eiQ" secondAttribute="bottom" constant="50" id="DRI-hG-h5S"/>
+                                                        <constraint firstItem="0Xm-Jn-CCV" firstAttribute="top" secondItem="vn0-BH-eiQ" secondAttribute="bottom" constant="100" id="DRI-hG-h5S"/>
                                                         <constraint firstItem="vn0-BH-eiQ" firstAttribute="top" secondItem="xts-OR-MTB" secondAttribute="bottom" constant="20" id="JY5-oX-Ky7"/>
                                                         <constraint firstAttribute="width" constant="350" id="MLm-lE-nXm"/>
                                                         <constraint firstItem="Knh-sf-8RZ" firstAttribute="centerX" secondItem="X5H-TP-eSF" secondAttribute="centerX" id="Nmc-AF-W0n"/>

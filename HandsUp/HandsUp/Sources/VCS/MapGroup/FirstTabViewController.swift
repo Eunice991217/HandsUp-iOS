@@ -97,10 +97,10 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
                 new_marker.height = 60
                 
                 let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-                guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") else {
+                guard let MyProfileView = storyboard?.instantiateViewController(identifier: "MyProfileView") else {
                     return
                 }
-                myProfile.modalPresentationStyle = .overFullScreen
+                MyProfileView.modalPresentationStyle = .overFullScreen
                 
                 let boardIndex = Int64($0.boardIdx)
                 
@@ -110,9 +110,9 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
 //                }
                 
                 new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
-                    if let myProfile = myProfile as? MyProfileView {
-                        myProfile.boardIndex = boardIndex
-                        self.present(myProfile, animated: true)
+                    if let MyProfileView = MyProfileView as? MyProfileView {
+                        MyProfileView.boardIndex = boardIndex
+                        self.present(MyProfileView, animated: true)
                     }
                     return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
                 }
