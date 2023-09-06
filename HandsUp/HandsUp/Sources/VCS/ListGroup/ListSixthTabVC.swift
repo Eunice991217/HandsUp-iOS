@@ -58,18 +58,13 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-//        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
-//        myProfile.modalPresentationStyle = .overFullScreen
-        
-//        let filteredList = HomeList.filter { $0.tag == "여행" }
-        
-//        myProfile.HomeList = filteredList
-//        myProfile.startPage = indexPath.row
-//        
-//        self.present(myProfile, animated: true)
-        
         guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") as? MyProfileView else { return }
         myProfile.modalPresentationStyle = .overFullScreen
+        
+        let filteredList = HomeList.filter { $0.tag == "여행" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let item = filteredList[indexPath.row]
+        
+        myProfile.boardIndex = Int64(item.board.boardIdx)
 
         self.present(myProfile, animated: true)
     }
@@ -139,51 +134,7 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
 
         let filteredList = HomeList.filter { $0.tag == "여행" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
         let item = filteredList[indexPath.row]
-
-        cell.name.text = item.nickname
-        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
         
-        if item.board.indicateLocation == "true" {
-            cell.location.text = item.board.location
-        } else {
-            cell.location.text = "위치 비밀"
-        }
-
-//        let latitude = item.board.latitude
-//        let longitude = item.board.longitude
-//
-//        getAddressByLocation(latitude: latitude, longitude: longitude) { [weak self] address in
-//            DispatchQueue.main.async {
-//                if item.board.indicateLocation == "true" {
-//                    cell.location.text = address
-//                } else {
-//                    cell.location.text = "위치 비밀"
-//                }
-//            }
-//        }
-
-        print("여행 cell 위치값 확인 : \(String(describing: cell.location.text))")
-        cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        let createDate = item.board.createdAt.toDate()
-        cell.time.text = createDate.getTimeDifference()
-        cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        cell.content.text = item.board.content
-        cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
-
-        cell.label1.text = "|"
-        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
-        cell.label2.text = "|"
-        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
-        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
-
         boardsCharacterList = [] // 빈 배열
 
         let characterBoards = item.character
@@ -204,14 +155,40 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
 
-//        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
-//        cell.img.setCharacter_NoShadow() // 그림자 없애기
-//        cell.img.setCharacter() // 캐릭터 생성
-        //        cell.img.setAll(componentArray: boardsCharacterList) // 가져오기
-                cell.img.setCharacter_NoShadow() // 그림자 없애기
-        //        cell.img.convertSetList(arr: item.character)
-                cell.img.setCharacter(componentArray: boardsCharacterList) // 캐릭터 생성
-        //        cell.img.asImage() // 이미지로 변경
+        self.view.layoutIfNeeded()
+        
+        cell.img.setAll(componentArray: boardsCharacterList) // 캐릭터 생성
+        cell.img.setCharacter_NoShadow() // 그림자 없애기
+
+        cell.name.text = item.nickname
+        cell.name.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.name.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+        
+        if item.board.indicateLocation == "true" {
+            cell.location.text = item.board.location
+        } else {
+            cell.location.text = "위치 비밀"
+        }
+        
+        cell.location.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        let createDate = item.board.createdAt.toDate()
+        cell.time.text = createDate.getTimeDifference()
+        cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        cell.content.text = item.board.content
+        cell.content.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.content.textColor = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+
+        cell.label1.text = "|"
+        cell.label1.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label1.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
+
+        cell.label2.text = "|"
+        cell.label2.font = UIFont(name: "Roboto-Regular", size: 14)
+        cell.label2.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
         cell.selectionStyle = .none
 

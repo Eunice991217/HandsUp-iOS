@@ -55,10 +55,13 @@ class ListFirstTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-//        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
-        
         guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") as? MyProfileView else { return }
         myProfile.modalPresentationStyle = .overFullScreen
+        
+        let filteredList = HomeList.filter {($0.tag == "전체" || $0.tag == "Talk" || $0.tag == "밥" || $0.tag == "스터디" || $0.tag == "취미" || $0.tag == "여행") }
+        let item = filteredList[indexPath.row]
+        
+        myProfile.boardIndex = Int64(item.board.boardIdx)
 
         self.present(myProfile, animated: true)
     }

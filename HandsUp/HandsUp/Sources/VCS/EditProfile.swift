@@ -23,6 +23,8 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
     
     @IBOutlet weak var EditProfileBackBtn: UIButton!
     
+    var listVC: ListVC?
+    
     
     @IBAction func EditProfileBackDidTap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -30,8 +32,8 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
     
     
     @IBAction func EditProfileSubmit(_ sender: Any) {
-        
         self.navigationController?.popViewController(animated: true)
+        self.listVC?.refresh()
     }
 
     
@@ -61,6 +63,7 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
         
         sign_upVC_Login.modalPresentationStyle = .fullScreen
         self.present(sign_upVC_Login, animated: true)
+        
     }
     
     @objc func charaterHighlightToggle(_ sender: Any){

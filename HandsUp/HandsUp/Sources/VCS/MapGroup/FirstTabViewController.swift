@@ -101,12 +101,22 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
                     return
                 }
                 myProfile.modalPresentationStyle = .overFullScreen
+                
+                let boardIndex = Int64($0.boardIdx)
+                
+//                new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+//                    self.present(myProfile, animated: true)
+//                    return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
+//                }
+                
                 new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
-//                    let myProfile = MyProfileViewController()
-//                    myProfile.selectedId = overlay.boardIdx// 넘기려는 ID 값을 설정
-                    self.present(myProfile, animated: true)
+                    if let myProfile = myProfile as? MyProfileView {
+                        myProfile.boardIndex = boardIndex
+                        self.present(myProfile, animated: true)
+                    }
                     return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
                 }
+                
                 new_marker.mapView = mapView
             }
         }

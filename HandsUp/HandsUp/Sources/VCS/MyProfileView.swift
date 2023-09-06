@@ -18,7 +18,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         sender.isSelected.toggle() // 버튼 상태를 토글
         
         boardIndex = Int64(HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
-            
+        
         if sender.isSelected {
             sender.setImage(UIImage(named: "heartTap"), for: .normal)
             let stat = HomeServerAPI.boardsHeart(boardIdx: boardIndex ?? 0)
@@ -37,7 +37,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
         let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
-            
+        
         let isMyPost = currentUserNickname == postAuthorNickname
         
         self.showAlertController(style: .actionSheet, isMyPost: isMyPost)
@@ -66,8 +66,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
                     return
                 }
                 nextVC.isEdited = true;
-//                self.boardIndex = Int64(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
-//
+                //                self.boardIndex = Int64(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
+                //
                 nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
                 self.present(nextVC, animated: true, completion: nil)
             }
@@ -88,7 +88,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             let report = UIAlertAction(title: "신고하기", style: .default) { (action) in
                 Report?.modalPresentationStyle = .fullScreen
                 // 화면 전환!
-                
+            
                 let transition = CATransition()
                 transition.duration = 0.3
                 transition.type = CATransitionType.push
@@ -117,19 +117,19 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         present(alert, animated: true, completion: nil)
     }
-
+    
     
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
         let confirm = UIAlertAction(title: "네", style: .default) { (action) in }; alert.addAction(confirm)
-
+        
         confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         let attributedString = NSAttributedString(string: "해당 게시물을 차단하면 이 게시물은 더이상 볼 수 없습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
-
+        
         present(alert, animated: true, completion: nil)
     }
     
@@ -143,7 +143,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
-        nextVC.boardIdx = Int(boardIndex!)
+        //        nextVC.boardIdx = Int(boardIndex!)
+        nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
         nextVC.modalPresentationStyle = .fullScreen
         
         let transition = CATransition()
@@ -152,7 +153,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         transition.subtype = CATransitionSubtype.fromRight
         view.window!.layer.add(transition, forKey: kCATransition)
         
-    
+        
         present(nextVC, animated: false, completion: nil)
     }
     
@@ -170,9 +171,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyProfileCollectionViewCell", for: indexPath) as! MyProfileCollectionViewCell
         
         boardsCharacterList = [] // 빈 배열
-
+        
         let characterBoards = HomeCardList[indexPath.row].character
-
+        
         background = (Int(characterBoards.backGroundColor) ?? 1) - 1
         hair = (Int(characterBoards.hair) ?? 1) - 1
         eyebrow = (Int(characterBoards.eyeBrow) ?? 1) - 1
@@ -180,7 +181,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         nose = (Int(characterBoards.nose) ?? 1) - 1
         eyes = (Int(characterBoards.eye) ?? 1) - 1
         glasses = Int(characterBoards.glasses) ?? 0
-
+        
         boardsCharacterList.append(background)
         boardsCharacterList.append(hair)
         boardsCharacterList.append(eyebrow)
@@ -188,43 +189,43 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         boardsCharacterList.append(nose)
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
-
+        
         cell.profileImage.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.profileImage.setCharacter_NoShadow() // 그림자 없애기
         cell.profileImage.setCharacter() // 캐릭터 생성
-
+        
         cell.smallName.text=HomeCardList[indexPath.row].nickname
         cell.largeName.text=HomeCardList[indexPath.row].nickname
-
-
+        
+        
         let createDate = HomeCardList[indexPath.row].board.createdAt.toDate()
         cell.time.text=createDate.getTimeDifference()
-
+        
         cell.content.text=HomeCardList[indexPath.row].board.content
         cell.content.sizeToFit()
-
+        
         cell.tagType.text = "#" + HomeCardList[indexPath.row].tag
         cell.tagType.font = UIFont(name: "Roboto-Bold", size: 14)
-
-
+        
+        
         let schoolName = HomeCardList[indexPath.row].schoolName
         var cutSchoolName: String = ""
-
+        
         if(schoolName.count == 6) {
             _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
             let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
             let range = ...endIndex
-
+            
             cutSchoolName = String(schoolName[range])
         }
         else if(schoolName.count == 5) {
             _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
             let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
             let range = ...endIndex
-
+            
             cutSchoolName = String(schoolName[range])
         }
-
+        
         cell.school.text = cutSchoolName
         cell.school.font = UIFont(name: "Roboto-Bold", size: 14)
         
@@ -249,7 +250,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("boardIdx : \(boardIndex)")
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
