@@ -62,6 +62,8 @@ class ListFirstTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         let item = filteredList[indexPath.row]
         
         myProfile.boardIndex = Int64(item.board.boardIdx)
+        
+        myProfile.beforeVC = self
 
         self.present(myProfile, animated: true)
     }

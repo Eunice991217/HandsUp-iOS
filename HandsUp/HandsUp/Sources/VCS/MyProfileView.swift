@@ -16,6 +16,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     var isMyPost:Bool = false;
     
+    var beforeVC: ListVC?
+    
     @IBAction func heartBtnDidTap(_ sender: UIButton) {
         
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
@@ -176,7 +178,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     
     @IBAction func dismissBtnDidTap(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true){
+            self.beforeVC?.refresh()
+        }
     }
     
     

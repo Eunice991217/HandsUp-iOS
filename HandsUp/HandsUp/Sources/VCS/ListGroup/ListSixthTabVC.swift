@@ -65,6 +65,8 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         let item = filteredList[indexPath.row]
         
         myProfile.boardIndex = Int64(item.board.boardIdx)
+        
+        myProfile.beforeVC = self
 
         self.present(myProfile, animated: true)
     }
@@ -85,47 +87,6 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
-    var findLocation:CLLocation!
-    let geocoder = CLGeocoder()
-    var longitude_HVC = 0.0
-    var latitude_HVC = 0.0
-    var finalAddress = ""
-    
-    func getAddressByLocation(latitude: Double, longitude: Double, completion: @escaping (String?) -> Void) {
-        print("위도, 경도 변환 함수 호출 테스트")
-        findLocation = CLLocation(latitude: latitude, longitude: longitude)
-        print("latitude: \(latitude), longitude: \(longitude)")
-        if findLocation != nil {
-            geocoder.reverseGeocodeLocation(findLocation!) { [self] (placemarks, error) in
-                if error != nil {
-                    completion(nil)
-                    return
-                }
-                if let placemark = placemarks?.first {
-                    var address = ""
-                    if placemark.administrativeArea != nil {
-                        // address = "\(address) \(administrativeArea) "
-                    }
-                    if let locality = placemark.locality {
-                        address = "\(address)\(locality) "
-                    }
-                    if let thoroughfare = placemark.thoroughfare {
-                        address = "\(address)\(thoroughfare)"
-                    }
-                    if placemark.subThoroughfare != nil {
-                        // address = "\(address) \(subThoroughfare)"
-                    }
-                    completion(address)
-                } else {
-                    completion(nil)
-                }
-            }
-        } else {
-            completion(nil)
-        }
-    }
-
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.id, for: indexPath) as? ListTableViewCell else {
