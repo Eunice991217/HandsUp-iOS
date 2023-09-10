@@ -58,9 +58,11 @@ class ViewController: UIViewController {
     func showAlertController(style: UIAlertController.Style) {
         let alert = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         
-        let Edit = self.storyboard?.instantiateViewController(withIdentifier: "EditProfile")
-        let editProfile = UIAlertAction(title: "내 정보 변경", style: UIAlertAction.Style.default,         handler:{(action) in self.navigationController?.pushViewController(Edit!, animated: true)}
+        let Edit = self.storyboard?.instantiateViewController(withIdentifier: "EditProfile") as! EditProfile
+        Edit.listVC = self.tabmanList?.viewControllers[self.tabmanList!.curIndex]
+        let editProfile = UIAlertAction(title: "내 정보 변경", style: UIAlertAction.Style.default,         handler:{(action) in self.navigationController?.pushViewController(Edit, animated: true)}
         )
+        
         alert.addAction(editProfile)
         
         let Post = self.storyboard?.instantiateViewController(withIdentifier: "MyPost")

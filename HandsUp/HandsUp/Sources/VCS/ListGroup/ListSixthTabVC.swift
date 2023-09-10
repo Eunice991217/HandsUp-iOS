@@ -52,6 +52,7 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         attribute: .trailing, relatedBy: .equal, toItem: self.view,
         attribute: .trailing, multiplier: 1.0, constant: 0))
         
+        myTableView.contentInset.bottom = 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -72,6 +73,9 @@ class ListSixthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        myTableView.reloadData()
+        refresh()
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             let filteredList = HomeList.filter { $0.tag == "여행" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
             return filteredList.count
