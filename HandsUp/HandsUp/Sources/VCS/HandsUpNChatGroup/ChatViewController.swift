@@ -8,16 +8,16 @@
 import UIKit
 
 class ChatViewController: UIViewController {
+    //전 화면에서 얻어야할 값
+    var isRead: Bool = false
+    public var boardIdx: Int = 0
+    var isChatExisted: Bool = false // 채팅 목록에서 들어오면 화면전환 전에 이 값을 true로 변경해야함.
     
-    var chatRoomKey: String = ""
     var boardsCharacterList: [Int] = []
     var chatDatas_CVC: [Message] = []
     public var chatPersonName = ""
-    public var statusCode = 0
-    public var boardIdx: Int = 0
-    var isChatExisted: Bool = false
     var chatKey: String = ""
-    var oppositeEmail: String = ""
+    
     
     @IBOutlet var nameInBoard: UILabel!
     @IBOutlet var profileViewInBoard: UIView!
@@ -126,7 +126,7 @@ class ChatViewController: UIViewController {
             let makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
             print("게시물 인덱스: \(boardIdx)")
             print("여기 들어왔니 \(makeChatStatusCode)")
-            if(statusCode == 2000){
+            if(makeChatStatusCode == 2000){
                 print("채팅방 생성에 성공하였습니다. ")
             }
         }
@@ -190,8 +190,13 @@ class ChatViewController: UIViewController {
         
         swipeRecognizer()
         
-        //채팅 내 상단 게시물 설정 코드
-
+        PostAPI.readChat(chatRoomkey: chatKey)
+        //채팅 읽은 후 API 요청
+        if(isRead == true){
+            PostAPI.readChat(chatRoomkey: chatKey)
+        }
+        
+        //채팅 화면 상단 게시물 설정 코드
         let boardInfo = PostAPI.getBoardInChat(boardIdx: boardIdx)
 
         chatPersonNameLabel_CVC.text = boardInfo?.nickname
@@ -222,26 +227,27 @@ class ChatViewController: UIViewController {
         
         let myUserEmail = UserDefaults.standard.string(forKey: "email")!
         let boardWriter = boardInfo?.writerEmail
-        //게시물 작성자가 자신일 때
-        if(boardWriter == myUserEmail){
-            
-        }
-        else{
-            //이미 채팅 내역이 존재하는지 확인
-            //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
-            chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
-            let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)
-            
-            oppositeEmail = boardWriter!
-            if(isChatExistedResult?.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
-                isChatExisted = true
-            }else{
-                isChatExisted = false
+        
+        if(isChatExisted == false){ // 게시물 비행기 버튼을 통해서 들어온 경우
+            if(boardWriter != myUserEmail){
+                //이미 채팅 내역이 존재하는지 확인
+                //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
+                chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
+                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)
+                
+                let oppositeEmail = boardWriter!
+                if(isChatExistedResult?.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
+                    isChatExisted = true
+                }else{
+                    isChatExisted = false
+                }
             }
         }
-
+        
+        //채팅방이 존재하는 경우에만 채팅 메세지 정보 가져오기
         if(isChatExisted == true){
             //채팅 정보 가져오기
+            print("chatkey: \(chatKey)")
             FirestoreAPI.shared.readAll(chatRoomID: chatKey) { messages, error in
                 if let error = error {
                     print("Error: \(error)")
@@ -256,12 +262,11 @@ class ChatViewController: UIViewController {
                     print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
                     self.chatTableView_CVC.reloadData()
                     
-                    // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
-                    let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
-                    self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+//                    // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
+//                    let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
+//                    self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
                 }
             }
-            
         }
     }
     

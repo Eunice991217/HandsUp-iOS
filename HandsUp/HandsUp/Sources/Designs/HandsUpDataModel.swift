@@ -123,6 +123,7 @@ struct chat_list_rp: Codable {
 struct Chat: Codable{
     let chatRoomIdx: Int
     let chatRoomKey: String
+    let boardIdx: Int
     let character: chatCharacter
     let nickname, updatedAt, lastContent, lastSenderEmail: String
     let notRead: Int
@@ -177,7 +178,7 @@ struct chat_alarm_rp: Codable {
     let result: String
 }
 struct chats_read_rq: Codable {
-    let chatRoomIdx: Int
+    let chatRoomKey: String
 }
 
 struct chats_read_rp: Codable {

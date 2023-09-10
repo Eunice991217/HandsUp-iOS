@@ -21,6 +21,7 @@ class ChatListViewController: UIViewController {
         
         chatAlarmTableView_CLVC.delegate = self
         chatAlarmTableView_CLVC.dataSource = self
+        chatAlarmTableView_CLVC.allowsMultipleSelectionDuringEditing = false
         chatAlarmTableView_CLVC.rowHeight = 84
         
         
@@ -40,7 +41,7 @@ class ChatListViewController: UIViewController {
 
         
     }
-    
+         
     
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -65,6 +66,47 @@ class ChatListViewController: UIViewController {
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // 삭제할 데이터와 셀을 찾습니다.
+//            let itemToDelete = chatArr![indexPath.row]
+//
+//            if var chatArray = chatArr {
+//                if chatArray.indices.contains(indexPath.row) {
+//                    chatArray.remove(at: indexPath.row)
+//                    chatArr = chatArray // 업데이트된 배열을 다시 할당
+//                } else {
+//                    print("인덱스가 배열 범위를 벗어납니다.")
+//                }
+//            } else {
+//                print("chatArr이 nil입니다.")
+//            }
+//
+//            // 테이블 뷰에서 셀을 삭제합니다.
+//            tableView.deleteRows(at: [indexPath], with: .fade) // 또는 .automatic, .none을 사용할 수 있습니다.
+//            PostAPI.deleteChat(chatRoomkey: chatArr![indexPath.row].chatRoomKey)
+//        }
+//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // 삭제할 데이터와 셀을 찾습니다.
+            guard let chatArray = chatArr, indexPath.row < chatArray.count else {
+                print("유효하지 않은 인덱스 또는 chatArr이 nil입니다.")
+                return
+            }
+
+            let itemToDelete = chatArray[indexPath.row]
+
+            // chatArr 업데이트
+            chatArr?.remove(at: indexPath.row)
+
+            // 테이블 뷰에서 셀을 삭제합니다.
+            tableView.deleteRows(at: [indexPath], with: .fade) // 또는 .automatic, .none을 사용할 수 있습니다.
+
+            // 삭제된 아이템에 대한 추가 작업 (예: 네트워크 요청 등)
+            PostAPI.deleteChat(chatRoomkey: itemToDelete.chatRoomKey)
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return chatArr?.count ?? 0
@@ -78,18 +120,33 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
 
         cell.timeLb_CATVC.text = chatArr![indexPath.row].character.createdAt
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname
-       // cell.contentLb_CATVC.text = chatArr![indexPath.row].message
+        cell.contentLb_CATVC.text = chatArr![indexPath.row].lastContent
         
-      //  cell.countLb_CATVX.text = String(chatArr![indexPath.row].newMsgCount)
- //       if(chatArr![indexPath.row].newMsgCount == 0 ){
- //           cell.countLb_CATVX.isHidden = true
- //       }
+        let userEmail = UserDefaults.standard.string(forKey: "email")!
+        if(chatArr![indexPath.row].lastSenderEmail != userEmail){
+            cell.countLb_CATVX.isHidden = true
+        }
+        else{
+            if(chatArr![indexPath.row].notRead > 0){
+                cell.countLb_CATVX.isHidden = false
+                cell.countLb_CATVX.text = String(chatArr![indexPath.row].notRead)
+            }
+        }
+
         cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
+        let userEmail = UserDefaults.standard.string(forKey: "email")!
+        if(chatArr![indexPath.row].lastSenderEmail != userEmail && chatArr![indexPath.row].notRead > 0){
+            nextVC.isRead = true
+        }
+        nextVC.isChatExisted = true
+        nextVC.boardIdx = chatArr![indexPath.row].boardIdx
+        nextVC.chatKey = chatArr![indexPath.row].chatRoomKey
+      //  nextVC.boardIdx = nextVC.boardIdx = Int(boardIndex!)
         
         nextVC.modalPresentationStyle = .fullScreen
         
