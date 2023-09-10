@@ -118,14 +118,16 @@ struct chat_list_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let chatList: [Chat]?
+    let result: [Chat]?
 }
 struct Chat: Codable{
     let chatRoomIdx: Int
     let chatRoomKey: String
+    let boardIdx: Int
     let character: chatCharacter
-    let nickname, updatedAt, lastContent: String
-    let lastSenderIdx, notRead: Int
+    let nickname, updatedAt, lastContent, lastSenderEmail: String
+    let notRead: Int
+    let oppositeEmail: String
 }
 
 struct chatCharacter: Codable {
@@ -134,7 +136,6 @@ struct chatCharacter: Codable {
     let eye, eyeBrow, glasses, nose: String
     let mouth, hair, hairColor, skinColor: String
     let backGroundColor, status: String
-
 }
 
 
@@ -147,33 +148,37 @@ struct board_in_chat_rp: Codable {
 
 // MARK: - Result
 struct board_in_chat_result: Codable {
-    let board: Board
+    let board: board_in_chat
+    let tag: String
     let character: chatCharacter
+    let writerEmail: String
     let nickname: String
 }
 
 // MARK: - Board
-struct Board: Codable {
+struct board_in_chat: Codable {
     let boardIdx: Int
     let content: String
     let latitude, longitude: Double
-    let location: String
-    let indicateLocation: String
+    let location, indicateLocation: String
     let messageDuration: Int
     let createdAt, updatedAt, status: String
 }
 
 struct chat_alarm_rq: Codable {
     let email: String
+    let chatContent: String
+    let chatRoomKey: String
 }
 
 struct chat_alarm_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
+    let result: String
 }
 struct chats_read_rq: Codable {
-    let chatRoomIdx: Int
+    let chatRoomKey: String
 }
 
 struct chats_read_rp: Codable {
@@ -198,4 +203,40 @@ extension Encodable {
         return dictinoary
     }
 }
+
+struct chat_check_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: chatCheckResult
+}
+
+// MARK: - Result
+struct chatCheckResult: Codable {
+    let board: chatCheckBoard
+    let character: chatCheckCharacter
+    let nickname: String
+    let writerEmail: String
+    let isSaved: Bool
+}
+
+// MARK: - Board
+struct chatCheckBoard: Codable {
+    let boardIdx: Int
+    let content: String
+    let latitude, longitude: Double
+    let location, indicateLocation: String
+    let messageDuration: Int
+    let createdAt, updatedAt, status: String
+}
+
+// MARK: - Character
+struct chatCheckCharacter: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+}
+
 

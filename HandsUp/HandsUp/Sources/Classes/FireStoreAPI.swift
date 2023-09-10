@@ -77,37 +77,62 @@ final class FirestoreAPI {
         }
     }
     
-    func readAll(chatRoomID: String) -> [Message]?{
+    func readAll(chatRoomID: String, completion: @escaping ([Message]?, Error?) -> Void) {
         var messages: [Message] = []
-        let semaphore = DispatchSemaphore(value: 0)
+        
         db.collection("chatroom/\(chatRoomID)/chat").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
-                
-            } else {
-                for document in querySnapshot!.documents {
-                    do {
-                        if var varMessage = try? document.data(as: Message.self) {
-                            varMessage.documentID = document.documentID
-                            messages.append(varMessage)
-                            print("message 개수: \(messages.count)")
-
-                        } else {
-                            print("Failed to decode message data for document \(document.documentID)")
-                        }
-                    } catch {
-                        print("Error decoding message data: \(error)")
-                    }
-                    semaphore.signal()
-                }
-                semaphore.signal()
+                completion(nil, error)
+                return
             }
             
+            for document in querySnapshot!.documents {
+                do {
+                    if var varMessage = try? document.data(as: Message.self) {
+                        varMessage.documentID = document.documentID
+                        messages.append(varMessage)
+                    } else {
+                        print("Failed to decode message data for document \(document.documentID)")
+                    }
+                } catch {
+                    print("Error decoding message data: \(error)")
+                    completion(nil, error)
+                    return
+                }
+            }
+            
+            completion(messages, nil)
         }
-        semaphore.wait()
-        print("message 개수: \(messages.count)")
-        return messages
     }
+    func deleteChat(chatRoomID: String, completion: @escaping (Error?) -> Void) {
+        let collectionRef = db.collection("chatroom").document(chatRoomID).collection("chat")
+        
+        collectionRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("컬렉션 조회 중 오류 발생: \(error)")
+                completion(error)
+            } else {
+                let batch = self.db.batch()
+                
+                for document in snapshot!.documents {
+                    let docRef = collectionRef.document(document.documentID)
+                    batch.deleteDocument(docRef)
+                }
+                
+                batch.commit { (error) in
+                    if let error = error {
+                        print("컬렉션 삭제 중 오류 발생: \(error)")
+                        completion(error)
+                    } else {
+                        print("컬렉션 및 문서 삭제 성공")
+                        completion(nil)
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 

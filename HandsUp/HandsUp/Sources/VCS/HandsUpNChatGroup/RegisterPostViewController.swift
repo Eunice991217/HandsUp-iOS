@@ -320,7 +320,6 @@ class RegisterPostViewController: UIViewController{
                 result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, location : locationLabel_HVC.text!)
             }
             
-            print("locationLabel_HVC.text : \(locationLabel_HVC.text!)")
             print("result:  \(result)")
             switch result {
             case 2000:
@@ -330,6 +329,11 @@ class RegisterPostViewController: UIViewController{
                 }
             case -1:
                 ServerError()
+            case 4021:
+                let alertController = UIAlertController(title: "오류", message: "GPS를 확인해주세요!", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "닫기", style: .default, handler: nil)
+                        alertController.addAction(okAction)
+                        present(alertController, animated: true, completion: nil)
             default:
                 print("게시물 등록에 실패하였습니다.")
    

@@ -14,32 +14,29 @@ class ChatListViewController: UIViewController {
     let db = Firestore.firestore()
     @IBOutlet weak var chatAlarmTableView_CLVC: UITableView!
     var chatArr: [Chat]?
-
+    var chatDatas_CVC: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         chatAlarmTableView_CLVC.delegate = self
         chatAlarmTableView_CLVC.dataSource = self
+        chatAlarmTableView_CLVC.allowsMultipleSelectionDuringEditing = false
         chatAlarmTableView_CLVC.rowHeight = 84
         
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
-        // Do any additional setup after loading the view.
-//        FirestoreAPI.shared.addChat(chatRoomID: "wltjd3459@af dfs", chatRequest: Message(content: "안녕하세요 포스팅보고 연락...더보기"))
-   //     FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs"){ roadInfos in
-  //          print(roadInfos)
- //       }
-//        
+ 
         chatArr = PostAPI.getChatList()
         if( chatArr == nil){
             chatArr = []
             showBlockAlert()
         }
         
-        PostAPI.sendChatAlarm(emailID: "wltjd3459@naver.com")
+
+        
     }
-    
+         
     
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -64,6 +61,36 @@ class ChatListViewController: UIViewController {
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // 삭제할 데이터와 셀을 찾습니다.
+            guard let chatArray = chatArr, indexPath.row < chatArray.count else {
+                print("유효하지 않은 인덱스 또는 chatArr이 nil입니다.")
+                return
+            }
+
+            let itemToDelete = chatArray[indexPath.row]
+
+            // chatArr 업데이트
+            chatArr?.remove(at: indexPath.row)
+
+            // 테이블 뷰에서 셀을 삭제합니다.
+            tableView.deleteRows(at: [indexPath], with: .fade) // 또는 .automatic, .none을 사용할 수 있습니다.
+
+            // 삭제된 아이템에 대한 추가 작업 (예: 네트워크 요청 등)
+            PostAPI.deleteChat(chatRoomkey: itemToDelete.chatRoomKey)
+            FirestoreAPI.shared.deleteChat(chatRoomID: itemToDelete.chatRoomKey, completion: {
+                error in
+                   if let error = error {
+                       // 삭제 작업 중 오류가 발생한 경우 처리
+                       print("삭제 오류: \(error)")
+                   } else {
+                       // 삭제 작업이 성공적으로 완료된 경우 처리
+                       print("채팅 삭제 완료")
+                   }
+            })
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return chatArr?.count ?? 0
@@ -77,18 +104,33 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
 
         cell.timeLb_CATVC.text = chatArr![indexPath.row].character.createdAt
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname
-       // cell.contentLb_CATVC.text = chatArr![indexPath.row].message
+        cell.contentLb_CATVC.text = chatArr![indexPath.row].lastContent
         
-      //  cell.countLb_CATVX.text = String(chatArr![indexPath.row].newMsgCount)
- //       if(chatArr![indexPath.row].newMsgCount == 0 ){
- //           cell.countLb_CATVX.isHidden = true
- //       }
+        let userEmail = UserDefaults.standard.string(forKey: "email")!
+        if(chatArr![indexPath.row].lastSenderEmail != userEmail){
+            cell.countLb_CATVX.isHidden = true
+        }
+        else{
+            if(chatArr![indexPath.row].notRead > 0){
+                cell.countLb_CATVX.isHidden = false
+                cell.countLb_CATVX.text = String(chatArr![indexPath.row].notRead)
+            }
+        }
+
         cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
+        let userEmail = UserDefaults.standard.string(forKey: "email")!
+        if(chatArr![indexPath.row].lastSenderEmail != userEmail && chatArr![indexPath.row].notRead > 0){
+            nextVC.isRead = true
+        }
+        nextVC.isChatExisted = true
+        nextVC.boardIdx = chatArr![indexPath.row].boardIdx
+        nextVC.chatKey = chatArr![indexPath.row].chatRoomKey
+      //  nextVC.boardIdx = nextVC.boardIdx = Int(boardIndex!)
         
         nextVC.modalPresentationStyle = .fullScreen
         

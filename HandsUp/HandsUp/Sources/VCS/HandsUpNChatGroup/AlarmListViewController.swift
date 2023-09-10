@@ -150,7 +150,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 transition.type = CATransitionType.push
                 transition.subtype = CATransitionSubtype.fromRight
                 view.window!.layer.add(transition, forKey: kCATransition)
-                nextVC.chatRoomKey = chatRoomKey
+                nextVC.chatKey = chatRoomKey
 
                 present(nextVC, animated: false, completion: nil)
                 break
@@ -167,8 +167,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 ServerError()
                 break
             }
-           let status_code =  PostAPI.sendChatAlarm(emailID: "wltjd1234@dongguk.edu")
-            print("chat alarm; \(status_code)")
+
             
         }
             

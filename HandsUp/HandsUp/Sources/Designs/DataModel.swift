@@ -266,3 +266,9 @@ struct chatsBlock_rtn{
     var statusCode: Int
     var result_mode: String?
 }
+
+struct deleteChat_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
+}
