@@ -102,7 +102,7 @@ struct Character: Codable {
     
 }
 struct chat_create_rq: Codable{
-    let boardIndx: Int64
+    let boardIdx: Int64
     let chatRoomKey: String
     
 }

@@ -122,9 +122,10 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
             let boardIdx = likeList[indexPath.row].boardIdx
             
             // 채팅방 키(형식 = 게시물 인덱스 + 게시물 작성자 이메일 + 상대방 이메일)
-            let chatRoomKey = String(likeList[indexPath.row].boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
-            var statusCode = PostAPI.makeNewChat(boardIndx: Int64(boardIdx), chatRoomKey: chatRoomKey)
-            
+            let chatRoomKey = String(boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
+
+            let statusCode = PostAPI.checkChatExists(chatRoomKey: chatRoomKey, boardIdx: boardIdx, oppositeUserEmail: likeList[indexPath.row].emailFrom)?.statusCode
+
             // 채팅방 화면전환 관련 코드
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
             nextVC.modalPresentationStyle = .fullScreen
@@ -143,19 +144,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 present(nextVC, animated: false, completion: nil)
                 break
                 
-            case 4055: // 이미 존재하는 채팅방 -> 해당 이메일로 이동
-                //채팅방 뷰컨에 채팅방 키 전달
-                let transition = CATransition()
-                transition.duration = 0.3
-                transition.type = CATransitionType.push
-                transition.subtype = CATransitionSubtype.fromRight
-                view.window!.layer.add(transition, forKey: kCATransition)
-                nextVC.chatKey = chatRoomKey
-
-                present(nextVC, animated: false, completion: nil)
-                break
-                
-            case 4000: //존재하지 않는 유저이다. -> 팝업창
+            case 4011: //존재하지 않는 유저이다. -> 팝업창
                 showBlockAlert(errorContent: "존재하지 않는 사용자 입니다.")
                 break
                 

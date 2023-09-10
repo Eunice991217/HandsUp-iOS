@@ -420,10 +420,10 @@
             </objects>
             <point key="canvasLocation" x="1571.7557251908397" y="613.73239436619724"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--ChatViewController-->
         <scene sceneID="uF3-eA-6hF">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="Vrt-P4-vvb" customClass="ChatViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" title="ChatViewController" id="Vrt-P4-vvb" customClass="ChatViewController" customModule="HandsUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4c6-Op-aWP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -490,7 +490,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgS-5S-lgA">
+                            <view contentMode="scaleToFill" restorationIdentifier="ChatViewController" translatesAutoresizingMaskIntoConstraints="NO" id="LgS-5S-lgA">
                                 <rect key="frame" x="16" y="171" width="361" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제가 3시쯤에 수업이 끝날거 같은데 3시 30분에 학교근처.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-yM-0AT">
