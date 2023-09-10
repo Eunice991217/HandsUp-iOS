@@ -88,6 +88,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
                 //                self.boardIndex = Int64(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
                 //
                 nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
+                
+                nextVC.cardVC = self
+                self.boardIndex = Int64(self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
                 self.present(nextVC, animated: true, completion: nil)
             }
             alert.addAction(edit)
@@ -345,6 +348,12 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width), y: 0), animated: true)
         
+    }
+    
+    func refresh(){
+        HomeCardList = HomeServerAPI.boardsShowList() ?? []
+        MyProfileCollectionView.reloadData()
+        self.view.layoutIfNeeded()
     }
     
     func setupView() {
