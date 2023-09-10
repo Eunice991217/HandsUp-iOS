@@ -123,7 +123,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
             
             // 채팅방 키(형식 = 게시물 인덱스 + 게시물 작성자 이메일 + 상대방 이메일)
             let chatRoomKey = String(likeList[indexPath.row].boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
-            var statusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatRoomKey)
+            var statusCode = PostAPI.makeNewChat(boardIndx: Int64(boardIdx), chatRoomKey: chatRoomKey)
             
             // 채팅방 화면전환 관련 코드
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
@@ -138,7 +138,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 transition.subtype = CATransitionSubtype.fromRight
                 view.window!.layer.add(transition, forKey: kCATransition)
                 //채팅방 뷰컨에 게시물 키 전달
-                nextVC.boardIdx = likeList[indexPath.row].boardIdx
+                nextVC.boardIdx = Int64(likeList[indexPath.row].boardIdx)
 
                 present(nextVC, animated: false, completion: nil)
                 break

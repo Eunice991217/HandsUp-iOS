@@ -9,7 +9,7 @@ import UIKit
 
 class PostThroughChatViewController: UIViewController {
 
-    var boardIdx: Int = 0
+    var boardIdx: Int64 = 0
     
     var boardsCharacterList: [Int] = []
     @IBOutlet var tagLabel_PTCVC: UILabel!

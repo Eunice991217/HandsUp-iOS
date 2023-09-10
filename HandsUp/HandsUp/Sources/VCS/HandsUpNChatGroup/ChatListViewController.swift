@@ -128,7 +128,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
             nextVC.isRead = true
         }
         nextVC.isChatExisted = true
-        nextVC.boardIdx = chatArr![indexPath.row].boardIdx
+        nextVC.boardIdx = Int64(chatArr![indexPath.row].boardIdx)
         nextVC.chatKey = chatArr![indexPath.row].chatRoomKey
       //  nextVC.boardIdx = nextVC.boardIdx = Int(boardIndex!)
         

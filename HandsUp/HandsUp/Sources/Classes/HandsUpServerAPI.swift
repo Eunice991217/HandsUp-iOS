@@ -214,13 +214,14 @@ class PostAPI{
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     
-    static func makeNewChat(boardIndx : Int, chatRoomKey: String) -> Int {
+    static func makeNewChat(boardIndx : Int64, chatRoomKey: String) -> Int {
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/chats/create")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
+        
         
         let uploadData = try! JSONEncoder().encode(chat_create_rq(boardIndx: boardIndx, chatRoomKey: chatRoomKey))
         
@@ -240,6 +241,9 @@ class PostAPI{
             else if output!.statusCode == 4055{
                 print("이미 존재하는 채팅방입니다. ")
                 check = output!.statusCode
+            }
+            else if output!.statusCode == 4010 {
+                print("NON_EXIST_BOARDIDX")
             }
             else{ // statusCode = 4000 존재하지 않는 이메일입니다. , statusCode = 4010 게시물 인덱스가 존재하지 않습니다.
                 check = output!.statusCode
@@ -303,7 +307,7 @@ class PostAPI{
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     
-    static func getBoardInChat(boardIdx: Int) -> board_in_chat_result?{
+    static func getBoardInChat(boardIdx: Int64) -> board_in_chat_result?{
         let serverDir = "http://13.124.196.200:8080"
         
         //let url = URL(string: serverDir + "/chats/" + String(boardIdx) )

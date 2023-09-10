@@ -10,7 +10,7 @@ import UIKit
 class ChatViewController: UIViewController {
     //전 화면에서 얻어야할 값
     var isRead: Bool = false
-    public var boardIdx: Int = 0
+    public var boardIdx: Int64 = 0
     var isChatExisted: Bool = false // 채팅 목록에서 들어오면 화면전환 전에 이 값을 true로 변경해야함.
     
     var boardsCharacterList: [Int] = []
@@ -123,9 +123,13 @@ class ChatViewController: UIViewController {
     @IBAction func chatSendBtnDidTap_CVC(_ sender: Any) {
         
         if(isChatExisted == false){
+            print("board: \(boardIdx)")
+            print("chatKey: \(chatKey)")
             let makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
+            print("버튼 클릭: \(makeChatStatusCode)")
             if(makeChatStatusCode == 2000){
                 print("채팅방 생성에 성공하였습니다. ")
+                isChatExisted = true
             }
         }
                 

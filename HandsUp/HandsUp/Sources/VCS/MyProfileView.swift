@@ -143,7 +143,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
-        nextVC.boardIdx = Int(boardIndex!)
+        nextVC.boardIdx = Int64(Int(boardIndex!))
         nextVC.modalPresentationStyle = .fullScreen
         
         let transition = CATransition()
