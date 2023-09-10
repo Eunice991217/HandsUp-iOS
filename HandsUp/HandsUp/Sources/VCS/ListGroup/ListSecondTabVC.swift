@@ -50,7 +50,7 @@ class ListSecondTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         attribute: .trailing, relatedBy: .equal, toItem: self.view,
         attribute: .trailing, multiplier: 1.0, constant: 0))
         
-        
+        myTableView.contentInset.bottom = 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
