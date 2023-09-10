@@ -58,18 +58,15 @@ class ListFourthTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
                        
         // 스토리보드에서 지정해준 ViewController의 ID
-//        guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfile") as? MyProfile else { return }
-//        myProfile.modalPresentationStyle = .overFullScreen
-//        
-//        let filteredList = HomeList.filter { $0.tag == "스터디" }
-//        
-//        myProfile.HomeList = filteredList
-//        myProfile.startPage = indexPath.row
-//        
-//        self.present(myProfile, animated: true)
-        
         guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") as? MyProfileView else { return }
         myProfile.modalPresentationStyle = .overFullScreen
+        
+        let filteredList = HomeList.filter { $0.tag == "스터디" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let item = filteredList[indexPath.row]
+        
+        myProfile.boardIndex = Int64(item.board.boardIdx)
+        
+        myProfile.beforeVC = self
 
         self.present(myProfile, animated: true)
     }

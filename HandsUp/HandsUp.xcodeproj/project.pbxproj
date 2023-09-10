@@ -36,7 +36,6 @@
 		480351942A90E64300E724C1 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480351932A90E64300E724C1 /* MyProfileView.swift */; };
 		480B01E5297149D1007054B1 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E4297149D1007054B1 /* EditProfile.swift */; };
 		480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B01E629715A3C007054B1 /* EditProfileName.swift */; };
-		4817588A2988EF36004FACF0 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481758892988EF2E004FACF0 /* MyProfile.swift */; };
 		4817588C2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */; };
 		4819DD3229828C1300549538 /* CustromSwitchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4819DD3129828C1300549538 /* CustromSwitchHome.swift */; };
 		482903AB2987F0C6003E6E18 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482903AA2987F0C6003E6E18 /* ListTableViewCell.swift */; };
@@ -127,7 +126,6 @@
 		480351932A90E64300E724C1 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		480B01E4297149D1007054B1 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		480B01E629715A3C007054B1 /* EditProfileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileName.swift; sourceTree = "<group>"; };
-		481758892988EF2E004FACF0 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		4819DD3129828C1300549538 /* CustromSwitchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustromSwitchHome.swift; sourceTree = "<group>"; };
 		482903AA2987F0C6003E6E18 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 				48398AE5297288F9006FD205 /* Report.swift */,
 				48398AE729728FA0006FD205 /* MyPost.swift */,
 				48398AE9297295C5006FD205 /* MyPostTableViewCell.swift */,
-				481758892988EF2E004FACF0 /* MyProfile.swift */,
 				4817588B2988F6D0004FACF0 /* MyProfileCollectionViewCell.swift */,
 				480351932A90E64300E724C1 /* MyProfileView.swift */,
 				321B1E342986360300E2CFEE /* HandsUpNChatViewElement */,
@@ -538,7 +535,6 @@
 			files = (
 				486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */,
 				32425D6A29CEE58500B24024 /* RoundRedLabel.swift in Sources */,
-				4817588A2988EF36004FACF0 /* MyProfile.swift in Sources */,
 				321B1E3729864E9100E2CFEE /* ChatNavigationViewController.swift in Sources */,
 				486CFF4F29756C49003761E7 /* ListThirdTabVC.swift in Sources */,
 				480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */,

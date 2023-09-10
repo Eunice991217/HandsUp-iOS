@@ -97,16 +97,26 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
                 new_marker.height = 60
                 
                 let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-                guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") else {
+                guard let MyProfileView = storyboard?.instantiateViewController(identifier: "MyProfileView") else {
                     return
                 }
-                myProfile.modalPresentationStyle = .overFullScreen
+                MyProfileView.modalPresentationStyle = .overFullScreen
+                
+                let boardIndex = Int64($0.boardIdx)
+                
+//                new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+//                    self.present(myProfile, animated: true)
+//                    return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
+//                }
+                
                 new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
-//                    let myProfile = MyProfileViewController()
-//                    myProfile.selectedId = overlay.boardIdx// 넘기려는 ID 값을 설정
-                    self.present(myProfile, animated: true)
+                    if let MyProfileView = MyProfileView as? MyProfileView {
+                        MyProfileView.boardIndex = boardIndex
+                        self.present(MyProfileView, animated: true)
+                    }
                     return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
                 }
+                
                 new_marker.mapView = mapView
             }
         }

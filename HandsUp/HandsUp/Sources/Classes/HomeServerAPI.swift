@@ -90,7 +90,7 @@ class HomeServerAPI {
  
     static func boardsShowList() -> [boardsShowList_rp_getBoardList]?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/showList")
+        let url = URL(string: serverDir + "/boards/showList/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -107,12 +107,13 @@ class HomeServerAPI {
             output = try? JSONDecoder().decode(boardsShowList_rp.self, from: data!)
             if output == nil{
                 check = -1;
-//                print("리스트 output message: \(output?.message)")
+                print("리스트 output message: \(output?.message)")
 //                print("리스트 output 실패 result: \(output?.result)")
+                print("리스트 output 실패: \(output?.statusCode)")
             }
             else{
                 check = output!.statusCode
-//                print("리스트 output message: \(output?.message)")
+                print("리스트 output message: \(output?.message)")
 //                print("리스트 output 성공 result: \(output?.result)")
             }
             semaphore.signal()
@@ -163,12 +164,13 @@ class HomeServerAPI {
             output = try? JSONDecoder().decode(ShowMapList_rp.self, from: data!)
             if output == nil{
                 check = -1;
-//                print("지도 output message: \(output?.message)")
+                print("지도 output message: \(output?.message)")
 //                print("지도 output 실패 result: \(output?.result)")
+                print("지도 output 실패: \(output?.statusCode)")
             }
             else{
                 check = output!.statusCode
-//                print("지도 output message: \(output?.message)")
+                print("지도 output message: \(output?.message)")
 //                print("지도 output 성공 result: \(output?.result)")
             }
             semaphore.signal()

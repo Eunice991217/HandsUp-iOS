@@ -73,6 +73,7 @@ class RegisterPostViewController: UIViewController{
     let locale = Locale(identifier: "Ko-kr") //원하는 언어의 나라 코드를 넣어주시면 됩니다.
     
     var listVC: ListVC?
+    var cardVC: MyProfileView?
     
     override func viewDidLoad() {
         
@@ -323,10 +324,9 @@ class RegisterPostViewController: UIViewController{
             print("result:  \(result)")
             switch result {
             case 2000:
-                
-                self.presentingViewController?.dismiss(animated: true){
-                    self.listVC?.refresh()
-                }
+                self.listVC?.refresh()
+                self.cardVC?.refresh()
+                self.presentingViewController?.dismiss(animated: true)
             case -1:
                 ServerError()
             case 4021:
