@@ -61,7 +61,19 @@ final class FirestoreAPI {
             }
             
             var request = request
-            request.createdat = Date().toString()
+            // 현재 디바이스의 시간대 가져오기
+            let deviceTimeZone = TimeZone.current
+
+            // 현재 시간을 디바이스의 시간대로 출력
+            let currentDate = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = deviceTimeZone
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+            let localTimeString = dateFormatter.string(from: currentDate)
+            
+            request.createdat = localTimeString
+            print("현재 시간은 ? \(Date())")
             request.authorUID =  UserDefaults.standard.string(forKey: "email")!
             
             try ref.setData(from: request) { err in
@@ -80,7 +92,7 @@ final class FirestoreAPI {
     func readAll(chatRoomID: String, completion: @escaping ([Message]?, Error?) -> Void) {
         var messages: [Message] = []
         
-        db.collection("chatroom/\(chatRoomID)/chat").getDocuments { (querySnapshot, error) in
+        db.collection("chatroom/\(chatRoomID)/chat").order(by: "createdat", descending: false).getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
                 completion(nil, error)

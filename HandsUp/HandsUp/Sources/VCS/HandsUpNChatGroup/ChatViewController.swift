@@ -12,12 +12,12 @@ class ChatViewController: UIViewController {
     var isRead: Bool = false
     public var boardIdx: Int64 = 0
     var isChatExisted: Bool = false // 채팅 목록에서 들어오면 화면전환 전에 이 값을 true로 변경해야함.
-    
-    var boardsCharacterList: [Int] = []
+    var beforeVC: ChatListViewController?
+
     var chatDatas_CVC: [Message] = []
     public var chatPersonName = ""
     var chatKey: String = ""
-    
+    var partnerEmail: String = ""
     
     @IBOutlet var nameInBoard: UILabel!
     @IBOutlet var profileViewInBoard: UIView!
@@ -130,37 +130,46 @@ class ChatViewController: UIViewController {
             if(makeChatStatusCode == 2000){
                 print("채팅방 생성에 성공하였습니다. ")
                 isChatExisted = true
+                print("partner email: \(partnerEmail)")
+                print()
+                let sendChatStatus = PostAPI.sendChatAlarm(emailID: partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
+                print("chat 보내기 알람:: \(sendChatStatus)")
             }
         }
-                
-//        let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : oppositeEmail, chatContent: chatTextView_CVC.text, chatRoomIdx: chatRoomKey)
-//        FirestoreAPI.shared.readAll(chatRoomID: chatKey) { messages, error in
-//            if let error = error {
-//                print("Error: \(error)")
-//                return
-//            }
-//
-//            if let messages = messages {
-//                // 데이터 처리
-//                for message in messages {
-//                    self.chatDatas_CVC.append(message)
-//                }
-//                print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
-//                self.chatTableView_CVC.reloadData()
-//
-//                // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
-//                let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
-//                self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-//            }
-//        }
-        
+        else{
+            let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
+            
+        }
+        FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: chatTextView_CVC.text))
+        refresh()
         // 방법 2 :
         //chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
 
         
     }
     
-    
+    func refresh(){
+        FirestoreAPI.shared.readAll(chatRoomID: chatKey) { [self] messages, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            if let messages = messages {
+                // 데이터 처리
+                chatDatas_CVC = []
+                for message in messages {
+                    self.chatDatas_CVC.append(message)
+                }
+                print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
+                self.chatTableView_CVC.reloadData()
+                
+                    // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
+                    let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
+                    self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,74 +215,56 @@ class ChatViewController: UIViewController {
             chatPersonNameLabel_CVC.text = boardInfo?.nickname
             nameInBoard.text = boardInfo?.nickname
             contentInBoard.text = boardInfo?.board.content
+            
+            var boardsCharacterList: [Int] = []
+                
+            let background = (Int(boardInfo!.character.backGroundColor) ?? 1) - 1
+            let hair = (Int(boardInfo!.character.hair) ?? 1) - 1
+            let eyebrow = (Int(boardInfo!.character.eyeBrow) ?? 1) - 1
+            let mouth = (Int(boardInfo!.character.mouth) ?? 1) - 1
+            let nose = (Int(boardInfo!.character.nose) ?? 1) - 1
+            let eyes = (Int(boardInfo!.character.eye) ?? 1) - 1
+            let glasses = Int(boardInfo!.character.glasses) ?? 0
+            
+            boardsCharacterList.append(background)
+            boardsCharacterList.append(hair)
+            boardsCharacterList.append(eyebrow)
+            boardsCharacterList.append(mouth)
+            boardsCharacterList.append(nose)
+            boardsCharacterList.append(eyes)
+            boardsCharacterList.append(glasses)
+            print("boardlre: \(boardsCharacterList)")
+            characterView_CVC.setAll(componentArray: boardsCharacterList) // 가져오기
+            characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
+            characterView_CVC.setCharacter() // 캐릭터 생성
         }
 
-        
-        
-        boardsCharacterList = []
-        
-        let background = (Int(boardInfo!.character.backGroundColor) ?? 1) - 1
-        let hair = (Int(boardInfo!.character.hair) ?? 1) - 1
-        let eyebrow = (Int(boardInfo!.character.eyeBrow) ?? 1) - 1
-        let mouth = (Int(boardInfo!.character.mouth) ?? 1) - 1
-        let nose = (Int(boardInfo!.character.nose) ?? 1) - 1
-        let eyes = (Int(boardInfo!.character.eye) ?? 1) - 1
-        let glasses = Int(boardInfo!.character.glasses) ?? 0
-        
-        boardsCharacterList.append(background)
-        boardsCharacterList.append(hair)
-        boardsCharacterList.append(eyebrow)
-        boardsCharacterList.append(mouth)
-        boardsCharacterList.append(nose)
-        boardsCharacterList.append(eyes)
-        boardsCharacterList.append(glasses)
-        
-        characterView_CVC.setAll(componentArray: boardsCharacterList) // 가져오기
-        characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
-        characterView_CVC.setCharacter() // 캐릭터 생성
         
         let myUserEmail = UserDefaults.standard.string(forKey: "email")!
         let boardWriter = boardInfo?.writerEmail
         
         if(isChatExisted == false){ // 게시물 비행기 버튼을 통해서 들어온 경우
-            if(boardWriter != myUserEmail){
+            if(boardWriter != myUserEmail && boardInfo != nil){
                 //이미 채팅 내역이 존재하는지 확인
                 //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
                 chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
-                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)
-                
+                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)!.result
+                partnerEmail = boardWriter!
                 let oppositeEmail = boardWriter!
-                if(isChatExistedResult?.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
+                if(isChatExistedResult.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                     isChatExisted = true
+                    refresh()
                 }else{
                     isChatExisted = false
                 }
             }
         }
-        
-        //채팅방이 존재하는 경우에만 채팅 메세지 정보 가져오기
-        if(isChatExisted == true){
+        else{
             //채팅 정보 가져오기
             print("chatkey: \(chatKey)")
-            FirestoreAPI.shared.readAll(chatRoomID: chatKey) { messages, error in
-                if let error = error {
-                    print("Error: \(error)")
-                    return
-                }
-                
-                if let messages = messages {
-                    // 데이터 처리
-                    for message in messages {
-                        self.chatDatas_CVC.append(message)
-                    }
-                    print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
-                    self.chatTableView_CVC.reloadData()
-                    
-//                    // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
-//                    let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
-//                    self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-                }
-            }
+            print("가져와짐?")
+            
+            refresh()
         }
     }
     
@@ -284,7 +275,9 @@ class ChatViewController: UIViewController {
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromLeft
         self.view.window!.layer.add(transition, forKey: nil)
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: {
+            self.beforeVC?.refresh()
+        })
     }
     
     func swipeRecognizer() {
@@ -305,7 +298,10 @@ class ChatViewController: UIViewController {
                 transition.type = CATransitionType.reveal
                 transition.subtype = CATransitionSubtype.fromLeft
                 self.view.window!.layer.add(transition, forKey: nil)
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: {
+                    self.beforeVC?.refresh()
+                    
+                })
             default: break
             }
         }
@@ -403,16 +399,6 @@ extension ChatViewController: UITextViewDelegate{
             //                chatTextView_CVC.text = ""
             //            }
             
-            let lastindexPath = IndexPath(row: chatDatas_CVC.count - 1, section: 0)
-            
-            // 방법 1 : chatTableView.reloadData() 리로드는 조금 부자연스럽다.
-            // 방법 2 :
-            chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
-            
-            // inputTextViewHeight.constant = 35
-            
-            // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
-            chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             
         }
         return changedText.count >= 0
@@ -430,12 +416,27 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userEmail = UserDefaults.standard.string(forKey: "email")!
+        // 입력된 시간 형식을 지정
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        // 출력할 시간 형식을 지정
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "h:mm a"
+        
         if userEmail == chatDatas_CVC[indexPath.row].authorUID {
             
             let myCell = tableView.dequeueReusableCell(withIdentifier: "MyChatTableViewCell", for: indexPath) as! MyChatTableViewCell
             // MyCell 형식으로 사용하기 위해 형변환이 필요하다.
             myCell.contentTV_MCTVC.text = chatDatas_CVC[indexPath.row].content
             myCell.timeLb_MCTVC.text = chatDatas_CVC[indexPath.row].createdat
+            
+            // 입력된 문자열을 Date 객체로 변환
+            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)
+                // Date 객체를 지정된 형식으로 문자열로 변환
+            let formattedTime = outputFormatter.string(from: date!)
+                myCell.timeLb_MCTVC.text = formattedTime
+                
             // 버튼 누르면 chatDatas 에 텍스트를 넣을 것이기 때문에 거기서 꺼내오면 되는거다.
             myCell.selectionStyle = .none
             return myCell
@@ -446,7 +447,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourChatTableViewCell", for: indexPath) as! YourChatTableViewCell
             // 이것도 마찬가지.
             yourCell.contentTV_YCTVC.text = chatDatas_CVC[indexPath.row].content
-            yourCell.timeLb_YCTVC.text = getNowTime()
+            
+            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)!
+                // Date 객체를 지정된 형식으로 문자열로 변환
+                let formattedTime = outputFormatter.string(from: date)
+            yourCell.timeLb_YCTVC.text = formattedTime
             yourCell.selectionStyle = .none
             return yourCell
             

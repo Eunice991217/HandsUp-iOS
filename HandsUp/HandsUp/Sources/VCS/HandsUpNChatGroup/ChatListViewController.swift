@@ -16,6 +16,7 @@ class ChatListViewController: UIViewController {
     var chatArr: [Chat]?
     var chatDatas_CVC: [Message] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,17 +27,18 @@ class ChatListViewController: UIViewController {
         
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
- 
+        
+        refresh()
+
+    }
+    func refresh(){
         chatArr = PostAPI.getChatList()
         if( chatArr == nil){
             chatArr = []
             showBlockAlert()
         }
-        
-
-        
+        chatAlarmTableView_CLVC.reloadData()
     }
-         
     
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -100,23 +102,48 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatAlarmTableViewCell", for: indexPath) as! ChatAlarmTableViewCell
         
-        cell.characterView_CATVC.setCharacter_NoShadow()
+        let character = chatArr![indexPath.row].character
+        var boardsCharacterList: [Int] = []
+        
+        let background = (Int(character.backGroundColor) ?? 1) - 1
+        let hair = (Int(character.hair) ?? 1) - 1
+        let eyebrow = (Int(character.eyeBrow) ?? 1) - 1
+        let mouth = (Int(character.mouth) ?? 1) - 1
+        let nose = (Int(character.nose) ?? 1) - 1
+        let eyes = (Int(character.eye) ?? 1) - 1
+        let glasses = Int(character.glasses) ?? 0
+        
+        boardsCharacterList.append(background)
+        boardsCharacterList.append(hair)
+        boardsCharacterList.append(eyebrow)
+        boardsCharacterList.append(mouth)
+        boardsCharacterList.append(nose)
+        boardsCharacterList.append(eyes)
+        boardsCharacterList.append(glasses)
+        
+        print("비교해보자 \(chatArr![indexPath.row].nickname):  \(boardsCharacterList)")
+        cell.characterView_CATVC.setAll(componentArray: boardsCharacterList) // 가져오기
+        cell.characterView_CATVC.setCharacter_NoShadow() // 그림자 없애기
+        cell.characterView_CATVC.setCharacter() // 캐릭터 생성
 
-        cell.timeLb_CATVC.text = chatArr![indexPath.row].character.createdAt
+        cell.timeLb_CATVC.text = formatDateString(chatArr![indexPath.row].updatedAt)
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname
         cell.contentLb_CATVC.text = chatArr![indexPath.row].lastContent
         
         let userEmail = UserDefaults.standard.string(forKey: "email")!
-        if(chatArr![indexPath.row].lastSenderEmail != userEmail){
-            cell.countLb_CATVX.isHidden = true
-        }
-        else{
+        if(chatArr![indexPath.row].lastSenderEmail != userEmail ){ // 상대방이 마지막으로 보냈을 때
             if(chatArr![indexPath.row].notRead > 0){
                 cell.countLb_CATVX.isHidden = false
                 cell.countLb_CATVX.text = String(chatArr![indexPath.row].notRead)
+            }else{
+                cell.countLb_CATVX.isHidden = true
+
             }
         }
-
+        else{
+            cell.countLb_CATVX.isHidden = true
+            
+        }
         cell.selectionStyle = .none
         return cell
     }
@@ -125,12 +152,13 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
         let userEmail = UserDefaults.standard.string(forKey: "email")!
         if(chatArr![indexPath.row].lastSenderEmail != userEmail && chatArr![indexPath.row].notRead > 0){
-            nextVC.isRead = true
+            nextVC.isRead = false
         }
         nextVC.isChatExisted = true
         nextVC.boardIdx = Int64(chatArr![indexPath.row].boardIdx)
         nextVC.chatKey = chatArr![indexPath.row].chatRoomKey
       //  nextVC.boardIdx = nextVC.boardIdx = Int(boardIndex!)
+        nextVC.beforeVC = self
         
         nextVC.modalPresentationStyle = .fullScreen
         
@@ -145,4 +173,39 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    
+}
+extension UIViewController {
+    func formatDateString(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
+        
+        if let date = dateFormatter.date(from: dateString) {
+            let currentDate = Date()
+            let calendar = Calendar.current
+            
+            // 조건 1: 3분 이내면 '방금 전'
+            if currentDate.timeIntervalSince(date) < 180 {
+                return "방금 전"
+            }
+            
+            // 조건 2: 오늘 날짜면 시간만 나오도록
+            if calendar.isDateInToday(date) {
+                dateFormatter.dateFormat = "HH:mm"
+                return dateFormatter.string(from: date)
+            }
+            
+            // 조건 3: 올해이고 오늘이 아니면 03/18 07:57
+            if calendar.isDate(date, equalTo: currentDate, toGranularity: .year) && !calendar.isDateInToday(date) {
+                dateFormatter.dateFormat = "MM/dd HH:mm"
+                return dateFormatter.string(from: date)
+            }
+            
+            // 조건 4: 올해가 아니면 2023/03/18 07:57
+            dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+            return dateFormatter.string(from: date)
+        }
+        
+        return "날짜 변환 실패"
+    }
 }
