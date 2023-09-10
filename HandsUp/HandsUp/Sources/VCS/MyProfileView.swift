@@ -192,10 +192,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
         let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
-        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
-        nextVC.boardIdx = Int64(Int(boardIndex!))
-        nextVC.modalPresentationStyle = .fullScreen
-        
         isMyPost = currentUserNickname == postAuthorNickname
     
         if(isMyPost==false) {
@@ -203,7 +199,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             
             guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
             //        nextVC.boardIdx = Int(boardIndex!)
-            nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
+            nextVC.boardIdx = Int64(self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
             nextVC.modalPresentationStyle = .fullScreen
             
             let transition = CATransition()

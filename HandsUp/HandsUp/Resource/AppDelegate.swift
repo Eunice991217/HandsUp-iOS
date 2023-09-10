@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
         
     }
-    
+
     
     
     // MARK: UISceneSession Lifecycle
@@ -130,7 +130,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         
         func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
 
-            PostAPI.updateFCMToken(fcmToken: fcmToken!)
+            // TODO: - 디바이스 토큰을 보내는 서버통신 구현
+            
+            let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
+            UserDefaults.standard.set(fcmToken!, forKey: "fcmToken")
+
+            if(result == 2000){
+                print("fcmtok/Users/yunjiseong/Desktop/tcm_ex.apnsen!!!: \(fcmToken)")
+                print("fcmtoken의 서버통신에 성공했습니다. ")
+            }else{
+                print("fcm token 실패")
+            }
         }
         
         
