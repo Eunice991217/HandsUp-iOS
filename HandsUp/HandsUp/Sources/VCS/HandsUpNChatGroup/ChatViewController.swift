@@ -124,8 +124,6 @@ class ChatViewController: UIViewController {
         
         if(isChatExisted == false){
             let makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
-            print("게시물 인덱스: \(boardIdx)")
-            print("여기 들어왔니 \(makeChatStatusCode)")
             if(makeChatStatusCode == 2000){
                 print("채팅방 생성에 성공하였습니다. ")
             }
@@ -198,10 +196,15 @@ class ChatViewController: UIViewController {
         
         //채팅 화면 상단 게시물 설정 코드
         let boardInfo = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        if(boardInfo == nil){
+            postView_CVC.isHidden = true
+        }else{
+            chatPersonNameLabel_CVC.text = boardInfo?.nickname
+            nameInBoard.text = boardInfo?.nickname
+            contentInBoard.text = boardInfo?.board.content
+        }
 
-        chatPersonNameLabel_CVC.text = boardInfo?.nickname
-        nameInBoard.text = boardInfo?.nickname
-        contentInBoard.text = boardInfo?.board.content
+        
         
         boardsCharacterList = []
         

@@ -418,10 +418,10 @@ class PostAPI{
                 check = -1;
             }
             else if output!.statusCode == 4011{
-                print("유저 인덱스가 존재하지 않습니다. ")
+                print("채팅 읽음: 유저 인덱스가 존재하지 않습니다. ")
             }
             else if output!.statusCode == 4017{
-                print("채팅방이 존재하지 않습니다. ")
+                print("채팅읽음: 채팅방이 존재하지 않습니다. ")
                 check = output!.statusCode
             }
             else{

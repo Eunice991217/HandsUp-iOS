@@ -105,6 +105,34 @@ final class FirestoreAPI {
             completion(messages, nil)
         }
     }
+    func deleteChat(chatRoomID: String, completion: @escaping (Error?) -> Void) {
+        let collectionRef = db.collection("chatroom").document(chatRoomID).collection("chat")
+        
+        collectionRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("컬렉션 조회 중 오류 발생: \(error)")
+                completion(error)
+            } else {
+                let batch = self.db.batch()
+                
+                for document in snapshot!.documents {
+                    let docRef = collectionRef.document(document.documentID)
+                    batch.deleteDocument(docRef)
+                }
+                
+                batch.commit { (error) in
+                    if let error = error {
+                        print("컬렉션 삭제 중 오류 발생: \(error)")
+                        completion(error)
+                    } else {
+                        print("컬렉션 및 문서 삭제 성공")
+                        completion(nil)
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 

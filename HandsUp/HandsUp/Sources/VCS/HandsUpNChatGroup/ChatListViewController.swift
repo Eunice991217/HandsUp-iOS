@@ -26,12 +26,7 @@ class ChatListViewController: UIViewController {
         
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
-        // Do any additional setup after loading the view.
-//        FirestoreAPI.shared.addChat(chatRoomID: "wltjd3459@af dfs", chatRequest: Message(content: "안녕하세요 포스팅보고 연락...더보기"))
-   //     FirestoreAPI.shared.readAll(chatRoomID: "wltjd3459@af dfs"){ roadInfos in
-  //          print(roadInfos)
- //       }
-//        
+ 
         chatArr = PostAPI.getChatList()
         if( chatArr == nil){
             chatArr = []
@@ -66,27 +61,6 @@ class ChatListViewController: UIViewController {
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // 삭제할 데이터와 셀을 찾습니다.
-//            let itemToDelete = chatArr![indexPath.row]
-//
-//            if var chatArray = chatArr {
-//                if chatArray.indices.contains(indexPath.row) {
-//                    chatArray.remove(at: indexPath.row)
-//                    chatArr = chatArray // 업데이트된 배열을 다시 할당
-//                } else {
-//                    print("인덱스가 배열 범위를 벗어납니다.")
-//                }
-//            } else {
-//                print("chatArr이 nil입니다.")
-//            }
-//
-//            // 테이블 뷰에서 셀을 삭제합니다.
-//            tableView.deleteRows(at: [indexPath], with: .fade) // 또는 .automatic, .none을 사용할 수 있습니다.
-//            PostAPI.deleteChat(chatRoomkey: chatArr![indexPath.row].chatRoomKey)
-//        }
-//    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // 삭제할 데이터와 셀을 찾습니다.
@@ -105,6 +79,16 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
 
             // 삭제된 아이템에 대한 추가 작업 (예: 네트워크 요청 등)
             PostAPI.deleteChat(chatRoomkey: itemToDelete.chatRoomKey)
+            FirestoreAPI.shared.deleteChat(chatRoomID: itemToDelete.chatRoomKey, completion: {
+                error in
+                   if let error = error {
+                       // 삭제 작업 중 오류가 발생한 경우 처리
+                       print("삭제 오류: \(error)")
+                   } else {
+                       // 삭제 작업이 성공적으로 완료된 경우 처리
+                       print("채팅 삭제 완료")
+                   }
+            })
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
