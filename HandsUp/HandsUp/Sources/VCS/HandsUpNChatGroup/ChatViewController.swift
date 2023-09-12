@@ -90,8 +90,24 @@ class ChatViewController: UIViewController {
         )
         alert.addAction(report)
         
-        let block = UIAlertAction(title: "차단하기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
+        let block = UIAlertAction(title: "삭제하기", style: UIAlertAction.Style.default, handler:{(action) in
+            PostAPI.deleteChat(chatRoomkey: self.chatKey)
+            FirestoreAPI.shared.deleteChat(chatRoomID: self.chatKey, completion: {
+                error in
+                if let error = error {
+                    // 삭제 작업 중 오류가 발생한 경우 처리
+                    print("삭제 오류: \(error)")
+                } else {
+                    // 삭제 작업이 성공적으로 완료된 경우 처리
+                    print("채팅 삭제 완료")
+                }
+            })
+            self.dismiss(animated: true, completion: {
+                self.beforeVC?.refresh()
+            })
+        }
         )
+        
         alert.addAction(block)
         
         
