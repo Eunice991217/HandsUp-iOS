@@ -12,6 +12,8 @@ class AlarmListViewController: UIViewController{
     var likeList : [board_like] = []
     var characterList: [Int] = []
     var characterInAlarm: Character = Character.init()
+    //var beforeVC: ChatListViewController?
+
     
     // 테스트용 코드 지울것!
     let like_test = board_like.init()
@@ -19,6 +21,23 @@ class AlarmListViewController: UIViewController{
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
     @IBOutlet var alarmTableView_ALVC: UITableView!
+    
+    @IBAction func postBtnDidTap(_ sender: Any) {
+        guard let registerPostVC = self.storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+            return
+        }
+        // 화면 전환!
+        self.present(registerPostVC, animated: true)
+    }
+    @IBAction func chatBtnDidTap(_ sender: Any) {
+        guard let chatVC = self.storyboard?.instantiateViewController(identifier: "ChatListViewController") else {
+            return
+        }
+        chatVC.modalPresentationStyle = .fullScreen
+        // 화면 전환!
+        self.present(chatVC, animated: false)
+        
+    }
     
     
     override func viewDidLoad() {
@@ -31,13 +50,9 @@ class AlarmListViewController: UIViewController{
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         
         likeList = PostAPI.showBoardsLikeList() ?? []
-        
-        
         likeList.append(like_test)
-       
         
-        getAllAlarmRead()
-        
+        self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         
 //        let result_edit = PostAPI.deletePost( boardIdx: 40)
 //
@@ -54,6 +69,7 @@ class AlarmListViewController: UIViewController{
 //        }
     }
     
+    
     func showBlockAlert(errorContent: String){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "확인", style: .default) { (action) in }; alert.addAction(confirm)
@@ -66,12 +82,10 @@ class AlarmListViewController: UIViewController{
         present(alert, animated: false, completion: nil)
     }
     
-    func getAllAlarmRead(){ //새로운 알람이 있으면 false을 리턴하는 함수
-        let defaults = UserDefaults.standard
-        let alarmNchatVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmNChatListViewController") as! AlarmNChatListViewController
-       // alarmNchatVC.redAlarmBtnLb.alpha = 0 
-        defaults.set(Date().toString(), forKey:"isAlarmAllRead")
+    @IBAction func homeBtnDidTap(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: false, completion: nil)
     }
+    
     
     
 

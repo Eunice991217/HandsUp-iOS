@@ -142,7 +142,7 @@ class ViewController: UIViewController {
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
         
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let alarmNChatVC = storyboard?.instantiateViewController(identifier: "AlarmNChatListViewController") else {
+        guard let alarmNChatVC = storyboard?.instantiateViewController(identifier: "AlarmListViewController") else {
             return
         }
         

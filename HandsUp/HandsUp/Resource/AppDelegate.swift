@@ -103,7 +103,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         guard let window = UIApplication.shared.keyWindow else {return}
         
         let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
-        let yourVC = storyboard.instantiateViewController(withIdentifier: "AlarmNChatListViewController")
+        let yourVC = storyboard.instantiateViewController(withIdentifier: "AlarmListViewController")
         
         
         let storyboard_1 = UIStoryboard(name: "Main", bundle: nil)
@@ -120,7 +120,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     func switchToNextScreen() {
         guard let window = UIApplication.shared.keyWindow else { return }
            let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
-           let nextViewController = storyboard.instantiateViewController(withIdentifier: "AlarmNChatListViewController")
+           let nextViewController = storyboard.instantiateViewController(withIdentifier: "AlarmListViewController")
            
         window.rootViewController = nextViewController
        }

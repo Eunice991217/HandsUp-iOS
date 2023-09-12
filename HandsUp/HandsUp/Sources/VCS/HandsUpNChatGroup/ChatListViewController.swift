@@ -15,6 +15,7 @@ class ChatListViewController: UIViewController {
     @IBOutlet weak var chatAlarmTableView_CLVC: UITableView!
     var chatArr: [Chat]?
     var chatDatas_CVC: [Message] = []
+   // var beforeVC: AlarmListViewController?
     
     
     override func viewDidLoad() {
@@ -28,6 +29,8 @@ class ChatListViewController: UIViewController {
         
         chatAlarmTableView_CLVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         
+        self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+
         refresh()
 
     }
@@ -38,6 +41,22 @@ class ChatListViewController: UIViewController {
             showBlockAlert()
         }
         chatAlarmTableView_CLVC.reloadData()
+    }
+    @IBAction func alarmBtnDidTap(_ sender: Any) {
+        
+        self.dismiss(animated: false)
+    }
+    
+    @IBAction func postBtnDidTap(_ sender: Any) {
+        guard let registerPostVC = self.storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {
+            return
+        }
+        // 화면 전환!
+        self.present(registerPostVC, animated: true)
+    }
+    
+    @IBAction func homeBtnDidTap(_ sender: Any) {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
     }
     
     func showBlockAlert(){
@@ -52,12 +71,7 @@ class ChatListViewController: UIViewController {
         present(alert, animated: false, completion: nil)
     }
     
-    func getAllAlarmRead(){ //새로운 알람이 있으면 false을 리턴하는 함수
-        let defaults = UserDefaults.standard
-        let alarmNchatVC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmNChatListViewController") as! AlarmNChatListViewController
-        alarmNchatVC.redBellBtnLb.alpha = 0
-        defaults.set(Date().toString(), forKey:"isAlarmAllRead")
-    }
+
 
 
 }
