@@ -35,6 +35,7 @@ class AlarmListViewController: UIViewController{
         }
         chatVC.modalPresentationStyle = .fullScreen
         // 화면 전환!
+        
         self.present(chatVC, animated: false)
         
     }

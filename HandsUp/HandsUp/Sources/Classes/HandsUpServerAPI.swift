@@ -119,6 +119,7 @@ class PostAPI{
         let semaphore = DispatchSemaphore(value: 0)
         session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
             let output = try? JSONDecoder().decode(fcmToken_rp.self, from: data!)
+            print("fcm token: \(output?.message)")
             if output == nil{
                 check = -1;
                 

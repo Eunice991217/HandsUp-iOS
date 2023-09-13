@@ -97,8 +97,7 @@ class Login_ViewController: UIViewController {
             case 2000:
                 let mainSB_Login = UIStoryboard(name: "Main", bundle: nil)
                 let homeVC_Login = mainSB_Login.instantiateViewController(withIdentifier: "Home")
-                let result = PostAPI.updateFCMToken(fcmToken: UserDefaults.standard.string(forKey: "fcmToken")!)
-
+                let result = PostAPI.updateFCMToken(fcmToken: UserDefaults.standard.string(forKey: "fcmToken") ?? "")
                 self.navigationController?.pushViewController(homeVC_Login, animated: false)
             case -1:
                 ServerError()
