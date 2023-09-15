@@ -194,7 +194,7 @@ class AlarmNChatListViewController: UIViewController {
         var rtn: Bool = true
         let defaults = UserDefaults.standard
         
-        let likeList = PostAPI.showBoardsLikeList() ?? []
+        let likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
         if defaults.object(forKey: "isAlarmAllRead") == nil { // 읽은 날짜가 저장되지 않았을 때 -> 처음 알람을 볼 때
             if likeList.isEmpty{
                 redAlarmBtnLb.alpha = 0

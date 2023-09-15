@@ -9,14 +9,13 @@ import UIKit
 
 class AlarmListViewController: UIViewController{
     
-    var likeList : [board_like] = []
+    var likeList : [ReceivedLikeInfo] = []
     var characterList: [Int] = []
-    var characterInAlarm: Character = Character.init()
     //var beforeVC: ChatListViewController?
 
     
     // 테스트용 코드 지울것!
-    let like_test = board_like.init()
+    var like_test: [board_like] = []
     
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
@@ -50,8 +49,7 @@ class AlarmListViewController: UIViewController{
         
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         
-        likeList = PostAPI.showBoardsLikeList() ?? []
-        likeList.append(like_test)
+        likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
         
         self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         
@@ -107,7 +105,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
         cell.timeLb_ATVC.text = createdDate.getTimeDifference()
         //캐릭터 설정
         characterList = []
-        characterInAlarm = likeList[indexPath.row].character
+        let characterInAlarm = likeList[indexPath.row].character
         
         background = (Int(characterInAlarm.backGroundColor) ?? 1) - 1
         hair = (Int(characterInAlarm.hair) ?? 1) - 1

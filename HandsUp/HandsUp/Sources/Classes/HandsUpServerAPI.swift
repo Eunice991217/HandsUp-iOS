@@ -164,16 +164,16 @@ class PostAPI{
         return check
     }
     
-    static func showBoardsLikeList() -> [board_like]?{
+    static func showBoardsLikeList() -> board_like?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/like")
+        let url = URL(string: serverDir + "/boards/like/10/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
         var check: Int = -1
-        var rtn: [board_like]? = nil
+        var rtn: board_like? = nil
         var output: boards_like_rp? = nil
         let session = URLSession(configuration: .default)
         
@@ -207,8 +207,10 @@ class PostAPI{
         }
         
         if check == 2000{//서버 통신 성공
-            rtn = output!.board_like_list
+            rtn = output!.result
+            
         }
+        print("좋아요 게시물 : \(check), 메세지: \(output?.message)")
         
         
         return rtn
