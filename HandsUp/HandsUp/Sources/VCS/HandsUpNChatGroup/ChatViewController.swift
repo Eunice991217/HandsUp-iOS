@@ -256,7 +256,13 @@ class ChatViewController: UIViewController {
                 //이미 채팅 내역이 존재하는지 확인
                 //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
                 chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
-                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: partnerEmail)!
+                var isChatExistedResult: chat_check_rp?
+                if(ismyBoard == true){
+                    isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: partnerEmail)!
+                }else{
+                    isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: boardWriter!)!
+                }
+
                 print("chat exist or not: \(isChatExistedResult.message)")
                 if(isChatExistedResult.result.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                     isChatExisted = true
