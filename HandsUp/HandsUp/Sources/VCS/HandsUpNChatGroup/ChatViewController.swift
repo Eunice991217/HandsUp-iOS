@@ -19,6 +19,7 @@ class ChatViewController: UIViewController {
     public var boardIdx: Int64 = 0
     var isChatExisted: Bool = false // 채팅 목록에서 들어오면 화면전환 전에 이 값을 true로 변경해야함.
     var beforeVC: ChatListViewController?
+    var ismyBoard: Bool = false
 
     var chatDatas_CVC: [Message] = []
     public var chatPersonName = ""
@@ -147,27 +148,33 @@ class ChatViewController: UIViewController {
         if(isChatExisted == false){
             print("board: \(boardIdx)")
             print("chatKey: \(chatKey)")
-            let makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
+            var makeChatStatusCode: Int = 0
+            if(ismyBoard == true){
+                makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey, oppositeEmail: partnerEmail)
+                
+            }else{
+                makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
+            }
+            
             print("버튼 클릭: \(makeChatStatusCode)")
             if(makeChatStatusCode == 2000){
                 print("채팅방 생성에 성공하였습니다. ")
                 isChatExisted = true
                 print("partner email: \(partnerEmail)")
-                print()
-                let sendChatStatus = PostAPI.sendChatAlarm(emailID: partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
-                print("chat 보내기 알람:: \(sendChatStatus)")
+                loadMessages()
+
             }
         }
-        else{
-            let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
-            
-        }
+        
+        let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
+        
+        
         FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: chatTextView_CVC.text))
-
+        
         // 방법 2 :
         //chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
         chatTextView_CVC.text = ""
-
+        
         
     }
 
@@ -249,9 +256,9 @@ class ChatViewController: UIViewController {
                 //이미 채팅 내역이 존재하는지 확인
                 //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
                 chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
-                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: boardWriter!)!.result
-                print("반대 이메일 \(partnerEmail)")
-                if(isChatExistedResult.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
+                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: partnerEmail)!
+                print("chat exist or not: \(isChatExistedResult.message)")
+                if(isChatExistedResult.result.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                     isChatExisted = true
                     loadMessages()
 
@@ -318,10 +325,8 @@ class ChatViewController: UIViewController {
                 print(e.localizedDescription)
             } else {
                 if let snapshotDocuments = querySnapshot?.documents {
-                    print("왜 메세지 안가져와짐 : \(snapshotDocuments)")
                     snapshotDocuments.forEach { (doc) in
                         let data = doc.data()
-                        print("data를 보자:\(data)")
                         if let content = data["content"] as? String, let authorUID = data["author_uid"] as? String, let createdat = data["createdat"] as? String {
                             self.chatDatas_CVC.append(Message(documentID: "", content: content, authorUID: authorUID, createdat: createdat))
                             

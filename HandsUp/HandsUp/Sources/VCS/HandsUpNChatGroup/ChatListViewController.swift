@@ -36,6 +36,16 @@ class ChatListViewController: UIViewController {
 
         refresh()
         
+
+    }
+    func refresh(){
+        chatArr = PostAPI.getChatList()
+        if( chatArr == nil){
+            chatArr = []
+            showBlockAlert()
+        }
+        chatAlarmTableView_CLVC.reloadData()
+        
         if hasNewerChat() || hasNewerAlarm() {
             redLabelOnBell.isHidden = false
         }else {
@@ -46,16 +56,6 @@ class ChatListViewController: UIViewController {
         }else{
             redLabelOnChat.isHidden = true
         }
-        
-
-    }
-    func refresh(){
-        chatArr = PostAPI.getChatList()
-        if( chatArr == nil){
-            chatArr = []
-            showBlockAlert()
-        }
-        chatAlarmTableView_CLVC.reloadData()
     }
     @IBAction func alarmBtnDidTap(_ sender: Any) {
         
@@ -157,7 +157,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         cell.characterView_CATVC.setCharacter_NoShadow() // 그림자 없애기
         cell.characterView_CATVC.setCharacter() // 캐릭터 생성
 
-        cell.timeLb_CATVC.text = formatChatDateString(chatArr![indexPath.row].updatedAt)
+        cell.timeLb_CATVC.text = formatDateString(chatArr![indexPath.row].updatedAt)
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname
         cell.contentLb_CATVC.text = chatArr![indexPath.row].lastContent
         

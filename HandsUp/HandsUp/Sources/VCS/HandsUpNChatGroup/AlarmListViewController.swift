@@ -154,14 +154,14 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
             // 채팅방 키(형식 = 게시물 인덱스 + 게시물 작성자 이메일 + 상대방 이메일)
             let chatRoomKey = String(boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
 
-            let statusCode = PostAPI.checkChatExists(chatRoomKey: chatRoomKey, boardIdx: boardIdx, oppositeUserEmail: likeList[indexPath.row].emailFrom)?.statusCode
+            let existResponse = PostAPI.checkChatExists(chatRoomKey: chatRoomKey, boardIdx: boardIdx, oppositeUserEmail: likeList[indexPath.row].emailFrom)
 
             // 채팅방 화면전환 관련 코드
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
             nextVC.modalPresentationStyle = .fullScreen
             
             // 2. DB 에서 요청 데이터 삭제하기
-            switch statusCode {
+            switch existResponse?.statusCode ?? 0 {
             case 2000: // 채팅방 생성 성공 -> 해당 키로 화면 이동
                 let transition = CATransition()
                 transition.duration = 0.3
@@ -172,6 +172,10 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 nextVC.boardIdx = Int64(likeList[indexPath.row].boardIdx)
                 nextVC.chatKey = chatRoomKey
                 nextVC.partnerEmail = likeList[indexPath.row].emailFrom
+                if existResponse?.result.isSaved == true{
+                    nextVC.isChatExisted = true
+                }
+                nextVC.ismyBoard = true
                 present(nextVC, animated: false, completion: nil)
                 break
                 
