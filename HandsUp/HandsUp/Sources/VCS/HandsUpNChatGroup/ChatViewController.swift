@@ -253,6 +253,8 @@ class ChatViewController: UIViewController {
                 print("반대 이메일 \(partnerEmail)")
                 if(isChatExistedResult.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                     isChatExisted = true
+                    loadMessages()
+
                 }else{
                     isChatExisted = false
                 }
@@ -264,6 +266,7 @@ class ChatViewController: UIViewController {
             print("가져와짐?")
             loadMessages()
         }
+        print("chatkey: \(chatKey)")
     }
     
     @IBAction func backBtnDidTap(_ sender: Any) {
@@ -297,6 +300,7 @@ class ChatViewController: UIViewController {
                 transition.subtype = CATransitionSubtype.fromLeft
                 self.view.window!.layer.add(transition, forKey: nil)
                 self.dismiss(animated: true, completion: {
+                    PostAPI.readChat(chatRoomkey: self.chatKey)
                     self.beforeVC?.refresh()
                     
                 })

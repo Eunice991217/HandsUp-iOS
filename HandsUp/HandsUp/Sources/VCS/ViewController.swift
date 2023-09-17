@@ -215,6 +215,15 @@ class ViewController: UIViewController {
         tabmanList!.view.frame = ListView.bounds
         tabmanMap!.view.frame = MapView.bounds
         
+        refreshRedBin()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        refreshRedBin()
+    }
+    
+    func refreshRedBin(){
         if hasNewerChat() || hasNewerChat() {
             redLabel.isHidden = false
         }else{

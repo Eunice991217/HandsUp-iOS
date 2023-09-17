@@ -442,23 +442,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-qG-5Ob">
                                         <rect key="frame" x="304" y="35" width="44" height="44"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="jkZ-qG-5Ob" secondAttribute="height" multiplier="1:1" id="Cve-4u-csb"/>
                                             <constraint firstAttribute="width" constant="44" id="Orn-pd-HV7"/>
                                             <constraint firstAttribute="height" constant="44" id="t4t-s1-89U"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="notificationsDidTap"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKT-Af-7Xk">
-                                        <rect key="frame" x="195" y="35" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="5ML-Au-XDf"/>
-                                            <constraint firstAttribute="width" constant="44" id="PSm-yn-L5p"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="HomeIcon"/>
-                                        <connections>
-                                            <action selector="homeBtnDidTap:" destination="hNM-DF-MOM" eventType="touchUpInside" id="Q7t-LB-JY9"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-2i-Ysv">
                                         <rect key="frame" x="328.66666666666669" y="41" width="10" height="10"/>
@@ -471,15 +460,31 @@
                                         <color key="textColor" name="HandsUpRed"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-jT-5K5">
+                                        <rect key="frame" x="195" y="35" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="HFS-cL-vYS"/>
+                                            <constraint firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="LRb-Pu-j98"/>
+                                            <constraint firstAttribute="height" constant="44" id="hyu-wi-Tsa"/>
+                                            <constraint firstAttribute="width" constant="44" id="pmG-Ts-PJU"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="HomeIcon"/>
+                                        <connections>
+                                            <action selector="homeBtnDidTap:" destination="hNM-DF-MOM" eventType="touchUpInside" id="Lkw-nC-FJM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
-                                    <constraint firstItem="IKT-Af-7Xk" firstAttribute="top" secondItem="JDi-Kq-T13" secondAttribute="top" constant="35" id="KJm-vh-l6I"/>
-                                    <constraint firstItem="IKT-Af-7Xk" firstAttribute="leading" secondItem="JDi-Kq-T13" secondAttribute="leading" constant="195" id="TPB-FW-LTR"/>
+                                    <constraint firstItem="4dt-jT-5K5" firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="BU6-7Z-nMM"/>
+                                    <constraint firstItem="4dt-jT-5K5" firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="KaQ-qq-8TB"/>
+                                    <constraint firstItem="4dt-jT-5K5" firstAttribute="top" secondItem="JDi-Kq-T13" secondAttribute="top" constant="35" id="UfO-Zc-knB"/>
+                                    <constraint firstItem="4dt-jT-5K5" firstAttribute="leading" secondItem="JDi-Kq-T13" secondAttribute="leading" constant="195" id="Wxx-mC-yhs"/>
                                     <constraint firstAttribute="height" constant="110" id="Xmc-q5-9UA"/>
+                                    <constraint firstItem="jkZ-qG-5Ob" firstAttribute="leading" secondItem="4dt-jT-5K5" secondAttribute="trailing" constant="65" id="amZ-9D-EIm"/>
                                     <constraint firstItem="Opb-2i-Ysv" firstAttribute="top" secondItem="jkZ-qG-5Ob" secondAttribute="top" constant="6" id="mdX-mw-uRX"/>
                                     <constraint firstItem="jkZ-qG-5Ob" firstAttribute="top" secondItem="JDi-Kq-T13" secondAttribute="top" constant="35" id="mgN-Nu-Vut"/>
-                                    <constraint firstItem="jkZ-qG-5Ob" firstAttribute="leading" secondItem="IKT-Af-7Xk" secondAttribute="trailing" constant="65" id="wJc-Sb-CFf"/>
                                     <constraint firstItem="Opb-2i-Ysv" firstAttribute="trailing" secondItem="jkZ-qG-5Ob" secondAttribute="trailing" constant="-9.3300000000000001" id="y5y-jE-nvl"/>
                                 </constraints>
                             </view>
@@ -1099,7 +1104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-8S-4Yn">
-                                <rect key="frame" x="34" y="113" width="325" height="540"/>
+                                <rect key="frame" x="34" y="113" width="325" height="556.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqc-bx-htm">
                                         <rect key="frame" x="136.66666666666666" y="44" width="52" height="24"/>
@@ -1108,11 +1113,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-tL-y2O">
-                                        <rect key="frame" x="15" y="270.33333333333331" width="295" height="247.66666666666669"/>
+                                        <rect key="frame" x="15" y="270.33333333333331" width="295" height="263.99999999999994"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="247.66666666666674" id="hsg-Tg-NZc"/>
-                                        </constraints>
                                         <string key="text">제가 3시쯤 수업이 끝날거 같은데 3시 30에 학교 근처에서 쌀국수 먹으실분 계신가요? 
 
 연락주세요😎</string>
@@ -1233,7 +1235,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cip-uH-cJG">
-                                <rect key="frame" x="174" y="707" width="45" height="44.666666666666629"/>
+                                <rect key="frame" x="174" y="723.33333333333337" width="45" height="44.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="XIE-bF-IxT"/>
                                     <constraint firstAttribute="height" constant="44.670000000000002" id="cfA-wt-ZTP"/>
@@ -1279,6 +1281,7 @@
                         <constraints>
                             <constraint firstItem="hZv-8S-4Yn" firstAttribute="top" secondItem="lmH-7t-s0U" secondAttribute="top" constant="54" id="5pc-rH-m5a"/>
                             <constraint firstItem="ArN-Mk-dW0" firstAttribute="leading" secondItem="lmH-7t-s0U" secondAttribute="leading" constant="107" id="6b0-5Q-V8C"/>
+                            <constraint firstItem="lmH-7t-s0U" firstAttribute="bottom" secondItem="cip-uH-cJG" secondAttribute="bottom" constant="50" id="AnX-Nh-DKT"/>
                             <constraint firstItem="ArN-Mk-dW0" firstAttribute="top" secondItem="lmH-7t-s0U" secondAttribute="top" constant="42" id="Bi1-jX-xSU"/>
                             <constraint firstItem="hZv-8S-4Yn" firstAttribute="leading" secondItem="lmH-7t-s0U" secondAttribute="leading" constant="34" id="JHq-pJ-bXa"/>
                             <constraint firstItem="uEC-tL-y2O" firstAttribute="leading" secondItem="hZv-8S-4Yn" secondAttribute="leading" constant="15" id="Oxb-kE-YVl"/>

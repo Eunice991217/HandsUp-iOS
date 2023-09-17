@@ -118,8 +118,8 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
         
-        let createdDate  = likeList[indexPath.row].likeCreatedAt.toDate()
-        cell.timeLb_ATVC.text = createdDate.getTimeDifference()
+        
+        cell.timeLb_ATVC.text = formatDateString(likeList[indexPath.row].likeCreatedAt)
         //캐릭터 설정
         characterList = []
         let characterInAlarm = likeList[indexPath.row].character
@@ -286,11 +286,18 @@ extension Date {
         let remainUTC = self.timeIntervalSince(currentDate)
         var minute: Int?
         var hour: Int?
+        var create_year_string = ""
         
         var formatter_year = DateFormatter()
         formatter_year.dateFormat = "yyyy"
         var current_year_string = formatter_year.string(from: Date())
-        var create_year_string = formatter_year.string(from: self)
+        
+        if let modifiedDate = Calendar.current.date(byAdding: .hour, value: 9, to: self) {
+            // 새로운 시간을 문자열로 포맷
+            let modifiedDateString = formatter_year.string(from: modifiedDate)
+            create_year_string = modifiedDateString
+        }
+        
         
         if(remainUTC < 60){ // 1분 보다 적은 시간일 때
             timeDiff = "방금 전"
@@ -344,6 +351,7 @@ extension Date {
         return date
     }
     
+    
      func isNew(fromDate: Date) -> Bool {
             var strDateMessage:Bool = false
             let result:ComparisonResult = self.compare(fromDate)
@@ -359,6 +367,58 @@ extension Date {
         }
 }
 extension UIViewController{
+    func formatDateString(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC") // UTC 시간대로 설정
+
+        if let date = dateFormatter.date(from: dateString) {
+            let koreanTimeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간대로 설정
+            dateFormatter.timeZone = koreanTimeZone
+
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+
+            let currentDate = Date()
+            let currentComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: currentDate)
+
+            let yearString: String
+            if let year = components.year, let currentYear = currentComponents.year, year == currentYear {
+                yearString = ""
+            } else {
+                yearString = "\(components.year ?? 0)/"
+            }
+            
+            let monthString = String(format: "%02d", components.month ?? 0)
+            let dayString = String(format: "%02d", components.day ?? 0)
+            let hourString = String(format: "%02d", components.hour ?? 0)
+            let minuteString = String(format: "%02d", components.minute ?? 0)
+
+            if yearString.isEmpty {
+                if let month = components.month, let day = components.day {
+                    if month == currentComponents.month, day == currentComponents.day {
+                        let timeDifference = currentDate.timeIntervalSince(date)
+                        if timeDifference < 60 {
+                            return "방금 전"
+                        } else if timeDifference < 3600 {
+                            let minutes = Int(timeDifference / 60)
+                            return "\(minutes)분 전"
+                        } else if timeDifference < 21600 {
+                            let hours = Int(timeDifference / 3600)
+                            return "\(hours)시간 전"
+                        }
+                    }
+                    return "\(monthString)/\(dayString) \(hourString):\(minuteString)"
+                }
+            }
+
+            return "\(yearString)\(monthString)/\(dayString) \(hourString):\(minuteString)"
+        }
+
+        return ""
+    }
+
+
     func hasNewerAlarm() -> Bool {
         let dateFormatter = ISO8601DateFormatter()
         
@@ -366,10 +426,11 @@ extension UIViewController{
         let likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
         
     
-        if storedDate == "" {
-            return true
+        
+        if likeList.count == 0 {
+            return false
         }
-        else if likeList.count == 0 {
+        else if storedDate == "" {
             return true
         }
         else{

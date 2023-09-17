@@ -263,8 +263,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         
         let createDate = HomeCardList[indexPath.row].board.createdAt.toDate()
-        cell.time.text=createDate.getTimeDifference()
-        
+        cell.time.text = formatDateString(HomeCardList[indexPath.row].board.createdAt)
         cell.content.text=HomeCardList[indexPath.row].board.content
         cell.content.sizeToFit()
         

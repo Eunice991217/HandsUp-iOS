@@ -210,8 +210,6 @@ class PostAPI{
             rtn = output!.result
             
         }
-        print("좋아요 게시물 : \(check), 메세지: \(output?.message)")
-        
         
         return rtn
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음

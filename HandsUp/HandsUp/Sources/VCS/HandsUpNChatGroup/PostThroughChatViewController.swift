@@ -62,7 +62,7 @@ class PostThroughChatViewController: UIViewController {
         self.smallNameLabel_PTCVC.text = singleBoard?.nickname
         // self.locationLabel_PTCVC.text = singleBoard. 위치 정보
         self.contentTextView_PTCVC.text = singleBoard?.board.content
-        self.timeLabel_PTCVC.text = singleBoard?.board.createdAt.toDate().getTimeDifference()
+        self.timeLabel_PTCVC.text = formatDateString(singleBoard?.board.createdAt ?? "") 
         
         boardsCharacterList = []
         
@@ -115,24 +115,27 @@ class PostThroughChatViewController: UIViewController {
         alert.addAction(cancel)
         
         let storyboard_main: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let Report = storyboard_main?.instantiateViewController(identifier: "Report") else { return }
         
-        let block = UIAlertAction(title: "이 게시물 그만보기", style: UIAlertAction.Style.default, handler:{(action) in self.showBlockAlert()}
-        )
-        alert.addAction(block)
     
-        let report = UIAlertAction(title: "신고하기",style: UIAlertAction.Style.default, handler:{(action) in
-        // 화면 전환!
-        // self.present(Report, animated: true)
+        let report = UIAlertAction(title: "신고하기", style: .default) { (action) in
+            let Report = storyboard_main?.instantiateViewController(withIdentifier: "Report")
+
+            Report?.modalPresentationStyle = .fullScreen
+            // 화면 전환!
+        
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.view.window!.layer.add(transition, forKey: kCATransition)
             
-        self.navigationController?.pushViewController(Report, animated: true)}
-        )
+            self.present(Report!, animated: false)
+        }
         alert.addAction(report)
         
         
         cancel.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         report.setValue(UIColor(red: 0.31, green: 0.494, blue: 0.753, alpha: 1), forKey: "titleTextColor")
-        block.setValue(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forKey: "titleTextColor")
         
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
         

@@ -157,7 +157,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         cell.characterView_CATVC.setCharacter_NoShadow() // 그림자 없애기
         cell.characterView_CATVC.setCharacter() // 캐릭터 생성
 
-        cell.timeLb_CATVC.text = formatDateString(chatArr![indexPath.row].updatedAt)
+        cell.timeLb_CATVC.text = formatChatDateString(chatArr![indexPath.row].updatedAt)
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname
         cell.contentLb_CATVC.text = chatArr![indexPath.row].lastContent
         
@@ -207,7 +207,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 extension UIViewController {
-    func formatDateString(_ dateString: String) -> String {
+    func formatChatDateString(_ dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
         
