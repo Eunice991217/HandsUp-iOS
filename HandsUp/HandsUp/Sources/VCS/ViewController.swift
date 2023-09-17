@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var HomeSchoolName: UILabel!
     
+    @IBOutlet var redLabel: UILabel!
     
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
     @IBOutlet var bellBtnXConstraint: NSLayoutConstraint!
@@ -213,6 +214,12 @@ class ViewController: UIViewController {
         
         tabmanList!.view.frame = ListView.bounds
         tabmanMap!.view.frame = MapView.bounds
+        
+        if hasNewerChat() || hasNewerChat() {
+            redLabel.isHidden = false
+        }else{
+            redLabel.isHidden = true
+        }
     }
     
     func configureCustomView() {

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -112,13 +111,26 @@
                                             <action selector="HomeBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="X52-KL-cRt"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5t-RW-Jf7">
+                                        <rect key="frame" x="331.5" y="41" width="10" height="10"/>
+                                        <color key="backgroundColor" name="HandsUpRed"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="WHh-m2-Qgg"/>
+                                            <constraint firstAttribute="height" constant="10" id="rFH-cr-JIe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="HandsUpRed"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="2R8-Uh-ecZ"/>
                                     <constraint firstItem="IZg-fI-ShE" firstAttribute="leading" secondItem="onp-Y0-j1N" secondAttribute="leading" constant="195" id="9Fr-eL-xk1"/>
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="AKl-nL-A3o"/>
+                                    <constraint firstItem="D5t-RW-Jf7" firstAttribute="trailing" secondItem="jIj-CL-tyd" secondAttribute="trailing" constant="-6.3300000000000001" id="PgX-KO-zb8"/>
                                     <constraint firstItem="IZg-fI-ShE" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="axf-co-tAo"/>
+                                    <constraint firstItem="D5t-RW-Jf7" firstAttribute="top" secondItem="jIj-CL-tyd" secondAttribute="top" constant="6" id="lC6-0D-540"/>
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="leading" secondItem="IZg-fI-ShE" secondAttribute="trailing" constant="65" id="sFl-Wn-Uk6"/>
                                 </constraints>
                             </view>
@@ -185,6 +197,7 @@
                         <outlet property="NotificationBtn" destination="jIj-CL-tyd" id="BxJ-ib-ORP"/>
                         <outlet property="bellBtnXConstraint" destination="sFl-Wn-Uk6" id="WZG-Id-OPU"/>
                         <outlet property="homeBtnXConstraint" destination="9Fr-eL-xk1" id="0ZH-EB-deV"/>
+                        <outlet property="redLabel" destination="D5t-RW-Jf7" id="Lzd-k5-nS1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMG-Jc-An6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

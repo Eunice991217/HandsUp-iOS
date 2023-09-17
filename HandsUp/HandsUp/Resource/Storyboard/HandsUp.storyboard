@@ -175,6 +175,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuH-xg-tjB">
                                 <rect key="frame" x="134" y="73.666666666666671" width="6.6666666666666572" height="6.6666666666666714"/>
+                                <color key="backgroundColor" name="HandsUpRed"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="6.6699999999999999" id="KBd-8n-agX"/>
                                     <constraint firstAttribute="width" constant="6.6699999999999999" id="y53-qj-kLf"/>
@@ -276,6 +277,8 @@
                     </view>
                     <connections>
                         <outlet property="alarmTableView_ALVC" destination="Gao-fs-cbu" id="zrH-jg-eEp"/>
+                        <outlet property="redLabelOnBell" destination="N8N-tC-Sjn" id="ZKD-SL-xXP"/>
+                        <outlet property="redLabelOnChat" destination="uuH-xg-tjB" id="CYi-bN-AjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chP-iz-5zu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -291,12 +294,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l5H-Gr-SWX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l5H-Gr-SWX">
                                 <rect key="frame" x="0.0" y="129" width="393" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatAlarmTableViewCell" rowHeight="84" id="JGy-NK-FW1" customClass="ChatAlarmTableViewCell" customModule="HandsUp" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatAlarmTableViewCell" rowHeight="84" id="JGy-NK-FW1" customClass="ChatAlarmTableViewCell" customModule="HandsUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JGy-NK-FW1" id="pMh-Yc-8W9">
@@ -424,12 +427,13 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncH-XZ-kN1">
                                 <rect key="frame" x="134" y="73.666666666666671" width="6.6666666666666572" height="6.6666666666666714"/>
+                                <color key="backgroundColor" name="HandsUpRed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="6.6699999999999999" id="Wxh-GK-Tsm"/>
                                     <constraint firstAttribute="height" constant="6.6699999999999999" id="a3c-uS-EFJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="HandsUpRed"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-Kq-T13">
@@ -522,13 +526,16 @@
                             <constraint firstItem="42X-zm-stb" firstAttribute="trailing" secondItem="ExL-cz-w07" secondAttribute="trailing" constant="-8.3300000000000001" id="y1W-DN-KRA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Mck-OJ-qUs"/>
                     <connections>
                         <outlet property="chatAlarmTableView_CLVC" destination="l5H-Gr-SWX" id="Oae-mA-FlT"/>
+                        <outlet property="redLabelOnBell" destination="Opb-2i-Ysv" id="uHE-2e-RNy"/>
+                        <outlet property="redLabelOnChat" destination="ncH-XZ-kN1" id="PYO-fs-dGG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBC-S8-5Xs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450" y="518"/>
+            <point key="canvasLocation" x="3820.6106870229005" y="517.6056338028169"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="uF3-eA-6hF">
@@ -727,7 +734,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="hX5-vG-hL5"/>
             </objects>
-            <point key="canvasLocation" x="4247" y="612"/>
+            <point key="canvasLocation" x="5440.4580152671751" y="598.59154929577471"/>
         </scene>
         <!--Register Post View Controller-->
         <scene sceneID="Ng1-47-be5">
@@ -1297,7 +1304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayh-Ox-3oZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5185" y="613"/>
+            <point key="canvasLocation" x="6110.6870229007627" y="612.67605633802816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nky-oO-el3">
@@ -1315,7 +1322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qO5-jc-vPH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3434" y="613"/>
+            <point key="canvasLocation" x="4689.3129770992364" y="791.54929577464793"/>
         </scene>
     </scenes>
     <resources>

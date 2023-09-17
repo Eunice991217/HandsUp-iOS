@@ -17,7 +17,10 @@ class ChatListViewController: UIViewController {
     var chatDatas_CVC: [Message] = []
    // var beforeVC: AlarmListViewController?
     
+    @IBOutlet var redLabelOnBell: UILabel!
     
+    @IBOutlet var redLabelOnChat: UILabel!
+    var beforeVC: AlarmListViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +35,18 @@ class ChatListViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
 
         refresh()
+        
+        if hasNewerChat() || hasNewerAlarm() {
+            redLabelOnBell.isHidden = false
+        }else {
+            redLabelOnBell.isHidden = true
+        }
+        if(hasNewerChat()){
+            redLabelOnChat.isHidden = false
+        }else{
+            redLabelOnChat.isHidden = true
+        }
+        
 
     }
     func refresh(){
@@ -44,7 +59,9 @@ class ChatListViewController: UIViewController {
     }
     @IBAction func alarmBtnDidTap(_ sender: Any) {
         
-        self.dismiss(animated: false)
+        self.dismiss(animated: false, completion: {
+            self.beforeVC?.refresh()
+        })
     }
     
     @IBAction func postBtnDidTap(_ sender: Any) {
@@ -182,8 +199,8 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         transition.subtype = CATransitionSubtype.fromRight
         view.window!.layer.add(transition, forKey: kCATransition)
         
-    
-        present(nextVC, animated: false, completion: nil)
+       // self.navigationController?.pushViewController(nextVC, animated: true)
+        present(nextVC, animated: false)
         
     }
     

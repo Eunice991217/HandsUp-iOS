@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class ChatViewController: UIViewController {
+    
+    let db = Firestore.firestore()
+
+    
     //전 화면에서 얻어야할 값
     var isRead: Bool = false
     public var boardIdx: Int64 = 0
@@ -157,35 +163,14 @@ class ChatViewController: UIViewController {
             
         }
         FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: chatTextView_CVC.text))
-        refresh()
+
         // 방법 2 :
         //chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
+        chatTextView_CVC.text = ""
 
         
     }
-    
-    func refresh(){
-        FirestoreAPI.shared.readAll(chatRoomID: chatKey) { [self] messages, error in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
-            
-            if let messages = messages {
-                // 데이터 처리
-                chatDatas_CVC = []
-                for message in messages {
-                    self.chatDatas_CVC.append(message)
-                }
-                print("채팅 메세지 개수: \(self.chatDatas_CVC.count)")
-                self.chatTableView_CVC.reloadData()
-                
-                    // TableView에는 원하는 곳으로 이동하는 함수가 있다. 고로 전송할때마다 최신 대화로 이동.
-                    let lastindexPath = IndexPath(row: self.chatDatas_CVC.count - 1, section: 0)
-                    self.chatTableView_CVC.scrollToRow(at: lastindexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-            }
-        }
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -260,16 +245,14 @@ class ChatViewController: UIViewController {
         let boardWriter = boardInfo?.writerEmail
         
         if(isChatExisted == false){ // 게시물 비행기 버튼을 통해서 들어온 경우
-            if(boardWriter != myUserEmail && boardInfo != nil){
+            if(boardWriter != myUserEmail && boardInfo != nil){ // 게시물 작성자가 내가 아닐 때
                 //이미 채팅 내역이 존재하는지 확인
                 //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
                 chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
-                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx)!, oppositeUserEmail: boardWriter!)!.result
-                partnerEmail = boardWriter!
-                let oppositeEmail = boardWriter!
+                let isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: boardWriter!)!.result
+                print("반대 이메일 \(partnerEmail)")
                 if(isChatExistedResult.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                     isChatExisted = true
-                    refresh()
                 }else{
                     isChatExisted = false
                 }
@@ -279,8 +262,7 @@ class ChatViewController: UIViewController {
             //채팅 정보 가져오기
             print("chatkey: \(chatKey)")
             print("가져와짐?")
-            
-            refresh()
+            loadMessages()
         }
     }
     
@@ -323,6 +305,34 @@ class ChatViewController: UIViewController {
         }
     }
     
+ 
+    private func loadMessages() {
+        db.collection("chatroom/\(chatKey)/chat").order(by: "createdat", descending: false).addSnapshotListener { (querySnapshot, error) in
+            
+            self.chatDatas_CVC = []
+            if let e = error {
+                print(e.localizedDescription)
+            } else {
+                if let snapshotDocuments = querySnapshot?.documents {
+                    print("왜 메세지 안가져와짐 : \(snapshotDocuments)")
+                    snapshotDocuments.forEach { (doc) in
+                        let data = doc.data()
+                        print("data를 보자:\(data)")
+                        if let content = data["content"] as? String, let authorUID = data["author_uid"] as? String, let createdat = data["createdat"] as? String {
+                            self.chatDatas_CVC.append(Message(documentID: "", content: content, authorUID: authorUID, createdat: createdat))
+                            
+                            
+                            DispatchQueue.main.async {
+                                self.chatTableView_CVC.reloadData()
+                                self.chatTableView_CVC.scrollToRow(at: IndexPath(row: self.chatDatas_CVC.count-1, section: 0), at: .top, animated: false)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     
     

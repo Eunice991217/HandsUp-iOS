@@ -19,6 +19,9 @@ class AlarmListViewController: UIViewController{
     
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
     
+    @IBOutlet var redLabelOnBell: UILabel!
+    @IBOutlet var redLabelOnChat: UILabel!
+
     @IBOutlet var alarmTableView_ALVC: UITableView!
     
     @IBAction func postBtnDidTap(_ sender: Any) {
@@ -29,14 +32,28 @@ class AlarmListViewController: UIViewController{
         self.present(registerPostVC, animated: true)
     }
     @IBAction func chatBtnDidTap(_ sender: Any) {
-        guard let chatVC = self.storyboard?.instantiateViewController(identifier: "ChatListViewController") else {
-            return
-        }
+
+        guard let chatVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatListViewController") as? ChatListViewController else { return  }
+
         chatVC.modalPresentationStyle = .fullScreen
         // 화면 전환!
-        
+        chatVC.beforeVC = self
         self.present(chatVC, animated: false)
         
+    }
+    func refresh(){
+        likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
+        
+        if hasNewerChat() || hasNewerAlarm() {
+            redLabelOnBell.isHidden = false
+        }else {
+            redLabelOnBell.isHidden = true
+        }
+        if(hasNewerChat()){
+            redLabelOnChat.isHidden = false
+        }else{
+            redLabelOnChat.isHidden = true
+        }
     }
     
     
@@ -50,22 +67,22 @@ class AlarmListViewController: UIViewController{
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         
         likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
-        
+        if(likeList.count > 0){
+            UserDefaults.standard.set(likeList[0].likeCreatedAt, forKey: "lastAlarmDate")
+        }
         self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         
-//        let result_edit = PostAPI.deletePost( boardIdx: 40)
-//
-//        print("result:  \(result_edit)")
-//        switch result_edit {
-//        case 2000:
-//            print("게시물 삭제에 성공하였습니다.")
-//        case -1:
-//            ServerError()
-//        default:
-//            print("게시물 수정에 실패하였습니다.")
-//
-//
-//        }
+        if hasNewerChat() || hasNewerAlarm() {
+            redLabelOnBell.isHidden = false
+        }else {
+            redLabelOnBell.isHidden = true
+        }
+        if(hasNewerChat()){
+            redLabelOnChat.isHidden = false
+        }else{
+            redLabelOnChat.isHidden = true
+        }
+        
     }
     
     
@@ -153,7 +170,8 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 view.window!.layer.add(transition, forKey: kCATransition)
                 //채팅방 뷰컨에 게시물 키 전달
                 nextVC.boardIdx = Int64(likeList[indexPath.row].boardIdx)
-
+                nextVC.chatKey = chatRoomKey
+                nextVC.partnerEmail = likeList[indexPath.row].emailFrom
                 present(nextVC, animated: false, completion: nil)
                 break
                 
@@ -339,4 +357,49 @@ extension Date {
             }
             return strDateMessage
         }
+}
+extension UIViewController{
+    func hasNewerAlarm() -> Bool {
+        let dateFormatter = ISO8601DateFormatter()
+        
+        let storedDate = UserDefaults.standard.string(forKey: "lastAlarmDate") ?? ""
+        let likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
+        
+    
+        if storedDate == "" {
+            return true
+        }
+        else if likeList.count == 0 {
+            return true
+        }
+        else{
+            // 문자열 형식의 날짜를 Date 객체로 변환
+            if let date1 = dateFormatter.date(from: likeList[0].likeCreatedAt), let date2 = dateFormatter.date(from: storedDate) {
+                // 날짜 비교
+                return date1 > date2 // 최신 알람이 있음
+            } else {
+                // 올바르지 않은 날짜 형식이거나 변환 실패 시 false 반환
+                return false
+            }
+        }
+    }
+    
+    func hasNewerChat() -> Bool {
+        let chatArr = PostAPI.getChatList() ?? []
+        var count: Int = 0
+        
+        let myEmail: String = UserDefaults.standard.string(forKey: "email") ?? ""
+        for chat in chatArr {
+            if(chat.lastSenderEmail != myEmail){
+                count += chat.notRead
+            }
+        }
+        if(count>0){
+            return true
+        }
+        else{
+            return false
+        }
+
+    }
 }
