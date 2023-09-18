@@ -670,7 +670,7 @@ class ServerAPI{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/boards/block/" + String(boardIdx))
         var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
@@ -681,6 +681,7 @@ class ServerAPI{
         let semaphore = DispatchSemaphore(value: 0)
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(boardsBlock_rp.self, from: data!)
+            print("차단하기 : \(output?.statusCode)")
             if output == nil{
                 check = -1;
             }

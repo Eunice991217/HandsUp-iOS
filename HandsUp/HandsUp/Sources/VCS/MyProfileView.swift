@@ -144,7 +144,10 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
-        let confirm = UIAlertAction(title: "네", style: .default) { (action) in }; alert.addAction(confirm)
+        let confirm = UIAlertAction(title: "네", style: .default) { (action) in
+            ServerAPI.boardsBlock(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+        }
+        alert.addAction(confirm)
         
         confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기
