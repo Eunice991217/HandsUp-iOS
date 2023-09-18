@@ -166,7 +166,7 @@ class PostAPI{
     
     static func showBoardsLikeList() -> board_like?{
         let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/like/10/")
+        let url = URL(string: serverDir + "/boards/like/30/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

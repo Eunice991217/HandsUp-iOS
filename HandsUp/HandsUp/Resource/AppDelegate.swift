@@ -85,12 +85,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                 // 내가 필요한 pidx라는 데이터는 aps > alert > pidx 에 들어있었다.
         if let postIndex = alertData["body"] as? String, postIndex.contains("채팅이 도착하였습니다."){
             UserDefaults.standard.set("chat", forKey: "alarmOrChat")
-            coordinateToSomeVC()
-           
+            coordinateToChatVC()
+
         }
         else if let postIndex = alertData["body"] as? String, postIndex.contains("회원님의 핸즈업에 누군가 하트를 눌렀습니다."){
             UserDefaults.standard.set("alarm", forKey: "alarmOrChat")
-            coordinateToSomeVC()
+            coordinateToAlarmVC()
             
 
         }
@@ -99,11 +99,29 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         // tell the app that we have finished processing the user’s action / response
         completionHandler()
     }
-    private func coordinateToSomeVC(){
+    private func coordinateToAlarmVC(){
         guard let window = UIApplication.shared.keyWindow else {return}
         
         let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
         let yourVC = storyboard.instantiateViewController(withIdentifier: "AlarmListViewController")
+        
+        
+        let storyboard_1 = UIStoryboard(name: "Main", bundle: nil)
+        let home = storyboard_1.instantiateViewController(withIdentifier: "Home")
+        
+        
+        let navController = UINavigationController(rootViewController: yourVC)
+        navController.setNavigationBarHidden(true, animated: false)
+        
+        window.rootViewController = navController
+        window.makeKeyAndVisible()
+    }
+    
+    private func coordinateToChatVC(){
+        guard let window = UIApplication.shared.keyWindow else {return}
+        
+        let storyboard = UIStoryboard(name: "HandsUp", bundle: nil)
+        let yourVC = storyboard.instantiateViewController(withIdentifier: "ChatListViewController")
         
         
         let storyboard_1 = UIStoryboard(name: "Main", bundle: nil)

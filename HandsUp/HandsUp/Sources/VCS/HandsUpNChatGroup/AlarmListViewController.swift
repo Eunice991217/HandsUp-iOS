@@ -100,6 +100,11 @@ class AlarmListViewController: UIViewController{
     
     @IBAction func homeBtnDidTap(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: false, completion: nil)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+                       
+        // 스토리보드에서 지정해준 ViewController의 ID
+        let homeVC_Login = storyboard!.instantiateViewController(withIdentifier: "Home")
+        self.navigationController?.pushViewController(homeVC_Login, animated: false)
     }
     
     

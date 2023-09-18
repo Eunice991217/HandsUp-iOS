@@ -263,8 +263,7 @@ class ChatViewController: UIViewController {
                     isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: boardWriter!)!
                 }
 
-                print("chat exist or not: \(isChatExistedResult.message)")
-                if(isChatExistedResult.result.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
+                if(isChatExistedResult!.result.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
                     isChatExisted = true
                     loadMessages()
 
