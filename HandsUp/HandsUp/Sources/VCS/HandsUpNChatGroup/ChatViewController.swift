@@ -404,6 +404,37 @@ class ChatViewController: UIViewController {
         return current_time_string
     }
     
+    func formatDate(_ dateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let outputFormatter = DateFormatter()
+        
+        let date = inputFormatter.date(from: dateString)
+        
+        if let date = date {
+            let calendar = Calendar.current
+            let currentDate = Date()
+            
+            let currentYear = calendar.component(.year, from: currentDate)
+            let inputYear = calendar.component(.year, from: date)
+            
+            if currentYear == inputYear {
+                if calendar.isDateInToday(date) {
+                    outputFormatter.dateFormat = "h:mm a"
+                } else {
+                    outputFormatter.dateFormat = "M/dd hh:mm"
+                }
+            } else {
+                outputFormatter.dateFormat = "yyyy/M/dd hh:mm"
+            }
+            
+            return outputFormatter.string(from: date)
+        }
+        
+        return ""
+    }
+    
 }
 
 extension ChatViewController: UITextViewDelegate{
@@ -456,14 +487,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userEmail = UserDefaults.standard.string(forKey: "email")!
-        // 입력된 시간 형식을 지정
-        let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-        // 출력할 시간 형식을 지정
-        let outputFormatter = DateFormatter()
-        outputFormatter.dateFormat = "h:mm a"
-        
+     
         if userEmail == chatDatas_CVC[indexPath.row].authorUID {
             
             let myCell = tableView.dequeueReusableCell(withIdentifier: "MyChatTableViewCell", for: indexPath) as! MyChatTableViewCell
@@ -472,10 +496,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             myCell.timeLb_MCTVC.text = chatDatas_CVC[indexPath.row].createdat
             
             // 입력된 문자열을 Date 객체로 변환
-            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)
-                // Date 객체를 지정된 형식으로 문자열로 변환
-            let formattedTime = outputFormatter.string(from: date!)
-                myCell.timeLb_MCTVC.text = formattedTime
+//            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)
+//                // Date 객체를 지정된 형식으로 문자열로 변환
+//            let formattedTime = outputFormatter.string(from: date!)
+                myCell.timeLb_MCTVC.text = formatDate(chatDatas_CVC[indexPath.row].createdat)
                 
             // 버튼 누르면 chatDatas 에 텍스트를 넣을 것이기 때문에 거기서 꺼내오면 되는거다.
             myCell.selectionStyle = .none
@@ -488,14 +512,16 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             // 이것도 마찬가지.
             yourCell.contentTV_YCTVC.text = chatDatas_CVC[indexPath.row].content
             
-            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)!
-                // Date 객체를 지정된 형식으로 문자열로 변환
-                let formattedTime = outputFormatter.string(from: date)
-            yourCell.timeLb_YCTVC.text = formattedTime
+//            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)!
+//                // Date 객체를 지정된 형식으로 문자열로 변환
+//                let formattedTime = outputFormatter.string(from: date)
+            yourCell.timeLb_YCTVC.text = formatDate(chatDatas_CVC[indexPath.row].createdat)
             yourCell.selectionStyle = .none
             return yourCell
             
         }
     }
+    
+    
     
 }
