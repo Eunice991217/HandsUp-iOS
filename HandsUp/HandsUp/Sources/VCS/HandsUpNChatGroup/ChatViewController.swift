@@ -13,7 +13,7 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
 
-    
+    var boardInfo: board_in_chat_result?
     //전 화면에서 얻어야할 값
     var isRead: Bool = false
     public var boardIdx: Int64 = 0
@@ -214,39 +214,9 @@ class ChatViewController: UIViewController {
         if(isRead == true){
             PostAPI.readChat(chatRoomkey: chatKey)
         }
-        
-        //채팅 화면 상단 게시물 설정 코드
-        let boardInfo = PostAPI.getBoardInChat(boardIdx: boardIdx)
-        if(boardInfo == nil){
-            postView_CVC.isHidden = true
-        }else{
-            chatPersonNameLabel_CVC.text = boardInfo?.nickname
-            nameInBoard.text = boardInfo?.nickname
-            contentInBoard.text = boardInfo?.board.content
-            
-            var boardsCharacterList: [Int] = []
-                
-            let background = (Int(boardInfo!.character.backGroundColor) ?? 1) - 1
-            let hair = (Int(boardInfo!.character.hair) ?? 1) - 1
-            let eyebrow = (Int(boardInfo!.character.eyeBrow) ?? 1) - 1
-            let mouth = (Int(boardInfo!.character.mouth) ?? 1) - 1
-            let nose = (Int(boardInfo!.character.nose) ?? 1) - 1
-            let eyes = (Int(boardInfo!.character.eye) ?? 1) - 1
-            let glasses = Int(boardInfo!.character.glasses) ?? 0
-            
-            boardsCharacterList.append(background)
-            boardsCharacterList.append(hair)
-            boardsCharacterList.append(eyebrow)
-            boardsCharacterList.append(mouth)
-            boardsCharacterList.append(nose)
-            boardsCharacterList.append(eyes)
-            boardsCharacterList.append(glasses)
-            print("boardlre: \(boardsCharacterList)")
-            characterView_CVC.setAll(componentArray: boardsCharacterList) // 가져오기
-            characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
-            characterView_CVC.setCharacter() // 캐릭터 생성
-        }
-
+        refreshBoard()
+        let getBoardChatResponse = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        boardInfo = getBoardChatResponse?.result
         
         let myUserEmail = UserDefaults.standard.string(forKey: "email")!
         let boardWriter = boardInfo?.writerEmail
@@ -279,6 +249,49 @@ class ChatViewController: UIViewController {
             loadMessages()
         }
         print("chatkey: \(chatKey)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshBoard()
+    }
+    func refreshBoard(){
+        //채팅 화면 상단 게시물 설정 코드
+        let getBoardChatResponse = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        boardInfo = getBoardChatResponse?.result
+        if(boardInfo == nil){
+            postView_CVC.isHidden = true
+        }
+        else if (getBoardChatResponse?.statusCode == 4053){
+            postView_CVC.isHidden = true
+        }
+        else{
+            chatPersonNameLabel_CVC.text = boardInfo?.nickname
+            nameInBoard.text = boardInfo?.nickname
+            contentInBoard.text = boardInfo?.board.content
+            
+            var boardsCharacterList: [Int] = []
+                
+            let background = (Int(boardInfo!.character.backGroundColor) ?? 1) - 1
+            let hair = (Int(boardInfo!.character.hair) ?? 1) - 1
+            let eyebrow = (Int(boardInfo!.character.eyeBrow) ?? 1) - 1
+            let mouth = (Int(boardInfo!.character.mouth) ?? 1) - 1
+            let nose = (Int(boardInfo!.character.nose) ?? 1) - 1
+            let eyes = (Int(boardInfo!.character.eye) ?? 1) - 1
+            let glasses = Int(boardInfo!.character.glasses) ?? 0
+            
+            boardsCharacterList.append(background)
+            boardsCharacterList.append(hair)
+            boardsCharacterList.append(eyebrow)
+            boardsCharacterList.append(mouth)
+            boardsCharacterList.append(nose)
+            boardsCharacterList.append(eyes)
+            boardsCharacterList.append(glasses)
+            print("boardlre: \(boardsCharacterList)")
+            characterView_CVC.setAll(componentArray: boardsCharacterList) // 가져오기
+            characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
+            characterView_CVC.setCharacter() // 캐릭터 생성
+        }
     }
     
     @IBAction func backBtnDidTap(_ sender: Any) {

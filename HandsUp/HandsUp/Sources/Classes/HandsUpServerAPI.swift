@@ -348,7 +348,7 @@ class PostAPI{
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     
-    static func getBoardInChat(boardIdx: Int64) -> board_in_chat_result?{
+    static func getBoardInChat(boardIdx: Int64) -> board_in_chat_rp?{
         let serverDir = "http://13.124.196.200:8080"
         
         //let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
@@ -393,11 +393,10 @@ class PostAPI{
         }
         
         if check == 2000{//서버 통신 성공
-            rtn = output!.result
         }else{
             print("채팅내 게시물 : \(check)")
         }
-        return rtn
+        return output
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     //미완성
