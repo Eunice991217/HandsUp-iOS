@@ -74,6 +74,11 @@ class ChatListViewController: UIViewController {
     
     @IBAction func homeBtnDidTap(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+                       
+        // 스토리보드에서 지정해준 ViewController의 ID
+        let homeVC_Login = storyboard!.instantiateViewController(withIdentifier: "Home")
+        self.navigationController?.pushViewController(homeVC_Login, animated: false)
     }
     
     func showBlockAlert(){
@@ -152,7 +157,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         boardsCharacterList.append(eyes)
         boardsCharacterList.append(glasses)
         
-        print("비교해보자 \(chatArr![indexPath.row].nickname):  \(boardsCharacterList)")
         cell.characterView_CATVC.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.characterView_CATVC.setCharacter_NoShadow() // 그림자 없애기
         cell.characterView_CATVC.setCharacter() // 캐릭터 생성
@@ -188,6 +192,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         nextVC.isChatExisted = true
         nextVC.boardIdx = Int64(chatArr![indexPath.row].boardIdx)
         nextVC.chatKey = chatArr![indexPath.row].chatRoomKey
+        nextVC.chatPersonName = chatArr![indexPath.row].nickname
       //  nextVC.boardIdx = nextVC.boardIdx = Int(boardIndex!)
         nextVC.beforeVC = self
         

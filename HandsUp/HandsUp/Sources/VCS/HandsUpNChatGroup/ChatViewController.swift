@@ -13,7 +13,7 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
 
-    
+    var boardInfo: board_in_chat_result?
     //전 화면에서 얻어야할 값
     var isRead: Bool = false
     public var boardIdx: Int64 = 0
@@ -25,6 +25,8 @@ class ChatViewController: UIViewController {
     public var chatPersonName = ""
     var chatKey: String = ""
     var partnerEmail: String = ""
+    
+    @IBOutlet var boardViewHeight: NSLayoutConstraint!
     
     @IBOutlet var nameInBoard: UILabel!
     @IBOutlet var profileViewInBoard: UIView!
@@ -126,7 +128,7 @@ class ChatViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
+
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
@@ -214,13 +216,65 @@ class ChatViewController: UIViewController {
         if(isRead == true){
             PostAPI.readChat(chatRoomkey: chatKey)
         }
+        refreshBoard()
+        let getBoardChatResponse = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        boardInfo = getBoardChatResponse?.result
         
+        let myUserEmail = UserDefaults.standard.string(forKey: "email")!
+        let boardWriter = boardInfo?.writerEmail
+        
+        if(isChatExisted == false){ // 게시물 비행기 버튼을 통해서 들어온 경우
+            if(boardWriter != myUserEmail && boardInfo != nil){ // 게시물 작성자가 내가 아닐 때
+                //이미 채팅 내역이 존재하는지 확인
+                //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
+                chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
+                var isChatExistedResult: chat_check_rp?
+                if(ismyBoard == true){
+                    isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: partnerEmail)!
+                }else{
+                    isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: boardWriter!)!
+                }
+
+                if(isChatExistedResult!.result.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
+                    isChatExisted = true
+                    loadMessages()
+
+                }else{
+                    isChatExisted = false
+                }
+            }
+        }
+        else{
+            //채팅 정보 가져오기
+            print("chatkey: \(chatKey)")
+            print("가져와짐?")
+            loadMessages()
+        }
+        print("chatkey: \(chatKey)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        refreshBoard()
+    }
+    func refreshBoard(){
+        chatPersonNameLabel_CVC.text = chatPersonName
+
         //채팅 화면 상단 게시물 설정 코드
-        let boardInfo = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        let getBoardChatResponse = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        //print(getBoardChatResponse.)
+        boardInfo = getBoardChatResponse?.result
         if(boardInfo == nil){
-            postView_CVC.isHidden = true
-        }else{
-            chatPersonNameLabel_CVC.text = boardInfo?.nickname
+            self.postView_CVC.isHidden = true
+
+            self.boardViewHeight.constant = 0
+        }
+        else if (getBoardChatResponse?.statusCode == 4053){
+            self.postView_CVC.isHidden = true
+            self.boardViewHeight.constant = 0
+        }
+        else{
             nameInBoard.text = boardInfo?.nickname
             contentInBoard.text = boardInfo?.board.content
             
@@ -246,40 +300,6 @@ class ChatViewController: UIViewController {
             characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
             characterView_CVC.setCharacter() // 캐릭터 생성
         }
-
-        
-        let myUserEmail = UserDefaults.standard.string(forKey: "email")!
-        let boardWriter = boardInfo?.writerEmail
-        
-        if(isChatExisted == false){ // 게시물 비행기 버튼을 통해서 들어온 경우
-            if(boardWriter != myUserEmail && boardInfo != nil){ // 게시물 작성자가 내가 아닐 때
-                //이미 채팅 내역이 존재하는지 확인
-                //chatkey는 게시물 키 + 게시물 작성자 이메일 + 나머지 한명 이메일 값으로 구성
-                chatKey = String((boardInfo?.board.boardIdx)!) + boardWriter! + myUserEmail
-                var isChatExistedResult: chat_check_rp?
-                if(ismyBoard == true){
-                    isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: partnerEmail)!
-                }else{
-                    isChatExistedResult = PostAPI.checkChatExists(chatRoomKey: chatKey, boardIdx: (boardInfo?.board.boardIdx) ?? 0, oppositeUserEmail: boardWriter!)!
-                }
-
-                print("chat exist or not: \(isChatExistedResult!.message)")
-                if(isChatExistedResult!.result.isSaved == true){ //채팅이 이미 존재하는ㄴ 경우
-                    isChatExisted = true
-                    loadMessages()
-
-                }else{
-                    isChatExisted = false
-                }
-            }
-        }
-        else{
-            //채팅 정보 가져오기
-            print("chatkey: \(chatKey)")
-            print("가져와짐?")
-            loadMessages()
-        }
-        print("chatkey: \(chatKey)")
     }
     
     @IBAction func backBtnDidTap(_ sender: Any) {
@@ -364,7 +384,7 @@ class ChatViewController: UIViewController {
         
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "PostThroughChatViewController") as? PostThroughChatViewController else { return  }
         nextVC.boardIdx = boardIdx
-        
+        nextVC.beforeVC = self
         nextVC.modalPresentationStyle = .overCurrentContext
         // 화면 전환!
         self.present(nextVC, animated: true)
@@ -403,6 +423,37 @@ class ChatViewController: UIViewController {
         var current_time_string = formatter_time.string(from: Date())
         
         return current_time_string
+    }
+    
+    func formatDate(_ dateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let outputFormatter = DateFormatter()
+        
+        let date = inputFormatter.date(from: dateString)
+        
+        if let date = date {
+            let calendar = Calendar.current
+            let currentDate = Date()
+            
+            let currentYear = calendar.component(.year, from: currentDate)
+            let inputYear = calendar.component(.year, from: date)
+            
+            if currentYear == inputYear {
+                if calendar.isDateInToday(date) {
+                    outputFormatter.dateFormat = "h:mm a"
+                } else {
+                    outputFormatter.dateFormat = "M/dd hh:mm"
+                }
+            } else {
+                outputFormatter.dateFormat = "yyyy/M/dd hh:mm"
+            }
+            
+            return outputFormatter.string(from: date)
+        }
+        
+        return ""
     }
     
 }
@@ -457,14 +508,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userEmail = UserDefaults.standard.string(forKey: "email")!
-        // 입력된 시간 형식을 지정
-        let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-        // 출력할 시간 형식을 지정
-        let outputFormatter = DateFormatter()
-        outputFormatter.dateFormat = "h:mm a"
-        
+     
         if userEmail == chatDatas_CVC[indexPath.row].authorUID {
             
             let myCell = tableView.dequeueReusableCell(withIdentifier: "MyChatTableViewCell", for: indexPath) as! MyChatTableViewCell
@@ -473,10 +517,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             myCell.timeLb_MCTVC.text = chatDatas_CVC[indexPath.row].createdat
             
             // 입력된 문자열을 Date 객체로 변환
-            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)
-                // Date 객체를 지정된 형식으로 문자열로 변환
-            let formattedTime = outputFormatter.string(from: date!)
-                myCell.timeLb_MCTVC.text = formattedTime
+//            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)
+//                // Date 객체를 지정된 형식으로 문자열로 변환
+//            let formattedTime = outputFormatter.string(from: date!)
+                myCell.timeLb_MCTVC.text = formatDate(chatDatas_CVC[indexPath.row].createdat)
                 
             // 버튼 누르면 chatDatas 에 텍스트를 넣을 것이기 때문에 거기서 꺼내오면 되는거다.
             myCell.selectionStyle = .none
@@ -489,14 +533,16 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             // 이것도 마찬가지.
             yourCell.contentTV_YCTVC.text = chatDatas_CVC[indexPath.row].content
             
-            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)!
-                // Date 객체를 지정된 형식으로 문자열로 변환
-                let formattedTime = outputFormatter.string(from: date)
-            yourCell.timeLb_YCTVC.text = formattedTime
+//            let date = inputFormatter.date(from: chatDatas_CVC[indexPath.row].createdat)!
+//                // Date 객체를 지정된 형식으로 문자열로 변환
+//                let formattedTime = outputFormatter.string(from: date)
+            yourCell.timeLb_YCTVC.text = formatDate(chatDatas_CVC[indexPath.row].createdat)
             yourCell.selectionStyle = .none
             return yourCell
             
         }
     }
+    
+    
     
 }

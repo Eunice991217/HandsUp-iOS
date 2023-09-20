@@ -100,6 +100,11 @@ class AlarmListViewController: UIViewController{
     
     @IBAction func homeBtnDidTap(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: false, completion: nil)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+                       
+        // 스토리보드에서 지정해준 ViewController의 ID
+        let homeVC_Login = storyboard!.instantiateViewController(withIdentifier: "Home")
+        self.navigationController?.pushViewController(homeVC_Login, animated: false)
     }
     
     
@@ -142,8 +147,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.characterView_ATVC.setAll(componentArray: characterList)
         cell.characterView_ATVC.setCharacter_NoShadow()
-        
-        cell.idLb_ATVC.text = likeList[indexPath.row].text
+        cell.idLb_ATVC.text = "아래 글에 \(likeList[indexPath.row].nickname)님이 관심있어요"
         cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
          
         // 보내기 버튼 눌렀을 때 실행할 함수 선언
@@ -175,6 +179,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 if existResponse?.result.isSaved == true{
                     nextVC.isChatExisted = true
                 }
+                nextVC.chatPersonName = likeList[indexPath.row].nickname
                 nextVC.ismyBoard = true
                 present(nextVC, animated: false, completion: nil)
                 break
