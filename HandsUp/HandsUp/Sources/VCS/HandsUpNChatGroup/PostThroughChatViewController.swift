@@ -21,6 +21,7 @@ class PostThroughChatViewController: UIViewController {
     @IBOutlet var locationLabel_PTCVC: UILabel!
     @IBOutlet var timeLabel_PTCVC: UILabel!
     
+    var beforeVC: ChatViewController?
     @IBOutlet weak var contentTextView_PTCVC: UITextView!
     
     @IBOutlet weak var characterView_PTCVC: Character_UIView!
@@ -64,7 +65,10 @@ class PostThroughChatViewController: UIViewController {
         self.smallNameLabel_PTCVC.text = singleBoard?.nickname
         // self.locationLabel_PTCVC.text = singleBoard. 위치 정보
         self.contentTextView_PTCVC.text = singleBoard?.board.content
-        self.timeLabel_PTCVC.text = formatDateString(singleBoard?.board.createdAt ?? "") 
+        self.timeLabel_PTCVC.text = formatDateString(singleBoard?.board.createdAt ?? "")
+        self.tagLabel_PTCVC.text = "# " + (singleBoard?.tag ?? "")
+        self.schoolLabel_PTCVC.text = singleBoard?.schoolName ?? ""
+        
         
         boardsCharacterList = []
         
@@ -93,10 +97,18 @@ class PostThroughChatViewController: UIViewController {
         tagLabelXConstraint_PTCVC.constant = screenWidth / 2 - 74
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshBoard()
+    }
     func refreshBoard(){
         singleBoard = PostAPI.getBoardInChat(boardIdx: boardIdx)?.result
-        postAuthorNickName = singleBoard?.nickname ?? ""
+        
+        self.contentTextView_PTCVC.text = singleBoard?.board.content
+        self.timeLabel_PTCVC.text = formatDateString(singleBoard?.board.createdAt ?? "")
+        self.tagLabel_PTCVC.text = "# " + (singleBoard?.tag ?? "")
     }
+    
     
     func setupView() {
            // 6. add blur view and send it to back
@@ -106,7 +118,10 @@ class PostThroughChatViewController: UIViewController {
     
     
     @IBAction func cancelBtnDidTap(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: {
+            self.beforeVC?.refreshBoard()
+        })
+        
     }
     
     
@@ -152,6 +167,7 @@ class PostThroughChatViewController: UIViewController {
             
         } else {
             let block = UIAlertAction(title: "이 게시물 그만보기", style: .default) { (action) in
+                
                 self.showBlockAlert()
             }
             alert.addAction(block)
@@ -195,7 +211,9 @@ class PostThroughChatViewController: UIViewController {
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
-        let confirm = UIAlertAction(title: "네", style: .default) { (action) in }; alert.addAction(confirm)
+        let confirm = UIAlertAction(title: "네", style: .default) { (action) in
+            let blockResponse = ServerAPI.boardsBlock(boardIdx: Int(self.boardIdx)).statusCode
+        }; alert.addAction(confirm)
 
         confirm.setValue(UIColor(red: 0.563, green: 0.691, blue: 0.883, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         cancel.setValue(UIColor(red: 0.663, green: 0.663, blue: 0.663, alpha: 1), forKey: "titleTextColor") //취소버튼 색깔입히기

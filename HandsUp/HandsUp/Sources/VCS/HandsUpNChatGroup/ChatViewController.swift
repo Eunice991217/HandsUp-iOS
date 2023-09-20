@@ -26,6 +26,8 @@ class ChatViewController: UIViewController {
     var chatKey: String = ""
     var partnerEmail: String = ""
     
+    @IBOutlet var boardViewHeight: NSLayoutConstraint!
+    
     @IBOutlet var nameInBoard: UILabel!
     @IBOutlet var profileViewInBoard: UIView!
     @IBOutlet var contentInBoard: UILabel!
@@ -126,7 +128,7 @@ class ChatViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
+
     func showBlockAlert(){
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
@@ -253,20 +255,26 @@ class ChatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         refreshBoard()
     }
     func refreshBoard(){
+        chatPersonNameLabel_CVC.text = chatPersonName
+
         //채팅 화면 상단 게시물 설정 코드
         let getBoardChatResponse = PostAPI.getBoardInChat(boardIdx: boardIdx)
+        //print(getBoardChatResponse.)
         boardInfo = getBoardChatResponse?.result
         if(boardInfo == nil){
-            postView_CVC.isHidden = true
+            self.postView_CVC.isHidden = true
+
+            self.boardViewHeight.constant = 0
         }
         else if (getBoardChatResponse?.statusCode == 4053){
-            postView_CVC.isHidden = true
+            self.postView_CVC.isHidden = true
+            self.boardViewHeight.constant = 0
         }
         else{
-            chatPersonNameLabel_CVC.text = boardInfo?.nickname
             nameInBoard.text = boardInfo?.nickname
             contentInBoard.text = boardInfo?.board.content
             
@@ -376,7 +384,7 @@ class ChatViewController: UIViewController {
         
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "PostThroughChatViewController") as? PostThroughChatViewController else { return  }
         nextVC.boardIdx = boardIdx
-        
+        nextVC.beforeVC = self
         nextVC.modalPresentationStyle = .overCurrentContext
         // 화면 전환!
         self.present(nextVC, animated: true)

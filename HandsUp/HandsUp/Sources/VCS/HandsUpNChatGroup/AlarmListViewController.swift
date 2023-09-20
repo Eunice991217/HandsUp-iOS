@@ -147,8 +147,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.characterView_ATVC.setAll(componentArray: characterList)
         cell.characterView_ATVC.setCharacter_NoShadow()
-        
-        cell.idLb_ATVC.text = likeList[indexPath.row].text
+        cell.idLb_ATVC.text = "아래 글에 \(likeList[indexPath.row].nickname)님이 관심있어요"
         cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
          
         // 보내기 버튼 눌렀을 때 실행할 함수 선언
@@ -180,6 +179,7 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
                 if existResponse?.result.isSaved == true{
                     nextVC.isChatExisted = true
                 }
+                nextVC.chatPersonName = likeList[indexPath.row].nickname
                 nextVC.ismyBoard = true
                 present(nextVC, animated: false, completion: nil)
                 break
