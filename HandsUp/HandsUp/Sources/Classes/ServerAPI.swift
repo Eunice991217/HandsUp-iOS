@@ -670,7 +670,7 @@ class ServerAPI{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/boards/block/" + String(boardIdx))
         var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
