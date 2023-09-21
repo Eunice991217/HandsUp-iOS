@@ -12,6 +12,9 @@ class AlarmListViewController: UIViewController{
     var likeList : [ReceivedLikeInfo] = []
     var characterList: [Int] = []
     //var beforeVC: ChatListViewController?
+    let safeAreaView = UIView()
+    var bomttomSafeAreaInsets: CGFloat = 0.0
+
 
     @IBOutlet weak var HomeTabView: UIView!
 
@@ -63,6 +66,19 @@ class AlarmListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let screenWidth = UIScreen.main.bounds.size.width
+
+        configureCustomView()
+
+        self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.safeAreaView)
+        self.safeAreaView.backgroundColor = .white
+        
+        NSLayoutConstraint.activate([
+            self.safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
+        ])
 
         HomeTabView.layer.shadowOpacity = 1
         HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
@@ -123,6 +139,13 @@ class AlarmListViewController: UIViewController{
         // 스토리보드에서 지정해준 ViewController의 ID
         let homeVC_Login = storyboard!.instantiateViewController(withIdentifier: "Home")
         self.navigationController?.pushViewController(homeVC_Login, animated: false)
+    }
+    func configureCustomView() {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        if let hasWindowScene = windowScene {
+            bomttomSafeAreaInsets = hasWindowScene.windows.first?.safeAreaInsets.bottom ?? 0
+        }
     }
     
     

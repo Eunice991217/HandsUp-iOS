@@ -149,15 +149,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
 
             // TODO: - 디바이스 토큰을 보내는 서버통신 구현
-            
-            let result = PostAPI.updateFCMToken(fcmToken: fcmToken!)
             UserDefaults.standard.set(fcmToken!, forKey: "fcmToken")
 
-            if(result == 2000){
-                print("fcmtoken의 서버통신에 성공했습니다. ")
-            }else{
-                print("fcm token 실패")
-            }
+
         }
         
         

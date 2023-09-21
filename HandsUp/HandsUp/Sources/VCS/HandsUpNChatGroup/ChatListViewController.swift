@@ -12,6 +12,10 @@ import FirebaseFirestoreSwift
 class ChatListViewController: UIViewController {
 
     @IBOutlet weak var HomeTabView: UIView!
+    let safeAreaView = UIView()
+    var bomttomSafeAreaInsets: CGFloat = 0.0
+
+
 
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
     @IBOutlet var bellBtnXConstraint: NSLayoutConstraint!
@@ -28,7 +32,19 @@ class ChatListViewController: UIViewController {
     var beforeVC: AlarmListViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCustomView()
+
+        self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.safeAreaView)
+        self.safeAreaView.backgroundColor = .white
         
+        NSLayoutConstraint.activate([
+            self.safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
+        ])
+
         HomeTabView.layer.shadowOpacity = 1
         HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         HomeTabView.layer.shadowOffset = CGSize(width: 0, height: -8)
@@ -112,6 +128,13 @@ class ChatListViewController: UIViewController {
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 
         present(alert, animated: false, completion: nil)
+    }
+    func configureCustomView() {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        if let hasWindowScene = windowScene {
+            bomttomSafeAreaInsets = hasWindowScene.windows.first?.safeAreaInsets.bottom ?? 0
+        }
     }
     
 
