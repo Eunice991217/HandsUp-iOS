@@ -45,7 +45,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.MyPostTableViewCellName.text = UserDefaults.standard.string(forKey: "nickname")!
 //        cell.MyPostTableViewCellLoaction.text = getAddressByLocation(latitiude: myPostArr[indexPath.row].latitude, longitude: myPostArr[indexPath.row].longitude)
         cell.MyPostTableViewCellLoaction.text = myPostArr[indexPath.row].location
-        cell.MyPostTableViewCellTime.text =  formatDateString(myPostArr[indexPath.row].createdAt) 
+        cell.MyPostTableViewCellTime.text =  formatDatetoString(myPostArr[indexPath.row].createdAt) 
         cell.MyPostTableViewCellContent.text = myPostArr[indexPath.row].content
         
         cell.selectionStyle = .none

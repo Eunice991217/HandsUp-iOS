@@ -422,8 +422,8 @@ extension UIViewController{
             let minuteString = String(format: "%02d", components.minute ?? 0)
 
             if yearString.isEmpty {
-                if let month = components.month, let day = components.day {
-                    if month == currentComponents.month, day == currentComponents.day {
+                if let month = components.month {
+                    if month == currentComponents.month {
                         let timeDifference = currentDate.timeIntervalSince(date)
                         if timeDifference < 60 {
                             return "방금 전"
@@ -431,6 +431,56 @@ extension UIViewController{
                             let minutes = Int(timeDifference / 60)
                             return "\(minutes)분 전"
                         } else if timeDifference < 21600 {
+                            let hours = Int(timeDifference / 3600)
+                            return "\(hours)시간 전"
+                        }
+                    }
+                    return "\(monthString)/\(dayString) \(hourString):\(minuteString)"
+                }
+            }
+
+            return "\(yearString)\(monthString)/\(dayString) \(hourString):\(minuteString)"
+        }
+
+        return ""
+    }
+    func formatDatetoString(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC") // UTC 시간대로 설정
+
+        if let date = dateFormatter.date(from: dateString) {
+            let koreanTimeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간대로 설정
+            dateFormatter.timeZone = koreanTimeZone
+
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+
+            let currentDate = Date()
+            let currentComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: currentDate)
+
+            let yearString: String
+            if let year = components.year, let currentYear = currentComponents.year, year == currentYear {
+                yearString = ""
+            } else {
+                yearString = "\(components.year ?? 0)/"
+            }
+            
+            let monthString = String(format: "%02d", components.month ?? 0)
+            let dayString = String(format: "%02d", components.day ?? 0)
+            let hourString = String(format: "%02d", components.hour ?? 0)
+            let minuteString = String(format: "%02d", components.minute ?? 0)
+
+            if yearString.isEmpty {
+                if let month = components.month {
+                    if month == currentComponents.month{
+                        let timeDifference = currentDate.timeIntervalSince(date)
+                        if timeDifference < 60 {
+                            return "방금 전"
+                        } else if timeDifference < 3600 {
+                            let minutes = Int(timeDifference / 60)
+                            return "\(minutes)분 전"
+                        } else if timeDifference < 172800 {
                             let hours = Int(timeDifference / 3600)
                             return "\(hours)시간 전"
                         }

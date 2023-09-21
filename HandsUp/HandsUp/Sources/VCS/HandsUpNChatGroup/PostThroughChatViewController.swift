@@ -65,7 +65,7 @@ class PostThroughChatViewController: UIViewController {
         self.smallNameLabel_PTCVC.text = singleBoard?.nickname
         // self.locationLabel_PTCVC.text = singleBoard. 위치 정보
         self.contentTextView_PTCVC.text = singleBoard?.board.content
-        self.timeLabel_PTCVC.text = formatDateString(singleBoard?.board.createdAt ?? "")
+        self.timeLabel_PTCVC.text = formatDatetoString(singleBoard?.board.createdAt ?? "")
         self.tagLabel_PTCVC.text = "# " + (singleBoard?.tag ?? "")
         self.schoolLabel_PTCVC.text = singleBoard?.schoolName ?? ""
         
@@ -105,7 +105,7 @@ class PostThroughChatViewController: UIViewController {
         singleBoard = PostAPI.getBoardInChat(boardIdx: boardIdx)?.result
         
         self.contentTextView_PTCVC.text = singleBoard?.board.content
-        self.timeLabel_PTCVC.text = formatDateString(singleBoard?.board.createdAt ?? "")
+        self.timeLabel_PTCVC.text = formatDatetoString(singleBoard?.board.createdAt ?? "")
         self.tagLabel_PTCVC.text = "# " + (singleBoard?.tag ?? "")
     }
     

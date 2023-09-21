@@ -137,7 +137,7 @@ class ListSecondTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         cell.location.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
         let createDate = item.board.createdAt.toDate()
-        cell.time.text = formatDateString(item.board.createdAt)
+        cell.time.text = formatDatetoString(item.board.createdAt)
         cell.time.font = UIFont(name: "Roboto-Regular", size: 14)
         cell.time.textColor = UIColor(red: 0.454, green: 0.454, blue: 0.454, alpha: 1)
 
