@@ -249,7 +249,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Mz-ll-ryi"/>
-                        <color key="backgroundColor" name="HandsUpBackground"/>
+                        <color key="backgroundColor" name="HandsUpRealWhite"/>
                         <constraints>
                             <constraint firstItem="ZmV-kz-KWu" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" constant="8" id="0hQ-AH-2We"/>
                             <constraint firstItem="ZmV-kz-KWu" firstAttribute="top" secondItem="7Mz-ll-ryi" secondAttribute="top" constant="16" id="1ph-7E-dfG"/>
