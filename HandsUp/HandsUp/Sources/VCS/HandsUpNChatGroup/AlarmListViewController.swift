@@ -13,7 +13,10 @@ class AlarmListViewController: UIViewController{
     var characterList: [Int] = []
     //var beforeVC: ChatListViewController?
 
-    
+    @IBOutlet weak var HomeTabView: UIView!
+
+    @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
+    @IBOutlet var bellBtnXConstraint: NSLayoutConstraint!
     // 테스트용 코드 지울것!
     var like_test: [board_like] = []
     
@@ -59,6 +62,21 @@ class AlarmListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let screenWidth = UIScreen.main.bounds.size.width
+
+        HomeTabView.layer.shadowOpacity = 1
+        HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        HomeTabView.layer.shadowOffset = CGSize(width: 0, height: -8)
+        HomeTabView.layer.shadowRadius = 24
+        HomeTabView.layer.masksToBounds = false
+        
+        HomeTabView.clipsToBounds = false
+        HomeTabView.layer.cornerRadius = 40
+        HomeTabView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        
+        homeBtnXConstraint.constant = screenWidth * 0.496
+        bellBtnXConstraint.constant = screenWidth * 0.165
+        
         
         alarmTableView_ALVC.delegate = self
         alarmTableView_ALVC.dataSource = self

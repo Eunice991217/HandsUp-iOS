@@ -235,10 +235,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qko-4Z-JiI">
                                 <rect key="frame" x="40" y="691" width="87" height="87"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="87" id="1sY-Fz-WZG"/>
                                     <constraint firstAttribute="height" constant="87" id="Lol-yt-6lf"/>
                                     <constraint firstAttribute="width" constant="87" id="ZWt-8k-oDE"/>
-                                    <constraint firstAttribute="width" constant="87" id="hyl-1X-M7l"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
@@ -268,7 +266,7 @@
                             <constraint firstItem="G67-eW-qbL" firstAttribute="leading" secondItem="ZmV-kz-KWu" secondAttribute="trailing" constant="9" id="gID-v8-4X9"/>
                             <constraint firstItem="Gao-fs-cbu" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" id="kLx-fK-csK"/>
                             <constraint firstItem="uuH-xg-tjB" firstAttribute="trailing" secondItem="G67-eW-qbL" secondAttribute="trailing" constant="-8.3300000000000001" id="oEu-hd-Fgh"/>
-                            <constraint firstItem="TbE-4N-auN" firstAttribute="leading" secondItem="s14-WT-uJo" secondAttribute="leading" id="ptZ-eo-B3f"/>
+                            <constraint firstItem="TbE-4N-auN" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" id="ptZ-eo-B3f"/>
                             <constraint firstItem="TbE-4N-auN" firstAttribute="bottom" secondItem="7Mz-ll-ryi" secondAttribute="bottom" id="qdp-dF-DDV"/>
                             <constraint firstItem="uuH-xg-tjB" firstAttribute="top" secondItem="G67-eW-qbL" secondAttribute="top" constant="-1.3300000000000001" id="t9D-4r-6x0"/>
                             <constraint firstItem="xH2-H2-K8G" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" constant="16" id="vXm-rN-nXL"/>
@@ -276,7 +274,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="HomeTabView" destination="TbE-4N-auN" id="aGD-c2-lh3"/>
                         <outlet property="alarmTableView_ALVC" destination="Gao-fs-cbu" id="zrH-jg-eEp"/>
+                        <outlet property="bellBtnXConstraint" destination="abg-Hg-s4A" id="o1O-6C-Nbw"/>
+                        <outlet property="homeBtnXConstraint" destination="iWt-pE-aqF" id="dNN-Yk-RKd"/>
                         <outlet property="redLabelOnBell" destination="N8N-tC-Sjn" id="ZKD-SL-xXP"/>
                         <outlet property="redLabelOnChat" destination="uuH-xg-tjB" id="CYi-bN-AjH"/>
                     </connections>
@@ -463,8 +464,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-jT-5K5">
                                         <rect key="frame" x="195" y="35" width="44" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="HFS-cL-vYS"/>
-                                            <constraint firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="LRb-Pu-j98"/>
                                             <constraint firstAttribute="height" constant="44" id="hyu-wi-Tsa"/>
                                             <constraint firstAttribute="width" constant="44" id="pmG-Ts-PJU"/>
                                         </constraints>
@@ -477,8 +476,6 @@
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
-                                    <constraint firstItem="4dt-jT-5K5" firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="BU6-7Z-nMM"/>
-                                    <constraint firstItem="4dt-jT-5K5" firstAttribute="width" secondItem="4dt-jT-5K5" secondAttribute="height" multiplier="1:1" id="KaQ-qq-8TB"/>
                                     <constraint firstItem="4dt-jT-5K5" firstAttribute="top" secondItem="JDi-Kq-T13" secondAttribute="top" constant="35" id="UfO-Zc-knB"/>
                                     <constraint firstItem="4dt-jT-5K5" firstAttribute="leading" secondItem="JDi-Kq-T13" secondAttribute="leading" constant="195" id="Wxx-mC-yhs"/>
                                     <constraint firstAttribute="height" constant="110" id="Xmc-q5-9UA"/>
@@ -492,8 +489,6 @@
                                 <rect key="frame" x="40" y="691" width="87" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="IMf-u5-leS"/>
-                                    <constraint firstAttribute="height" constant="87" id="Io9-zi-1sg"/>
-                                    <constraint firstAttribute="width" constant="87" id="VXn-1F-kyz"/>
                                     <constraint firstAttribute="width" constant="87" id="cFD-3q-FoL"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -523,7 +518,7 @@
                             <constraint firstItem="D9M-RE-aKw" firstAttribute="top" secondItem="ExL-cz-w07" secondAttribute="bottom" constant="3" id="cMb-Ff-Iez"/>
                             <constraint firstItem="42X-zm-stb" firstAttribute="top" secondItem="ExL-cz-w07" secondAttribute="top" constant="-1.3300000000000001" id="cYW-Xb-HRb"/>
                             <constraint firstItem="x6k-Do-Qmy" firstAttribute="leading" secondItem="ExL-cz-w07" secondAttribute="trailing" constant="9" id="d8a-E4-6oP"/>
-                            <constraint firstItem="JDi-Kq-T13" firstAttribute="leading" secondItem="Rw3-6m-JxN" secondAttribute="leading" id="hMQ-DJ-9Eu"/>
+                            <constraint firstItem="JDi-Kq-T13" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" id="hMQ-DJ-9Eu"/>
                             <constraint firstItem="ExL-cz-w07" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" constant="8" id="jEc-K1-Sey"/>
                             <constraint firstItem="l5H-Gr-SWX" firstAttribute="top" secondItem="Skn-q1-99S" secondAttribute="top" constant="70" id="m2j-LY-SEe"/>
                             <constraint firstItem="D9M-RE-aKw" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" constant="91" id="m9E-CL-z7v"/>
@@ -533,7 +528,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mck-OJ-qUs"/>
                     <connections>
+                        <outlet property="HomeTabView" destination="JDi-Kq-T13" id="U9K-Sx-oxa"/>
+                        <outlet property="bellBtnXConstraint" destination="amZ-9D-EIm" id="rPr-Li-x8r"/>
                         <outlet property="chatAlarmTableView_CLVC" destination="l5H-Gr-SWX" id="Oae-mA-FlT"/>
+                        <outlet property="homeBtnXConstraint" destination="Wxx-mC-yhs" id="gkB-aL-4En"/>
                         <outlet property="redLabelOnBell" destination="Opb-2i-Ysv" id="uHE-2e-RNy"/>
                         <outlet property="redLabelOnChat" destination="ncH-XZ-kN1" id="PYO-fs-dGG"/>
                     </connections>

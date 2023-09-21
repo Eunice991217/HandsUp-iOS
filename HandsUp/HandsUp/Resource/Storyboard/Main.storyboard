@@ -103,8 +103,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="c5h-ba-bIy"/>
                                             <constraint firstAttribute="height" constant="44" id="mem-oo-D8p"/>
-                                            <constraint firstAttribute="width" secondItem="IZg-fI-ShE" secondAttribute="height" multiplier="1:1" id="nzv-hU-dsb"/>
-                                            <constraint firstAttribute="width" secondItem="IZg-fI-ShE" secondAttribute="height" multiplier="1:1" id="ro7-5H-GSD"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="HomeIconDidTap"/>

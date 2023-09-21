@@ -10,6 +10,8 @@ import UIKit
 class AlarmNChatListViewController: UIViewController {
     var isFirstPageAlarm: Bool = true
     
+    @IBOutlet weak var HomeTabView: UIView!
+
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var secondView: UIView!
     
