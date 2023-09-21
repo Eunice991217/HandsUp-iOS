@@ -1223,7 +1223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MyProfileCollectionView" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-dg-c1P" customClass="MyProfileCollectionView">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MyProfileCollectionView" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-dg-c1P" customClass="MyProfileCollectionView">
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5p2-Uk-P9T">
                                     <size key="itemSize" width="410" height="665"/>
@@ -1240,10 +1240,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-TP-eSF">
-                                                    <rect key="frame" x="30" y="50" width="350" height="700"/>
+                                                    <rect key="frame" x="35" y="75" width="340" height="650"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6U-Sq-Ney">
-                                                            <rect key="frame" x="55" y="-30" width="240" height="60"/>
+                                                            <rect key="frame" x="50" y="-30" width="240" height="60"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-3r-8y3">
                                                                     <rect key="frame" x="130" y="15" width="80" height="30"/>
@@ -1292,13 +1292,13 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="차라나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knh-sf-8RZ">
-                                                            <rect key="frame" x="149" y="60" width="52" height="23.5"/>
+                                                            <rect key="frame" x="144" y="60" width="52" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOX-Wp-aTP">
-                                                            <rect key="frame" x="55" y="86.5" width="240" height="50"/>
+                                                            <rect key="frame" x="50" y="86.5" width="240" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치비밀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWz-V5-RTO">
                                                                     <rect key="frame" x="95.5" y="16.5" width="49" height="17"/>
@@ -1351,14 +1351,14 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xts-OR-MTB" customClass="Character_UIView" customModule="HandsUp" customModuleProvider="target">
-                                                            <rect key="frame" x="105" y="146.5" width="140" height="140"/>
+                                                            <rect key="frame" x="100" y="146.5" width="140" height="140"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="140" id="CJk-3S-8LE"/>
                                                                 <constraint firstAttribute="height" constant="140" id="lXG-qF-5Yr"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn0-BH-eiQ">
-                                                            <rect key="frame" x="25" y="306.5" width="300" height="150"/>
+                                                            <rect key="frame" x="20" y="306.5" width="300" height="150"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21E-BS-vWu">
                                                                     <rect key="frame" x="10" y="10" width="280" height="130"/>
@@ -1382,7 +1382,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xm-Jn-CCV">
-                                                            <rect key="frame" x="25" y="556.5" width="300" height="130"/>
+                                                            <rect key="frame" x="20" y="521.5" width="300" height="130"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-eB-r9J">
                                                                     <rect key="frame" x="28" y="35" width="60" height="60"/>
@@ -1430,7 +1430,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nH-Pp-Wsg">
-                                                            <rect key="frame" x="297" y="30" width="23" height="5.5"/>
+                                                            <rect key="frame" x="287" y="30" width="23" height="5.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="23" id="2yt-Be-A7e"/>
                                                                 <constraint firstAttribute="width" constant="23.129999999999999" id="py8-09-DPH"/>
@@ -1450,11 +1450,11 @@
                                                     <constraints>
                                                         <constraint firstItem="0Xm-Jn-CCV" firstAttribute="centerX" secondItem="X5H-TP-eSF" secondAttribute="centerX" id="58U-M5-vQb"/>
                                                         <constraint firstItem="w6U-Sq-Ney" firstAttribute="top" secondItem="X5H-TP-eSF" secondAttribute="top" constant="-30" id="5tc-bq-QFl"/>
-                                                        <constraint firstAttribute="height" constant="700" id="7bw-v6-ySz"/>
+                                                        <constraint firstAttribute="height" constant="650" id="7bw-v6-ySz"/>
                                                         <constraint firstItem="vOX-Wp-aTP" firstAttribute="centerX" secondItem="X5H-TP-eSF" secondAttribute="centerX" id="CkN-m1-eQ6"/>
-                                                        <constraint firstItem="0Xm-Jn-CCV" firstAttribute="top" secondItem="vn0-BH-eiQ" secondAttribute="bottom" constant="100" id="DRI-hG-h5S"/>
+                                                        <constraint firstItem="0Xm-Jn-CCV" firstAttribute="top" secondItem="vn0-BH-eiQ" secondAttribute="bottom" constant="65" id="DRI-hG-h5S"/>
                                                         <constraint firstItem="vn0-BH-eiQ" firstAttribute="top" secondItem="xts-OR-MTB" secondAttribute="bottom" constant="20" id="JY5-oX-Ky7"/>
-                                                        <constraint firstAttribute="width" constant="350" id="MLm-lE-nXm"/>
+                                                        <constraint firstAttribute="width" constant="340" id="MLm-lE-nXm"/>
                                                         <constraint firstItem="Knh-sf-8RZ" firstAttribute="centerX" secondItem="X5H-TP-eSF" secondAttribute="centerX" id="Nmc-AF-W0n"/>
                                                         <constraint firstItem="Knh-sf-8RZ" firstAttribute="top" secondItem="w6U-Sq-Ney" secondAttribute="bottom" constant="30" id="RSg-Qg-LJt"/>
                                                         <constraint firstItem="vOX-Wp-aTP" firstAttribute="top" secondItem="Knh-sf-8RZ" secondAttribute="bottom" constant="3" id="T5k-5j-M80"/>
