@@ -249,7 +249,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Mz-ll-ryi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="HandsUpBackground"/>
                         <constraints>
                             <constraint firstItem="ZmV-kz-KWu" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" constant="8" id="0hQ-AH-2We"/>
                             <constraint firstItem="ZmV-kz-KWu" firstAttribute="top" secondItem="7Mz-ll-ryi" secondAttribute="top" constant="16" id="1ph-7E-dfG"/>
@@ -502,7 +502,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Skn-q1-99S"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="HandsUpRealWhite"/>
                         <constraints>
                             <constraint firstItem="ExL-cz-w07" firstAttribute="top" secondItem="Skn-q1-99S" secondAttribute="top" constant="16" id="37f-9q-4qm"/>
                             <constraint firstItem="Skn-q1-99S" firstAttribute="bottom" secondItem="JkO-sr-Nue" secondAttribute="bottom" constant="40" id="3QO-Xv-fAo"/>
@@ -596,7 +596,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-ty-BAG">
-                                <rect key="frame" x="0.0" y="262" width="393" height="478"/>
+                                <rect key="frame" x="0.0" y="262" width="393" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
@@ -655,7 +655,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-Ql-8nT">
-                                <rect key="frame" x="16" y="760" width="361" height="42"/>
+                                <rect key="frame" x="16" y="756" width="361" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBW-Ef-ZvP">
                                         <rect key="frame" x="287.66666666666669" y="7" width="66" height="28"/>
@@ -673,7 +673,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-xb-sBq">
-                                        <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="42"/>
+                                        <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="62"/>
                                         <color key="textColor" name="HandsUpMainText"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -681,12 +681,12 @@
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" id="CmG-DB-EJH"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" constant="-20" id="CmG-DB-EJH"/>
                                     <constraint firstAttribute="bottom" secondItem="fBW-Ef-ZvP" secondAttribute="bottom" constant="7" id="LNO-eI-8k7"/>
                                     <constraint firstItem="fBW-Ef-ZvP" firstAttribute="leading" secondItem="wXT-xb-sBq" secondAttribute="trailing" id="Sn9-L1-277"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="leading" secondItem="r4o-Ql-8nT" secondAttribute="leading" constant="10" id="dwB-LM-dh4"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="gch-Js-H4N"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="tNv-yO-cZP"/>
+                                    <constraint firstAttribute="height" constant="42" id="tNv-yO-cZP"/>
                                     <constraint firstAttribute="trailing" secondItem="fBW-Ef-ZvP" secondAttribute="trailing" constant="7.5" id="y9b-Gq-BDZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -706,7 +706,7 @@
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="r4o-Ql-8nT" secondAttribute="trailing" constant="16" id="Gt3-eZ-3lg"/>
                             <constraint firstItem="r4o-Ql-8nT" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" constant="16" id="Kap-kz-Fei"/>
                             <constraint firstItem="s0q-ty-BAG" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="bottom" constant="17" id="NkC-zp-j9k"/>
-                            <constraint firstItem="t8n-E5-1qy" firstAttribute="bottom" secondItem="r4o-Ql-8nT" secondAttribute="bottom" constant="16" id="VtV-sn-jgr"/>
+                            <constraint firstItem="t8n-E5-1qy" firstAttribute="bottom" secondItem="r4o-Ql-8nT" secondAttribute="bottom" constant="20" id="VtV-sn-jgr"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="6km-VQ-BSe" secondAttribute="trailing" id="YUv-dj-hQL"/>
                             <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" constant="20" id="ZSG-Cz-6AZ"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="s0q-ty-BAG" secondAttribute="trailing" id="adu-5u-NZV"/>

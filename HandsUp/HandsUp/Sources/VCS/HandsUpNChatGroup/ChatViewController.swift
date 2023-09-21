@@ -400,7 +400,7 @@ class ChatViewController: UIViewController {
         
         // 키보드 올라오는 애니메이션이랑 동일하게 텍스트뷰 올라가게 만들기.
         UIView.animate(withDuration: animationDuration) {
-            self.inputViewBottomMargin.constant = height
+            self.inputViewBottomMargin.constant = height + 10
             self.view.layoutIfNeeded()
         }
     }
