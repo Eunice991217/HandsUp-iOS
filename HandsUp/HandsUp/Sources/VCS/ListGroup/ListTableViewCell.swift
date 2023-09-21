@@ -91,23 +91,23 @@ class ListTableViewCell: UITableViewCell {
         }
         
         label1.snp.makeConstraints { make in
-            make.leading.equalTo(name.snp.trailing).offset(10)
+            make.leading.equalTo(name.snp.trailing).offset(5)
             make.top.equalTo(30)
         }
         
         location.snp.makeConstraints { make in
-            make.leading.equalTo(label1.snp.trailing).offset(10)
+            make.leading.equalTo(label1.snp.trailing).offset(5)
             make.top.equalTo(30)
             make.trailing.lessThanOrEqualTo(time.snp.leading).offset(-10) // 시간과 겹치지 않도록
         }
         
         label2.snp.makeConstraints { make in
-            make.leading.equalTo(location.snp.trailing).offset(10)
+            make.leading.equalTo(location.snp.trailing).offset(5)
             make.top.equalTo(30)
         }
         
         time.snp.makeConstraints { make in
-            make.leading.equalTo(label2.snp.trailing).offset(10) // label2의 오른쪽에 간격을 두고 위치
+            make.leading.equalTo(label2.snp.trailing).offset(5) // label2의 오른쪽에 간격을 두고 위치
             make.top.equalTo(30)
         }
         
