@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -99,6 +98,13 @@
                                             <action selector="BellBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="mmD-Rh-pEE"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="APX-88-Ec5">
+                                        <rect key="frame" x="329.5" y="44" width="10" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="Fua-0N-JOe"/>
+                                            <constraint firstAttribute="width" constant="10" id="TOL-5b-mjm"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-fI-ShE">
                                         <rect key="frame" x="195" y="35" width="44" height="44"/>
                                         <constraints>
@@ -111,26 +117,15 @@
                                             <action selector="HomeBtnDidTap:" destination="0GD-DW-MsJ" eventType="touchUpInside" id="X52-KL-cRt"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5t-RW-Jf7">
-                                        <rect key="frame" x="331.5" y="41" width="10" height="10"/>
-                                        <color key="backgroundColor" name="HandsUpRed"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="10" id="WHh-m2-Qgg"/>
-                                            <constraint firstAttribute="height" constant="10" id="rFH-cr-JIe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="HandsUpRed"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="2R8-Uh-ecZ"/>
                                     <constraint firstItem="IZg-fI-ShE" firstAttribute="leading" secondItem="onp-Y0-j1N" secondAttribute="leading" constant="195" id="9Fr-eL-xk1"/>
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="AKl-nL-A3o"/>
-                                    <constraint firstItem="D5t-RW-Jf7" firstAttribute="trailing" secondItem="jIj-CL-tyd" secondAttribute="trailing" constant="-6.3300000000000001" id="PgX-KO-zb8"/>
+                                    <constraint firstItem="APX-88-Ec5" firstAttribute="top" secondItem="jIj-CL-tyd" secondAttribute="top" constant="9" id="TO5-bZ-Bl4"/>
                                     <constraint firstItem="IZg-fI-ShE" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="axf-co-tAo"/>
-                                    <constraint firstItem="D5t-RW-Jf7" firstAttribute="top" secondItem="jIj-CL-tyd" secondAttribute="top" constant="6" id="lC6-0D-540"/>
+                                    <constraint firstItem="jIj-CL-tyd" firstAttribute="trailing" secondItem="APX-88-Ec5" secondAttribute="trailing" constant="8.3000000000000007" id="c1T-Ig-tob"/>
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="leading" secondItem="IZg-fI-ShE" secondAttribute="trailing" constant="65" id="sFl-Wn-Uk6"/>
                                 </constraints>
                             </view>
@@ -197,7 +192,7 @@
                         <outlet property="NotificationBtn" destination="jIj-CL-tyd" id="BxJ-ib-ORP"/>
                         <outlet property="bellBtnXConstraint" destination="sFl-Wn-Uk6" id="WZG-Id-OPU"/>
                         <outlet property="homeBtnXConstraint" destination="9Fr-eL-xk1" id="0ZH-EB-deV"/>
-                        <outlet property="redLabel" destination="D5t-RW-Jf7" id="Lzd-k5-nS1"/>
+                        <outlet property="redNoti" destination="APX-88-Ec5" id="x9x-Ie-hJB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMG-Jc-An6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1640,6 +1635,7 @@
         <image name="dismissBtn" width="45" height="46"/>
         <image name="heartOff" width="50" height="50"/>
         <image name="initialLogoOrange" width="181" height="274"/>
+        <image name="notificationBall" width="8" height="8"/>
         <image name="notifications" width="29" height="29"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="segment" width="35" height="35"/>

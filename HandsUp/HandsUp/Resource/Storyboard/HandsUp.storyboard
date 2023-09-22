@@ -173,17 +173,6 @@
                                     <action selector="chatBtnDidTap:" destination="oYJ-wH-cGf" eventType="touchUpInside" id="75z-If-4jx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuH-xg-tjB">
-                                <rect key="frame" x="134" y="73.666666666666671" width="6.6666666666666572" height="6.6666666666666714"/>
-                                <color key="backgroundColor" name="HandsUpRed"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="6.6699999999999999" id="KBd-8n-agX"/>
-                                    <constraint firstAttribute="width" constant="6.6699999999999999" id="y53-qj-kLf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbE-4N-auN">
                                 <rect key="frame" x="0.0" y="708" width="393" height="110"/>
                                 <subviews>
@@ -209,27 +198,23 @@
                                             <action selector="homeBtnDidTap:" destination="oYJ-wH-cGf" eventType="touchUpInside" id="b1V-S2-uLP"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8N-tC-Sjn">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="GpJ-Eh-PT4">
                                         <rect key="frame" x="328.66666666666669" y="41" width="10" height="10"/>
-                                        <color key="backgroundColor" name="HandsUpRed"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="MhB-Dm-Kan"/>
-                                            <constraint firstAttribute="width" constant="10" id="rGf-cI-jx8"/>
+                                            <constraint firstAttribute="width" constant="10" id="Ihr-t2-wOW"/>
+                                            <constraint firstAttribute="height" constant="10" id="npJ-8u-YfB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="HandsUpRed"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
-                                    <constraint firstItem="N8N-tC-Sjn" firstAttribute="top" secondItem="ZVE-VI-PAP" secondAttribute="top" constant="6" id="7zJ-kt-K15"/>
-                                    <constraint firstItem="N8N-tC-Sjn" firstAttribute="trailing" secondItem="ZVE-VI-PAP" secondAttribute="trailing" constant="-9.3300000000000001" id="Evq-qU-Urm"/>
                                     <constraint firstAttribute="height" constant="110" id="Mi1-OQ-UHB"/>
                                     <constraint firstItem="ZVE-VI-PAP" firstAttribute="top" secondItem="TbE-4N-auN" secondAttribute="top" constant="35" id="QZf-4k-7Yb"/>
                                     <constraint firstItem="yzW-Zh-hsn" firstAttribute="top" secondItem="TbE-4N-auN" secondAttribute="top" constant="35" id="YeH-s5-agl"/>
                                     <constraint firstItem="ZVE-VI-PAP" firstAttribute="leading" secondItem="yzW-Zh-hsn" secondAttribute="trailing" constant="65" id="abg-Hg-s4A"/>
                                     <constraint firstItem="yzW-Zh-hsn" firstAttribute="leading" secondItem="TbE-4N-auN" secondAttribute="leading" constant="195" id="iWt-pE-aqF"/>
+                                    <constraint firstItem="GpJ-Eh-PT4" firstAttribute="trailing" secondItem="ZVE-VI-PAP" secondAttribute="trailing" constant="-9.3000000000000007" id="j9T-KF-eG6"/>
+                                    <constraint firstItem="GpJ-Eh-PT4" firstAttribute="top" secondItem="ZVE-VI-PAP" secondAttribute="top" constant="6" id="tsW-UP-JRT"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qko-4Z-JiI">
@@ -247,6 +232,13 @@
                                     <action selector="postBtnDidTap:" destination="oYJ-wH-cGf" eventType="touchUpInside" id="Uf4-Kt-GWM"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-pi-7Wn">
+                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="ZMr-dV-BNz"/>
+                                    <constraint firstAttribute="height" constant="8" id="gWr-OG-F2a"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Mz-ll-ryi"/>
                         <color key="backgroundColor" name="HandsUpRealWhite"/>
@@ -262,13 +254,13 @@
                             <constraint firstItem="G67-eW-qbL" firstAttribute="centerY" secondItem="ZmV-kz-KWu" secondAttribute="centerY" id="TA3-p4-oXW"/>
                             <constraint firstItem="7Mz-ll-ryi" firstAttribute="bottom" secondItem="qko-4Z-JiI" secondAttribute="bottom" constant="40" id="XLT-Kw-hv6"/>
                             <constraint firstItem="Gao-fs-cbu" firstAttribute="top" secondItem="ZmV-kz-KWu" secondAttribute="bottom" constant="26" id="dxl-fa-9gA"/>
+                            <constraint firstItem="wbc-pi-7Wn" firstAttribute="trailing" secondItem="G67-eW-qbL" secondAttribute="trailing" constant="-8.3300000000000001" id="eOS-eq-sFd"/>
                             <constraint firstItem="AJS-UW-YBF" firstAttribute="top" secondItem="ZmV-kz-KWu" secondAttribute="top" constant="-1.3300000000000001" id="eSu-oz-xHf"/>
                             <constraint firstItem="G67-eW-qbL" firstAttribute="leading" secondItem="ZmV-kz-KWu" secondAttribute="trailing" constant="9" id="gID-v8-4X9"/>
                             <constraint firstItem="Gao-fs-cbu" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" id="kLx-fK-csK"/>
-                            <constraint firstItem="uuH-xg-tjB" firstAttribute="trailing" secondItem="G67-eW-qbL" secondAttribute="trailing" constant="-8.3300000000000001" id="oEu-hd-Fgh"/>
+                            <constraint firstItem="wbc-pi-7Wn" firstAttribute="top" secondItem="G67-eW-qbL" secondAttribute="top" constant="-1.3300000000000001" id="kOr-21-Olm"/>
                             <constraint firstItem="TbE-4N-auN" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" id="ptZ-eo-B3f"/>
                             <constraint firstItem="TbE-4N-auN" firstAttribute="bottom" secondItem="7Mz-ll-ryi" secondAttribute="bottom" id="qdp-dF-DDV"/>
-                            <constraint firstItem="uuH-xg-tjB" firstAttribute="top" secondItem="G67-eW-qbL" secondAttribute="top" constant="-1.3300000000000001" id="t9D-4r-6x0"/>
                             <constraint firstItem="xH2-H2-K8G" firstAttribute="leading" secondItem="7Mz-ll-ryi" secondAttribute="leading" constant="16" id="vXm-rN-nXL"/>
                             <constraint firstItem="7Mz-ll-ryi" firstAttribute="trailing" secondItem="Gao-fs-cbu" secondAttribute="trailing" id="xNI-Qi-sJ6"/>
                         </constraints>
@@ -278,14 +270,14 @@
                         <outlet property="alarmTableView_ALVC" destination="Gao-fs-cbu" id="zrH-jg-eEp"/>
                         <outlet property="bellBtnXConstraint" destination="abg-Hg-s4A" id="o1O-6C-Nbw"/>
                         <outlet property="homeBtnXConstraint" destination="iWt-pE-aqF" id="dNN-Yk-RKd"/>
-                        <outlet property="redLabelOnBell" destination="N8N-tC-Sjn" id="ZKD-SL-xXP"/>
-                        <outlet property="redLabelOnChat" destination="uuH-xg-tjB" id="CYi-bN-AjH"/>
+                        <outlet property="redNotiOnBell" destination="GpJ-Eh-PT4" id="2QZ-Qg-akt"/>
+                        <outlet property="redNotiOnChat" destination="wbc-pi-7Wn" id="G0q-g3-tSF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chP-iz-5zu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="y8X-PZ-hYL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1547" y="518"/>
+            <point key="canvasLocation" x="1545.8015267175572" y="517.6056338028169"/>
         </scene>
         <!--ChatListViewController-->
         <scene sceneID="8Yl-KG-hjZ">
@@ -426,17 +418,6 @@
                                     <color key="baseForegroundColor" name="HandsUpMainText"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncH-XZ-kN1">
-                                <rect key="frame" x="134" y="73.666666666666671" width="6.6666666666666572" height="6.6666666666666714"/>
-                                <color key="backgroundColor" name="HandsUpRed"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="6.6699999999999999" id="Wxh-GK-Tsm"/>
-                                    <constraint firstAttribute="height" constant="6.6699999999999999" id="a3c-uS-EFJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="HandsUpRed"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-Kq-T13">
                                 <rect key="frame" x="0.0" y="708" width="393" height="110"/>
                                 <subviews>
@@ -450,17 +431,6 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="notificationsDidTap"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-2i-Ysv">
-                                        <rect key="frame" x="328.66666666666669" y="41" width="10" height="10"/>
-                                        <color key="backgroundColor" name="HandsUpRed"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="10" id="Kab-kB-2HA"/>
-                                            <constraint firstAttribute="height" constant="10" id="UjI-9Y-M15"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="HandsUpRed"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-jT-5K5">
                                         <rect key="frame" x="195" y="35" width="44" height="44"/>
                                         <constraints>
@@ -473,16 +443,23 @@
                                             <action selector="homeBtnDidTap:" destination="hNM-DF-MOM" eventType="touchUpInside" id="Lkw-nC-FJM"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="DQi-2c-zYn">
+                                        <rect key="frame" x="328.66666666666669" y="41" width="10" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="FaG-3N-zCK"/>
+                                            <constraint firstAttribute="height" constant="10" id="WfW-cQ-Z0G"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpRealWhite"/>
                                 <constraints>
+                                    <constraint firstItem="DQi-2c-zYn" firstAttribute="trailing" secondItem="jkZ-qG-5Ob" secondAttribute="trailing" constant="-9.3000000000000007" id="FSM-fp-77z"/>
                                     <constraint firstItem="4dt-jT-5K5" firstAttribute="top" secondItem="JDi-Kq-T13" secondAttribute="top" constant="35" id="UfO-Zc-knB"/>
                                     <constraint firstItem="4dt-jT-5K5" firstAttribute="leading" secondItem="JDi-Kq-T13" secondAttribute="leading" constant="195" id="Wxx-mC-yhs"/>
                                     <constraint firstAttribute="height" constant="110" id="Xmc-q5-9UA"/>
                                     <constraint firstItem="jkZ-qG-5Ob" firstAttribute="leading" secondItem="4dt-jT-5K5" secondAttribute="trailing" constant="65" id="amZ-9D-EIm"/>
-                                    <constraint firstItem="Opb-2i-Ysv" firstAttribute="top" secondItem="jkZ-qG-5Ob" secondAttribute="top" constant="6" id="mdX-mw-uRX"/>
                                     <constraint firstItem="jkZ-qG-5Ob" firstAttribute="top" secondItem="JDi-Kq-T13" secondAttribute="top" constant="35" id="mgN-Nu-Vut"/>
-                                    <constraint firstItem="Opb-2i-Ysv" firstAttribute="trailing" secondItem="jkZ-qG-5Ob" secondAttribute="trailing" constant="-9.3300000000000001" id="y5y-jE-nvl"/>
+                                    <constraint firstItem="DQi-2c-zYn" firstAttribute="top" secondItem="jkZ-qG-5Ob" secondAttribute="top" constant="6" id="xTz-yn-gVi"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkO-sr-Nue">
@@ -500,6 +477,13 @@
                                     <action selector="postBtnDidTap:" destination="hNM-DF-MOM" eventType="touchUpInside" id="7Q8-XK-jXr"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-H5-RcP">
+                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="PNW-um-IsM"/>
+                                    <constraint firstAttribute="height" constant="8" id="zvW-ZC-eVz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Skn-q1-99S"/>
                         <color key="backgroundColor" name="HandsUpRealWhite"/>
@@ -508,11 +492,11 @@
                             <constraint firstItem="Skn-q1-99S" firstAttribute="bottom" secondItem="JkO-sr-Nue" secondAttribute="bottom" constant="40" id="3QO-Xv-fAo"/>
                             <constraint firstItem="Skn-q1-99S" firstAttribute="trailing" secondItem="l5H-Gr-SWX" secondAttribute="trailing" id="3RY-M4-YPO"/>
                             <constraint firstItem="l5H-Gr-SWX" firstAttribute="top" secondItem="ExL-cz-w07" secondAttribute="bottom" constant="26" id="6JM-Kc-sZ8"/>
-                            <constraint firstItem="ncH-XZ-kN1" firstAttribute="trailing" secondItem="x6k-Do-Qmy" secondAttribute="trailing" constant="-8.3300000000000001" id="BTZ-jR-pJ4"/>
                             <constraint firstItem="JkO-sr-Nue" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" constant="40" id="CkY-sP-5sn"/>
                             <constraint firstItem="x6k-Do-Qmy" firstAttribute="centerY" secondItem="ExL-cz-w07" secondAttribute="centerY" id="DKX-HO-Zmk"/>
                             <constraint firstItem="Skn-q1-99S" firstAttribute="trailing" secondItem="JDi-Kq-T13" secondAttribute="trailing" id="Poa-OQ-dkC"/>
                             <constraint firstItem="JDi-Kq-T13" firstAttribute="bottom" secondItem="Skn-q1-99S" secondAttribute="bottom" id="STd-vS-z8j"/>
+                            <constraint firstItem="Srf-H5-RcP" firstAttribute="top" secondItem="x6k-Do-Qmy" secondAttribute="top" constant="-1.3300000000000001" id="XRi-ek-cf8"/>
                             <constraint firstItem="l5H-Gr-SWX" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" id="Xro-Zl-3fY"/>
                             <constraint firstItem="l5H-Gr-SWX" firstAttribute="bottom" secondItem="JDi-Kq-T13" secondAttribute="top" id="bmQ-5a-hfx"/>
                             <constraint firstItem="D9M-RE-aKw" firstAttribute="top" secondItem="ExL-cz-w07" secondAttribute="bottom" constant="3" id="cMb-Ff-Iez"/>
@@ -522,7 +506,7 @@
                             <constraint firstItem="ExL-cz-w07" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" constant="8" id="jEc-K1-Sey"/>
                             <constraint firstItem="l5H-Gr-SWX" firstAttribute="top" secondItem="Skn-q1-99S" secondAttribute="top" constant="70" id="m2j-LY-SEe"/>
                             <constraint firstItem="D9M-RE-aKw" firstAttribute="leading" secondItem="Skn-q1-99S" secondAttribute="leading" constant="91" id="m9E-CL-z7v"/>
-                            <constraint firstItem="ncH-XZ-kN1" firstAttribute="top" secondItem="x6k-Do-Qmy" secondAttribute="top" constant="-1.3300000000000001" id="p1z-Ys-il7"/>
+                            <constraint firstItem="Srf-H5-RcP" firstAttribute="trailing" secondItem="x6k-Do-Qmy" secondAttribute="trailing" constant="-8.3300000000000001" id="nOX-zs-OA7"/>
                             <constraint firstItem="42X-zm-stb" firstAttribute="trailing" secondItem="ExL-cz-w07" secondAttribute="trailing" constant="-8.3300000000000001" id="y1W-DN-KRA"/>
                         </constraints>
                     </view>
@@ -532,13 +516,13 @@
                         <outlet property="bellBtnXConstraint" destination="amZ-9D-EIm" id="rPr-Li-x8r"/>
                         <outlet property="chatAlarmTableView_CLVC" destination="l5H-Gr-SWX" id="Oae-mA-FlT"/>
                         <outlet property="homeBtnXConstraint" destination="Wxx-mC-yhs" id="gkB-aL-4En"/>
-                        <outlet property="redLabelOnBell" destination="Opb-2i-Ysv" id="uHE-2e-RNy"/>
-                        <outlet property="redLabelOnChat" destination="ncH-XZ-kN1" id="PYO-fs-dGG"/>
+                        <outlet property="redNotiOnBell" destination="DQi-2c-zYn" id="Dac-u6-eLj"/>
+                        <outlet property="redNotiOnChat" destination="Srf-H5-RcP" id="GaO-M7-eXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBC-S8-5Xs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820.6106870229005" y="517.6056338028169"/>
+            <point key="canvasLocation" x="2250" y="506"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="uF3-eA-6hF">
@@ -1333,6 +1317,7 @@
         <image name="favorite" width="75" height="74"/>
         <image name="flight" width="27" height="23"/>
         <image name="moreVert" width="4" height="16"/>
+        <image name="notificationBall" width="8" height="8"/>
         <image name="notificationsDidTap" width="33" height="33"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="threeDotsHorizon" width="23.666666030883789" height="6"/>

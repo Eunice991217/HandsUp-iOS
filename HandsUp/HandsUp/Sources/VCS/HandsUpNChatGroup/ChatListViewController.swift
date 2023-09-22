@@ -15,6 +15,8 @@ class ChatListViewController: UIViewController {
     let safeAreaView = UIView()
     var bomttomSafeAreaInsets: CGFloat = 0.0
 
+    @IBOutlet var redNotiOnBell: UIImageView!
+    @IBOutlet var redNotiOnChat: UIImageView!
 
 
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
@@ -26,9 +28,7 @@ class ChatListViewController: UIViewController {
     var chatDatas_CVC: [Message] = []
    // var beforeVC: AlarmListViewController?
     
-    @IBOutlet var redLabelOnBell: UILabel!
-    
-    @IBOutlet var redLabelOnChat: UILabel!
+
     var beforeVC: AlarmListViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,14 +84,14 @@ class ChatListViewController: UIViewController {
         chatAlarmTableView_CLVC.reloadData()
         
         if hasNewerChat() || hasNewerAlarm() {
-            redLabelOnBell.isHidden = false
+            redNotiOnBell.isHidden = false
         }else {
-            redLabelOnBell.isHidden = true
+            redNotiOnBell.isHidden = true
         }
         if(hasNewerChat()){
-            redLabelOnChat.isHidden = false
+            redNotiOnChat.isHidden = false
         }else{
-            redLabelOnChat.isHidden = true
+            redNotiOnChat.isHidden = true
         }
     }
     @IBAction func alarmBtnDidTap(_ sender: Any) {

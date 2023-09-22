@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var HomeSchoolName: UILabel!
     
-    @IBOutlet var redLabel: UILabel!
+    
+    @IBOutlet var redNoti: UIImageView!
     
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
     @IBOutlet var bellBtnXConstraint: NSLayoutConstraint!
@@ -225,9 +226,9 @@ class ViewController: UIViewController {
     
     func refreshRedBin(){
         if hasNewerChat() || hasNewerChat() {
-            redLabel.isHidden = false
+            redNoti.isHidden = false
         }else{
-            redLabel.isHidden = true
+            redNoti.isHidden = true
         }
     }
     

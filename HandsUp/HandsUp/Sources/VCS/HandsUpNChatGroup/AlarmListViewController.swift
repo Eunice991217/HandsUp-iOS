@@ -24,9 +24,10 @@ class AlarmListViewController: UIViewController{
     var like_test: [board_like] = []
     
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
+
     
-    @IBOutlet var redLabelOnBell: UILabel!
-    @IBOutlet var redLabelOnChat: UILabel!
+    @IBOutlet var redNotiOnBell: UIImageView!
+    @IBOutlet var redNotiOnChat: UIImageView!
 
     @IBOutlet var alarmTableView_ALVC: UITableView!
     
@@ -51,14 +52,14 @@ class AlarmListViewController: UIViewController{
         likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
         
         if hasNewerChat() || hasNewerAlarm() {
-            redLabelOnBell.isHidden = false
+            redNotiOnBell.isHidden = false
         }else {
-            redLabelOnBell.isHidden = true
+            redNotiOnBell.isHidden = true
         }
         if(hasNewerChat()){
-            redLabelOnChat.isHidden = false
+            redNotiOnChat.isHidden = false
         }else{
-            redLabelOnChat.isHidden = true
+            redNotiOnChat.isHidden = true
         }
     }
     
@@ -107,14 +108,14 @@ class AlarmListViewController: UIViewController{
         self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         
         if hasNewerChat() || hasNewerAlarm() {
-            redLabelOnBell.isHidden = false
+            redNotiOnBell.isHidden = false
         }else {
-            redLabelOnBell.isHidden = true
+            redNotiOnBell.isHidden = true
         }
         if(hasNewerChat()){
-            redLabelOnChat.isHidden = false
+            redNotiOnChat.isHidden = false
         }else{
-            redLabelOnChat.isHidden = true
+            redNotiOnChat.isHidden = true
         }
         
     }
