@@ -112,6 +112,7 @@
                                         <connections>
                                             <outlet property="characterView_ATVC" destination="63b-9D-dGk" id="jYw-k9-CeP"/>
                                             <outlet property="contentLb_ATVC" destination="Iog-it-Udx" id="mRz-dS-fbV"/>
+                                            <outlet property="heartConstraint" destination="rkO-e5-Sf8" id="Uq6-Qn-3oQ"/>
                                             <outlet property="idLb_ATVC" destination="4DX-ID-k6b" id="o6g-ZS-BDp"/>
                                             <outlet property="sendBtn_ATVC" destination="qc9-Cs-HbM" id="i6c-sD-DAs"/>
                                             <outlet property="timeLb_ATVC" destination="FYo-lg-bw3" id="zE3-KK-2wC"/>

@@ -24,6 +24,8 @@ class AlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var characterView_ATVC: Character_UIView!
     @IBOutlet weak var sendBtn_ATVC: UIButton!
     
+    @IBOutlet var heartConstraint: NSLayoutConstraint!
+    
     
     @IBAction func sendBtnDidTap(_ sender: UIButton) {
         sendMessage()
