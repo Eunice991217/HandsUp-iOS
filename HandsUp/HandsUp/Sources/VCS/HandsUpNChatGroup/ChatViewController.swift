@@ -184,6 +184,8 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboard()
+
         chatSendBtn_CVC.isHidden = true
         postView_CVC.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         postView_CVC.layer.shadowOpacity = 1
@@ -500,6 +502,7 @@ extension ChatViewController: UITextViewDelegate{
     }
 }
 
+
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -542,7 +545,5 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             
         }
     }
-    
-    
     
 }
