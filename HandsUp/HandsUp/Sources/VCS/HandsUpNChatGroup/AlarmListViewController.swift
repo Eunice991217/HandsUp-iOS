@@ -25,6 +25,7 @@ class AlarmListViewController: UIViewController{
     
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
 
+    @IBOutlet var plusBtn: UIButton!
     
     @IBOutlet var redNotiOnBell: UIImageView!
     @IBOutlet var redNotiOnChat: UIImageView!
@@ -50,6 +51,9 @@ class AlarmListViewController: UIViewController{
     }
     func refresh(){
         likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
+        if(likeList.count == 0){
+            
+        }
         
         if hasNewerChat() || hasNewerAlarm() {
             redNotiOnBell.isHidden = false
@@ -80,6 +84,12 @@ class AlarmListViewController: UIViewController{
             self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
         ])
+        
+        plusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
+        plusBtn.layer.masksToBounds = false  
+        plusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
+        plusBtn.layer.shadowRadius = 5 // 반경
+        plusBtn.layer.shadowOpacity = 0.3 // alpha값
 
         HomeTabView.layer.shadowOpacity = 1
         HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor

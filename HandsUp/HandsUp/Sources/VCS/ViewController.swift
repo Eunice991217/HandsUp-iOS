@@ -216,6 +216,11 @@ class ViewController: UIViewController {
         tabmanList!.view.frame = ListView.bounds
         tabmanMap!.view.frame = MapView.bounds
         
+        HomeTabBarPlusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
+        HomeTabBarPlusBtn.layer.masksToBounds = false
+        HomeTabBarPlusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
+        HomeTabBarPlusBtn.layer.shadowRadius = 5 // 반경
+        HomeTabBarPlusBtn.layer.shadowOpacity = 0.3 // alpha값
         refreshRedBin()
         
     }

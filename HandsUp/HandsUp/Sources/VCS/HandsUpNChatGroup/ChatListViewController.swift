@@ -17,6 +17,7 @@ class ChatListViewController: UIViewController {
 
     @IBOutlet var redNotiOnBell: UIImageView!
     @IBOutlet var redNotiOnChat: UIImageView!
+    @IBOutlet var plusBtn: UIButton!
 
 
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
@@ -37,6 +38,12 @@ class ChatListViewController: UIViewController {
         self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.safeAreaView)
         self.safeAreaView.backgroundColor = .white
+        
+        plusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
+        plusBtn.layer.masksToBounds = false
+        plusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
+        plusBtn.layer.shadowRadius = 5 // 반경
+        plusBtn.layer.shadowOpacity = 0.3 // alpha값
         
         NSLayoutConstraint.activate([
             self.safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

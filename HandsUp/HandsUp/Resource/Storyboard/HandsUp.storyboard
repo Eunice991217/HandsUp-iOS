@@ -224,7 +224,7 @@
                                     <constraint firstAttribute="width" constant="87" id="ZWt-8k-oDE"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="plus">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="80"/>
                                     <color key="baseForegroundColor" name="HandsUpOrange"/>
                                 </buttonConfiguration>
@@ -270,6 +270,7 @@
                         <outlet property="alarmTableView_ALVC" destination="Gao-fs-cbu" id="zrH-jg-eEp"/>
                         <outlet property="bellBtnXConstraint" destination="abg-Hg-s4A" id="o1O-6C-Nbw"/>
                         <outlet property="homeBtnXConstraint" destination="iWt-pE-aqF" id="dNN-Yk-RKd"/>
+                        <outlet property="plusBtn" destination="qko-4Z-JiI" id="loR-Hh-Ely"/>
                         <outlet property="redNotiOnBell" destination="GpJ-Eh-PT4" id="2QZ-Qg-akt"/>
                         <outlet property="redNotiOnChat" destination="wbc-pi-7Wn" id="G0q-g3-tSF"/>
                     </connections>
@@ -469,7 +470,7 @@
                                     <constraint firstAttribute="width" constant="87" id="cFD-3q-FoL"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="plus">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="80"/>
                                     <color key="baseForegroundColor" name="HandsUpOrange"/>
                                 </buttonConfiguration>
@@ -516,6 +517,7 @@
                         <outlet property="bellBtnXConstraint" destination="amZ-9D-EIm" id="rPr-Li-x8r"/>
                         <outlet property="chatAlarmTableView_CLVC" destination="l5H-Gr-SWX" id="Oae-mA-FlT"/>
                         <outlet property="homeBtnXConstraint" destination="Wxx-mC-yhs" id="gkB-aL-4En"/>
+                        <outlet property="plusBtn" destination="JkO-sr-Nue" id="OSY-qp-xOx"/>
                         <outlet property="redNotiOnBell" destination="DQi-2c-zYn" id="Dac-u6-eLj"/>
                         <outlet property="redNotiOnChat" destination="Srf-H5-RcP" id="GaO-M7-eXS"/>
                     </connections>
@@ -1319,7 +1321,7 @@
         <image name="moreVert" width="4" height="16"/>
         <image name="notificationBall" width="8" height="8"/>
         <image name="notificationsDidTap" width="33" height="33"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus" width="135" height="135"/>
         <image name="threeDotsHorizon" width="23.666666030883789" height="6"/>
         <image name="xmarkInGreyCircle" width="90" height="90"/>
         <namedColor name="HandsUpBackground">
