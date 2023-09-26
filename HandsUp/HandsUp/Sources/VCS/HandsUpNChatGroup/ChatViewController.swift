@@ -298,7 +298,7 @@ class ChatViewController: UIViewController {
             print("boardlre: \(boardsCharacterList)")
             characterView_CVC.setAll(componentArray: boardsCharacterList) // 가져오기
             characterView_CVC.setCharacter_NoShadow() // 그림자 없애기
-            characterView_CVC.setCharacter() // 캐릭터 생성
+           // characterView_CVC.setCharacter() // 캐릭터 생성
         }
     }
     
