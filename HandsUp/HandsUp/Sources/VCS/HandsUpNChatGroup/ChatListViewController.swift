@@ -210,7 +210,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.characterView_CATVC.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.characterView_CATVC.setCharacter_NoShadow() // 그림자 없애기
-        cell.characterView_CATVC.setCharacter() // 캐릭터 생성
 
         cell.timeLb_CATVC.text = formatDateString(chatArr![indexPath.row].updatedAt)
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname
