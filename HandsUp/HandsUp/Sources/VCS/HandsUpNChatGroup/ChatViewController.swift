@@ -12,6 +12,10 @@ import FirebaseFirestoreSwift
 class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
+    var textIsEmpty = true
+    
+    private let maxHeight: CGFloat = 90
+
 
     var boardInfo: board_in_chat_result?
     //전 화면에서 얻어야할 값
@@ -49,12 +53,12 @@ class ChatViewController: UIViewController {
             chatTextView_CVC.delegate = self
         }
     }
+
     private var isOversized = false {
-        didSet {
-            chatTextView_CVC.isScrollEnabled = isOversized
-        }
-    }
-    private let maxHeight: CGFloat = 45
+           didSet {
+               chatTextView_CVC.isScrollEnabled = isOversized
+           }
+       }
     
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
     @IBOutlet weak var inputUIView_CVC: UIView!
@@ -185,6 +189,10 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboard()
+        
+        chatTextView_CVC.text =  "메세지..."
+        chatTextView_CVC.font = UIFont(name: "Roboto-Regular", size: 16)
+        chatTextView_CVC.textColor = UIColor(red: 0.517, green: 0.517, blue: 0.517, alpha: 1)
 
         chatSendBtn_CVC.isHidden = true
         postView_CVC.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
@@ -199,6 +207,7 @@ class ChatViewController: UIViewController {
         
         // nibName : xib 파일 이름.     forCellReuseIdentifier: Cell의 identifier. xib파일안에서 설정가능
         chatTableView_CVC.register(UINib(nibName: "YourChatTableViewCell", bundle:nil), forCellReuseIdentifier: "YourChatTableViewCell")
+        
         //테이블뷰 높이 설정 - 자동으로
         chatTableView_CVC.rowHeight = UITableView.automaticDimension
         chatTableView_CVC.estimatedRowHeight = 55
@@ -464,13 +473,20 @@ extension ChatViewController: UITextViewDelegate{
     
     // 메세지 입력창 textview의 height autosizing
     func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimatedSize = chatTextView_CVC.sizeThatFits(size)
-        chatTextView_CVC.constraints.forEach { (constraint) in
+        let size = CGSize(width: textView.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        guard textView.contentSize.height < 100.0 else {
+            textView.isScrollEnabled = true;
+            return
+        }
+        textView.isScrollEnabled = false
+        textView.constraints.forEach { (constraint) in
             if constraint.firstAttribute == .height {
                 constraint.constant = estimatedSize.height
             }
         }
+
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -480,25 +496,23 @@ extension ChatViewController: UITextViewDelegate{
         let text_count = changedText.count
         
         // textview에 입력된 글자가 없을 때 입력 버튼 숨기기
-        if(text_count > 0){
-            chatSendBtn_CVC.isHidden = false
-        }
-        else if (text_count == 0){
+        if (textIsEmpty == true && currentText == "메세지..."){
             chatSendBtn_CVC.isHidden = true
+            textIsEmpty = true 
+        }else{
+            chatSendBtn_CVC.isHidden = false
+            textIsEmpty = false
         }
         
-        if(text == "\n") {
-            //            if chatTextView_CVC.text != ""{
-            //                chatDatas_CVC.append(chatTextView_CVC.text)
-            //                chatTextView_CVC.text = ""
-            //            }
-            
-            
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if chatTextView_CVC.textColor == UIColor(red: 0.517, green: 0.517, blue: 0.517, alpha: 1) {
+            chatTextView_CVC.text = nil
+            chatTextView_CVC.textColor = UIColor.black
+            chatTextView_CVC.font = UIFont(name: "Roboto-Medium", size: 16)
         }
-        return changedText.count >= 0
-        
-        
-        
     }
 }
 

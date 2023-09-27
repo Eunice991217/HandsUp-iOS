@@ -453,6 +453,7 @@ extension RegisterPostViewController : UITextViewDelegate{
             textIsEmpty = false
         }
         else if (text_count == 0){
+            
             sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
             textIsEmpty = true
         }

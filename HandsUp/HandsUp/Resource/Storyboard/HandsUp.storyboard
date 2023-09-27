@@ -585,6 +585,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-ty-BAG">
                                 <rect key="frame" x="0.0" y="262" width="393" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="474" id="ejd-Is-Tup"/>
+                                </constraints>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="159" id="4Q0-Oc-OFe">
@@ -648,7 +651,7 @@
                                         <rect key="frame" x="287.66666666666669" y="7" width="66" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="aop-SI-eSf"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="cEy-fl-ga9"/>
+                                            <constraint firstAttribute="width" constant="66" id="arP-Rp-xb5"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="보내기">
@@ -659,21 +662,24 @@
                                             <action selector="chatSendBtnDidTap_CVC:" destination="Vrt-P4-vvb" eventType="touchUpInside" id="a6b-Lv-QC0"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-xb-sBq">
-                                        <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="62"/>
-                                        <color key="textColor" name="HandsUpMainText"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-xb-sBq">
+                                        <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="qJb-hv-PMa"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" constant="-20" id="CmG-DB-EJH"/>
+                                    <constraint firstItem="fBW-Ef-ZvP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r4o-Ql-8nT" secondAttribute="top" constant="7" id="Eab-84-PaZ"/>
                                     <constraint firstAttribute="bottom" secondItem="fBW-Ef-ZvP" secondAttribute="bottom" constant="7" id="LNO-eI-8k7"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" id="MT5-9O-Sqx"/>
                                     <constraint firstItem="fBW-Ef-ZvP" firstAttribute="leading" secondItem="wXT-xb-sBq" secondAttribute="trailing" id="Sn9-L1-277"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="leading" secondItem="r4o-Ql-8nT" secondAttribute="leading" constant="10" id="dwB-LM-dh4"/>
-                                    <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="gch-Js-H4N"/>
-                                    <constraint firstAttribute="height" constant="42" id="tNv-yO-cZP"/>
+                                    <constraint firstItem="wXT-xb-sBq" firstAttribute="centerY" secondItem="fBW-Ef-ZvP" secondAttribute="centerY" id="kUU-eA-bOe"/>
+                                    <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="lSL-vj-Ceh"/>
                                     <constraint firstAttribute="trailing" secondItem="fBW-Ef-ZvP" secondAttribute="trailing" constant="7.5" id="y9b-Gq-BDZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -695,8 +701,8 @@
                             <constraint firstItem="s0q-ty-BAG" firstAttribute="top" secondItem="LgS-5S-lgA" secondAttribute="bottom" constant="17" id="NkC-zp-j9k"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="bottom" secondItem="r4o-Ql-8nT" secondAttribute="bottom" constant="20" id="VtV-sn-jgr"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="6km-VQ-BSe" secondAttribute="trailing" id="YUv-dj-hQL"/>
-                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" constant="20" id="ZSG-Cz-6AZ"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="s0q-ty-BAG" secondAttribute="trailing" id="adu-5u-NZV"/>
+                            <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="900" constant="20" id="fxb-mh-oJT"/>
                             <constraint firstItem="s0q-ty-BAG" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" id="rbh-Ez-ekI"/>
                             <constraint firstItem="LgS-5S-lgA" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" constant="16" id="vAb-PU-p05"/>
                             <constraint firstItem="6km-VQ-BSe" firstAttribute="top" secondItem="t8n-E5-1qy" secondAttribute="top" id="wxy-I3-jve"/>
@@ -1329,7 +1335,7 @@
             <color red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpBackground">
-            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpBlue">
             <color red="0.27058823529411763" green="0.45098039215686275" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
