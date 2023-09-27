@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "heartTap.jpg",
+      "filename" : "heartTap 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "heartTap 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "heartTap.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

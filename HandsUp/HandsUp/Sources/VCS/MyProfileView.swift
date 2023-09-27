@@ -267,7 +267,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         
         let createDate = HomeCardList[indexPath.row].board.createdAt.toDate()
-        cell.time.text = formatDatetoString(HomeCardList[indexPath.row].board.createdAt)
+        cell.time.text = formatDateString(HomeCardList[indexPath.row].board.createdAt)
         cell.content.text=HomeCardList[indexPath.row].board.content
         cell.content.sizeToFit()
         
@@ -314,24 +314,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
-        
-        MyProfileCollectionView.backgroundColor = .none
-        MyProfileCollectionView.collectionViewLayout = flowLayout
-        
-        MyProfileCollectionView.delegate = self
-        MyProfileCollectionView.dataSource = self
-        
-        HomeCardList = HomeServerAPI.boardsShowList() ?? []
-        print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeCardList.count)")
-        
-        setupView()
-    }
+   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -348,7 +331,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             i += 1
         }
         
-        self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width), y: 0), animated: true)
+        self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width * 0.93), y: 0), animated: true)
         
     }
     
@@ -381,10 +364,83 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         containerView.addSubview(dimmedView)
         return containerView
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        let flowLayout = UICollectionViewFlowLayout()
+//        flowLayout.scrollDirection = .horizontal
+//        flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
+        
+        MyProfileCollectionView.backgroundColor = .none
+//        MyProfileCollectionView.collectionViewLayout = flowLayout
+        
+        MyProfileCollectionView.delegate = self
+        MyProfileCollectionView.dataSource = self
+        
+        MyProfileCollectionView.setCollectionViewLayout(createLayout(), animated: false)
+        
+        HomeCardList = HomeServerAPI.boardsShowList() ?? []
+        print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeCardList.count)")
+        
+        setupView()
+    }
 }
 
 extension MyProfileView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
+}
+
+enum SectionKind: Int, CaseIterable {
+    case continuous, continuousGroupLeadingBoundary, paging, groupPaging, groupPagingCentered, none
+
+    // orthogonalScrollingBehavior 종류
+    func orthogonalScrollingBehavior() -> UICollectionLayoutSectionOrthogonalScrollingBehavior {
+        switch self {
+        case .none:
+            return UICollectionLayoutSectionOrthogonalScrollingBehavior.none
+        case .continuous:
+            return UICollectionLayoutSectionOrthogonalScrollingBehavior.continuous
+        case .continuousGroupLeadingBoundary:
+            return UICollectionLayoutSectionOrthogonalScrollingBehavior.continuousGroupLeadingBoundary
+        case .paging:
+            return UICollectionLayoutSectionOrthogonalScrollingBehavior.paging
+        case .groupPaging:
+            return UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPaging
+        case .groupPagingCentered:
+            return UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
+        }
+    }
+}
+
+func createLayout() -> UICollectionViewLayout {
+    let config = UICollectionViewCompositionalLayoutConfiguration()
+    config.interSectionSpacing = 20
+
+    // 매개변수 sectionProvider, configuration
+    let layout = UICollectionViewCompositionalLayout(sectionProvider: {
+        (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+        guard let sectionKind = SectionKind(rawValue: sectionIndex) else { fatalError("unknown section kind") }
+
+        // 양옆으로 다른 item이 보이게!
+        // item의 fractionalWidth는 1.0, group의 fractionalWidth는 0.9정도로 설정하고,
+        // item의 contentInsets을 주면 됨
+        let leadingItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
+        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2)
+
+        // group의 width를 .fractionalWidth(0.9)정도로 주면 양옆으로 다른 item 보이도록 (centerPaging)
+        let containerGroup = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
+                                               heightDimension: .fractionalHeight(1.0)),
+            subitems: [leadingItem])
+        let section = NSCollectionLayoutSection(group: containerGroup)
+        // scroll direction 설정
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        return section
+    }, configuration: config)
+    return layout
 }

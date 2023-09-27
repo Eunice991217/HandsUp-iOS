@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "research.png",
-      "idiom" : "universal"
+      "filename" : "research 3.png",
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "research 2.png",
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "research 1.png",
+      "idiom" : "iphone",
+      "scale" : "3x"
     }
   ],
   "info" : {

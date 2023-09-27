@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "notifications (1).png",
+      "filename" : "notificationsDidTap 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "notificationsDidTap 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "notificationsDidTap.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

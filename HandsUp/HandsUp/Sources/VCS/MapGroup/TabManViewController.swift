@@ -49,7 +49,7 @@ class TabManViewController: TabmanViewController, CLLocationManagerDelegate {
         bar.backgroundView.style = .clear
                 
         //간격설정
-        bar.layout.contentInset = UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 10)
+        bar.layout.contentInset = UIEdgeInsets(top: 6, left: 15, bottom: 0, right: 10)
                 
         //버튼 글시 커스텀
         bar.buttons.customize{
