@@ -218,9 +218,9 @@ class ViewController: UIViewController {
         
         HomeTabBarPlusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
         HomeTabBarPlusBtn.layer.masksToBounds = false
-        HomeTabBarPlusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
-        HomeTabBarPlusBtn.layer.shadowRadius = 5 // 반경
-        HomeTabBarPlusBtn.layer.shadowOpacity = 0.3 // alpha값
+        HomeTabBarPlusBtn.layer.shadowOffset = CGSize(width: 0, height: 8) // 위치조정
+        HomeTabBarPlusBtn.layer.shadowRadius = 24 / UIScreen.main.scale // 반경
+        HomeTabBarPlusBtn.layer.shadowOpacity = 0.15 // alpha값
         refreshRedBin()
         
     }

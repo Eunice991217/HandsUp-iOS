@@ -20,9 +20,6 @@
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
-        <array key="Roboto-Thin.ttf">
-            <string>Roboto-Thin</string>
-        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -1045,7 +1042,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경기도 성남시" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1D-Kb-7CZ">
-                                                            <rect key="frame" x="60" y="20" width="80" height="15.5"/>
+                                                            <rect key="frame" x="57" y="20" width="80" height="15.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="D94-aI-3F6"/>
                                                             </constraints>
@@ -1054,41 +1051,42 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10분전" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLK-Zk-VFD">
-                                                            <rect key="frame" x="156" y="20" width="37" height="15.5"/>
+                                                            <rect key="frame" x="150" y="20" width="37" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" name="HandsUpDarkGrey"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jah-Eq-l5Q">
-                                                            <rect key="frame" x="50" y="18" width="4" height="20"/>
-                                                            <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="17"/>
-                                                            <color key="textColor" name="HandsUpDarkGrey"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-F5-c5Y">
-                                                            <rect key="frame" x="146" y="18" width="4" height="20"/>
-                                                            <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="17"/>
-                                                            <color key="textColor" name="HandsUpDarkGrey"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ME-Cf-kbx">
+                                                            <rect key="frame" x="50" y="21" width="1" height="13"/>
+                                                            <color key="backgroundColor" name="HandsUpDarkGrey"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="1" id="0Bx-Ck-fs7"/>
+                                                                <constraint firstAttribute="height" constant="13" id="FTK-Rl-tig"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rj1-yE-X4u">
+                                                            <rect key="frame" x="143" y="21" width="1" height="13"/>
+                                                            <color key="backgroundColor" name="HandsUpDarkGrey"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="1" id="7zx-zO-YL1"/>
+                                                                <constraint firstAttribute="height" constant="13" id="Apb-a8-89y"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Jah-Eq-l5Q" firstAttribute="leading" secondItem="ABT-Nr-l3p" secondAttribute="trailing" constant="6" id="28y-ta-7qm"/>
+                                                        <constraint firstItem="bLK-Zk-VFD" firstAttribute="leading" secondItem="Rj1-yE-X4u" secondAttribute="trailing" constant="6" id="0ON-T8-gy6"/>
+                                                        <constraint firstItem="A1D-Kb-7CZ" firstAttribute="leading" secondItem="5ME-Cf-kbx" secondAttribute="trailing" constant="6" id="CJU-mz-oCy"/>
                                                         <constraint firstItem="ABT-Nr-l3p" firstAttribute="leading" secondItem="56y-ue-onz" secondAttribute="leading" constant="10" id="Fyg-PV-mTy"/>
-                                                        <constraint firstItem="A1D-Kb-7CZ" firstAttribute="leading" secondItem="Jah-Eq-l5Q" secondAttribute="trailing" constant="6" id="Gc7-zC-pm1"/>
-                                                        <constraint firstItem="A1D-Kb-7CZ" firstAttribute="leading" secondItem="ABT-Nr-l3p" secondAttribute="trailing" constant="16" id="J56-cF-HBU"/>
-                                                        <constraint firstItem="uyU-4L-0fv" firstAttribute="top" secondItem="ABT-Nr-l3p" secondAttribute="bottom" constant="5" id="Py6-iJ-r1l"/>
-                                                        <constraint firstItem="fet-F5-c5Y" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="18" id="S7S-OQ-876"/>
-                                                        <constraint firstAttribute="height" constant="96" id="WFf-6q-quu"/>
+                                                        <constraint firstItem="5ME-Cf-kbx" firstAttribute="leading" secondItem="ABT-Nr-l3p" secondAttribute="trailing" constant="6" id="Rvk-Vu-CiW"/>
+                                                        <constraint firstItem="5ME-Cf-kbx" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="21" id="SS2-kZ-aO5"/>
                                                         <constraint firstItem="bLK-Zk-VFD" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="20" id="c1M-Xd-YgO"/>
-                                                        <constraint firstItem="bLK-Zk-VFD" firstAttribute="leading" secondItem="A1D-Kb-7CZ" secondAttribute="trailing" constant="16" id="cP2-FF-swA"/>
-                                                        <constraint firstItem="fet-F5-c5Y" firstAttribute="leading" secondItem="A1D-Kb-7CZ" secondAttribute="trailing" constant="6" id="g6T-8f-ry1"/>
-                                                        <constraint firstItem="Jah-Eq-l5Q" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="18" id="gD5-1k-mEq"/>
                                                         <constraint firstItem="ABT-Nr-l3p" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="20" id="gxX-hX-M4A"/>
                                                         <constraint firstItem="uyU-4L-0fv" firstAttribute="leading" secondItem="56y-ue-onz" secondAttribute="leading" constant="10" id="hAQ-sw-FHo"/>
-                                                        <constraint firstItem="bLK-Zk-VFD" firstAttribute="leading" secondItem="fet-F5-c5Y" secondAttribute="trailing" constant="6" id="tN4-st-xcM"/>
+                                                        <constraint firstItem="Rj1-yE-X4u" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="21" id="hb4-wC-gUu"/>
+                                                        <constraint firstAttribute="height" constant="96" id="jS8-Wc-LJ6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="uyU-4L-0fv" secondAttribute="bottom" constant="14.5" id="s4J-yv-DwW"/>
+                                                        <constraint firstItem="Rj1-yE-X4u" firstAttribute="leading" secondItem="A1D-Kb-7CZ" secondAttribute="trailing" constant="6" id="uBi-45-nX2"/>
                                                         <constraint firstItem="A1D-Kb-7CZ" firstAttribute="top" secondItem="56y-ue-onz" secondAttribute="top" constant="20" id="uwH-sT-t7x"/>
                                                         <constraint firstAttribute="width" constant="200" id="vJI-fM-dYW"/>
                                                     </constraints>
