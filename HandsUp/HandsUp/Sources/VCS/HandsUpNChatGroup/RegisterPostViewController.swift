@@ -291,6 +291,8 @@ class RegisterPostViewController: UIViewController{
         }else{
             self.locationLabel_HVC.text = "위치 비밀"
             indicateLocation_HVC = "false"
+            latitude_HVC = 0
+            longitude_HVC = 0
         }
         
     }
