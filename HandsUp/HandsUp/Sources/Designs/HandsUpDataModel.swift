@@ -74,7 +74,7 @@ struct board_like: Codable {
 struct ReceivedLikeInfo: Codable {
     let boardIdx: Int
     let emailFrom, nickname, boardContent: String
-    let character: Character
+    let character: Character?
     let boardUserIdx: Int
     let likeCreatedAt: String
 }

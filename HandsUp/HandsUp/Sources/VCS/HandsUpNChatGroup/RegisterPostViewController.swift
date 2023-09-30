@@ -292,6 +292,8 @@ class RegisterPostViewController: UIViewController{
         }else{
             self.locationLabel_HVC.text = "위치 비밀"
             indicateLocation_HVC = "false"
+            latitude_HVC = 0
+            longitude_HVC = 0
         }
         
     }
@@ -455,6 +457,7 @@ extension RegisterPostViewController : UITextViewDelegate{
             textIsEmpty = false
         }
         else if (text_count == 0){
+            
             sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
             textIsEmpty = true
         }

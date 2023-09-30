@@ -17,6 +17,7 @@ class ChatListViewController: UIViewController {
 
     @IBOutlet var redNotiOnBell: UIImageView!
     @IBOutlet var redNotiOnChat: UIImageView!
+    @IBOutlet var plusBtn: UIButton!
 
 
     @IBOutlet var homeBtnXConstraint: NSLayoutConstraint!
@@ -37,6 +38,12 @@ class ChatListViewController: UIViewController {
         self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.safeAreaView)
         self.safeAreaView.backgroundColor = .white
+        
+        plusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
+        plusBtn.layer.masksToBounds = false
+        plusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
+        plusBtn.layer.shadowRadius = 5 // 반경
+        plusBtn.layer.shadowOpacity = 0.3 // alpha값
         
         NSLayoutConstraint.activate([
             self.safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -203,7 +210,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.characterView_CATVC.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.characterView_CATVC.setCharacter_NoShadow() // 그림자 없애기
-        cell.characterView_CATVC.setCharacter() // 캐릭터 생성
 
         cell.timeLb_CATVC.text = formatDateString(chatArr![indexPath.row].updatedAt)
         cell.idLb_CATVC.text = chatArr![indexPath.row].nickname

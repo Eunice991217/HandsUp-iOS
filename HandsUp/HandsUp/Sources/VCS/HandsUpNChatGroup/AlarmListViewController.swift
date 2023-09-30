@@ -14,6 +14,8 @@ class AlarmListViewController: UIViewController{
     //var beforeVC: ChatListViewController?
     let safeAreaView = UIView()
     var bomttomSafeAreaInsets: CGFloat = 0.0
+    
+    var isEmpty: Bool = false
 
 
     @IBOutlet weak var HomeTabView: UIView!
@@ -25,6 +27,7 @@ class AlarmListViewController: UIViewController{
     
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
 
+    @IBOutlet var plusBtn: UIButton!
     
     @IBOutlet var redNotiOnBell: UIImageView!
     @IBOutlet var redNotiOnChat: UIImageView!
@@ -50,6 +53,14 @@ class AlarmListViewController: UIViewController{
     }
     func refresh(){
         likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
+        if(likeList.count == 0){
+            isEmpty = true
+            let emptyAlarmNoti = ReceivedLikeInfo(boardIdx: 0, emailFrom: "", nickname: "", boardContent: "", character: nil, boardUserIdx: 0, likeCreatedAt: "")
+            likeList.append(emptyAlarmNoti)
+        }
+        else{
+           isEmpty = false
+        }
         
         if hasNewerChat() || hasNewerAlarm() {
             redNotiOnBell.isHidden = false
@@ -80,6 +91,12 @@ class AlarmListViewController: UIViewController{
             self.safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             self.safeAreaView.heightAnchor.constraint(equalToConstant: bomttomSafeAreaInsets)
         ])
+        
+        plusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
+        plusBtn.layer.masksToBounds = false  
+        plusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
+        plusBtn.layer.shadowRadius = 5 // 반경
+        plusBtn.layer.shadowOpacity = 0.3 // alpha값
 
         HomeTabView.layer.shadowOpacity = 1
         HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
@@ -101,22 +118,14 @@ class AlarmListViewController: UIViewController{
         
         alarmTableView_ALVC.backgroundColor = UIColor(named: "HandsUpBackGround")
         
-        likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
         if(likeList.count > 0){
             UserDefaults.standard.set(likeList[0].likeCreatedAt, forKey: "lastAlarmDate")
         }
         self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         
-        if hasNewerChat() || hasNewerAlarm() {
-            redNotiOnBell.isHidden = false
-        }else {
-            redNotiOnBell.isHidden = true
-        }
-        if(hasNewerChat()){
-            redNotiOnChat.isHidden = false
-        }else{
-            redNotiOnChat.isHidden = true
-        }
+        refresh()
+        
+
         
     }
     
@@ -165,84 +174,94 @@ extension AlarmListViewController: UITableViewDelegate, UITableViewDataSource{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
         
-        
-        cell.timeLb_ATVC.text = formatDateString(likeList[indexPath.row].likeCreatedAt)
-        //캐릭터 설정
-        characterList = []
-        let characterInAlarm = likeList[indexPath.row].character
-        
-        background = (Int(characterInAlarm.backGroundColor) ?? 1) - 1
-        hair = (Int(characterInAlarm.hair) ?? 1) - 1
-        eyebrow = (Int(characterInAlarm.eyeBrow) ?? 1) - 1
-        mouth = (Int(characterInAlarm.mouth) ?? 1) - 1
-        nose = (Int(characterInAlarm.nose) ?? 1) - 1
-        eyes = (Int(characterInAlarm.eye) ?? 1) - 1
-        glasses = Int(characterInAlarm.glasses ?? "1") ?? 0
-        
-        characterList.append(background)
-        characterList.append(hair)
-        characterList.append(eyebrow)
-        characterList.append(mouth)
-        characterList.append(nose)
-        characterList.append(eyes)
-        characterList.append(glasses)
-        
-        cell.characterView_ATVC.setAll(componentArray: characterList)
-        cell.characterView_ATVC.setCharacter_NoShadow()
-        cell.idLb_ATVC.text = "아래 글에 \(likeList[indexPath.row].nickname)님이 관심있어요"
-        cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
-         
-        // 보내기 버튼 눌렀을 때 실행할 함수 선언
-        cell.sendMessage = { [unowned self] in
-            // 1. 새로운 채팅방 개설하기 위해 DB에 채팅 데이터 추가하는 함수 호출
-            let boardIdx = likeList[indexPath.row].boardIdx
+        if(isEmpty == false ) { // 알림리스트가 하나라도 있을 때
+            cell.timeLb_ATVC.text = formatDateString(likeList[indexPath.row].likeCreatedAt)
+            //캐릭터 설정
+            characterList = []
+            let characterInAlarm = likeList[indexPath.row].character
             
-            // 채팅방 키(형식 = 게시물 인덱스 + 게시물 작성자 이메일 + 상대방 이메일)
-            let chatRoomKey = String(boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
-
-            let existResponse = PostAPI.checkChatExists(chatRoomKey: chatRoomKey, boardIdx: boardIdx, oppositeUserEmail: likeList[indexPath.row].emailFrom)
-
-            // 채팅방 화면전환 관련 코드
-            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
-            nextVC.modalPresentationStyle = .fullScreen
+            background = (Int(characterInAlarm!.backGroundColor) ?? 1) - 1
+            hair = (Int(characterInAlarm!.hair) ?? 1) - 1
+            eyebrow = (Int(characterInAlarm!.eyeBrow) ?? 1) - 1
+            mouth = (Int(characterInAlarm!.mouth) ?? 1) - 1
+            nose = (Int(characterInAlarm!.nose) ?? 1) - 1
+            eyes = (Int(characterInAlarm!.eye) ?? 1) - 1
+            glasses = Int(characterInAlarm!.glasses ?? "1") ?? 0
             
-            // 2. DB 에서 요청 데이터 삭제하기
-            switch existResponse?.statusCode ?? 0 {
-            case 2000: // 채팅방 생성 성공 -> 해당 키로 화면 이동
-                let transition = CATransition()
-                transition.duration = 0.3
-                transition.type = CATransitionType.push
-                transition.subtype = CATransitionSubtype.fromRight
-                view.window!.layer.add(transition, forKey: kCATransition)
-                //채팅방 뷰컨에 게시물 키 전달
-                nextVC.boardIdx = Int64(likeList[indexPath.row].boardIdx)
-                nextVC.chatKey = chatRoomKey
-                nextVC.partnerEmail = likeList[indexPath.row].emailFrom
-                if existResponse?.result.isSaved == true{
-                    nextVC.isChatExisted = true
+            characterList.append(background)
+            characterList.append(hair)
+            characterList.append(eyebrow)
+            characterList.append(mouth)
+            characterList.append(nose)
+            characterList.append(eyes)
+            characterList.append(glasses)
+            
+            cell.characterView_ATVC.setAll(componentArray: characterList)
+            cell.characterView_ATVC.setCharacter_NoShadow()
+            cell.idLb_ATVC.text = "아래 글에 \(likeList[indexPath.row].nickname)님이 관심있어요"
+            cell.contentLb_ATVC.text = likeList[indexPath.row].boardContent
+             
+            // 보내기 버튼 눌렀을 때 실행할 함수 선언
+            cell.sendMessage = { [unowned self] in
+                // 1. 새로운 채팅방 개설하기 위해 DB에 채팅 데이터 추가하는 함수 호출
+                let boardIdx = likeList[indexPath.row].boardIdx
+                
+                // 채팅방 키(형식 = 게시물 인덱스 + 게시물 작성자 이메일 + 상대방 이메일)
+                let chatRoomKey = String(boardIdx) + UserDefaults.standard.string(forKey: "email")! + likeList[indexPath.row].emailFrom
+
+                let existResponse = PostAPI.checkChatExists(chatRoomKey: chatRoomKey, boardIdx: boardIdx, oppositeUserEmail: likeList[indexPath.row].emailFrom)
+
+                // 채팅방 화면전환 관련 코드
+                guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
+                nextVC.modalPresentationStyle = .fullScreen
+                
+                // 2. DB 에서 요청 데이터 삭제하기
+                switch existResponse?.statusCode ?? 0 {
+                case 2000: // 채팅방 생성 성공 -> 해당 키로 화면 이동
+                    let transition = CATransition()
+                    transition.duration = 0.3
+                    transition.type = CATransitionType.push
+                    transition.subtype = CATransitionSubtype.fromRight
+                    view.window!.layer.add(transition, forKey: kCATransition)
+                    //채팅방 뷰컨에 게시물 키 전달
+                    nextVC.boardIdx = Int64(likeList[indexPath.row].boardIdx)
+                    nextVC.chatKey = chatRoomKey
+                    nextVC.partnerEmail = likeList[indexPath.row].emailFrom
+                    if existResponse?.result.isSaved == true{
+                        nextVC.isChatExisted = true
+                    }
+                    nextVC.chatPersonName = likeList[indexPath.row].nickname
+                    nextVC.ismyBoard = true
+                    present(nextVC, animated: false, completion: nil)
+                    break
+                    
+                case 4011: //존재하지 않는 유저이다. -> 팝업창
+                    showBlockAlert(errorContent: "존재하지 않는 사용자 입니다.")
+                    break
+                    
+                case 4010: //존재하지 않는 게시물이다. -> 팝업창
+                    showBlockAlert(errorContent: "존재하지 않는 게시물입니다.")
+                    break
+            
+                default: // 서버 오류이다.
+                    ServerError()
+                    break
                 }
-                nextVC.chatPersonName = likeList[indexPath.row].nickname
-                nextVC.ismyBoard = true
-                present(nextVC, animated: false, completion: nil)
-                break
-                
-            case 4011: //존재하지 않는 유저이다. -> 팝업창
-                showBlockAlert(errorContent: "존재하지 않는 사용자 입니다.")
-                break
-                
-            case 4010: //존재하지 않는 게시물이다. -> 팝업창
-                showBlockAlert(errorContent: "존재하지 않는 게시물입니다.")
-                break
-        
-            default: // 서버 오류이다.
-                ServerError()
-                break
             }
-
-            
         }
+        else{ // 알림이 하나도 없을 때
+            cell.timeLb_ATVC.text = ""
+            cell.sendBtn_ATVC.isHidden = true
+            cell.idLb_ATVC.text = "아직 알람이 없어요"
+            cell.contentLb_ATVC.text = "알람이 오면 알려드릴게요"
             
-         
+            //캐릭터 설정
+            characterList = [0, 0, 0, 0, 0, 0, 0]
+            cell.heartConstraint.constant = 70
+            cell.characterView_ATVC.setAll(componentArray: characterList)
+            cell.characterView_ATVC.setCharacter_NoShadow()
+        
+        }
         
         return cell
     }

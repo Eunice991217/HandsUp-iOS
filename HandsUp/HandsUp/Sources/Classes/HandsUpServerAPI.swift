@@ -16,7 +16,7 @@ class PostAPI{
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        
+      
         let board_request = boards_rq(indicateLocation: indicateLocation, latitude: latitude, longitude: longitude, content: content, tag: tag, messageDuration: messageDuration, location : location)
         
         let uploadData = try! JSONEncoder().encode(board_request)

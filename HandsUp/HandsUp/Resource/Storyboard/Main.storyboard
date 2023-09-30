@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="height" constant="87" id="Eum-2t-qlA"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="plus">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="80"/>
                                     <color key="baseForegroundColor" name="HandsUpOrange"/>
                                 </buttonConfiguration>
@@ -1637,7 +1637,7 @@
         <image name="initialLogoOrange" width="181" height="274"/>
         <image name="notificationBall" width="8" height="8"/>
         <image name="notifications" width="29" height="29"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus" width="135" height="135"/>
         <image name="segment" width="35" height="35"/>
         <image name="sendBtn" width="80" height="80"/>
         <image name="threeDotsHorizon" width="24" height="6"/>
