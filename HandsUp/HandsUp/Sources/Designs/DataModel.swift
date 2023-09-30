@@ -8,6 +8,10 @@
 import Foundation
 
 // MARK: - request
+struct initPw_rq: Codable{
+    let email: String
+}
+
 struct nicknameCheck_rq: Codable{
     let schoolName: String
     let nickname: String
@@ -78,6 +82,13 @@ struct reportUser_rq: Codable{
 }
 
 //MARK: - response
+struct initPw_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
 struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int

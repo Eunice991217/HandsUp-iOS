@@ -24,8 +24,8 @@ class FindPW_ViewController: UIViewController {
         if !isFindPWEnable_FindPW{
             return
         }
-        if false {
-            let text: String = "인증번호가 발송되었습니다"
+        if ServerAPI.initPw(email: emailTextField_FindPW.text ?? "") == 2000 {
+            let text: String = "임시 비밀번호가 발송되었습니다"
             let attributeString = NSMutableAttributedString(string: text)
             let font = UIFont(name: "Roboto-Medium", size: 16)
             attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
@@ -40,7 +40,7 @@ class FindPW_ViewController: UIViewController {
             self.present(alertController, animated: false)
         }
         else {
-            let text: String = "인증번호 발송에 실패했습니다"
+            let text: String = "임시 비밀번호 발송에 실패했습니다"
             let attributeString = NSMutableAttributedString(string: text)
             let font = UIFont(name: "Roboto-Medium", size: 16)
             attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))

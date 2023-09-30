@@ -10,6 +10,32 @@ import Alamofire
 import UIKit
 
 class ServerAPI{
+    static func initPw(email: String) -> Int{
+        let serverDir = "http://13.124.196.200:8080"
+        let url = URL(string: serverDir + "/users/initPw")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let uploadData = try! JSONEncoder().encode(initPw_rq(email: email))
+        var check:Int = 0
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(initPw_rp.self, from: data!)
+            if output == nil{
+                check = -1
+            }else{
+                check = output!.statusCode
+            }
+            
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        return check
+    }
+    
     static func nicknameDoubleCheck(vc: Sign_up_ViewController) -> Int{
         let serverDir = "http://13.124.196.200:8080"
         let url = URL(string: serverDir + "/users/nickname")
