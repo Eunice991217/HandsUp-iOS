@@ -1059,17 +1059,17 @@
                                                             <color key="textColor" name="HandsUpDarkGrey"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="l" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jah-Eq-l5Q">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jah-Eq-l5Q">
                                                             <rect key="frame" x="50" y="18" width="4" height="20"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="17"/>
-                                                            <color key="textColor" name="HandsUpLightGrey"/>
+                                                            <color key="textColor" name="HandsUpDarkGrey"/>
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="l" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-F5-c5Y">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-F5-c5Y">
                                                             <rect key="frame" x="146" y="18" width="4" height="20"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="17"/>
-                                                            <color key="textColor" name="HandsUpLightGrey"/>
+                                                            <color key="textColor" name="HandsUpDarkGrey"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1638,13 +1638,13 @@
         <image name="heartOff" width="75" height="75"/>
         <image name="initialLogoOrange" width="181" height="274"/>
         <image name="notificationBall" width="8" height="8"/>
-        <image name="notifications" width="29" height="29"/>
+        <image name="notifications" width="32.5" height="40.5"/>
         <image name="plus" width="135" height="135"/>
         <image name="segment" width="52.5" height="53"/>
         <image name="sendBtn" width="120" height="120"/>
         <image name="threeDotsHorizon" width="24" height="6"/>
         <namedColor name="HandsUpBackground">
-            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpBlue">
             <color red="0.27058823529411763" green="0.45098039215686275" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
