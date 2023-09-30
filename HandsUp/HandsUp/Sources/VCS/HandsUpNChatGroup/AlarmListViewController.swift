@@ -94,9 +94,9 @@ class AlarmListViewController: UIViewController{
         
         plusBtn.layer.shadowColor = UIColor.black.cgColor // 색깔
         plusBtn.layer.masksToBounds = false  
-        plusBtn.layer.shadowOffset = CGSize(width: 0, height: 2) // 위치조정
-        plusBtn.layer.shadowRadius = 5 // 반경
-        plusBtn.layer.shadowOpacity = 0.3 // alpha값
+        plusBtn.layer.shadowOffset = CGSize(width: 0, height: 8) // 위치조정
+        plusBtn.layer.shadowRadius = 24 / UIScreen.main.scale // 반경
+        plusBtn.layer.shadowOpacity = 0.15 // alpha값
 
         HomeTabView.layer.shadowOpacity = 1
         HomeTabView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
