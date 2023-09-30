@@ -22,7 +22,11 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
-        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
+        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].nickname
+        
+        print(Int(MyProfileCollectionView.contentOffset.x))
+        
+        print(Int(MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width)))
         
         isMyPost = currentUserNickname == postAuthorNickname
     
@@ -30,7 +34,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             
             sender.isSelected.toggle() // 버튼 상태를 토글
             
-            boardIndex = Int64(HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+            boardIndex = Int64(HomeCardList[Int(MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx)
+
             
             if sender.isSelected {
                 sender.setImage(UIImage(named: "heartTap"), for: .normal)
@@ -53,7 +58,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
-        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
+        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].nickname
         
         isMyPost = currentUserNickname == postAuthorNickname
         
@@ -72,7 +77,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         if isMyPost {
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
-                PostAPI.deletePost(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+                PostAPI.deletePost(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx)
             }
             alert.addAction(delete)
             
@@ -87,10 +92,10 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
                 nextVC.isEdited = true;
                 //                self.boardIndex = Int64(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)
                 //
-                nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx
+                nextVC.boardIdx = self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx
                 
                 nextVC.cardVC = self
-                self.boardIndex = Int64(self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+                self.boardIndex = Int64(self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx)
                 self.present(nextVC, animated: true, completion: nil)
             }
             alert.addAction(edit)
@@ -145,7 +150,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "아니요", style: .cancel) { (action) in }; alert.addAction(cancel)
         let confirm = UIAlertAction(title: "네", style: .default) { (action) in
-            ServerAPI.boardsBlock(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
+            ServerAPI.boardsBlock(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx)
         }
         alert.addAction(confirm)
         
@@ -194,7 +199,7 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         let currentUserNickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
         
-        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
+        let postAuthorNickname = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].nickname
         isMyPost = currentUserNickname == postAuthorNickname
     
         if(isMyPost==false) {
@@ -202,8 +207,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             
             guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return  }
             //        nextVC.boardIdx = Int(boardIndex!)
-            nextVC.boardIdx = Int64(self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].board.boardIdx)
-            nextVC.chatPersonName = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / UIScreen.main.bounds.width)].nickname
+            nextVC.boardIdx = Int64(self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx)
+            nextVC.chatPersonName = HomeCardList[Int(MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].nickname
             nextVC.modalPresentationStyle = .fullScreen
             
             let transition = CATransition()
@@ -226,9 +231,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndexPath = indexPath
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        selectedIndexPath = indexPath
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("viewDidAppear Collection View 성공 및 원소 개수 == \(HomeCardList.count)")
@@ -331,7 +336,8 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
             i += 1
         }
         
-        self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width * 0.93), y: 0), animated: true)
+        self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width), y: 0), animated: true)
+//        self.MyProfileCollectionView.setContentOffset(CGPoint(x: Int(i) * Int(UIScreen.main.bounds.width * 0.93), y: 0), animated: true)
         
     }
     
@@ -368,17 +374,17 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.scrollDirection = .horizontal
-//        flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
+//        MyProfileCollectionView.collectionViewLayout = createLayout()
+
         
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
+        MyProfileCollectionView.collectionViewLayout = flowLayout
         MyProfileCollectionView.backgroundColor = .none
-//        MyProfileCollectionView.collectionViewLayout = flowLayout
         
         MyProfileCollectionView.delegate = self
         MyProfileCollectionView.dataSource = self
-        
-        MyProfileCollectionView.setCollectionViewLayout(createLayout(), animated: false)
         
         HomeCardList = HomeServerAPI.boardsShowList() ?? []
         print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeCardList.count)")
@@ -439,8 +445,9 @@ func createLayout() -> UICollectionViewLayout {
         let section = NSCollectionLayoutSection(group: containerGroup)
         // scroll direction 설정
         section.orthogonalScrollingBehavior = .groupPagingCentered
-        
+
         return section
     }, configuration: config)
+//    })
     return layout
 }
