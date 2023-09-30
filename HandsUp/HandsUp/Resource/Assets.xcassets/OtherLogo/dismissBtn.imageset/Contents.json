@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "dismissBtn.png",
+      "filename" : "dismiss 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "dismiss 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "dismiss.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
