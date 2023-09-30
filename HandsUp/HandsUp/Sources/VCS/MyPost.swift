@@ -28,6 +28,7 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         nextVC.boardIdx = myPostArr[indexPath.row].boardIdx
         nextVC.isEdited = true
+        nextVC.myPostVC = self
 
         // 화면 전환!
         self.present(nextVC, animated: true)
@@ -111,6 +112,11 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         return address
+    }
+    
+    func refresh(){
+        myPostArr = ServerAPI.myBoards() ?? []
+        HomeMyPostTableView.reloadData()
     }
 
 }

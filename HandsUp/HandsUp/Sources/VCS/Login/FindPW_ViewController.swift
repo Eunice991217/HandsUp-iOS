@@ -20,6 +20,42 @@ class FindPW_ViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func findPWBTNTap(_ sender: Any) {
+        if !isFindPWEnable_FindPW{
+            return
+        }
+        if false {
+            let text: String = "인증번호가 발송되었습니다"
+            let attributeString = NSMutableAttributedString(string: text)
+            let font = UIFont(name: "Roboto-Medium", size: 16)
+            attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
+            attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
+            
+            let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
+            alertController.setValue(attributeString, forKey: "attributedTitle")
+            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+            ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
+            alertController.addAction(ok)
+            alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            self.present(alertController, animated: false)
+        }
+        else {
+            let text: String = "인증번호 발송에 실패했습니다"
+            let attributeString = NSMutableAttributedString(string: text)
+            let font = UIFont(name: "Roboto-Medium", size: 16)
+            attributeString.addAttribute(.font, value: font!, range: (text as NSString).range(of: "\(text)"))
+            attributeString.addAttribute(.foregroundColor, value: UIColor(named: "HandsUpRealWhite")!, range:(text as NSString).range(of: "\(text)"))
+            
+            let alertController = UIAlertController(title: text, message: "", preferredStyle: UIAlertController.Style.alert)
+            alertController.setValue(attributeString, forKey: "attributedTitle")
+            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+            ok.setValue(UIColor(named: "HandsUpBlue"), forKey: "titleTextColor")
+            alertController.addAction(ok)
+            alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+            self.present(alertController, animated: false)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
