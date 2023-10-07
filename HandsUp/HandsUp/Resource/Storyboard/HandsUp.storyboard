@@ -585,9 +585,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-ty-BAG">
                                 <rect key="frame" x="0.0" y="262" width="393" height="484"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="484" id="lJV-bM-lzj"/>
-                                </constraints>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="159" id="4Q0-Oc-OFe">
@@ -694,6 +691,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" relation="lessThanOrEqual" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="900" constant="10" id="32v-jB-ZlO"/>
+                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="800" constant="10" id="6An-2S-Lb3"/>
                             <constraint firstItem="6km-VQ-BSe" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" id="6ob-ww-W3n"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="LgS-5S-lgA" secondAttribute="trailing" constant="16" id="9aA-my-Vfl"/>
                             <constraint firstItem="LgS-5S-lgA" firstAttribute="top" secondItem="6km-VQ-BSe" secondAttribute="bottom" constant="20" id="AIA-OL-mmP"/>

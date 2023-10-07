@@ -61,6 +61,7 @@ class ChatViewController: UIViewController {
        }
     
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
+    
     @IBOutlet weak var inputUIView_CVC: UIView!
     @IBOutlet weak var chatTableView_CVC: UITableView!{
         didSet{
@@ -150,6 +151,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatSendBtn_CVC: UIButton!
     
     @IBAction func chatSendBtnDidTap_CVC(_ sender: Any) {
+        self.inputTextviewHeight.constant = 42
         
         if(isChatExisted == false){
             print("board: \(boardIdx)")
