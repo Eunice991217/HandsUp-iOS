@@ -54,7 +54,6 @@
                     <constraint firstItem="4ao-Xu-vwy" firstAttribute="leading" secondItem="t86-aB-As4" secondAttribute="leading" constant="14" id="R01-VI-0kf"/>
                     <constraint firstAttribute="trailing" secondItem="t86-aB-As4" secondAttribute="trailing" constant="16" id="STH-iG-78K"/>
                     <constraint firstItem="4ao-Xu-vwy" firstAttribute="trailing" secondItem="t86-aB-As4" secondAttribute="trailing" constant="-14" id="mPa-eE-6Ku"/>
-                    <constraint firstItem="wnm-Ek-I3z" firstAttribute="top" secondItem="t86-aB-As4" secondAttribute="bottom" constant="4" id="pK4-Ze-FCv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -68,7 +67,7 @@
     <resources>
         <image name="blueSquare" width="29" height="36"/>
         <namedColor name="HandsUpBackground">
-            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HandsUpDarkGrey">
             <color red="0.45490196078431372" green="0.45490196078431372" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
