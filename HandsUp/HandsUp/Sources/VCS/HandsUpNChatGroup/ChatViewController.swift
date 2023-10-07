@@ -61,6 +61,7 @@ class ChatViewController: UIViewController {
        }
     
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
+    
     @IBOutlet weak var inputUIView_CVC: UIView!
     @IBOutlet weak var chatTableView_CVC: UITableView!{
         didSet{
@@ -150,6 +151,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatSendBtn_CVC: UIButton!
     
     @IBAction func chatSendBtnDidTap_CVC(_ sender: Any) {
+        self.inputTextviewHeight.constant = 42
         
         if(isChatExisted == false){
             print("board: \(boardIdx)")
@@ -184,11 +186,13 @@ class ChatViewController: UIViewController {
         
     }
 
+    @IBOutlet var inputTextviewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboard()
+        self.inputTextviewHeight.constant = 42
         
         chatTextView_CVC.text =  "메세지..."
         chatTextView_CVC.font = UIFont(name: "Roboto-Regular", size: 16)
@@ -215,7 +219,7 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardup), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         // 키보드 내려올 때.
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardDown), name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         postView_CVC.addGestureRecognizer(tapGesture)
@@ -413,7 +417,10 @@ class ChatViewController: UIViewController {
         UIView.animate(withDuration: animationDuration) {
             self.inputViewBottomMargin.constant = height + 10
             self.view.layoutIfNeeded()
-            self.chatTableView_CVC.scrollToRow(at: IndexPath(row: self.chatDatas_CVC.count-1, section: 0), at: .top, animated: false)
+            if(self.isChatExisted == true){
+                self.chatTableView_CVC.scrollToRow(at: IndexPath(row: self.chatDatas_CVC.count-1, section: 0), at: .top, animated: false)
+            }
+
 
         }
     }
@@ -421,7 +428,7 @@ class ChatViewController: UIViewController {
     @objc func keyBoardDown(noti: Notification){
         let notiInfo = noti.userInfo!
         let animationDuration = notiInfo[ UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-        
+
         UIView.animate(withDuration: animationDuration) {
             self.inputViewBottomMargin.constant = 0
             self.view.layoutIfNeeded()
