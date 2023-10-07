@@ -184,11 +184,13 @@ class ChatViewController: UIViewController {
         
     }
 
+    @IBOutlet var inputTextviewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboard()
+        self.inputTextviewHeight.constant = 42
         
         chatTextView_CVC.text =  "메세지..."
         chatTextView_CVC.font = UIFont(name: "Roboto-Regular", size: 16)

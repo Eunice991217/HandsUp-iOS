@@ -585,6 +585,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-ty-BAG">
                                 <rect key="frame" x="0.0" y="262" width="393" height="484"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="484" id="lJV-bM-lzj"/>
+                                </constraints>
                                 <color key="sectionIndexBackgroundColor" name="HandsUpBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="159" id="4Q0-Oc-OFe">
@@ -662,7 +665,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-xb-sBq">
                                         <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="qJb-hv-PMa"/>
+                                            <constraint firstAttribute="height" constant="42" id="018-h9-SA1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -690,7 +693,7 @@
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" constant="10" id="32v-jB-ZlO"/>
+                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" relation="lessThanOrEqual" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="900" constant="10" id="32v-jB-ZlO"/>
                             <constraint firstItem="6km-VQ-BSe" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" id="6ob-ww-W3n"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="LgS-5S-lgA" secondAttribute="trailing" constant="16" id="9aA-my-Vfl"/>
                             <constraint firstItem="LgS-5S-lgA" firstAttribute="top" secondItem="6km-VQ-BSe" secondAttribute="bottom" constant="20" id="AIA-OL-mmP"/>
@@ -718,6 +721,7 @@
                         <outlet property="contentInBoard" destination="6kH-yM-0AT" id="GER-Xs-tkn"/>
                         <outlet property="contentLb_CVC" destination="6kH-yM-0AT" id="tyz-sv-Uxo"/>
                         <outlet property="idLb_CVC" destination="Cht-fD-RzC" id="zrd-qD-QwG"/>
+                        <outlet property="inputTextviewHeight" destination="018-h9-SA1" id="xLX-2G-Qzi"/>
                         <outlet property="inputUIView_CVC" destination="r4o-Ql-8nT" id="Fp2-wS-jjL"/>
                         <outlet property="inputViewBottomMargin" destination="VtV-sn-jgr" id="dzy-mD-2cX"/>
                         <outlet property="nameInBoard" destination="Cht-fD-RzC" id="UNF-7J-53I"/>
@@ -728,7 +732,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="hX5-vG-hL5"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="532"/>
+            <point key="canvasLocation" x="3927.480916030534" y="531.69014084507046"/>
         </scene>
         <!--Register Post View Controller-->
         <scene sceneID="Ng1-47-be5">
