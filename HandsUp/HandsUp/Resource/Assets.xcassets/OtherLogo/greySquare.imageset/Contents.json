@@ -43,10 +43,10 @@
       "idiom" : "universal",
       "resizing" : {
         "cap-insets" : {
-          "bottom" : 64,
-          "left" : 58,
+          "bottom" : 63,
+          "left" : 60,
           "right" : 58,
-          "top" : 64
+          "top" : 65
         },
         "center" : {
           "height" : 1,
