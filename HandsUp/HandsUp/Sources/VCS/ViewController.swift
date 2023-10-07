@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         let tos = NSURL(string: "https://miniahiru.notion.site/55bb2cb2fd8b4f3db75775c7065977a2")
         let SafariView_Tos: SFSafariViewController = SFSafariViewController(url: tos! as URL)
         
-        let Tos = UIAlertAction(title: "이용약관", style: UIAlertAction.Style.default, handler:{(action) in 
+        let Tos = UIAlertAction(title: "개인정보 처리방침", style: UIAlertAction.Style.default, handler:{(action) in 
             self.present(SafariView_Tos, animated: true, completion: nil)}
         )
         alert.addAction(Tos)
