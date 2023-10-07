@@ -417,7 +417,10 @@ class ChatViewController: UIViewController {
         UIView.animate(withDuration: animationDuration) {
             self.inputViewBottomMargin.constant = height + 10
             self.view.layoutIfNeeded()
-            self.chatTableView_CVC.scrollToRow(at: IndexPath(row: self.chatDatas_CVC.count-1, section: 0), at: .top, animated: false)
+            if(self.isChatExisted == true){
+                self.chatTableView_CVC.scrollToRow(at: IndexPath(row: self.chatDatas_CVC.count-1, section: 0), at: .top, animated: false)
+            }
+
 
         }
     }
@@ -425,7 +428,7 @@ class ChatViewController: UIViewController {
     @objc func keyBoardDown(noti: Notification){
         let notiInfo = noti.userInfo!
         let animationDuration = notiInfo[ UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-        
+
         UIView.animate(withDuration: animationDuration) {
             self.inputViewBottomMargin.constant = 0
             self.view.layoutIfNeeded()
