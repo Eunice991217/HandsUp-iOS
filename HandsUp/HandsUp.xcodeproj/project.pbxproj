@@ -158,6 +158,7 @@
 		8B21091F2966DFF30042D14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B2109222966DFF30042D14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B2109242966DFF30042D14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B3EC0EA2AD13079008499E3 /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
 		8B4589732970B0FE0044227F /* FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponder.swift; sourceTree = "<group>"; };
 		8B45E0D1297A3CC50057D156 /* EnableButtonScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButtonScroll.swift; sourceTree = "<group>"; };
 		8B4BF0C62968C11F00B00890 /* FindPW_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPW_ViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 		8B21090A2966DFF20042D14A = {
 			isa = PBXGroup;
 			children = (
+				8B3EC0EA2AD13079008499E3 /* Keys.xcconfig */,
 				8B2109152966DFF20042D14A /* HandsUp */,
 				8B2109142966DFF20042D14A /* Products */,
 				4819DD1E298252E400549538 /* Frameworks */,
@@ -739,6 +741,7 @@
 		};
 		8B2109282966DFF30042D14A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3EC0EA2AD13079008499E3 /* Keys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -781,6 +784,7 @@
 		};
 		8B2109292966DFF30042D14A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3EC0EA2AD13079008499E3 /* Keys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

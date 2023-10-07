@@ -10,8 +10,7 @@ import Alamofire
 
 class PostAPI{
     static func makeNewPost( indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, location : String) -> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/")
+        let url = URL(string: Server_Addr() + "/boards/")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -60,8 +59,7 @@ class PostAPI{
     }
     
     static func editPost(indicateLocation : String, latitude : Double, longitude : Double, content : String, tag : String, messageDuration : Int, boardIdx: Int, location : String)-> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/" + String(boardIdx))
+        let url = URL(string: Server_Addr() + "/boards/" + String(boardIdx))
         
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
@@ -113,8 +111,7 @@ class PostAPI{
     }
     
     static func deletePost(boardIdx: Int)-> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/delete/" + String(boardIdx))
+        let url = URL(string: Server_Addr() + "/boards/delete/" + String(boardIdx))
         
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -160,8 +157,7 @@ class PostAPI{
     }
     
     static func updateFCMToken( fcmToken: String) -> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/update-fcmToken")
+        let url = URL(string: Server_Addr() + "/users/update-fcmToken")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -217,8 +213,7 @@ class PostAPI{
     }
     
     static func deleteFCMToken()-> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/delete-fcmToken")
+        let url = URL(string: Server_Addr() + "/users/delete-fcmToken")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -262,8 +257,7 @@ class PostAPI{
     }
     
     static func showBoardsLikeList() -> board_like?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/like/30/")
+        let url = URL(string: Server_Addr() + "/boards/like/30/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -313,8 +307,7 @@ class PostAPI{
     }
     
     static func makeNewChat(boardIndx : Int64, chatRoomKey: String) -> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/create")
+        let url = URL(string: Server_Addr() + "/chats/create")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -366,8 +359,7 @@ class PostAPI{
     }
     
     static func makeNewChat(boardIndx : Int64, chatRoomKey: String, oppositeEmail: String) -> Int {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/create")
+        let url = URL(string: Server_Addr() + "/chats/create")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -419,8 +411,7 @@ class PostAPI{
     }
     
     static func getChatList() -> [Chat]?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/list")
+        let url = URL(string: Server_Addr() + "/chats/list")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -472,10 +463,7 @@ class PostAPI{
     }
     
     static func getBoardInChat(boardIdx: Int64) -> board_in_chat_rp?{
-        let serverDir = "http://13.124.196.200:8080"
-        
-        //let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
-        let url = URL(string: serverDir + "/chats/" + String(boardIdx) )
+        let url = URL(string: Server_Addr() + "/chats/" + String(boardIdx) )
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -523,8 +511,7 @@ class PostAPI{
         // rtn이 nil이면 서버 통신 실패 Or 데이터 없음
     }
     static func sendChatAlarm(emailID : String, chatContent: String, chatRoomKey: String ) -> Bool {
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/alarm")
+        let url = URL(string: Server_Addr() + "/chats/alarm")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -575,8 +562,7 @@ class PostAPI{
     }
     
     static func readChat(chatRoomkey : String){
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/read")
+        let url = URL(string: Server_Addr() + "/chats/read")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -625,9 +611,8 @@ class PostAPI{
     }
     
     static func checkChatExists(chatRoomKey: String, boardIdx: Int, oppositeUserEmail: String) -> chat_check_rp?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/check-key/\(chatRoomKey)/" + String(boardIdx) + "/\(oppositeUserEmail)" )
-        print("url: \(serverDir)/chats/check-key/\(chatRoomKey)/" + String(boardIdx) + "/\(oppositeUserEmail)")
+        let url = URL(string: Server_Addr() + "/chats/check-key/\(chatRoomKey)/" + String(boardIdx) + "/\(oppositeUserEmail)" )
+        print("url: \(Server_Addr())/chats/check-key/\(chatRoomKey)/" + String(boardIdx) + "/\(oppositeUserEmail)")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -678,8 +663,7 @@ class PostAPI{
     }
     
     static func deleteChat(chatRoomkey : String){
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/\(chatRoomkey)")
+        let url = URL(string: Server_Addr() + "/chats/\(chatRoomkey)")
         var request = URLRequest(url: url!)
         request.httpMethod = "DELETE"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -731,12 +715,8 @@ class PostAPI{
                     semaphore.signal()
                 }.resume()
                 semaphore.wait()
-                
             }
         }
-        
     }
-    
-    
 }
 

@@ -12,8 +12,7 @@ import Alamofire
 class HomeServerAPI {
     
     static func boardsHeart(boardIdx: Int64) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/\(boardIdx)/like")
+        let url = URL(string: Server_Addr() + "/boards/\(boardIdx)/like")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -56,8 +55,7 @@ class HomeServerAPI {
     }
     
     static func FAQ(contents: String) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/help/inquiry")
+        let url = URL(string: Server_Addr() + "/help/inquiry")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -89,8 +87,7 @@ class HomeServerAPI {
     }
  
     static func boardsShowList() -> [boardsShowList_rp_getBoardList]?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/showList/")
+        let url = URL(string: Server_Addr() + "/boards/showList/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -148,8 +145,7 @@ class HomeServerAPI {
     }
     
     static func showMapList() -> [ShowMapList_rp_getBoardMap]?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/showMapList")
+        let url = URL(string: Server_Addr() + "/boards/showMapList")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

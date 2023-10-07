@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        NMFAuthManager.shared().clientId = "3w1kzr13wh"
+        NMFAuthManager.shared().clientId = Bundle.main.object(forInfoDictionaryKey: "NMFClientId") as? String
         
         
         let center = UNUserNotificationCenter.current()
@@ -145,16 +145,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
 }
     
     extension AppDelegate: MessagingDelegate {
-        
         func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
 
             // TODO: - 디바이스 토큰을 보내는 서버통신 구현
             UserDefaults.standard.set(fcmToken!, forKey: "fcmToken")
-
-
         }
-        
-        
     }
-
-    
