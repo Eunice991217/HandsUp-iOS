@@ -10,7 +10,10 @@ import Alamofire
 import UIKit
 
 func Server_Addr()->String{
-    return Bundle.main.object(forInfoDictionaryKey: "SERVER_ADDR") as? String ?? ""
+    guard let addr = Bundle.main.object(forInfoDictionaryKey: "SERVER_ADDR") as? String else{
+        return ""
+    }
+    return "http://" + addr
 }
 
 class ServerAPI{
@@ -148,6 +151,7 @@ class ServerAPI{
     
     static func login(email: String, pw: String) -> Int{
         let url = URL(string: Server_Addr() + "/users/login")
+        print(Server_Addr() + "/users/login")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
