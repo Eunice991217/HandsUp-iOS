@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     @IBOutlet var MyProfileCollectionView: UICollectionView!
     
@@ -265,7 +265,10 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         
         cell.profileImage.setAll(componentArray: boardsCharacterList) // 가져오기
         cell.profileImage.setCharacter_NoShadow() // 그림자 없애기
-        cell.profileImage.setCharacter() // 캐릭터 생성
+        cell.profileImage.layer.shadowOffset = CGSize(width: 0, height: 4)
+        cell.profileImage.layer.shadowOpacity = 0.25
+        cell.profileImage.layer.shadowColor = UIColor.black.cgColor
+        cell.profileImage.layer.shadowRadius = 4 / UIScreen.main.scale
         
         cell.smallName.text=HomeCardList[indexPath.row].nickname
         cell.largeName.text=HomeCardList[indexPath.row].nickname
@@ -317,9 +320,9 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         return cell
     }
     
-    
-    
-   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -374,13 +377,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        MyProfileCollectionView.collectionViewLayout = createLayout()
-
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0 // cell사이의 간격 설정
-        MyProfileCollectionView.collectionViewLayout = flowLayout
         MyProfileCollectionView.backgroundColor = .none
         
         MyProfileCollectionView.delegate = self
@@ -390,12 +386,6 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         print("MyProfile 서버통신 성공 및 원소 개수 ==  \(HomeCardList.count)")
         
         setupView()
-    }
-}
-
-extension MyProfileView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
 
