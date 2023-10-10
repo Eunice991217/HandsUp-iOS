@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -97,7 +96,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="APX-88-Ec5">
-                                        <rect key="frame" x="329.5" y="44" width="10" height="10"/>
+                                        <rect key="frame" x="328.5" y="44" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="Fua-0N-JOe"/>
                                             <constraint firstAttribute="width" constant="10" id="TOL-5b-mjm"/>
@@ -123,7 +122,7 @@
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="AKl-nL-A3o"/>
                                     <constraint firstItem="APX-88-Ec5" firstAttribute="top" secondItem="jIj-CL-tyd" secondAttribute="top" constant="9" id="TO5-bZ-Bl4"/>
                                     <constraint firstItem="IZg-fI-ShE" firstAttribute="top" secondItem="onp-Y0-j1N" secondAttribute="top" constant="35" id="axf-co-tAo"/>
-                                    <constraint firstItem="jIj-CL-tyd" firstAttribute="trailing" secondItem="APX-88-Ec5" secondAttribute="trailing" constant="8.3000000000000007" id="c1T-Ig-tob"/>
+                                    <constraint firstItem="jIj-CL-tyd" firstAttribute="trailing" secondItem="APX-88-Ec5" secondAttribute="trailing" constant="9.3000000000000007" id="c1T-Ig-tob"/>
                                     <constraint firstItem="jIj-CL-tyd" firstAttribute="leading" secondItem="IZg-fI-ShE" secondAttribute="trailing" constant="65" id="sFl-Wn-Uk6"/>
                                 </constraints>
                             </view>
