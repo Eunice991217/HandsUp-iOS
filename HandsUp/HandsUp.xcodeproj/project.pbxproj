@@ -52,10 +52,6 @@
 		486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4829756BD0003761E7 /* TabManListVC.swift */; };
 		486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */; };
 		486CFF4D29756C3A003761E7 /* ListSecondTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */; };
-		486CFF4F29756C49003761E7 /* ListThirdTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */; };
-		486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5029756C55003761E7 /* ListFourthTabVC.swift */; };
-		486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5229756C60003761E7 /* ListFifthTabVC.swift */; };
-		486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */; };
 		487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D5FDC296AA8EF00BE2CCC /* FAQ.swift */; };
 		48C318942975B26000037D89 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48C318932975B26000037D89 /* SnapKit */; };
 		48D45322298D765200552B72 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 48D45321298D765200552B72 /* NMapsMap */; };
@@ -137,10 +133,6 @@
 		486CFF4829756BD0003761E7 /* TabManListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManListVC.swift; sourceTree = "<group>"; };
 		486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFirstTabVC.swift; sourceTree = "<group>"; };
 		486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSecondTabVC.swift; sourceTree = "<group>"; };
-		486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListThirdTabVC.swift; sourceTree = "<group>"; };
-		486CFF5029756C55003761E7 /* ListFourthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFourthTabVC.swift; sourceTree = "<group>"; };
-		486CFF5229756C60003761E7 /* ListFifthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFifthTabVC.swift; sourceTree = "<group>"; };
-		486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSixthTabVC.swift; sourceTree = "<group>"; };
 		487D5FDC296AA8EF00BE2CCC /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		48D72C62299F63A50003E481 /* EditProfileDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileDelegateProtocol.swift; sourceTree = "<group>"; };
 		8B082A4B2972DBDF0063E6E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -244,10 +236,6 @@
 				486CFF4829756BD0003761E7 /* TabManListVC.swift */,
 				486CFF4A29756C25003761E7 /* ListFirstTabVC.swift */,
 				486CFF4C29756C3A003761E7 /* ListSecondTabVC.swift */,
-				486CFF4E29756C49003761E7 /* ListThirdTabVC.swift */,
-				486CFF5029756C55003761E7 /* ListFourthTabVC.swift */,
-				486CFF5229756C60003761E7 /* ListFifthTabVC.swift */,
-				486CFF5429756C6E003761E7 /* ListSixthTabVC.swift */,
 				482903AA2987F0C6003E6E18 /* ListTableViewCell.swift */,
 			);
 			path = ListGroup;
@@ -523,10 +511,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486CFF5529756C6E003761E7 /* ListSixthTabVC.swift in Sources */,
 				32425D6A29CEE58500B24024 /* RoundRedLabel.swift in Sources */,
 				321B1E3729864E9100E2CFEE /* ChatNavigationViewController.swift in Sources */,
-				486CFF4F29756C49003761E7 /* ListThirdTabVC.swift in Sources */,
 				480B01E729715A3C007054B1 /* EditProfileName.swift in Sources */,
 				8BCA2ED629881FB10005C849 /* First_ViewController.swift in Sources */,
 				487D5FDD296AA8EF00BE2CCC /* FAQ.swift in Sources */,
@@ -537,7 +523,6 @@
 				4842441C2971924700D9C803 /* AccountManagement.swift in Sources */,
 				486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */,
 				48398AE6297288F9006FD205 /* Report.swift in Sources */,
-				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
 				321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */,
 				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
 				328F6068298E3F4B00F4BA4A /* HandsUpDataModel.swift in Sources */,
@@ -562,7 +547,6 @@
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
 				480B01E5297149D1007054B1 /* EditProfile.swift in Sources */,
 				328F606A298FCA1500F4BA4A /* HandsUpServerAPI.swift in Sources */,
-				486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */,
 				48398AF329753FB7006FD205 /* TabManViewController.swift in Sources */,
 				32A3F1772974646C00B0347D /* AlarmNChatListViewController.swift in Sources */,
 				8BDB0C0229864DE6008A6822 /* DataModel.swift in Sources */,

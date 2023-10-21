@@ -14,7 +14,7 @@ class ListSecondTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
     
     var boardsCharacterList: [Int] = []
     var background = 0, hair = 0, eyebrow = 0, mouth = 0, nose = 0, eyes = 0, glasses = 0
-    
+    var tag:String = ""
 
     // MARK: ViewController override method
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ class ListSecondTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
         guard let myProfile = storyboard?.instantiateViewController(identifier: "MyProfileView") as? MyProfileView else { return }
         myProfile.modalPresentationStyle = .overFullScreen
         
-        let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let filteredList = HomeList.filter { $0.tag == tag } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
         let item = filteredList[indexPath.row]
         
         myProfile.boardIndex = Int64(item.board.boardIdx)
@@ -75,13 +75,13 @@ class ListSecondTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
 //        myTableView.reloadData()
         refresh()
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+            let filteredList = HomeList.filter { $0.tag == tag } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
             return filteredList.count
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let filteredList = HomeList.filter { $0.tag == tag } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
         print("table View filteredList Talk 성공 및 원소 개수 == \(filteredList.count)")
         return filteredList.count
     }
@@ -95,7 +95,7 @@ class ListSecondTabVC: ListVC, UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
 
-        let filteredList = HomeList.filter { $0.tag == "Talk" } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
+        let filteredList = HomeList.filter { $0.tag == tag } // 태그에 맞는 요소만 필터링하여 새로운 배열 생성
         let item = filteredList[indexPath.row]
         
         boardsCharacterList = [] // 빈 배열

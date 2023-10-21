@@ -17,13 +17,19 @@ class TabManListVC: TabmanViewController {
     var curIndex: Int = 0
     let firstVC = ListFirstTabVC()
     let secondVC = ListSecondTabVC()
-    let thirdVC = ListThirdTabVC()
-    let fourthVC = ListFourthTabVC()
-    let fifthVC = ListFifthTabVC()
-    let sixthVC = ListSixthTabVC()
+    let thirdVC = ListSecondTabVC()
+    let fourthVC = ListSecondTabVC()
+    let fifthVC = ListSecondTabVC()
+    let sixthVC = ListSecondTabVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        secondVC.tag = "Talk"
+        thirdVC.tag = "밥"
+        fourthVC.tag = "스터디"
+        fifthVC.tag = "취미"
+        sixthVC.tag = "여행"
 
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)
