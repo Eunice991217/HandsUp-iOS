@@ -14,8 +14,6 @@ class ChatViewController: UIViewController {
     let db = Firestore.firestore()
     var textIsEmpty = true
     
-    private let maxHeight: CGFloat = 90
-
 
     var boardInfo: board_in_chat_result?
     //전 화면에서 얻어야할 값
@@ -37,19 +35,16 @@ class ChatViewController: UIViewController {
     @IBOutlet var contentInBoard: UILabel!
     
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
-    
     @IBOutlet weak var chatPersonIdLb_CVC: NSLayoutConstraint!
     @IBOutlet weak var characterView_CVC: Character_UIView!
-    
     @IBOutlet weak var idLb_CVC: UILabel!
     @IBOutlet weak var contentLb_CVC: UILabel!
-    
     @IBOutlet weak var postView_CVC: UIView!
-    
     @IBOutlet weak var chatTextView_CVC: UITextView!
 
     
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
+    @IBOutlet var textvivewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var inputUIView_CVC: UIView!
     @IBOutlet weak var chatTableView_CVC: UITableView!{
@@ -172,21 +167,16 @@ class ChatViewController: UIViewController {
         }
         
     }
-
-    @IBOutlet var inputTextviewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboard()
-//        self.inputTextviewHeight.constant = 42
         
         chatTextView_CVC.text =  "메세지..."
         chatTextView_CVC.font = UIFont(name: "Roboto-Regular", size: 16)
         chatTextView_CVC.textColor = UIColor(red: 0.517, green: 0.517, blue: 0.517, alpha: 1)
         chatTextView_CVC.delegate = self
-        chatTextView_CVC.heightAnchor.constraint(equalToConstant: 42.0).isActive = true
-
 
 
         chatSendBtn_CVC.isHidden = true
@@ -490,13 +480,14 @@ extension ChatViewController: UITextViewDelegate{
             return
         }
         
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-                print("설정 높이: \(constraint.constant)")
-                
-            }
-        }
+//        textView.constraints.forEach { (constraint) in
+//            if constraint.firstAttribute == .height {
+//                constraint.constant = estimatedSize.height
+//                print("설정 높이: \(constraint.constant)")
+//                
+//            }
+//        }
+        textvivewHeight.constant = estimatedSize.height
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

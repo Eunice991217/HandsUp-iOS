@@ -236,7 +236,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-pi-7Wn">
-                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="7.9999999999999858"/>
+                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="ZMr-dV-BNz"/>
                                     <constraint firstAttribute="height" constant="8" id="gWr-OG-F2a"/>
@@ -484,7 +484,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-H5-RcP">
-                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="7.9999999999999858"/>
+                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="PNW-um-IsM"/>
                                     <constraint firstAttribute="height" constant="8" id="zvW-ZC-eVz"/>
@@ -680,7 +680,6 @@
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="leading" secondItem="r4o-Ql-8nT" secondAttribute="leading" constant="10" id="dwB-LM-dh4"/>
                                     <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" id="ge9-yX-ufe"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="k5J-zM-eJr"/>
-                                    <constraint firstItem="wXT-xb-sBq" firstAttribute="centerY" secondItem="fBW-Ef-ZvP" secondAttribute="centerY" id="kUU-eA-bOe"/>
                                     <constraint firstAttribute="trailing" secondItem="fBW-Ef-ZvP" secondAttribute="trailing" constant="7.5" id="y9b-Gq-BDZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -694,8 +693,7 @@
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" relation="lessThanOrEqual" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="800" constant="10" id="32v-jB-ZlO"/>
-                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="800" constant="10" id="6An-2S-Lb3"/>
+                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="800" constant="10" id="32v-jB-ZlO"/>
                             <constraint firstItem="6km-VQ-BSe" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" id="6ob-ww-W3n"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="LgS-5S-lgA" secondAttribute="trailing" constant="16" id="9aA-my-Vfl"/>
                             <constraint firstItem="LgS-5S-lgA" firstAttribute="top" secondItem="6km-VQ-BSe" secondAttribute="bottom" constant="20" id="AIA-OL-mmP"/>
@@ -728,6 +726,7 @@
                         <outlet property="nameInBoard" destination="Cht-fD-RzC" id="UNF-7J-53I"/>
                         <outlet property="postView_CVC" destination="LgS-5S-lgA" id="zTE-ev-1pA"/>
                         <outlet property="profileViewInBoard" destination="LgS-5S-lgA" id="Gbh-Y0-Jud"/>
+                        <outlet property="textvivewHeight" destination="dyN-Zg-zpV" id="zeO-Br-2Sk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAD-R2-kpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
