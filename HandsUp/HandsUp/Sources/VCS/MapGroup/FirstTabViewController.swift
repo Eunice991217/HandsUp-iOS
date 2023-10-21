@@ -90,10 +90,6 @@ class FirstTabViewController: UIViewController, CLLocationManagerDelegate{
         cameraUpdate.animation = .easeIn
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        viewDidLoad()
-    }
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
