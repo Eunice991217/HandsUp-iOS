@@ -14,8 +14,6 @@ class ChatViewController: UIViewController {
     let db = Firestore.firestore()
     var textIsEmpty = true
     
-    private let maxHeight: CGFloat = 90
-
 
     var boardInfo: board_in_chat_result?
     //전 화면에서 얻어야할 값
@@ -37,19 +35,16 @@ class ChatViewController: UIViewController {
     @IBOutlet var contentInBoard: UILabel!
     
     @IBOutlet weak var chatPersonNameLabel_CVC: UILabel!
-    
     @IBOutlet weak var chatPersonIdLb_CVC: NSLayoutConstraint!
     @IBOutlet weak var characterView_CVC: Character_UIView!
-    
     @IBOutlet weak var idLb_CVC: UILabel!
     @IBOutlet weak var contentLb_CVC: UILabel!
-    
     @IBOutlet weak var postView_CVC: UIView!
-    
     @IBOutlet weak var chatTextView_CVC: UITextView!
 
     
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
+    @IBOutlet var textvivewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var inputUIView_CVC: UIView!
     @IBOutlet weak var chatTableView_CVC: UITableView!{
@@ -140,55 +135,48 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatSendBtn_CVC: UIButton!
     
     @IBAction func chatSendBtnDidTap_CVC(_ sender: Any) {
-        self.inputTextviewHeight.constant = 42
-        
-        if(isChatExisted == false){
-            print("board: \(boardIdx)")
-            print("chatKey: \(chatKey)")
-            var makeChatStatusCode: Int = 0
-            if(ismyBoard == true){
-                makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey, oppositeEmail: partnerEmail)
+        if(chatTextView_CVC.text != ""){
+            if(isChatExisted == false){
+                print("board: \(boardIdx)")
+                print("chatKey: \(chatKey)")
+                var makeChatStatusCode: Int = 0
+                if(ismyBoard == true){
+                    makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey, oppositeEmail: partnerEmail)
+                    
+                }else{
+                    makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
+                }
                 
-            }else{
-                makeChatStatusCode = PostAPI.makeNewChat(boardIndx: boardIdx, chatRoomKey: chatKey)
+                print("버튼 클릭: \(makeChatStatusCode)")
+                if(makeChatStatusCode == 2000){
+                    print("채팅방 생성에 성공하였습니다. ")
+                    isChatExisted = true
+                    print("partner email: \(partnerEmail)")
+                    loadMessages()
+
+                }
             }
             
-            print("버튼 클릭: \(makeChatStatusCode)")
-            if(makeChatStatusCode == 2000){
-                print("채팅방 생성에 성공하였습니다. ")
-                isChatExisted = true
-                print("partner email: \(partnerEmail)")
-                loadMessages()
-
-            }
+            let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
+            
+            
+            FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: chatTextView_CVC.text))
+            
+            chatTextView_CVC.text = ""
+            chatTextView_CVC.heightAnchor.constraint(equalToConstant: 42.0).isActive = true
         }
         
-        let chatAlarmStatusCode = PostAPI.sendChatAlarm(emailID : partnerEmail, chatContent: chatTextView_CVC.text, chatRoomKey: chatKey)
-        
-        
-        FirestoreAPI.shared.addChat(chatRoomID: chatKey, chatRequest: Message(content: chatTextView_CVC.text))
-        
-        // 방법 2 :
-        //chatTableView_CVC.insertRows(at: [lastindexPath], with: UITableView.RowAnimation.automatic)
-        chatTextView_CVC.text = ""
-        
-        
     }
-
-    @IBOutlet var inputTextviewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboard()
-//        self.inputTextviewHeight.constant = 42
         
         chatTextView_CVC.text =  "메세지..."
         chatTextView_CVC.font = UIFont(name: "Roboto-Regular", size: 16)
         chatTextView_CVC.textColor = UIColor(red: 0.517, green: 0.517, blue: 0.517, alpha: 1)
         chatTextView_CVC.delegate = self
-        chatTextView_CVC.heightAnchor.constraint(equalToConstant: 42.0).isActive = true
-
 
 
         chatSendBtn_CVC.isHidden = true
@@ -482,6 +470,7 @@ extension ChatViewController: UITextViewDelegate{
     
     // 메세지 입력창 textview의 height autosizing
     func textViewDidChange(_ textView: UITextView) {
+        setBtnSetting()
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimatedSize = textView.sizeThatFits(size)
         print("didchange 호출")
@@ -491,19 +480,14 @@ extension ChatViewController: UITextViewDelegate{
             return
         }
         
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-                print("설정 높이: \(constraint.constant)")
-                
-            }
-        }
-        
-//        CGRect tvFrame = textView.frame
-//        tvFrame.size.height = estimatedSize.height
-//        textView.frame = tvFrame
-//        print("변경 높이: \(tvFrame.size.height)")
-
+//        textView.constraints.forEach { (constraint) in
+//            if constraint.firstAttribute == .height {
+//                constraint.constant = estimatedSize.height
+//                print("설정 높이: \(constraint.constant)")
+//                
+//            }
+//        }
+        textvivewHeight.constant = estimatedSize.height
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
