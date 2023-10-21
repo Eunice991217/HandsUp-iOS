@@ -236,7 +236,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="wbc-pi-7Wn">
-                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="8"/>
+                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="7.9999999999999858"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="ZMr-dV-BNz"/>
                                     <constraint firstAttribute="height" constant="8" id="gWr-OG-F2a"/>
@@ -484,7 +484,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationBall" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-H5-RcP">
-                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="8"/>
+                                <rect key="frame" x="132.66666666666666" y="73.666666666666671" width="8" height="7.9999999999999858"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="PNW-um-IsM"/>
                                     <constraint firstAttribute="height" constant="8" id="zvW-ZC-eVz"/>
@@ -666,7 +666,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-xb-sBq">
                                         <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="018-h9-SA1"/>
+                                            <constraint firstAttribute="height" constant="42" id="dyN-Zg-zpV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -674,14 +674,13 @@
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="2Ia-1C-feb"/>
                                     <constraint firstItem="fBW-Ef-ZvP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r4o-Ql-8nT" secondAttribute="top" constant="7" id="Eab-84-PaZ"/>
                                     <constraint firstAttribute="bottom" secondItem="fBW-Ef-ZvP" secondAttribute="bottom" constant="7" id="LNO-eI-8k7"/>
-                                    <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" id="MT5-9O-Sqx"/>
                                     <constraint firstItem="fBW-Ef-ZvP" firstAttribute="leading" secondItem="wXT-xb-sBq" secondAttribute="trailing" id="Sn9-L1-277"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="leading" secondItem="r4o-Ql-8nT" secondAttribute="leading" constant="10" id="dwB-LM-dh4"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" id="ge9-yX-ufe"/>
+                                    <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="k5J-zM-eJr"/>
                                     <constraint firstItem="wXT-xb-sBq" firstAttribute="centerY" secondItem="fBW-Ef-ZvP" secondAttribute="centerY" id="kUU-eA-bOe"/>
-                                    <constraint firstItem="wXT-xb-sBq" firstAttribute="top" secondItem="r4o-Ql-8nT" secondAttribute="top" id="qEQ-MX-bjb"/>
                                     <constraint firstAttribute="trailing" secondItem="fBW-Ef-ZvP" secondAttribute="trailing" constant="7.5" id="y9b-Gq-BDZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -724,7 +723,6 @@
                         <outlet property="contentInBoard" destination="6kH-yM-0AT" id="GER-Xs-tkn"/>
                         <outlet property="contentLb_CVC" destination="6kH-yM-0AT" id="tyz-sv-Uxo"/>
                         <outlet property="idLb_CVC" destination="Cht-fD-RzC" id="zrd-qD-QwG"/>
-                        <outlet property="inputTextviewHeight" destination="018-h9-SA1" id="xLX-2G-Qzi"/>
                         <outlet property="inputUIView_CVC" destination="r4o-Ql-8nT" id="Fp2-wS-jjL"/>
                         <outlet property="inputViewBottomMargin" destination="VtV-sn-jgr" id="dzy-mD-2cX"/>
                         <outlet property="nameInBoard" destination="Cht-fD-RzC" id="UNF-7J-53I"/>
@@ -1089,7 +1087,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ6-mK-wsf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="523" y="-50"/>
+            <point key="canvasLocation" x="631" y="549"/>
         </scene>
         <!--Post Through Chat View Controller-->
         <scene sceneID="w0A-k0-YPy">

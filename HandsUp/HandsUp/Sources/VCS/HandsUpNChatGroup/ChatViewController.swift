@@ -42,23 +42,12 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var characterView_CVC: Character_UIView!
     
     @IBOutlet weak var idLb_CVC: UILabel!
-    @IBOutlet weak var locationLb_CVC: UILabel!
-    @IBOutlet weak var timeLb_CVC: UILabel!
     @IBOutlet weak var contentLb_CVC: UILabel!
     
     @IBOutlet weak var postView_CVC: UIView!
     
-    @IBOutlet weak var chatTextView_CVC: UITextView!{
-        didSet{
-            chatTextView_CVC.delegate = self
-        }
-    }
+    @IBOutlet weak var chatTextView_CVC: UITextView!
 
-    private var isOversized = false {
-           didSet {
-               chatTextView_CVC.isScrollEnabled = isOversized
-           }
-       }
     
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
     
@@ -192,11 +181,15 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboard()
-        self.inputTextviewHeight.constant = 42
+//        self.inputTextviewHeight.constant = 42
         
         chatTextView_CVC.text =  "메세지..."
         chatTextView_CVC.font = UIFont(name: "Roboto-Regular", size: 16)
         chatTextView_CVC.textColor = UIColor(red: 0.517, green: 0.517, blue: 0.517, alpha: 1)
+        chatTextView_CVC.delegate = self
+        chatTextView_CVC.heightAnchor.constraint(equalToConstant: 42.0).isActive = true
+
+
 
         chatSendBtn_CVC.isHidden = true
         postView_CVC.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
@@ -491,17 +484,25 @@ extension ChatViewController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimatedSize = textView.sizeThatFits(size)
-        
+        print("didchange 호출")
         guard textView.contentSize.height < 100.0 else {
             textView.isScrollEnabled = true;
+            print("else 문 호출")
             return
         }
-        textView.isScrollEnabled = false
+        
         textView.constraints.forEach { (constraint) in
             if constraint.firstAttribute == .height {
                 constraint.constant = estimatedSize.height
+                print("설정 높이: \(constraint.constant)")
+                
             }
         }
+        
+//        CGRect tvFrame = textView.frame
+//        tvFrame.size.height = estimatedSize.height
+//        textView.frame = tvFrame
+//        print("변경 높이: \(tvFrame.size.height)")
 
     }
     
