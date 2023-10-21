@@ -20,13 +20,19 @@ class TabManViewController: TabmanViewController, CLLocationManagerDelegate {
     private var viewControllers: [UIViewController] = []
     let firstVC = FirstTabViewController()
     let secondVC = SecondTabViewController()
-    let thirdVC = ThirdTabViewController()
-    let fourthVC = FourthTabViewController()
-    let fifthVC = FifthTabViewController()
-    let sixthVC = SixthTabViewController()
+    let thirdVC = SecondTabViewController()
+    let fourthVC = SecondTabViewController()
+    let fifthVC = SecondTabViewController()
+    let sixthVC = SecondTabViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        secondVC.tag = "Talk"
+        thirdVC.tag = "밥"
+        fourthVC.tag = "스터디"
+        fifthVC.tag = "취미"
+        sixthVC.tag = "여행"
         
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)

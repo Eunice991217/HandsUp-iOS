@@ -46,10 +46,6 @@
 		48398AF329753FB7006FD205 /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF229753FB7006FD205 /* TabManViewController.swift */; };
 		48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF429754011006FD205 /* FirstTabViewController.swift */; };
 		48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF629754025006FD205 /* SecondTabViewController.swift */; };
-		48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AF829754035006FD205 /* ThirdTabViewController.swift */; };
-		48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFA29754068006FD205 /* FourthTabViewController.swift */; };
-		48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFC29754071006FD205 /* FifthTabViewController.swift */; };
-		48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48398AFE29754098006FD205 /* SixthTabViewController.swift */; };
 		4842441C2971924700D9C803 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842441B2971924700D9C803 /* AccountManagement.swift */; };
 		485FCFA82991ED6F00163D0A /* HomeServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */; };
 		485FCFAA2991EE2D00163D0A /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FCFA92991EE2D00163D0A /* HomeDataModel.swift */; };
@@ -135,10 +131,6 @@
 		48398AF229753FB7006FD205 /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		48398AF429754011006FD205 /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
 		48398AF629754025006FD205 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
-		48398AF829754035006FD205 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
-		48398AFA29754068006FD205 /* FourthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
-		48398AFC29754071006FD205 /* FifthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
-		48398AFE29754098006FD205 /* SixthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthTabViewController.swift; sourceTree = "<group>"; };
 		4842441B2971924700D9C803 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
 		485FCFA72991ED6F00163D0A /* HomeServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServerAPI.swift; sourceTree = "<group>"; };
 		485FCFA92991EE2D00163D0A /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
@@ -242,10 +234,6 @@
 				48398AF229753FB7006FD205 /* TabManViewController.swift */,
 				48398AF429754011006FD205 /* FirstTabViewController.swift */,
 				48398AF629754025006FD205 /* SecondTabViewController.swift */,
-				48398AF829754035006FD205 /* ThirdTabViewController.swift */,
-				48398AFA29754068006FD205 /* FourthTabViewController.swift */,
-				48398AFC29754071006FD205 /* FifthTabViewController.swift */,
-				48398AFE29754098006FD205 /* SixthTabViewController.swift */,
 			);
 			path = MapGroup;
 			sourceTree = "<group>";
@@ -548,9 +536,7 @@
 				486CFF4B29756C25003761E7 /* ListFirstTabVC.swift in Sources */,
 				4842441C2971924700D9C803 /* AccountManagement.swift in Sources */,
 				486CFF4929756BD0003761E7 /* TabManListVC.swift in Sources */,
-				48398AFB29754068006FD205 /* FourthTabViewController.swift in Sources */,
 				48398AE6297288F9006FD205 /* Report.swift in Sources */,
-				48398AF929754035006FD205 /* ThirdTabViewController.swift in Sources */,
 				486CFF5329756C60003761E7 /* ListFifthTabVC.swift in Sources */,
 				321B1E33298589FF00E2CFEE /* CustomVisualEffectView.swift in Sources */,
 				32AB018529730C4C007D550A /* CustomThumbView.swift in Sources */,
@@ -564,7 +550,6 @@
 				32A3F17B2974818400B0347D /* ChatListViewController.swift in Sources */,
 				8B2109172966DFF20042D14A /* AppDelegate.swift in Sources */,
 				48398AF529754011006FD205 /* FirstTabViewController.swift in Sources */,
-				48398AFD29754071006FD205 /* FifthTabViewController.swift in Sources */,
 				48398AEA297295C5006FD205 /* MyPostTableViewCell.swift in Sources */,
 				328F6065298A5B5600F4BA4A /* LocationService.swift in Sources */,
 				8BBE680E2989396500763AFA /* ServerError.swift in Sources */,
@@ -575,7 +560,6 @@
 				48D72C63299F63A50003E481 /* EditProfileDelegateProtocol.swift in Sources */,
 				48398AF729754025006FD205 /* SecondTabViewController.swift in Sources */,
 				8B2109192966DFF20042D14A /* SceneDelegate.swift in Sources */,
-				48398AFF29754098006FD205 /* SixthTabViewController.swift in Sources */,
 				480B01E5297149D1007054B1 /* EditProfile.swift in Sources */,
 				328F606A298FCA1500F4BA4A /* HandsUpServerAPI.swift in Sources */,
 				486CFF5129756C55003761E7 /* ListFourthTabVC.swift in Sources */,

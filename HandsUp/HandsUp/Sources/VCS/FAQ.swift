@@ -16,6 +16,7 @@ class FAQ: UIViewController {
     
     @IBAction func SubmitBtnDidTap(_ sender: Any) {
         let stat = HomeServerAPI.FAQ(contents: HomeFAQTextView.text)
+        
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "확인", style: .default) { (action) in
             switch stat {
