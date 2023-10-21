@@ -475,6 +475,13 @@ class ChatViewController: UIViewController {
         
         return ""
     }
+    func setBtnSetting(){
+        if (chatTextView_CVC.text == "" ){
+            chatSendBtn_CVC.isHidden = true
+        }else{
+            chatSendBtn_CVC.isHidden = false
+        }
+    }
     
 }
 
@@ -512,6 +519,7 @@ extension ChatViewController: UITextViewDelegate{
             chatSendBtn_CVC.isHidden = false
             textIsEmpty = false
         }
+        setBtnSetting()
         
         return true
     }
@@ -522,6 +530,7 @@ extension ChatViewController: UITextViewDelegate{
             chatTextView_CVC.textColor = UIColor.black
             chatTextView_CVC.font = UIFont(name: "Roboto-Medium", size: 16)
         }
+        setBtnSetting()
     }
 }
 

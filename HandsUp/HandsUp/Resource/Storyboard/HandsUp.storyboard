@@ -184,7 +184,9 @@
                                             <constraint firstAttribute="height" constant="44" id="bHU-M1-kpY"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="notificationsDidTap"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="notificationsDidTap"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzW-Zh-hsn">
                                         <rect key="frame" x="195" y="35" width="44" height="44"/>
@@ -431,7 +433,9 @@
                                             <constraint firstAttribute="height" constant="44" id="t4t-s1-89U"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="notificationsDidTap"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" image="notificationsDidTap"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-jT-5K5">
                                         <rect key="frame" x="195" y="35" width="44" height="44"/>
@@ -662,7 +666,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-xb-sBq">
                                         <rect key="frame" x="10" y="0.0" width="277.66666666666669" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="018-h9-SA1"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="018-h9-SA1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -670,6 +674,7 @@
                                 </subviews>
                                 <color key="backgroundColor" name="HandsUpWhiteGrey"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="2Ia-1C-feb"/>
                                     <constraint firstItem="fBW-Ef-ZvP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r4o-Ql-8nT" secondAttribute="top" constant="7" id="Eab-84-PaZ"/>
                                     <constraint firstAttribute="bottom" secondItem="fBW-Ef-ZvP" secondAttribute="bottom" constant="7" id="LNO-eI-8k7"/>
                                     <constraint firstAttribute="bottom" secondItem="wXT-xb-sBq" secondAttribute="bottom" id="MT5-9O-Sqx"/>
@@ -690,7 +695,7 @@
                         <color key="backgroundColor" name="HandsUpBackground"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" relation="lessThanOrEqual" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="900" constant="10" id="32v-jB-ZlO"/>
+                            <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" relation="lessThanOrEqual" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="800" constant="10" id="32v-jB-ZlO"/>
                             <constraint firstItem="r4o-Ql-8nT" firstAttribute="top" secondItem="s0q-ty-BAG" secondAttribute="bottom" priority="800" constant="10" id="6An-2S-Lb3"/>
                             <constraint firstItem="6km-VQ-BSe" firstAttribute="leading" secondItem="t8n-E5-1qy" secondAttribute="leading" id="6ob-ww-W3n"/>
                             <constraint firstItem="t8n-E5-1qy" firstAttribute="trailing" secondItem="LgS-5S-lgA" secondAttribute="trailing" constant="16" id="9aA-my-Vfl"/>
