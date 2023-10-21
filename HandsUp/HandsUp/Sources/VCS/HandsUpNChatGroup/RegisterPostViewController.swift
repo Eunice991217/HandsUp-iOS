@@ -104,7 +104,8 @@ class RegisterPostViewController: UIViewController{
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-        print("boardidx: \(boardIdx)")
+        
+        
         let editedBoard = ServerAPI.singleList(boardIdx: boardIdx)
         //게시물 수정 시
         if(isEdited == true){
@@ -118,7 +119,6 @@ class RegisterPostViewController: UIViewController{
             
             
             if(editedBoard?.locationAgreement == "false"){
-                print("게시물 수정하는데 위치 ")
                 self.indicateLocation_HVC = "false"
                 locationSwitchBtn_HVC.isOn = false
                 locationSwitchBtn_HVC.setupUI()
@@ -189,34 +189,35 @@ class RegisterPostViewController: UIViewController{
     }
     
     private func requestAuthorization() {
-
-            //정확도를 검사한다.
-            //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            //앱을 사용할때 권한요청
-            
-            
-            switch locationManager.authorizationStatus {
-            case .restricted, .denied:
-                print("restricted n denied")
-                locationManager.requestWhenInUseAuthorization()
-            case .authorizedWhenInUse, .authorizedAlways:
-                print("권한있음")
-                locationManagerDidChangeAuthorization(locationManager)
-            default:
-                locationManager.startUpdatingLocation()
-                print("default")
-            }
-            
+        
+        //정확도를 검사한다.
+        //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        //앱을 사용할때 권한요청
+        
+        
+        switch locationManager.authorizationStatus {
+        case .restricted, .denied:
+            print("restricted n denied")
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            print("권한있음")
             locationManagerDidChangeAuthorization(locationManager)
+        default:
+            locationManager.startUpdatingLocation()
+            print("default")
+        }
+        
+        locationManagerDidChangeAuthorization(locationManager)
+
+        print("위도: \(longitude_HVC == 0).  경도: \(latitude_HVC)")
+        
+        if(self.latitude_HVC == 0.0 || self.longitude_HVC == 0.0){
+            self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
+        }
+        else{
             getAddressByLocation()
-            
-            if(latitude_HVC == 0.0 || longitude_HVC == 0.0){
-                self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
-            }
-            else{
-                getAddressByLocation()
-            }
+        }
         
     }
     
@@ -248,7 +249,10 @@ class RegisterPostViewController: UIViewController{
                     }
                 }
                 self.locationLabel_HVC.text = address
-                print(address) //서울특별시 광진구 중곡동 272-13
+                
+                if(self.latitude_HVC == 0.0 || self.longitude_HVC == 0.0){
+                    self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
+                }
             }
         }
         
