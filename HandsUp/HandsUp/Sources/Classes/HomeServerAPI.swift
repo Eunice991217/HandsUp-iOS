@@ -11,6 +11,8 @@ import Alamofire
 
 class HomeServerAPI {
     
+    static let lock: NSLock = NSLock()
+    
     static func boardsHeart(boardIdx: Int64) -> Int{
         let url = URL(string: Server_Addr() + "/boards/\(boardIdx)/like")
         var request = URLRequest(url: url!)
@@ -87,6 +89,12 @@ class HomeServerAPI {
     }
  
     static func boardsShowList() -> [boardsShowList_rp_getBoardList]?{
+        
+        self.lock.lock()
+        defer {
+            self.lock.unlock()
+        }
+        
         let url = URL(string: Server_Addr() + "/boards/showList/")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
@@ -145,6 +153,12 @@ class HomeServerAPI {
     }
     
     static func showMapList() -> [ShowMapList_rp_getBoardMap]?{
+        
+        self.lock.lock()
+        defer {
+            self.lock.unlock()
+        }
+        
         let url = URL(string: Server_Addr() + "/boards/showMapList")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
