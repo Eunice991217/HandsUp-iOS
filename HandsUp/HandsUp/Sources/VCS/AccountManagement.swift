@@ -85,9 +85,6 @@ class AccountManagement: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true;
-
-//        self.navigationController?.navigationBar.tintColor = .black
-//        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
     }
 

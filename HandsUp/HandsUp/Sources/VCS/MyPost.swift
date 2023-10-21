@@ -44,7 +44,6 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.MyPostTableViewCellImage.setUserCharacter()
         
         cell.MyPostTableViewCellName.text = UserDefaults.standard.string(forKey: "nickname")!
-//        cell.MyPostTableViewCellLoaction.text = getAddressByLocation(latitiude: myPostArr[indexPath.row].latitude, longitude: myPostArr[indexPath.row].longitude)
         cell.MyPostTableViewCellLoaction.text = myPostArr[indexPath.row].location
         cell.MyPostTableViewCellTime.text =  formatDatetoString(myPostArr[indexPath.row].createdAt) 
         cell.MyPostTableViewCellContent.text = myPostArr[indexPath.row].content
@@ -75,8 +74,6 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.navigationBar.isHidden = true;
         
         myPostArr = ServerAPI.myBoards() ?? []
-//        self.navigationController?.navigationBar.tintColor = .black
-//        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
     }
     

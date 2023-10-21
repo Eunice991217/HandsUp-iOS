@@ -106,22 +106,7 @@ class EditProfile: UIViewController, sendCharacterDataDelegate  {
         }
         EditProfileView.setUserCharacter()
     }
-    
-    /*@IBAction func characterEdit(_ sender: Any){
-        let characterEditVC = self.storyboard?.instantiateViewController(withIdentifier: "CharacterEdit") as! CharacterEdit_ViewController
-        var componentIndex_Sign_up = 0
-        sign_upData_Sign_up.characterComponent.forEach{
-            characterEditVC.sign_upData_CharacterEdit.characterComponent[componentIndex_Sign_up] = $0
-            componentIndex_Sign_up += 1
-        }
-        characterEditVC.modalPresentationStyle = .fullScreen
-        characterEditVC.delegate = self
-        self.present(characterEditVC, animated: true)
-    }*/
-
 }
-
-
 
 extension EditProfile: SendData {
     func send(_ vc: UIViewController, Input EditProfile_nickName: String?) {
@@ -129,10 +114,3 @@ extension EditProfile: SendData {
     }
 }
 
-//extension EditProfileViewController: EditProfileNameDelegate {
-//    func didUpdateNickname(_ nickname: String?) {
-//        if let nickname = nickname {
-//            self.nicknameLabel.text = nickname
-//        }
-//    }
-//}

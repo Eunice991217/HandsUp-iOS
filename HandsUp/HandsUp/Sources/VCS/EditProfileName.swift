@@ -17,7 +17,6 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func EditProfileNameBackBtnDidTap(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
