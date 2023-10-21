@@ -32,17 +32,9 @@ class Report: UIViewController {
     
     @IBAction func ReportSubmitDidTap(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-//        let confirm = UIAlertAction(title: "확인", style: .default) { (action) in };
-        
-        let main = self.storyboard?.instantiateViewController(withIdentifier: "ViwController")
-        
-        // "확인" 버튼이 눌렸을 때 화면 전환 코드
         let confirm = UIAlertAction(title: "확인", style: .default) { (action) in
-            // 화면 전환
-            if let mainViewController = main {
-                self.present(mainViewController, animated: true, completion: nil)
-            }
-        }
+            self.dismiss(animated: false, completion: nil)
+        };
         
         alert.addAction(confirm)
 

@@ -17,8 +17,6 @@ class FAQ: UIViewController {
     @IBAction func SubmitBtnDidTap(_ sender: Any) {
         let stat = HomeServerAPI.FAQ(contents: HomeFAQTextView.text)
         
-        let main = self.storyboard?.instantiateViewController(withIdentifier: "ViwController")
-        
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "확인", style: .default) { (action) in
             switch stat {
@@ -26,10 +24,6 @@ class FAQ: UIViewController {
                 self.ServerError()
             case 2000:
                 print("문의사항 요청성공")
-                // 화면 전환
-                if let mainViewController = main {
-                    self.present(mainViewController, animated: true, completion: nil)
-                }
             case 4000:
                 print("문의사항 존재안하는 이메일")
             default:

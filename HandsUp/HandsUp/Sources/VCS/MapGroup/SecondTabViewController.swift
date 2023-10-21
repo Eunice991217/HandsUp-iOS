@@ -16,6 +16,9 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
     let cameraPosition = NMFCameraPosition()
     let marker = NMFMarker()
     let markerEx = NMFMarker()
+    var listMarker : [NMFMarker] = []
+    var mapView: NMFMapView!
+    var tag:String = ""
 
     lazy var MyPosition: UIButton = {
         let MPbtn = UIButton()
@@ -30,18 +33,69 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
     }()
 
     @objc func restartDidTap() {
-        viewDidLoad()
+        listMarker.forEach {
+            $0.mapView = nil
+        }
+        
+        listMarker = []
+        
+        let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
+        let map_list = HomeServerAPI.showMapList()
+        
+        let filteredList = map_list!.filter { $0.tag == tag }
+        
+        filteredList.forEach {
+            let new_marker = NMFMarker()
+            new_marker.position = NMGLatLng(lat: $0.latitude, lng: $0.longitude)
+            charImg.convertSet(arr: $0.character)
+            self.view.addSubview(charImg)
+            new_marker.iconImage = NMFOverlayImage(image: charImg.asImage())
+            charImg.removeFromSuperview()
+            new_marker.width = 60
+            new_marker.height = 60
+
+            let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let MyProfileView = storyboard?.instantiateViewController(identifier: "MyProfileView") else {
+                return
+            }
+            MyProfileView.modalPresentationStyle = .overFullScreen
+            
+            let boardIndex = Int64($0.boardIdx)
+                        
+            new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
+                if let MyProfileView = MyProfileView as? MyProfileView {
+                    MyProfileView.boardIndex = boardIndex
+                    self.present(MyProfileView, animated: true)
+                }
+                return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
+            }
+            new_marker.mapView = mapView
+            listMarker.append(new_marker)
+        }
     }
 
     @objc func SearchMP() {
-        viewDidLoad()
+        // 내 위치 가져오기
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        // 위도, 경도 가져오기
+        let latitude = locationManager.location?.coordinate.latitude ?? 0
+        let longitude = locationManager.location?.coordinate.longitude ?? 0
+        print(latitude)
+        print(longitude)
+        
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latitude, lng: longitude), zoomTo: 15.0)
+        mapView.moveCamera(cameraUpdate)
+        cameraUpdate.animation = .easeIn
     }
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
         
-        let mapView = NMFMapView(frame: view.frame)
+        mapView = NMFMapView(frame: view.frame)
         mapView.allowsZooming = true // 줌 가능
         mapView.allowsScrolling = true // 스크롤 가능
         mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0) // 컨텐츠 패딩값 (하단 탭바만큼 패딩값)
@@ -82,7 +136,7 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
         let charImg : Character_UIView = Character_UIView(frame:CGRect(x: 0, y: 0, width: 200, height: 200))
         let map_list = HomeServerAPI.showMapList()
         
-        let filteredList = map_list!.filter { $0.tag == "Talk" }
+        let filteredList = map_list!.filter { $0.tag == tag }
         print("filteredList 지도 Talk 개수 : \(filteredList.count)")
 
         filteredList.forEach {
@@ -102,12 +156,7 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
             MyProfileView.modalPresentationStyle = .overFullScreen
             
             let boardIndex = Int64($0.boardIdx)
-            
-//                new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
-//                    self.present(myProfile, animated: true)
-//                    return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
-//                }
-            
+                        
             new_marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
                 if let MyProfileView = MyProfileView as? MyProfileView {
                     MyProfileView.boardIndex = boardIndex
@@ -116,6 +165,7 @@ class SecondTabViewController: UIViewController, CLLocationManagerDelegate{
                 return true // 이벤트 소비, -mapView:didTapMap:point 이벤트는 발생하지 않음
             }
             new_marker.mapView = mapView
+            listMarker.append(new_marker)
         }
 
 

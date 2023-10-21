@@ -78,6 +78,10 @@ class MyProfileView: UIViewController, UICollectionViewDataSource, UICollectionV
         if isMyPost {
             let delete = UIAlertAction(title: "삭제하기", style: .destructive) { (action) in
                 PostAPI.deletePost(boardIdx: self.HomeCardList[Int(self.MyProfileCollectionView.contentOffset.x / (UIScreen.main.bounds.width))].board.boardIdx)
+                
+                self.dismiss(animated: true){
+                    self.beforeVC?.refresh()
+                }
             }
             alert.addAction(delete)
             
