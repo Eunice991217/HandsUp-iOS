@@ -1,4 +1,6 @@
-# HandsUp-iOS
+# HandsUp
+다양한 학교 대학생들, 혹은 같은 학교 학생들끼리 거리를 쉽게 줄일 수 있게 도와줄 수 있는 대학생들간의 네트워킹 앱입니다. 
+(현재 서비스 지원 대학 : 동국대, 건국대, 세종대, 숭실대, 가천대 - 추후 추가 예정 원하는 대학을 요청해주세요!)
 
 ![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 ![xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
@@ -13,10 +15,6 @@ feat : 새로운 기능 추가
 fix : 버그 수정, 기능 수정  
 docs : 문서 수정  
 refactor : 리팩토링 또는 파일 경로 변경 등  
-
-# HandsUp
-다양한 학교 대학생들, 혹은 같은 학교 학생들끼리 거리를 쉽게 줄일 수 있게 도와줄 수 있는 대학생들간의 네트워킹 앱입니다. 
-(현재 서비스 지원 대학 : 동국대, 건국대, 세종대, 숭실대, 가천대 - 추후 추가 예정 원하는 대학을 요청해주세요!)
 
 ## 💡 Topic
 
