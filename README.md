@@ -13,9 +13,6 @@
 <img width="100" alt="screenshot 7 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/216fb8ec-6725-4b04-b148-e4efb19c8a7c">
 </p>
 
-![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
-![xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
-
 ## 브랜치 명명 규칙
 
 `feature/[기능]`
@@ -55,3 +52,5 @@ refactor : 리팩토링 또는 파일 경로 변경 등
 ## 🛠️ Tech Stack
 
  `Spring`  `iOS` `Swift` `Figma`  `Mysql` `AWS EC2` `Java`
+ ![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
+ ![xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
