@@ -47,7 +47,7 @@ refactor : 리팩토링 또는 파일 경로 변경 등
 
 ## 📷 Screenshot
 <p>
-<img width="1242" alt="screenshot 1 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/df3d228f-bea7-46a3-b038-a031cc42403c">
+<img width="100" alt="screenshot 1 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/df3d228f-bea7-46a3-b038-a031cc42403c">
 <img width="1242" alt="screenshot 2 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/f2095631-b1dc-42ce-9a25-5e844401a4a8">
 <img width="1242" alt="screenshot 3 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/8177a79d-9c09-4147-af35-de8edcbd79e8">
 <img width="1242" alt="screenshot 4 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/fefa1a0c-cbe2-4ef1-885c-d6c3032ea7ee">
