@@ -2,6 +2,17 @@
 다양한 학교 대학생들, 혹은 같은 학교 학생들끼리 거리를 쉽게 줄일 수 있게 도와줄 수 있는 대학생들간의 네트워킹 앱입니다. 
 (현재 서비스 지원 대학 : 동국대, 건국대, 세종대, 숭실대, 가천대 - 추후 추가 예정 원하는 대학을 요청해주세요!)
 
+## 📷 Screenshot
+<p>
+<img width="100" alt="screenshot 1 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/df3d228f-bea7-46a3-b038-a031cc42403c">
+<img width="100" alt="screenshot 2 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/f2095631-b1dc-42ce-9a25-5e844401a4a8">
+<img width="100" alt="screenshot 3 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/8177a79d-9c09-4147-af35-de8edcbd79e8">
+<img width="100" alt="screenshot 4 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/fefa1a0c-cbe2-4ef1-885c-d6c3032ea7ee">
+<img width="100" alt="screenshot 5 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/099b658b-ae25-4dab-bc25-6b4bfe26505a">
+<img width="100" alt="screenshot 6 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/d9d72044-eb4a-4a28-ad73-efdf703dacf4">
+<img width="100" alt="screenshot 7 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/216fb8ec-6725-4b04-b148-e4efb19c8a7c">
+</p>
+
 ![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 ![xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
 
@@ -44,14 +55,3 @@ refactor : 리팩토링 또는 파일 경로 변경 등
 ## 🛠️ Tech Stack
 
  `Spring`  `iOS` `Swift` `Figma`  `Mysql` `AWS EC2` `Java`
-
-## 📷 Screenshot
-<p>
-<img width="100" alt="screenshot 1 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/df3d228f-bea7-46a3-b038-a031cc42403c">
-<img width="100" alt="screenshot 2 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/f2095631-b1dc-42ce-9a25-5e844401a4a8">
-<img width="100" alt="screenshot 3 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/8177a79d-9c09-4147-af35-de8edcbd79e8">
-<img width="100" alt="screenshot 4 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/fefa1a0c-cbe2-4ef1-885c-d6c3032ea7ee">
-<img width="100" alt="screenshot 5 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/099b658b-ae25-4dab-bc25-6b4bfe26505a">
-<img width="100" alt="screenshot 6 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/d9d72044-eb4a-4a28-ad73-efdf703dacf4">
-<img width="100" alt="screenshot 7 (1242 x 2688)" src="https://github.com/Eunice991217/HandsUp-iOS/assets/101406317/216fb8ec-6725-4b04-b148-e4efb19c8a7c">
-</p>
