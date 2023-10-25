@@ -24,6 +24,9 @@ fix : 버그 수정, 기능 수정
 docs : 문서 수정  
 refactor : 리팩토링 또는 파일 경로 변경 등  
 
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
+![xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
+
 ## 💡 Topic
 
 - **대학생들의 소통, 만남 플랫폼** 
@@ -52,5 +55,4 @@ refactor : 리팩토링 또는 파일 경로 변경 등
 ## 🛠️ Tech Stack
 
  `Spring`  `iOS` `Swift` `Figma`  `Mysql` `AWS EC2` `Java`
- ![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
- ![xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)
+ 
