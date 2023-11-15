@@ -480,6 +480,18 @@ class Character_UIView: UIView {
         
         setCharacter_NoShadow()
     }
+    
+    func convertSetList(arr: boardsShowList_rp_character){
+        self.bgType = Int(arr.backGroundColor)! - 1
+        self.headType = Int(arr.hair)! - 1
+        self.eyebrowType = Int(arr.eyeBrow)! - 1
+        self.mouthType = Int(arr.mouth)! - 1
+        self.noseType = Int(arr.nose)! - 1
+        self.eyesType = Int(arr.eye)! - 1
+        self.glassesType = arr.glasses == "" ? 0 : Int(arr.glasses)!
+        
+        setCharacter_NoShadow()
+    }
 }
 
 extension UIView {
@@ -490,3 +502,5 @@ extension UIView {
         }
     }
 }
+
+

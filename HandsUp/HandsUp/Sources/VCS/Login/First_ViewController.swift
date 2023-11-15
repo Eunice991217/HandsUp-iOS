@@ -27,6 +27,7 @@ class First_ViewController: UIViewController {
         if status == 2000{
             let mainSB_First = UIStoryboard(name: "Main", bundle: nil)
             let homeVC_First = mainSB_First.instantiateViewController(withIdentifier: "Home")
+            PostAPI.updateFCMToken(fcmToken: UserDefaults.standard.string(forKey: "fcmToken") ?? "")
             self.navigationController?.pushViewController(homeVC_First, animated: false)
         }
         else if status == -1{

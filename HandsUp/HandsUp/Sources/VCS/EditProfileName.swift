@@ -17,7 +17,6 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func EditProfileNameBackBtnDidTap(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
@@ -47,14 +46,16 @@ class EditProfileName: UIViewController, UITextFieldDelegate {
     @IBAction func EditProfileNameBtnDidTap(_ sender: Any) {
         if nicknameValidation() {
             // 닉네임 올바른 경우
-            delegate?.send(self, Input: EditProfileNameTextField.text)
-            let stat = ServerAPI.nickname(nickname: EditProfileNameTextField.text!)
             
+            let stat = ServerAPI.nickname(nickname: EditProfileNameTextField.text!)
+
             switch stat {
             case -1:
                 ServerError()
             case 2000:
+                delegate?.send(self, Input: EditProfileNameTextField.text)
                 print("닉네임 변경 요청성공")
+                self.dismiss(animated: true, completion: nil)
             case 5000:
                 print("닉네임 변경 DB저장 오류")
             case 4011:

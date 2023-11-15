@@ -32,10 +32,15 @@ class Report: UIViewController {
     
     @IBAction func ReportSubmitDidTap(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default) { (action) in }; alert.addAction(confirm)
+        let confirm = UIAlertAction(title: "확인", style: .default) { (action) in
+            self.dismiss(animated: false, completion: nil)
+        };
+        
+        alert.addAction(confirm)
 
         confirm.setValue(UIColor(red: 0.957, green: 0.486, blue: 0.086, alpha: 1), forKey: "titleTextColor") //확인버튼 색깔입히기
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        
         let attributedString = NSAttributedString(string: "신고가 완료되었습니다. 더욱 쾌적한 핸즈업이 되겠습니다.", attributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         alert.setValue(attributedString, forKey: "attributedTitle") //컨트롤러에 설정한 걸 세팅
 

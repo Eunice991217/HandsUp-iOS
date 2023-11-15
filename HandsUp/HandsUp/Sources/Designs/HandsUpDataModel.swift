@@ -20,6 +20,7 @@ struct boards_rq: Codable {
     let latitude, longitude: Double?
     let content, tag: String
     let messageDuration: Int
+    let location : String
 }
 
 //reponse
@@ -60,26 +61,22 @@ struct boards_like_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let board_like_list: [board_like]?
+    let result: board_like?
 }
 
 // MARK: - Result
 struct board_like: Codable {
-    var boardIdx: Int
-    let emailFrom: String
-    var text, boardContent: String
-    var character: Character
-    var likeCreatedAt: String
-    
-    init(){
-        boardIdx = 1
-        emailFrom = "wltjd3459@dongguk.edu"
-        text = "아래 글에 제이님이 관심있어요"
-        boardContent = "내일 저녁 드실 분??"
-        character = Character.init()
-        likeCreatedAt = "2023-01-24T13:40:02.504578"
-    }
-           
+    let receivedLikeInfo: [ReceivedLikeInfo]
+    let hasNext: Bool
+}
+
+// MARK: - ReceivedLikeInfo
+struct ReceivedLikeInfo: Codable {
+    let boardIdx: Int
+    let emailFrom, nickname, boardContent: String
+    let character: Character?
+    let boardUserIdx: Int
+    let likeCreatedAt: String
 }
 
 // MARK: - Character
@@ -88,22 +85,11 @@ struct Character: Codable {
     var hair, hairColor, skinColor, backGroundColor: String
     var glasses: String?
     
-    init(){
-        eye = "1"
-        eyeBrow = "1"
-        nose = "1"
-        mouth = "1"
-        hair = "1"
-        hairColor = "1"
-        skinColor = "1"
-        backGroundColor = "1"
-    }
-    
 }
 struct chat_create_rq: Codable{
-    let boardIndx: Int
+    let boardIdx: Int64
     let chatRoomKey: String
-    
+    let oppositeEmail: String?
 }
 
 struct chat_create_rp: Codable {
@@ -117,14 +103,16 @@ struct chat_list_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
     let message: String
-    let chatList: [Chat]?
+    let result: [Chat]?
 }
 struct Chat: Codable{
     let chatRoomIdx: Int
     let chatRoomKey: String
+    let boardIdx: Int
     let character: chatCharacter
-    let nickname, updatedAt, lastContent: String
-    let lastSenderIdx, notRead: Int
+    let nickname, updatedAt, lastContent, lastSenderEmail: String
+    let notRead: Int
+    let oppositeEmail: String
 }
 
 struct chatCharacter: Codable {
@@ -133,7 +121,6 @@ struct chatCharacter: Codable {
     let eye, eyeBrow, glasses, nose: String
     let mouth, hair, hairColor, skinColor: String
     let backGroundColor, status: String
-
 }
 
 
@@ -146,61 +133,51 @@ struct board_in_chat_rp: Codable {
 
 // MARK: - Result
 struct board_in_chat_result: Codable {
-    let board: Board
+    let board: board_in_chat
+    let tag: String
     let character: chatCharacter
+    let writerEmail: String
     let nickname: String
+    let schoolName: String
 }
 
 // MARK: - Board
-struct Board: Codable {
+struct board_in_chat: Codable {
     let boardIdx: Int
     let content: String
-    let latitude, longitude: Int
-    let indicateLocation: String
+    let latitude, longitude: Double
+    let location, indicateLocation: String
     let messageDuration: Int
     let createdAt, updatedAt, status: String
 }
 
 struct chat_alarm_rq: Codable {
     let email: String
+    let chatContent: String
+    let chatRoomKey: String
 }
 
 struct chat_alarm_rp: Codable {
     let isSuccess: Bool
     let statusCode: Int
-    let message, result: String
+    let message: String
+    let result: String
+}
+struct chats_read_rq: Codable {
+    let chatRoomKey: String
 }
 
-
-// 채팅방 내 메세지 정보 받아오는 API 관련 구조체
-struct Message: Codable {
-    let id: String
+struct chats_read_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+}
+struct message {
+    let date: String
     let content: String
-    let sentDate: Date
-    
-    init(id: String, content: String) {
-        self.id = id
-        self.content = content
-        self.sentDate = Date()
-    }
-    
-    // MARK: - Date 형을 firestore에 입력하면 Unix Time Stamp형으로 변환하는 작업
-        
-        private enum CodingKeys: String, CodingKey {
-            case id
-            case content
-            case sentDate
-        }
-        
-        init(from decoder: Decoder) throws {
-            let values = try decoder.container(keyedBy: CodingKeys.self)
-            id = try values.decode(String.self, forKey: .id)
-            content = try values.decode(String.self, forKey: .content)
-            
-            let dataDouble = try values.decode(Double.self, forKey: .sentDate)
-            sentDate = Date(timeIntervalSince1970: dataDouble)
-        }
 }
+
+
 
 extension Encodable {
     // message 구조체를 firebase에 저장될 수 있는 dictionary로 바꾸는 과정.
@@ -212,4 +189,40 @@ extension Encodable {
         return dictinoary
     }
 }
+
+struct chat_check_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: chatCheckResult
+}
+
+// MARK: - Result
+struct chatCheckResult: Codable {
+    let board: chatCheckBoard
+    let character: chatCheckCharacter
+    let nickname: String
+    let writerEmail: String
+    let isSaved: Bool
+}
+
+// MARK: - Board
+struct chatCheckBoard: Codable {
+    let boardIdx: Int
+    let content: String
+    let latitude, longitude: Double
+    let location, indicateLocation: String
+    let messageDuration: Int
+    let createdAt, updatedAt, status: String
+}
+
+// MARK: - Character
+struct chatCheckCharacter: Codable {
+    let createdAt, updatedAt: String
+    let characterIdx: Int
+    let eye, eyeBrow, glasses, nose: String
+    let mouth, hair, hairColor, skinColor: String
+    let backGroundColor, status: String
+}
+
 

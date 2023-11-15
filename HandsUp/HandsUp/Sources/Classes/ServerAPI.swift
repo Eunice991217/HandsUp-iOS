@@ -9,10 +9,41 @@ import Foundation
 import Alamofire
 import UIKit
 
+func Server_Addr()->String{
+    guard let addr = Bundle.main.object(forInfoDictionaryKey: "SERVER_ADDR") as? String else{
+        return ""
+    }
+    return "http://" + addr
+}
+
 class ServerAPI{
+    static func initPw(email: String) -> Int{
+        let url = URL(string: Server_Addr() + "/users/initPw")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let uploadData = try! JSONEncoder().encode(initPw_rq(email: email))
+        var check:Int = 0
+        let session = URLSession(configuration: .default)
+        let semaphore = DispatchSemaphore(value: 0)
+        session.uploadTask(with: request, from: uploadData) { (data: Data?, response: URLResponse?, error: Error?) in
+            let output = try? JSONDecoder().decode(initPw_rp.self, from: data!)
+            if output == nil{
+                check = -1
+            }else{
+                check = output!.statusCode
+            }
+            
+            semaphore.signal()
+        }.resume()
+        semaphore.wait()
+        
+        return check
+    }
+    
     static func nicknameDoubleCheck(vc: Sign_up_ViewController) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/nickname")
+        let url = URL(string: Server_Addr() + "/users/nickname")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -34,8 +65,7 @@ class ServerAPI{
     }
     
     static func emailVerify(vc: Sign_up_ViewController,email: String) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/certify")
+        let url = URL(string: Server_Addr() + "/users/certify")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -60,8 +90,7 @@ class ServerAPI{
     }
     
     static func makeCharacter(vc:Sign_up_ViewController)->Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/create/character")
+        let url = URL(string: Server_Addr() + "/users/create/character")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -98,8 +127,7 @@ class ServerAPI{
     }
     
     static func sign_up(data: SignupData, charIDX: Int)->Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/signup")
+        let url = URL(string: Server_Addr() + "/users/signup")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -122,8 +150,8 @@ class ServerAPI{
     }
     
     static func login(email: String, pw: String) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/login")
+        let url = URL(string: Server_Addr() + "/users/login")
+        print(Server_Addr() + "/users/login")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -162,8 +190,7 @@ class ServerAPI{
     }
     
     static func logout() -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/logout")
+        let url = URL(string: Server_Addr() + "/users/logout")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -208,8 +235,7 @@ class ServerAPI{
     }
     
     static func password(newPwd: String) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/password")
+        let url = URL(string: Server_Addr() + "/users/password")
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -259,8 +285,7 @@ class ServerAPI{
     
     
     static func reissue() -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/reissue")
+        let url = URL(string: Server_Addr() + "/users/reissue")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -296,8 +321,7 @@ class ServerAPI{
     }
     
     static func users() -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users")
+        let url = URL(string: Server_Addr() + "/users")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -365,8 +389,7 @@ class ServerAPI{
     }
     
     static func nickname(nickname: String) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/nickname")
+        let url = URL(string: Server_Addr() + "/users/nickname")
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -413,8 +436,7 @@ class ServerAPI{
     }
     
     static func editCharacter(characterComponent:[Int])->Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/character")
+        let url = URL(string: Server_Addr() + "/users/character")
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -478,8 +500,7 @@ class ServerAPI{
     }
     
     static func withdraw()->Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/users/withdraw")
+        let url = URL(string: Server_Addr() + "/users/withdraw")
         var request = URLRequest(url: url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -517,8 +538,7 @@ class ServerAPI{
     }
     
     static func reportBoard(content: String, boardIdx: Int) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/help/report/board")
+        let url = URL(string: Server_Addr() + "/help/report/board")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -565,8 +585,7 @@ class ServerAPI{
     }
     
     static func reportUser(content: String, userIdx: Int) -> Int{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/help/report/user")
+        let url = URL(string: Server_Addr() + "/help/report/user")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -613,13 +632,12 @@ class ServerAPI{
     }
     
     static func myBoards() -> [myBoards_rp_myBoardList]?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/myBoards")
+        let url = URL(string: Server_Addr() + "/boards/myBoards")
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
-        
+
         var check: Int = -1
         var rtn: [myBoards_rp_myBoardList]? = nil
         var output: myBoards_rp? = nil
@@ -629,14 +647,17 @@ class ServerAPI{
             output = try? JSONDecoder().decode(myBoards_rp.self, from: data!)
             if output == nil{
                 check = -1;
+//                print("내 게시물 output : \(output?.message)")
             }
             else{
                 check = output!.statusCode
+                print(url)
+//                print("내 게시물 result : \(output?.result!.myBoardList)")
             }
             semaphore.signal()
         }.resume()
         semaphore.wait()
-        
+
         if check == 4044{
             if ServerAPI.reissue() == 2000{
                 session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -652,20 +673,21 @@ class ServerAPI{
                 semaphore.wait()
             }
         }
-        
+
         if check == 2000{//서버 통신 성공
             rtn = output!.result!.myBoardList
+            print("내 게시물 받기 성공")
+            print("rtn : \(rtn)")
         }
-        
+        print("내 게시물 check: \(check)")
         return rtn
         // rtn이 nil이면 서버 통신 실패 or 데이터 없음
     }
     
     static func boardsBlock(boardIdx: Int) -> boardsBlock_rtn{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/block/" + String(boardIdx))
+        let url = URL(string: Server_Addr() + "/boards/block/" + String(boardIdx))
         var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer " + UserDefaults.standard.string(forKey: "accessToken")!, forHTTPHeaderField: "Authorization")
         
@@ -676,6 +698,7 @@ class ServerAPI{
         let semaphore = DispatchSemaphore(value: 0)
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             output = try? JSONDecoder().decode(boardsBlock_rp.self, from: data!)
+            print("차단하기 : \(output?.statusCode)")
             if output == nil{
                 check = -1;
             }
@@ -709,8 +732,7 @@ class ServerAPI{
     }
     
     static func chatsBlock(chatRoomIdx: Int) -> chatsBlock_rtn{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/chats/block/" + String(chatRoomIdx))
+        let url = URL(string: Server_Addr() + "/chats/block/" + String(chatRoomIdx))
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -756,8 +778,7 @@ class ServerAPI{
     }
     
     static func singleList(boardIdx: Int) -> singleList_rp_result?{
-        let serverDir = "http://13.124.196.200:8080"
-        let url = URL(string: serverDir + "/boards/singleList/" + String(boardIdx))
+        let url = URL(string: Server_Addr() + "/boards/singleList/" + String(boardIdx))
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -8,6 +8,10 @@
 import Foundation
 
 // MARK: - request
+struct initPw_rq: Codable{
+    let email: String
+}
+
 struct nicknameCheck_rq: Codable{
     let schoolName: String
     let nickname: String
@@ -78,6 +82,13 @@ struct reportUser_rq: Codable{
 }
 
 //MARK: - response
+struct initPw_rp: Codable{
+    let isSuccess: Bool
+    let statusCode: Int
+    let message: String
+    let result: String?
+}
+
 struct nicknameCheck_rp: Codable{
     let isSuccess: Bool
     let statusCode: Int
@@ -217,7 +228,10 @@ struct myBoards_rp_character: Codable {
 
 struct myBoards_rp_myBoardList: Codable {
     let boardIdx: Int
-    let status, content, location, createdAt: String
+    let status, content: String
+    let latitude, longitude: Double
+    let createdAt: String
+    let location : String
 }
 
 struct boardsBlock_rp: Codable {
@@ -243,10 +257,13 @@ struct singleList_rp: Codable {
 
 struct singleList_rp_result: Codable {
     let nickname: String
+    let schoolName: String
+    let locationAgreement: String
     let latitude, longitude: Double
     let content, tag, didLike: String
     let messageDuration: Int
     let createdAt: String
+    
 }
 
 
@@ -259,4 +276,10 @@ struct boardsBlock_rtn{
 struct chatsBlock_rtn{
     var statusCode: Int
     var result_mode: String?
+}
+
+struct deleteChat_rp: Codable {
+    let isSuccess: Bool
+    let statusCode: Int
+    let message, result: String
 }

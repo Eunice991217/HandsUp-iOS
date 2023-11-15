@@ -11,7 +11,8 @@ class MyPostTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var MyPostTableContentView: UIView!
-    @IBOutlet weak var MyPostTableViewCellImage: UIImageView!
+   
+    @IBOutlet var MyPostTableViewCellImage: Character_UIView!
     @IBOutlet weak var MyPostTableViewCellName: UILabel!
     @IBOutlet weak var MyPostTableViewCellLoaction: UILabel!
     @IBOutlet weak var MyPostTableViewCellTime: UILabel!

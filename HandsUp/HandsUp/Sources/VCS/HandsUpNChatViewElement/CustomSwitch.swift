@@ -9,6 +9,7 @@ import UIKit
 
 @IBDesignable
 public class CustomSwitch: UIControl {
+    let labelWidth = 70.0
     
     // MARK: Public properties
     public var animationDelay: Double = 0
@@ -176,10 +177,10 @@ public class CustomSwitch: UIControl {
 
 // MARK: Private methods
 extension CustomSwitch {
-    fileprivate func setupUI() {
+      func setupUI() {
         // clear self before configuration
         self.clear()
-        
+    
         self.clipsToBounds = false
         
         // configure thumb view
@@ -191,7 +192,6 @@ extension CustomSwitch {
         self.thumbView.layer.shadowRadius = self.thumbShaddowRadius
         self.thumbView.layer.shadowOpacity = self.thumbShaddowOppacity
         self.thumbView.layer.shadowOffset = self.thumbShadowOffset
-        
         self.backgroundColor = self.isOn ? self.onTintColor : self.offTintColor
         
         self.addSubview(self.thumbView)
@@ -286,7 +286,7 @@ extension CustomSwitch {
             //label frame
             if self.areLabelsShown {
                 let labelWidth = 70.0
-                self.labelOn.frame = CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height)
+                self.labelOn.frame = self.isOn ? CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height) : CGRect(x: self.frame.width - labelWidth, y: 0, width: labelWidth, height: self.frame.height)
             }
             
             // on/off images
@@ -329,20 +329,20 @@ extension CustomSwitch {
         self.labelOn.alpha = 1
         
         let labelWidth = 70.0
-        self.labelOn.frame = CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height)
  
         self.labelOn.font =  UIFont(name: "Roboto-Medium", size: 12)
         self.labelOn.textColor = UIColor.white
         
-        self.labelOn.sizeToFit()
 
-        self.labelOn.text = "위치표시 O"
+        self.labelOn.text = self.isOn ? "위치표시 O" : "위치표시 X"
+        self.labelOn.frame = self.isOn ? CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height) : CGRect(x: self.frame.width - labelWidth, y: 0, width: labelWidth, height: self.frame.height)
+        
+        print("frame x 좌표: \(self.labelOn.frame)")
+       
+        self.labelOn.sizeToFit()
         self.labelOn.textAlignment = .center
         
         self.insertSubview(self.labelOn, belowSubview: self.thumbView)
-        
-
-        
     }
     
 }

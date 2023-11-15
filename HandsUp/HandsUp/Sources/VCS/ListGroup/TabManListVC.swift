@@ -13,16 +13,23 @@ class TabManListVC: TabmanViewController {
     
     @IBOutlet weak var TabManTabBar: UIView!
     
-    private var viewControllers: [UIViewController] = []
+    var viewControllers: [ListVC] = []
+    var curIndex: Int = 0
     let firstVC = ListFirstTabVC()
     let secondVC = ListSecondTabVC()
-    let thirdVC = ListThirdTabVC()
-    let fourthVC = ListFourthTabVC()
-    let fifthVC = ListFifthTabVC()
-    let sixthVC = ListSixthTabVC()
+    let thirdVC = ListSecondTabVC()
+    let fourthVC = ListSecondTabVC()
+    let fifthVC = ListSecondTabVC()
+    let sixthVC = ListSecondTabVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        secondVC.tag = "Talk"
+        thirdVC.tag = "밥"
+        fourthVC.tag = "스터디"
+        fifthVC.tag = "취미"
+        sixthVC.tag = "여행"
 
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)
@@ -45,7 +52,7 @@ class TabManListVC: TabmanViewController {
         bar.backgroundView.style = .clear
                 
         //간격설정
-        bar.layout.contentInset = UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 10)
+        bar.layout.contentInset = UIEdgeInsets(top: 6, left: 15, bottom: 0, right: 10)
                 
         //버튼 글시 커스텀
         bar.buttons.customize{
@@ -93,6 +100,7 @@ extension TabManListVC: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        curIndex = index
         return viewControllers[index]
     }
     

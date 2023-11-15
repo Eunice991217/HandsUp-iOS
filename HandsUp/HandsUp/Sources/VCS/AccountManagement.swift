@@ -18,6 +18,7 @@ class AccountManagement: UIViewController {
             switch stat {
             case 2000:
                 print("로그아웃 요청성공")
+                PostAPI.deleteFCMToken()
             case 4011:
                 print("로그아웃 유저 인덱스가 존재하지 않음")
             default:
@@ -50,6 +51,7 @@ class AccountManagement: UIViewController {
             switch stat {
             case 2000:
                 print("탈퇴 요청성공")
+                PostAPI.deleteFCMToken()
             case 4011:
                 print("탈퇴 유저 인덱스가 존재하지 않음")
             case 4017:
@@ -83,9 +85,6 @@ class AccountManagement: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true;
-
-//        self.navigationController?.navigationBar.tintColor = .black
-//        self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
     }
 

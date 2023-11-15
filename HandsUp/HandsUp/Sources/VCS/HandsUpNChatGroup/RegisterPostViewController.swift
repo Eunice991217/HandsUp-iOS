@@ -11,6 +11,9 @@ import Alamofire
 import MapKit
 
 class RegisterPostViewController: UIViewController{
+    var isEdited: Bool = false
+    var boardIdx: Int = 0
+    
     
     @IBOutlet weak var characterView_HVC: Character_UIView!
     
@@ -18,23 +21,23 @@ class RegisterPostViewController: UIViewController{
     @IBOutlet weak var characterViewHeight: NSLayoutConstraint!
     
     @IBOutlet var locationLabel_HVC: UILabel!
-    
     @IBOutlet var universityLabel_HVC: UILabel!
     
     @IBOutlet weak var characterViewHeight_HVC: NSLayoutConstraint!
     //tag btn 설정
-    @IBOutlet weak var totalTagBtn_HVC: UIButton!
+    @IBOutlet weak var totalTagBtn_HVC: CustomTagBtn!
     
     @IBOutlet weak var totalScrollView_HVC: UIScrollView!
     @IBOutlet weak var msgTextView_HVC: UITextView!
     var textIsEmpty = true
     
+    @IBOutlet var nameLB_HVC: UILabel!
     
-    @IBOutlet weak var talkTagBtn_HVC: UIButton!
-    @IBOutlet weak var foodTagBtn_HVC: UIButton!
-    @IBOutlet weak var studyTagBtn_HVC: UIButton!
-    @IBOutlet weak var hobbyTagBtn_HVC: UIButton!
-    @IBOutlet weak var tripTagBtn_HVC: UIButton!
+    @IBOutlet weak var talkTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var foodTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var studyTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var hobbyTagBtn_HVC: CustomTagBtn!
+    @IBOutlet weak var tripTagBtn_HVC: CustomTagBtn!
     
     var indicateLocation_HVC = "true"
     var selectedTag_HVC = "전체"
@@ -69,6 +72,10 @@ class RegisterPostViewController: UIViewController{
     let geocoder = CLGeocoder()
     let locale = Locale(identifier: "Ko-kr") //원하는 언어의 나라 코드를 넣어주시면 됩니다.
     
+    var listVC: ListVC?
+    var myPostVC: MyPost?
+    var cardVC: MyProfileView?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -76,22 +83,61 @@ class RegisterPostViewController: UIViewController{
         borderLine_HVC.backgroundColor =  UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         sendBtn_HVC.layer.cornerRadius = 10
         
-        self.timeLb_HVC.text = "12h"
-        self.timeSlider_HVC.value = 12.0
+        totalTagBtn_HVC.text = "전체"; talkTagBtn_HVC.text = "Talk"; foodTagBtn_HVC.text = "밥"; studyTagBtn_HVC.text = "스터디"; hobbyTagBtn_HVC.text = "취미"; tripTagBtn_HVC.text = "여행";
+        totalTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                  for:.touchUpInside)
+        talkTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                 for:.touchUpInside)
+        foodTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                 for:.touchUpInside)
+        studyTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                  for:.touchUpInside)
+        hobbyTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                  for:.touchUpInside)
+        tripTagBtn_HVC.addTarget(self,action:#selector(tagBtnDidTap),
+                                 for:.touchUpInside)
+        
+        self.nameLB_HVC.text = UserDefaults.standard.string(forKey: "nickname")!
         
         msgTextView_HVC.delegate = self
-        
-        msgTextView_HVC.textColor = UIColor.lightGray
         msgTextView_HVC.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
         
+        
+        let editedBoard = ServerAPI.singleList(boardIdx: boardIdx)
+        //게시물 수정 시
+        if(isEdited == true){
+            self.msgTextView_HVC.text = editedBoard!.content
+            self.content_HVC = editedBoard!.content
+            self.textIsEmpty = false
+            self.timeLb_HVC.text = String(editedBoard!.messageDuration )
+            self.timeSlider_HVC.value = Float(editedBoard!.messageDuration)
+            self.sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpOrange")
+            self.selectedTag_HVC = editedBoard!.tag
+            
+            
+            if(editedBoard?.locationAgreement == "false"){
+                self.indicateLocation_HVC = "false"
+                locationSwitchBtn_HVC.isOn = false
+                locationSwitchBtn_HVC.setupUI()
+                self.locationLabel_HVC.text = "위치 비밀"
+            }
+        }
+        else{
+            msgTextView_HVC.textColor =  UIColor.lightGray
+            self.timeLb_HVC.text = "12h"
+            self.timeSlider_HVC.value = 12.0
+            requestAuthorization()
+        }
+        resetTagBtn()
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.msgTextView_HVC.resignFirstResponder()
         }
         let xUnit = tagScrollView_HVC.bounds.width
         
         tagScrollView_HVC.contentSize.width = xUnit * 10
-        
         tagScrollView_HVC.canCancelContentTouches = true
         
         //scrollview에서 터치했을 때 키보드가 내려가게 함
@@ -101,32 +147,29 @@ class RegisterPostViewController: UIViewController{
         singleTapGestureRecognizer.cancelsTouchesInView = false
         totalScrollView_HVC.addGestureRecognizer(singleTapGestureRecognizer)
         
+        
         characterView_HVC.setUserCharacter()
         
-    
+        
         var schoolName = UserDefaults.standard.string(forKey: "schoolName")!
         var cutSchoolName = ""
         if(schoolName.count == 6) {
-                    _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
-                    let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
-                    let range = ...endIndex
-
-                    cutSchoolName = String(schoolName[range])
-                }
-                else if(schoolName.count == 5) {
-                    _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
-                    let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
-                    let range = ...endIndex
-
-                    cutSchoolName = String(schoolName[range])
-                }
-                
-        self.universityLabel_HVC.text = cutSchoolName
-                
+            _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+            let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 3)
+            let range = ...endIndex
+            
+            cutSchoolName = String(schoolName[range])
+        }
+        else if(schoolName.count == 5) {
+            _ = schoolName.index(schoolName.startIndex, offsetBy: 0)
+            let endIndex = schoolName.index(schoolName.startIndex, offsetBy: 2)
+            let range = ...endIndex
+            
+            cutSchoolName = String(schoolName[range])
+        }
         
-        locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
-        requestAuthorization()
+        self.universityLabel_HVC.text = cutSchoolName
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,41 +190,39 @@ class RegisterPostViewController: UIViewController{
     
     private func requestAuthorization() {
         
-            print("nil 이었음")
-
-            //정확도를 검사한다.
-            //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            //앱을 사용할때 권한요청
-            
-            
-            switch locationManager.authorizationStatus {
-            case .restricted, .denied:
-                print("restricted n denied")
-                locationManager.requestWhenInUseAuthorization()
-            case .authorizedWhenInUse, .authorizedAlways:
-                print("권한있음")
-                locationManagerDidChangeAuthorization(locationManager)
-            default:
-                locationManager.startUpdatingLocation()
-                print("default")
-            }
-            
+        //정확도를 검사한다.
+        //locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        //앱을 사용할때 권한요청
+        
+        
+        switch locationManager.authorizationStatus {
+        case .restricted, .denied:
+            print("restricted n denied")
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            print("권한있음")
             locationManagerDidChangeAuthorization(locationManager)
+        default:
+            locationManager.startUpdatingLocation()
+            print("default")
+        }
+        
+        locationManagerDidChangeAuthorization(locationManager)
+
+        print("위도: \(longitude_HVC == 0).  경도: \(latitude_HVC)")
+        
+        if(self.latitude_HVC == 0.0 || self.longitude_HVC == 0.0){
+            self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
+        }
+        else{
             getAddressByLocation()
-            
-            if(latitude_HVC == 0.0 || longitude_HVC == 0.0){
-                self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
-            }
-            else{
-                getAddressByLocation()
-            }
+        }
         
     }
     
     private func getAddressByLocation(){
         findLocation = CLLocation(latitude: latitude_HVC, longitude: longitude_HVC)
-        print("latitude: \(latitude_HVC), longitude: \(longitude_HVC)")
         if findLocation != nil {
             var address = ""
             geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
@@ -192,26 +233,26 @@ class RegisterPostViewController: UIViewController{
                     
                     if let administrativeArea = placemark.administrativeArea {
                         //address = "\(address) \(administrativeArea) "
-                        print(administrativeArea) //서울특별시
                     }
                     
                     if let locality = placemark.locality {
                         address = "\(address) \(locality) "
-                        print(locality) //광진구
                     }
                     
                     if let thoroughfare = placemark.thoroughfare {
                         address = "\(address) \(thoroughfare) "
-                        print(thoroughfare) //중곡동
                     }
                     
                     if let subThoroughfare = placemark.subThoroughfare {
                         // address = "\(address) \(subThoroughfare)"
-                        print(subThoroughfare) //272-13
+
                     }
                 }
                 self.locationLabel_HVC.text = address
-                print(address) //서울특별시 광진구 중곡동 272-13
+                
+                if(self.latitude_HVC == 0.0 || self.longitude_HVC == 0.0){
+                    self.locationLabel_HVC.text = "위치를 가져올 수 없습니다."
+                }
             }
         }
         
@@ -255,6 +296,8 @@ class RegisterPostViewController: UIViewController{
         }else{
             self.locationLabel_HVC.text = "위치 비밀"
             indicateLocation_HVC = "false"
+            latitude_HVC = 0
+            longitude_HVC = 0
         }
         
     }
@@ -276,68 +319,83 @@ class RegisterPostViewController: UIViewController{
         //위치 정보 표시할 때
         if(!textIsEmpty){
             content_HVC = msgTextView_HVC.text
-            let result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC)
+            var result: Int!
+            
+            if(isEdited == true){ //수정하는 글일 시에 수정 API 요청
+                result = PostAPI.editPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, boardIdx: boardIdx, location : locationLabel_HVC.text!)
+            }
+            else{
+                result = PostAPI.makeNewPost(indicateLocation: indicateLocation_HVC, latitude: latitude_HVC, longitude: longitude_HVC, content: content_HVC, tag: selectedTag_HVC, messageDuration: messageDuration_HVC, location : locationLabel_HVC.text!)
+            }
             
             print("result:  \(result)")
             switch result {
             case 2000:
-                print("게시물 등록에 성공하였습니다.")
+                self.listVC?.refresh()
+                self.cardVC?.refresh()
+                self.myPostVC?.refresh()
                 self.presentingViewController?.dismiss(animated: true)
             case -1:
                 ServerError()
+            case 4021:
+                let alertController = UIAlertController(title: "오류", message: "GPS를 확인해주세요!", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "닫기", style: .default, handler: nil)
+                        alertController.addAction(okAction)
+                        present(alertController, animated: true, completion: nil)
             default:
                 print("게시물 등록에 실패하였습니다.")
-                
+   
             }
         }
         
     }
     
     
-    //tag 버튼 action 설정
-    @IBAction func totalTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
-            
+    @objc func tagBtnDidTap(_ sender: CustomTagBtn) {
+        resetTagBtn()
+        
+        switch sender.text{
+        case "전체":
             totalIsOn = true
             totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             selectedTag_HVC = "전체"
-        
-    }
-    @IBAction func talkTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
+            break
             
+        case "Talk":
             talkIsOn = true
             talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             selectedTag_HVC = "Talk"
-    }
-    @IBAction func foodTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
+            break
+            
+        case "밥":
             foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             foodIsOn = true
             selectedTag_HVC = "밥"
-    }
-    @IBAction func studyTagDidTap(_ sender: UIButton) {
-            resetTagBtn()
+            break
+            
+        case "스터디":
             studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
             studyIsOn = true
             selectedTag_HVC = "스터디"
-
+            break
+            
+        case "취미":
+            hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            hobbyIsOn = true
+            selectedTag_HVC = "취미"
+            break
+            
+        case "여행":
+            tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+            tripIsOn = true
+            selectedTag_HVC = "여행"
+            break
+            
+        default:
+            break
+        }
+   
     }
-    @IBAction func hobbyTagDidTap(_ sender: UIButton) {
-        resetTagBtn()
-        hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-        hobbyIsOn = true
-        selectedTag_HVC = "취미"
-    }
-    
-    @IBAction func tripTagDidTap(_ sender: UIButton) {
-        
-        resetTagBtn()
-        tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
-        tripIsOn = true
-        selectedTag_HVC = "여행"
-    }
-    
     func resetTagBtn() {
         totalTagBtn_HVC.titleLabel?.textColor = unClickedColor
         talkTagBtn_HVC.titleLabel?.textColor = unClickedColor
@@ -346,8 +404,48 @@ class RegisterPostViewController: UIViewController{
         hobbyTagBtn_HVC.titleLabel?.textColor = unClickedColor
         tripTagBtn_HVC.titleLabel?.textColor = unClickedColor
         totalIsOn = false; talkIsOn = false; foodIsOn = false; studyIsOn = false; hobbyIsOn = false; tripIsOn = false
+        
+
+            switch selectedTag_HVC{
+            case "전체":
+                totalIsOn = true
+                totalTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                break
+                
+            case "Talk":
+                talkIsOn = true
+                talkTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                break
+                
+            case "밥":
+                foodTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                foodIsOn = true
+                break
+                
+            case "스터디":
+                studyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                studyIsOn = true
+                break
+                
+            case "취미":
+                hobbyTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                hobbyIsOn = true
+                break
+                
+            case "여행":
+                tripTagBtn_HVC.setTitleColor(clickedColor, for: .normal)
+                tripIsOn = true
+                break
+                
+            default:
+                break
+            }
     }
     
+}
+
+class CustomTagBtn: UIButton {
+    var text: String?
 }
 
 extension RegisterPostViewController : UITextViewDelegate{
@@ -363,6 +461,7 @@ extension RegisterPostViewController : UITextViewDelegate{
             textIsEmpty = false
         }
         else if (text_count == 0){
+            
             sendBtn_HVC.backgroundColor = UIColor(named: "HandsUpWhiteGrey")
             textIsEmpty = true
         }
@@ -394,6 +493,7 @@ class TagScrollView: UIScrollView{
         return super.touchesShouldCancel(in: view)
       }
 }
+
 
 
 

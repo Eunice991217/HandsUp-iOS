@@ -8,7 +8,10 @@
 import UIKit
 
 class AlarmNChatListViewController: UIViewController {
+    var isFirstPageAlarm: Bool = true
     
+    @IBOutlet weak var HomeTabView: UIView!
+
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var secondView: UIView!
     
@@ -88,6 +91,32 @@ class AlarmNChatListViewController: UIViewController {
         
         getAllAlarmRead()
         getAllChatRead()
+        
+        let firstPage = UserDefaults.standard.string(forKey: "alarmOrChat") ?? ""
+        if(firstPage == "chat"){
+            firstView.alpha = 0
+            secondView.alpha = 1
+            
+            chatBtn_ANCLV.titleLabel?.textColor = clickedColor
+            alarmBtn_ANCLV.titleLabel?.textColor = unClickedColor
+            
+            alarmBtn_ANCLV.setTitleColor(.orange, for: .normal)
+            chatBtn_ANCLV.setTitleColor(.orange, for: .normal)
+            
+            let scale = CGAffineTransform(translationX: 75, y:0)
+            self.markLineUIView_ANCLVC.transform = scale
+            UserDefaults.standard.set("alarm", forKey: "alarmOrChat")
+        }
+    }
+  
+    @objc func chatAlarmDidArrive(_ noti: Notification) {
+        print("chat noti 받음")
+        isFirstPageAlarm = false
+    }
+    
+    @objc func heartAlarmDidArrive(_ noti: Notification) {
+        print("heart noti 받음")
+        isFirstPageAlarm = true
     }
     
     let unClickedColor = UIColor(named: "HandsUpDarkGrey")
@@ -133,6 +162,9 @@ class AlarmNChatListViewController: UIViewController {
         bellBtn_ANCLV.setImage(UIImage(named: "notifications"), for: .normal)
         
         self.dismiss(animated: false)
+        let mainSB_Login = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC_Login = mainSB_Login.instantiateViewController(withIdentifier: "Home")
+        self.navigationController?.pushViewController(homeVC_Login, animated: false)
     }
     
     
@@ -164,7 +196,7 @@ class AlarmNChatListViewController: UIViewController {
         var rtn: Bool = true
         let defaults = UserDefaults.standard
         
-        let likeList = PostAPI.showBoardsLikeList() ?? []
+        let likeList = PostAPI.showBoardsLikeList()?.receivedLikeInfo ?? []
         if defaults.object(forKey: "isAlarmAllRead") == nil { // 읽은 날짜가 저장되지 않았을 때 -> 처음 알람을 볼 때
             if likeList.isEmpty{
                 redAlarmBtnLb.alpha = 0

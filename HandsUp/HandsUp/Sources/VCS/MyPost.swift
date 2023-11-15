@@ -6,21 +6,32 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var myPostArr: [myBoards_rp_myBoardList] = []
+    var findLocation:CLLocation!
+    let geocoder = CLGeocoder()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyPostData.count
+        print("myPostArr.count : \(myPostArr.count)")
+        return myPostArr.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "HandsUp", bundle: Bundle.main)
                 
         // 스토리보드에서 지정해준 ViewController의 ID
-        guard let registerPostVC = storyboard?.instantiateViewController(identifier: "RegisterPostViewController") else {return}
-        
+        let myTabVC = UIStoryboard.init(name: "HandsUp", bundle: nil)
+        guard let nextVC = myTabVC.instantiateViewController(identifier: "RegisterPostViewController") as? RegisterPostViewController else {
+            return
+        }
+        nextVC.boardIdx = myPostArr[indexPath.row].boardIdx
+        nextVC.isEdited = true
+        nextVC.myPostVC = self
+
         // 화면 전환!
-        self.present(registerPostVC, animated: true)
+        self.present(nextVC, animated: true)
         
     }
     
@@ -30,11 +41,12 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostTableViewCell", for: indexPath) as? MyPostTableViewCell else {return UITableViewCell() }
                
         // 몇번째 셀에 어떤것이 들어가는지 모르기때문에 indexPath활용
-        cell.MyPostTableViewCellImage.image = MyPostData[indexPath.row].profileImage
-        cell.MyPostTableViewCellName.text=MyPostData[indexPath.row].name
-        cell.MyPostTableViewCellLoaction.text=MyPostData[indexPath.row].location
-        cell.MyPostTableViewCellTime.text=MyPostData[indexPath.row].time
-        cell.MyPostTableViewCellContent.text=MyPostData[indexPath.row].content
+        cell.MyPostTableViewCellImage.setUserCharacter()
+        
+        cell.MyPostTableViewCellName.text = UserDefaults.standard.string(forKey: "nickname")!
+        cell.MyPostTableViewCellLoaction.text = myPostArr[indexPath.row].location
+        cell.MyPostTableViewCellTime.text =  formatDatetoString(myPostArr[indexPath.row].createdAt) 
+        cell.MyPostTableViewCellContent.text = myPostArr[indexPath.row].content
         
         cell.selectionStyle = .none
        
@@ -60,41 +72,48 @@ class MyPost: UIViewController, UITableViewDelegate, UITableViewDataSource {
         HomeMyPostTableView.separatorStyle = .none
 
         self.navigationController?.navigationBar.isHidden = true;
-//        self.navigationController?.navigationBar.tintColor = .black
-//        self.navigationController?.navigationBar.topItem?.title = ""
+        
+        myPostArr = ServerAPI.myBoards() ?? []
         // Do any additional setup after loading the view.
+    }
+    
+    private func getAddressByLocation(latitiude: Double, longitude: Double) -> String {
+        findLocation = CLLocation(latitude: latitiude, longitude: longitude)
+        var address = ""
+        if findLocation != nil {
+           
+            geocoder.reverseGeocodeLocation(findLocation!) { (placemarks, error) in
+                if error != nil {
+                    return
+                }
+                if let placemark = placemarks?.first {
+                    
+                    if let administrativeArea = placemark.administrativeArea {
+                        //address = "\(address) \(administrativeArea) "
+                    }
+                    
+                    if let locality = placemark.locality {
+                        address = "\(address) \(locality) "
+                    }
+                    
+                    if let thoroughfare = placemark.thoroughfare {
+                        address = "\(address) \(thoroughfare) "
+                    }
+                    
+                    if let subThoroughfare = placemark.subThoroughfare {
+                        // address = "\(address) \(subThoroughfare)"
+
+                    }
+                }
+               
+            }
+        }
+        return address
+    }
+    
+    func refresh(){
+        myPostArr = ServerAPI.myBoards() ?? []
+        HomeMyPostTableView.reloadData()
     }
 
 }
-
-struct MyPostDataModel {
-    let profileImage: UIImage?
-    let name: String
-    let location: String
-    let time: String
-    let content: String
-}
-
-let MyPostData: [MyPostDataModel] = [
-    MyPostDataModel(
-            profileImage: UIImage(named: "characterExample4"),
-            name: "차라나",
-            location: "경기도 성남시",
-            time: "10분전",
-            content: "제가 3시쯤에 수업이 끝날거 같은데 3시 30에 학교근처.."
-        ),
-    MyPostDataModel(
-            profileImage: UIImage(named: "characterExample4"),
-            name: "차라나",
-            location: "경기도 성남시",
-            time: "40분전",
-            content: "제가 6시쯤에 수업이 끝날거 같은데 7시 30에 학교근처.."
-        ),
-    MyPostDataModel(
-            profileImage: UIImage(named: "characterExample4"),
-            name: "차라나",
-            location: "경기도 성남시",
-            time: "15분전",
-            content: "제가 4시쯤에 수업이 끝날거 같은데 5시 30에 학교근처.."
-        )
-]
